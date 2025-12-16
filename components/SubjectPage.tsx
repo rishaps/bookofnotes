@@ -5,7 +5,7 @@ import { subjects } from '../data/subjects';
 import { MainSection } from '../types';
 import { loadContent, getCachedContent } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
-import { Menu, X, ChevronRight, BookOpen, Clock, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronRight, BookOpen, Clock, ChevronDown, Home } from 'lucide-react';
 import SectionDisplay from './SectionDisplay';
 
 // Lazy-load the sidebar to prevent blocking initial paint
@@ -57,45 +57,32 @@ const SubjectPage: React.FC = () => {
     const cachedContent = getCachedContent(activeSlug);
     const [content, setContent] = useState<MainSection[] | null>(cachedContent);
     const [isLoading, setIsLoading] = useState(!cachedContent);
-    const [visibleSections, setVisibleSections] = useState(2); // Start with just 2 sections for instant render
     const [showSidebar, setShowSidebar] = useState(false); // Defer sidebar render
+    const [renderAll, setRenderAll] = useState(false); // Progressive rendering
+    const [isScrolled, setIsScrolled] = useState(false); // Header minimization state
 
+    // Scroll Listener for Header
     useEffect(() => {
-        // Reset visible sections when subject changes
-        setVisibleSections(2);
-    }, [activeSlug]);
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
-    // Infinite Scroll / Lazy Loading
-    // Instead of auto-loading everything, we load more as the user scrolls down
-    useEffect(() => {
-        if (!content || visibleSections >= content.length) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const first = entries[0];
-                if (first.isIntersecting) {
-                    // Load just 1 more section at a time to keep frame rate high
-                    setVisibleSections((prev) => Math.min(prev + 1, content.length));
-                }
-            },
-            { threshold: 0.1, rootMargin: '200px' } // Load slightly before reaching bottom
-        );
-
-        const sentinel = document.getElementById('scroll-sentinel');
-        if (sentinel) {
-            observer.observe(sentinel);
-        }
-
-        return () => observer.disconnect();
-    }, [content, visibleSections]);
 
     useEffect(() => {
         // If we already have cached content, skip fetching
         if (cachedContent) {
             setContent(cachedContent);
             setIsLoading(false);
-            // Defer sidebar after content is painted
-            requestAnimationFrame(() => setShowSidebar(true));
+            // Defer sidebar and full content after initial paint
+            requestAnimationFrame(() => {
+                setShowSidebar(true);
+                // Render remaining heavy content in next frame
+                requestAnimationFrame(() => setRenderAll(true));
+            });
             return;
         }
 
@@ -104,8 +91,13 @@ const SubjectPage: React.FC = () => {
             const data = await loadContent(activeSlug);
             setContent(data);
             setIsLoading(false);
-            // Defer sidebar after content is painted
-            requestAnimationFrame(() => setShowSidebar(true));
+
+            // Defer sidebar and full content after initial paint
+            requestAnimationFrame(() => {
+                setShowSidebar(true);
+                // Render remaining heavy content in next frame
+                requestAnimationFrame(() => setRenderAll(true));
+            });
         };
 
         fetchContent();
@@ -154,9 +146,15 @@ const SubjectPage: React.FC = () => {
         // This will redefine the CSS variables (--bg-body, --premium-gold, etc.) for all children.
         <div className={`min-h-screen transition-colors duration-300 ${themeClass} bg-[var(--bg-body)]`}>
 
-            {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-body)]/90 backdrop-blur-md h-16 transition-colors duration-300 border-b border-premium-gray">
+            {/* Header - Disappears on Scroll */}
+            <header
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out
+                           ${isScrolled
+                        ? '-translate-y-full opacity-0 pointer-events-none'
+                        : 'h-16 bg-[var(--bg-body)]/90 backdrop-blur-md border-b border-premium-gray translate-y-0 opacity-100'}`}
+            >
                 <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+                    {/* Left Side: Title & Nav */}
                     <div className="flex items-center gap-4">
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="lg:hidden text-content-primary">
                             <Menu className="w-6 h-6" />
@@ -170,21 +168,66 @@ const SubjectPage: React.FC = () => {
                             {subject.title.split(' ').slice(1).join(' ')}
                         </h1>
                     </div>
+
+                    {/* Right Side: Standard Controls */}
                     <div className="flex items-center gap-4">
-                        <div className="hidden sm:flex text-xs font-mono text-premium-gold px-2 py-1 items-center gap-4">
+                        <div className="flex text-xs font-mono text-premium-gold items-center gap-3">
                             <span>{subject.year}</span>
+                            <div className="w-px h-3 bg-premium-gray mx-1" />
                             <ThemeToggle inline={true} />
                         </div>
                     </div>
                 </div>
             </header>
 
+            {/* Side Dock Navigation - Visible on Scroll */}
+            <div
+                className={`fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-6
+                           p-3 rounded-2xl bg-[var(--bg-body)]/80 backdrop-blur-md border border-premium-gray/50 shadow-2xl
+                           transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                           ${isScrolled ? 'translate-x-0 opacity-100' : 'translate-x-24 opacity-0 pointer-events-none'}`}
+            >
+                {/* Subject Initials */}
+                <div
+                    title={subject.title}
+                    className="w-10 h-10 rounded-full bg-premium-gold/10 flex items-center justify-center 
+                             text-xs font-serif font-bold text-premium-gold border border-premium-gold/20 cursor-default"
+                >
+                    {subject.title.substring(0, 2).toUpperCase()}
+                </div>
+
+                <div className="w-8 h-px bg-premium-gray/50" />
+
+                {/* Home */}
+                <button
+                    onClick={() => navigate('/subjects')}
+                    className="p-2 text-content-muted hover:text-premium-gold transition-colors hover:scale-110 active:scale-95 duration-200"
+                    title="Torna alla Home"
+                >
+                    <Home className="w-5 h-5" />
+                </button>
+
+                {/* Menu (TOC) */}
+                <button
+                    onClick={() => setIsSidebarOpen(true)}
+                    className="p-2 text-content-muted hover:text-premium-gold transition-colors hover:scale-110 active:scale-95 duration-200 lg:hidden"
+                    title="Indice"
+                >
+                    <Menu className="w-5 h-5" />
+                </button>
+
+                {/* Theme */}
+                <div className="hover:scale-110 active:scale-95 transition-transform duration-200">
+                    <ThemeToggle inline={true} />
+                </div>
+            </div>
 
 
-            <div className="max-w-7xl mx-auto pt-20 px-4 relative z-10">
+
+            <div className="max-w-7xl mx-auto pt-8 px-4 relative z-10">
                 {/* Sidebar (TOC) - Deferred for performance */}
                 {showSidebar && (
-                    <aside className={`fixed inset-y-0 left-0 z-40 w-72 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 bg-premium-dark lg:bg-transparent lg:fixed lg:left-8 lg:top-32 lg:bottom-10 lg:w-64 lg:z-40 pt-20 lg:pt-0 pb-8 h-screen lg:h-auto`}>
+                    <aside className={`fixed inset-y-0 left-0 z-40 w-72 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 bg-premium-dark lg:bg-transparent lg:fixed lg:left-8 lg:top-24 lg:bottom-10 lg:w-64 lg:z-40 pt-20 lg:pt-0 pb-8 h-screen lg:h-auto`}>
                         <div className="px-6 lg:px-0 h-full overflow-y-auto custom-scrollbar">
                             <Suspense fallback={<div className="text-sm text-content-muted p-4">Caricamento indice...</div>}>
                                 <LessonRail content={content} onLinkClick={handleLinkClick} className="" />
@@ -204,16 +247,9 @@ const SubjectPage: React.FC = () => {
                 {/* Main Content */}
                 <main className="flex-1 min-w-0 pb-20 lg:ml-80">
                     <div className="flex flex-col gap-10 md:gap-12 max-w-4xl">
-                        {content.slice(0, visibleSections).map((section) => (
+                        {(renderAll ? content : content.slice(0, 1)).map((section) => (
                             <SectionDisplay key={section.id} section={section} />
                         ))}
-                        {/* Placeholder for remaining content to reserve scroll space (optional, but keeps scrollbar stable-ish) */}
-                        {/* Sentinel for Infinite Scroll */}
-                        {visibleSections < content.length && (
-                            <div id="scroll-sentinel" className="h-20 w-full flex items-center justify-center p-4">
-                                <div className="w-6 h-6 border-2 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin" />
-                            </div>
-                        )}
                     </div>
                 </main>
             </div>

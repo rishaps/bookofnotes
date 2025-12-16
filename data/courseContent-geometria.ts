@@ -794,5 +794,157 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             }
         ]
+    },
+    {
+        id: "capitolo-8-ampliamento",
+        title: "Capitolo 8: Ampliamento e Complessificazione",
+        subsections: [
+            {
+                title: "Superfici Algebriche Reali",
+                content: [
+                    "**Definizione 8.8.1 (Superfici algebriche reali in $\\tilde{A}_3(\\mathbb{C})$):** Una superficie algebrica reale di $\\tilde{A}_3(\\mathbb{C})$ è l'insieme delle classi di autosoluzioni complesse di un'equazione del tipo:",
+                    "$$ F(x_1, x_2, x_3, x_4) = 0 $$",
+                    "ove $F$ è un polinomio omogeneo a coefficienti reali in $x_1, x_2, x_3, x_4$. Il grado di $F$ è chiamato **ordine** della superficie. Se $F$ è fattorizzabile in polinomi di grado positivo la superficie si dice riducibile in componenti.",
+                    "**Teorema 8.8.1 (Primo teorema dell'ordine):** L'ordine di una superficie algebrica $\\Sigma$ reale è uguale al numero di punti in comune a $\\Sigma$ e a una qualsiasi retta $r$ non contenuta in $\\Sigma$ a patto di contarli con la dovuta molteplicità.",
+                    "**Corollario 8.8.1:** Se il numero di intersezioni fra la retta $r$ e la superficie $\\Sigma$ è maggiore dell'ordine di $\\Sigma$, allora $r$ è contenuta in $\\Sigma$.",
+                    "**Teorema 8.8.2 (Secondo teorema dell'ordine):** L'intersezione tra una superficie algebrica reale $\\Sigma$ e un piano $\\alpha$ non componente di $\\Sigma$ è una curva dello stesso ordine di $\\Sigma$.",
+                    "**Corollario 8.8.2:** Se $\\Sigma \\cap \\pi$ contiene una curva $C$ con $\\text{ord}(C) > \\text{ord}(\\Sigma)$, allora $\\pi$ è componente di $\\Sigma$.",
+                    "**Definizione 8.8.2:** In $\\tilde{A}_3(\\mathbb{C})$, data una superficie algebrica reale $\\Sigma$, un punto $P \\in \\Sigma$ è detto **r-uplo** se la generica retta per $P$ ha molteplicità di intersezione con $\\Sigma$ in $P$ uguale a $r$. Inoltre:",
+                    "*   se $r = 1$, allora $P$ è detto **semplice**",
+                    "*   se $r > 1$, allora $P$ è detto **multiplo**",
+                    "**Teorema 8.8.3:** I punti multipli di una curva algebrica reale di equazione $F(x_1, x_2, x_3, x_4) = 0$ sono le classi di autosoluzioni del sistema:",
+                    "$$ \\begin{cases} \\frac{\\partial F}{\\partial x_1} = 0 \\\\ \\frac{\\partial F}{\\partial x_2} = 0 \\\\ \\frac{\\partial F}{\\partial x_3} = 0 \\\\ \\frac{\\partial F}{\\partial x_4} = 0 \\end{cases} $$"
+                ]
+            }
+        ]
+    },
+    {
+        id: "capitolo-9-coniche",
+        title: "Capitolo 9: Coniche",
+        subsections: [
+            {
+                title: "Proprietà Metriche e Asintoti",
+                content: [
+                    "Analogamente la polare di $Y_\\infty$ è:",
+                    "$$ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 $$",
+                    "Il centro $C$ è il punto di intersezione delle polari:",
+                    "$$ \\begin{cases} a_{11} x_1 + a_{12} x_2 + a_{13} x_3 = 0 & (P_1) \\\\ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 & (P_2) \\end{cases} $$",
+                    "Il centro $C$ è proprio se $P_1$ e $P_2$ non sono paralleli. Se:",
+                    "$$ \\det \\begin{pmatrix} a_{11} & a_{12} \\\\ a_{12} & a_{22} \\end{pmatrix} = |A^*| \\neq 0 $$",
+                    "il centro è un punto proprio. Ma il centro è un punto proprio se $C$ è un ellisse o un'iperbole. Quindi in questo caso i diametri sono un fascio proprio di rette di centro $C$.",
+                    "**Equazione del fascio dei diametri:**",
+                    "$$ \\lambda(a_{11} x_1 + a_{12} x_2 + a_{13} x_3) + \\mu(a_{12} x_1 + a_{22} x_2 + a_{23} x_3) = 0 $$",
+                    "Se $C$ è una parabola $\\implies |A^*| = 0 \\implies P_1$ parallelo a $P_2 \\implies$ il centro è un punto improprio. $\\implies$ i diametri formano un fascio improprio di equazione:",
+                    "$$ a_{11} x_1 + a_{12} x_2 + kx_3 = 0 \\quad \\text{con } k \\in \\mathbb{C} $$",
+                    "(fascio improprio dei diametri della parabola).",
+                    "**Definizione 9.2.5 (Asintoti):** Si dicono asintoti di una conica le rette proprie tangenti alla conica nei suoi punti impropri.",
+                    "**Osservazione:** Gli asintoti di una conica sono quindi le rette polari nei suoi punti impropri. Gli asintoti sono quindi dei diametri e passano per il centro. Se il centro è proprio (cioè se $C$ è un'ellisse o un'iperbole) gli asintoti sono le rette che congiungono il centro con i punti impropri di $C$.",
+                    "**Proposizione 9.2.5:** La parabola è una conica con centro improprio e priva di asintoti.",
+                    "**Dimostrazione:** Sia $C$ una parabola $\\implies C$ è tangente alla retta impropria in un punto che chiamiamo $P_\\infty$. Quindi la retta polare di $P_\\infty$ è $r_\\infty \\implies$ il polo della $r_\\infty$ è $P_\\infty \\implies$ il punto $P_\\infty$ è il centro della parabola. Osserviamo che $C$ ha solo un punto improprio $P_\\infty \\implies$ ammette solo una tangente nel suo punto improprio. Ma $t$ è la $r_\\infty \\implies$ la $r_\\infty$ non è un asintoto.",
+                    "**Definizione 9.2.6 (Coniche a centro):** Diremo che l'iperbole e l'ellisse sono coniche a centro, mentre la parabola è detta conica non a centro."
+                ]
+            },
+            {
+                title: "Proprietà Metriche di una Conica",
+                content: [
+                    "**Definizione 9.3.1 (Iperbole equilatera):** Un'iperbole si dice equilatera se i suoi asintoti sono ortogonali.",
+                    "**Proposizione 9.3.1:** Una conica generale è un'iperbole equilatera se, e soltanto se,",
+                    "$$ a_{11} + a_{22} = 0 $$",
+                    "**Esempio 9.3.1:** Si stabiliscano i valori di $k \\in \\mathbb{R}$ tali che:",
+                    "$$ C : 2kx^2 + 2(k - 2)xy - 4y^2 + 2x + 1 = 0 $$",
+                    "sia un'iperbole equilatera.",
+                    "1.  $2k = -(-4) \\implies k = 2$",
+                    "2.  Sostituiamo dentro all'equazione e scriviamola in forma omogenea:",
+                    "$$ 4x_1^2 + 0x_1 x_2 - 4x_2^2 + 2x_1 x_3 + x_3^2 = 0 $$",
+                    "La matrice associata è:",
+                    "$$ A = \\begin{pmatrix} 4 & 0 & 1 \\\\ 0 & -4 & 0 \\\\ 1 & 0 & 1 \\end{pmatrix} $$",
+                    "Poiché $|A| \\neq 0$, $k = 2$ dà luogo ad un'iperbole equilatera.",
+                    "**Definizione 9.3.2 (Ortogonale al punto improprio):** Diremo che la retta $p$ di parametri direttori $[(l', m')]$ è ortogonale al punto improprio $P : [(l, m, 0)]$ se:",
+                    "$$ ll' + mm' = 0 $$",
+                    "**Definizione 9.3.3 (Asse di una conica):** Si dice **asse**, di una conica generale, ogni diametro ortogonale al proprio polo.",
+                    "**Definizione 9.3.4 (Vertici):** Si dicono **vertici** le intersezioni proprie della conica con i propri assi.",
+                    "**Proposizione 9.3.2:** Gli assi di una conica a centro (ellisse o iperbole) sono due e sono ortogonali tra loro, a meno che non si tratti di una circonferenza generalizzata, in tal caso tutti i diametri sono assi.",
+                    "**Dimostrazione:** Sia $a$ un asse della conica. Poniamo i suoi parametri direttori di $a$ come p.d.a = $[(l, m)]$. Ma allora $D$ cioè il polo di $a$ ha coordinate affini $[(-m, l, 0)]$, poiché risiede sulla retta di direzione ortogonale all'asse. Quindi possiamo impostare il seguente prodotto fra matrici:",
+                    "$$ \\begin{pmatrix} -m & l & 0 \\end{pmatrix} A \\begin{pmatrix} l \\\\ m \\\\ 0 \\end{pmatrix} = 0 $$",
+                    "essendo $A$ una matrice simmetrica se trasponiamo vale anche:",
+                    "$$ \\begin{pmatrix} l & m & 0 \\end{pmatrix} A \\begin{pmatrix} -m \\\\ l \\\\ 0 \\end{pmatrix} = 0 $$",
+                    "perciò le coordinate di $D_\\infty$ sono il polo di un asse ortogonale a quello precedente. Abbiamo dimostrato che abbiamo due assi ortogonali tra loro, ora dobbiamo dimostrare che sono gli unici assi. Ma se sviluppiamo il prodotto fra matrici troveremo un'equazione di secondo grado, che quindi (a meno chè non si tratti dell'equazione di una circonferenza) avrà solamente due soluzioni.",
+                    "**Proposizione 9.3.3:** La parabola ha un unico asse e un solo vertice $v$. Inoltre la tangente alla parabola in $v$ è ortogonale all'asse.",
+                    "**Dimostrazione:** Il punto $P_\\infty$ di una parabola è $[(-a_{12}, a_{11}, 0)]$. I p.d.d = $[(-a_{12}, a_{11})]$. La direzione ortogonale è data da $[(a_{11}, a_{12})]$, quindi il punto $P_\\infty$ è $[(a_{11}, a_{12}, 0)]$. Da cui segue che l'asse è unico ed è la polare di $(a_{11}, a_{12}, 0)$. Sostituendo nell'equazione del fascio improprio dei diametri abbiamo che l'asse ha equazione:",
+                    "$$ a_{11}(a_{11} x_1 + a_{12} x_2 + a_{13} x_3) + a_{12}(a_{12} x_1 + a_{22} x_2 + a_{23} x_3) = 0 $$",
+                    "Per il teorema dell'ordine $a$ interseca la parabola $C$ in due punti, ma uno è $P_\\infty$ quindi l'altro punto sarà l'unico vertice della parabola.",
+                    "Ora dimostriamo la seconda parte del teorema. $v \\in a$ che è il polo di $t$. Per il principio di reciprocità $t$ contiene il polo di $a$, ovvero $P_\\infty \\in t$. Ma $P_\\infty$ è ortogonale ad $a \\implies t \\perp a$."
+                ]
+            }
+        ]
+    },
+    {
+        id: "capitolo-10-quadriche",
+        title: "Capitolo 10: Quadriche",
+        subsections: [
+            {
+                title: "Quadriche in A3(C)",
+                content: [
+
+                    `*Superfici algebriche del secondo ordine*`,
+                    "**Definizione 10.1.1 (Quadrica):** Si dice quadrica una superficie algebrica reale del secondo ordine. Analiticamente si indica come:",
+                    "$$ a_{11} x_1^2 + a_{12} x_1 x_2 + 2a_{13} x_1 x_3 + 2a_{14} x_1 x_4 + a_{22} x_2^2 + a_{23} x_2 x_3 + 2a_{24} x_2 x_4 + 2a_{34} x_3 x_4 + a_{33} x_3^2 + a_{44} x_4^2 = 0 $$",
+                    "con almeno un $a_{ij} \\neq 0$. Ponendo $X = (x_1, x_2, x_3, x_4)^T$ si ha che $A$ (matrice simmetrica dei coefficienti) è tale che:",
+                    "$$ Q : {}^t X A X = 0 $$",
+                    "Quindi, essendo dipendente da 10 coefficienti, abbiamo $\\infty^9$ quadriche.",
+                    "**Proposizione 10.1.1:** Se una quadrica è riducibile, si riduce in due piani che possono essere reali e coincidenti, reali e distinti o immaginari e coniugati. Inoltre tutte le sue sezioni sono riducibili.",
+                    "**Dimostrazione:** $F$ è di secondo grado ($Q$ è del second'ordine), quindi se si fattorizza in due polinomi di primo grado, essendo $F$ reale, le possibilità sono quelle elencate. Sia $Q = \\alpha \\cup \\beta$ e sia $\\gamma$ un terzo piano abbiamo che:",
+                    "$$ Q \\cap \\gamma = (\\alpha \\cup \\beta) \\cap \\gamma = (\\alpha \\cap \\gamma) \\cup (\\beta \\cap \\gamma) $$",
+                    "è unione di due rette, quindi è riducibile."
+                ]
+            },
+            {
+                title: "Punti Semplici e Doppi",
+                content: [
+                    "...perché se fosse, per assurdo $r = s$, allora in $P$ avrei due piani tangenti distinti $\\alpha$ e $\\beta$, assurdo! (contro l'unicità del piano tangente). Sia $\\{V\\} = r \\cap s$. Sicuramente $V$ è un punto doppio, perché se fosse semplice per $V$ avremmo due piani tangenti distinti (nuovamente contro l'unicità del piano tangente). Su $Q$ non possono esserci altri punti doppi distinti da $V$ (perché per ipotesi $Q$ è irriducibile). Quindi $Q$ ammette esattamente un punto doppio, cioè $Q$ è un cono o un cilindro.",
+                    "**Osservazione:** Se $Q$ è generale, sicuramente i suoi punti semplici non sono parabolici.",
+                    "**Definizione 10.5.2 (Punto parabolico, iperbolico ed ellittico):** Sia $Q$ una quadrica irriducibile, $P \\in Q$ un punto semplice reale, $\\alpha$ il piano tangente in $P$ a $Q$ e $C = Q \\cap \\alpha$ riducibile. Abbiamo che un punto $P$ è:",
+                    "1.  **parabolico**, se, e soltanto se, $C$ si riduce in due rette coincidenti",
+                    "2.  **iperbolico**, se, e soltanto se, $C$ si riduce in due rette reali e distinte",
+                    "3.  **ellittico**, se, e soltanto se, $C$ si riduce in due rette immaginarie e coniugate",
+                    "**Proposizione 10.5.2:** Se una quadrica irriducibile $Q$ ha un punto semplice reale parabolico, iperbolico o ellittico, allora tutti i suoi punti semplici reali sono dello stesso tipo."
+                ]
+            },
+            {
+                title: "Classificazione delle Quadriche",
+                content: [
+                    "**Definizione 10.5.3:** La quadrica $Q$ si dice:",
+                    "1.  **parabolica** se i suoi punti semplici reali sono parabolici",
+                    "2.  **iperbolica** se i suoi punti semplici sono iperbolici",
+                    "3.  **ellittica** se i suoi punti semplici reali sono ellittici",
+                    "**Proposizione 10.5.3:** I punti semplici reali di un ellissoide sono necessariamente ellittici.",
+                    "**Dimostrazione:** Sia $Q$ un ellissoide, $P$ un punto semplice reale e supponiamo, per assurdo, che $P$ sia iperbolico. Chiamiamo $\\alpha$ il piano tangente in $P$ e $C = Q \\cap \\alpha = r \\cup s$ con $r, s$ reali e distinte. Sappiamo che $r \\subseteq Q$ e:",
+                    "$$ \\{P_\\infty\\} = r \\cap \\alpha_\\infty \\subseteq Q \\cap \\alpha_\\infty = C_\\infty $$",
+                    "sarebbe un punto reale sulla $C_\\infty$ di un ellissoide, assurdo! Quindi $P$ è ellittico.",
+                    "**Ricapitolando:** abbiamo che, se $Q$ è generale, allora può essere:",
+                    "1.  Ellissoide (ellittico)",
+                    "2.  Iperboloide:",
+                    "    *   ellittico",
+                    "    *   iperbolico",
+                    "3.  Paraboloide:",
+                    "    *   ellittico",
+                    "    *   iperbolico",
+                    "Consiglio molto vivamente di utilizzare Geogebra 3D (o anche semplicemente cercare su Google) i grafici delle quadriche sopra elencate in modo da ottenerne un riscontro visivo che è particolarmente utile durante lo svolgimento di esercizi per verificare i propri risultati."
+                ]
+            },
+            {
+                title: "Sezioni Piane di una Quadrica Irriducibile",
+                content: [
+                    "**Sezioni irriducibili di un iperboloide:** Dato che $C_\\infty$ è irriducibile e dotata di punti reali, i due punti dati da $r_\\infty \\cap C_\\infty$ possono essere reali e distinti, reali e coincidenti (se $r_\\infty$ è tangente a $C_\\infty$) o immaginari e coniugati. Le sezioni irriducibili di un iperboloide sono coniche di tutti i tipi.",
+                    "**Sezioni irriducibili di un ellissoide:** Dato che $C_\\infty$ è priva di punti reali, i due punti dati da $r_\\infty \\cap C_\\infty$ saranno a loro volta immaginari e coniugati. Quindi le sezioni irriducibili di un'ellissoide sono tutte ellissi, prive o dotate di parte reale.",
+                    "**Sezioni irriducibili di un paraboloide:** Dato che $C_\\infty$ è riducibile in due rette reali e distinte o in rette immaginarie e coniugate, i due punti dati da $r_\\infty \\cap C_\\infty$ sono reali e coincidenti, se $r_\\infty$ passa per il punto doppio di $C_\\infty$, diversamente sono punti distinti. In questo caso, se il paraboloide è iperbolico i punti sono reali, se il paraboloide è ellittico sono punti immaginari e coniugati. Pertanto, le sezioni irriducibili di un paraboloide iperbolico sono parabole e iperboli, quelle di un paraboloide ellittico sono parabole e ellissi.",
+
+                    `*Figura 10.2: (1) Paraboloide iperbolico; (2) Paraboloide ellittico.*`,
+                    "**Studio analitico:** Ci occupiamo ora di trovare un metodo per riconoscere la conica generata dall'intersezione di una quadrica con un piano.",
+                    "**Proposizione 10.6.1:** Se $Q$ è una quadrica irriducibile, la cui equazione è priva di una delle variabili $x_1, x_2$ o $x_3$, allora $Q'$ è un cilindro, con vertice in $X_\\infty$ se manca $x_1$, in $Y_\\infty$ se manca $x_2$ o in $Z_\\infty$ se manca $x_3$.",
+                    "**Osservazione:** In questo modo $C = Q \\cap \\pi = Q' \\cap \\pi$, ove $Q'$ è un cilindro, perciò ci basta riconoscere il tipo di cilindro e potremo direttamente riconoscere la conica."
+                ]
+            }
+        ]
     }
 ];

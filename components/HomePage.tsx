@@ -11,21 +11,7 @@ const HomePage: React.FC = () => {
     const navigate = useNavigate();
     const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
     const [imageLoaded, setImageLoaded] = useState(false);
-    const [isNavigating, setIsNavigating] = useState(false);
-    const [loadTime, setLoadTime] = useState(0); // Track elapsed time in ms
 
-    // Timer to show loading duration
-    useEffect(() => {
-        if (!isNavigating) {
-            setLoadTime(0);
-            return;
-        }
-        const start = Date.now();
-        const interval = setInterval(() => {
-            setLoadTime(Date.now() - start);
-        }, 100);
-        return () => clearInterval(interval);
-    }, [isNavigating]);
 
     // Check if subject notes are completed
     const isCompleted = (slug: string) => completedSubjects.includes(slug);
@@ -44,10 +30,7 @@ const HomePage: React.FC = () => {
 
     const handleEnterSubject = () => {
         if (selectedSubject) {
-            setIsNavigating(true);
-            setTimeout(() => {
-                navigate(selectedSubject.slug === 'economia' ? '/economia' : `/${selectedSubject.slug}`);
-            }, 10);
+            navigate(selectedSubject.slug === 'economia' ? '/economia' : `/${selectedSubject.slug}`);
         }
     };
 
@@ -109,25 +92,11 @@ const HomePage: React.FC = () => {
                         <>
                             <button
                                 onClick={handleEnterSubject}
-                                disabled={isNavigating}
                                 className="mt-6 px-8 py-3 bg-content-primary text-[var(--bg-body)] 
                                            font-medium rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
                             >
-                                {isNavigating ? (
-                                    <>
-                                        <div className="w-4 h-4 border-2 border-bg-body/30 
-                                                      border-t-bg-body rounded-full animate-spin" />
-                                        <span>Apertura...</span>
-                                    </>
-                                ) : (
-                                    'Apri Appunti'
-                                )}
+                                Apri Appunti
                             </button>
-                            {isNavigating && (
-                                <p className="mt-2 text-xs text-content-muted font-mono">
-                                    Apertura in {(loadTime / 1000).toFixed(1)}s
-                                </p>
-                            )}
                         </>
                     ) : (
                         <div className="mt-6 px-8 py-3 text-black/30 dark:text-white/30 text-sm">
@@ -163,7 +132,7 @@ const HomePage: React.FC = () => {
                                                shadow-lg overflow-hidden"
                                 >
                                     {/* Year Header */}
-                                    <div className="px-5 py-3 border-b border-premium-black/10">
+                                    <div className="px-5 py-3 border-b border-premium-black/10 sticky top-0 z-10 bg-inherit backdrop-blur-md">
                                         <h2 className="text-xs font-bold text-content-muted 
                                                        uppercase tracking-[0.15em] text-center">
                                             {getYearLabel(year)}
