@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Moon, Sun } from 'lucide-react';
 
-const ThemeToggle: React.FC = () => {
+interface ThemeToggleProps {
+    inline?: boolean;
+}
+
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ inline = false }) => {
     const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
@@ -37,15 +42,24 @@ const ThemeToggle: React.FC = () => {
         // If no saved theme, we stick to default (which is dark in index.html)
     }, []);
 
-    return (
+    const buttonContent = (
         <button
             onClick={toggleTheme}
-            className="fixed right-6 top-6 z-[100] p-2 text-premium-gold hover:text-white transition-all duration-300"
+            className={`${inline
+                ? 'p-2 text-content-primary hover:text-premium-gold transition-colors'
+                : 'fixed right-6 top-6 z-[9999] p-2 text-premium-gold hover:text-content-primary transition-all duration-300 bg-[var(--bg-body)]/50 backdrop-blur-sm rounded-full'
+                }`}
             aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
-            {isDark ? <Sun size={24} /> : <Moon size={24} />}
+            {isDark ? <Sun size={inline ? 20 : 24} /> : <Moon size={inline ? 20 : 24} />}
         </button>
     );
+
+    if (inline) {
+        return buttonContent;
+    }
+
+    return createPortal(buttonContent, document.body);
 };
 
 export default ThemeToggle;

@@ -5,6 +5,7 @@ const LandingPage: React.FC = () => {
     const navigate = useNavigate();
 
     return (
+        // Landing Page uses its own specific deep black background, independent of global theme
         <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center text-white relative overflow-hidden">
 
             {/* Subtle gradient overlay */}

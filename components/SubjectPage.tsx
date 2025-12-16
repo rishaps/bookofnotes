@@ -116,10 +116,10 @@ const SubjectPage: React.FC = () => {
 
     if (!subject) {
         return (
-            <div className="min-h-screen bg-neutral-900 flex items-center justify-center text-white">
+            <div className="min-h-screen bg-[var(--bg-body)] flex items-center justify-center text-content-primary">
                 <div className="text-center">
                     <p className="text-xl mb-4">Materia non trovata: {activeSlug}</p>
-                    <button onClick={() => navigate('/subjects')} className="text-yellow-500 underline">Torna all'indice</button>
+                    <button onClick={() => navigate('/subjects')} className="text-premium-gold underline">Torna all'indice</button>
                 </div>
             </div>
         );
@@ -127,24 +127,24 @@ const SubjectPage: React.FC = () => {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-neutral-900 text-white p-8 flex flex-col items-center justify-center">
-                <div className="w-12 h-12 border-4 border-yellow-500/30 border-t-yellow-500 rounded-full animate-spin mb-6"></div>
-                <h1 className="text-2xl font-serif text-yellow-500 mb-2">{subject.title}</h1>
-                <p className="text-neutral-400">Caricamento appunti...</p>
+            <div className="min-h-screen bg-[var(--bg-body)] text-content-primary p-8 flex flex-col items-center justify-center">
+                <div className="w-12 h-12 border-4 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin mb-6"></div>
+                <h1 className="text-2xl font-serif text-premium-gold mb-2">{subject.title}</h1>
+                <p className="text-content-muted">Caricamento appunti...</p>
             </div>
         );
     }
 
     if (!content) {
         return (
-            <div className="min-h-screen bg-neutral-900 text-white p-8 flex flex-col items-center justify-center">
-                <button onClick={() => navigate('/subjects')} className="absolute top-8 left-8 text-neutral-400 hover:text-white flex items-center gap-2">
+            <div className="min-h-screen bg-[var(--bg-body)] text-content-primary p-8 flex flex-col items-center justify-center">
+                <button onClick={() => navigate('/subjects')} className="absolute top-8 left-8 text-content-muted hover:text-content-primary flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                     Torna
                 </button>
                 <div className="text-6xl mb-6">🚧</div>
-                <h1 className="text-3xl font-serif text-yellow-500 mb-4">{subject.title}</h1>
-                <p className="text-neutral-400">Contenuto in arrivo...</p>
+                <h1 className="text-3xl font-serif text-premium-gold mb-4">{subject.title}</h1>
+                <p className="text-content-muted">Contenuto in arrivo...</p>
             </div>
         );
     }
@@ -152,13 +152,10 @@ const SubjectPage: React.FC = () => {
     return (
         // Apply the theme class to the wrapper.
         // This will redefine the CSS variables (--bg-body, --premium-gold, etc.) for all children.
-        <div className={`min-h-screen transition-colors duration-300 ${themeClass}`}>
-
-            {/* Background Gradient using Vars */}
-            <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-premium-gray/40 via-premium-black to-[var(--bg-body)] pointer-events-none" />
+        <div className={`min-h-screen transition-colors duration-300 ${themeClass} bg-[var(--bg-body)]`}>
 
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-premium-black/90 backdrop-blur-md h-16 transition-colors duration-300">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-body)]/90 backdrop-blur-md h-16 transition-colors duration-300 border-b border-premium-gray">
                 <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="lg:hidden text-content-primary">
@@ -174,14 +171,15 @@ const SubjectPage: React.FC = () => {
                         </h1>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="hidden sm:flex text-xs font-mono text-premium-gold px-2 py-1">
-                            {subject.year}
+                        <div className="hidden sm:flex text-xs font-mono text-premium-gold px-2 py-1 items-center gap-4">
+                            <span>{subject.year}</span>
+                            <ThemeToggle inline={true} />
                         </div>
                     </div>
                 </div>
             </header>
 
-            <ThemeToggle />
+
 
             <div className="max-w-7xl mx-auto pt-20 px-4 relative z-10">
                 {/* Sidebar (TOC) - Deferred for performance */}

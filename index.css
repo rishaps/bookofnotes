@@ -3,52 +3,57 @@
 
 @layer base {
     :root {
-        /* --- STRICT LIGHT MODE (Paper / Ink) --- */
-        --bg-body: #FFFFFF;
-        --premium-black: #FFFFFF;
-        /* Cards blend with background or have borders */
-        --premium-dark: #F4F4F5;
-        /* Zinc-100 for subtle hovers */
-        --premium-gray: #E4E4E7;
-        /* Zinc-200 for borders */
+        /* --- LIGHT MODE: Cream / Paper --- */
+        --bg-body: #FFFDF2;
+        /* Cream / Off-white */
+        --premium-black: #FFFDF2;
+        /* Match background */
+        --premium-dark: #F5F3E6;
+        /* Slightly darker cream for cards */
+        --premium-gray: #E6E4D9;
+        /* Darker cream for borders */
         --premium-gold: #000000;
-        /* "Gold" is now Black (High Contrast Accent) */
+        /* Black accent */
 
         --content-primary: #000000;
-        --content-secondary: #000000;
-        /* Strict Black for all text */
-        --content-muted: #52525B;
-        /* Zinc-600 (Dark Gray for metadata) */
+        /* Black text */
+        --content-secondary: #333333;
+        /* Dark gray text */
+        --content-muted: #666666;
+        /* Medium gray for metadata */
 
-        --border-primary: #000000;
-        /* Black borders */
-        --bg-glass: rgba(0, 0, 0, 0.05);
+        --border-primary: #E6E4D9;
+        /* Cream borders */
+        --bg-glass: rgba(0, 0, 0, 0.03);
     }
 
     .dark {
-        /* --- STRICT DARK MODE (OLED / Terminal) --- */
+        /* --- DARK MODE: Strict Black --- */
         --bg-body: #000000;
+        /* Pure Black */
         --premium-black: #000000;
-        --premium-dark: #18181B;
-        /* Zinc-900 */
-        --premium-gray: #27272A;
-        /* Zinc-800 */
+        /* Match background */
+        --premium-dark: #121212;
+        /* Dark gray for cards */
+        --premium-gray: #333333;
+        /* Gray for borders */
         --premium-gold: #FFFFFF;
-        /* "Gold" is now White */
+        /* White accent */
 
         --content-primary: #FFFFFF;
-        --content-secondary: #FFFFFF;
-        /* Strict White */
-        --content-muted: #A1A1AA;
-        /* Zinc-400 */
+        /* White text */
+        --content-secondary: #CCCCCC;
+        /* Light gray text */
+        --content-muted: #888888;
+        /* Gray for metadata */
 
-        --border-primary: #FFFFFF;
-        /* White borders */
-        --bg-glass: rgba(255, 255, 255, 0.1);
+        --border-primary: #333333;
+        /* Gray borders */
+        --bg-glass: rgba(255, 255, 255, 0.05);
     }
 
     /* --- UNIFIED MONOCHROME THEME FOR ALL SUBJECTS --- */
-    /* All theme classes are retained for code compatibility but now enforce strict B&W */
+    /* All theme classes are retained for code compatibility but now enforce strict Slate Palette */
 
     .theme-emerald,
     .theme-teal,
@@ -59,11 +64,10 @@
     .theme-bronze,
     .theme-silver,
     .theme-stats {
-        /* No overrides. All subjects use the Global Root B&W variables. */
+        /* No overrides. All subjects use the Global Root variables. */
         --bg-body: var(--bg-body);
         --content-primary: var(--content-primary);
         --premium-gold: var(--premium-gold);
-        /* Force specific borders if needed to be strict */
     }
 
     /* 🚀 Performance: Optimize font rendering */
@@ -76,8 +80,9 @@
     body {
         @apply antialiased bg-[var(--bg-body)] text-content-primary;
         font-family: 'Outfit', sans-serif;
-        transition: background-color 0s;
-        /* Instant transition for high performance feel */
+        /* REMOVED GLOBAL TRANSITION TO FIX LAG */
+        /* transition: background-color 0s; */
+
         /* 🚀 Smooth scrolling with GPU acceleration */
         overflow-y: auto;
         overflow-x: hidden;

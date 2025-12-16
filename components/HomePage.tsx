@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
 
     return (
         <div
-            className="min-h-screen bg-white dark:bg-[#0a0a0a] transition-colors duration-500"
+            className="min-h-screen bg-[var(--bg-body)] text-content-primary transition-colors duration-500"
             onKeyDown={handleKeyDown}
             tabIndex={0}
         >
@@ -81,10 +81,10 @@ const HomePage: React.FC = () => {
                     {/* Image with loading state */}
                     <div className="relative">
                         {!imageLoaded && (
-                            <div className="h-[55vh] aspect-[2/3] rounded-2xl bg-black/5 dark:bg-white/5 
+                            <div className="h-[55vh] aspect-[2/3] rounded-2xl bg-premium-black/5 
                                             flex items-center justify-center">
-                                <div className="w-8 h-8 border-2 border-black/10 dark:border-white/10 
-                                                border-t-black/40 dark:border-t-white/40 rounded-full animate-spin" />
+                                <div className="w-8 h-8 border-2 border-premium-gold/10 
+                                                border-t-premium-gold/40 rounded-full animate-spin" />
                             </div>
                         )}
                         <img
@@ -98,10 +98,10 @@ const HomePage: React.FC = () => {
                         />
                     </div>
 
-                    <h2 className="font-serif text-2xl md:text-3xl text-black dark:text-white mt-6 text-center">
+                    <h2 className="font-serif text-2xl md:text-3xl text-content-primary mt-6 text-center">
                         {selectedSubject.title}
                     </h2>
-                    <span className="text-sm text-black/50 dark:text-white/50 mt-1">
+                    <span className="text-sm text-content-muted mt-1">
                         {getYearLabel(selectedSubject.year)}
                     </span>
 
@@ -110,13 +110,13 @@ const HomePage: React.FC = () => {
                             <button
                                 onClick={handleEnterSubject}
                                 disabled={isNavigating}
-                                className="mt-6 px-8 py-3 bg-black dark:bg-white text-white dark:text-black 
+                                className="mt-6 px-8 py-3 bg-content-primary text-[var(--bg-body)] 
                                            font-medium rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
                             >
                                 {isNavigating ? (
                                     <>
-                                        <div className="w-4 h-4 border-2 border-white/30 dark:border-black/30 
-                                                      border-t-white dark:border-t-black rounded-full animate-spin" />
+                                        <div className="w-4 h-4 border-2 border-bg-body/30 
+                                                      border-t-bg-body rounded-full animate-spin" />
                                         <span>Apertura...</span>
                                     </>
                                 ) : (
@@ -124,7 +124,7 @@ const HomePage: React.FC = () => {
                                 )}
                             </button>
                             {isNavigating && (
-                                <p className="mt-2 text-xs text-black/40 dark:text-white/40 font-mono">
+                                <p className="mt-2 text-xs text-content-muted font-mono">
                                     Apertura in {(loadTime / 1000).toFixed(1)}s
                                 </p>
                             )}
@@ -137,7 +137,7 @@ const HomePage: React.FC = () => {
 
                     <button
                         onClick={() => { setSelectedSubject(null); setImageLoaded(false); }}
-                        className="mt-4 text-sm text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white"
+                        className="mt-4 text-sm text-content-muted hover:text-content-primary"
                     >
                         ← Torna indietro
                     </button>
@@ -146,7 +146,7 @@ const HomePage: React.FC = () => {
                 /* Three Column Layout with Title */
                 <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8">
                     {/* Title */}
-                    <h1 className="font-serif text-4xl md:text-5xl text-black dark:text-white mb-8 md:mb-10 tracking-tight">
+                    <h1 className="font-serif text-4xl md:text-5xl text-content-primary mb-8 md:mb-10 tracking-tight">
                         Book of Notes
                     </h1>
 
@@ -158,14 +158,13 @@ const HomePage: React.FC = () => {
                             return (
                                 <div
                                     key={year}
-                                    className="bg-white/80 dark:bg-[#161616]/90 rounded-xl 
-                                               border border-black/5 dark:border-white/10 
-                                               shadow-lg dark:shadow-black/20 overflow-hidden"
+                                    className="bg-premium-dark/80 backdrop-blur-sm rounded-xl 
+                                               border border-premium-gold/10 
+                                               shadow-lg overflow-hidden"
                                 >
                                     {/* Year Header */}
-                                    <div className="px-5 py-3 border-b border-black/5 dark:border-white/5
-                                                    bg-black/[0.02] dark:bg-white/[0.02]">
-                                        <h2 className="text-xs font-bold text-black/50 dark:text-white/50 
+                                    <div className="px-5 py-3 border-b border-premium-black/10">
+                                        <h2 className="text-xs font-bold text-content-muted 
                                                        uppercase tracking-[0.15em] text-center">
                                             {getYearLabel(year)}
                                         </h2>
@@ -179,13 +178,13 @@ const HomePage: React.FC = () => {
                                                 onClick={() => { setImageLoaded(false); handleSubjectClick(subject); }}
                                                 onMouseEnter={() => prefetchContent(subject.slug)}
                                                 className="w-full px-5 py-3 flex items-center justify-between text-left
-                                                           hover:bg-black/[0.03] dark:hover:bg-white/[0.03]
+                                                           hover:bg-premium-gold/5
                                                            transition-colors duration-150 group"
                                             >
                                                 {/* Subject Name & Status */}
                                                 <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                                                    <span className="text-[15px] text-black/80 dark:text-white/80 
-                                                                     group-hover:text-black dark:group-hover:text-white
+                                                    <span className="text-[15px] text-content-primary/80 
+                                                                     group-hover:text-content-primary
                                                                      transition-colors truncate">
                                                         {subject.title}
                                                     </span>
@@ -194,12 +193,18 @@ const HomePage: React.FC = () => {
                                                         <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
                                                                          bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
                                                                          border border-emerald-500/20">
-                                                            Completati
+                                                            Completato
                                                         </span>
-                                                    ) : (
+                                                    ) : subject.slug === 'geometria-algebra' ? (
                                                         <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
                                                                          bg-amber-500/10 text-amber-600 dark:text-amber-400
                                                                          border border-amber-500/20">
+                                                            In Corso
+                                                        </span>
+                                                    ) : (
+                                                        <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
+                                                                         bg-red-500/10 text-red-600 dark:text-red-400
+                                                                         border border-red-500/20">
                                                             Da Fare
                                                         </span>
                                                     )}
