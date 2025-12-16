@@ -104,10 +104,29 @@
     ],
     "rewrites": [
         {
-            "source": "/:path*",
+            "source": "/economia",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/analisi-1",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/fondamenti-informatica",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/geometria-algebra",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/subjects",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/(.*)",
             "destination": "/index.html"
         }
     ],
-    "trailingSlash": false,
-    "cleanUrls": true
+    "trailingSlash": false
 }
