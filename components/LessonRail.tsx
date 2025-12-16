@@ -132,4 +132,4 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
   );
 };
 
-export default LessonRail;
+export default React.memo(LessonRail);

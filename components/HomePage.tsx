@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { subjects, Subject } from '../data/subjects';
+import { prefetchContent } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 
 // Subjects with completed notes
@@ -11,6 +12,20 @@ const HomePage: React.FC = () => {
     const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
     const [imageLoaded, setImageLoaded] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
+    const [loadTime, setLoadTime] = useState(0); // Track elapsed time in ms
+
+    // Timer to show loading duration
+    useEffect(() => {
+        if (!isNavigating) {
+            setLoadTime(0);
+            return;
+        }
+        const start = Date.now();
+        const interval = setInterval(() => {
+            setLoadTime(Date.now() - start);
+        }, 100);
+        return () => clearInterval(interval);
+    }, [isNavigating]);
 
     // Check if subject notes are completed
     const isCompleted = (slug: string) => completedSubjects.includes(slug);
@@ -23,6 +38,7 @@ const HomePage: React.FC = () => {
     };
 
     const handleSubjectClick = (subject: Subject) => {
+        prefetchContent(subject.slug); // Start prefetching immediately
         setSelectedSubject(subject);
     };
 
@@ -57,9 +73,7 @@ const HomePage: React.FC = () => {
             tabIndex={0}
         >
             {/* Theme Toggle */}
-            <div className="fixed right-6 top-6 z-50">
-                <ThemeToggle />
-            </div>
+            <ThemeToggle />
 
             {selectedSubject ? (
                 /* Podium View - When a subject is selected */
@@ -92,22 +106,29 @@ const HomePage: React.FC = () => {
                     </span>
 
                     {imageLoaded ? (
-                        <button
-                            onClick={handleEnterSubject}
-                            disabled={isNavigating}
-                            className="mt-6 px-8 py-3 bg-black dark:bg-white text-white dark:text-black 
-                                       font-medium rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
-                        >
-                            {isNavigating ? (
-                                <>
-                                    <div className="w-4 h-4 border-2 border-white/30 dark:border-black/30 
-                                                  border-t-white dark:border-t-black rounded-full animate-spin" />
-                                    <span>Apertura...</span>
-                                </>
-                            ) : (
-                                'Apri Appunti'
+                        <>
+                            <button
+                                onClick={handleEnterSubject}
+                                disabled={isNavigating}
+                                className="mt-6 px-8 py-3 bg-black dark:bg-white text-white dark:text-black 
+                                           font-medium rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
+                            >
+                                {isNavigating ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white/30 dark:border-black/30 
+                                                      border-t-white dark:border-t-black rounded-full animate-spin" />
+                                        <span>Apertura...</span>
+                                    </>
+                                ) : (
+                                    'Apri Appunti'
+                                )}
+                            </button>
+                            {isNavigating && (
+                                <p className="mt-2 text-xs text-black/40 dark:text-white/40 font-mono">
+                                    Apertura in {(loadTime / 1000).toFixed(1)}s
+                                </p>
                             )}
-                        </button>
+                        </>
                     ) : (
                         <div className="mt-6 px-8 py-3 text-black/30 dark:text-white/30 text-sm">
                             Caricamento...
@@ -156,6 +177,7 @@ const HomePage: React.FC = () => {
                                             <button
                                                 key={subject.slug}
                                                 onClick={() => { setImageLoaded(false); handleSubjectClick(subject); }}
+                                                onMouseEnter={() => prefetchContent(subject.slug)}
                                                 className="w-full px-5 py-3 flex items-center justify-between text-left
                                                            hover:bg-black/[0.03] dark:hover:bg-white/[0.03]
                                                            transition-colors duration-150 group"

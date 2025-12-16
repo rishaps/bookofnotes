@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { subjects } from '../data/subjects';
 // Content loaded dynamically via utils/contentLoader
 import { MainSection } from '../types';
-import { loadContent } from '../utils/contentLoader';
+import { loadContent, getCachedContent } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 import { Menu, X, ChevronRight, BookOpen, Clock, ChevronDown } from 'lucide-react';
 import SectionDisplay from './SectionDisplay';
-import LessonRail from './LessonRail';
+
+// Lazy-load the sidebar to prevent blocking initial paint
+const LessonRail = React.lazy(() => import('./LessonRail'));
 
 // Map subjects to theme class names defined in index.css
 const SUBJECT_THEME_MAP: Record<string, string> = {
@@ -39,6 +41,8 @@ const SubjectPage: React.FC = () => {
     const navigate = useNavigate();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+    const handleLinkClick = useCallback(() => setIsSidebarOpen(false), []);
+
     // Determine active slug: handle explicit param OR implicit path
     let activeSlug = slug;
     if (!activeSlug && location.pathname === '/economia') {
@@ -49,36 +53,63 @@ const SubjectPage: React.FC = () => {
     // Resolve Subject Metadata
     const subject = subjects.find(s => s.slug === activeSlug);
 
-    const [content, setContent] = useState<MainSection[] | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
+    // Try to get instantly from cache first (for prefetched content)
+    const cachedContent = getCachedContent(activeSlug);
+    const [content, setContent] = useState<MainSection[] | null>(cachedContent);
+    const [isLoading, setIsLoading] = useState(!cachedContent);
     const [visibleSections, setVisibleSections] = useState(2); // Start with just 2 sections for instant render
+    const [showSidebar, setShowSidebar] = useState(false); // Defer sidebar render
 
     useEffect(() => {
         // Reset visible sections when subject changes
         setVisibleSections(2);
     }, [activeSlug]);
 
+    // Infinite Scroll / Lazy Loading
+    // Instead of auto-loading everything, we load more as the user scrolls down
     useEffect(() => {
-        // Progressive rendering: if we have more content than currently visible, 
-        // schedule the next chunk to render
-        if (content && visibleSections < content.length) {
-            const timer = requestAnimationFrame(() => {
-                setVisibleSections(prev => Math.min(prev + 3, content.length));
-            });
-            return () => cancelAnimationFrame(timer);
+        if (!content || visibleSections >= content.length) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const first = entries[0];
+                if (first.isIntersecting) {
+                    // Load just 1 more section at a time to keep frame rate high
+                    setVisibleSections((prev) => Math.min(prev + 1, content.length));
+                }
+            },
+            { threshold: 0.1, rootMargin: '200px' } // Load slightly before reaching bottom
+        );
+
+        const sentinel = document.getElementById('scroll-sentinel');
+        if (sentinel) {
+            observer.observe(sentinel);
         }
-    }, [visibleSections, content]);
+
+        return () => observer.disconnect();
+    }, [content, visibleSections]);
 
     useEffect(() => {
+        // If we already have cached content, skip fetching
+        if (cachedContent) {
+            setContent(cachedContent);
+            setIsLoading(false);
+            // Defer sidebar after content is painted
+            requestAnimationFrame(() => setShowSidebar(true));
+            return;
+        }
+
         const fetchContent = async () => {
             setIsLoading(true);
             const data = await loadContent(activeSlug);
             setContent(data);
             setIsLoading(false);
+            // Defer sidebar after content is painted
+            requestAnimationFrame(() => setShowSidebar(true));
         };
 
         fetchContent();
-    }, [activeSlug]);
+    }, [activeSlug, cachedContent]);
 
     // Resolve Theme Class
     const themeClass = SUBJECT_THEME_MAP[activeSlug] || 'theme-math';
@@ -146,18 +177,23 @@ const SubjectPage: React.FC = () => {
                         <div className="hidden sm:flex text-xs font-mono text-premium-gold px-2 py-1">
                             {subject.year}
                         </div>
-                        <ThemeToggle />
                     </div>
                 </div>
             </header>
 
+            <ThemeToggle />
+
             <div className="max-w-7xl mx-auto pt-20 px-4 relative z-10">
-                {/* Sidebar (TOC) - Desktop (FIXED POSITION RESTORED) */}
-                <aside className={`fixed inset-y-0 left-0 z-40 w-72 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 bg-premium-dark lg:bg-transparent lg:fixed lg:left-8 lg:top-32 lg:bottom-10 lg:w-64 lg:z-40 pt-20 lg:pt-0 pb-8 h-screen lg:h-auto`}>
-                    <div className="px-6 lg:px-0 h-full overflow-y-auto custom-scrollbar">
-                        <LessonRail content={content} onLinkClick={() => setIsSidebarOpen(false)} className="" />
-                    </div>
-                </aside>
+                {/* Sidebar (TOC) - Deferred for performance */}
+                {showSidebar && (
+                    <aside className={`fixed inset-y-0 left-0 z-40 w-72 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 bg-premium-dark lg:bg-transparent lg:fixed lg:left-8 lg:top-32 lg:bottom-10 lg:w-64 lg:z-40 pt-20 lg:pt-0 pb-8 h-screen lg:h-auto`}>
+                        <div className="px-6 lg:px-0 h-full overflow-y-auto custom-scrollbar">
+                            <Suspense fallback={<div className="text-sm text-content-muted p-4">Caricamento indice...</div>}>
+                                <LessonRail content={content} onLinkClick={handleLinkClick} className="" />
+                            </Suspense>
+                        </div>
+                    </aside>
+                )}
 
                 {/* Sidebar Overlay (Mobile) */}
                 {isSidebarOpen && (
@@ -174,8 +210,11 @@ const SubjectPage: React.FC = () => {
                             <SectionDisplay key={section.id} section={section} />
                         ))}
                         {/* Placeholder for remaining content to reserve scroll space (optional, but keeps scrollbar stable-ish) */}
+                        {/* Sentinel for Infinite Scroll */}
                         {visibleSections < content.length && (
-                            <div className="h-screen w-full" />
+                            <div id="scroll-sentinel" className="h-20 w-full flex items-center justify-center p-4">
+                                <div className="w-6 h-6 border-2 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin" />
+                            </div>
                         )}
                     </div>
                 </main>
