@@ -141,6 +141,27 @@ const SubjectPage: React.FC = () => {
         );
     }
 
+    // Custom Initials Map
+    const SUBJECT_INITIALS: Record<string, string> = {
+        'economia': 'EOA',
+        'elementi-informatica': 'EI',
+        'fondamenti-informatica': 'FDI',
+        'calcolatori-elettronici': 'CEL',
+        'analisi-1': 'AM1',
+        'analisi-matematica-1': 'AM1',
+        'analisi-matematica-2': 'AM2',
+        'algebra-lineare': 'AL',
+        'geometria-algebra': 'GA',
+        'fisica-generale-1': 'FG1',
+        'fisica-generale-2': 'FG2',
+        'algoritmi-strutture-dati': 'ASD',
+        'chimica': 'CHI',
+        'automazione': 'AUT',
+        'ingegneria-software': 'IS',
+        'statistica': 'STA',
+        'sistemi-operativi': 'SO',
+    };
+
     return (
         // Apply the theme class to the wrapper.
         // This will redefine the CSS variables (--bg-body, --premium-gold, etc.) for all children.
@@ -180,12 +201,12 @@ const SubjectPage: React.FC = () => {
                 </div>
             </header>
 
-            {/* Side Dock Navigation - Visible on Scroll */}
+            {/* Side Dock Navigation - Visible on Scroll - HIDDEN ON MOBILE */}
             <div
-                className={`fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-6
+                className={`hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-6
                            p-3 rounded-2xl bg-[var(--bg-body)]/80 backdrop-blur-md border border-premium-gray/50 shadow-2xl
                            transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                           ${isScrolled ? 'translate-x-0 opacity-100' : 'translate-x-24 opacity-0 pointer-events-none'}`}
+                           ${isScrolled ? 'translate-x-0 opacity-100' : 'translate-x-32 opacity-0 pointer-events-none'}`}
             >
                 {/* Subject Initials */}
                 <div
@@ -193,7 +214,7 @@ const SubjectPage: React.FC = () => {
                     className="w-10 h-10 rounded-full bg-premium-gold/10 flex items-center justify-center 
                              text-xs font-serif font-bold text-premium-gold border border-premium-gold/20 cursor-default"
                 >
-                    {subject.title.substring(0, 2).toUpperCase()}
+                    {SUBJECT_INITIALS[activeSlug] || subject.title.substring(0, 2).toUpperCase()}
                 </div>
 
                 <div className="w-8 h-px bg-premium-gray/50" />
