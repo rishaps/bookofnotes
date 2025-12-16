@@ -226,10 +226,13 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   if (imageMatch) {
     const [, alt, src] = imageMatch;
     return (
-      <div className="my-6 w-full flex justify-center">
-        <div className="max-w-md">
-          <ImageThumbnail src={src} alt={alt} onImageClick={onImageClick} />
-        </div>
+      <div className="w-full my-6 lg:w-5/12 lg:float-right lg:ml-8 lg:mb-6 lg:mt-1 lg:clear-right">
+        <ImageThumbnail src={src} alt={alt} onImageClick={onImageClick} />
+        {alt && (
+          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">
+            {alt}
+          </p>
+        )}
       </div>
     );
   }
@@ -420,7 +423,7 @@ interface SubSectionDisplayProps {
 }
 
 const SubSectionDisplay: React.FC<SubSectionDisplayProps> = ({ subsection, anchorId, onImageClick }) => (
-  <div id={anchorId} className="mb-8 last:mb-0">
+  <div id={anchorId} className="mb-8 last:mb-0 flow-root">
     <h3 className="text-2xl sm:text-3xl font-serif text-content-primary mb-6 pb-4">
       {renderMathParts(subsection.title, 'title-')}
     </h3>
