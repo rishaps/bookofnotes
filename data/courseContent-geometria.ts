@@ -99,7 +99,8 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Teorema 2.1.1:** Sia $V$ uno spazio vettoriale sul campo $K$, siano $k \\in K$ e $v \\in V$. Allora:",
                     "$$ kv = \\mathbf{0} \\iff k = 0 \\text{ oppure } v = \\mathbf{0} $$",
-                    "Questo teorema è fondamentale perché stabilisce che l'unico modo per ottenere il vettore nullo come prodotto di uno scalare per un vettore è che almeno uno dei due fattori sia nullo."
+                    "Questo teorema è fondamentale perché stabilisce che l'unico modo per ottenere il vettore nullo come prodotto di uno scalare per un vettore è che almeno uno dei due fattori sia nullo.",
+                    "![Operazioni con i Vettori](/FIRST-YEAR-IMAGES/vector_operations.png)"
                 ]
             },
             {
@@ -316,7 +317,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Teorema 3.4.1 (Teorema di Rouché-Capelli):** Un sistema lineare $AX = B$ è compatibile se e solo se:",
                     "$$ \\rho(A) = \\rho(A|B) $$",
                     "dove $A$ è la matrice incompleta e $A|B$ è la matrice completa (con la colonna dei termini noti).",
-                    "Se il sistema è compatibile, l'insieme delle soluzioni forma uno spazio di dimensione $n - \\rho(A)$."
+                    "Se il sistema è compatibile, l'insieme delle soluzioni forma uno spazio di dimensione $n - \\rho(A)$.",
+                    "![Intersezione di Piani e Soluzione Unica](/FIRST-YEAR-IMAGES/linear_systems_geometry.png)"
                 ]
             },
             {
@@ -369,6 +371,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "Autovettori e Matrici Simili",
                 content: [
                     "**Definizione 4.1.4 (Autovettori):** I vettori non nulli dell'autospazio $V_\\lambda$ si chiamano **autovettori** relativi a $\\lambda$.",
+                    "![Autovettori e Autovalori](/FIRST-YEAR-IMAGES/eigenvectors.png)",
                     "**Osservazione:** Se il polinomio caratteristico di $A \\in M_n(K)$ ha grado $n$, allora gli autovalori di $A$ sono al massimo $n$.",
                     "**Definizione 4.1.5 (Matrici simili):** Due matrici $A, B \\in M_n(K)$ si dicono **simili** se esiste $P \\in M_n(K)$ con $|P| \\neq 0$ tale che:",
                     "$$ B = P^{-1}AP \\quad \\text{oppure} \\quad PB = AP $$",
@@ -507,6 +510,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "$$ \\vdots $$",
                     "$$ e'_n = e_n - \\sum_{k=1}^{n-1} \\frac{e_n \\cdot e'_k}{e'_k \\cdot e'_k} \\cdot e'_k $$",
                     "è una **base ortogonale** di $V_n^\\circ(\\mathbb{R})$.",
+                    "![Processo di Gram-Schmidt](/FIRST-YEAR-IMAGES/gram_schmidt.png)",
                     "**Osservazione:** Se i primi $p$ vettori di $B$ sono già ortogonali tra loro, il metodo di Gram-Schmidt non li cambia."
                 ]
             },
@@ -673,6 +677,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Equazione cartesiana del piano:**",
                     "$$ ax + by + cz + d = 0 \\quad \\text{con } (a, b, c) \\neq (0, 0, 0) $$",
+                    "![Piano e Vettore Normale](/FIRST-YEAR-IMAGES/affine_plane_normal.png)",
                     "**Equazioni cartesiane della retta in $A_3(\\mathbb{R})$:**",
                     "$$ \\begin{cases} ax + by + cz + d = 0 \\\\ a'x + b'y + c'z + d' = 0 \\end{cases} \\quad \\text{con } \\rho \\begin{pmatrix} a & b & c \\\\ a' & b' & c' \\end{pmatrix} = 2 $$",
                     "**Condizione di parallelismo tra piani:** $\\alpha \\| \\alpha' \\iff [(a, b, c)] = [(a', b', c')]$",
@@ -776,6 +781,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "Circonferenza",
                 content: [
                     "**Definizione 7.5.1 (Circonferenza):** Dato un punto $C = (x_0, y_0)$ in $E_2(\\mathbb{R})$ e un numero reale positivo $r$, si dice **circonferenza** di centro $C$ e raggio $r$ il luogo dei punti aventi distanza $r$ da $C$.",
+                    "![Circonferenza](/FIRST-YEAR-IMAGES/circumference.svg)",
                     "**Equazione cartesiana:**",
                     "$$ x^2 + y^2 + 2ax + 2by + c = 0 \\quad \\text{con } a^2 + b^2 - c > 0 $$",
                     "dove $C = (-a, -b)$ e $r = \\sqrt{a^2 + b^2 - c}$.",
@@ -786,6 +792,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "Sfera",
                 content: [
                     "**Definizione 7.5.2 (Sfera):** Sia $C = (x_0, y_0, z_0)$ e $r$ un numero reale positivo. Si dice **sfera** di raggio $r$ e centro $C$ il luogo dei punti aventi distanza $r$ da $C$.",
+                    "![Sfera](/FIRST-YEAR-IMAGES/sphere.svg)",
                     "**Equazione cartesiana:**",
                     "$$ x^2 + y^2 + z^2 + 2ax + 2by + 2cz + d = 0 \\quad \\text{con } a^2 + b^2 + c^2 - d > 0 $$",
                     "dove $C = (-a, -b, -c)$ e $r = \\sqrt{a^2 + b^2 + c^2 - d}$.",
@@ -827,6 +834,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "Analogamente la polare di $Y_\\infty$ è:",
                     "$$ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 $$",
+                    "![Sezioni Coniche](/FIRST-YEAR-IMAGES/conic_sections.svg)",
                     "Il centro $C$ è il punto di intersezione delle polari:",
                     "$$ \\begin{cases} a_{11} x_1 + a_{12} x_2 + a_{13} x_3 = 0 & (P_1) \\\\ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 & (P_2) \\end{cases} $$",
                     "Il centro $C$ è proprio se $P_1$ e $P_2$ non sono paralleli. Se:",
@@ -886,7 +894,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "Quadriche in A3(C)",
                 content: [
 
-                    `*Superfici algebriche del secondo ordine*`,
+
                     "**Definizione 10.1.1 (Quadrica):** Si dice quadrica una superficie algebrica reale del secondo ordine. Analiticamente si indica come:",
                     "$$ a_{11} x_1^2 + a_{12} x_1 x_2 + 2a_{13} x_1 x_3 + 2a_{14} x_1 x_4 + a_{22} x_2^2 + a_{23} x_2 x_3 + 2a_{24} x_2 x_4 + 2a_{34} x_3 x_4 + a_{33} x_3^2 + a_{44} x_4^2 = 0 $$",
                     "con almeno un $a_{ij} \\neq 0$. Ponendo $X = (x_1, x_2, x_3, x_4)^T$ si ha che $A$ (matrice simmetrica dei coefficienti) è tale che:",
@@ -903,6 +911,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "...perché se fosse, per assurdo $r = s$, allora in $P$ avrei due piani tangenti distinti $\\alpha$ e $\\beta$, assurdo! (contro l'unicità del piano tangente). Sia $\\{V\\} = r \\cap s$. Sicuramente $V$ è un punto doppio, perché se fosse semplice per $V$ avremmo due piani tangenti distinti (nuovamente contro l'unicità del piano tangente). Su $Q$ non possono esserci altri punti doppi distinti da $V$ (perché per ipotesi $Q$ è irriducibile). Quindi $Q$ ammette esattamente un punto doppio, cioè $Q$ è un cono o un cilindro.",
                     "**Osservazione:** Se $Q$ è generale, sicuramente i suoi punti semplici non sono parabolici.",
+
                     "**Definizione 10.5.2 (Punto parabolico, iperbolico ed ellittico):** Sia $Q$ una quadrica irriducibile, $P \\in Q$ un punto semplice reale, $\\alpha$ il piano tangente in $P$ a $Q$ e $C = Q \\cap \\alpha$ riducibile. Abbiamo che un punto $P$ è:",
                     "1.  **parabolico**, se, e soltanto se, $C$ si riduce in due rette coincidenti",
                     "2.  **iperbolico**, se, e soltanto se, $C$ si riduce in due rette reali e distinte",
@@ -939,7 +948,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Sezioni irriducibili di un ellissoide:** Dato che $C_\\infty$ è priva di punti reali, i due punti dati da $r_\\infty \\cap C_\\infty$ saranno a loro volta immaginari e coniugati. Quindi le sezioni irriducibili di un'ellissoide sono tutte ellissi, prive o dotate di parte reale.",
                     "**Sezioni irriducibili di un paraboloide:** Dato che $C_\\infty$ è riducibile in due rette reali e distinte o in rette immaginarie e coniugate, i due punti dati da $r_\\infty \\cap C_\\infty$ sono reali e coincidenti, se $r_\\infty$ passa per il punto doppio di $C_\\infty$, diversamente sono punti distinti. In questo caso, se il paraboloide è iperbolico i punti sono reali, se il paraboloide è ellittico sono punti immaginari e coniugati. Pertanto, le sezioni irriducibili di un paraboloide iperbolico sono parabole e iperboli, quelle di un paraboloide ellittico sono parabole e ellissi.",
 
-                    `*Figura 10.2: (1) Paraboloide iperbolico; (2) Paraboloide ellittico.*`,
+
+                    "![Paraboloide Iperbolico ed Ellittico](/FIRST-YEAR-IMAGES/quadrics.png)",
                     "**Studio analitico:** Ci occupiamo ora di trovare un metodo per riconoscere la conica generata dall'intersezione di una quadrica con un piano.",
                     "**Proposizione 10.6.1:** Se $Q$ è una quadrica irriducibile, la cui equazione è priva di una delle variabili $x_1, x_2$ o $x_3$, allora $Q'$ è un cilindro, con vertice in $X_\\infty$ se manca $x_1$, in $Y_\\infty$ se manca $x_2$ o in $Z_\\infty$ se manca $x_3$.",
                     "**Osservazione:** In questo modo $C = Q \\cap \\pi = Q' \\cap \\pi$, ove $Q'$ è un cilindro, perciò ci basta riconoscere il tipo di cilindro e potremo direttamente riconoscere la conica."
