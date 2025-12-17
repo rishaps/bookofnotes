@@ -162,4 +162,39 @@
     .text-balance {
         text-wrap: balance;
     }
+
+    /* --- PENCIL ON PAPER AESTHETIC --- */
+
+    /* 1. The Container = The Warm Paper */
+    .sketch-canvas {
+        background-color: #f6f1e7;
+        /* Warm paper base */
+        position: relative;
+        padding: 40px;
+        display: inline-block;
+        overflow: hidden;
+        /* Ensure grain doesn't spill */
+    }
+
+    /* Paper Grain Overlay */
+    .sketch-canvas::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        filter: url(#paperGrain);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* 2. The Image = The Ink Sketch */
+    .pencil-drawing {
+        position: relative;
+        z-index: 10;
+        /* Apply the ink sketch filter */
+        filter: url(#inkSketch);
+        /* Optional: Mix blend mode for better integration */
+        mix-blend-mode: multiply;
+        display: block;
+    }
 }
