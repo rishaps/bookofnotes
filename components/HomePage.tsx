@@ -76,10 +76,7 @@ const HomePage: React.FC = () => {
                             onLoad={() => setImageLoaded(true)}
                             className={`h-[55vh] w-auto rounded-2xl shadow-2xl cursor-pointer 
                                        hover:scale-[1.01] transition-all duration-300
-                                       ${imageLoaded ? 'opacity-100' : 'opacity-0 absolute top-0'}
-                                       ${selectedSubject.image.toLowerCase().match(/boole|khwarizmi|neumann|babbage|engelbart|portrait|foto|photo|person/)
-                                    ? 'pencil-effect-no-invert'
-                                    : 'pencil-effect'}`}
+                                       ${imageLoaded ? 'opacity-100' : 'opacity-0 absolute top-0'}`}
                             onClick={handleEnterSubject}
                         />
                     </div>

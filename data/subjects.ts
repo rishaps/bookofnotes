@@ -11,37 +11,37 @@ export const subjects: Subject[] = [
         title: "Analisi Matematica 1",
         year: "Year 1",
         slug: "analisi-1",
-        image: "/FIRST-YEAR-IMAGES/ANALISI-1.png"
+        image: "/FIRST-YEAR-IMAGES/ANALISI-1.jpeg"
     },
     {
         title: "Fondamenti di Informatica",
         year: "Year 1",
         slug: "fondamenti-informatica",
-        image: "/FIRST-YEAR-IMAGES/fondamenti-di-informatica.png"
+        image: "/FIRST-YEAR-IMAGES/fondamenti-informatic.jpeg"
     },
     {
         title: "Geometria e Algebra Lineare",
         year: "Year 1",
         slug: "geometria-algebra",
-        image: "/FIRST-YEAR-IMAGES/GEOMETRIA-E-ALGEBRA-LINEARE.png"
+        image: "/FIRST-YEAR-IMAGES/geometria-e-algebra-lineare.jpeg"
     },
     {
         title: "Fisica",
         year: "Year 1",
         slug: "fisica",
-        image: "/FIRST-YEAR-IMAGES/FISICA.png"
+        image: "/FIRST-YEAR-IMAGES/fisica.jpeg"
     },
     {
         title: "Elettrotecnica",
         year: "Year 1",
         slug: "elettrotecnica",
-        image: "/FIRST-YEAR-IMAGES/elettrotecnica.png"
+        image: "/FIRST-YEAR-IMAGES/elettrotecnica.jpeg"
     },
     {
         title: "Economia e Org. Aziendale",
         year: "Year 1",
         slug: "economia",
-        image: "/FIRST-YEAR-IMAGES/economia e organizzazione aziendale.png"
+        image: "/FIRST-YEAR-IMAGES/economia-e-org-aziendale.jpeg"
     },
 
     // 2nd Year

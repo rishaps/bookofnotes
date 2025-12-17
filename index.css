@@ -107,44 +107,6 @@
         /* Force remove all borders (except where we manually add them if needed, but strict minimalist means none) */
     }
 
-    /* Pencil / Sketch Style for Images */
-    .pencil-effect {
-        /* Option B: Photo to Pencil Recipe */
-        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
-
-        /* Force white paper look container */
-        background-color: white;
-        padding: 5px;
-        transform: scale(1.02);
-
-        /* Option B: Blend Mode */
-        mix-blend-mode: multiply;
-    }
-
-    /* Pencil Style Dark Mode - UNIFIED */
-    .dark .pencil-effect {
-        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
-        background-color: white;
-        mix-blend-mode: multiply;
-        opacity: 0.9;
-    }
-
-    /* Pencil logic for portraits */
-    .pencil-effect-no-invert {
-        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
-        background-color: white;
-        padding: 5px;
-        transform: scale(1.02);
-        mix-blend-mode: multiply;
-    }
-
-    .dark .pencil-effect-no-invert {
-        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
-        background-color: white;
-        mix-blend-mode: multiply;
-        opacity: 0.9;
-    }
-
     /* Lightbox overrides */
     .lightbox-image {
         mix-blend-mode: normal !important;

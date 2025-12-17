@@ -30,10 +30,7 @@ const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: s
         src={src}
         alt={alt}
         loading="lazy"
-        className={`w-full h-auto transition-all duration-700 ${src.toLowerCase().match(/boole|khwarizmi|neumann|babbage|engelbart|portrait|foto|photo|person/)
-          ? 'pencil-effect-no-invert'
-          : 'pencil-effect'
-          }`}
+        className="w-full h-auto transition-all duration-700"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none flex items-end justify-center pb-4">
         <span className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white bg-black/50 backdrop-blur-md px-3 py-1">
@@ -467,10 +464,7 @@ const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
       <img
         src={src}
         alt={alt}
-        className={`max-w-full max-h-[90vh] lightbox-image rounded-lg shadow-2xl shadow-black/50 scale-95 animate-in zoom-in-95 duration-300 ${src.toLowerCase().match(/boole|khwarizmi|neumann|babbage|engelbart|portrait|foto|photo|person/)
-            ? 'pencil-effect-no-invert'
-            : 'pencil-effect'
-          }`}
+        className="max-w-full max-h-[90vh] lightbox-image rounded-lg shadow-2xl shadow-black/50 scale-95 animate-in zoom-in-95 duration-300"
         onClick={(e) => e.stopPropagation()}
       />
       <p className="absolute bottom-6 left-0 right-0 text-center text-gray-400 font-mono text-sm tracking-widest uppercase pointer-events-none">
