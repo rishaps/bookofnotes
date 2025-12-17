@@ -151,7 +151,7 @@ const SubjectPage: React.FC = () => {
         'analisi-matematica-1': 'AM1',
         'analisi-matematica-2': 'AM2',
         'algebra-lineare': 'AL',
-        'geometria-algebra': 'GA',
+        'geometria-algebra': 'GAL', // Deep Indigo
         'fisica-generale-1': 'FG1',
         'fisica-generale-2': 'FG2',
         'algoritmi-strutture-dati': 'ASD',

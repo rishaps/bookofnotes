@@ -107,57 +107,53 @@
         /* Force remove all borders (except where we manually add them if needed, but strict minimalist means none) */
     }
 
-    /* Exception for scrollbars or specific UI elements if absolutely necessary, but strict interpretation: NO BOXES. */
-
     /* Pencil / Sketch Style for Images */
     .pencil-effect {
-        filter: grayscale(100%) contrast(150%) brightness(105%) url(#pencil-filter);
-        /* Slight scale to prevent edge artifact clipping from displacement */
+        /* Option B: Photo to Pencil Recipe */
+        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
+
+        /* Force white paper look container */
+        background-color: white;
+        padding: 5px;
         transform: scale(1.02);
+
+        /* Option B: Blend Mode */
         mix-blend-mode: multiply;
-        /* Helps blend into paper background in light mode */
     }
 
-    /* Pencil Style Dark Mode */
+    /* Pencil Style Dark Mode - UNIFIED */
     .dark .pencil-effect {
-        /* Invert to make it white lines on black */
-        /* Mix blend mode normal because multiply makes white invisible on black */
-        mix-blend-mode: normal;
-        filter: invert(1) grayscale(100%) contrast(150%) brightness(120%) url(#pencil-filter);
+        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
+        background-color: white;
+        mix-blend-mode: multiply;
+        opacity: 0.9;
     }
 
-    /* Ensure SVGs are visible in dark mode (if not caught by pencil-effect class) */
-    /* But pencil-effect class handles invert, so this is fallback or for icons */
-    .dark img:not(.pencil-effect):not(.pencil-effect-no-invert)[src$=".svg"] {
-        filter: invert(1);
-    }
-
-    /* Pencil logic for portraits/photos that shouldn't invert in dark mode */
+    /* Pencil logic for portraits */
     .pencil-effect-no-invert {
-        filter: grayscale(100%) contrast(150%) brightness(105%) url(#pencil-filter);
+        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
+        background-color: white;
+        padding: 5px;
         transform: scale(1.02);
         mix-blend-mode: multiply;
     }
 
     .dark .pencil-effect-no-invert {
-        mix-blend-mode: normal;
-        /* NO INVERT HERE - just the pencil look */
-        filter: grayscale(100%) contrast(120%) brightness(80%) url(#pencil-filter);
+        filter: grayscale(100%) contrast(200%) brightness(1.2) url(#pencil-effect);
+        background-color: white;
+        mix-blend-mode: multiply;
         opacity: 0.9;
     }
 
-    /* Lightbox specific overrides */
+    /* Lightbox overrides */
     .lightbox-image {
-        /* In light mode, we want the "sheet of paper" look to be opaque against the dark backdrop */
         mix-blend-mode: normal !important;
         background-color: white !important;
-        padding: 5px;
-        /* Subtle border feel */
+        padding: 10px;
     }
 
     .dark .lightbox-image {
-        /* In dark mode, we don't want a white box. The inversion handles the content. */
-        background-color: transparent !important;
+        background-color: white !important;
         mix-blend-mode: normal !important;
     }
 }

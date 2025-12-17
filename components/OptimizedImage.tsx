@@ -111,6 +111,9 @@ const OptimizedImage: React.FC<OptimizedImageProps> = memo(({
             w-full h-full object-cover
             transition-opacity duration-500 ease-out
             ${isLoaded ? 'opacity-100' : 'opacity-0'}
+            ${src.toLowerCase().match(/boole|khwarizmi|neumann|babbage|engelbart|portrait|foto|photo|person/)
+                            ? 'pencil-effect-no-invert'
+                            : 'pencil-effect'}
             ${onClick ? 'cursor-pointer hover:scale-[1.02] transition-transform' : ''}
           `}
                     style={{

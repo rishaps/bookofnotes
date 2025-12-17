@@ -5,7 +5,7 @@ import { prefetchContent } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 
 // Subjects with completed notes
-const completedSubjects = ['analisi-1', 'fondamenti-informatica', 'economia'];
+const completedSubjects = ['analisi-1', 'fondamenti-informatica', 'economia', 'geometria-algebra'];
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
@@ -76,7 +76,10 @@ const HomePage: React.FC = () => {
                             onLoad={() => setImageLoaded(true)}
                             className={`h-[55vh] w-auto rounded-2xl shadow-2xl cursor-pointer 
                                        hover:scale-[1.01] transition-all duration-300
-                                       ${imageLoaded ? 'opacity-100' : 'opacity-0 absolute top-0'}`}
+                                       ${imageLoaded ? 'opacity-100' : 'opacity-0 absolute top-0'}
+                                       ${selectedSubject.image.toLowerCase().match(/boole|khwarizmi|neumann|babbage|engelbart|portrait|foto|photo|person/)
+                                    ? 'pencil-effect-no-invert'
+                                    : 'pencil-effect'}`}
                             onClick={handleEnterSubject}
                         />
                     </div>
