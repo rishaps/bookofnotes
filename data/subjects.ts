@@ -61,7 +61,7 @@ export const subjects: Subject[] = [
         title: "Logica e Algebra",
         year: "Year 2",
         slug: "logica-algebra",
-        image: "/SECOND-YEAR-IMAGES /LOGICA E ALGEBRA'.png"
+        image: "/SECOND-YEAR-IMAGES /logicaealgebra.png"
     },
     {
         title: "Elettromagnetismo e Campi",
