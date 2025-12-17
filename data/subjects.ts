@@ -49,13 +49,13 @@ export const subjects: Subject[] = [
         title: "Analisi Matematica 2",
         year: "Year 2",
         slug: "analisi-2",
-        image: "/SECOND-YEAR-IMAGES /ANALISI-2.png"
+        image: "/SECOND-YEAR-IMAGES /analisi2.png"
     },
     {
         title: "Architettura dei Calcolatori e SO",
         year: "Year 2",
         slug: "architettura-os",
-        image: "/SECOND-YEAR-IMAGES /ARCHITETTURA DEI CALCOLATORI E SISTEMI OPERATIVI'.png"
+        image: "/SECOND-YEAR-IMAGES /acso.png"
     },
     {
         title: "Logica e Algebra",
@@ -67,37 +67,37 @@ export const subjects: Subject[] = [
         title: "Elettromagnetismo e Campi",
         year: "Year 2",
         slug: "elettromagnetismo",
-        image: "/SECOND-YEAR-IMAGES /ELETTROMAGNETISMO E CAMPI.png"
+        image: "/SECOND-YEAR-IMAGES /elettromagnetismo.png"
     },
     {
         title: "Probabilità e Statistica",
         year: "Year 2",
         slug: "probabilita-statistica",
-        image: "/SECOND-YEAR-IMAGES /  PROBABILITÀ E STATISTICA.png"
+        image: "/SECOND-YEAR-IMAGES /probestat.png"
     },
     {
         title: "Informazione e Stima",
         year: "Year 2",
         slug: "informazione-stima",
-        image: "/SECOND-YEAR-IMAGES /INFORMAZIONE E STIMA.png"
+        image: "/SECOND-YEAR-IMAGES /infoestima.png"
     },
     {
         title: "Segnali per le Comunicazioni",
         year: "Year 2",
         slug: "segnali-comunicazioni",
-        image: "/SECOND-YEAR-IMAGES /    SEGNALI PER LE COMUNICAZIONI.png"
+        image: "/SECOND-YEAR-IMAGES /segnali.png"
     },
     {
         title: "Algoritmi e Principi dell'Informatica",
         year: "Year 2",
         slug: "algoritmi",
-        image: "/SECOND-YEAR-IMAGES /    ALGORITMI E PRINCIPI DELL'INFORMATICA.png"
+        image: "/SECOND-YEAR-IMAGES /aedi.png"
     },
     {
         title: "Fondamenti di Automatica",
         year: "Year 2",
         slug: "automatica",
-        image: "/SECOND-YEAR-IMAGES /    FONDAMENTI DI AUTOMATICA.png"
+        image: "/SECOND-YEAR-IMAGES /    automatica.png"
     },
 
     // 3rd Year
