@@ -98,112 +98,72 @@
     /* --- STRICT SQUARED AESTHETIC --- */
     /* Remove all rounded corners ("corneration") globally */
     *,
-    ::before,
-    ::after {
-        border-radius: 0px !important;
+    *::before,
+    *::after {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        /* Force remove all shadows */
+        border: none !important;
+        /* Force remove all borders (except where we manually add them if needed, but strict minimalist means none) */
     }
 
-    /* 🚀 Respect user's motion preferences */
-    @media (prefers-reduced-motion: reduce) {
+    /* Exception for scrollbars or specific UI elements if absolutely necessary, but strict interpretation: NO BOXES. */
 
-        *,
-        ::before,
-        ::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-        }
+    /* Pencil / Sketch Style for Images */
+    .pencil-effect {
+        filter: grayscale(100%) contrast(150%) brightness(105%) url(#pencil-filter);
+        /* Slight scale to prevent edge artifact clipping from displacement */
+        transform: scale(1.02);
+        mix-blend-mode: multiply;
+        /* Helps blend into paper background in light mode */
     }
 
-    /* 🚀 Optimize images */
-    img {
-        content-visibility: auto;
+    /* Pencil Style Dark Mode */
+    .dark .pencil-effect {
+        /* Invert to make it white lines on black */
+        /* Mix blend mode normal because multiply makes white invisible on black */
+        mix-blend-mode: normal;
+        filter: invert(1) grayscale(100%) contrast(150%) brightness(120%) url(#pencil-filter);
+    }
+
+    /* Ensure SVGs are visible in dark mode (if not caught by pencil-effect class) */
+    /* But pencil-effect class handles invert, so this is fallback or for icons */
+    .dark img:not(.pencil-effect):not(.pencil-effect-no-invert)[src$=".svg"] {
+        filter: invert(1);
+    }
+
+    /* Pencil logic for portraits/photos that shouldn't invert in dark mode */
+    .pencil-effect-no-invert {
+        filter: grayscale(100%) contrast(150%) brightness(105%) url(#pencil-filter);
+        transform: scale(1.02);
+        mix-blend-mode: multiply;
+    }
+
+    .dark .pencil-effect-no-invert {
+        mix-blend-mode: normal;
+        /* NO INVERT HERE - just the pencil look */
+        filter: grayscale(100%) contrast(120%) brightness(80%) url(#pencil-filter);
+        opacity: 0.9;
+    }
+
+    /* Lightbox specific overrides */
+    .lightbox-image {
+        /* In light mode, we want the "sheet of paper" look to be opaque against the dark backdrop */
+        mix-blend-mode: normal !important;
+        background-color: white !important;
+        padding: 5px;
+        /* Subtle border feel */
+    }
+
+    .dark .lightbox-image {
+        /* In dark mode, we don't want a white box. The inversion handles the content. */
+        background-color: transparent !important;
+        mix-blend-mode: normal !important;
     }
 }
 
 @layer utilities {
-    .lesson-rail {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .lesson-rail::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Make borders thin and solid */
-    .border-border-primary {
-        border-width: 1px;
-    }
-
-    /* 🚀 GPU-accelerated animations */
-    .gpu-accelerate {
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        perspective: 1000px;
-    }
-
-    /* 🚀 Content visibility for lazy rendering */
-    .content-auto {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 500px;
-    }
-
-    /* 🚀 Optimized smooth scrolling */
-    .scroll-smooth-gpu {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* 🚀 Performance-optimized animations */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .animate-fade-in {
-        animation: fadeIn 0.3s ease-out forwards;
-    }
-
-    .animate-slide-up {
-        animation: slideUp 0.4s ease-out forwards;
-    }
-
-    /* 🚀 Skeleton loading animation */
-    @keyframes shimmer {
-        0% {
-            background-position: -200% 0;
-        }
-
-        100% {
-            background-position: 200% 0;
-        }
-    }
-
-    .skeleton {
-        background: linear-gradient(90deg,
-                var(--premium-gray) 25%,
-                var(--premium-dark) 50%,
-                var(--premium-gray) 75%);
-        background-size: 200% 100%;
-        animation: shimmer 1.5s infinite;
+    .text-balance {
+        text-wrap: balance;
     }
 }

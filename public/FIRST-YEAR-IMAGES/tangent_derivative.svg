@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+    </marker>
+  </defs>
+
+  <!-- Axes -->
+  <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="50" y1="250" x2="50" y2="20" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Function Curve -->
+  <path d="M 50 200 Q 150 50 350 20" fill="none" stroke="black" stroke-width="2"/>
+  <text x="320" y="40" font-family="Arial" font-size="14">f(x)</text>
+
+  <!-- Point P -->
+  <circle cx="150" cy="118" r="4" fill="red"/>
+  <text x="140" y="110" font-family="Arial" font-size="14">P(x₀, f(x₀))</text>
+
+  <!-- Tangent Line -->
+  <line x1="80" y1="180" x2="240" y2="40" stroke="blue" stroke-width="1.5" stroke-dasharray="5,2"/>
+  <text x="250" y="50" font-family="Arial" font-size="14" fill="blue">Tangent</text>
+
+  <!-- Secant Line (faint) -->
+  <line x1="150" y1="118" x2="250" y2="75" stroke="gray" stroke-width="1"/>
+  <circle cx="250" cy="75" r="3" fill="gray"/>
+  <text x="260" y="80" font-family="Arial" font-size="12" fill="gray">Q</text>
+  
+  <!-- Labels -->
+  <line x1="150" y1="118" x2="150" y2="250" stroke="black" stroke-dasharray="2"/>
+  <text x="145" y="265" font-family="Arial" font-size="14">x₀</text>
+</svg>

@@ -137,7 +137,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "$$ A \\setminus B = \\{x \\in U \\mid x \\in A \\wedge x \\notin B\\} $$",
                     "**4. Complementare ($C_U(A)$ o $\\bar{A}$):** Tutti gli elementi di $U$ che non appartengono ad $A$ (equivalente a $U \\setminus A$).",
                     "**5. Prodotto Cartesiano ($A \\times B$):** L'insieme di tutte le coppie ordinate $(a,b)$ con $a \\in A$ e $b \\in B$.",
-                    "$$ A \\times B = \\{(a,b) \\mid a \\in A, b \\in B\\} $$"
+                    "$$ A \\times B = \\{(a,b) \\mid a \\in A, b \\in B\\} $$",
+                    "![Diagrammi di Venn: Unione, Intersezione, Differenza](/FIRST-YEAR-IMAGES/sets_venn.svg)"
                 ]
             },
             {
@@ -356,6 +357,7 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Poiché $\\mathbb{C} \\cong \\mathbb{R}^2$, possiamo rappresentare ogni numero complesso $z = a+ib$ come un punto $P(a,b)$ nel **Piano Cartesiano (di Gauss)**.",
                     "L'asse $x$ è l'**Asse Reale**, l'asse $y$ è l'**Asse Immaginario**.",
+                    "![Piano di Gauss](/FIRST-YEAR-IMAGES/complex_plane.svg)",
                     "**Coniugato ($\\bar{z}$):** Dato $z = a+ib$, il suo coniugato è $\\bar{z} = a-ib$.",
                     "Geometricamente, $\\bar{z}$ è il simmetrico di $z$ rispetto all'asse reale.",
                     "**Proprietà del Coniugato:**",
@@ -604,7 +606,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "Il concetto di funzione nasce per esprimere la dipendenza di una grandezza variabile rispetto a un'altra grandezza, considerata indipendente.",
                     "**Definizione:** Dati due insiemi $A$ e $B$, una **funzione** $f: A \\rightarrow B$ è una legge che ad ogni elemento $x \\in A$ associa **uno e un solo** elemento $f(x) \\in B$.",
                     `![Mappatura di una Funzione](/FIRST-YEAR-IMAGES/funzione-mappatura.png)`,
-                    `*Figura 11.1: Mappatura di una funzione f da un insieme A a un insieme B. A sinistra: una funzione valida (ogni elemento di A ha una sola immagine). A destra: non è una funzione (un elemento ha due immagini).*`,
+                    `*Figura 11.1: Mappatura di una funzione $f$ da un insieme $A$ a un insieme $B$. A sinistra: una funzione valida (ogni elemento di $A$ ha una sola immagine). A destra: non è una funzione (un elemento ha due immagini).*`,
                     "*   $A = dom(f)$ è il **Dominio** (insieme di partenza).",
                     "*   $B = codom(f)$ è il **Codominio** (insieme di arrivo).",
                     "*   $x$ è la **variabile indipendente**.",
@@ -1347,7 +1349,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ continua. Consideriamo un punto $P(x_0, y_0)$ sul grafico di $f$ con $x_0 \\in (a, b)$ e $Q(x, y)$ un punto mobile sul grafico.",
                     "$$ \\frac{y-y_0}{x-x_0} = \\frac{f(x)-f(x_0)}{x-x_0} \\quad \\text{(Coefficiente angolare della retta secante)} $$",
                     "Se consideriamo il limite $x \\to x_0$, la retta secante si trasforma in **retta tangente**:",
-                    "$$ y - y_0 = \\lim_{x \\to x_0} \\frac{f(x)-f(x_0)}{x-x_0} (x-x_0) $$"
+                    "$$ y - y_0 = \\lim_{x \\to x_0} \\frac{f(x)-f(x_0)}{x-x_0} (x-x_0) $$",
+                    "![Interpretazione Geometrica della Derivata](/FIRST-YEAR-IMAGES/tangent_derivative.svg)"
                 ]
             },
             {
