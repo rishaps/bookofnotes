@@ -97,7 +97,7 @@ export const subjects: Subject[] = [
         title: "Fondamenti di Automatica",
         year: "Year 2",
         slug: "automatica",
-        image: "/SECOND-YEAR-IMAGES /    automatica.png"
+        image: "/SECOND-YEAR-IMAGES /automatica.png"
     },
 
     // 3rd Year
