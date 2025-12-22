@@ -37,12 +37,14 @@ const renderTitleWithMath = (title: string) => {
 };
 
 interface LessonRailProps {
-  content: MainSection[];
+  content: MainSection[] | null;
   className?: string;
   onLinkClick?: () => void;
 }
 
 const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLinkClick }) => {
+  if (!content || !Array.isArray(content)) return null;
+
   const subsectionAnchors = content.flatMap((section) =>
     section.subsections.map((_, index) => `${section.id}-${index}`)
   );

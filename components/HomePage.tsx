@@ -26,6 +26,9 @@ const HomePage: React.FC = () => {
 
     const handleSubjectClick = (subject: Subject) => {
         prefetchContent(subject.slug); // Start prefetching immediately
+        // Preload the high-res image for the podium view to prevent button lag
+        const img = new Image();
+        img.src = subject.image;
         setSelectedSubject(subject);
     };
 

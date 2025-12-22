@@ -93,14 +93,27 @@ const SubjectPage: React.FC = () => {
             return;
         }
 
+        let isMounted = true;
         const fetchContent = async () => {
             setIsLoading(true);
-            const data = await loadContent(activeSlug);
-            setContent(data);
-            setIsLoading(false);
+
+            // Safety timeout to prevent infinite loading
+            const timeoutPromise = new Promise<null>(resolve => setTimeout(() => resolve(null), 5000));
+
+            try {
+                const data = await Promise.race([loadContent(activeSlug), timeoutPromise]);
+                if (isMounted) {
+                    setContent(data); // If timeout wins, data is null
+                    setIsLoading(false);
+                }
+            } catch (e) {
+                if (isMounted) setIsLoading(false);
+            }
         };
 
         fetchContent();
+
+        return () => { isMounted = false; };
     }, [activeSlug, cachedContent]);
 
     // Resolve Theme Class
@@ -113,30 +126,6 @@ const SubjectPage: React.FC = () => {
                     <p className="text-xl mb-4">Materia non trovata: {activeSlug}</p>
                     <button onClick={() => navigate('/subjects')} className="text-premium-gold underline">Torna all'indice</button>
                 </div>
-            </div>
-        );
-    }
-
-    if (isLoading) {
-        return (
-            <div className="min-h-screen bg-[var(--bg-body)] text-content-primary p-8 flex flex-col items-center justify-center">
-                <div className="w-12 h-12 border-4 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin mb-6"></div>
-                <h1 className="text-2xl font-serif text-premium-gold mb-2">{subject.title}</h1>
-                <p className="text-content-muted">Caricamento appunti...</p>
-            </div>
-        );
-    }
-
-    if (!content) {
-        return (
-            <div className="min-h-screen bg-[var(--bg-body)] text-content-primary p-8 flex flex-col items-center justify-center">
-                <button onClick={() => navigate('/subjects')} className="absolute top-8 left-8 text-content-muted hover:text-content-primary flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                    Torna
-                </button>
-                <div className="text-6xl mb-6">🚧</div>
-                <h1 className="text-3xl font-serif text-premium-gold mb-4">{subject.title}</h1>
-                <p className="text-content-muted">Contenuto in arrivo...</p>
             </div>
         );
     }
@@ -314,14 +303,29 @@ const SubjectPage: React.FC = () => {
                 {/* Main Content Area */}
                 <main className="flex-1 min-w-0 pb-20 optimize-gpu">
                     <div className="flex flex-col gap-10 md:gap-12 max-w-4xl mx-auto">
-                        {content.slice(0, renderedCount).map((section) => (
-                            <SectionDisplay
-                                key={section.id}
-                                section={section}
-                                // @ts-ignore - SectionDisplay needs to be updated to accept this prop
-                                fontSizeLevel={fontSizeLevel}
-                            />
-                        ))}
+                        {content ? (
+                            content.slice(0, renderedCount).map((section) => (
+                                <SectionDisplay
+                                    key={section.id}
+                                    section={section}
+                                    // @ts-ignore - SectionDisplay needs to be updated to accept this prop
+                                    fontSizeLevel={fontSizeLevel}
+                                />
+                            ))
+                        ) : isLoading ? (
+                            /* Non-intrusive Loading State inside layout */
+                            <div className="flex flex-col items-center justify-center py-20 opacity-50">
+                                <div className="w-8 h-8 border-2 border-content-primary border-t-transparent rounded-full animate-spin mb-4" />
+                                <p className="text-sm font-mono uppercase tracking-widest text-content-muted">Caricamento...</p>
+                            </div>
+                        ) : (
+                            /* Not Found / Empty State inside layout */
+                            <div className="flex flex-col items-center justify-center py-20 text-center">
+                                <div className="text-4xl mb-4">🚧</div>
+                                <h2 className="font-serif text-xl text-content-primary mb-2">Contenuto in arrivo</h2>
+                                <p className="text-sm text-content-muted">Questa sezione non è ancora disponibile.</p>
+                            </div>
+                        )}
                     </div>
                 </main>
 
