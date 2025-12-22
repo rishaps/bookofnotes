@@ -40,7 +40,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0,
-    rootMargin: '200px 0px', // Pre-render 200px before it enters viewport
+    rootMargin: '600px 0px', // Pre-render 600px before it enters viewport
   });
 
   const level = Math.max(0, Math.min(2, fontSizeLevel)); // Clamp 0-2
@@ -48,7 +48,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
 
   // FORCE RENDER SHORTCUT FOR STABILITY (User reported missing content with lazy load)
   // We keep it true for now until visibility is 100% confirmed stable.
-  const shouldRender = true;
+  const shouldRender = inView;
 
   return (
     <section
@@ -70,6 +70,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
             <SubSectionDisplay
               key={idx}
               sub={sub}
+              anchorId={`${section.id}-${idx}`}
               onImageClick={(src, alt) => setLightboxImage({ src, alt })}
               typography={typography}
             />
@@ -96,11 +97,12 @@ type ContentItem = string | { type: 'table'; headers: string[]; rows: string[][]
 
 const SubSectionDisplay: React.FC<{
   sub: SubSection;
+  anchorId: string;
   onImageClick: (src: string, alt: string) => void;
   typography: { base: string; h2: string; h3: string; small: string };
-}> = ({ sub, onImageClick, typography }) => {
+}> = ({ sub, anchorId, onImageClick, typography }) => {
   return (
-    <div id={sub.title.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-28 group">
+    <div id={anchorId} className="scroll-mt-28 group">
       <h3 className={`font-serif ${typography.h3} text-content-primary/90 mb-6 flex items-center group-hover:text-premium-gold transition-colors duration-300`}>
         <span className="w-1.5 h-1.5 rounded-full bg-premium-gold mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
         {sub.title}

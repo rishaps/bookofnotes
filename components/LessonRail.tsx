@@ -62,7 +62,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
   return (
     <nav className={`overflow-y-auto pr-2 custom-scrollbar ${className}`}>
       <div className="flex flex-col gap-8">
-        <div className="text-xs font-mono text-premium-gold/70 uppercase tracking-widest pb-2">
+        <div className="text-xs font-mono text-premium-gold/90 uppercase tracking-widest pb-2 font-bold">
           Indice dei contenuti
         </div>
 
@@ -76,15 +76,15 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
                 onClick={() => handleClick(`${section.id}-0`)}
               >
                 {!['glossario', 'formulario-esempi'].includes(section.id) ? (
-                  <span className="flex h-6 w-6 items-center justify-center text-[10px] font-mono text-content-muted group-hover:text-premium-gold transition-colors">
+                  <span className="flex h-6 w-6 items-center justify-center text-[10px] font-mono text-content-primary group-hover:text-premium-gold transition-colors font-bold border border-premium-gray/30 rounded-full">
                     {sectionIndex + 1}
                   </span>
                 ) : (
-                  <span className="flex h-6 w-6 items-center justify-center text-content-muted">
+                  <span className="flex h-6 w-6 items-center justify-center text-content-primary">
                     •
                   </span>
                 )}
-                <span className="text-xs font-medium uppercase tracking-wide text-content-muted group-hover:text-content-primary transition-colors">
+                <span className="text-xs font-bold uppercase tracking-wide text-content-primary group-hover:text-premium-gold transition-colors">
                   {shortTitle}
                 </span>
               </div>
@@ -101,7 +101,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
                       onClick={() => handleClick(anchorId)}
                       className={`text-left text-sm transition-all duration-300 line-clamp-2 ${isActive
                         ? 'text-premium-gold font-bold translate-x-1'
-                        : 'text-content-muted hover:text-content-secondary'
+                        : 'text-content-primary hover:text-content-secondary'
                         }`}
                     >
                       {renderTitleWithMath(subsection.title.replace(/-->/g, '').trim())}

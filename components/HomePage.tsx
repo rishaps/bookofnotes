@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { subjects, Subject } from '../data/subjects';
-import { prefetchContent } from '../utils/contentLoader';
+import { prefetchContent, loadContent } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 
 // Subjects with completed notes
@@ -29,9 +29,42 @@ const HomePage: React.FC = () => {
         setSelectedSubject(subject);
     };
 
-    const handleEnterSubject = () => {
+    const [isLoadingContent, setIsLoadingContent] = useState(false);
+    const [countdown, setCountdown] = useState(7);
+
+    const handleEnterSubject = async () => {
         if (selectedSubject) {
-            navigate(selectedSubject.slug === 'economia' ? '/economia' : `/${selectedSubject.slug}`);
+            setIsLoadingContent(true);
+            setCountdown(7);
+
+            // Start countdown timer
+            const timerInterval = setInterval(() => {
+                setCountdown((prev) => {
+                    if (prev <= 1) {
+                        clearInterval(timerInterval);
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+
+            try {
+                // Determine target path
+                const path = selectedSubject.slug === 'economia' ? '/economia' : `/${selectedSubject.slug}`;
+
+                // Wait for both the delay and the content
+                await Promise.all([
+                    loadContent(selectedSubject.slug),
+                    new Promise(resolve => setTimeout(resolve, 7000))
+                ]);
+
+                clearInterval(timerInterval);
+                navigate(path);
+            } catch (error) {
+                console.error("Failed to load content:", error);
+                clearInterval(timerInterval);
+                setIsLoadingContent(false);
+            }
         }
     };
 
@@ -39,7 +72,7 @@ const HomePage: React.FC = () => {
         if (selectedSubject && e.key === 'Enter') {
             handleEnterSubject();
         }
-        if (e.key === 'Escape' && selectedSubject) {
+        if (e.key === 'Escape' && selectedSubject && !isLoadingContent) {
             setSelectedSubject(null);
             setImageLoaded(false);
         }
@@ -52,7 +85,7 @@ const HomePage: React.FC = () => {
 
     return (
         <div
-            className="min-h-screen bg-[var(--bg-body)] text-content-primary transition-colors duration-500"
+            className="min-h-screen bg-[var(--bg-body)] text-content-primary transition-colors duration-500 relative"
             onKeyDown={handleKeyDown}
             tabIndex={0}
         >
@@ -60,6 +93,36 @@ const HomePage: React.FC = () => {
             <div className="absolute top-6 right-6 z-50">
                 <ThemeToggle inline={true} />
             </div>
+
+            {/* Loading Overlay */}
+            {isLoadingContent && (
+                <div className="fixed inset-0 z-[100] bg-[var(--bg-body)] flex flex-col items-center justify-center text-content-primary animate-in fade-in duration-300">
+                    <div className="w-full max-w-sm px-6 flex flex-col items-center">
+                        {/* Minimalist Spinner */}
+                        <div className="mb-10 relative">
+                            <div className="w-12 h-12 border-2 border-content-muted/20 rounded-full" />
+                            <div className="absolute inset-0 w-12 h-12 border-t-2 border-content-primary rounded-full animate-spin" />
+                        </div>
+
+                        <h2 className="font-serif text-xl md:text-2xl text-center mb-8 tracking-wide px-4 text-content-primary">
+                            Caricamento dei contenuti di <span className="font-bold italic">{selectedSubject?.title}</span> in corso...
+                        </h2>
+
+                        {/* Text Countdown */}
+                        <p className="font-serif text-xs md:text-sm text-content-primary uppercase tracking-[0.2em] mb-4 text-center">
+                            Il contenuto sarà disponibile tra <span className="font-bold mx-1">{countdown}</span> secondi
+                        </p>
+
+                        {/* Sleek Line Bar */}
+                        <div className="w-full h-[2px] bg-content-muted/10 overflow-hidden relative rounded-full">
+                            <div
+                                className="absolute inset-y-0 left-0 bg-content-primary transition-all duration-1000 ease-linear shadow-sm"
+                                style={{ width: `${((7 - countdown) / 7) * 100}%` }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {selectedSubject ? (
                 /* Podium View - When a subject is selected */

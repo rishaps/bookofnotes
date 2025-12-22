@@ -56,7 +56,8 @@ const SubjectPage: React.FC = () => {
     const [content, setContent] = useState<MainSection[] | null>(cachedContent);
     const [isLoading, setIsLoading] = useState(!cachedContent);
     const [showSidebar, setShowSidebar] = useState(false); // Defer sidebar render
-    const [renderAll, setRenderAll] = useState(false); // Progressive rendering
+    // Progressive Rendering: Render sections in small chunks to avoid freezing UI
+    const [renderedCount, setRenderedCount] = useState(1);
     const [isScrolled, setIsScrolled] = useState(false); // Header minimization state
 
     // New Features State
@@ -86,13 +87,20 @@ const SubjectPage: React.FC = () => {
     }, []);
 
     useEffect(() => {
+        if (!content || renderedCount >= content.length) return;
+
+        const timer = requestAnimationFrame(() => {
+            setRenderedCount(prev => Math.min(prev + 2, content.length));
+        });
+
+        return () => cancelAnimationFrame(timer);
+    }, [renderedCount, content]);
+
+    useEffect(() => {
         if (cachedContent) {
             setContent(cachedContent);
             setIsLoading(false);
-            requestAnimationFrame(() => {
-                setShowSidebar(true);
-                requestAnimationFrame(() => setRenderAll(true));
-            });
+            requestAnimationFrame(() => setShowSidebar(true));
             return;
         }
 
@@ -101,10 +109,7 @@ const SubjectPage: React.FC = () => {
             const data = await loadContent(activeSlug);
             setContent(data);
             setIsLoading(false);
-            requestAnimationFrame(() => {
-                setShowSidebar(true);
-                requestAnimationFrame(() => setRenderAll(true));
-            });
+            requestAnimationFrame(() => setShowSidebar(true));
         };
 
         fetchContent();
@@ -325,7 +330,7 @@ const SubjectPage: React.FC = () => {
                 {/* Main Content Area */}
                 <main className="flex-1 min-w-0 pb-20">
                     <div className="flex flex-col gap-10 md:gap-12 max-w-4xl mx-auto">
-                        {(renderAll ? content : content.slice(0, 1)).map((section) => (
+                        {content.slice(0, renderedCount).map((section) => (
                             <SectionDisplay
                                 key={section.id}
                                 section={section}
