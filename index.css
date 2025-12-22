@@ -118,9 +118,10 @@
 
     /* 🚀 Performance: Optimize font rendering */
     html {
-        text-rendering: optimizeSpeed;
+        text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
     }
 
     body {
@@ -131,7 +132,8 @@
         /* 🚀 Smooth scrolling with GPU acceleration */
         overflow-y: auto;
         overflow-x: hidden;
-        overscroll-behavior-y: contain;
+        overscroll-behavior-y: none;
+        /* Prevent bounce effects which can feel laggy */
     }
 
     /* High refresh rate selection style - Professional Blue */
@@ -210,5 +212,13 @@
         /* Optional: Mix blend mode for better integration */
         /* mix-blend-mode: multiply; */
         display: block;
+    }
+
+    /* 🚀 RENDER OPTIMIZATION: massive boost for long pages */
+    .optimize-gpu {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 1000px;
+        /* Guess height to prevent scrollbar jumping */
+        contain: layout paint style;
     }
 }

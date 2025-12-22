@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { subjects, Subject } from '../data/subjects';
-import { prefetchContent, loadContent } from '../utils/contentLoader';
+import { prefetchContent, loadContent, preloadContentImages } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 
 // Subjects with completed notes
@@ -30,12 +30,12 @@ const HomePage: React.FC = () => {
     };
 
     const [isLoadingContent, setIsLoadingContent] = useState(false);
-    const [countdown, setCountdown] = useState(7);
+    const [countdown, setCountdown] = useState(3);
 
     const handleEnterSubject = async () => {
         if (selectedSubject) {
             setIsLoadingContent(true);
-            setCountdown(7);
+            setCountdown(3);
 
             // Start countdown timer
             const timerInterval = setInterval(() => {
@@ -52,10 +52,12 @@ const HomePage: React.FC = () => {
                 // Determine target path
                 const path = selectedSubject.slug === 'economia' ? '/economia' : `/${selectedSubject.slug}`;
 
-                // Wait for both the delay and the content
+                // Wait for content AND its images to load, plus the minimum delay
                 await Promise.all([
-                    loadContent(selectedSubject.slug),
-                    new Promise(resolve => setTimeout(resolve, 7000))
+                    loadContent(selectedSubject.slug).then(content => {
+                        if (content) return preloadContentImages(content);
+                    }),
+                    new Promise(resolve => setTimeout(resolve, 3000))
                 ]);
 
                 clearInterval(timerInterval);
@@ -132,7 +134,7 @@ const HomePage: React.FC = () => {
                             <div className="w-full h-[2px] bg-content-muted/20 overflow-hidden relative rounded-full mb-3">
                                 <div
                                     className="absolute inset-y-0 left-0 bg-content-primary transition-all duration-1000 ease-linear shadow-sm"
-                                    style={{ width: `${((7 - countdown) / 7) * 100}%` }}
+                                    style={{ width: `${((3 - countdown) / 3) * 100}%` }}
                                 />
                             </div>
                             <p className="font-serif text-sm text-content-primary text-center">

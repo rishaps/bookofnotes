@@ -48,13 +48,15 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
 
   // FORCE RENDER SHORTCUT FOR STABILITY (User reported missing content with lazy load)
   // We keep it true for now until visibility is 100% confirmed stable.
-  const shouldRender = inView;
+  // FORCE RENDER SHORTCUT FOR STABILITY (User reported missing content with lazy load)
+  // We keep it true for now until visibility is 100% confirmed stable.
+  const shouldRender = true; // Was inView
 
   return (
     <section
       id={section.id}
       ref={ref}
-      className="scroll-mt-24 min-h-[100px]" // Min-height ensures intersection observer works
+      className="scroll-mt-24 min-h-[100px] optimize-gpu" // Min-height ensures intersection observer works
     >
       <div className="mb-8 border-b border-premium-gray/20 pb-4">
         <h2 className={`font-serif ${typography.h2} text-content-primary mb-2`}>
@@ -338,4 +340,5 @@ const ContentRenderer: React.FC<{
   );
 };
 
-export default SectionDisplay;
+const MemorizedSectionDisplay = React.memo(SectionDisplay);
+export default MemorizedSectionDisplay;

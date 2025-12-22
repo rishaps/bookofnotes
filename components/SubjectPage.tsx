@@ -7,9 +7,7 @@ import { loadContent, getCachedContent } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 import { Menu, X, ChevronRight, BookOpen, Clock, ChevronDown, Home } from 'lucide-react';
 import SectionDisplay from './SectionDisplay';
-
-// Lazy-load the sidebar to prevent blocking initial paint
-const LessonRail = React.lazy(() => import('./LessonRail'));
+import LessonRail from './LessonRail'; // Static import for instant load
 
 // Map subjects to theme class names defined in index.css
 const SUBJECT_THEME_MAP: Record<string, string> = {
@@ -55,9 +53,9 @@ const SubjectPage: React.FC = () => {
     const cachedContent = getCachedContent(activeSlug);
     const [content, setContent] = useState<MainSection[] | null>(cachedContent);
     const [isLoading, setIsLoading] = useState(!cachedContent);
-    const [showSidebar, setShowSidebar] = useState(false); // Defer sidebar render
-    // Progressive Rendering: Render sections in small chunks to avoid freezing UI
-    const [renderedCount, setRenderedCount] = useState(1);
+
+    // Progressive Rendering: Render all immediately as per user request
+    const [renderedCount, setRenderedCount] = useState(1000); // Start sufficiently high to show all
     const [isScrolled, setIsScrolled] = useState(false); // Header minimization state
 
     // New Features State
@@ -86,21 +84,12 @@ const SubjectPage: React.FC = () => {
         return () => clearInterval(timer);
     }, []);
 
-    useEffect(() => {
-        if (!content || renderedCount >= content.length) return;
-
-        const timer = requestAnimationFrame(() => {
-            setRenderedCount(prev => Math.min(prev + 2, content.length));
-        });
-
-        return () => cancelAnimationFrame(timer);
-    }, [renderedCount, content]);
+    /* Progressive rendering effect removed to ensure instant full load */
 
     useEffect(() => {
         if (cachedContent) {
             setContent(cachedContent);
             setIsLoading(false);
-            requestAnimationFrame(() => setShowSidebar(true));
             return;
         }
 
@@ -109,7 +98,6 @@ const SubjectPage: React.FC = () => {
             const data = await loadContent(activeSlug);
             setContent(data);
             setIsLoading(false);
-            requestAnimationFrame(() => setShowSidebar(true));
         };
 
         fetchContent();
@@ -270,11 +258,7 @@ const SubjectPage: React.FC = () => {
 
                     {/* Lesson Rail (Scrollable) */}
                     <div className="flex-1 overflow-y-auto custom-scrollbar px-4 lg:px-0 py-4">
-                        {showSidebar && (
-                            <Suspense fallback={<div className="text-sm text-content-muted">Caricamento...</div>}>
-                                <LessonRail content={content} onLinkClick={handleLinkClick} />
-                            </Suspense>
-                        )}
+                        <LessonRail content={content} onLinkClick={handleLinkClick} />
                     </div>
 
                     {/* Sidebar Footer Controls */}
@@ -328,7 +312,7 @@ const SubjectPage: React.FC = () => {
                 </aside>
 
                 {/* Main Content Area */}
-                <main className="flex-1 min-w-0 pb-20">
+                <main className="flex-1 min-w-0 pb-20 optimize-gpu">
                     <div className="flex flex-col gap-10 md:gap-12 max-w-4xl mx-auto">
                         {content.slice(0, renderedCount).map((section) => (
                             <SectionDisplay

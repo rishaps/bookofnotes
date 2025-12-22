@@ -128,3 +128,43 @@ export const prefetchImage = (src: string) => {
 export const isImagePreloaded = (src: string): boolean => {
     return imagePreloadCache.has(src);
 };
+
+/**
+ * Helper: Extract all image URLs from content (markdown format)
+ */
+export const extractImagesFromContent = (sections: MainSection[]): string[] => {
+    const images: string[] = [];
+    const imageRegex = /!\[.*?\]\((.*?)\)/g;
+
+    const scanText = (text: string) => {
+        let match;
+        while ((match = imageRegex.exec(text)) !== null) {
+            images.push(match[1]);
+        }
+    };
+
+    sections.forEach(section => {
+        section.subsections.forEach(sub => {
+            sub.content.forEach(item => {
+                const anyItem = item as any;
+                if (typeof anyItem === 'string') {
+                    scanText(anyItem);
+                } else if (anyItem.type === 'table' && anyItem.rows) {
+                    anyItem.rows.forEach((row: string[]) => row.forEach((cell: string) => scanText(cell)));
+                }
+                // Charts typically don't have external images in this format
+            });
+        });
+    });
+
+    return images;
+};
+
+/**
+ * 🚀 PRELOAD ALL CONTENT IMAGES: Ensure all assets are ready
+ */
+export const preloadContentImages = async (sections: MainSection[]): Promise<void> => {
+    const images = extractImagesFromContent(sections);
+    const promises = images.map(src => preloadImage(src).catch(err => console.warn(`Failed to preload ${src}`, err)));
+    await Promise.all(promises);
+};
