@@ -256,7 +256,7 @@ const SubjectPage: React.FC = () => {
                 {/* Sidebar Component */}
                 <aside
                     className={`
-                        fixed inset-y-0 left-0 z-[60] w-72 bg-[var(--bg-body)] border-r border-premium-gray/30 transform transition-transform duration-300 ease-in-out
+                        fixed inset-y-0 left-0 z-[60] w-72 bg-white dark:bg-black border-r border-premium-gray/30 transform transition-transform duration-300 ease-in-out
                         lg:translate-x-0 lg:static lg:w-72 lg:h-[calc(100vh-8rem)] lg:sticky lg:top-24 lg:border-r-0 lg:bg-transparent lg:z-auto
                         flex flex-col
                         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
