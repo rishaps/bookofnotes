@@ -57,7 +57,9 @@ const HomePage: React.FC = () => {
             tabIndex={0}
         >
             {/* Theme Toggle */}
-            <ThemeToggle />
+            <div className="absolute top-6 right-6 z-50">
+                <ThemeToggle inline={true} />
+            </div>
 
             {selectedSubject ? (
                 /* Podium View - When a subject is selected */
