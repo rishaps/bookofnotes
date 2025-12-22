@@ -105,7 +105,7 @@ export const subjects: Subject[] = [
         title: "Fondamenti di Elettronica",
         year: "Year 3",
         slug: "elettronica",
-        image: "/THIRD-YEAR-IMAGES  /fondamenti-elettronica.jpg"
+        image: "/THIRD-YEAR-IMAGES  /fondamenti-elettronica.png"
     },
     {
         title: "Sistemi Informativi",
