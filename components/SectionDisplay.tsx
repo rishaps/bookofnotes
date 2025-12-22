@@ -1,230 +1,258 @@
 
 import React, { useState, useEffect } from 'react';
-import katex from 'katex';
-import { MainSection, SubSection, TableData } from '../types';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
+import { MainSection, SubSection } from '../types';
+import { MainSection as MainSectionType } from '../types'; // Alias if needed or just use MainSection
+import ImageThumbnail from './ImageThumbnail';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Images are in public folder, use direct paths
-const image1 = '/image1.jpg';
-const image2 = '/image2.jpg';
-const valueChainImg = '/value_chain.png';
-const orgChartImg = '/org_chart.png';
-import { Search, X, ZoomIn, Info } from 'lucide-react';
-import { createPortal } from 'react-dom';
-
-const RiskRewardChart = React.lazy(() => import('./RiskRewardChart'));
-const MathRenderer = React.lazy(() => import('./MathRenderer'));
+import Lightbox from './Lightbox';
 
 interface SectionDisplayProps {
   section: MainSection;
+  fontSizeLevel?: number; // 0, 1, 2
 }
 
-const highlightPattern = /(\*\*)/g;
+/* 
+  FONT SIZING STRATEGY:
+  Level 0 (Small): Base 14px, Heading 20px
+  Level 1 (Medium - Default): Base 16px, Heading 24px
+  Level 2 (Large): Base 18px, Heading 28px
+*/
+const FONT_SIZES = {
+  0: { base: 'text-sm', h2: 'text-xl', h3: 'text-lg', small: 'text-[10px]' },
+  1: { base: 'text-base', h2: 'text-2xl', h3: 'text-xl', small: 'text-xs' },
+  2: { base: 'text-lg', h2: 'text-3xl', h3: 'text-2xl', small: 'text-sm' },
+};
 
-const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: string, alt: string) => void }> = ({ src, alt, onImageClick }) => {
+const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel = 1 }) => {
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+
+  /* 
+     PERFORMANCE OPTIMIZATION: Lazy Rendering
+     We use useInView to detect when the section is near the viewport.
+  */
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0,
+    rootMargin: '200px 0px', // Pre-render 200px before it enters viewport
+  });
+
+  const level = Math.max(0, Math.min(2, fontSizeLevel)); // Clamp 0-2
+  const typography = FONT_SIZES[level as keyof typeof FONT_SIZES];
+
+  // FORCE RENDER SHORTCUT FOR STABILITY (User reported missing content with lazy load)
+  // We keep it true for now until visibility is 100% confirmed stable.
+  const shouldRender = true;
+
   return (
-    <div
-      className="relative overflow-hidden transition-all duration-500 hover:scale-[1.02] cursor-zoom-in group"
-      onClick={() => onImageClick(src, alt)}
+    <section
+      id={section.id}
+      ref={ref}
+      className="scroll-mt-24 min-h-[100px]" // Min-height ensures intersection observer works
     >
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className="w-full h-auto transition-all duration-700"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none flex items-end justify-center pb-4">
-        <span className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white bg-black/50 backdrop-blur-md px-3 py-1">
-          <ZoomIn size={12} /> Ingrandisci
-        </span>
+      <div className="mb-8 border-b border-premium-gray/20 pb-4">
+        <h2 className={`font-serif ${typography.h2} text-content-primary mb-2`}>
+          {section.title}
+        </h2>
+        <div className="w-12 h-1 bg-premium-gold rounded-full opacity-60"></div>
+      </div>
+
+      {shouldRender ? (
+        <div className="space-y-12 animate-in fade-in duration-500">
+
+          {section.subsections.map((sub, idx) => (
+            <SubSectionDisplay
+              key={idx}
+              sub={sub}
+              onImageClick={(src, alt) => setLightboxImage({ src, alt })}
+              typography={typography}
+            />
+          ))}
+        </div>
+      ) : (
+        /* Placeholder to prevent layout collapse and ensure smooth scrolling */
+        <div className="h-[200px]" />
+      )}
+
+      {lightboxImage && (
+        <Lightbox
+          src={lightboxImage.src}
+          alt={lightboxImage.alt}
+          onClose={() => setLightboxImage(null)}
+        />
+      )}
+    </section>
+  );
+};
+
+// Generic type for content items
+type ContentItem = string | { type: 'table'; headers: string[]; rows: string[][] } | { type: 'chart'; data: any[] };
+
+const SubSectionDisplay: React.FC<{
+  sub: SubSection;
+  onImageClick: (src: string, alt: string) => void;
+  typography: { base: string; h2: string; h3: string; small: string };
+}> = ({ sub, onImageClick, typography }) => {
+  return (
+    <div id={sub.title.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-28 group">
+      <h3 className={`font-serif ${typography.h3} text-content-primary/90 mb-6 flex items-center group-hover:text-premium-gold transition-colors duration-300`}>
+        <span className="w-1.5 h-1.5 rounded-full bg-premium-gold mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+        {sub.title}
+      </h3>
+      <div className={`space-y-6 ${typography.base} leading-relaxed text-content-secondary font-light`}>
+        {sub.content.map((item, i) => (
+          <ContentRenderer key={i} item={item} onImageClick={onImageClick} typography={typography} />
+        ))}
       </div>
     </div>
   );
 };
 
-const isTableData = (item: string | TableData): item is TableData => {
-  return (item as TableData).headers !== undefined;
-};
+// Reusable Risk/Reward Chart Component (Lazy Loaded potentially)
+const RiskRewardChart = ({ data }: { data: any[] }) => (
+  <div className="h-[300px] w-full my-8">
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart data={data}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#444" vertical={false} />
+        <XAxis dataKey="x" stroke="#888" tick={{ fontSize: 12 }} />
+        <YAxis stroke="#888" tick={{ fontSize: 12 }} />
+        <Tooltip
+          contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #333' }}
+          itemStyle={{ color: '#fff' }}
+        />
+        <Line type="monotone" dataKey="y" stroke="#E6D5C3" strokeWidth={2} dot={{ r: 4, fill: '#E6D5C3' }} />
+      </LineChart>
+    </ResponsiveContainer>
+    <p className="text-center text-xs font-mono text-content-muted mt-2">Rischio vs Rendimento</p>
+  </div>
+);
 
-// Regex matches:
-// 1. **bold** (group 1)
-// 2. $inline math$ (group 2), handling escaped dollars if we wanted, but simple $...$ for now
-const contentPattern = /(\*\*[^*]+\*\*)|(\$[^$]+\$)/g;
 
-// Helper to render just the math parts of a string
-const renderMathParts = (text: string, keyPrefix: string = '') => {
-  const mathPattern = /(\$[^$]+\$)/g;
-  const parts = text.split(mathPattern);
+const ContentRenderer: React.FC<{
+  item: ContentItem;
+  onImageClick: (src: string, alt: string) => void;
+  typography: { base: string; h2: string; h3: string; small: string };
+}> = ({ item, onImageClick, typography }) => {
 
-  return (
-    <>
-      {parts.map((part, index) => {
-        if (!part) return null;
+  const smallClass = typography.base; // Inherit base size for paragraphs
 
-        if (part.startsWith('$') && part.endsWith('$')) {
-          const latex = part.substring(1, part.length - 1);
-          try {
-            const html = katex.renderToString(latex, {
-              throwOnError: false,
-              displayMode: false,
-            });
-            return (
-              <span
-                key={`${keyPrefix}${index}`}
-                className="inline-math"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-            );
-          } catch (e) {
-            return <span key={`${keyPrefix}${index}`} className="text-red-400">{part}</span>;
-          }
-        }
+  // Helper to render text with highlights and LaTeX
+  const renderWithHighlights = (text: string) => {
+    const parts = text.split(/(\$[^$]+\$|`[^`]+`|\*\*[^*]+\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('$') && part.endsWith('$')) {
+        const math = part.slice(1, -1);
+        return <InlineMath key={index} math={math} />;
+      }
+      if (part.startsWith('`') && part.endsWith('`')) {
+        return (
+          <code key={index} className="mx-1 px-1.5 py-0.5 rounded bg-premium-gold/10 text-premium-gold font-mono text-[0.9em]">
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index} className="font-bold text-content-primary">{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
 
-        return <span key={`${keyPrefix}${index}`}>{part}</span>;
-      })}
-    </>
-  );
-};
-
-const renderWithHighlights = (value: string, boldClass = "font-bold text-content-primary") => {
-  if (!value) return null;
-
-  // Normalize invisible chars once here too, just in case
-  const normalizedValue = value.replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '');
-
-  // Match bold first, then process math inside each part
-  const boldPattern = /(\*\*[^*]+\*\*)/g;
-  const parts = normalizedValue.split(boldPattern);
-
-  return (
-    <>
-      {parts.map((part, index) => {
-        if (!part) return null;
-
-        if (part.startsWith('**') && part.endsWith('**')) {
-          const content = part.substring(2, part.length - 2);
-          // Recursively process math inside bold content
-          return <strong key={index} className={boldClass}>{renderMathParts(content, `bold-${index}-`)}</strong>;
-        }
-
-        // Process math in non-bold parts
-        return <span key={index}>{renderMathParts(part, `text-${index}-`)}</span>;
-      })}
-    </>
-  );
-};
-
-const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
-  if (isTableData(item)) {
-    // Check if this is the "Sintesi" table to render a chart
-    const isSintesiTable = item.headers.includes("Soggetto") && item.headers.includes("Cosa apporta");
-
-    if (isSintesiTable) {
-      // Transform data for chart
-      // We'll create a dummy "Risk/Reward" visualization based on the table data
-      const chartData = [
-        { name: 'Proprietari', risk: 90, reward: 90, type: 'Variabile' },
-        { name: 'Manager', risk: 60, reward: 80, type: 'Mista' },
-        { name: 'Lavoratori', risk: 20, reward: 40, type: 'Fissa' },
-        { name: 'Fornitori', risk: 30, reward: 30, type: 'Fissa' },
-        { name: 'Finanziatori', risk: 40, reward: 20, type: 'Fissa' },
-      ];
-
+  if (typeof item !== 'string') {
+    if (item.type === 'chart' && item.data) {
+      const chartData = item.data;
       return (
-        <div className="my-12 space-y-8">
-          <div className="overflow-x-auto p-1">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr>
-                  {item.headers.map((header, index) => (
-                    <th key={index} className="p-4 text-xs font-mono font-medium text-premium-gold uppercase tracking-widest">{header}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {item.rows.map((row, rowIndex) => (
-                  <tr key={rowIndex} className="transition-colors">
-                    {row.map((cell, cellIndex) => (
-                      <td key={cellIndex} className="p-4 text-sm text-content-secondary font-light">{renderWithHighlights(cell)}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="risk-reward-chart-container p-6">
-            <React.Suspense fallback={<div className="h-[300px] w-full animate-pulse"></div>}>
+        <div className="my-8 border border-premium-gray/20 rounded-xl overflow-hidden bg-premium-black/20 backdrop-blur-sm">
+          <div className="flex flex-col lg:flex-row">
+            <div className="flex-1 p-6 border-b lg:border-b-0 lg:border-r border-premium-gray/20">
+              <h4 className="font-serif text-lg text-content-primary mb-4">Analisi Grafica</h4>
+              <p className={`${smallClass} text-content-muted mb-4`}>
+                Rappresentazione visuale della relazione tra rischio atteso e rendimento potenziale nel portafoglio analizzato.
+              </p>
+            </div>
+            <div className="w-full lg:w-2/3 p-4">
               <RiskRewardChart data={chartData} />
-            </React.Suspense>
+            </div>
           </div>
         </div>
       );
     }
 
-    return (
-      <div className="my-8 overflow-x-auto p-1">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr>
-              {item.headers.map((header, index) => (
-                <th key={index} className="p-4 text-xs font-mono font-medium text-premium-gold uppercase tracking-widest">{header}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {item.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="transition-colors">
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="p-4 text-sm text-content-secondary font-light">{renderWithHighlights(cell)}</td>
+    if (item.type === 'table') {
+      return (
+        <div className="my-8 overflow-x-auto p-1">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr>
+                {item.headers.map((header, index) => (
+                  <th key={index} className="p-4 text-xs font-mono font-medium text-premium-gold uppercase tracking-widest">{header}</th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
+            </thead>
+            <tbody>
+              {item.rows.map((row, rowIndex) => (
+                <tr key={rowIndex} className="transition-colors">
+                  {row.map((cell, cellIndex) => (
+                    <td key={cellIndex} className={`p-4 ${smallClass} text-content-secondary font-light`}>{renderWithHighlights(cell)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    return null;
   }
 
-  const text = (item as string).trim();
-  const cleanText = text.replace(/\*\*/g, '');
+  // Ensure text is clean
+  let text = (item as string).trim();
 
-  // Callout: warning / attenzione
+  // Clean backticks if they wrap the entire line
+  if (text.startsWith('`') && text.endsWith('`') && text.length > 2) {
+    text = text.slice(1, -1);
+  }
+
+  // Callout: warning (Updated to Dark Red light mode, White/Light dark mode per request)
   if (/^Attenzione\s*[:\-]/i.test(text)) {
     const content = text.replace(/^Attenzione\s*[:\-]\s*/i, '');
-
     return (
       <div className="my-8 px-6 py-4">
-        <p className="text-xs font-mono font-bold tracking-widest uppercase text-amber-500 mb-2 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        <p className="text-xs font-mono font-bold tracking-widest uppercase text-red-800 dark:text-red-100 mb-2 flex items-center gap-2">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-800 dark:bg-red-100"></span>
           Attenzione
         </p>
-        <p className="text-sm leading-relaxed text-content-secondary font-light">{renderWithHighlights(content)}</p>
+        <p className={`${smallClass} leading-relaxed text-content-secondary font-light`}>{renderWithHighlights(content)}</p>
       </div>
     );
   }
 
-  // Callout: info / nota
+  // Callout: info (Updated to Dark Green light mode, White/Light dark mode per request)
   if (/^(Nota|Info)\s*[:\-]/i.test(text)) {
     const content = text.replace(/^(Nota|Info)\s*[:\-]\s*/i, '');
-
     return (
       <div className="my-8 px-6 py-4 gap-4">
-        <p className="text-xs font-mono font-bold tracking-widest uppercase text-sky-500 mb-2 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+        <p className="text-xs font-mono font-bold tracking-widest uppercase text-green-800 dark:text-green-100 mb-2 flex items-center gap-2">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-800 dark:bg-green-100"></span>
           Nota
         </p>
-        <p className="text-sm leading-relaxed text-content-secondary font-light">{renderWithHighlights(content)}</p>
+        <p className={`${smallClass} leading-relaxed text-content-secondary font-light`}>{renderWithHighlights(content)}</p>
       </div>
     );
   }
 
-  // Check for math pattern
-  const normalizedText = text.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]+/, '');
+  // Markdown Image syntax
+  const imageMatch = text.match(/!\[(.*?)\]\((.*?)\)/);
 
-  // Check for markdown image syntax: ![alt](url)
-  const imageMatch = normalizedText.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
   if (imageMatch) {
     const [, alt, src] = imageMatch;
+    console.log('[ContentRenderer] Detected image:', src);
     return (
       <div className="w-full my-6 lg:w-5/12 lg:float-right lg:ml-8 lg:mb-6 lg:mt-1 lg:clear-right">
         <ImageThumbnail src={src} alt={alt} onImageClick={onImageClick} />
@@ -237,9 +265,9 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     );
   }
 
-  // Check for italic caption (starts with *)
-  if (normalizedText.startsWith('*') && normalizedText.endsWith('*') && !normalizedText.startsWith('**')) {
-    const caption = normalizedText.slice(1, -1);
+  // Italic Caption
+  if (text.startsWith('*') && text.endsWith('*') && !text.startsWith('**') && !text.includes('**')) {
+    const caption = text.slice(1, -1);
     return (
       <p className="text-xs font-mono text-content-muted text-center italic mt-2 mb-6">
         {caption}
@@ -247,295 +275,65 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     );
   }
 
-  if (normalizedText.startsWith('$$')) {
-    const latex = normalizedText.replace(/^\$\$|\$\$$/g, '');
+  // Block Math
+  if (text.startsWith('$$') && text.endsWith('$$')) {
+    const math = text.slice(2, -2);
     return (
-      <React.Suspense fallback={<div className="my-8 h-12 animate-pulse bg-premium-glass rounded-sm"></div>}>
-        <MathRenderer latex={latex} />
-      </React.Suspense>
+      <div className="my-6 overflow-x-auto py-2">
+        <BlockMath math={math} />
+      </div>
     );
   }
 
-  // Check for code blocks
-  // Simple check: starts with ```
-  if (normalizedText.startsWith('```')) {
-    const match = normalizedText.match(/```(\w+)?\n([\s\S]*?)```/);
-    // Fallback if regex fails (e.g. valid markdown but slight variation) or just standard split
-    const codeContent = match ? match[2] : normalizedText.replace(/```(\w+)?/, '').replace(/```$/, '');
-    const lang = match ? match[1] : '';
-
+  // Code Block
+  if (text.startsWith('```') && text.endsWith('```')) {
+    const lines = text.split('\n');
+    const language = lines[0].slice(3).trim() || 'text';
+    const code = lines.slice(1, -1).join('\n');
     return (
-      <div className="my-6">
-        {lang && (
-          <div className="px-4 py-2 text-xs font-mono font-bold uppercase text-premium-gold">
-            {lang}
+      <div className="my-8 rounded-lg overflow-hidden border border-premium-gray/30 shadow-2xl">
+        <div className="px-4 py-2 bg-black/40 border-b border-white/5 flex justify-between items-center">
+          <span className="text-[10px] font-mono uppercase text-content-muted tracking-widest">{language}</span>
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/50"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500/20 border border-green-500/50"></div>
           </div>
-        )}
-        <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed text-content-secondary">
-          <code>{codeContent}</code>
-        </pre>
-      </div>
-    );
-  }
-
-  if (text.startsWith('●') || text.startsWith('○')) {
-    const content = text.replace(/^[●○]\s*/, '').trim();
-
-    // Check for "Term: Definition" pattern
-    const colonIndex = content.indexOf(':');
-    if (colonIndex !== -1 && colonIndex < 60) {
-      const term = content.substring(0, colonIndex + 1);
-      const definition = content.substring(colonIndex + 1);
-
-      return (
-        <p className="pl-8 relative text-content-secondary leading-relaxed font-light before:content-[''] before:absolute before:left-2 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-premium-gold/50">
-          <strong className="text-content-primary font-semibold">{renderWithHighlights(term)}</strong>{renderWithHighlights(definition)}
-        </p>
-      );
-    }
-
-    return (
-      <p className="pl-8 relative text-content-secondary leading-relaxed font-light before:content-[''] before:absolute before:left-2 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-premium-gold/50">
-        {renderWithHighlights(content)}
-      </p>
-    );
-  }
-
-  if (cleanText.startsWith("L’impresa è un istituto economico")) {
-    return (
-      <div className="flex flex-col lg:flex-row items-start gap-8 group">
-        <div className="flex-1">
-          <p className="text-content-secondary leading-relaxed font-light text-lg group-hover:text-content-primary transition-colors duration-300">
-            {renderWithHighlights(item as string)}
-          </p>
         </div>
-        <div className="w-full lg:w-1/3 flex-shrink-0 mt-4 lg:mt-0">
-          <ImageThumbnail src={image1} alt="Schema della definizione economica di impresa" onImageClick={onImageClick} />
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">Fig. 1: Il sistema impresa</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (cleanText.startsWith("I soggetti economici in relazione con l’impresa")) {
-    return (
-      <div className="flex flex-col lg:flex-row items-start gap-8 group mt-8">
-        <div className="flex-1">
-          <p className="font-serif text-xl text-premium-gold mb-4">{renderWithHighlights(item as string, "font-bold")}</p>
-          <p className="text-content-secondary leading-relaxed font-light">
-            Questa figura illustra le relazioni tra l'impresa e i vari soggetti economici che interagiscono con essa, evidenziando i flussi di beni, servizi e denaro.
-          </p>
-        </div>
-        <div className="w-full lg:w-1/3 flex-shrink-0">
-          <ImageThumbnail src={image2} alt="Schema dei soggetti economici in relazione con l’impresa" onImageClick={onImageClick} />
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">Fig. 2: Soggetti economici</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (cleanText.startsWith("1.2 Livelli di analisi: la catena del valore")) {
-    return (
-      <div className="flex flex-col lg:flex-row items-start gap-8 group mt-8 mb-8">
-        <div className="flex-1">
-          <p className="font-semibold text-content-primary mb-2">{renderWithHighlights(item as string)}</p>
-          <p className="text-content-secondary leading-relaxed font-light">
-            La catena del valore disaggrega l'impresa nelle sue attività strategicamente rilevanti allo scopo di comprendere l'andamento dei costi e le fonti esistenti e potenziali di differenziazione.
-          </p>
-        </div>
-        <div className="w-full lg:w-5/12 flex-shrink-0">
-          <ImageThumbnail src={valueChainImg} alt="Catena del Valore di Porter" onImageClick={onImageClick} />
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">Fig. 3: Catena del Valore</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (cleanText.startsWith("1.4 Strutture funzionali vs divisionali")) {
-    return (
-      <div className="flex flex-col lg:flex-row items-start gap-8 group mt-8 mb-8">
-        <div className="flex-1">
-          <p className="font-semibold text-content-primary mb-2">{renderWithHighlights(item as string)}</p>
-          <p className="text-content-secondary leading-relaxed font-light">
-            Confronto visivo tra la struttura organizzativa funzionale (basata sulle competenze) e quella divisionale (basata su prodotti o mercati).
-          </p>
-        </div>
-        <div className="w-full lg:w-5/12 flex-shrink-0">
-          <ImageThumbnail src={orgChartImg} alt="Struttura Funzionale vs Divisionale" onImageClick={onImageClick} />
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">Fig. 4: Organigrammi a confronto</p>
-        </div>
-      </div>
-    );
-  }
-
-
-
-
-
-  // Bold titles that are not part of the main structure
-  const boldableKeywords = [
-    'Obiettivi dell’impresa', 'Tipologie di impresa', 'Definizioni giuridiche', 'Forme giuridiche',
-    'Proprietà e controllo', 'Startup e spin‐off', 'I soggetti economici', 'Stakeholder e relazioni',
-    'Prestatori di lavoro', 'Fornitori', 'Finanziatori', 'Comunità di riferimento', 'Stato e Pubblica Amministrazione',
-    'Sintesi:', 'Classificazione delle imprese', 'Impresa individuale e impresa familiare', 'Imprese collettive e società',
-    'Società di persone', 'Società di capitali', 'Società cooperative', 'Riepilogo a confronto', 'Come scegliere la forma giuridica',
-    'Proprietari, manager e problema del controllo', 'Strumenti per allineare proprietà e management',
-    'Ambiti regolati dalla corporate governance', 'Organi nel sistema tradizionale', 'Sistemi di governance',
-    'Parole chiave per descrivere l’impresa', 'Valore economico dell’impresa', 'Attività d’impresa e processi aziendali', 'Processi aziendali',
-    'Organigramma e unità organizzative', 'Cos’è il bilancio d’esercizio', 'Chi è interessato al bilancio',
-    'Bilancio annuale e bilanci infrannuali', 'Bilancio dell’impresa vs bilancio consolidato',
-    '1.1 Definizione economica di impresa'
-  ];
-
-  const isBoldTitle = boldableKeywords.some(keyword => cleanText.startsWith(keyword));
-
-  if (isBoldTitle) {
-    return <p className="font-serif text-lg text-premium-gold mt-8 mb-2">{renderWithHighlights(item as string, "font-bold")}</p>;
-  }
-
-  // Check for numbered sub-headings (e.g. 1.1.1, 2.1.3) OR single numbered lists (e.g. 1. Title)
-  // The regex matches:
-  // ^\d+(\.\d+)+\s  -> 1.1, 1.1.1 (multi-level)
-  // OR
-  // ^\d+\.\s        -> 1., 2. (single level)
-  // We check cleanText to ignore potential ** at start
-  if (/^(\d+(\.\d+)+|\d+\.)\s/.test(cleanText)) {
-    return (
-      <p className="font-bold text-lg text-content-primary mt-6 mb-2">
-        {renderWithHighlights(item as string)}
-      </p>
-    );
-  }
-
-  return (
-    <div className="group transition-all duration-300 hover:translate-x-1">
-      <p className="text-content-secondary leading-relaxed font-light text-lg group-hover:text-content-primary transition-colors">
-        {renderWithHighlights(item as string)}
-      </p>
-    </div>
-  );
-};
-
-interface SubSectionDisplayProps {
-  subsection: SubSection;
-  anchorId: string;
-  onImageClick: (src: string, alt: string) => void;
-}
-
-const SubSectionDisplay: React.FC<SubSectionDisplayProps> = ({ subsection, anchorId, onImageClick }) => (
-  <div id={anchorId} className="mb-8 last:mb-0 flow-root">
-    <h3 className="text-2xl sm:text-3xl font-serif text-content-primary mb-6 pb-4">
-      {renderMathParts(subsection.title, 'title-')}
-    </h3>
-    <div className="space-y-4 text-content-secondary">
-      {subsection.content.map((item, index) => (
-        <ContentRenderer key={index} item={item} onImageClick={onImageClick} />
-      ))}
-    </div>
-  </div>
-);
-
-interface LightboxProps {
-  src: string;
-  alt: string;
-  onClose: () => void;
-}
-
-const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
-
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in duration-200"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-      <img
-        src={src}
-        alt={alt}
-        className="max-w-full max-h-[90vh] lightbox-image rounded-lg shadow-2xl shadow-black/50 scale-95 animate-in zoom-in-95 duration-300"
-        onClick={(e) => e.stopPropagation()}
-      />
-      <p className="absolute bottom-6 left-0 right-0 text-center text-gray-400 font-mono text-sm tracking-widest uppercase pointer-events-none">
-        {alt}
-      </p>
-    </div>,
-    document.body
-  );
-};
-
-const SectionDisplay: React.FC<SectionDisplayProps> = ({ section }) => {
-  const [lightboxImage, setLightboxImage] = useState<{ src: string, alt: string } | null>(null);
-
-  // Calculate reading time (approx 200 words per minute)
-  const wordCount = section.subsections.reduce((acc, sub) => {
-    return acc + sub.content.reduce((c, item) => {
-      if (typeof item === 'string') return c + item.split(' ').length;
-      return c + 20; // Estimate for tables
-    }, 0);
-  }, 0);
-  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-
-  return (
-    <section id={section.id} className="pt-20 -mt-20">
-      {lightboxImage && (
-        <Lightbox
-          src={lightboxImage.src}
-          alt={lightboxImage.alt}
-          onClose={() => setLightboxImage(null)}
-        />
-      )}
-      <div className="mb-12" id={section.id !== 'fondamenti-impresa' ? 'fondamenti-impresa' : undefined}>
-        <div className="flex items-center gap-3 mb-4">
-          {!['glossario', 'formulario-esempi'].includes(section.id) && (
-            <span className="text-xs font-mono text-premium-gold uppercase tracking-widest px-2 py-1">
-              Lezione {
-                {
-                  'fondamenti-impresa': '1',
-                  'contabilita-esterna': '2',
-                  'contabilita-interna': '3',
-                  'sistemi-decisione': '4'
-                }[section.id] || section.id
-              }
-            </span>
-          )}
-          <span className="text-xs font-mono text-content-muted uppercase tracking-widest flex items-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            {readingTime} min read
-          </span>
-        </div>
-        <h2
-          className="text-4xl sm:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-br from-content-primary via-content-secondary to-content-muted tracking-tight"
+        <SyntaxHighlighter
+          language={language}
+          style={coldarkDark}
+          customStyle={{ margin: 0, padding: '1.5rem', background: 'rgba(0,0,0,0.2)', fontSize: '0.9em' }}
+          showLineNumbers={true}
+          lineNumberStyle={{ minWidth: '2.5em', paddingRight: '1em', color: '#4b5563', textAlign: 'right' }}
         >
-          {section.title}
-        </h2>
+          {code}
+        </SyntaxHighlighter>
       </div>
-      <div className="space-y-8">
-        {section.subsections.map((subsection, index) => {
-          const anchorId = `${section.id}-${index}`;
-          return (
-            <SubSectionDisplay
-              key={anchorId}
-              subsection={subsection}
-              anchorId={anchorId}
-              onImageClick={(src, alt) => setLightboxImage({ src, alt })}
-            />
-          );
-        })}
+    );
+  }
+
+  // List Items
+  if (/^(\d+\.|[\-\*●○])\s/.test(text)) {
+    const isOrdered = /^\d+\./.test(text);
+    const content = text.replace(/^(\d+\.|[\-\*●○])\s/, '');
+
+    return (
+      <div className="flex items-start gap-4 my-2 group pl-2 relative">
+        <div className={`mt-[0.6em] shrink-0 w-1.5 h-1.5 rounded-full bg-black dark:bg-white shadow-sm group-hover:scale-125 transition-transform duration-300`}></div>
+        <div className={`${smallClass} text-content-secondary leading-relaxed`}>
+          {renderWithHighlights(content)}
+        </div>
       </div>
-    </section>
+    );
+  }
+
+  // Standard Paragraph
+  return (
+    <p className={`mb-4 ${smallClass} text-content-secondary leading-relaxed text-balance`}>
+      {renderWithHighlights(text)}
+    </p>
   );
 };
 
-export default React.memo(SectionDisplay);
+export default SectionDisplay;

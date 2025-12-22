@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { subjects, Subject } from '../data/subjects';
@@ -160,20 +161,20 @@ const HomePage: React.FC = () => {
                                                     {/* Status Badge */}
                                                     {isCompleted(subject.slug) ? (
                                                         <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
-                                                                         bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
-                                                                         border border-emerald-500/20">
+                                                                         bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100
+                                                                         border border-green-200 dark:border-green-800">
                                                             Completato
                                                         </span>
                                                     ) : subject.slug === 'geometria-algebra' ? (
                                                         <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
-                                                                         bg-amber-500/10 text-amber-600 dark:text-amber-400
-                                                                         border border-amber-500/20">
+                                                                         bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100
+                                                                         border border-yellow-200 dark:border-yellow-800">
                                                             In Corso
                                                         </span>
                                                     ) : (
                                                         <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
-                                                                         bg-red-500/10 text-red-600 dark:text-red-400
-                                                                         border border-red-500/20">
+                                                                         bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100
+                                                                         border border-red-200 dark:border-red-800">
                                                             Da Fare
                                                         </span>
                                                     )}
