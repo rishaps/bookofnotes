@@ -64,12 +64,12 @@ const TocItem: React.FC<{ title: string; slug: string; onClick: () => void }> = 
     return (
         <button
             onClick={onClick}
-            className="w-full flex items-center justify-between text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors py-0.5 group"
+            className="w-full flex items-center justify-between text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors py-1 group"
         >
-            <span className="font-serif text-[15px] text-black dark:text-white group-hover:underline leading-tight">
+            <span className="font-serif text-sm md:text-[15px] text-black dark:text-white group-hover:underline leading-tight">
                 {title}
             </span>
-            <span className={`text-[9px] font-mono uppercase tracking-wide ml-2 flex-shrink-0 ${isCompleted
+            <span className={`text-[8px] md:text-[9px] font-mono uppercase tracking-wide ml-2 flex-shrink-0 ${isCompleted
                 ? 'text-green-600 dark:text-green-400'
                 : 'text-gray-400 dark:text-gray-500'
                 }`}>
@@ -87,19 +87,18 @@ const HomePage: React.FC = () => {
     };
 
     return (
-        <div className="h-screen overflow-hidden bg-[var(--bg-body)] text-black dark:text-white flex">
+        <div className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white">
 
-            {/* LEFT COLUMN - Editorial (55%) */}
-            <div className="w-[55%] h-full border-r border-black/10 dark:border-white/10 flex flex-col">
-
-                {/* Header - Compact */}
-                <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
+            {/* MOBILE LAYOUT */}
+            <div className="md:hidden flex flex-col min-h-screen">
+                {/* Header */}
+                <header className="flex-shrink-0 px-4 pt-4 pb-3 border-b border-black/10 dark:border-white/10">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h1 className="font-mono text-xl font-bold tracking-wide uppercase leading-none">
+                            <h1 className="font-mono text-lg font-bold tracking-wide uppercase leading-none">
                                 BOOK OF NOTES
                             </h1>
-                            <p className="font-serif italic text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                            <p className="font-serif italic text-sm text-gray-500 dark:text-gray-400 mt-0.5">
                                 by Rishapveer Singh
                             </p>
                         </div>
@@ -107,83 +106,15 @@ const HomePage: React.FC = () => {
                     </div>
                 </header>
 
-                {/* Editorial Content - Compact layout */}
-                <div className="flex-1 p-4 overflow-hidden flex flex-col">
-                    {/* 2x2 Grid - Tight */}
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                        {editorialSections.map((section, index) => (
-                            <div key={index} className="flex flex-col">
-                                {/* Title */}
-                                <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest mb-1 leading-none">
-                                    {section.title}
-                                </h3>
-
-                                {/* Content: Image + Text side by side */}
-                                <div className="flex gap-2">
-                                    {/* Image */}
-                                    <div className="w-16 flex-shrink-0">
-                                        <img
-                                            src={section.image}
-                                            alt={section.title}
-                                            className="w-full h-auto object-contain max-h-[80px]"
-                                        />
-                                    </div>
-
-                                    {/* Text */}
-                                    <p className="font-serif text-[12px] leading-[1.35] text-gray-700 dark:text-gray-300">
-                                        {section.body}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Problem Section */}
-                    <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10 flex-1 flex flex-col">
-                        <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
-                            Un esercizietto di riscaldamento per accenderti i neuroni prima di studiare.
-                        </p>
-
-                        {/* Problem Text */}
-                        <p className="font-serif text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
-                            Eveline e James giocano su una scacchiera formata da una singola fila di 2022 caselle consecutive.
-                            A turno, posizionano tessere che coprono due caselle adiacenti, con Eveline che fa la prima mossa.
-                            Una tessera non può coprire una casella già occupata.
-                        </p>
-                        <p className="font-serif text-[11px] leading-relaxed text-gray-700 dark:text-gray-300 mt-1">
-                            Eveline vuole massimizzare le caselle vuote rimaste; James vuole minimizzarle.
-                            <em> Qual è il numero massimo di caselle vuote che Eveline può assicurarsi?</em>
-                        </p>
-
-                        {/* Problem Image - Below text */}
-                        <div className="mt-3">
-                            <img
-                                src="/images/homepage/problema.jpg"
-                                alt="Eveline vs James"
-                                className="w-full h-auto rounded"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* RIGHT COLUMN - Table of Contents (45%) */}
-            <div className="w-[45%] h-full flex flex-col overflow-hidden">
-
-                {/* TOC Header - Compact */}
-                <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
-                    <h2 className="font-mono text-lg font-bold tracking-wide uppercase leading-none">
-                        TABLE OF CONTENTS
+                {/* TOC - Full screen on mobile */}
+                <div className="flex-1 overflow-y-auto px-4 py-4">
+                    <h2 className="font-mono text-sm font-bold tracking-wide uppercase mb-4 text-gray-500 dark:text-gray-400">
+                        INDICE DEI CORSI
                     </h2>
-                </header>
-
-                {/* TOC Content - No padding waste */}
-                <div className="flex-1 overflow-hidden px-5 py-3">
-                    <div className="h-full flex flex-col justify-between">
+                    <div className="space-y-6">
                         {Object.entries(tocData).map(([year, items], yearIndex) => (
-                            <div key={year} className="flex-1">
-                                {/* Year Header */}
-                                <div className="flex items-baseline gap-2 mb-1">
+                            <div key={year}>
+                                <div className="flex items-baseline gap-2 mb-2">
                                     <span className="font-mono text-sm font-bold leading-none">
                                         {yearIndex + 1}.
                                     </span>
@@ -191,9 +122,7 @@ const HomePage: React.FC = () => {
                                         {year}
                                     </span>
                                 </div>
-
-                                {/* Items - Tight */}
-                                <div className="pl-4">
+                                <div className="pl-4 space-y-1">
                                     {items.map((item) => (
                                         <TocItem
                                             key={item.slug}
@@ -205,6 +134,111 @@ const HomePage: React.FC = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* DESKTOP LAYOUT */}
+            <div className="hidden md:flex h-screen overflow-hidden">
+
+                {/* LEFT COLUMN - Editorial (55%) */}
+                <div className="w-[55%] h-full border-r border-black/10 dark:border-white/10 flex flex-col">
+                    {/* Header */}
+                    <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <h1 className="font-mono text-xl font-bold tracking-wide uppercase leading-none">
+                                    BOOK OF NOTES
+                                </h1>
+                                <p className="font-serif italic text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                    by Rishapveer Singh
+                                </p>
+                            </div>
+                            <ThemeToggle inline={true} />
+                        </div>
+                    </header>
+
+                    {/* Editorial Content */}
+                    <div className="flex-1 p-4 overflow-hidden flex flex-col">
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                            {editorialSections.map((section, index) => (
+                                <div key={index} className="flex flex-col">
+                                    <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest mb-1 leading-none">
+                                        {section.title}
+                                    </h3>
+                                    <div className="flex gap-2">
+                                        <div className="w-16 flex-shrink-0">
+                                            <img
+                                                src={section.image}
+                                                alt={section.title}
+                                                className="w-full h-auto object-contain max-h-[80px]"
+                                            />
+                                        </div>
+                                        <p className="font-serif text-[12px] leading-[1.35] text-gray-700 dark:text-gray-300">
+                                            {section.body}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Problem Section */}
+                        <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10 flex-1 flex flex-col">
+                            <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+                                Un esercizietto di riscaldamento per accenderti i neuroni prima di studiare.
+                            </p>
+                            <p className="font-serif text-[13px] leading-relaxed text-gray-700 dark:text-gray-300">
+                                Eveline e James giocano su una scacchiera formata da una singola fila di 2022 caselle consecutive.
+                                A turno, posizionano tessere che coprono due caselle adiacenti, con Eveline che fa la prima mossa.
+                                Una tessera non può coprire una casella già occupata.
+                            </p>
+                            <p className="font-serif text-[13px] leading-relaxed text-gray-700 dark:text-gray-300 mt-2">
+                                Eveline vuole massimizzare le caselle vuote rimaste; James vuole minimizzarle.
+                                <em className="text-gray-900 dark:text-white font-medium"> Qual è il numero massimo di caselle vuote che Eveline può assicurarsi?</em>
+                            </p>
+                            <div className="mt-4 flex-1 flex items-end">
+                                <img
+                                    src="/images/homepage/problema.jpg"
+                                    alt="Eveline vs James"
+                                    className="w-full h-auto rounded"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* RIGHT COLUMN - TOC (45%) */}
+                <div className="w-[45%] h-full flex flex-col overflow-hidden">
+                    <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
+                        <h2 className="font-mono text-lg font-bold tracking-wide uppercase leading-none">
+                            TABLE OF CONTENTS
+                        </h2>
+                    </header>
+                    <div className="flex-1 overflow-y-auto px-5 py-3">
+                        <div className="flex flex-col gap-6">
+                            {Object.entries(tocData).map(([year, items], yearIndex) => (
+                                <div key={year}>
+                                    <div className="flex items-baseline gap-2 mb-1">
+                                        <span className="font-mono text-sm font-bold leading-none">
+                                            {yearIndex + 1}.
+                                        </span>
+                                        <span className="font-mono text-sm font-bold uppercase tracking-wider leading-none">
+                                            {year}
+                                        </span>
+                                    </div>
+                                    <div className="pl-4">
+                                        {items.map((item) => (
+                                            <TocItem
+                                                key={item.slug}
+                                                title={item.title}
+                                                slug={item.slug}
+                                                onClick={() => handleNavigate(item.slug)}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
