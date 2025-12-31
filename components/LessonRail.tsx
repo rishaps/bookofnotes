@@ -1,8 +1,10 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import katex from 'katex';
 import { MainSection } from '../types';
 import { useScrollSpy } from '../hooks/useScrollSpy';
+import { Home } from 'lucide-react';
 
 // Helper to render math in titles
 const renderTitleWithMath = (title: string) => {
@@ -43,7 +45,16 @@ interface LessonRailProps {
 }
 
 const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLinkClick }) => {
-  if (!content || !Array.isArray(content)) return null;
+  const navigate = useNavigate();
+
+  // Handle null content - show loading state
+  if (!content || content.length === 0) {
+    return (
+      <div className="text-sm text-content-muted font-mono py-4">
+        Caricamento indice...
+      </div>
+    );
+  }
 
   const subsectionAnchors = content.flatMap((section) =>
     section.subsections.map((_, index) => `${section.id}-${index}`)
@@ -56,7 +67,14 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
   const handleClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const headerOffset = 100; // Account for fixed header
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       if (onLinkClick) onLinkClick();
     }
   };
@@ -64,7 +82,8 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
   return (
     <nav className={`overflow-y-auto pr-2 custom-scrollbar ${className}`}>
       <div className="flex flex-col gap-8">
-        <div className="text-xs font-mono text-premium-gold/90 uppercase tracking-widest pb-2 font-bold">
+
+        <div className="text-xs font-mono text-premium-gold/70 uppercase tracking-widest pb-2">
           Indice dei contenuti
         </div>
 
@@ -78,15 +97,15 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
                 onClick={() => handleClick(`${section.id}-0`)}
               >
                 {!['glossario', 'formulario-esempi'].includes(section.id) ? (
-                  <span className="flex h-6 w-6 items-center justify-center text-[10px] font-mono text-content-primary group-hover:text-premium-gold transition-colors font-bold border border-premium-gray/30 rounded-full">
+                  <span className="flex h-6 w-6 items-center justify-center text-[10px] font-mono text-content-muted group-hover:text-premium-gold transition-colors">
                     {sectionIndex + 1}
                   </span>
                 ) : (
-                  <span className="flex h-6 w-6 items-center justify-center text-content-primary">
+                  <span className="flex h-6 w-6 items-center justify-center text-content-muted">
                     •
                   </span>
                 )}
-                <span className="text-xs font-bold uppercase tracking-wide text-content-primary group-hover:text-premium-gold transition-colors">
+                <span className="text-xs font-medium uppercase tracking-wide text-content-muted group-hover:text-content-primary transition-colors">
                   {shortTitle}
                 </span>
               </div>
@@ -103,7 +122,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
                       onClick={() => handleClick(anchorId)}
                       className={`text-left text-sm transition-all duration-300 line-clamp-2 ${isActive
                         ? 'text-premium-gold font-bold translate-x-1'
-                        : 'text-content-primary hover:text-content-secondary'
+                        : 'text-content-muted hover:text-content-secondary'
                         }`}
                     >
                       {renderTitleWithMath(subsection.title.replace(/-->/g, '').trim())}

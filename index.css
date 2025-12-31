@@ -2,104 +2,58 @@
 @config "./tailwind.config.js";
 
 @layer base {
-
-    /* CUSTOM FONT: CLEARFACE */
-    @font-face {
-        font-family: 'Clearface';
-        src: url('/fonts/Clearface-Regular.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'Clearface';
-        src: url('/fonts/Clearface-Bold.otf') format('opentype');
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    /* 
-       USER REQUEST: 
-       - Light Mode = "Off White" #FAF9F6
-       - Dark Mode = "Dark Black" #000000 <--- UPDATED
-       - Lists: White in Dark Mode, Black in Light Mode.
-    */
-
     :root {
-        /* --- LIGHT MODE (Off White) --- */
-        --bg-body: #FAF9F6;
-
-        --premium-black: #000000;
-        /* Text is Black */
-
-        --premium-dark: #EAEAEA;
-        /* Light Grey for cards */
-
-        --premium-gray: #D4D4D4;
-        /* Medium Grey for borders */
-
-        --premium-gold: #B8860B;
-        /* Dark Goldenrod */
+        /* --- LIGHT MODE: Cream / Paper --- */
+        --bg-body: #FFFDF2;
+        /* Cream / Off-white */
+        --premium-black: #FFFDF2;
+        /* Match background */
+        --premium-dark: #F5F3E6;
+        /* Slightly darker cream for cards */
+        --premium-gray: #E6E4D9;
+        /* Darker cream for borders */
+        --premium-gold: #000000;
+        /* Black accent */
 
         --content-primary: #000000;
-        /* Pure Black Text */
-
-        --content-secondary: #2C2C2C;
-        /* Dark Grey text */
-
+        /* Black text */
+        --content-secondary: #333333;
+        /* Dark gray text */
         --content-muted: #666666;
-        /* Muted Grey */
+        /* Medium gray for metadata */
 
-        --border-primary: #D4D4D4;
-
-        --bg-glass: rgba(0, 0, 0, 0.05);
-
-        /* List Markers: Black in Light Mode */
-        --list-marker: #000000;
-        --toggle-color: #000000;
-        /* Black toggle in Light Mode */
+        --border-primary: #E6E4D9;
+        /* Cream borders */
+        --bg-glass: rgba(0, 0, 0, 0.03);
     }
 
     .dark {
-        /* --- DARK MODE (Pure Black) --- */
+        /* --- DARK MODE: Strict Black --- */
         --bg-body: #000000;
         /* Pure Black */
-
-        --premium-black: #FFFFFF;
-        /* Text is White */
-
-        --premium-dark: #1A1A1A;
-        /* Dark Grey for cards */
-
+        --premium-black: #000000;
+        /* Match background */
+        --premium-dark: #121212;
+        /* Dark gray for cards */
         --premium-gray: #333333;
-        /* Dark Grey border */
-
-        --premium-gold: #D4AF37;
-        /* Metallic Gold */
+        /* Gray for borders */
+        --premium-gold: #FFFFFF;
+        /* White accent */
 
         --content-primary: #FFFFFF;
-        /* White Text */
-
-        --content-secondary: #E0E0E0;
-        /* Light Grey */
-
-        --content-muted: #A0A0A0;
-        /* Muted Grey */
+        /* White text */
+        --content-secondary: #CCCCCC;
+        /* Light gray text */
+        --content-muted: #888888;
+        /* Gray for metadata */
 
         --border-primary: #333333;
-
+        /* Gray borders */
         --bg-glass: rgba(255, 255, 255, 0.05);
-
-        /* List Markers: White in Dark Mode */
-        --list-marker: #FFFFFF;
-        --toggle-color: #FFFFFF;
-        /* White toggle in Dark Mode */
     }
 
     /* --- UNIFIED MONOCHROME THEME FOR ALL SUBJECTS --- */
-    /* All theme classes are retained for code compatibility */
+    /* All theme classes are retained for code compatibility but now enforce strict Slate Palette */
 
     .theme-emerald,
     .theme-teal,
@@ -118,46 +72,40 @@
 
     /* 🚀 Performance: Optimize font rendering */
     html {
-        text-rendering: optimizeLegibility;
+        text-rendering: optimizeSpeed;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        scroll-behavior: smooth;
     }
 
     body {
         @apply antialiased bg-[var(--bg-body)] text-content-primary;
-        /* Use Clearface for everything as requested 'for text'. Standard -> Regular, Bold -> Bold */
-        font-family: 'Clearface', 'Outfit', serif;
+        font-family: 'Outfit', sans-serif;
+        /* REMOVED GLOBAL TRANSITION TO FIX LAG */
+        /* transition: background-color 0s; */
 
         /* 🚀 Smooth scrolling with GPU acceleration */
         overflow-y: auto;
         overflow-x: hidden;
-        overscroll-behavior-y: none;
-        /* Prevent bounce effects which can feel laggy */
+        overscroll-behavior-y: contain;
     }
 
-    /* High refresh rate selection style - Professional Blue */
+    /* High refresh rate selection style */
     ::selection {
-        background: #0056b3;
-        color: white;
-    }
-
-    /* --- MARKERS & LISTS --- */
-    ul,
-    ol {
-        list-style-color: var(--list-marker);
-    }
-
-    li {
-        color: var(--content-secondary);
-    }
-
-    li::marker {
-        color: var(--list-marker);
+        background: var(--content-primary);
+        color: var(--bg-body);
     }
 
     /* --- STRICT SQUARED AESTHETIC --- */
-    /* We prefer squared corners, but avoid global !important so we don't break KaTeX or other libraries */
+    /* Remove all rounded corners ("corneration") globally */
+    *,
+    *::before,
+    *::after {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        /* Force remove all shadows */
+        border: none !important;
+        /* Force remove all borders (except where we manually add them if needed, but strict minimalist means none) */
+    }
 
     /* Lightbox overrides */
     .lightbox-image {
@@ -195,8 +143,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        /* filter: url(#paperGrain); */
-        /* PERMANENTLY DISABLED TO PREVENT DISTORTION */
+        filter: url(#paperGrain);
         opacity: 0.35;
         pointer-events: none;
         z-index: 0;
@@ -207,18 +154,42 @@
         position: relative;
         z-index: 10;
         /* Apply the ink sketch filter */
-        /* filter: url(#inkSketch); */
-        /* PERMANENTLY DISABLED TO PREVENT DISTORTION */
+        filter: url(#inkSketch);
         /* Optional: Mix blend mode for better integration */
-        /* mix-blend-mode: multiply; */
+        mix-blend-mode: multiply;
         display: block;
     }
+}
 
-    /* 🚀 RENDER OPTIMIZATION: massive boost for long pages */
-    .optimize-gpu {
-        content-visibility: auto;
-        contain-intrinsic-size: 1px 1000px;
-        /* Guess height to prevent scrollbar jumping */
-        contain: layout paint style;
-    }
+/* KaTeX Math Styling - Ensure fractions are visible */
+.katex {
+    color: inherit !important;
+}
+
+.katex .frac-line {
+    border-bottom-color: currentColor !important;
+    background: currentColor !important;
+}
+
+.katex .mfrac>.frac-line {
+    border-bottom-color: currentColor !important;
+    background: currentColor !important;
+}
+
+.katex .sqrt>.root {
+    color: inherit !important;
+}
+
+.katex .overline>.overline-line,
+.katex .underline>.underline-line {
+    border-bottom-color: currentColor !important;
+}
+
+/* Ensure inline math inherits color */
+.inline-math .katex {
+    color: inherit;
+}
+
+.inline-math .katex .frac-line {
+    background: currentColor;
 }

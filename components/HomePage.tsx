@@ -1,269 +1,213 @@
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { subjects, Subject } from '../data/subjects';
-import { prefetchContent, loadContent, preloadContentImages } from '../utils/contentLoader';
 import ThemeToggle from './ThemeToggle';
 
-// Subjects with completed notes
+// Completed subjects
 const completedSubjects = ['analisi-1', 'fondamenti-informatica', 'economia', 'geometria-algebra'];
+
+// Table of Contents data
+const tocData = {
+    'PRIMO ANNO': [
+        { title: 'Analisi Matematica 1', slug: 'analisi-1' },
+        { title: 'Fondamenti di Informatica', slug: 'fondamenti-informatica' },
+        { title: 'Geometria e Algebra Lineare', slug: 'geometria-algebra' },
+        { title: 'Fisica', slug: 'fisica' },
+        { title: 'Elettrotecnica', slug: 'elettrotecnica' },
+        { title: 'Economia e Org. Aziendale', slug: 'economia' },
+    ],
+    'SECONDO ANNO': [
+        { title: 'Analisi Matematica 2', slug: 'analisi-2' },
+        { title: 'Architettura di Calcolatori e SO', slug: 'architettura-os' },
+        { title: 'Logica e Algebra', slug: 'logica-algebra' },
+        { title: 'Elettromagnetismo e Campi', slug: 'elettromagnetismo' },
+        { title: 'Probabilità e Statistica', slug: 'probabilita-statistica' },
+        { title: 'Segnali per le Comunicazioni', slug: 'segnali-comunicazioni' },
+        { title: 'Algoritmi e Principi dell\'Informatica', slug: 'algoritmi' },
+    ],
+    'TERZO ANNO': [
+        { title: 'Fondamenti di Elettronica', slug: 'elettronica' },
+        { title: 'Sistemi Informativi', slug: 'sistemi-informativi' },
+        { title: 'Basi di Dati 1', slug: 'basi-dati-1' },
+        { title: 'Reti Logiche', slug: 'reti-logiche' },
+        { title: 'Ingegneria del Software', slug: 'ingegneria-software' },
+        { title: 'Fond. Comunicazioni e Internet', slug: 'internet' },
+    ],
+};
+
+// Editorial sections - Conversational, curious style
+const editorialSections = [
+    {
+        image: '/images/homepage/bug.png',
+        title: 'Il Primo "Bug"',
+        body: 'Ti sei mai chiesto perché chiamiamo "bug" gli errori nel codice? Nel 1947 Grace Hopper trovò una vera falena incastrata in un relè del computer Mark II. Da allora, trovare e correggere errori si chiama "debugging".',
+    },
+    {
+        image: '/images/homepage/cat.png',
+        title: 'Il Paradosso del Gatto',
+        body: 'Hai mai sentito parlare del gatto di Schrödinger? È un esperimento mentale dove un gatto in una scatola è contemporaneamente vivo e morto, finché non la apri. Sembra assurdo, ma la fisica quantistica funziona proprio così.',
+    },
+    {
+        image: '/images/homepage/dragon.png',
+        title: 'Il Custode del Valore',
+        body: 'Perché i draghi nelle leggende accumulano oro senza mai usarlo? Perché non conoscono l\'economia. Questa disciplina insegna come allocare risorse monetarie (anche scarse) per generare valore, non per tenerle ammassate in qualche grotta.',
+    },
+    {
+        image: '/images/homepage/monkey.png',
+        title: 'Il Caso non Esiste',
+        body: 'Ti sei mai chiesto se il lancio di un dado è davvero casuale? La statistica dimostra che anche eventi apparentemente casuali seguono leggi precise. Sapendo interpretarle, puoi prevedere l\'imprevedibile.',
+    },
+];
+
+// TOC Item Component
+const TocItem: React.FC<{ title: string; slug: string; onClick: () => void }> = ({ title, slug, onClick }) => {
+    const isCompleted = completedSubjects.includes(slug);
+    return (
+        <button
+            onClick={onClick}
+            className="w-full flex items-center justify-between text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors py-0.5 group"
+        >
+            <span className="font-serif text-[15px] text-black dark:text-white group-hover:underline leading-tight">
+                {title}
+            </span>
+            <span className={`text-[9px] font-mono uppercase tracking-wide ml-2 flex-shrink-0 ${isCompleted
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-gray-400 dark:text-gray-500'
+                }`}>
+                {isCompleted ? 'Completato' : 'Da completare'}
+            </span>
+        </button>
+    );
+};
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
-    const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
-    const [imageLoaded, setImageLoaded] = useState(false);
 
-
-    // Check if subject notes are completed
-    const isCompleted = (slug: string) => completedSubjects.includes(slug);
-
-    // Group by year
-    const groupedSubjects = {
-        'Year 1': subjects.filter(s => s.year === 'Year 1'),
-        'Year 2': subjects.filter(s => s.year === 'Year 2'),
-        'Year 3': subjects.filter(s => s.year === 'Year 3'),
-    };
-
-    const handleSubjectClick = (subject: Subject) => {
-        prefetchContent(subject.slug); // Start prefetching immediately
-        // Preload the high-res image for the podium view to prevent button lag
-        const img = new Image();
-        img.src = subject.image;
-        setSelectedSubject(subject);
-    };
-
-    const [isLoadingContent, setIsLoadingContent] = useState(false);
-    const [countdown, setCountdown] = useState(3);
-
-    const handleEnterSubject = async () => {
-        if (selectedSubject) {
-            setIsLoadingContent(true);
-            setCountdown(3);
-
-            // Start countdown timer
-            const timerInterval = setInterval(() => {
-                setCountdown((prev) => {
-                    if (prev <= 1) {
-                        clearInterval(timerInterval);
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-
-            try {
-                // Determine target path
-                const path = selectedSubject.slug === 'economia' ? '/economia' : `/${selectedSubject.slug}`;
-
-                // Wait for content AND its images to load, plus the minimum delay
-                await Promise.all([
-                    loadContent(selectedSubject.slug).then(content => {
-                        if (content) return preloadContentImages(content);
-                    }),
-                    new Promise(resolve => setTimeout(resolve, 3000))
-                ]);
-
-                clearInterval(timerInterval);
-                navigate(path);
-            } catch (error) {
-                console.error("Failed to load content:", error);
-                clearInterval(timerInterval);
-                setIsLoadingContent(false);
-            }
-        }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (selectedSubject && e.key === 'Enter') {
-            handleEnterSubject();
-        }
-        if (e.key === 'Escape' && selectedSubject && !isLoadingContent) {
-            setSelectedSubject(null);
-            setImageLoaded(false);
-        }
-    };
-
-    const getYearLabel = (year: string) => {
-        const labels = { 'Year 1': 'Primo Anno', 'Year 2': 'Secondo Anno', 'Year 3': 'Terzo Anno' };
-        return labels[year as keyof typeof labels] || year;
+    const handleNavigate = (slug: string) => {
+        navigate(slug === 'economia' ? '/economia' : `/${slug}`);
     };
 
     return (
-        <div
-            className="min-h-screen bg-[var(--bg-body)] text-content-primary transition-colors duration-500 relative"
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
-        >
-            {/* Theme Toggle */}
-            <div className="absolute top-6 right-6 z-50">
-                <ThemeToggle inline={true} />
-            </div>
+        <div className="h-screen overflow-hidden bg-[var(--bg-body)] text-black dark:text-white flex">
 
+            {/* LEFT COLUMN - Editorial (55%) */}
+            <div className="w-[55%] h-full border-r border-black/10 dark:border-white/10 flex flex-col">
 
-
-            {selectedSubject ? (
-                /* Podium View - When a subject is selected */
-                <div className="min-h-screen flex flex-col items-center justify-center p-4 animate-fadeIn">
-                    {/* Image with loading state */}
-                    <div className="relative">
-                        {!imageLoaded && (
-                            <div className="h-[55vh] aspect-[2/3] rounded-2xl bg-premium-black/5 
-                                            flex items-center justify-center">
-                                <div className="w-8 h-8 border-2 border-premium-gold/10 
-                                                border-t-premium-gold/40 rounded-full animate-spin" />
-                            </div>
-                        )}
-                        <img
-                            src={selectedSubject.image}
-                            alt={selectedSubject.title}
-                            onLoad={() => setImageLoaded(true)}
-                            className={`h-[55vh] w-auto rounded-2xl shadow-2xl cursor-pointer 
-                                       hover:scale-[1.01] transition-all duration-300
-                                       ${imageLoaded ? 'opacity-100' : 'opacity-0 absolute top-0'}`}
-                            onClick={handleEnterSubject}
-                        />
-                    </div>
-
-                    <h2 className="font-serif text-2xl md:text-3xl text-content-primary mt-6 text-center">
-                        {selectedSubject.title}
-                    </h2>
-                    <span className="text-sm text-content-muted mt-1">
-                        {getYearLabel(selectedSubject.year)}
-                    </span>
-
-                    {isLoadingContent ? (
-                        <div className="mt-8 w-full max-w-sm flex flex-col items-center px-8">
-                            {/* Loading Bar */}
-                            <div className="w-full h-[2px] bg-content-muted/20 overflow-hidden relative rounded-full mb-3">
-                                <div
-                                    className="absolute inset-y-0 left-0 bg-content-primary transition-all duration-1000 ease-linear shadow-sm"
-                                    style={{ width: `${((3 - countdown) / 3) * 100}%` }}
-                                />
-                            </div>
-                            <p className="font-serif text-sm text-content-primary text-center">
-                                Il contenuto sarà accessibile in <span className="font-bold">{countdown}</span>s
+                {/* Header - Compact */}
+                <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <h1 className="font-mono text-xl font-bold tracking-wide uppercase leading-none">
+                                BOOK OF NOTES
+                            </h1>
+                            <p className="font-serif italic text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                by Rishapveer Singh
                             </p>
                         </div>
-                    ) : imageLoaded ? (
-                        <>
-                            <button
-                                onClick={handleEnterSubject}
-                                className="mt-6 px-8 py-3 bg-content-primary text-[var(--bg-body)] 
-                                           font-medium rounded-full hover:opacity-90 transition-opacity flex items-center gap-2"
-                            >
-                                Apri Appunti
-                            </button>
-                        </>
-                    ) : (
-                        <div className="mt-6 px-8 py-3 text-black/30 dark:text-white/30 text-sm">
-                            Caricamento...
-                        </div>
-                    )}
+                        <ThemeToggle inline={true} />
+                    </div>
+                </header>
 
-                    <button
-                        onClick={() => { setSelectedSubject(null); setImageLoaded(false); }}
-                        className="mt-4 text-sm text-content-muted hover:text-content-primary"
-                        disabled={isLoadingContent}
-                    >
-                        ← Torna indietro
-                    </button>
-                </div>
-            ) : (
-                /* Three Column Layout with Title */
-                <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8">
-                    {/* Title */}
-                    <h1 className="font-serif text-4xl md:text-5xl text-content-primary mb-8 md:mb-10 tracking-tight">
-                        Book of Notes
-                    </h1>
+                {/* Editorial Content - Compact layout */}
+                <div className="flex-1 p-4 overflow-hidden flex flex-col">
+                    {/* 2x2 Grid - Tight */}
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                        {editorialSections.map((section, index) => (
+                            <div key={index} className="flex flex-col">
+                                {/* Title */}
+                                <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest mb-1 leading-none">
+                                    {section.title}
+                                </h3>
 
-                    {/* Three Column Grid */}
-                    <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                        {(['Year 1', 'Year 2', 'Year 3'] as const).map((year) => {
-                            const yearSubjects = groupedSubjects[year];
-
-                            return (
-                                <div
-                                    key={year}
-                                    className="bg-premium-dark/80 backdrop-blur-sm rounded-xl 
-                                               border border-premium-gold/10 
-                                               shadow-lg overflow-hidden"
-                                >
-                                    {/* Year Header */}
-                                    <div className="px-5 py-3 border-b border-premium-black/10 sticky top-0 z-10 bg-inherit backdrop-blur-md">
-                                        <h2 className="text-xs font-bold text-content-muted 
-                                                       uppercase tracking-[0.15em] text-center">
-                                            {getYearLabel(year)}
-                                        </h2>
+                                {/* Content: Image + Text side by side */}
+                                <div className="flex gap-2">
+                                    {/* Image */}
+                                    <div className="w-16 flex-shrink-0">
+                                        <img
+                                            src={section.image}
+                                            alt={section.title}
+                                            className="w-full h-auto object-contain max-h-[80px]"
+                                        />
                                     </div>
 
-                                    {/* Subject List */}
-                                    <div className="divide-y divide-black/[0.04] dark:divide-white/[0.04]">
-                                        {yearSubjects.map((subject) => (
-                                            <button
-                                                key={subject.slug}
-                                                onClick={() => { setImageLoaded(false); handleSubjectClick(subject); }}
-                                                onMouseEnter={() => prefetchContent(subject.slug)}
-                                                className="w-full px-5 py-3 flex items-center justify-between text-left
-                                                           hover:bg-premium-gold/5
-                                                           transition-colors duration-150 group"
-                                            >
-                                                {/* Subject Name & Status */}
-                                                <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                                                    <span className="text-[15px] text-content-primary/80 
-                                                                     group-hover:text-content-primary
-                                                                     transition-colors truncate">
-                                                        {subject.title}
-                                                    </span>
-                                                    {/* Status Badge */}
-                                                    {isCompleted(subject.slug) ? (
-                                                        <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
-                                                                         bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100
-                                                                         border border-green-200 dark:border-green-800">
-                                                            Completato
-                                                        </span>
-                                                    ) : subject.slug === 'geometria-algebra' ? (
-                                                        <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
-                                                                         bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100
-                                                                         border border-yellow-200 dark:border-yellow-800">
-                                                            In Corso
-                                                        </span>
-                                                    ) : (
-                                                        <span className="shrink-0 text-[11px] font-medium px-2 py-0.5 rounded-full
-                                                                         bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100
-                                                                         border border-red-200 dark:border-red-800">
-                                                            Da Fare
-                                                        </span>
-                                                    )}
-                                                </div>
-
-                                                {/* Arrow */}
-                                                <svg
-                                                    className="w-4 h-4 text-black/15 dark:text-white/15 shrink-0 ml-2
-                                                               group-hover:text-black/40 dark:group-hover:text-white/40
-                                                               group-hover:translate-x-0.5 transition-all"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </button>
-                                        ))}
-                                    </div>
+                                    {/* Text */}
+                                    <p className="font-serif text-[12px] leading-[1.35] text-gray-700 dark:text-gray-300">
+                                        {section.body}
+                                    </p>
                                 </div>
-                            );
-                        })}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Problem Section */}
+                    <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10 flex-1 flex flex-col">
+                        <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
+                            Un esercizietto di riscaldamento per accenderti i neuroni prima di studiare.
+                        </p>
+
+                        {/* Problem Text */}
+                        <p className="font-serif text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
+                            Eveline e James giocano su una scacchiera formata da una singola fila di 2022 caselle consecutive.
+                            A turno, posizionano tessere che coprono due caselle adiacenti, con Eveline che fa la prima mossa.
+                            Una tessera non può coprire una casella già occupata.
+                        </p>
+                        <p className="font-serif text-[11px] leading-relaxed text-gray-700 dark:text-gray-300 mt-1">
+                            Eveline vuole massimizzare le caselle vuote rimaste; James vuole minimizzarle.
+                            <em> Qual è il numero massimo di caselle vuote che Eveline può assicurarsi?</em>
+                        </p>
+
+                        {/* Problem Image - Below text */}
+                        <div className="mt-3">
+                            <img
+                                src="/images/homepage/problema.jpg"
+                                alt="Eveline vs James"
+                                className="w-full h-auto rounded"
+                            />
+                        </div>
                     </div>
                 </div>
-            )}
+            </div>
 
-            <style>{`
-                @keyframes fadeIn {
-                    from { opacity: 0; transform: scale(0.98); }
-                    to { opacity: 1; transform: scale(1); }
-                }
-                .animate-fadeIn { animation: fadeIn 0.25s ease-out; }
-            `}</style>
+            {/* RIGHT COLUMN - Table of Contents (45%) */}
+            <div className="w-[45%] h-full flex flex-col overflow-hidden">
+
+                {/* TOC Header - Compact */}
+                <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
+                    <h2 className="font-mono text-lg font-bold tracking-wide uppercase leading-none">
+                        TABLE OF CONTENTS
+                    </h2>
+                </header>
+
+                {/* TOC Content - No padding waste */}
+                <div className="flex-1 overflow-hidden px-5 py-3">
+                    <div className="h-full flex flex-col justify-between">
+                        {Object.entries(tocData).map(([year, items], yearIndex) => (
+                            <div key={year} className="flex-1">
+                                {/* Year Header */}
+                                <div className="flex items-baseline gap-2 mb-1">
+                                    <span className="font-mono text-sm font-bold leading-none">
+                                        {yearIndex + 1}.
+                                    </span>
+                                    <span className="font-mono text-sm font-bold uppercase tracking-wider leading-none">
+                                        {year}
+                                    </span>
+                                </div>
+
+                                {/* Items - Tight */}
+                                <div className="pl-4">
+                                    {items.map((item) => (
+                                        <TocItem
+                                            key={item.slug}
+                                            title={item.title}
+                                            slug={item.slug}
+                                            onClick={() => handleNavigate(item.slug)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
