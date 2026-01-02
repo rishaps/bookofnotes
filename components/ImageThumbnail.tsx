@@ -28,7 +28,7 @@ const ImageThumbnail: React.FC<ImageThumbnailProps> = ({ src, alt, onImageClick 
                             setIsLoaded(true);
                             setHasError(true);
                         }}
-                        className="pencil-drawing w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]"
+                        className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]"
                     />
                 ) : (
                     <div className="w-full h-[200px] bg-gray-100 dark:bg-gray-800 flex flex-col items-center justify-center text-content-muted p-4 text-center">

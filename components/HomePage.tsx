@@ -107,10 +107,10 @@ const HomePage: React.FC = () => {
 
 
 
-            {/* BOOK OF NOTES - Fixed top left */}
+            {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
             <h1
-                className="fixed top-4 left-6 text-lg font-bold tracking-widest uppercase z-40"
-                style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.2em' }}
+                className="fixed top-4 left-4 md:left-6 text-xs md:text-lg font-bold tracking-widest uppercase z-40 bg-[var(--bg-body)] px-2 py-1"
+                style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.15em' }}
             >
                 BOOK OF NOTES
             </h1>

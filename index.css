@@ -119,6 +119,25 @@
         background-color: white !important;
         mix-blend-mode: normal !important;
     }
+
+    /* Ensure ALL images display with normal colors in dark mode */
+    .dark img {
+        filter: none !important;
+        mix-blend-mode: normal !important;
+    }
+
+    /* SVG images need white background in dark mode since they're often transparent */
+    .dark img[src$=".svg"] {
+        background-color: white;
+        padding: 8px;
+        border-radius: 4px;
+    }
+
+    /* Course content images should always show naturally */
+    img {
+        filter: none;
+        mix-blend-mode: normal;
+    }
 }
 
 @layer utilities {
@@ -150,15 +169,12 @@
         z-index: 0;
     }
 
-    /* 2. The Image = The Ink Sketch */
+    /* 2. The Image = Standard display (removed ink sketch filter for dark mode compatibility) */
     .pencil-drawing {
         position: relative;
         z-index: 10;
-        /* Apply the ink sketch filter */
-        filter: url(#inkSketch);
-        /* Optional: Mix blend mode for better integration */
-        mix-blend-mode: multiply;
         display: block;
+        /* Removed filter and mix-blend-mode for dark mode compatibility */
     }
 
     /* Hide scrollbar for Chrome, Safari and Opera */

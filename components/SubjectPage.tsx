@@ -161,13 +161,26 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                 />
             )}
 
-            {/* Mobile Menu Button */}
-            <button
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="fixed top-4 left-4 z-[70] lg:hidden p-2 text-content-primary"
-            >
-                <Menu className="w-6 h-6" />
-            </button>
+            {/* Mobile Navigation Buttons - Index and Home */}
+            <div className="fixed top-4 left-4 z-[70] lg:hidden flex items-center gap-2">
+                {/* Mobile Menu Button with better contrast */}
+                <button
+                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                    className="p-2.5 bg-[var(--bg-body)] border border-content-primary/30 text-content-primary"
+                    aria-label="Apri Indice"
+                >
+                    <Menu className="w-5 h-5" />
+                </button>
+
+                {/* Mobile Home Button */}
+                <button
+                    onClick={() => navigate('/subjects')}
+                    className="p-2.5 bg-[var(--bg-body)] border border-content-primary/30 text-content-primary"
+                    aria-label="Torna alla Homepage"
+                >
+                    <Home className="w-5 h-5" />
+                </button>
+            </div>
 
             {/* Left Sidebar - Fixed */}
             <aside
