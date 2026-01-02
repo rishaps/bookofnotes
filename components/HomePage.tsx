@@ -2,10 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
-// Completed subjects
-const completedSubjects = ['analisi-1', 'fondamenti-informatica', 'economia', 'geometria-algebra'];
-
-// Table of Contents data
+// Table of Contents data organized by sections
 const tocData = {
     'PRIMO ANNO': [
         { title: 'Analisi Matematica 1', slug: 'analisi-1' },
@@ -34,46 +31,25 @@ const tocData = {
     ],
 };
 
-// Editorial sections - Conversational, curious style
-const editorialSections = [
-    {
-        image: '/images/homepage/bug.png',
-        title: 'Il Primo "Bug"',
-        body: 'Ti sei mai chiesto perché chiamiamo "bug" gli errori nel codice? Nel 1947 Grace Hopper trovò una vera falena incastrata in un relè del computer Mark II. Da allora, trovare e correggere errori si chiama "debugging".',
-    },
-    {
-        image: '/images/homepage/cat.png',
-        title: 'Il Paradosso del Gatto',
-        body: 'Hai mai sentito parlare del gatto di Schrödinger? È un esperimento mentale dove un gatto in una scatola è contemporaneamente vivo e morto, finché non la apri. Sembra assurdo, ma la fisica quantistica funziona proprio così.',
-    },
-    {
-        image: '/images/homepage/dragon.png',
-        title: 'Il Custode del Valore',
-        body: 'Perché i draghi nelle leggende accumulano oro senza mai usarlo? Perché non conoscono l\'economia. Questa disciplina insegna come allocare risorse monetarie (anche scarse) per generare valore, non per tenerle ammassate in qualche grotta.',
-    },
-    {
-        image: '/images/homepage/monkey.png',
-        title: 'Il Caso non Esiste',
-        body: 'Ti sei mai chiesto se il lancio di un dado è davvero casuale? La statistica dimostra che anche eventi apparentemente casuali seguono leggi precise. Sapendo interpretarle, puoi prevedere l\'imprevedibile.',
-    },
-];
+// Count total sections and chapters
+const sectionCount = Object.keys(tocData).length;
+const chapterCount = Object.values(tocData).reduce((acc, items) => acc + items.length, 0);
 
-// TOC Item Component
-const TocItem: React.FC<{ title: string; slug: string; onClick: () => void }> = ({ title, slug, onClick }) => {
-    const isCompleted = completedSubjects.includes(slug);
+interface TocItemProps {
+    title: string;
+    slug: string;
+    onClick: () => void;
+}
+
+const TocItem: React.FC<TocItemProps> = ({ title, slug, onClick }) => {
     return (
         <button
             onClick={onClick}
-            className="w-full flex items-center justify-between text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors py-1 group"
+            className="toc-item w-full flex items-baseline text-left transition-colors py-0.5 group"
         >
-            <span className="font-serif text-sm md:text-[15px] text-black dark:text-white group-hover:underline leading-tight">
+            <span className="toc-bullet mr-2 text-black dark:text-white">•</span>
+            <span className="toc-title text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
                 {title}
-            </span>
-            <span className={`text-[8px] md:text-[9px] font-mono uppercase tracking-wide ml-2 flex-shrink-0 ${isCompleted
-                ? 'text-green-600 dark:text-green-400'
-                : 'text-gray-400 dark:text-gray-500'
-                }`}>
-                {isCompleted ? 'Completato' : 'Da completare'}
             </span>
         </button>
     );
@@ -87,42 +63,59 @@ const HomePage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white">
+        <div
+            className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col"
+            style={{ fontFamily: "'Departure Mono', monospace" }}
+        >
+            {/* Theme Toggle - Fixed Position */}
+            <div className="fixed top-4 right-4 z-40">
+                <ThemeToggle inline={true} />
+            </div>
 
-            {/* MOBILE LAYOUT */}
-            <div className="md:hidden flex flex-col min-h-screen">
-                {/* Header */}
-                <header className="flex-shrink-0 px-4 pt-4 pb-3 border-b border-black/10 dark:border-white/10">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <h1 className="font-mono text-lg font-bold tracking-wide uppercase leading-none">
-                                BOOK OF NOTES
-                            </h1>
-                            <p className="font-serif italic text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                                by Rishapveer Singh
-                            </p>
-                        </div>
-                        <ThemeToggle inline={true} />
+            {/* BOOK OF NOTES - Fixed top left */}
+            <h1
+                className="fixed top-4 left-6 text-lg font-bold tracking-widest uppercase z-40"
+                style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.2em' }}
+            >
+                BOOK OF NOTES
+            </h1>
+
+            {/* Main content wrapper - centered vertically and horizontally */}
+            <div className="flex-1 flex flex-col items-center justify-center px-8 py-12">
+
+                {/* Header with TOC centered */}
+                <header className="w-full max-w-5xl mb-8">
+                    {/* TABLE OF CONTENTS - Centered with lines */}
+                    <div className="flex items-center justify-center gap-4">
+                        <span className="flex-1 border-b border-gray-300 dark:border-gray-600"></span>
+                        <h2
+                            className="text-sm font-bold tracking-widest uppercase"
+                            style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.2em' }}
+                        >
+                            TABLE OF CONTENTS
+                        </h2>
+                        <span className="flex-1 border-b border-gray-300 dark:border-gray-600"></span>
                     </div>
                 </header>
 
-                {/* TOC - Full screen on mobile */}
-                <div className="flex-1 overflow-y-auto px-4 py-4">
-                    <h2 className="font-mono text-sm font-bold tracking-wide uppercase mb-4 text-gray-500 dark:text-gray-400">
-                        INDICE DEI CORSI
-                    </h2>
-                    <div className="space-y-6">
+                {/* Main Content - 3 Column Grid */}
+                <main className="w-full max-w-5xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
                         {Object.entries(tocData).map(([year, items], yearIndex) => (
-                            <div key={year}>
-                                <div className="flex items-baseline gap-2 mb-2">
-                                    <span className="font-mono text-sm font-bold leading-none">
-                                        {yearIndex + 1}.
-                                    </span>
-                                    <span className="font-mono text-sm font-bold uppercase tracking-wider leading-none">
+                            <div key={year} className="flex flex-col">
+                                {/* Section Header */}
+                                <div className="mb-4">
+                                    <h3
+                                        className="text-sm font-bold uppercase tracking-wider"
+                                        style={{ fontFamily: "'Departure Mono', monospace" }}
+                                    >
+                                        <span className="mr-2">{yearIndex + 1}.</span>
                                         {year}
-                                    </span>
+                                    </h3>
                                 </div>
-                                <div className="pl-4 space-y-1">
+
+                                {/* Items */}
+                                <div className="space-y-1">
                                     {items.map((item) => (
                                         <TocItem
                                             key={item.slug}
@@ -135,112 +128,7 @@ const HomePage: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-            </div>
-
-            {/* DESKTOP LAYOUT */}
-            <div className="hidden md:flex h-screen overflow-hidden">
-
-                {/* LEFT COLUMN - Editorial (55%) */}
-                <div className="w-[55%] h-full border-r border-black/10 dark:border-white/10 flex flex-col">
-                    {/* Header */}
-                    <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <h1 className="font-mono text-xl font-bold tracking-wide uppercase leading-none">
-                                    BOOK OF NOTES
-                                </h1>
-                                <p className="font-serif italic text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                                    by Rishapveer Singh
-                                </p>
-                            </div>
-                            <ThemeToggle inline={true} />
-                        </div>
-                    </header>
-
-                    {/* Editorial Content */}
-                    <div className="flex-1 p-4 overflow-hidden flex flex-col">
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                            {editorialSections.map((section, index) => (
-                                <div key={index} className="flex flex-col">
-                                    <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest mb-1 leading-none">
-                                        {section.title}
-                                    </h3>
-                                    <div className="flex gap-2">
-                                        <div className="w-16 flex-shrink-0">
-                                            <img
-                                                src={section.image}
-                                                alt={section.title}
-                                                className="w-full h-auto object-contain max-h-[80px]"
-                                            />
-                                        </div>
-                                        <p className="font-serif text-[12px] leading-[1.35] text-gray-700 dark:text-gray-300">
-                                            {section.body}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Problem Section */}
-                        <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10 flex-1 flex flex-col">
-                            <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2">
-                                Un esercizietto di riscaldamento per accenderti i neuroni prima di studiare.
-                            </p>
-                            <p className="font-serif text-[13px] leading-relaxed text-gray-700 dark:text-gray-300">
-                                Eveline e James giocano su una scacchiera formata da una singola fila di 2022 caselle consecutive.
-                                A turno, posizionano tessere che coprono due caselle adiacenti, con Eveline che fa la prima mossa.
-                                Una tessera non può coprire una casella già occupata.
-                            </p>
-                            <p className="font-serif text-[13px] leading-relaxed text-gray-700 dark:text-gray-300 mt-2">
-                                Eveline vuole massimizzare le caselle vuote rimaste; James vuole minimizzarle.
-                                <em className="text-gray-900 dark:text-white font-medium"> Qual è il numero massimo di caselle vuote che Eveline può assicurarsi?</em>
-                            </p>
-                            <div className="mt-4 flex-1 flex items-end">
-                                <img
-                                    src="/images/homepage/problema.jpg"
-                                    alt="Eveline vs James"
-                                    className="w-full h-auto rounded"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* RIGHT COLUMN - TOC (45%) */}
-                <div className="w-[45%] h-full flex flex-col overflow-hidden">
-                    <header className="flex-shrink-0 px-5 pt-3 pb-2 border-b border-black/10 dark:border-white/10">
-                        <h2 className="font-mono text-lg font-bold tracking-wide uppercase leading-none">
-                            TABLE OF CONTENTS
-                        </h2>
-                    </header>
-                    <div className="flex-1 overflow-y-auto px-5 py-3">
-                        <div className="flex flex-col gap-6">
-                            {Object.entries(tocData).map(([year, items], yearIndex) => (
-                                <div key={year}>
-                                    <div className="flex items-baseline gap-2 mb-1">
-                                        <span className="font-mono text-sm font-bold leading-none">
-                                            {yearIndex + 1}.
-                                        </span>
-                                        <span className="font-mono text-sm font-bold uppercase tracking-wider leading-none">
-                                            {year}
-                                        </span>
-                                    </div>
-                                    <div className="pl-4">
-                                        {items.map((item) => (
-                                            <TocItem
-                                                key={item.slug}
-                                                title={item.title}
-                                                slug={item.slug}
-                                                onClick={() => handleNavigate(item.slug)}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                </main>
             </div>
         </div>
     );

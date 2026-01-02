@@ -28,18 +28,18 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ inline = false }) => {
         }
     };
 
-    // Optional: Sync with localStorage on mount to persist across reloads
+    // Sync with localStorage on mount - dark mode is the default
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         const html = document.documentElement;
         if (savedTheme === 'light') {
             html.classList.remove('dark');
             setIsDark(false);
-        } else if (savedTheme === 'dark') {
+        } else {
+            // Default to dark mode (including when no theme saved)
             html.classList.add('dark');
             setIsDark(true);
         }
-        // If no saved theme, we stick to default (which is dark in index.html)
     }, []);
 
     const buttonContent = (
