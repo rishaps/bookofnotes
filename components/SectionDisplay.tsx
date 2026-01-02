@@ -19,25 +19,46 @@ interface SectionDisplayProps {
 
 const highlightPattern = /(\*\*)/g;
 
+// Helper to ensure path starts with / relative to public
+const normalizeImagePath = (src: string) => {
+  if (src.startsWith('http') || src.startsWith('/')) return src;
+  return `/${src}`;
+};
+
 const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: string, alt: string) => void }> = ({ src, alt, onImageClick }) => {
-  // Generate AVIF source by replacing extension
-  const avifSrc = src.replace(/\.[^/.]+$/, ".avif");
+  const [imgSrc, setImgSrc] = useState(normalizeImagePath(src));
+  const [hasError, setHasError] = useState(false);
+
+  // If initial src changes, reset
+  useEffect(() => {
+    setImgSrc(normalizeImagePath(src));
+    setHasError(false);
+  }, [src]);
+
+  if (hasError) {
+    return (
+      <div className="p-4 border border-red-200 rounded text-red-500 text-xs text-center">
+        Image not found: {alt}
+      </div>
+    );
+  }
 
   return (
     <div
-      className="relative overflow-hidden cursor-zoom-in"
-      onClick={() => onImageClick(src, alt)}
+      className="relative cursor-zoom-in my-4"
+      onClick={() => onImageClick(imgSrc, alt)}
     >
-      <picture>
-        <source srcSet={avifSrc} type="image/avif" />
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-auto max-w-[250px] mx-auto object-contain transition-transform duration-300 hover:scale-[1.02]"
-        />
-      </picture>
+      <img
+        src={imgSrc}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onError={(e) => {
+          console.error(`Failed to load image: ${imgSrc}`);
+          setHasError(true);
+        }}
+        className="w-full h-auto max-w-[250px] mx-auto object-contain rounded-lg border border-content-primary/10 shadow-sm transition-transform duration-300 hover:scale-[1.01]"
+      />
     </div>
   );
 };
@@ -92,22 +113,21 @@ const renderWithHighlights = (value: string, boldClass = "font-bold text-content
   // Normalize invisible chars once here too, just in case
   const normalizedValue = value.replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '');
 
-  // Match bold first, then process math inside each part
-  const boldPattern = /(\*\*[^*]+\*\*)/g;
-  const parts = normalizedValue.split(boldPattern);
+  // Simple split by double asterisks
+  // Even indices are regular text, odd indices are bold
+  // This is much more robust than regex for simple Markdown bold
+  const parts = normalizedValue.split('**');
 
   return (
     <>
       {parts.map((part, index) => {
-        if (!part) return null;
-
-        if (part.startsWith('**') && part.endsWith('**')) {
-          const content = part.substring(2, part.length - 2);
+        // Odd indices = content between ** **
+        if (index % 2 === 1) {
           // Recursively process math inside bold content
-          return <strong key={index} className={boldClass}>{renderMathParts(content, `bold-${index}-`)}</strong>;
+          return <strong key={index} className={boldClass}>{renderMathParts(part, `bold-${index}-`)}</strong>;
         }
 
-        // Process math in non-bold parts
+        // Even indices = regular text (outside **)
         return <span key={index}>{renderMathParts(part, `text-${index}-`)}</span>;
       })}
     </>

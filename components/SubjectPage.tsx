@@ -29,14 +29,41 @@ const SUBJECT_THEME_MAP: Record<string, string> = {
     'default': 'theme-math'
 };
 
-const SubjectPage: React.FC = () => {
-    const { slug } = useParams<{ slug: string }>();
-    const location = useLocation();
+// Inner component that handles the specific subject logic
+// We separate this so we can force a re-mount when the slug changes using the 'key' prop
+// This guarantees that state (like currentLessonIndex) is reset/re-initialized correctly
+const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
     const navigate = useNavigate();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [fontSizeLevel, setFontSizeLevel] = useState(1);
-    const [isDark, setIsDark] = useState(true);
-    const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
+
+    // Get content map immediately
+    const content = CONTENT_MAP[activeSlug] || null;
+
+    // Get subject metadata
+    const subject = subjects.find(s => s.slug === activeSlug);
+
+    // Initialize theme from localStorage - fixed logic
+    const [isDark, setIsDark] = useState(() => {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark') return true;
+        if (savedTheme === 'light') return false;
+        return systemDark;
+    });
+
+    // Initialize lesson index with lazy loader to fix reload race condition
+    // Because of the key={activeSlug} in parent, this runs afresh for every subject change
+    const [currentLessonIndex, setCurrentLessonIndex] = useState(() => {
+        if (!activeSlug) return 0;
+        const savedIndex = localStorage.getItem(`lessonIndex-${activeSlug}`);
+        if (savedIndex !== null) {
+            const idx = parseInt(savedIndex, 10);
+            // Trust the saved index even without content check to ensure persistence works
+            return !isNaN(idx) ? idx : 0;
+        }
+        return 0;
+    });
 
     // Initialize TOC visibility from localStorage
     const [isTOCVisible, setIsTOCVisible] = useState(() => {
@@ -44,63 +71,24 @@ const SubjectPage: React.FC = () => {
         return saved !== null ? saved === 'true' : true;
     });
 
-    // Initialize theme from localStorage
+    // Sync Theme Effect
     useEffect(() => {
-        // specific logic to sync state with whatever the layout/system decided
-        const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isActuallyDark = savedTheme === 'dark' || (!savedTheme && systemDark) || document.documentElement.classList.contains('dark');
-
-        setIsDark(isActuallyDark);
-        if (isActuallyDark) {
+        if (isDark) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
         }
-    }, []);
+    }, [isDark]);
 
     const toggleTheme = () => {
-        const html = document.documentElement;
         if (isDark) {
-            html.classList.remove('dark');
             setIsDark(false);
             localStorage.setItem('theme', 'light');
         } else {
-            html.classList.add('dark');
             setIsDark(true);
             localStorage.setItem('theme', 'dark');
         }
     };
-
-    // Determine active slug
-    let activeSlug = slug;
-    if (!activeSlug && location.pathname === '/economia') {
-        activeSlug = 'economia';
-    }
-    activeSlug = activeSlug || '';
-
-    // Get subject metadata
-    const subject = subjects.find(s => s.slug === activeSlug);
-
-    // Get content directly - no loading needed!
-    const content = CONTENT_MAP[activeSlug] || null;
-
-    // Load saved lesson index on mount or slug change
-    useEffect(() => {
-        if (activeSlug) {
-            const savedIndex = localStorage.getItem(`lessonIndex-${activeSlug}`);
-            if (savedIndex !== null) {
-                const idx = parseInt(savedIndex, 10);
-                if (!isNaN(idx) && content && idx < content.length) {
-                    setCurrentLessonIndex(idx);
-                } else {
-                    setCurrentLessonIndex(0);
-                }
-            } else {
-                setCurrentLessonIndex(0);
-            }
-        }
-    }, [activeSlug, content]);
 
     // Save lesson index when it changes
     useEffect(() => {
@@ -186,22 +174,22 @@ const SubjectPage: React.FC = () => {
                 className={`
                     fixed top-0 left-0 h-screen z-[60] bg-[var(--bg-body)]
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-                    ${isTOCVisible ? 'w-64 overflow-y-auto no-scrollbar' : 'w-10'}
+                    ${isTOCVisible ? 'w-64' : 'w-10'}
                 `}
             >
-                {/* Home Button - Always visible at top */}
+                {/* Home Button - Fixed position at top, separate from scroll container */}
                 <button
                     onClick={() => navigate('/subjects')}
-                    className="hidden lg:flex items-center justify-center w-10 h-10 text-content-muted absolute top-4 left-0"
+                    className="hidden lg:flex items-center justify-center w-10 h-10 text-content-muted absolute top-4 left-0 z-20"
                     title="Torna alla Homepage"
                 >
                     <Home className="w-4 h-4" />
                 </button>
 
-                {/* TOC Toggle - Right side when open, centered when collapsed */}
+                {/* TOC Toggle - Fixed position, separate from scroll container */}
                 <button
                     onClick={() => setIsTOCVisible(!isTOCVisible)}
-                    className={`hidden lg:flex items-center justify-center w-12 h-12 text-content-primary absolute ${isTOCVisible
+                    className={`hidden lg:flex items-center justify-center w-12 h-12 text-content-primary absolute z-20 ${isTOCVisible
                         ? 'top-1/2 right-0 -translate-y-1/2'
                         : 'top-1/2 left-0 -translate-y-1/2 w-12'
                         }`}
@@ -210,18 +198,20 @@ const SubjectPage: React.FC = () => {
                     {isTOCVisible ? <ChevronLeft className="w-6 h-6" strokeWidth={3} /> : <ChevronRight className="w-6 h-6" strokeWidth={3} />}
                 </button>
 
-                {/* TOC Content - Only when visible */}
+                {/* Scrollable Content Container */}
                 {isTOCVisible && (
-                    <div style={{ paddingTop: '56px', paddingLeft: '24px', paddingRight: '48px' }}>
+                    <div
+                        className="h-full overflow-y-auto no-scrollbar"
+                        style={{ paddingTop: '56px', paddingLeft: '24px', paddingRight: '48px' }}
+                    >
                         {/* Mobile Close Button */}
                         <button
                             onClick={() => setIsSidebarOpen(false)}
-                            className="lg:hidden absolute top-4 right-4"
+                            className="lg:hidden absolute top-4 right-4 z-20"
                         >
                             <X className="w-5 h-5 text-content-muted" />
                         </button>
 
-                        {/* Lesson Rail Content */}
                         <LessonRail
                             content={content}
                             activeLessonIndex={currentLessonIndex}
@@ -232,7 +222,7 @@ const SubjectPage: React.FC = () => {
                 )}
             </aside>
 
-            {/* Main Content Area - Uses full available width */}
+            {/* Main Content Area */}
             <main
                 className={`min-h-screen ${isTOCVisible ? 'lg:ml-64' : 'lg:ml-10'}`}
                 style={{ paddingTop: '40px', paddingBottom: '60px' }}
@@ -248,7 +238,6 @@ const SubjectPage: React.FC = () => {
 
                             {/* Navigation Buttons */}
                             <div className="flex justify-between items-center mt-12 pt-8 border-t border-content-primary/10">
-                                {/* Prev Button */}
                                 <div>
                                     {currentLessonIndex > 0 && (
                                         <button
@@ -261,7 +250,6 @@ const SubjectPage: React.FC = () => {
                                     )}
                                 </div>
 
-                                {/* Next Button */}
                                 <div>
                                     {content && currentLessonIndex < content.length - 1 && (
                                         <button
@@ -286,6 +274,21 @@ const SubjectPage: React.FC = () => {
             </main>
         </div>
     );
+};
+
+const SubjectPage: React.FC = () => {
+    const { slug } = useParams<{ slug: string }>();
+    const location = useLocation();
+
+    // Determine active slug
+    let activeSlug = slug;
+    if (!activeSlug && location.pathname === '/economia') {
+        activeSlug = 'economia';
+    }
+    activeSlug = activeSlug || '';
+
+    // Use Key to force remount on slug change
+    return <SubjectPageInner key={activeSlug} activeSlug={activeSlug} />;
 };
 
 export default SubjectPage;
