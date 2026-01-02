@@ -80,7 +80,7 @@
 
     body {
         @apply antialiased bg-[var(--bg-body)] text-content-primary;
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         /* REMOVED GLOBAL TRANSITION TO FIX LAG */
         /* transition: background-color 0s; */
 
@@ -159,6 +159,17 @@
         /* Optional: Mix blend mode for better integration */
         mix-blend-mode: multiply;
         display: block;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }
 
@@ -240,7 +251,7 @@
 
 /* TOC Item styling */
 .toc-item {
-    font-family: 'Departure Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -251,9 +262,8 @@
 }
 
 .toc-title {
-    font-family: 'Departure Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-weight: 400;
-    transition: color 0.15s ease;
 }
 
 .toc-dots {
@@ -263,7 +273,7 @@
 }
 
 .toc-wordcount {
-    font-family: 'Departure Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-size: 11px;
     font-weight: 400;
     text-transform: uppercase;
@@ -272,8 +282,8 @@
 
 /* Section headers */
 .toc-section-header {
-    font-family: 'Departure Mono', monospace;
-    font-weight: 700;
+    font-family: 'Geist Mono', monospace;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
 }
