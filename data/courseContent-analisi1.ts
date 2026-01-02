@@ -6,14 +6,6 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 1: Logica Matematica",
         subsections: [
             {
-                title: "Obiettivi e Fondamenti",
-                content: [
-                    "**Obiettivo:** analizzare e formalizzare metodi corretti di ragionamento.",
-                    "La logica fornisce alla matematica un linguaggio chiaro e un metodo rigoroso per dimostrare teoremi partendo da assiomi più elementari.",
-                    "Questa disciplina costituisce la base formale su cui si costruisce l'intero edificio matematico, garantendo la validità delle deduzioni e la coerenza delle teorie."
-                ]
-            },
-            {
                 title: "Nozioni Primitive e Assiomi",
                 content: [
                     "In matematica, non tutto può essere definito o dimostrato. Esistono concetti e verità di partenza che vengono accettati intuitivamente o per convenzione.",

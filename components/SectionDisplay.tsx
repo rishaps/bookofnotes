@@ -19,23 +19,46 @@ interface SectionDisplayProps {
 
 const highlightPattern = /(\*\*)/g;
 
+// Helper to ensure path starts with / relative to public
+const normalizeImagePath = (src: string) => {
+  if (src.startsWith('http') || src.startsWith('/')) return src;
+  return `/${src}`;
+};
+
 const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: string, alt: string) => void }> = ({ src, alt, onImageClick }) => {
+  const [imgSrc, setImgSrc] = useState(normalizeImagePath(src));
+  const [hasError, setHasError] = useState(false);
+
+  // If initial src changes, reset
+  useEffect(() => {
+    setImgSrc(normalizeImagePath(src));
+    setHasError(false);
+  }, [src]);
+
+  if (hasError) {
+    return (
+      <div className="p-4 border border-red-200 rounded text-red-500 text-xs text-center">
+        Image not found: {alt}
+      </div>
+    );
+  }
+
   return (
     <div
-      className="relative overflow-hidden transition-all duration-500 hover:scale-[1.02] cursor-zoom-in group"
-      onClick={() => onImageClick(src, alt)}
+      className="relative cursor-zoom-in my-4"
+      onClick={() => onImageClick(imgSrc, alt)}
     >
       <img
-        src={src}
+        src={imgSrc}
         alt={alt}
         loading="lazy"
-        className="w-full h-auto transition-all duration-700"
+        decoding="async"
+        onError={(e) => {
+          console.error(`Failed to load image: ${imgSrc}`);
+          setHasError(true);
+        }}
+        className="w-full h-auto max-w-[250px] mx-auto object-contain rounded-lg border border-content-primary/10 shadow-sm transition-transform duration-300 hover:scale-[1.01]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none flex items-end justify-center pb-4">
-        <span className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white bg-black/50 backdrop-blur-md px-3 py-1">
-          <ZoomIn size={12} /> Ingrandisci
-        </span>
-      </div>
     </div>
   );
 };
@@ -90,22 +113,21 @@ const renderWithHighlights = (value: string, boldClass = "font-bold text-content
   // Normalize invisible chars once here too, just in case
   const normalizedValue = value.replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '');
 
-  // Match bold first, then process math inside each part
-  const boldPattern = /(\*\*[^*]+\*\*)/g;
-  const parts = normalizedValue.split(boldPattern);
+  // Simple split by double asterisks
+  // Even indices are regular text, odd indices are bold
+  // This is much more robust than regex for simple Markdown bold
+  const parts = normalizedValue.split('**');
 
   return (
     <>
       {parts.map((part, index) => {
-        if (!part) return null;
-
-        if (part.startsWith('**') && part.endsWith('**')) {
-          const content = part.substring(2, part.length - 2);
+        // Odd indices = content between ** **
+        if (index % 2 === 1) {
           // Recursively process math inside bold content
-          return <strong key={index} className={boldClass}>{renderMathParts(content, `bold-${index}-`)}</strong>;
+          return <strong key={index} className={boldClass}>{renderMathParts(part, `bold-${index}-`)}</strong>;
         }
 
-        // Process math in non-bold parts
+        // Even indices = regular text (outside **)
         return <span key={index}>{renderMathParts(part, `text-${index}-`)}</span>;
       })}
     </>
@@ -161,20 +183,20 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     }
 
     return (
-      <div className="my-8 overflow-x-auto p-1">
-        <table className="w-full text-left border-collapse">
+      <div className="my-4 overflow-x-auto">
+        <table className="w-full text-left border border-content-primary/20">
           <thead>
-            <tr>
+            <tr className="border-b border-content-primary/20">
               {item.headers.map((header, index) => (
-                <th key={index} className="p-4 text-xs font-mono font-medium text-premium-gold uppercase tracking-widest">{header}</th>
+                <th key={index} className="p-3 text-sm font-bold text-content-primary border-r border-content-primary/20 last:border-r-0">{header}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {item.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="transition-colors">
+              <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0">
                 {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="p-4 text-sm text-content-secondary font-light">{renderWithHighlights(cell)}</td>
+                  <td key={cellIndex} className="p-3 text-sm text-content-primary border-r border-content-primary/10 last:border-r-0">{renderWithHighlights(cell)}</td>
                 ))}
               </tr>
             ))}
@@ -192,12 +214,9 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     const content = text.replace(/^Attenzione\s*[:\-]\s*/i, '');
 
     return (
-      <div className="my-8 px-6 py-4">
-        <p className="text-xs font-mono font-bold tracking-widest uppercase text-amber-500 mb-2 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-          Attenzione
-        </p>
-        <p className="text-sm leading-relaxed text-content-secondary font-light">{renderWithHighlights(content)}</p>
+      <div className="my-4 px-4 py-3 border-l-2 border-content-primary/30">
+        <p className="text-sm font-bold text-content-primary mb-1">Attenzione</p>
+        <p className="text-sm text-content-primary">{renderWithHighlights(content)}</p>
       </div>
     );
   }
@@ -277,8 +296,8 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     );
   }
 
-  if (text.startsWith('●') || text.startsWith('○')) {
-    const content = text.replace(/^[●○]\s*/, '').trim();
+  if (text.startsWith('●') || text.startsWith('○') || text.startsWith('* ') || text.startsWith('- ')) {
+    const content = text.replace(/^[●○*-]\s*/, '').trim();
 
     // Check for "Term: Definition" pattern
     const colonIndex = content.indexOf(':');
@@ -287,14 +306,14 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
       const definition = content.substring(colonIndex + 1);
 
       return (
-        <p className="pl-8 relative text-content-secondary leading-relaxed font-light before:content-[''] before:absolute before:left-2 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-premium-gold/50">
-          <strong className="text-content-primary font-semibold">{renderWithHighlights(term)}</strong>{renderWithHighlights(definition)}
+        <p className="pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
+          <strong className="font-bold">{renderWithHighlights(term)}</strong>{renderWithHighlights(definition)}
         </p>
       );
     }
 
     return (
-      <p className="pl-8 relative text-content-secondary leading-relaxed font-light before:content-[''] before:absolute before:left-2 before:top-2.5 before:w-1.5 before:h-1.5 before:rounded-full before:bg-premium-gold/50">
+      <p className="pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
         {renderWithHighlights(content)}
       </p>
     );
@@ -352,7 +371,7 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   const isBoldTitle = boldableKeywords.some(keyword => cleanText.startsWith(keyword));
 
   if (isBoldTitle) {
-    return <p className="font-serif text-lg text-premium-gold mt-8 mb-2">{renderWithHighlights(item as string, "font-bold")}</p>;
+    return <p className="font-bold text-lg text-content-primary mt-4 mb-1">{renderWithHighlights(item as string, "font-bold")}</p>;
   }
 
   // Check for numbered sub-headings (e.g. 1.1.1, 2.1.3) OR single numbered lists (e.g. 1. Title)
@@ -370,11 +389,9 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   }
 
   return (
-    <div className="group transition-all duration-300 hover:translate-x-1">
-      <p className="text-content-secondary leading-relaxed font-light text-lg group-hover:text-content-primary transition-colors">
-        {renderWithHighlights(item as string)}
-      </p>
-    </div>
+    <p className="text-content-primary">
+      {renderWithHighlights(item as string)}
+    </p>
   );
 };
 
@@ -385,11 +402,13 @@ interface SubSectionDisplayProps {
 }
 
 const SubSectionDisplay: React.FC<SubSectionDisplayProps> = ({ subsection, anchorId, onImageClick }) => (
-  <div id={anchorId} className="mb-8 last:mb-0 flow-root">
-    <h3 className="text-2xl sm:text-3xl font-serif text-content-primary mb-6 pb-4">
+  <div id={anchorId} className="mb-4 last:mb-0 flow-root">
+    {/* Subsection Title - 18px semibold */}
+    <h3 className="text-lg font-semibold text-content-primary mb-2">
       {renderMathParts(subsection.title, 'title-')}
     </h3>
-    <div className="space-y-4 text-content-secondary">
+    {/* Minimal paragraph spacing */}
+    <div className="space-y-1 text-content-primary text-base leading-normal">
       {subsection.content.map((item, index) => (
         <ContentRenderer key={index} item={item} onImageClick={onImageClick} />
       ))}
@@ -443,17 +462,8 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
   // Font size classes based on level
   const fontSizeClass = fontSizeLevel === 0 ? 'text-sm' : fontSizeLevel === 2 ? 'text-lg' : 'text-base';
 
-  // Calculate reading time (approx 200 words per minute)
-  const wordCount = section.subsections.reduce((acc, sub) => {
-    return acc + sub.content.reduce((c, item) => {
-      if (typeof item === 'string') return c + item.split(' ').length;
-      return c + 20; // Estimate for tables
-    }, 0);
-  }, 0);
-  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-
   return (
-    <section id={section.id} className="pt-20 -mt-20">
+    <section id={section.id} className="pt-8 -mt-8 mb-6">
       {lightboxImage && (
         <Lightbox
           src={lightboxImage.src}
@@ -461,32 +471,11 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
           onClose={() => setLightboxImage(null)}
         />
       )}
-      <div className="mb-12">
-        <div className="flex items-center gap-3 mb-4">
-          {!['glossario', 'formulario-esempi'].includes(section.id) && (
-            <span className="text-xs font-mono text-premium-gold uppercase tracking-widest px-2 py-1">
-              Lezione {
-                {
-                  'fondamenti-impresa': '1',
-                  'contabilita-esterna': '2',
-                  'contabilita-interna': '3',
-                  'sistemi-decisione': '4'
-                }[section.id] || section.id
-              }
-            </span>
-          )}
-          <span className="text-xs font-mono text-content-muted uppercase tracking-widest flex items-center gap-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            {readingTime} min read
-          </span>
-        </div>
-        <h2
-          className="text-4xl sm:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-br from-content-primary via-content-secondary to-content-muted tracking-tight"
-        >
-          {section.title}
-        </h2>
-      </div>
-      <div className={`space-y-8 ${fontSizeClass}`}>
+      {/* Section Title - 24px bold */}
+      <h2 className="text-2xl font-bold text-content-primary tracking-tight mb-4">
+        {section.title}
+      </h2>
+      <div className={`space-y-2 ${fontSizeClass}`}>
         {section.subsections.map((subsection, index) => {
           const anchorId = `${section.id}-${index}`;
           return (

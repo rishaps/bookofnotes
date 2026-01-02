@@ -1,10 +1,14 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import katex from 'katex';
 import { MainSection } from '../types';
-import { useScrollSpy } from '../hooks/useScrollSpy';
-import { Home } from 'lucide-react';
+
+interface LessonRailProps {
+  content: MainSection[] | null;
+  className?: string;
+  activeLessonIndex: number;
+  onLessonSelect: (index: number) => void;
+  subjectTitle?: string;
+}
 
 // Helper to render math in titles
 const renderTitleWithMath = (title: string) => {
@@ -38,94 +42,73 @@ const renderTitleWithMath = (title: string) => {
   );
 };
 
-interface LessonRailProps {
-  content: MainSection[] | null;
-  className?: string;
-  onLinkClick?: () => void;
-}
-
-const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLinkClick }) => {
-  const navigate = useNavigate();
-
-  // Handle null content - show loading state
+const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', activeLessonIndex, onLessonSelect, subjectTitle }) => {
   if (!content || content.length === 0) {
-    return (
-      <div className="text-sm text-content-muted font-mono py-4">
-        Caricamento indice...
-      </div>
-    );
+    return <div className="p-4 text-xs text-content-muted">Caricamento...</div>;
   }
 
-  const subsectionAnchors = content.flatMap((section) =>
-    section.subsections.map((_, index) => `${section.id}-${index}`)
-  );
+  const handleLinkClick = (e: React.MouseEvent, lessonIndex: number, elementId?: string) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-  const activeId = useScrollSpy(subsectionAnchors, {
-    rootMargin: '0% 0% -70% 0%',
-  });
+    if (lessonIndex === activeLessonIndex && elementId) {
+      // If we are already on this lesson, try to scroll to the subsection
+      const el = document.getElementById(elementId);
+      if (el) {
+        // Offset for header
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-  const handleClick = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const headerOffset = 100; // Account for fixed header
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      if (onLinkClick) onLinkClick();
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Otherwise switch lesson
+      onLessonSelect(lessonIndex);
     }
   };
 
   return (
-    <nav className={`overflow-y-auto pr-2 custom-scrollbar ${className}`}>
-      <div className="flex flex-col gap-8">
-
-        <div className="text-xs font-mono text-premium-gold/70 uppercase tracking-widest pb-2">
-          Indice dei contenuti
+    <nav className={`lesson-rail ${className}`}>
+      {subjectTitle && (
+        <div className="lesson-rail-title">
+          {subjectTitle.toUpperCase()}
         </div>
+      )}
 
-        {content.map((section, sectionIndex) => {
-          const shortTitle = section.title.split(':')[0];
+      <div className="flex flex-col gap-6">
+        {content.map((section, index) => {
+          const isActive = index === activeLessonIndex;
+          // Format Title: remove "Lezione X:" prefix if present for cleaner look
+          const displayTitle = section.title.replace(/^Lezione \d+:\s*/i, '');
 
           return (
-            <div key={section.id} className="group">
-              <div
-                className="flex items-center gap-3 mb-3 cursor-pointer hover:opacity-80 transition-opacity"
-                onClick={() => handleClick(`${section.id}-0`)}
+            <div key={section.id} className="flex flex-col gap-2">
+              {/* Lesson Header */}
+              <button
+                className={`text-left font-mono text-xs uppercase tracking-widest leading-relaxed transition-colors ${isActive ? 'text-content-primary font-bold' : 'text-content-muted hover:text-content-primary'}`}
+                onClick={(e) => handleLinkClick(e, index)}
               >
-                {!['glossario', 'formulario-esempi'].includes(section.id) ? (
-                  <span className="flex h-6 w-6 items-center justify-center text-[10px] font-mono text-content-muted group-hover:text-premium-gold transition-colors">
-                    {sectionIndex + 1}
-                  </span>
-                ) : (
-                  <span className="flex h-6 w-6 items-center justify-center text-content-muted">
-                    •
-                  </span>
-                )}
-                <span className="text-xs font-medium uppercase tracking-wide text-content-muted group-hover:text-content-primary transition-colors">
-                  {shortTitle}
-                </span>
-              </div>
+                <div className="flex gap-2">
+                  <span className="opacity-50">{index + 1}.</span>
+                  <span>{displayTitle}</span>
+                </div>
+              </button>
 
-              <div className="ml-3 pl-4 flex flex-col gap-2">
-                {section.subsections.map((subsection, subsectionIndex) => {
-                  const anchorId = `${section.id}-${subsectionIndex}`;
-                  const isActive = activeId === anchorId;
-
+              {/* Chapters / Subsections */}
+              <div className="flex flex-col gap-2 pl-4 border-l border-content-primary/10 ml-1.5">
+                {section.subsections.map((sub, subIndex) => {
+                  const subId = `${section.id}-${subIndex}`;
                   return (
                     <button
-                      key={anchorId}
-                      type="button"
-                      onClick={() => handleClick(anchorId)}
-                      className={`text-left text-sm transition-all duration-300 line-clamp-2 ${isActive
-                        ? 'text-premium-gold font-bold translate-x-1'
-                        : 'text-content-muted hover:text-content-secondary'
-                        }`}
+                      key={subIndex}
+                      className={`text-left font-mono text-[11px] leading-tight transition-colors ${isActive ? 'text-content-secondary hover:text-content-primary' : 'text-content-muted/60 hover:text-content-muted'}`}
+                      onClick={(e) => handleLinkClick(e, index, subId)}
                     >
-                      {renderTitleWithMath(subsection.title.replace(/-->/g, '').trim())}
+                      {renderTitleWithMath(sub.title)}
                     </button>
                   );
                 })}
@@ -136,17 +119,15 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', onLink
       </div>
 
       <style>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: var(--border-primary);
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: var(--content-muted);
+        .lesson-rail-title {
+          font-family: 'Geist Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.1em;
+          color: var(--content-primary);
+          margin-bottom: 24px;
+          padding-top: 8px;
+          border-bottom: 1px solid var(--content-primary);
+          padding-bottom: 8px;
         }
       `}</style>
     </nav>

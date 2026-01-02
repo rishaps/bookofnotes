@@ -2,15 +2,31 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
+import { courseContent } from '../data/courseContent';
+import { informaticaContent } from '../data/courseContent-informatica';
+import { analisi1CourseContent } from '../data/courseContent-analisi1';
+import { geometriaCourseContent } from '../data/courseContent-geometria';
+
+// Helper to get lesson count
+const getLessonCount = (slug: string): number => {
+    switch (slug) {
+        case 'economia': return courseContent.length;
+        case 'fondamenti-informatica': return informaticaContent.length;
+        case 'analisi-1': return analisi1CourseContent.length;
+        case 'geometria-algebra': return geometriaCourseContent.length;
+        default: return 0;
+    }
+};
+
 // Table of Contents data organized by sections
 const tocData = {
     'PRIMO ANNO': [
         { title: 'Analisi Matematica 1', slug: 'analisi-1' },
         { title: 'Fondamenti di Informatica', slug: 'fondamenti-informatica' },
         { title: 'Geometria e Algebra Lineare', slug: 'geometria-algebra' },
+        { title: 'Economia e Org. Aziendale', slug: 'economia' },
         { title: 'Fisica', slug: 'fisica' },
         { title: 'Elettrotecnica', slug: 'elettrotecnica' },
-        { title: 'Economia e Org. Aziendale', slug: 'economia' },
     ],
     'SECONDO ANNO': [
         { title: 'Analisi Matematica 2', slug: 'analisi-2' },
@@ -38,22 +54,39 @@ const chapterCount = Object.values(tocData).reduce((acc, items) => acc + items.l
 interface TocItemProps {
     title: string;
     slug: string;
+    lessonCount: number;
     onClick: () => void;
 }
 
-const TocItem: React.FC<TocItemProps> = ({ title, slug, onClick }) => {
+const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) => {
+    const isAvailable = lessonCount > 0;
+
     return (
         <button
-            onClick={onClick}
-            className="toc-item w-full flex items-baseline text-left transition-colors py-0.5 group"
+            onClick={isAvailable ? onClick : undefined}
+            disabled={!isAvailable}
+            className={`toc-item w-full flex items-baseline text-left transition-colors py-0.5 group ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
+                }`}
         >
-            <span className="toc-bullet mr-2 text-black dark:text-white">•</span>
-            <span className="toc-title text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                {title}
+            {/* Title */}
+            <span className={`whitespace-nowrap flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
+                <span className="mr-1">•</span>{title}
+            </span>
+
+            {/* Dots that fill space */}
+            <span className="flex-grow mx-1 overflow-hidden whitespace-nowrap text-gray-300 dark:text-gray-600 text-[8px] select-none leading-none self-end mb-[2px]">
+                {'.'.repeat(200)}
+            </span>
+
+            {/* Lesson count - fixed width for alignment */}
+            <span className={`w-[75px] text-right text-[10px] font-mono whitespace-nowrap uppercase tracking-wide flex-shrink-0 ${isAvailable ? 'text-gray-500' : 'text-transparent'}`}>
+                {isAvailable ? `${String(lessonCount).padStart(2, '0')} lezioni` : ''}
             </span>
         </button>
     );
 };
+
+const AVAILABLE_SUBJECTS = ['analisi-1', 'fondamenti-informatica', 'geometria-algebra', 'economia'];
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
@@ -64,13 +97,15 @@ const HomePage: React.FC = () => {
 
     return (
         <div
-            className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col"
+            className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col relative"
             style={{ fontFamily: "'Departure Mono', monospace" }}
         >
             {/* Theme Toggle - Fixed Position */}
             <div className="fixed top-4 right-4 z-40">
                 <ThemeToggle inline={true} />
             </div>
+
+
 
             {/* BOOK OF NOTES - Fixed top left */}
             <h1
@@ -99,8 +134,8 @@ const HomePage: React.FC = () => {
                 </header>
 
                 {/* Main Content - 3 Column Grid */}
-                <main className="w-full max-w-5xl">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
+                <main className="w-full max-w-6xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-8">
                         {Object.entries(tocData).map(([year, items], yearIndex) => (
                             <div key={year} className="flex flex-col">
                                 {/* Section Header */}
@@ -121,6 +156,7 @@ const HomePage: React.FC = () => {
                                             key={item.slug}
                                             title={item.title}
                                             slug={item.slug}
+                                            lessonCount={getLessonCount(item.slug)}
                                             onClick={() => handleNavigate(item.slug)}
                                         />
                                     ))}

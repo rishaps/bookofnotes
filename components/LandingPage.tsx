@@ -21,7 +21,7 @@ const LandingPage: React.FC = () => {
 
                 {/* Tagline */}
                 <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-md mx-auto leading-relaxed mb-12">
-                    A curated collection of university notes.
+                    A collection of college notes.
                 </p>
 
                 {/* Enter Button */}
