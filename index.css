@@ -171,11 +171,35 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+
+    /* Hide all scrollbars globally */
+    *::-webkit-scrollbar {
+        display: none;
+    }
+
+    * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
 
 /* KaTeX Math Styling - Ensure fractions are visible */
 .katex {
     color: inherit !important;
+}
+
+/* Make math blocks scale to fit container without scroll */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding: 0.5em 0;
+}
+
+.katex-display>.katex {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .katex .frac-line {

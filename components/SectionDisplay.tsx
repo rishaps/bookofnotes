@@ -463,7 +463,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
   const fontSizeClass = fontSizeLevel === 0 ? 'text-sm' : fontSizeLevel === 2 ? 'text-lg' : 'text-base';
 
   return (
-    <section id={section.id} className="pt-8 -mt-8 mb-6">
+    <section id={section.id} className="pt-8 -mt-8 mb-6 text-left">
       {lightboxImage && (
         <Lightbox
           src={lightboxImage.src}

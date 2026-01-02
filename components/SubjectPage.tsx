@@ -174,7 +174,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                 className={`
                     fixed top-0 left-0 h-screen z-[60] bg-[var(--bg-body)]
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-                    ${isTOCVisible ? 'w-64' : 'w-10'}
+                    ${isTOCVisible ? 'w-80' : 'w-10'}
                 `}
             >
                 {/* Home Button - Fixed position at top, separate from scroll container */}
@@ -224,10 +224,10 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
             {/* Main Content Area */}
             <main
-                className={`min-h-screen ${isTOCVisible ? 'lg:ml-64' : 'lg:ml-10'}`}
+                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'}`}
                 style={{ paddingTop: '40px', paddingBottom: '60px' }}
             >
-                <div className="px-8 lg:px-16 max-w-none">
+                <div className="px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
                     {currentLesson ? (
                         <>
                             <SectionDisplay
