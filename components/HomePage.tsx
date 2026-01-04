@@ -2,10 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
-import { courseContent } from '../data/courseContent';
+import { courseContent } from '../data/courseContent-economia';
 import { informaticaContent } from '../data/courseContent-informatica';
 import { analisi1CourseContent } from '../data/courseContent-analisi1';
 import { geometriaCourseContent } from '../data/courseContent-geometria';
+import { fisicaCourseContent } from '../data/courseContent-fisica';
 
 // Helper to get lesson count
 const getLessonCount = (slug: string): number => {
@@ -14,6 +15,7 @@ const getLessonCount = (slug: string): number => {
         case 'fondamenti-informatica': return informaticaContent.length;
         case 'analisi-1': return analisi1CourseContent.length;
         case 'geometria-algebra': return geometriaCourseContent.length;
+        case 'fisica': return 0; // fisicaCourseContent.length;
         default: return 0;
     }
 };
@@ -107,6 +109,8 @@ const HomePage: React.FC = () => {
 
 
 
+            {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
+            {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
             {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
             <h1
                 className="fixed top-4 left-4 md:left-6 text-xs md:text-lg font-bold tracking-widest uppercase z-40 bg-[var(--bg-body)] px-2 py-1"

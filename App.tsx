@@ -5,7 +5,7 @@ import LessonRail from './components/LessonRail';
 import SectionDisplay from './components/SectionDisplay';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
-import { courseContent } from './data/courseContent';
+import { courseContent } from './data/courseContent-economia';
 
 const App: React.FC = () => {
   return (

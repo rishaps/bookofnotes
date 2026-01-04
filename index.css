@@ -1,3 +1,4 @@
+/* ... existing imports ... */
 @import "tailwindcss";
 @config "./tailwind.config.js";
 
@@ -144,6 +145,197 @@
     .text-balance {
         text-wrap: balance;
     }
+
+    .hover-glow {
+        transition: all 0.3s ease;
+    }
+
+    .hover-glow:hover {
+        /* Blue-600 for light mode with subtle glow */
+        color: #2563EB !important;
+        filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.4));
+    }
+
+    .dark .hover-glow:hover {
+        /* Blue-400 for dark mode with subtle glow */
+        color: #60A5FA !important;
+        filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.4));
+    }
+
+    /* Target SVG strokes if color doesn't cascade for some icons */
+    .hover-glow:hover svg,
+    .dark .hover-glow:hover svg {
+        stroke: currentColor;
+    }
+
+    .font-google-sans {
+        font-family: 'Google Sans Flex', sans-serif;
+    }
+
+    .font-playfair {
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* --- SPECIFIC COURSE CONTENT TYPOGRAPHY --- */
+    .course-content {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        /* Side margins are handled by padding in parent usually, but we ensure max-width */
+    }
+
+    /* Chapter Title (e.g. Lezione 1) */
+    .course-content h1,
+    .course-content .chapter-title {
+        font-size: 38px;
+        line-height: 1.2;
+        font-weight: 700;
+        margin-bottom: 32px;
+        color: var(--content-primary);
+    }
+
+    /* Main Section Title (e.g. Lezione 1.1) */
+    .course-content h2,
+    .course-content .section-title {
+        font-size: 28px;
+        line-height: 1.25;
+        font-weight: 700;
+        margin-top: 48px;
+        margin-bottom: 16px;
+        color: var(--content-primary);
+    }
+
+    /* Subsection Title (e.g. Definizione) */
+    .course-content h3,
+    .course-content .subsection-title {
+        font-size: 22px;
+        line-height: 1.3;
+        font-weight: 600;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        color: var(--content-primary);
+    }
+
+    /* Minor Heading / Inline Topic */
+    .course-content h4,
+    .course-content .minor-heading {
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 600;
+        margin-top: 24px;
+        margin-bottom: 10px;
+        color: var(--content-primary);
+    }
+
+    /* Body Paragraphs */
+    .course-content p {
+        font-size: 17px;
+        line-height: 1.65;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: var(--content-primary);
+    }
+
+    /* Specific rule for paragraph after title (10px) 
+       Using adjacent sibling selector to override.
+    */
+    .course-content h1+p,
+    .course-content h2+p,
+    .course-content h3+p,
+    .course-content h4+p {
+        margin-top: 10px;
+    }
+
+    /* Also handle the case where there is a wrapper div for paragraphs */
+    .course-content h3+div>p:first-child {
+        margin-top: 10px !important;
+    }
+
+    /* Lists */
+    .course-content ul,
+    .course-content ol {
+        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 1.6;
+        font-weight: 400;
+        color: var(--content-primary);
+    }
+
+    .course-content li {
+        margin-bottom: 10px;
+    }
+
+    /* Tables */
+    .course-content table {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Images */
+    .course-content .image-block {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* REPLACED CLASS: New High-Contrast Caption (Text Only) */
+    .course-content .caption-highlight {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: 600;
+        margin-top: 12px;
+
+        /* Default (Light Mode): Black Text, No Background */
+        background-color: transparent !important;
+        color: #000000 !important;
+
+        padding: 0;
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+
+        /* Ensure no border radius or shadow affects the clean block look */
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .dark .course-content .caption-highlight {
+        /* Dark Mode: White Text, No Background */
+        background-color: transparent !important;
+        color: #FFFFFF !important;
+    }
+
+    /* Group Hover Glow - Triggers when parent .group is hovered */
+    .group:hover .group-hover-glow {
+        color: #2563EB !important;
+        filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.4));
+        transition: all 0.3s ease;
+    }
+
+    .dark .group:hover .group-hover-glow {
+        color: #60A5FA !important;
+        filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.4));
+    }
+
+    /* Bold Usage Rules */
+    .course-content strong,
+    .course-content b {
+        font-weight: 700;
+    }
+
+    .course-content .course-list-item {
+        margin-bottom: 10px;
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
 
     /* --- PENCIL ON PAPER AESTHETIC --- */
 

@@ -15,13 +15,14 @@ const LandingPage: React.FC = () => {
             <div className="relative z-10 text-center px-6">
 
                 {/* Signature Title */}
-                <h1 className="font-serif italic text-5xl sm:text-7xl md:text-8xl text-white/90 mb-8 tracking-wide select-none">
+                {/* Signature Title */}
+                <h1 className="font-playfair font-medium text-5xl sm:text-7xl md:text-8xl text-white/90 mb-8 tracking-wide select-none">
                     Book of Notes
                 </h1>
 
                 {/* Tagline */}
-                <p className="text-white/60 text-sm sm:text-base md:text-lg max-w-md mx-auto leading-relaxed mb-12">
-                    A collection of college notes.
+                <p className="font-playfair italic text-white/60 text-sm sm:text-base md:text-lg max-w-md mx-auto leading-relaxed mb-12">
+                    a collection of college notes
                 </p>
 
                 {/* Enter Button */}

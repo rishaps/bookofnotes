@@ -5,30 +5,7 @@ import App from './App';
 import LandingPage from './components/LandingPage';
 import HomePage from './components/HomePage';
 import SubjectPage from './components/SubjectPage';
-import PDFAsTextPage from './components/PDFAsTextPage';
 import './index.css';
-
-// Fisica page - extracts PDF text and renders as native HTML with app styling
-const FisicaPage: React.FC = () => (
-  <PDFAsTextPage
-    pdfUrl="/fisica-appunti.pdf"
-    title="Fisica"
-    year="Year 1"
-    themeClass="theme-physics"
-    chapters={[
-      { title: 'Capitolo 1: Vettori', startPage: 1, endPage: 6 },
-      { title: 'Capitolo 2: Cinematica', startPage: 7, endPage: 30 },
-      { title: 'Capitolo 3: Dinamica', startPage: 31, endPage: 55 },
-      { title: 'Capitolo 4: Lavoro ed Energia', startPage: 56, endPage: 77 },
-      { title: 'Capitolo 5: Quantità di Moto', startPage: 78, endPage: 94 },
-      { title: 'Capitolo 6: Momento Angolare', startPage: 95, endPage: 114 },
-      { title: 'Capitolo 7: Meccanica dei Fluidi', startPage: 115, endPage: 139 },
-      { title: 'Capitolo 8: Onde', startPage: 140, endPage: 169 },
-      { title: 'Capitolo 9: Termodinamica', startPage: 170, endPage: 199 },
-      { title: 'Capitolo 10: Elettrostatica', startPage: 200, endPage: 243 },
-    ]}
-  />
-);
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -121,7 +98,6 @@ root.render(
         <Route path="/" element={<LandingPage />} />
         <Route path="/subjects" element={<HomePage />} />
         <Route path="/economia" element={<SubjectPage />} />
-        <Route path="/fisica" element={<FisicaPage />} />
         <Route path="/:slug" element={<SubjectPage />} />
       </Routes>
     </BrowserRouter>

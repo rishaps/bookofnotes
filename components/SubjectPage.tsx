@@ -7,10 +7,11 @@ import SectionDisplay from './SectionDisplay';
 import LessonRail from './LessonRail';
 
 // Import all course content directly - no lazy loading, instant access
-import { courseContent } from '../data/courseContent';
+import { courseContent } from '../data/courseContent-economia';
 import { informaticaContent } from '../data/courseContent-informatica';
 import { analisi1CourseContent } from '../data/courseContent-analisi1';
 import { geometriaCourseContent } from '../data/courseContent-geometria';
+import { fisicaCourseContent } from '../data/courseContent-fisica';
 
 // Direct content mapping - instant access, no async loading
 const CONTENT_MAP: Record<string, MainSection[]> = {
@@ -18,6 +19,7 @@ const CONTENT_MAP: Record<string, MainSection[]> = {
     'fondamenti-informatica': informaticaContent,
     'analisi-1': analisi1CourseContent,
     'geometria-algebra': geometriaCourseContent,
+    'fisica': fisicaCourseContent,
 };
 
 // Map subjects to theme class names
@@ -26,6 +28,7 @@ const SUBJECT_THEME_MAP: Record<string, string> = {
     'fondamenti-informatica': 'theme-teal',
     'analisi-1': 'theme-math',
     'geometria-algebra': 'theme-logic',
+    'fisica': 'theme-physics',
     'default': 'theme-math'
 };
 
@@ -147,7 +150,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
             {/* Theme Toggle - Fixed top right */}
             <button
                 onClick={toggleTheme}
-                className="fixed top-4 right-4 z-[70] p-2 text-content-primary"
+                className="fixed top-4 right-4 z-[70] p-2 text-content-primary hover-glow"
                 aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -166,19 +169,19 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                 {/* Mobile Menu Button with better contrast */}
                 <button
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                    className="p-2.5 bg-[var(--bg-body)] border border-content-primary/30 text-content-primary"
+                    className="p-2.5 text-content-primary hover:opacity-75 transition-colors hover-glow"
                     aria-label="Apri Indice"
                 >
-                    <Menu className="w-5 h-5" />
+                    <Menu className="w-6 h-6" />
                 </button>
 
                 {/* Mobile Home Button */}
                 <button
                     onClick={() => navigate('/subjects')}
-                    className="p-2.5 bg-[var(--bg-body)] border border-content-primary/30 text-content-primary"
+                    className="p-2.5 text-content-primary hover:opacity-75 transition-colors hover-glow"
                     aria-label="Torna alla Homepage"
                 >
-                    <Home className="w-5 h-5" />
+                    <Home className="w-6 h-6" />
                 </button>
             </div>
 
@@ -193,16 +196,16 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                 {/* Home Button - Fixed position at top, separate from scroll container */}
                 <button
                     onClick={() => navigate('/subjects')}
-                    className="hidden lg:flex items-center justify-center w-10 h-10 text-content-muted absolute top-4 left-0 z-20"
+                    className="hidden lg:flex items-center justify-center w-10 h-10 text-content-muted absolute top-4 left-0 z-20 hover:opacity-75 transition-colors hover-glow"
                     title="Torna alla Homepage"
                 >
-                    <Home className="w-4 h-4" />
+                    <Home className="w-5 h-5" />
                 </button>
 
                 {/* TOC Toggle - Fixed position, separate from scroll container */}
                 <button
                     onClick={() => setIsTOCVisible(!isTOCVisible)}
-                    className={`hidden lg:flex items-center justify-center w-12 h-12 text-content-primary absolute z-20 ${isTOCVisible
+                    className={`hidden lg:flex items-center justify-center w-12 h-12 text-content-primary absolute z-20 hover-glow ${isTOCVisible
                         ? 'top-1/2 right-0 -translate-y-1/2'
                         : 'top-1/2 left-0 -translate-y-1/2 w-12'
                         }`}
@@ -237,10 +240,12 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
             {/* Main Content Area */}
             <main
-                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'}`}
+                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center`}
                 style={{ paddingTop: '40px', paddingBottom: '60px' }}
             >
-                <div className="px-6 md:px-8 lg:px-12 max-w-5xl mx-auto">
+                <div
+                    className="course-content w-full mx-auto box-border px-8 md:px-16"
+                >
                     {currentLesson ? (
                         <>
                             <SectionDisplay
@@ -250,27 +255,33 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                             />
 
                             {/* Navigation Buttons */}
-                            <div className="flex justify-between items-center mt-12 pt-8 border-t border-content-primary/10">
-                                <div>
-                                    {currentLessonIndex > 0 && (
+                            <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center mt-12 pt-8 border-t border-content-primary/10 gap-12">
+                                <div className="w-full sm:w-auto">
+                                    {currentLessonIndex > 0 && content && (
                                         <button
                                             onClick={handlePrevLesson}
-                                            className="flex items-center gap-2 px-6 py-3 rounded-lg border border-content-primary/20 hover:bg-content-primary/5 transition-colors text-content-primary group"
+                                            className="w-full sm:w-auto flex items-center gap-2 px-6 py-3 rounded-lg border border-content-primary/20 hover:bg-content-primary/5 transition-colors text-content-primary group text-left"
                                         >
-                                            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                            <span>Lezione Precedente</span>
+                                            <ChevronLeft className="w-4 h-4 flex-shrink-0 group-hover-glow" />
+                                            <div className="flex flex-col">
+                                                <span className="text-xs text-content-muted uppercase tracking-wider mb-1">Lezione Precedente</span>
+                                                <span className="text-sm font-bold text-wrap text-left whitespace-normal group-hover-glow">{content[currentLessonIndex - 1].title}</span>
+                                            </div>
                                         </button>
                                     )}
                                 </div>
 
-                                <div>
+                                <div className="w-full sm:w-auto flex justify-end">
                                     {content && currentLessonIndex < content.length - 1 && (
                                         <button
                                             onClick={handleNextLesson}
-                                            className="flex items-center gap-2 px-6 py-3 rounded-lg bg-content-primary text-[var(--bg-body)] font-medium hover:opacity-90 transition-opacity group"
+                                            className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-6 py-3 rounded-lg bg-content-primary text-[var(--bg-body)] font-medium hover:opacity-90 transition-opacity group text-right"
                                         >
-                                            <span>Prossima Lezione</span>
-                                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            <div className="flex flex-col items-end">
+                                                <span className="text-xs opacity-70 uppercase tracking-wider mb-1">Prossima Lezione</span>
+                                                <span className="text-sm font-bold text-wrap text-right whitespace-normal group-hover-glow">{content[currentLessonIndex + 1].title}</span>
+                                            </div>
+                                            <ChevronRight className="w-4 h-4 flex-shrink-0 group-hover-glow" />
                                         </button>
                                     )}
                                 </div>
@@ -289,9 +300,29 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
     );
 };
 
+// Subjects that are blocked from direct URL access (incomplete content)
+const BLOCKED_SUBJECTS = [
+    'fisica',
+    'elettrotecnica',
+    'analisi-2',
+    'architettura-os',
+    'logica-algebra',
+    'elettromagnetismo',
+    'probabilita-statistica',
+    'segnali-comunicazioni',
+    'algoritmi',
+    'elettronica',
+    'sistemi-informativi',
+    'basi-dati-1',
+    'reti-logiche',
+    'ingegneria-software',
+    'internet',
+];
+
 const SubjectPage: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
     const location = useLocation();
+    const navigate = useNavigate();
 
     // Determine active slug
     let activeSlug = slug;
@@ -299,6 +330,18 @@ const SubjectPage: React.FC = () => {
         activeSlug = 'economia';
     }
     activeSlug = activeSlug || '';
+
+    // Block access to incomplete subjects - redirect to homepage
+    useEffect(() => {
+        if (BLOCKED_SUBJECTS.includes(activeSlug)) {
+            navigate('/subjects', { replace: true });
+        }
+    }, [activeSlug, navigate]);
+
+    // Don't render if blocked (will redirect)
+    if (BLOCKED_SUBJECTS.includes(activeSlug)) {
+        return null;
+    }
 
     // Use Key to force remount on slug change
     return <SubjectPageInner key={activeSlug} activeSlug={activeSlug} />;

@@ -188,7 +188,7 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
           <thead>
             <tr className="border-b border-content-primary/20">
               {item.headers.map((header, index) => (
-                <th key={index} className="p-3 text-sm font-bold text-content-primary border-r border-content-primary/20 last:border-r-0">{header}</th>
+                <th key={index} className="p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0">{header}</th>
               ))}
             </tr>
           </thead>
@@ -196,7 +196,7 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
             {item.rows.map((row, rowIndex) => (
               <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0">
                 {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="p-3 text-sm text-content-primary border-r border-content-primary/10 last:border-r-0">{renderWithHighlights(cell)}</td>
+                  <td key={cellIndex} className="p-3 text-content-primary border-r border-content-primary/10 last:border-r-0">{renderWithHighlights(cell)}</td>
                 ))}
               </tr>
             ))}
@@ -244,10 +244,10 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   if (imageMatch) {
     const [, alt, src] = imageMatch;
     return (
-      <div className="w-full my-6 lg:w-5/12 lg:float-right lg:ml-8 lg:mb-6 lg:mt-1 lg:clear-right">
+      <div className="image-block w-full lg:w-5/12 lg:float-right lg:ml-8 lg:clear-right">
         <ImageThumbnail src={src} alt={alt} onImageClick={onImageClick} />
         {alt && (
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">
+          <p className="caption-highlight">
             {alt}
           </p>
         )}
@@ -306,14 +306,14 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
       const definition = content.substring(colonIndex + 1);
 
       return (
-        <p className="pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
+        <p className="course-list-item pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
           <strong className="font-bold">{renderWithHighlights(term)}</strong>{renderWithHighlights(definition)}
         </p>
       );
     }
 
     return (
-      <p className="pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
+      <p className="course-list-item pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
         {renderWithHighlights(content)}
       </p>
     );
@@ -327,9 +327,9 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
             {renderWithHighlights(item as string)}
           </p>
         </div>
-        <div className="w-full lg:w-1/3 flex-shrink-0 mt-4 lg:mt-0">
+        <div className="image-block w-full lg:w-1/3 flex-shrink-0">
           <ImageThumbnail src={image1} alt="Schema della definizione economica di impresa" onImageClick={onImageClick} />
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">Fig. 1: Il sistema impresa</p>
+          <p className="caption-highlight">Il sistema impresa</p>
         </div>
       </div>
     );
@@ -339,14 +339,14 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     return (
       <div className="flex flex-col lg:flex-row items-start gap-8 group mt-8">
         <div className="flex-1">
-          <p className="font-serif text-xl text-premium-gold mb-4">{renderWithHighlights(item as string, "font-bold")}</p>
+          <p className="text-xl text-premium-gold mb-4">{renderWithHighlights(item as string, "font-bold")}</p>
           <p className="text-content-secondary leading-relaxed font-light">
             Questa figura illustra le relazioni tra l'impresa e i vari soggetti economici che interagiscono con essa, evidenziando i flussi di beni, servizi e denaro.
           </p>
         </div>
-        <div className="w-full lg:w-1/3 flex-shrink-0">
+        <div className="image-block w-full lg:w-1/3 flex-shrink-0">
           <ImageThumbnail src={image2} alt="Schema dei soggetti economici in relazione con l’impresa" onImageClick={onImageClick} />
-          <p className="text-[10px] font-mono text-content-muted text-center mt-2 uppercase tracking-widest">Fig. 2: Soggetti economici</p>
+          <p className="caption-highlight">Soggetti economici</p>
         </div>
       </div>
     );
@@ -371,7 +371,7 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   const isBoldTitle = boldableKeywords.some(keyword => cleanText.startsWith(keyword));
 
   if (isBoldTitle) {
-    return <p className="font-bold text-lg text-content-primary mt-4 mb-1">{renderWithHighlights(item as string, "font-bold")}</p>;
+    return <p className="minor-heading">{renderWithHighlights(item as string, "font-bold")}</p>;
   }
 
   // Check for numbered sub-headings (e.g. 1.1.1, 2.1.3) OR single numbered lists (e.g. 1. Title)
@@ -382,7 +382,7 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   // We check cleanText to ignore potential ** at start
   if (/^(\d+(\.\d+)+|\d+\.)\s/.test(cleanText)) {
     return (
-      <p className="font-bold text-lg text-content-primary mt-6 mb-2">
+      <p className="minor-heading">
         {renderWithHighlights(item as string)}
       </p>
     );
@@ -404,11 +404,11 @@ interface SubSectionDisplayProps {
 const SubSectionDisplay: React.FC<SubSectionDisplayProps> = ({ subsection, anchorId, onImageClick }) => (
   <div id={anchorId} className="mb-4 last:mb-0 flow-root">
     {/* Subsection Title - 18px semibold */}
-    <h3 className="text-lg font-semibold text-content-primary mb-2">
+    <h3 className="subsection-title">
       {renderMathParts(subsection.title, 'title-')}
     </h3>
-    {/* Minimal paragraph spacing */}
-    <div className="space-y-1 text-content-primary text-base leading-normal">
+    {/* Minimal paragraph spacing handled by CSS */}
+    <div className="text-content-primary">
       {subsection.content.map((item, index) => (
         <ContentRenderer key={index} item={item} onImageClick={onImageClick} />
       ))}
@@ -472,10 +472,10 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
         />
       )}
       {/* Section Title - 24px bold */}
-      <h2 className="text-2xl font-bold text-content-primary tracking-tight mb-4">
+      <h2 className="section-title">
         {section.title}
       </h2>
-      <div className={`space-y-2 ${fontSizeClass}`}>
+      <div>
         {section.subsections.map((subsection, index) => {
           const anchorId = `${section.id}-${index}`;
           return (
