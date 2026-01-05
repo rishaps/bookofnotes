@@ -541,6 +541,7 @@
         letter-spacing: 0.08em;
         background-color: #000000 !important;
         color: #ffffff !important;
+        border: none;
         border-radius: 0;
         box-shadow: none;
     }
@@ -548,6 +549,7 @@
     .dark .course-content .caption-highlight {
         background-color: #ffffff !important;
         color: #000000 !important;
+        border: none;
     }
 
     .callout-box {
