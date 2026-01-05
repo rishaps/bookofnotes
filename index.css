@@ -507,14 +507,14 @@
 
 .course-content .image-frame {
     padding: 0;
-    border: 3px solid #2563EB;
+    border: none;
     background: transparent;
     border-radius: 0 !important;
     box-shadow: none;
 }
 
 .dark .course-content .image-frame {
-    border-color: #60A5FA;
+    border-color: transparent;
 }
 
 .course-content .image-block.float-image {
