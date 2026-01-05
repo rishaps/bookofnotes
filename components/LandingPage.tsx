@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.code !== 'Space' && event.key !== ' ') {
+                return;
+            }
+            const target = event.target as HTMLElement | null;
+            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+                return;
+            }
+            event.preventDefault();
+            navigate('/subjects');
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [navigate]);
 
     return (
         // Landing Page uses its own specific deep black background, independent of global theme
@@ -30,6 +47,13 @@ const LandingPage: React.FC = () => {
                     >
                         Enter
                     </button>
+                    <span className="hidden md:flex items-center gap-2 text-[10px] sm:text-xs text-white/40 tracking-widest uppercase">
+                        Premi
+                        <kbd className="px-2 py-1 border border-white/30 text-white/70 rounded-sm text-[10px] tracking-[0.2em]">
+                            SPAZIO
+                        </kbd>
+                        per accedere
+                    </span>
                 </div>
             </div>
         </div>

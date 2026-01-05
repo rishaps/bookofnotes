@@ -334,10 +334,14 @@ const ContentRenderer: React.FC<{ item: string | TableData | ImageData; onImageC
       const [, type, number, content] = match;
       const label = number ? `${type} ${number}` : type;
 
+      const cleanedContent = content
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/\*\*/g, '');
+
       return (
         <div className="callout-box my-6">
           <span className="callout-label">{label}</span>
-          <p className="callout-content">{renderWithHighlights(content)}</p>
+          <p className="callout-content">{renderMathParts(cleanedContent, `callout-${label}`)}</p>
         </div>
       );
     }

@@ -498,6 +498,7 @@
         flex-direction: column;
         align-items: center;
         clear: both;
+        overflow: visible;
     }
 
 .course-content .image-block.tall-image {
@@ -544,6 +545,9 @@
         border: none;
         border-radius: 0;
         box-shadow: none;
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
     }
 
     .dark .course-content .caption-highlight {
@@ -553,11 +557,11 @@
     }
 
     .callout-box {
-        position: relative;
-        padding: 18px 18px 16px;
+        padding: 16px 18px;
         border: 1px solid #2563EB;
-        background: color-mix(in srgb, #2563EB 6%, transparent);
-        border-radius: 6px;
+        background: color-mix(in srgb, #2563EB 8%, transparent);
+        border-radius: 4px;
+        box-sizing: border-box;
     }
 
     .dark .callout-box {
@@ -566,10 +570,9 @@
     }
 
     .callout-label {
-        position: absolute;
-        top: -12px;
-        left: 14px;
+        display: inline-block;
         padding: 4px 10px;
+        margin-bottom: 12px;
         background: #2563EB;
         color: #ffffff;
         font-size: 11px;
@@ -588,6 +591,11 @@
         font-size: 17px;
         line-height: 1.6;
         color: var(--content-primary);
+        font-weight: 400;
+    }
+
+    .callout-box strong {
+        font-weight: 400;
     }
 
     /* Group Hover Glow - Triggers when parent .group is hovered */
