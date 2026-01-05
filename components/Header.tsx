@@ -1,9 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Search, X, Menu } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { courseContent } from '../data/courseContent';
 import MobileIndex from './MobileIndex';
-import ThemeToggle from './ThemeToggle';
 
 interface SearchResult {
   title: string;
@@ -139,7 +138,6 @@ const Header: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <ThemeToggle />
           <div className="relative group">
             <div className={`flex items-center bg-premium-gray/50 border border-border-primary rounded-full px-2.5 py-1 sm:px-3 sm:py-1.5 transition-all duration-300 focus-within:w-48 sm:focus-within:w-64 focus-within:bg-premium-black focus-within:border-premium-gold/50 w-24 sm:w-48`}>
               <Search size={14} className="text-content-muted mr-2 flex-shrink-0" />

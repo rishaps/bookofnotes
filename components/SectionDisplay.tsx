@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import katex from 'katex';
-import { MainSection, SubSection, TableData } from '../types';
+import { ImageData, MainSection, SubSection, TableData } from '../types';
 import { Search, X, ZoomIn, Info } from 'lucide-react';
 import { createPortal } from 'react-dom';
 
@@ -17,29 +17,37 @@ const normalizeImagePath = (src: string) => {
   return `/${src}`;
 };
 
-const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: string, alt: string) => void }> = ({ src, alt, onImageClick }) => {
+const ImageThumbnail: React.FC<{
+  src: string;
+  alt: string;
+  onImageClick: (src: string, alt: string) => void;
+  align?: 'left' | 'right' | 'center';
+  size?: 'small' | 'large' | 'default';
+  onImageLoad?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
+}> = ({ src, alt, onImageClick, align = 'center', size = 'default', onImageLoad }) => {
   const [imgSrc, setImgSrc] = useState(normalizeImagePath(src));
   const [hasError, setHasError] = useState(false);
 
-  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    // Optional: logic to detect orientation could go here
-  };
-
   if (hasError) return null;
+
+  const alignClass = 'items-center';
+  const imgAlignClass = 'mx-auto';
+  const maxHeightClass =
+    size === 'large' ? 'max-h-[480px]' : size === 'small' ? 'max-h-[220px]' : 'max-h-[320px]';
 
   return (
     <div
-      className="relative cursor-zoom-in my-6 group flex flex-col items-center"
+      className={`relative cursor-zoom-in my-6 group flex flex-col ${alignClass}`}
       onClick={() => onImageClick(imgSrc, alt)}
     >
-      <div className="relative overflow-hidden rounded-lg bg-white p-2 border border-content-primary/10 shadow-sm transition-all duration-300 hover:shadow-md">
+      <div className="image-frame relative overflow-hidden rounded-lg transition-all duration-300">
         <img
           src={imgSrc}
           alt={alt}
           loading="lazy"
-          onLoad={handleImageLoad}
+          onLoad={onImageLoad}
           onError={() => setHasError(true)}
-          className="max-w-full h-auto max-h-[300px] object-contain mx-auto"
+          className={`max-w-full h-auto ${maxHeightClass} object-contain ${imgAlignClass}`}
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
           <ZoomIn className="text-content-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md" size={24} />
@@ -50,15 +58,76 @@ const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: s
   );
 };
 
-const isTableData = (item: string | TableData): item is TableData => {
+const isTableData = (item: string | TableData | ImageData): item is TableData => {
   return (item as TableData).headers !== undefined;
+};
+
+const isImageData = (item: string | TableData | ImageData): item is ImageData => {
+  return typeof item === 'object' && item !== null && 'url' in item;
+};
+
+const parsePipeTable = (lines: string[]): TableData | null => {
+  if (lines.length < 2) return null;
+  const cleaned = lines.map((line) => line.trim()).filter(Boolean);
+  if (cleaned.length < 2) return null;
+
+  const headerCells = cleaned[0]
+    .split('|')
+    .map((cell) => cell.trim())
+    .filter(Boolean);
+
+  let rowStartIndex = 1;
+  if (cleaned[1].includes('---')) {
+    rowStartIndex = 2;
+  }
+
+  const rows = cleaned.slice(rowStartIndex).map((row) =>
+    row
+      .split('|')
+      .map((cell) => cell.trim())
+      .filter(Boolean)
+  );
+
+  if (headerCells.length === 0 || rows.length === 0) return null;
+  return { headers: headerCells, rows };
+};
+
+const parseLatexArrayToTable = (latex: string): TableData | null => {
+  if (!latex.includes('\\begin{array}')) return null;
+  const body = latex
+    .replace(/\\begin\{array\}\{[^}]*\}/, '')
+    .replace(/\\end\{array\}/, '');
+
+  const rows = body
+    .split('\\\\')
+    .map((row) => row.replace(/\\hline/g, '').trim())
+    .filter(Boolean);
+
+  if (rows.length < 2) return null;
+
+  const parsedRows = rows.map((row) =>
+    row
+      .split('&')
+      .map((cell) => cell.trim())
+      .filter(Boolean)
+  );
+
+  const headers = parsedRows.shift();
+  if (!headers) return null;
+
+  const wrapMath = (value: string) => (value ? `$${value}$` : value);
+
+  return {
+    headers: headers.map(wrapMath),
+    rows: parsedRows.map((row) => row.map(wrapMath)),
+  };
 };
 
 // --- Math Parsing Utilities ---
 
 // Matches: **bold**, $inline$, or $$block$$
 // Note: We prioritize detecting block math $$...$$ first
-const INLINE_MATH_BLOCK_THRESHOLD = 140;
+const INLINE_MATH_BLOCK_THRESHOLD = 70;
 const estimateInlineMathLength = (latex: string) => {
   let length = 0;
   for (let i = 0; i < latex.length; i++) {
@@ -85,7 +154,9 @@ const estimateInlineMathLength = (latex: string) => {
 };
 const shouldInlineMathBeBlock = (latex: string) => {
   const normalized = latex.replace(/\s+/g, ' ').trim();
+  const equalityCount = (normalized.match(/=/g) || []).length;
   return estimateInlineMathLength(normalized) >= INLINE_MATH_BLOCK_THRESHOLD ||
+    equalityCount >= 2 ||
     normalized.includes('\\begin{') ||
     normalized.includes('\\end{') ||
     normalized.includes('\\\\');
@@ -109,41 +180,57 @@ const renderMathParts = (text: string, keyPrefix: string = '') => {
 
         // 2. Split by Inline Math $...$ inside text blocks
         const inlineParts = part.split(/(\$[^$]+\$)/g);
-        return (
-          <span key={`${keyPrefix}-text-${bIdx}`}>
-            {inlineParts.map((subPart, iIdx) => {
-              if (subPart.startsWith('$') && subPart.endsWith('$')) {
-                const latex = subPart.slice(1, -1);
-                if (shouldInlineMathBeBlock(latex)) {
-                  return (
-                    <React.Suspense
-                      key={`${keyPrefix}-inline-${iIdx}`}
-                      fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}
-                    >
-                      <MathRenderer latex={latex} inline />
-                    </React.Suspense>
-                  );
-                }
-                try {
-                  const html = katex.renderToString(latex, {
-                    throwOnError: false,
-                    displayMode: false,
-                    strict: false,
-                  });
-                  return (
-                    <span
-                      key={`${keyPrefix}-inline-${iIdx}`}
-                      className="inline-math-container"
-                    >
-                      <span className="inline-math px-1" dangerouslySetInnerHTML={{ __html: html }} />
-                    </span>
-                  );
-                } catch (e) {
-                  return <span key={iIdx} className="text-red-500 font-mono text-xs">{latex}</span>;
+        const renderedInlineParts: React.ReactNode[] = [];
+        for (let iIdx = 0; iIdx < inlineParts.length; iIdx += 1) {
+          const subPart = inlineParts[iIdx];
+          if (subPart.startsWith('$') && subPart.endsWith('$')) {
+            let latex = subPart.slice(1, -1);
+            if (shouldInlineMathBeBlock(latex)) {
+              const next = inlineParts[iIdx + 1];
+              if (typeof next === 'string') {
+                const match = next.match(/^\s*([.,;:])/);
+                if (match) {
+                  const punct = match[1];
+                  latex = `${latex} \\text{${punct}}`;
+                  inlineParts[iIdx + 1] = next.slice(match[0].length);
                 }
               }
-              return <span key={iIdx}>{subPart}</span>;
-            })}
+              renderedInlineParts.push(
+                <React.Suspense
+                  key={`${keyPrefix}-inline-${iIdx}`}
+                  fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}
+                >
+                  <MathRenderer latex={latex} inline />
+                </React.Suspense>
+              );
+              continue;
+            }
+            try {
+              const html = katex.renderToString(latex, {
+                throwOnError: false,
+                displayMode: false,
+                strict: false,
+              });
+              renderedInlineParts.push(
+                <span
+                  key={`${keyPrefix}-inline-${iIdx}`}
+                  className="inline-math-container"
+                >
+                  <span className="inline-math px-1" dangerouslySetInnerHTML={{ __html: html }} />
+                </span>
+              );
+            } catch (e) {
+              renderedInlineParts.push(
+                <span key={iIdx} className="text-red-500 font-mono text-xs">{latex}</span>
+              );
+            }
+            continue;
+          }
+          renderedInlineParts.push(<span key={iIdx}>{subPart}</span>);
+        }
+        return (
+          <span key={`${keyPrefix}-text-${bIdx}`}>
+            {renderedInlineParts}
           </span>
         );
       })}
@@ -171,51 +258,86 @@ const renderWithHighlights = (value: string) => {
   );
 };
 
-const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
-  if (isTableData(item)) {
-    return (
-      <div className="my-6 overflow-x-auto">
-        <table className="w-full text-left border border-content-primary/20 bg-bg-glass">
+const renderTable = (table: TableData) => {
+  const hasHeader = table.headers.some((header) => header.trim().length > 0);
+  const isFormulaTable = !hasHeader && table.rows.some((row) => row.some((cell) => cell.trim().startsWith('$')));
+  const renderFormulaCell = (cell: string) => {
+    const trimmed = cell.trim();
+    if (!trimmed) return null;
+    if (trimmed.startsWith('$') && trimmed.endsWith('$')) {
+      const latex = trimmed.slice(1, -1).trim();
+      return (
+        <span className="formula-cell">
+          <React.Suspense fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}>
+            <MathRenderer latex={latex} inline />
+          </React.Suspense>
+        </span>
+      );
+    }
+    return renderWithHighlights(cell);
+  };
+  return (
+    <div className={`my-6 ${isFormulaTable ? 'overflow-x-visible' : 'overflow-x-auto'}`}>
+      <table className={`w-full text-center border border-content-primary/20 bg-bg-glass ${isFormulaTable ? 'formula-table' : ''}`}>
+        {hasHeader && (
           <thead>
             <tr className="border-b border-content-primary/20 bg-content-primary/5">
-              {item.headers.map((header, index) => (
-                <th key={index} className="p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0 text-sm uppercase tracking-wider">{header}</th>
+              {table.headers.map((header, index) => (
+                <th key={index} className="p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0 text-sm uppercase tracking-wider text-center">
+                  {renderWithHighlights(header)}
+                </th>
               ))}
             </tr>
           </thead>
-          <tbody>
-            {item.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0 hover:bg-content-primary/5 transition-colors">
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="p-3 text-content-primary border-r border-content-primary/10 last:border-r-0">{renderWithHighlights(cell)}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        )}
+        <tbody>
+          {table.rows.map((row, rowIndex) => (
+            <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0 hover:bg-content-primary/5 transition-colors">
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="p-3 text-content-primary text-center">
+                  {isFormulaTable ? renderFormulaCell(cell) : renderWithHighlights(cell)}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+const ContentRenderer: React.FC<{ item: string | TableData | ImageData; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
+  const [isTall, setIsTall] = useState(false);
+  if (isImageData(item)) {
+    const caption = item.caption || item.alt || '';
+    return (
+      <div className="image-block w-full max-w-lg mx-auto mb-4">
+        <ImageThumbnail
+          src={item.url}
+          alt={caption}
+          onImageClick={onImageClick}
+          size="default"
+        />
       </div>
     );
+  }
+  if (isTableData(item)) {
+    return renderTable(item);
   }
 
   const text = (item as string).trim();
 
   // --- Visual Component: Callouts ---
-  if (/^(Attenzione|Nota|Ricorda|Esempio)\s*[:\-]/i.test(text)) {
-    const match = text.match(/^(\w+)\s*[:\-]\s*(.+)/s);
+  if (/^(?:\*\*)?\s*(Attenzione|Nota|Ricorda|Esempio)\s*\d*(?:\*\*)?\s*[:\-]/i.test(text)) {
+    const match = text.match(/^(?:\*\*)?\s*(Attenzione|Nota|Ricorda|Esempio)\s*(\d+)?(?:\*\*)?\s*[:\-]\s*(.+)/is);
     if (match) {
-      const [, type, content] = match;
-      const colors = {
-        'Attenzione': 'border-red-500 bg-red-50/10 text-red-700 dark:text-red-300',
-        'Nota': 'border-blue-500 bg-blue-50/10 text-blue-700 dark:text-blue-300',
-        'Ricorda': 'border-amber-500 bg-amber-50/10 text-amber-700 dark:text-amber-300',
-        'Esempio': 'border-emerald-500 bg-emerald-50/10 text-emerald-700 dark:text-emerald-300'
-      };
-      const style = colors[type as keyof typeof colors] || colors['Nota'];
+      const [, type, number, content] = match;
+      const label = number ? `${type} ${number}` : type;
 
       return (
-        <div className={`my-6 pl-4 border-l-4 ${style} py-2`}>
-          <span className="block font-bold text-xs uppercase tracking-widest mb-1 opacity-75">{type}</span>
-          <p className="text-content-primary leading-relaxed">{renderWithHighlights(content)}</p>
+        <div className="callout-box my-6">
+          <span className="callout-label">{label}</span>
+          <p className="callout-content">{renderWithHighlights(content)}</p>
         </div>
       );
     }
@@ -236,6 +358,7 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
     const isSmall = rawAlt.includes('|small');
     const isLarge = rawAlt.includes('|large');
     const hasFloat = isLeft || isRight;
+    const isFloat = hasFloat || isTall;
 
     // Clean alt text for display - remove ALL flags
     const alt = rawAlt.replace(/\|(left|right|small|medium|large)/g, '').trim();
@@ -245,28 +368,56 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
       ? "lg:w-3/12"
       : isLarge
         ? "lg:w-8/12"
-        : hasFloat ? "lg:w-5/12" : "w-full max-w-lg"; // Centered images get max-width
+        : hasFloat
+          ? "lg:w-5/12"
+          : isTall
+            ? "lg:w-4/12 w-full max-w-sm"
+            : "w-full max-w-lg"; // Centered images get max-width
 
     // Float class - only if |left or |right specified
     const floatClass = isLeft
       ? "lg:float-left lg:mr-12 lg:clear-left"
       : isRight
         ? "lg:float-right lg:ml-12 lg:clear-right"
-        : "mx-auto"; // Center by default
+        : isTall
+          ? "lg:float-right lg:ml-12 lg:clear-right"
+          : "mx-auto"; // Center by default
 
     return (
-      <div className={`image-block w-full ${widthClass} ${floatClass} mb-4`}>
-        <ImageThumbnail src={src} alt={alt} onImageClick={onImageClick} />
+      <div className={`image-block w-full ${widthClass} ${floatClass} mb-4 ${isTall ? 'tall-image' : ''} ${isFloat ? 'float-image' : ''}`}>
+        <ImageThumbnail
+          src={src}
+          alt={alt}
+          onImageClick={onImageClick}
+          align={isRight || (!isLeft && isTall) ? 'right' : isLeft ? 'left' : 'center'}
+          size={isLarge ? 'large' : isSmall ? 'small' : 'default'}
+          onImageLoad={(e) => {
+            const { naturalWidth, naturalHeight } = e.currentTarget;
+            if (naturalWidth > 0 && naturalHeight > 0) {
+              setIsTall(naturalHeight / naturalWidth > 1.15);
+            }
+          }}
+        />
       </div>
     );
   }
 
   // --- Visual Component: Block Math (Standalone $$) ---
   if (text.startsWith('$$')) {
-    const latex = text.replace(/^\$\$|\$\$$/g, '');
+    const match = text.match(/^\$\$(.*)\$\$(.*)$/s);
+    const latex = match ? match[1].trim() : text.replace(/^\$\$|\$\$$/g, '');
+    const tail = match ? match[2].trim() : '';
+    let latexWithTail = latex;
+    if (tail && /^[\.,;:]+$/.test(tail)) {
+      latexWithTail = `${latex} \\text{${tail}}`;
+    }
+    const tableFromLatex = parseLatexArrayToTable(latex);
+    if (tableFromLatex) {
+      return renderTable(tableFromLatex);
+    }
     return (
       <React.Suspense fallback={<div className="my-8 h-12 w-full bg-premium-glass animate-pulse"></div>}>
-        <MathRenderer latex={latex} />
+        <MathRenderer latex={latexWithTail} />
       </React.Suspense>
     );
   }
@@ -291,15 +442,137 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   );
 };
 
+const normalizeSubsectionContent = (subsection: SubSection) => {
+  const result: Array<string | TableData | ImageData> = [];
+  const { content, title } = subsection;
+  const isFormulaTableSection = /derivate notevoli|integrali notevoli/i.test(title);
+  const isFormulaBullet = (value: string) => {
+    const trimmed = value.trim();
+    if (!trimmed.startsWith('*')) return false;
+    const bulletBody = trimmed.replace(/^\*\s+/, '').trim();
+    const plainBody = bulletBody.replace(/\*\*[^*]+\*\*/g, '').trim();
+    return plainBody.startsWith('$') || plainBody.startsWith('\\');
+  };
+
+  const getFormulaColumns = (formulas: string[]) => {
+    const lengths = formulas.map((formula) => {
+      const raw = formula.replace(/^\$|\$$/g, '').trim();
+      return estimateInlineMathLength(raw);
+    });
+    const longest = lengths.length ? Math.max(...lengths) : 0;
+    const maxColumns = isFormulaTableSection ? 2 : 3;
+    if (longest > 24) return 1;
+    if (longest > 18) return Math.min(2, maxColumns);
+    if (formulas.length >= 12) return Math.min(3, maxColumns);
+    return Math.min(maxColumns, formulas.length);
+  };
+
+  if (isFormulaTableSection) {
+    const formulas: string[] = [];
+    content.forEach((item) => {
+      if (typeof item !== 'string') return;
+      const trimmed = item.trim();
+      if (!trimmed) return;
+      if (trimmed.startsWith('*')) {
+        formulas.push(trimmed.replace(/^\*\s+/, '').trim());
+        return;
+      }
+      if (trimmed.startsWith('$$') && trimmed.endsWith('$$')) {
+        const latex = trimmed.slice(2, -2).trim();
+        formulas.push(latex ? `$${latex}$` : trimmed);
+        return;
+      }
+      if (trimmed.startsWith('$') && trimmed.endsWith('$')) {
+        formulas.push(trimmed);
+      }
+    });
+
+    if (formulas.length > 0) {
+      const columns = getFormulaColumns(formulas);
+      const rows: string[][] = [];
+      for (let i = 0; i < formulas.length; i += columns) {
+        const row = formulas.slice(i, i + columns);
+        while (row.length < columns) row.push('');
+        rows.push(row);
+      }
+      return [{ headers: new Array(columns).fill(''), rows }];
+    }
+  }
+
+  const formulaBulletItems = content
+    .filter((item): item is string => typeof item === 'string')
+    .map((item) => item.trim())
+    .filter(Boolean);
+  const allBullets = formulaBulletItems.length > 0 && formulaBulletItems.every((item) => item.startsWith('*'));
+  const formulaBullets = formulaBulletItems.filter(isFormulaBullet);
+
+  if (allBullets && formulaBullets.length === formulaBulletItems.length && formulaBullets.length >= 4) {
+    const formulas = formulaBullets.map((item) => item.replace(/^\*\s+/, '').trim());
+    const columns = getFormulaColumns(formulas);
+    const rows: string[][] = [];
+    for (let i = 0; i < formulas.length; i += columns) {
+      const row = formulas.slice(i, i + columns);
+      while (row.length < columns) row.push('');
+      rows.push(row);
+    }
+    return [{ headers: new Array(columns).fill(''), rows }];
+  }
+
+  let i = 0;
+  while (i < content.length) {
+    const item = content[i];
+    if (typeof item === 'string') {
+      const trimmed = item.trim();
+      if (trimmed.startsWith('|')) {
+        const lines: string[] = [];
+        while (i < content.length && typeof content[i] === 'string' && (content[i] as string).trim().startsWith('|')) {
+          lines.push((content[i] as string));
+          i += 1;
+        }
+        const table = parsePipeTable(lines);
+        if (table) {
+          result.push(table);
+        } else {
+          const previous = result[result.length - 1];
+          if (previous && isTableData(previous)) {
+            const extraRows = lines.map((row) =>
+              row
+                .split('|')
+                .map((cell) => cell.trim())
+                .filter(Boolean)
+            );
+            const expectedColumns = previous.headers.length;
+            const canAppend = extraRows.every((row) => row.length === expectedColumns);
+            if (canAppend) {
+              previous.rows.push(...extraRows);
+            } else {
+              result.push(...lines);
+            }
+          } else {
+            result.push(...lines);
+          }
+        }
+        continue;
+      }
+
+    }
+
+    result.push(item);
+    i += 1;
+  }
+
+  return result;
+};
+
 // --- Subsections & Lightbox ---
 
 const SubSectionDisplay: React.FC<{ subsection: SubSection; anchorId: string; onImageClick: (src: string, alt: string) => void }> = ({ subsection, anchorId, onImageClick }) => (
   <div id={anchorId} className="mb-8 last:mb-0">
-    <h3 className="subsection-title border-b border-content-primary/10 pb-2 mb-6">
+    <h3 className="subsection-title mb-6">
       {renderMathParts(subsection.title)}
     </h3>
     <div className="text-content-primary">
-      {subsection.content.map((item, index) => (
+      {normalizeSubsectionContent(subsection).map((item, index) => (
         <ContentRenderer key={index} item={item} onImageClick={onImageClick} />
       ))}
     </div>

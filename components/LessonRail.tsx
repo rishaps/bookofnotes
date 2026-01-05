@@ -89,7 +89,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', active
             <div key={section.id} className="flex flex-col gap-2">
               {/* Lesson Header */}
               <button
-                className={`rail-item-glow text-left font-mono text-xs uppercase tracking-widest leading-relaxed transition-colors ${isActive ? 'active text-content-primary font-bold' : 'text-content-muted'}`}
+                className={`rail-item-glow text-left font-mono text-sm uppercase tracking-widest leading-relaxed transition-colors ${isActive ? 'active text-content-primary font-bold' : 'text-content-muted'}`}
                 onClick={(e) => handleLinkClick(e, index)}
               >
                 <div className="flex gap-2">
@@ -126,7 +126,6 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', active
           color: var(--content-primary);
           margin-bottom: 24px;
           padding-top: 8px;
-          border-bottom: 1px solid var(--content-primary);
           padding-bottom: 8px;
         }
       `}</style>

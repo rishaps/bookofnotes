@@ -7,8 +7,9 @@ interface MathRendererProps {
     inline?: boolean;
 }
 
-const MULTILINE_MIN_LENGTH = 170;
-const TARGET_LINE_LENGTH = 130;
+const MULTILINE_MIN_LENGTH = 110;
+const TARGET_LINE_LENGTH = 90;
+const SECONDARY_TARGET_LINE_LENGTH = 72;
 
 const normalizeLatex = (latex: string) => latex.replace(/\s+/g, ' ').trim();
 
@@ -111,6 +112,49 @@ const splitAtTopLevelOperators = (latex: string, operators: string[]): string[] 
  * - Breaks long formulas after top-level operators (=, +, -, /, \cdot, \times, \div)
  * - Creates multi-line aligned equations
  */
+const wrapPartsToLines = (parts: string[], targetLength: number) => {
+    const lines: string[] = [];
+    let currentLine = '';
+
+    parts.forEach((part) => {
+        if (!currentLine) {
+            currentLine = part;
+            return;
+        }
+
+        const candidate = `${currentLine} ${part}`.trim();
+        if (estimateVisualLength(candidate) > targetLength) {
+            lines.push(currentLine.trim());
+            currentLine = part;
+        } else {
+            currentLine = candidate;
+        }
+    });
+
+    if (currentLine.trim()) {
+        lines.push(currentLine.trim());
+    }
+
+    return lines.length ? lines : parts;
+};
+
+const refineLineBreaks = (lines: string[]) => {
+    const refined: string[] = [];
+    lines.forEach((line) => {
+        if (estimateVisualLength(line) <= TARGET_LINE_LENGTH) {
+            refined.push(line);
+            return;
+        }
+        const subparts = splitAtTopLevelOperators(line, ['+', '-']);
+        if (subparts.length < 2) {
+            refined.push(line);
+            return;
+        }
+        refined.push(...wrapPartsToLines(subparts, SECONDARY_TARGET_LINE_LENGTH));
+    });
+    return refined;
+};
+
 const preprocessFormula = (latex: string): string => {
     if (latex.includes('\\begin{') || latex.includes('\\end{') || latex.includes('\\\\')) {
         return latex;
@@ -124,34 +168,22 @@ const preprocessFormula = (latex: string): string => {
         return latex;
     }
 
-    const parts = splitAtTopLevelOperators(normalized, ['=', '+', '-', '/', '\\cdot', '\\times', '\\div']);
+    const primaryParts = splitAtTopLevelOperators(normalized, ['=']);
+    let parts = primaryParts;
+    if (parts.length === 1) {
+        const secondaryParts = splitAtTopLevelOperators(normalized, ['+']);
+        if (secondaryParts.length > 1) {
+            parts = secondaryParts;
+        }
+    }
     let processed = '';
 
     if (parts.length >= 2) {
-        const lines: string[] = [];
-        let currentLine = '';
+        const lines = wrapPartsToLines(parts, TARGET_LINE_LENGTH);
+        const refinedLines = refineLineBreaks(lines);
 
-        parts.forEach((part) => {
-            if (!currentLine) {
-                currentLine = part;
-                return;
-            }
-
-            const candidate = `${currentLine} ${part}`.trim();
-            if (estimateVisualLength(candidate) > TARGET_LINE_LENGTH) {
-                lines.push(currentLine.trim());
-                currentLine = part;
-            } else {
-                currentLine = candidate;
-            }
-        });
-
-        if (currentLine.trim()) {
-            lines.push(currentLine.trim());
-        }
-
-        if (lines.length > 1) {
-            processed = `\\begin{aligned}\n${lines.map((line) => `& ${line}`).join(' \\\\\n')}\n\\end{aligned}`;
+        if (refinedLines.length > 1) {
+            processed = `\\begin{aligned}\n${refinedLines.map((line) => `& ${line}`).join(' \\\\\n')}\n\\end{aligned}`;
         }
     }
 

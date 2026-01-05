@@ -129,7 +129,11 @@
 
 .math-container-multiline .mtable {
     border-collapse: separate !important;
-    border-spacing: 0 0.35em;
+    border-spacing: 0 0.9em;
+}
+
+.math-container-multiline .mtr {
+    line-height: 1.8;
 }
 
 /* Spacing between stacked formulas */
@@ -189,10 +193,20 @@
     *::before,
     *::after {
         border-radius: 0 !important;
+    }
+
+    /* Keep content blocks flat without affecting controls */
+    .course-content *,
+    .course-content *::before,
+    .course-content *::after {
         box-shadow: none !important;
-        /* Force remove all shadows */
-        border: none !important;
-        /* Force remove all borders (except where we manually add them if needed, but strict minimalist means none) */
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        border: 1px solid transparent;
     }
 
     /* Lightbox overrides */
@@ -228,7 +242,43 @@
 
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientDrift {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-16px);
+    }
+}
+
 @layer utilities {
+    .fade-in {
+        animation: fadeInUp 0.7s ease-out both;
+    }
+
+    .fade-in-delay-1 {
+        animation-delay: 0.12s;
+    }
+
+    .fade-in-delay-2 {
+        animation-delay: 0.24s;
+    }
+
+    .landing-gradient-drift {
+        animation: gradientDrift 12s ease-in-out infinite alternate;
+    }
+
     .text-balance {
         text-wrap: balance;
     }
@@ -338,6 +388,8 @@
         font-weight: 400;
         margin-bottom: 20px;
         color: var(--content-primary);
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     /* Specific rule for paragraph after title (10px) 
@@ -367,32 +419,76 @@
 
     .course-content li {
         margin-bottom: 10px;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     /* Tables */
-    .course-content table {
-        font-size: 16px;
-        line-height: 1.5;
+.course-content table {
+    font-size: 17px;
+    line-height: 1.6;
         margin-top: 32px;
         margin-bottom: 32px;
         width: 100%;
         border-collapse: collapse;
         /* Override global border:none */
-        border: 1px solid rgba(var(--content-primary), 0.2) !important;
-        border: 1px solid color-mix(in srgb, var(--content-primary) 20%, transparent) !important;
-    }
+    border: 1px solid color-mix(in srgb, var(--content-primary) 45%, transparent) !important;
+}
 
-    .course-content table th,
-    .course-content table td {
-        border: 1px solid color-mix(in srgb, var(--content-primary) 20%, transparent) !important;
-        padding: 12px;
-    }
+.course-content table th,
+.course-content table td {
+    border: 1px solid color-mix(in srgb, var(--content-primary) 45%, transparent) !important;
+    padding: 14px;
+    vertical-align: middle;
+    text-align: center;
+}
 
     .course-content table th {
         font-weight: bold;
         background: var(--bg-glass);
         border-bottom: 2px solid color-mix(in srgb, var(--content-primary) 40%, transparent) !important;
     }
+
+.course-content table.formula-table {
+    font-size: 14px;
+    line-height: 1.5;
+    table-layout: fixed;
+}
+
+    .course-content table.formula-table td {
+        text-align: center;
+        padding: 12px 14px;
+    }
+
+.course-content table.formula-table .katex {
+    font-size: 0.9em !important;
+}
+
+.course-content table.formula-table .katex-display {
+    display: block !important;
+    text-align: center !important;
+    margin: 0 !important;
+}
+
+.course-content table.formula-table .formula-cell {
+    display: block;
+    width: 100%;
+}
+
+.course-content table.formula-table .math-container {
+    margin: 0.3rem 0;
+}
+
+.course-content table.formula-table .math-scroll-wrapper {
+    padding: 0.25rem 0;
+    min-width: 0;
+}
+
+.dark .course-content table,
+.dark .course-content table th,
+.dark .course-content table td {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
 
     /* Images */
     .course-content .image-block {
@@ -401,34 +497,95 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        clear: both;
     }
+
+.course-content .image-block.tall-image {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.course-content .image-frame {
+    padding: 0;
+    border: 3px solid #2563EB;
+    background: transparent;
+    border-radius: 0 !important;
+    box-shadow: none;
+}
+
+.dark .course-content .image-frame {
+    border-color: #60A5FA;
+}
+
+.course-content .image-block.float-image {
+    margin-top: 8px;
+    margin-bottom: 24px;
+    display: block;
+    clear: none;
+}
 
     /* REPLACED CLASS: New High-Contrast Caption (Text Only) */
     .course-content .caption-highlight {
         font-size: 12px;
         line-height: 1.4;
-        font-weight: 600;
+        font-weight: 400;
         margin-top: 12px;
-
-        /* Default (Light Mode): Black Text, No Background */
-        background-color: transparent !important;
-        color: #000000 !important;
-
-        padding: 0;
-        display: block;
+        padding: 0 4px;
+        display: inline-block;
+        width: auto;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-
-        /* Ensure no border radius or shadow affects the clean block look */
+        letter-spacing: 0.08em;
+        background-color: #000000 !important;
+        color: #ffffff !important;
         border-radius: 0;
         box-shadow: none;
     }
 
     .dark .course-content .caption-highlight {
-        /* Dark Mode: White Text, No Background */
-        background-color: transparent !important;
-        color: #FFFFFF !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    .callout-box {
+        position: relative;
+        padding: 18px 18px 16px;
+        border: 1px solid #2563EB;
+        background: color-mix(in srgb, #2563EB 6%, transparent);
+        border-radius: 6px;
+    }
+
+    .dark .callout-box {
+        border-color: #60A5FA;
+        background: color-mix(in srgb, #60A5FA 12%, transparent);
+    }
+
+    .callout-label {
+        position: absolute;
+        top: -12px;
+        left: 14px;
+        padding: 4px 10px;
+        background: #2563EB;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .dark .callout-label {
+        background: #60A5FA;
+        color: #0b0b0b;
+    }
+
+    .callout-content {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.6;
+        color: var(--content-primary);
     }
 
     /* Group Hover Glow - Triggers when parent .group is hovered */
@@ -611,7 +768,7 @@
 /* TOC Item styling */
 .toc-item {
     font-family: 'Geist Mono', monospace;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.6;
 }
 
@@ -623,12 +780,56 @@
 .toc-title {
     font-family: 'Geist Mono', monospace;
     font-weight: 400;
+    white-space: nowrap;
+    min-width: 0;
+    font-size: 12px;
+    overflow: visible;
+    text-overflow: unset;
 }
 
 .toc-dots {
     background: none;
     height: 1px;
     margin-bottom: 4px;
+}
+
+.toc-leader {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #111111;
+    opacity: 0.65;
+    margin: 0 8px;
+    letter-spacing: 0.03em;
+}
+
+.dark .toc-leader {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+.toc-dots-random {
+    color: #111111;
+    opacity: 0.6;
+    letter-spacing: 0.04em;
+}
+
+.dark .toc-dots-random {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+.toc-soon {
+    font-size: 10px;
+    font-family: 'Geist Mono', monospace;
+    letter-spacing: 0.08em;
+    color: #111111;
+    opacity: 0.55;
+}
+
+.dark .toc-soon {
+    color: #ffffff;
+    opacity: 0.6;
 }
 
 .toc-wordcount {

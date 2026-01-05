@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { subjects } from '../data/subjects';
 import { MainSection } from '../types';
-import { Menu, X, ChevronLeft, ChevronRight, Home, Sun, Moon } from 'lucide-react';
+import { Menu, X, ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import SectionDisplay from './SectionDisplay';
 import LessonRail from './LessonRail';
+import ThemeToggle from './ThemeToggle';
 
 // Import all course content directly - no lazy loading, instant access
 import { courseContent } from '../data/courseContent-economia';
@@ -46,15 +47,6 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
     // Get subject metadata
     const subject = subjects.find(s => s.slug === activeSlug);
 
-    // Initialize theme from localStorage - fixed logic
-    const [isDark, setIsDark] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme === 'dark') return true;
-        if (savedTheme === 'light') return false;
-        return systemDark;
-    });
-
     // Initialize lesson index with lazy loader to fix reload race condition
     // Because of the key={activeSlug} in parent, this runs afresh for every subject change
     const [currentLessonIndex, setCurrentLessonIndex] = useState(() => {
@@ -74,31 +66,19 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
         return saved !== null ? saved === 'true' : true;
     });
 
-    // Sync Theme Effect
-    useEffect(() => {
-        if (isDark) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [isDark]);
-
-    const toggleTheme = () => {
-        if (isDark) {
-            setIsDark(false);
-            localStorage.setItem('theme', 'light');
-        } else {
-            setIsDark(true);
-            localStorage.setItem('theme', 'dark');
-        }
-    };
-
     // Save lesson index when it changes
     useEffect(() => {
         if (activeSlug) {
             localStorage.setItem(`lessonIndex-${activeSlug}`, String(currentLessonIndex));
         }
     }, [currentLessonIndex, activeSlug]);
+
+    // Persist last opened subject
+    useEffect(() => {
+        if (activeSlug) {
+            localStorage.setItem('lastSubject', activeSlug);
+        }
+    }, [activeSlug]);
 
     // Scroll to top when lesson changes
     useEffect(() => {
@@ -146,15 +126,33 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
     return (
         <div className={`subject-page min-h-screen ${themeClass} bg-[var(--bg-body)]`}>
+            {/* Minimal Header - Right Aligned */}
+            <header className="fixed top-4 right-4 z-[60]">
+                <div className="flex items-center gap-3 px-2 py-1">
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        className="p-1 text-content-primary hover-glow lg:hidden"
+                        aria-label="Apri Indice"
+                    >
+                        <Menu className="w-5 h-5" />
+                    </button>
 
-            {/* Theme Toggle - Fixed top right */}
-            <button
-                onClick={toggleTheme}
-                className="fixed top-4 right-4 z-[110] p-2 text-content-primary hover-glow"
-                aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            >
-                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+                    {/* Home Button */}
+                    <button
+                        onClick={() => navigate('/subjects')}
+                        className="flex items-center gap-2 text-content-primary hover-glow"
+                        aria-label="Torna alla Homepage"
+                    >
+                        <Home className="w-4 h-4" />
+                        <span className="hidden lg:inline text-[10px] uppercase tracking-widest">
+                            Home
+                        </span>
+                    </button>
+
+                    <ThemeToggle inline />
+                </div>
+            </header>
 
             {/* Mobile Sidebar Overlay */}
             {isSidebarOpen && (
@@ -164,68 +162,41 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                 />
             )}
 
-            {/* Mobile Navigation Header - Fixed at top */}
-            <div className="fixed top-0 left-0 w-full h-16 bg-[var(--bg-body)] z-[50] lg:hidden flex items-center px-4">
-                <div className="flex items-center gap-2">
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                        className="p-2 text-content-primary hover-glow"
-                        aria-label="Apri Indice"
-                    >
-                        <Menu className="w-6 h-6" />
-                    </button>
-
-                    {/* Mobile Home Button */}
-                    <button
-                        onClick={() => navigate('/subjects')}
-                        className="p-2 text-content-primary hover-glow"
-                        aria-label="Torna alla Homepage"
-                    >
-                        <Home className="w-6 h-6" />
-                    </button>
-
-                    {/* Active Subject Title on Header */}
-                    <span className="ml-2 text-[10px] uppercase tracking-widest font-bold text-content-secondary line-clamp-1">
-                        {subject.title}
-                    </span>
-                </div>
-            </div>
-
             {/* Left Sidebar - Fixed */}
             <aside
                 className={`
                     fixed top-0 left-0 h-screen z-[100] bg-[var(--bg-body)] !opacity-100 shadow-xl lg:shadow-none
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-                    ${isTOCVisible ? 'w-80' : 'w-10'}
+                    ${(isTOCVisible || isSidebarOpen) ? 'w-[80vw] max-w-xs lg:w-80' : 'w-0 lg:w-10'}
                 `}
             >
-                {/* Home Button - Fixed position at top, separate from scroll container */}
-                <button
-                    onClick={() => navigate('/subjects')}
-                    className="hidden lg:flex items-center justify-center w-10 h-10 text-content-muted absolute top-4 left-0 z-20 hover:opacity-75 transition-colors hover-glow"
-                    title="Torna alla Homepage"
-                >
-                    <Home className="w-5 h-5" />
-                </button>
-
                 {/* TOC Toggle - Fixed position, separate from scroll container */}
                 <button
                     onClick={() => setIsTOCVisible(!isTOCVisible)}
-                    className={`hidden lg:flex items-center justify-center w-12 h-12 text-content-primary absolute z-20 hover-glow ${isTOCVisible
-                        ? 'top-1/2 right-0 -translate-y-1/2'
-                        : 'top-1/2 left-0 -translate-y-1/2 w-12'
+                    className={`hidden lg:flex items-center justify-center text-content-primary absolute z-20 hover-glow ${isTOCVisible
+                        ? 'top-1/2 right-0 -translate-y-1/2 w-12 h-12'
+                        : 'top-1/2 left-0 -translate-y-1/2 w-10 h-24 border border-content-primary/10'
                         }`}
                     title={isTOCVisible ? "Nascondi Indice" : "Mostra Indice"}
+                    aria-pressed={isTOCVisible}
+                    aria-label={isTOCVisible ? "Nascondi Indice" : "Mostra Indice"}
                 >
-                    {isTOCVisible ? <ChevronLeft className="w-6 h-6" strokeWidth={3} /> : <ChevronRight className="w-6 h-6" strokeWidth={3} />}
+                    {isTOCVisible ? (
+                        <ChevronLeft className="w-5 h-5" strokeWidth={3} />
+                    ) : (
+                        <div className="flex flex-col items-center gap-2">
+                            <ChevronRight className="w-5 h-5" strokeWidth={3} />
+                            <span className="text-[10px] uppercase tracking-widest [writing-mode:vertical-rl] rotate-180">
+                                Indice
+                            </span>
+                        </div>
+                    )}
                 </button>
 
                 {/* Scrollable Content Container */}
-                {isTOCVisible && (
+                {(isTOCVisible || isSidebarOpen) && (
                     <div
-                        className="h-full overflow-y-auto no-scrollbar"
-                        style={{ paddingTop: '56px', paddingLeft: '24px', paddingRight: '48px' }}
+                        className="h-full overflow-y-auto no-scrollbar pt-16 sm:pt-20 pl-6 pr-12"
                     >
                         {/* Mobile Close Button */}
                         <button
@@ -247,8 +218,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
             {/* Main Content Area */}
             <main
-                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center`}
-                style={{ paddingTop: '40px', paddingBottom: '60px' }}
+                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center pt-20 sm:pt-24 pb-16`}
             >
                 <div
                     className="course-content w-full mx-auto box-border px-8 md:px-16"
@@ -267,9 +237,9 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                                     {currentLessonIndex > 0 && content && (
                                         <button
                                             onClick={handlePrevLesson}
-                                            className="w-full sm:w-auto flex items-center gap-2 px-6 py-3 rounded-lg border border-content-primary/20 hover:bg-content-primary/5 transition-colors text-content-primary group text-left"
+                                            className="w-full sm:w-auto flex items-center gap-2 px-2 py-2 transition-opacity text-content-primary group text-left hover:opacity-70"
                                         >
-                                            <ChevronLeft className="w-4 h-4 flex-shrink-0 group-hover-glow" />
+                                            <ChevronLeft className="w-4 h-4 flex-shrink-0" />
                                             <div className="flex flex-col">
                                                 <span className="text-xs text-content-muted uppercase tracking-wider mb-1">Lezione Precedente</span>
                                                 <span className="text-sm font-bold text-wrap text-left whitespace-normal group-hover-glow">{content[currentLessonIndex - 1].title}</span>
@@ -282,13 +252,13 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                                     {content && currentLessonIndex < content.length - 1 && (
                                         <button
                                             onClick={handleNextLesson}
-                                            className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-6 py-3 rounded-lg bg-content-primary text-[var(--bg-body)] font-medium hover:opacity-90 transition-opacity group text-right"
+                                            className="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 px-2 py-2 transition-opacity text-content-primary group text-right hover:opacity-70"
                                         >
                                             <div className="flex flex-col items-end">
                                                 <span className="text-xs opacity-70 uppercase tracking-wider mb-1">Prossima Lezione</span>
                                                 <span className="text-sm font-bold text-wrap text-right whitespace-normal group-hover-glow">{content[currentLessonIndex + 1].title}</span>
                                             </div>
-                                            <ChevronRight className="w-4 h-4 flex-shrink-0 group-hover-glow" />
+                                            <ChevronRight className="w-4 h-4 flex-shrink-0" />
                                         </button>
                                     )}
                                 </div>

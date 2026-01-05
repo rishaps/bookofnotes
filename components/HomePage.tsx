@@ -62,28 +62,44 @@ interface TocItemProps {
 
 const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) => {
     const isAvailable = lessonCount > 0;
+    const getDotCount = (seed: string) => {
+        let hash = 0;
+        for (let i = 0; i < seed.length; i += 1) {
+            hash = (hash * 31 + seed.charCodeAt(i)) % 101;
+        }
+        return 2 + (hash % 3);
+    };
+    const randomDots = '.'.repeat(getDotCount(slug));
+    const leaderDots = '.'.repeat(80);
 
     return (
         <button
             onClick={isAvailable ? onClick : undefined}
             disabled={!isAvailable}
-            className={`toc-item w-full flex items-baseline text-left transition-colors py-0.5 group ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
+            className={`toc-item w-full flex items-center justify-start gap-2 transition-colors py-1.5 group min-w-0 text-left ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
                 }`}
         >
-            {/* Title */}
-            <span className={`whitespace-nowrap flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
-                <span className="mr-1">•</span>{title}
-            </span>
-
-            {/* Dots that fill space */}
-            <span className="flex-grow mx-1 overflow-hidden whitespace-nowrap text-gray-300 dark:text-gray-600 text-[8px] select-none leading-none self-end mb-[2px]">
-                {'.'.repeat(200)}
-            </span>
-
-            {/* Lesson count - fixed width for alignment */}
-            <span className={`w-[75px] text-right text-[10px] font-mono whitespace-nowrap uppercase tracking-wide flex-shrink-0 ${isAvailable ? 'text-gray-500' : 'text-transparent'}`}>
-                {isAvailable ? `${String(lessonCount).padStart(2, '0')} lezioni` : ''}
-            </span>
+            {isAvailable ? (
+                <>
+                    <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
+                        • {title}
+                    </span>
+                    <span className="toc-leader" aria-hidden="true">
+                        {leaderDots}
+                    </span>
+                    <span className={`text-[10px] font-mono whitespace-nowrap uppercase tracking-wide flex-shrink-0 ${isAvailable ? 'text-gray-500 dark:text-white/70' : 'text-transparent'}`}>
+                        {`${String(lessonCount).padStart(2, '0')} lezioni`}
+                    </span>
+                </>
+            ) : (
+                <>
+                    <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
+                        • {title}
+                        <span className="toc-dots-random ml-2" aria-hidden="true">{randomDots}</span>
+                    </span>
+                    <span className="toc-soon flex-shrink-0 uppercase">in arrivo</span>
+                </>
+            )}
         </button>
     );
 };
@@ -100,13 +116,11 @@ const HomePage: React.FC = () => {
     return (
         <div
             className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col relative"
-            style={{ fontFamily: "'Departure Mono', monospace" }}
         >
             {/* Header - Fixed top on all devices */}
             <div className="fixed top-0 left-0 w-full h-16 md:h-20 bg-[var(--bg-body)] z-40 flex items-center px-4 md:px-6">
                 <h1
-                    className="text-xs md:text-lg font-bold tracking-widest uppercase"
-                    style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.15em' }}
+                    className="text-xs md:text-lg font-bold tracking-widest uppercase font-mono"
                 >
                     BOOK OF NOTES
                 </h1>
@@ -120,38 +134,33 @@ const HomePage: React.FC = () => {
             <div className="flex-1 flex flex-col items-center justify-start md:justify-center px-8 pt-24 pb-12 md:py-12">
 
                 {/* Header with TOC centered */}
-                <header className="w-full max-w-5xl mb-8">
+                <header className="w-full max-w-7xl mb-8">
                     {/* TABLE OF CONTENTS - Centered with lines */}
-                    <div className="flex items-center justify-center gap-4">
-                        <span className="flex-1 border-b border-gray-300 dark:border-gray-600"></span>
+                    <div className="py-4">
                         <h2
-                            className="text-sm font-bold tracking-widest uppercase"
-                            style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.2em' }}
+                            className="text-sm font-bold tracking-widest uppercase font-mono text-center"
                         >
                             TABLE OF CONTENTS
                         </h2>
-                        <span className="flex-1 border-b border-gray-300 dark:border-gray-600"></span>
                     </div>
                 </header>
 
                 {/* Main Content - 3 Column Grid */}
-                <main className="w-full max-w-6xl">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-20 gap-y-8">
-                        {Object.entries(tocData).map(([year, items], yearIndex) => (
-                            <div key={year} className="flex flex-col">
+                <main className="w-full max-w-7xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+                        {Object.entries(tocData).map(([year, items]) => (
+                            <div key={year} className="flex flex-col items-start text-left">
                                 {/* Section Header */}
                                 <div className="mb-4">
                                     <h3
-                                        className="text-sm font-bold uppercase tracking-wider"
-                                        style={{ fontFamily: "'Departure Mono', monospace" }}
+                                        className="text-sm font-bold uppercase tracking-wider font-mono text-left"
                                     >
-                                        <span className="mr-2">{yearIndex + 1}.</span>
                                         {year}
                                     </h3>
                                 </div>
 
                                 {/* Items */}
-                                <div className="space-y-1">
+                                <div className="flex flex-col items-start space-y-2 w-full max-w-[380px]">
                                     {items.map((item) => (
                                         <TocItem
                                             key={item.slug}
