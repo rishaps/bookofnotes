@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisica Images Viewer - 254 Images</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00d9ff;
+        }
+
+        .instructions {
+            background: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .instructions h2 {
+            color: #00d9ff;
+            margin-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            background: #16213e;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #0f3460;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+            border-color: #00d9ff;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: zoom-in;
+            background: white;
+        }
+
+        .image-info {
+            padding: 15px;
+        }
+
+        .image-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00d9ff;
+        }
+
+        .image-filename {
+            font-size: 12px;
+            color: #888;
+            word-break: break-all;
+            margin-top: 5px;
+        }
+
+        .copy-btn {
+            background: #00d9ff;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .copy-btn:hover {
+            background: #00b8d9;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 85%;
+            background: white;
+        }
+
+        .lightbox-info {
+            color: #fff;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            padding: 20px;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #0f3460;
+            border-radius: 5px;
+            background: #16213e;
+            color: #fff;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #00d9ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📷 Fisica Images Viewer (254 Images)</h1>
+
+    <div class="instructions">
+        <h2>Instructions</h2>
+        <p>1. Browse through all 254 images below</p>
+        <p>2. Click on any image to view it larger</p>
+        <p>3. Use arrow keys (← →) to navigate in lightbox mode</p>
+        <p>4. Note down the figure number (fig_XXX) for each image you want to place</p>
+        <p>5. The markdown code for each image is: <code>![Figure](/IMAGES/figura/fig_XXX.avif)</code></p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Jump to image number (1-254)..." onkeyup="jumpToImage(event)">
+    </div>
+
+    <div class="grid" id="imageGrid"></div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <span class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">❮</span>
+        <span class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">❯</span>
+        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-info" id="lightboxInfo"></div>
+    </div>
+
+    <script>
+        const totalImages = 254;
+        let currentLightboxIndex = 0;
+
+        // Generate image grid
+        const grid = document.getElementById('imageGrid');
+        for (let i = 1; i <= totalImages; i++) {
+            const num = String(i).padStart(3, '0');
+            const card = document.createElement('div');
+            card.className = 'image-card';
+            card.id = `img-${i}`;
+            card.innerHTML = `
+                <img src="/IMAGES/fisica/fig_${num}.avif" alt="Figure ${i}" onclick="openLightbox(${i})" loading="lazy">
+                <div class="image-info">
+                    <div class="image-number">#${i}</div>
+                    <div class="image-filename">fig_${num}.avif</div>
+                    <button class="copy-btn" onclick="copyMarkdown(${i})">Copy Markdown</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        }
+
+        function copyMarkdown(num) {
+            const numStr = String(num).padStart(3, '0');
+            const markdown = `![Figure ${num}](/IMAGES/fisica/fig_${numStr}.avif)`;
+            navigator.clipboard.writeText(markdown);
+            alert('Copied: ' + markdown);
+        }
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function updateLightbox() {
+            const num = String(currentLightboxIndex).padStart(3, '0');
+            document.getElementById('lightboxImg').src = `/IMAGES/fisica/fig_${num}.avif`;
+            document.getElementById('lightboxInfo').textContent = `Figure ${currentLightboxIndex} of ${totalImages} (fig_${num}.avif)`;
+        }
+
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex < 1) currentLightboxIndex = totalImages;
+            if (currentLightboxIndex > totalImages) currentLightboxIndex = 1;
+            updateLightbox();
+        }
+
+        function jumpToImage(event) {
+            if (event.key === 'Enter') {
+                const num = parseInt(document.getElementById('searchInput').value);
+                if (num >= 1 && num <= totalImages) {
+                    document.getElementById(`img-${num}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>

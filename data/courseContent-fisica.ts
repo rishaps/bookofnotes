@@ -3,33 +3,35 @@ import { MainSection } from '../types';
 export const fisicaCourseContent: MainSection[] = [
     {
         id: "1-vettori",
-        title: "1 VETTORI",
+        title: "Lezione 1: VETTORI",
         subsections: [
             {
-                title: "Definizioni e Rappresentazione",
+                title: "1.1 Definizioni e Rappresentazione",
                 content: [
                     "Tutte le grandezze per la cui definizione non concorrono altri elementi al di fuori della loro misura vengono dette **grandezze scalari**; sono esempi di grandezze scalari l’intervallo di tempo, la massa, la temperatura, ecc. Esistono tuttavia delle grandezze per le quali non è sufficiente una sola quantità per la loro completa caratterizzazione. Consideriamo, ad esempio, il moto rettilineo di un corpo puntiforme originariamente a riposo in un punto $A$; qualora si specificasse unicamente che al termine del moto il corpo ha percorso una lunghezza $l$, tutto ciò che si potrebbe affermare circa la posizione finale $B$ del corpo è la sua localizzazione in un punto della superficie sferica di centro $A$ e raggio $l$. Per conoscere la posizione $B$ e, di conseguenza, lo spostamento subito dal corpo, oltre all’origine $A$ del moto e la lunghezza dello spostamento, occorre sapere la direzione, ossia la retta $AB$ lungo la quale avviene il movimento ed il verso, cioè in quale dei due sensi viene percorsa la retta $AB$.",
                     "Le grandezze come lo spostamento, per le quali è necessario precisare oltre che la loro misura, o **modulo**, anche la direzione, il verso e, in certi casi, anche l’origine o punto di applicazione, vengono dette **grandezze vettoriali**. Sono esempi di grandezze vettoriali la velocità, l’accelerazione, la forza, ecc.",
+                    "![Rappresentazione di un vettore|small](/fisica-images/fig_001.avif)",
                     "Una grandezza vettoriale può essere rappresentata graficamente mediante un segmento orientato $OV$ detto vettore, indicato con:",
                     "$$ \\mathbf{v} \\equiv \\overrightarrow{OV}$$",
                     "La lunghezza",
                     "$$v = \\overline{OV} = |\\mathbf{v}|,$$",
                     "rispetto ad una scala prefissata, rappresenta il modulo (o intensità) del vettore; la retta su cui giace il segmento orientato $\\overrightarrow{OV}$ rappresenta la direzione del vettore, il verso è quello che va dal punto $O$ al punto $V$ e l’estremo $O$ indica l’origine del vettore o il suo punto di applicazione.",
-                    "![Rappresentazione grafica di un vettore](/IMAGES/vector_representation.avif)"
                 ]
             },
             {
-                title: "1.1 Operazioni tra vettori",
+                title: "1.2 Operazioni tra vettori",
                 content: [
                     "Mentre per le grandezze scalari valgono le regole del calcolo algebrico, queste non sono valide per le grandezze vettoriali.",
+                    "![Somma di due vettori (regola del parallelogramma)](/fisica-images/fig_002.avif)",
                     "Dati i vettori $\\mathbf{u}$ e $\\mathbf{v}$, si definisce somma un vettore:",
                     "$$\\mathbf{w} = \\mathbf{u} + \\mathbf{v}$$",
                     "che si ottiene costruendo un parallelogramma con i due lati formati dai vettori $\\mathbf{u}$ e $\\mathbf{v}$ disposti in modo che l’origine di uno sia posta in corrispondenza dell’estremo libero dell’altro. Il vettore $\\mathbf{w}$ è rappresentato dalla diagonale che si ottiene congiungendo l’origine $O$ di $\\mathbf{u}$ con l’estremo $V$ di $\\mathbf{v}$. Il modulo del vettore $\\mathbf{w}$ si ricava dall’applicazione del teorema di Carnot al triangolo $OUV$ così formato:",
-                    "![Somma di vettori con regola del parallelogramma](/IMAGES/vector_sum.avif)",
                     "$$w = \\sqrt{u^2 + v^2 - 2uv \\cos \\alpha} = \\sqrt{u^2 + v^2 + 2uv \\cos \\beta},$$",
                     "dove $\\alpha$ è l’angolo $\\widehat{OUV}$ e $\\beta$ è l’angolo supplementare a $\\alpha$. Si osserva banalmente che la somma di vettori è commutativa, pertanto:",
                     "$$\\mathbf{u} + \\mathbf{v} = \\mathbf{v} + \\mathbf{u}$$",
+                    "![Vettore opposto|small](/fisica-images/fig_003.avif)",
                     "Dato un vettore $\\mathbf{v}$, il vettore **opposto** $-\\mathbf{v}$ è un vettore che ha lo stesso modulo e la stessa direzione di $\\mathbf{v}$, ma verso opposto.",
+                    "![Sottrazione di vettori|left|small](/fisica-images/fig_004.avif)",
                     "La **sottrazione** di un vettore $\\mathbf{v}$ da un vettore $\\mathbf{u}$ può essere riguardata come l’addizione al vettore $\\mathbf{u}$ del vettore $-\\mathbf{v}$, opposto a $\\mathbf{v}$:",
                     "$$\\mathbf{w} = \\mathbf{u} - \\mathbf{v} = \\mathbf{u} + (-\\mathbf{v})$$",
                     "Il prodotto $\\mathbf{w}$ di un vettore $\\mathbf{v}$ per un qualunque scalare $m$ è definito come un vettore di modulo $|m|v$ la cui direzione è quella di $\\mathbf{v}$:",
@@ -38,14 +40,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "Si definisce **versore** associato al vettore $\\mathbf{v}$ il vettore:",
                     "$$\\hat{v} = \\frac{\\mathbf{v}}{v} = \\frac{\\mathbf{v}}{|\\mathbf{v}|};$$",
                     "si osservi che $|\\hat{v}| = 1$ e pertanto i versori sono adimensionali e servono unicamente a specificare la direzione ed il verso di un vettore assegnato.",
+                    "![Componenti cartesiane di un vettore|medium](/fisica-images/fig_005.avif)",
                     "Supponiamo di decomporre il vettore $\\mathbf{v}$ nei tre vettori $\\mathbf{v}_x$, $\\mathbf{v}_y$ e $\\mathbf{v}_z$ diretti secondo gli assi di un sistema di coordinate cartesiane:",
                     "$$\\mathbf{v} = \\mathbf{v}_x + \\mathbf{v}_y + \\mathbf{v}_z,$$",
                     "allora i vettori $\\mathbf{v}_x$, $\\mathbf{v}_y$ e $\\mathbf{v}_z$ sono detti **componenti cartesiani** di $\\mathbf{v}$.",
+                    "![Versori e componenti cartesiane|medium](/fisica-images/fig_006.avif)",
                     "Introducendo i versori $\\hat{x}$, $\\hat{y}$ e $\\hat{z}$ diretti nel verso positivo degli assi coordinati, il vettore $\\mathbf{v}$ si può esprimere come:",
                     "$$\\mathbf{v} = v_x\\hat{x} + v_y\\hat{y} + v_z\\hat{z},$$",
                     "dove $v_x$, $v_y$ e $v_z$ sono, rispettivamente, i moduli dei vettori componenti $\\mathbf{v}_x$, $\\mathbf{v}_y$ e $\\mathbf{v}_z$. Dall’applicazione del teorema di Pitagora, il modulo di $\\mathbf{v}$ può esprimersi come:",
                     "$$v = \\sqrt{v_x^2 + v_y^2 + v_z^2}.$$",
-                    "![Componenti cartesiani di un vettore](/IMAGES/vector_components.avif)",
+                    "![Prodotto scalare (interpretazione geometrica)](/fisica-images/fig_007.avif)",
                     "Si definisce **prodotto scalare** tra i vettori $\\mathbf{u}$ e $\\mathbf{v}$, lo scalare:",
                     "$$\\mathbf{u} \\cdot \\mathbf{v} \\equiv uv \\cos \\alpha,$$",
                     "dove $\\alpha$ è l’angolo compreso tra le direzioni dei due vettori. Si osservi che il prodotto scalare $\\mathbf{u} \\cdot \\mathbf{v}$ può intendersi anche come il prodotto tra il modulo di $\\mathbf{v}$ e la proiezione di $\\mathbf{u}$ nella direzione di $\\mathbf{v}$ o, alternativamente, come il prodotto tra il modulo di $\\mathbf{u}$ e la proiezione di $\\mathbf{v}$ nella direzione di $\\mathbf{u}$. Il prodotto scalare è commutativo, per cui:",
@@ -59,6 +63,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$\\mathbf{u} \\cdot \\mathbf{v} = u_x v_x + u_y v_y + u_z v_z,$$",
                     "dove $u_x$, $u_y$ e $u_z$ sono le componenti cartesiane di $\\mathbf{u}$ e $v_x$, $v_y$ e $v_z$ quelle di $\\mathbf{v}$.",
                     "**Nota 1:** Infatti, esprimendo i vettori $\\mathbf{u}$ e $\\mathbf{v}$ attraverso i versori degli assi coordinati, dalla relazioni (1.1) segue: $\\mathbf{u} \\cdot \\mathbf{v} = (u_x\\hat{x} + u_y\\hat{y} + u_z\\hat{z}) \\cdot (v_x\\hat{x} + v_y\\hat{y} + v_z\\hat{z}) = u_x v_x(\\hat{x}\\cdot\\hat{x}) + u_x v_y(\\hat{x}\\cdot\\hat{y}) + u_x v_z(\\hat{x}\\cdot\\hat{z}) + u_y v_x(\\hat{y}\\cdot\\hat{x}) + u_y v_y(\\hat{y}\\cdot\\hat{y}) + u_y v_z(\\hat{y}\\cdot\\hat{z}) + u_z v_x(\\hat{z}\\cdot\\hat{x}) + u_z v_y(\\hat{z}\\cdot\\hat{y}) + u_z v_z(\\hat{z}\\cdot\\hat{z}) = u_x v_x + u_y v_y + u_z v_z$.",
+                    "![Prodotto vettoriale e regola della mano destra](/fisica-images/fig_008.avif)",
                     "Si definisce **prodotto vettoriale** tra i vettori $\\mathbf{u}$ e $\\mathbf{v}$ il vettore:",
                     "$$\\mathbf{w} \\equiv \\mathbf{u} \\times \\mathbf{v},$$",
                     "di modulo",
@@ -88,10 +93,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\frac{d}{dt}(\\mathbf{u} \\pm \\mathbf{v}) = \\frac{d\\mathbf{u}}{dt} \\pm \\frac{d\\mathbf{v}}{dt}, $$",
                     "$$ \\frac{d}{dt}(\\mathbf{u} \\cdot \\mathbf{v}) = \\frac{d\\mathbf{u}}{dt} \\cdot \\mathbf{v} + \\mathbf{u} \\cdot \\frac{d\\mathbf{v}}{dt}, $$",
                     "$$ \\frac{d}{dt}(\\mathbf{u} \\times \\mathbf{v}) = \\frac{d\\mathbf{u}}{dt} \\times \\mathbf{v} + \\mathbf{u} \\times \\frac{d\\mathbf{v}}{dt}. $$"
+                    ,
                 ]
             },
             {
-                title: "1.2 Relazioni vettoriali notevoli",
+                title: "1.3 Relazioni vettoriali notevoli",
                 content: [
                     "Di seguito vengono riportate alcune identità vettoriali notevoli; dati i vettori $\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{c}$ e $\\mathbf{d}$ risulta:",
                     "$$ \\mathbf{a} \\cdot (\\mathbf{b} \\times \\mathbf{c}) = \\mathbf{c} \\cdot (\\mathbf{a} \\times \\mathbf{b}) = \\mathbf{b} \\cdot (\\mathbf{c} \\times \\mathbf{a}), $$",
@@ -105,20 +111,22 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "2-cinematica",
-        title: "2 CINEMATICA",
+        title: "Lezione 2: CINEMATICA",
         subsections: [
             {
-                title: "Introduzione",
+                title: "2.1 Introduzione",
                 content: [
                     "Un corpo si dice in moto relativamente ad un altro corpo quando la sua posizione, misurata rispetto all’altro corpo cambia nel tempo. Si dice **cinematica** lo studio del moto dei corpo indipendentemente dalla cause che lo hanno generato.",
                     "Per una completa determinazione del movimento di un corpo occorre conoscere il moto di ciascuna particella che lo compone. Tuttavia, in questa prima parte prescindiamo dalle sue dimensioni, dalla forma, della composizione chimica, ecc., considerandolo unicamente come un punto, che denomineremo **punto materiale**. Questa rappresentazione dei corpi risulta efficace in tutte le circostanze in cui le loro reali dimensioni sono trascurabili rispetto alle distanze coperte lungo il percorso che ne caratterizza il moto. Così, ad esempio, l’identificazione della Terra con un punto materiale consente un’accurata descrizione del suo moto orbitale intorno al Sole, oppure la pressione esercitata da un gas sulle pareti di un contenitore può essere valutata considerando le molecole del gas come punti materiali."
+                    ,
                 ]
             },
             {
-                title: "2.1 Equazioni del moto",
+                title: "2.2 Equazioni del moto",
                 content: [
                     "Come anticipato, lo studio del moto di un corpo richiede la preventiva specificazione di un sistema spaziale di riferimento e inoltre è necessario stabilire un’origine per gli intervalli di tempo. Si nota che le caratteristiche del moto del punto materiale sono legate in maniera essenziale al sistema di riferimento scelto. Usualmente si fissa un sistema di coordinate cartesiane solidali con il corpo rispetto al quale si riferisce il moto, inoltre si fissa un’ascissa temporale determinata stabilendo un istante iniziale a partire dal quale misurare gli intervalli di tempo. Il moto di un punto materiale $P$ è quindi determinato una volta che è nota la legge di variazione nel tempo delle sue coordinate (**equazioni orarie**):",
                     "$$ \\begin{cases} x = x(t), \\\\ y = y(t), \\\\ z = z(t). \\end{cases} \\hspace{4cm} \\tag{2.1} $$",
+                    "![Vettore posizione e traiettoria](/fisica-images/fig_009.avif)",
                     "Analogamente il moto è stabilito se si conosce la legge di variazione nel tempo del vettore posizione $\\overrightarrow{OP}(t)$ tracciato a partire dall’origine $O$ del sistema di riferimento verso la particella:",
                     "$$ \\overrightarrow{OP}(t) = \\mathbf{r}(t) = \\hat{x}x(t) + \\hat{y}y(t) + \\hat{z}z(t). \\hspace{4cm} \\tag{2.2} $$",
                     "Il luogo delle posizioni occupate dal punto $P$ durante il suo moto è una linea detta **traiettoria**; questa può essere retta o curva che, a sua volta può essere piana o sghemba. Nel primo caso il moto si dice **rettilineo**, nel secondo caso **curvilineo**.",
@@ -128,24 +136,27 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove sia $x$ che $y$ sono espresse in metri; eliminando il parametro $t$ fra le due equazioni, si trova:",
                     "$$ y(x) = (2 m^{-1})x^2 + 4x + 2m $$",
                     "cioè la traiettoria descritta è una parabola",
+                    "![Vettore spostamento](/fisica-images/fig_010.avif)",
                     "Indicando con $P$ e $P'$ le posizioni assunte dal punto materiale in corrispondenza degli istanti di tempo $t$ e $t + \\Delta t$, si chiama **spostamento** nell’intervallo $\\Delta t$ il vettore:",
                     "$$ \\overrightarrow{PP'} = \\mathbf{r}(t+\\Delta t) - \\mathbf{r}(t) = \\Delta \\mathbf{r} = \\hat{x}\\Delta x + \\hat{y}\\Delta y + \\hat{z}\\Delta z $$",
                     "dove $\\mathbf{r}(t)$ è il vettore posizione associato al moto di $P$. In particolare, se $d\\mathbf{r}(t)/dt \\neq 0$, è possibile considerare lo spostamento corrispondente ad un intervallo di tempo infinitesimo $dt$:",
                     "$$ d\\mathbf{r} = \\hat{x} dx + \\hat{y} dy + \\hat{z} dz, \\hspace{4cm} \\tag{2.3} $$",
                     "dove le componenti di $d\\mathbf{r}$ lungo gli assi coordinati sono i differenziali delle equazioni (2.1).",
+                    "![Ascissa curvilinea|small](/fisica-images/fig_011.avif)",
                     "Nota la traiettoria è possibile definire un sistema di coordinate alternativo la cui origine $O$ è posta nella posizione occupata dal punto $P$ all’istante iniziale e la posizione generica di $P$ è misurata lungo la traiettoria, a partire dall’origine $O$. La coordinata $s \\equiv \\overrightarrow{OP}$ è detta **ascissa curvilinea** di $P$. In relazione ad un intervallo di tempo infinitesimo, lo spostamento $d\\mathbf{r}$ risulta tangente alla traiettoria nel punto considerato ed in modulo uguale allo spostamento $ds$ lungo l’ascissa curvilinea, per cui, indicando con $\\hat{t}$ il versore tangente alla curva nel punto considerato, risulta:",
                     "$$ d\\mathbf{r} = \\hat{t} ds. \\hspace{4cm} \\tag{2.4} $$",
-                    "![Spostamento infinitesimo e traiettoria](/IMAGES/displacement_trajectory.avif)"
                 ]
             },
             {
-                title: "2.2 Moto rettilineo",
+                title: "2.3 Moto rettilineo",
                 content: [
+                    "![Posizione nel moto rettilineo|small](/fisica-images/fig_012.avif)",
                     "Nel moto rettilineo il punto materiale si sposta lungo una linea retta; fissata un origine ed una direzione, questo tipo di moto è descrivibile adoperando una sola coordinata $x = x(t)$. Sia $x_1 \\equiv x(t_1)$ e $x_2 \\equiv x(t_2)$ la posizione del punto $P$ rispettivamente, ai tempi $t_1$ e $t_2$, definiamo **velocità media** nell’intervallo di tempo $t_2 - t_1$ il rapporto:",
                     "$$ v_m \\equiv \\frac{\\Delta x}{\\Delta t} = \\frac{x_2 - x_1}{t_2 - t_1}, \\hspace{4cm} \\tag{2.5} $$",
                     "in cui:",
                     "$$ \\Delta x \\equiv x_2 - x_1, $$",
                     "$$ \\Delta t \\equiv t_2 - t_1. $$",
+                    "![Velocità media come pendenza della secante|medium](/fisica-images/fig_013.avif)",
                     "La velocità media fornisce un’indicazione concernente il moto del punto $P$ nell’intervallo di tempo $\\Delta t$ durante il quale il punto si sposta lungo il segmento di lunghezza $\\Delta x$. Se rappresentiamo su un diagramma cartesiano la legge oraria del moto $x = x(t)$, in tale grafico risulta che la velocità media calcolata tra i tempi $t_1$ e $t_2$ può essere interpretata come la pendenza della retta passante per i punti $(t_1, x(t_1))$ e $(t_2, x(t_2))$.",
                     "La velocità ha le dimensioni di una lunghezza diviso un tempo, per cui nel Sistema Internazionale ($SI$) risulta:",
                     "$$ [v_m] = \\frac{m}{s}, $$",
@@ -162,11 +173,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ t_0 = 5 s, \\Delta t = 0.01 s \\implies v_{m3} = \\frac{x(t_0 + \\Delta t) - x(t_0)}{\\Delta t} = \\frac{0.2002 m}{0.01 s} = 20.02 m/s; $$",
                     "$$ t_0 = 5 s, \\Delta t = 0.001 s \\implies v_{m4} = \\frac{x(t_0 + \\Delta t) - x(t_0)}{\\Delta t} = \\frac{0.020002 m}{0.001 s} = 20.002 m/s; $$",
                     "$$ t_0 = 5 s, \\Delta t = 0.0001 s \\implies v_{m5} = \\frac{x(t_0 + \\Delta t) - x(t_0)}{\\Delta t} = \\frac{0.00200002 m}{0.0001 s} = 20.0002 m/s; $$",
+                    "![Velocità istantanea come limite|medium](/fisica-images/fig_014.avif)",
                     "L’esempio precedente mostra che al diminuire dell’intervallo di tempo $\\Delta t$, fissato il tempo $t_0$, la velocità tende ad un valore limite. Si definisce **velocità istantanea** al tempo $t_0$ il limite:",
                     "$$ v(t_0) = \\lim_{\\Delta t \\to 0} \\frac{x(t_0 + \\Delta t) - x(t_0)}{\\Delta t} = \\left. \\frac{dx}{dt} \\right|_{t=t_0}; \\hspace{4cm} \\tag{2.6} $$",
                     "cioè la derivata della funzione $x = x(t)$ calcolata al tempo $t_0$ fornisce il valore della velocità in corrispondenza dell’istante specificato. Dalle proprietà della derivata segue che la velocità istantanea al tempo $t_0$ rappresenta la pendenza della retta tangente alla curva $x = x(t)$ calcolata al tempo $t_0$.",
                     "Nell’Appendice sono riportate le derivate di alcune funzioni notevoli.",
-                    "![Grafico velocità istantanea come pendenza tangente](/IMAGES/instantaneous_velocity.avif)",
                     "**Esempio:** Facendo riferimento all’esempio precedente, poiché si ha $x(t) = k t^2 + x_0$, allora:",
                     "$$ \\frac{x(t + \\Delta t) - x(t)}{\\Delta t} = \\frac{k t^2 + 2kt \\Delta t + k \\Delta t^2 + x_0 - k t^2 - x_0}{\\Delta t} = 2kt + k \\Delta t, $$",
                     "pertanto:",
@@ -179,6 +190,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "Il problema inverso di stabilire lo spostamento $\\mathcal{S}$ di un punto materiale in moto con velocità $v$ in un tempo $T$, è banale se $v$ è costante. In questo caso infatti:",
                     "$$ \\mathcal{S} = vT. $$",
                     "Tuttavia qualora $v$ è funzione del tempo, tale espressione non conduce ad un risultato corretto. D’altra parte si può pensare di dividere l’intervallo $T$ in tanti intervalli $\\Delta t_k$ e calcolare lo spostamento come somma:",
+                    "![Spostamento come area sotto la curva della velocità|medium](/fisica-images/fig_015.avif)",
                     "$$ \\mathcal{S} \\approx \\sum_{k} v_k \\Delta t_k, $$",
                     "dove $v_k$ è ritenuta costante nell’intervallo $\\Delta t_k$ e pari, ad esempio, al valore assunto al centro dell’intervallo $k$-esimo:",
                     "$$ v_k \\equiv v \\left( t_k - \\frac{\\Delta t_k}{2} \\right). $$",
@@ -208,9 +220,9 @@ export const fisicaCourseContent: MainSection[] = [
                     "così:",
                     "$$ \\mathcal{S} \\approx (8.33 m/s) \\times (3.3 s) + (75 m/s) \\times (3.3 s) + (208.33 m/s) \\times (3.3 s) \\approx 972.2 m. $$",
                     "Aumentando il numero $n$ di intervalli, cioè diminuendo la durata di ciascun intervallo, si ottengono i risultati indicati nella precedente tabella. Con le scelte fatte, dal punto di vista geometrico, il prodotto $v_k \\Delta t_k$ rappresenta l’area del rettangolo di base $\\Delta t_k$ e di altezza pari al valore assunto dalla velocità $v(t)$ al centro dell’intervallo $\\Delta t_k$ stesso. Pertanto le somme $\\sum_k v_k \\Delta t_k$ costituiscono un’approssimazione dell’area sottesa dalla funzione $v(t)$ nell’intervallo $(0, T)$.",
-                    "![Integrazione numerica velocità](/IMAGES/numerical_integration.avif)",
                     "Analogamente a quanto visto nel caso della velocità istantanea, al diminuire della durata degli intervalli $\\Delta t_k$ in cui è diviso l’intervallo di tempo $(0, T)$, lo spostamento $\\mathcal{S}$ tende ad un valore limite. Allora:",
                     "$$ \\mathcal{S} = \\lim_{\\Delta t_k \\to 0} \\sum_{k} v_k \\Delta t_k = \\int_0^T v(t) dt, $$",
+                    "![Spostamento come integrale della velocità|medium](/fisica-images/fig_016.avif)",
                     "cioè l’integrale della funzione $v = v(t)$ calcolato dall’istante di tempo iniziale $t = 0$ a quello finale $t = T$, fornisce l’entità dello spostamento che subisce il punto materiale nell’intervallo $(0, T)$. Dalle proprietà dell’integrale segue che lo spostamento subito tra due istanti di tempo è pari all’area sottesa dalla curva $v = v(t)$ tra gli istanti specificati. Nell’Appendice sono riportati gli integrali di alcune funzioni notevoli.",
                     "**Esempio:** Con riferimento all’esempio precedente, se $v(t) = h t^2$, posto",
                     "$$ \\Delta t_k \\equiv \\frac{T}{n}, $$",
@@ -246,6 +258,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "ovvero:",
                     "$$ x = x_0 + v_0 (t - t_0), $$",
                     "e, in particolare, se $t_0 \\equiv 0$, allora:",
+                    "![Legge oraria del moto uniforme|small](/fisica-images/fig_017.avif)",
                     "$$ x = x_0 + v_0 t. $$",
                     "Quando la velocità è indipendente dal tempo, il moto è detto **uniforme**; tuttavia, in generale, la velocità dipende dal tempo, così, per completare la caratterizzazione del moto è necessario conoscere come essa varia istante per istante. A tale scopo, posto $v_1 \\equiv v(t_1)$ e $v_2 \\equiv v(t_2)$ le velocità assunte dal punto materiale, rispettivamente ai tempi $t_1$ e $t_2$, si definisce **accelerazione media** nell’intervallo di tempo $t_2 - t_1$, il rapporto:",
                     "$$ a_m \\equiv \\frac{\\Delta v}{\\Delta t} = \\frac{v_2 - v_1}{t_2 - t_1}, $$",
@@ -276,17 +289,19 @@ export const fisicaCourseContent: MainSection[] = [
                     "In particolare, se $t_0 \\equiv 0$ si ottiene:",
                     "$$ v = v_0 + a_0 t, $$",
                     "$$ x = x_0 + v_0 t + \\frac{1}{2} a_0 t^2. \\hspace{4cm} \\tag{2.10} $$",
+                    "![Moto uniformemente accelerato: velocità e posizione|medium](/fisica-images/fig_018.avif)",
                     "In figura sono mostrati gli andamenti di $v(t)$ e $x(t)$ per questo tipo di moto.",
-                    "![Grafici moto uniformemente accelerato](/IMAGES/uniform_acceleration_graphs.avif)",
                     "Attraverso l’eliminazione del parametro $t$ dalle equazioni precedenti è possibile esprimere la velocità $v$ in funzione della posizione; cioè, essendo $t = (v - v_0)/a_0$, si ha:",
                     "$$ x - x_0 = v_0 \\frac{v - v_0}{a_0} + \\frac{1}{2} a_0 \\left( \\frac{v - v_0}{a_0} \\right)^2 = \\frac{1}{2 a_0} (v^2 - v_0^2), $$",
                     "da cui segue la relazione:",
                     "$$ v^2 - v_0^2 = 2a_0 (x - x_0), \\hspace{4cm} \\tag{2.11} $$",
                     "che consente di stabilire il valore assunto dalla velocità in corrispondenza di una specificata posizione.",
                     "**Esempio:** (moto verticale di un corpo) Trascurando la resistenza offerta dall’aria e la spinta idrostatica, un corpo lasciato cadere in prossimità della superficie terrestre si muove verso il basso, per effetto della gravità, con accelerazione costante $g$ pari a circa $9.8 m/s^2$; pertanto il moto è uniformemente accelerato. Se consideriamo un sistema di riferimento con origine sulla superficie terrestre e orientato verso l’alto, l’accelerazione a cui sarà soggetto il corpo sarà (Nota 1):",
+                    "![Riferimento per il moto verticale|small](/fisica-images/fig_019.avif)",
                     "$$ a_0 = -g. $$",
                     "**Nota 1:** Il segno negativo deriva dalla scelta fatta circa il sistema di riferimento; infatti dalla (2.11) segue che se si lascia cadere il corpo da una certa altezza con velocità iniziale $v_0$ nulla, affinché risulti $v^2 = 2 a_0 (x - x_0) > 0$, siccome risulta sempre $x < x_0$, deve necessariamente aversi $a_0 < 0$.",
                     "Nel caso in cui il corpo è lasciato cadere con velocità iniziale nulla da un’altezza $h$, dalle relazioni (2.10), la velocità e la posizione del corpo varranno:",
+                    "![Velocità nel lancio verso l'alto|medium](/fisica-images/fig_020.avif)",
                     "$$ v = -gt, $$",
                     "$$ x = h - \\frac{1}{2} gt^2, $$",
                     "così il corpo raggiungerà il suolo ($x = 0$) al tempo $t_c$ tale che:",
@@ -303,6 +318,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ v_c = \\sqrt{v_i^2 + 2gh}. $$",
                     "Consideriamo infine la circostanza in cui il corpo parte dalla superficie terrestre ($x = 0$) con velocità iniziale $v_i$ diretta verso l’alto, allora dalle relazioni (2.10) segue:",
                     "$$ v = v_i - gt, $$",
+                    "![Legge oraria del lancio verso l'alto|small](/fisica-images/fig_021.avif)",
                     "$$ x = v_i t - \\frac{1}{2} gt^2, $$",
                     "quindi la velocità del corpo è inizialmente diretta verso l’alto e, al tempo:",
                     "$$ t_M = \\frac{v_i}{g} $$",
@@ -315,20 +331,21 @@ export const fisicaCourseContent: MainSection[] = [
                     "In particolare, al suolo, la velocità raggiunta vale;",
                     "$$ v_c = v_i - g t_c = v_i - g \\frac{2v_i}{g} = -v_i, $$",
                     "cioè la velocità con la quale il corpo arriva a terra è uguale in modulo a quella iniziale.",
-                    "![Lancio verticale di un corpo](/IMAGES/vertical_motion_graph.avif)"
                 ]
             },
             {
-                title: "2.3 Moto curvilineo",
+                title: "2.4 Moto curvilineo",
                 content: [
                     "Sia $\\mathbf{r}_1 \\equiv \\overrightarrow{OP}_1$ il vettore posizione del punto materiale al tempo $t_1$ e $\\mathbf{r}_2 \\equiv \\overrightarrow{OP}_2$ il vettore posizione al tempo $t_2$. Si definisce **velocità (vettoriale) media** il rapporto:",
                     "$$ \\mathbf{v}_m \\equiv \\frac{\\Delta \\mathbf{r}}{\\Delta t} = \\frac{\\mathbf{r}_2 - \\mathbf{r}_1}{t_2 - t_1}, $$",
                     "dove si è posto:",
                     "$$ \\Delta \\mathbf{r} \\equiv \\mathbf{r}_2 - \\mathbf{r}_1, $$",
                     "$$ \\Delta t \\equiv t_2 - t_1; $$",
+                    "![Vettore spostamento e velocità media|medium](/fisica-images/fig_022.avif)",
                     "si osservi che il vettore spostamento $\\Delta \\mathbf{r}$ e il vettore velocità media $\\mathbf{v}_m$ risultano tra loro paralleli.",
                     "Analogamente a quanto osservato nel caso del moto rettilineo, la velocità media non fornisce un’indicazione completa circa il moto. Per tale motivo si introduce la velocità istantanea quale limite del rapporto tra spostamento e intervallo in cui si esplica tale spostamento, quando tale intervallo è fatto tendere a zero. Così la velocità istantanea (vettoriale) al tempo $t_0$ vale:",
                     "$$ \\mathbf{v}(t_0) = \\lim_{\\Delta t \\to 0} \\frac{\\mathbf{r}(t_0 + \\Delta t) - \\mathbf{r}(t_0)}{\\Delta t} = \\left. \\frac{d\\mathbf{r}}{dt} \\right|_{t=t_0} \\hspace{4cm} \\tag{2.12} $$",
+                    "![Velocità istantanea come limite|medium](/fisica-images/fig_023.avif)",
                     "Al tendere dell’intervallo di tempo $\\Delta t$ a zero, il vettore spostamento $\\mathbf{r}(t_0 + \\Delta t) - \\mathbf{r}(t_0)$ varia con continuità in modulo e direzione sino a far coincidere, al limite, la sua direzione con quella della retta tangente alla traiettoria nel punto $P$ occupato dal corpo al tempo $t_0$. Pertanto il vettore velocità è tangente alla traiettoria. Utilizzando la relazione (2.3), la velocità (2.12) può esprimersi come:",
                     "$$ \\mathbf{v} = \\frac{d\\mathbf{r}}{dt} = \\hat{x} \\frac{dx}{dt} + \\hat{y} \\frac{dy}{dt} + \\hat{z} \\frac{dz}{dt} = \\hat{x} v_x + \\hat{y} v_y + \\hat{z} v_z, \\hspace{4cm} \\tag{2.13} $$",
                     "dove",
@@ -356,6 +373,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove:",
                     "$$ \\begin{cases} a_x \\equiv \\frac{dv_x}{dt}, \\\\ a_y \\equiv \\frac{dv_y}{dt}, \\\\ a_z \\equiv \\frac{dv_z}{dt}, \\end{cases} $$",
                     "sono le componenti del vettore $\\mathbf{a}$. Utilizzando la definizione di velocità (2.12) è possibile esprimere l’accelerazione attraverso il vettore posizione:",
+                    "![Accelerazione media e istantanea nel moto curvilineo|medium](/fisica-images/fig_024.avif)",
                     "$$ \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} = \\frac{d}{dt} \\left( \\frac{d\\mathbf{r}}{dt} \\right) = \\frac{d^2 \\mathbf{r}}{dt^2}, $$",
                     "per cui si ha:",
                     "$$ \\begin{cases} a_x \\equiv \\frac{d^2 x}{dt^2}, \\\\ a_y \\equiv \\frac{d^2 y}{dt^2}, \\\\ a_z \\equiv \\frac{d^2 z}{dt^2}. \\end{cases} $$",
@@ -394,6 +412,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{v}_0 = \\hat{x} v_{0x} + \\hat{y} v_{0y}, $$",
                     "$$ \\mathbf{r}_0 = \\mathbf{0}, $$",
                     "dove:",
+                    "![Componenti della velocità iniziale del proiettile|small](/fisica-images/fig_025.avif)",
                     "$$ \\begin{cases} v_{0x} \\equiv v_0 \\cos \\alpha, \\\\ v_{0y} \\equiv v_0 \\sin \\alpha. \\end{cases} \\hspace{4cm} \\tag{2.19} $$",
                     "Dalle relazioni (2.18), la velocità $\\mathbf{v}$ del proiettile risulterà espressa dalla legge:",
                     "$$ \\mathbf{v} = \\mathbf{v}_0 + \\mathbf{g} t = \\mathbf{v}_0 - \\hat{y} g t, $$",
@@ -419,6 +438,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ t_R = 2 t_M = \\frac{2 v_{0y}}{g} = \\frac{2 v_0 \\sin \\alpha}{g}. $$",
                     "Infine la gittata $x_R$, ovvero la distanza coperta in direzione orizzontale è data dal valore assunto dalla coordinata $x$ al tempo $t_R$; così dalle relazioni (2.20) segue:",
                     "$$ x_R = v_{0x} t_R = v_{0x} \\frac{2 v_{0y}}{g} = \\frac{2 v_0^2 (\\sin \\alpha)(\\cos \\alpha)}{g} = \\frac{v_0^2 \\sin(2\\alpha)}{g}, $$",
+                    "![Traiettoria parabolica nel lancio obliquo|medium](/fisica-images/fig_026.avif)",
                     "da cui si evince che la gittata è massima quando l’angolo $\\alpha$ vale $45^\\circ$.",
                     "**Esempio:** Nelle stesse condizioni dell’esempio precedente consideriamo la caduta di un corpo da un’altezza $h$ al quale viene fornita una velocità orizzontale $\\mathbf{v}_0$. L’accelerazione cui è soggetto il corpo (nel sistema di riferimento di figura) è:",
                     "$$ \\mathbf{a}_0 = -\\hat{y}g, $$",
@@ -434,6 +454,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "cioè:",
                     "$$ \\begin{cases} x = v_0 t, \\\\ y = h - \\frac{1}{2} g t^2, \\\\ z = 0. \\end{cases} $$",
                     "Anche in questo caso il moto è piano. Sostituendo $t = x/v_0$ nella seconda delle relazioni precedenti, si trova l’equazione della traiettoria:",
+                    "![Lancio orizzontale da un'altezza h|medium](/fisica-images/fig_027.avif)",
                     "$$ y = h - \\frac{g}{2 v_0^2} x^2, $$",
                     "quindi il moto è di tipo parabolico. Ponendo $y = 0$ nella legge oraria per la coordinata $y$ si trova il tempo $t_c$ che impiega il corpo a raggiungere il suolo:",
                     "$$ 0 = h - \\frac{1}{2} g t_c^2, $$",
@@ -441,12 +462,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ t_c = \\sqrt{\\frac{2h}{g}}, $$",
                     "ossia il corpo raggiunge il suolo allo stesso tempo di un corpo lasciato cadere dalla stessa altezza con velocità iniziale nulla. La massima coordinata $x$ raggiunta è:",
                     "$$ x_R = v_0 t_R = v_0 \\sqrt{\\frac{2h}{g}}. $$"
+                    ,
                 ]
             },
             {
-                title: "2.4 Componenti dell’accelerazione",
+                title: "2.5 Componenti dell’accelerazione",
                 content: [
                     "Consideriamo il moto di un punto materiale lungo una traiettoria curva che, per semplicità, assumiamo piana. Il vettore accelerazione ha la stessa direzione della variazione istantanea della velocità così, poiché la velocità cambia nella direzione in cui la traiettoria si incurva, l’accelerazione è sempre diretta verso la concavità della curva. Scomponiamo quindi il vettore accelerazione lungo la direzione tangente alla traiettoria, indicata dal versore $\\hat{t}$ e la direzione normale alla traiettoria, indicata dal versore $\\hat{n}$:",
+                    "![Scomposizione dell’accelerazione in tangenziale e normale|medium](/fisica-images/fig_028.avif)",
                     "$$ \\mathbf{a} = \\hat{t} a_t + \\hat{n} a_n; \\hspace{4cm} \\tag{2.21} $$",
                     "chiameremo la componente $a_t$ **accelerazione tangenziale** e $a_n$ **accelerazione normale o centripeta**. Per ricavare delle espressioni per tali quantità, ricordando che il vettore velocità $\\mathbf{v}$ è diretto lungo la tangente alla curva, scriviamo:",
                     "$$ \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} = \\frac{d}{dt} (\\hat{t} v) = \\hat{t} \\frac{dv}{dt} + \\frac{d\\hat{t}}{dt} v. \\hspace{4cm} \\tag{2.22} $$",
@@ -457,8 +480,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "d’altra parte, siccome il versore $\\hat{n}$ forma con l’asse $x$ l’angolo $\\vartheta + \\pi/2$, risulta",
                     "$$ \\hat{n} = \\hat{x} \\cos \\left( \\vartheta + \\frac{\\pi}{2} \\right) + \\hat{y} \\sin \\left( \\vartheta + \\frac{\\pi}{2} \\right) = -\\hat{x} \\sin \\vartheta + \\hat{y} \\cos \\vartheta, $$",
                     "così:",
+                    "![Definizione dei versori intrinseci|small](/fisica-images/fig_029.avif)",
                     "$$ \\frac{d\\hat{t}}{dt} = \\hat{n} \\frac{d\\vartheta}{dt}. \\hspace{4cm} \\tag{2.23} $$",
                     "Inoltre, se $\\rho$ rappresenta il raggio di curvatura (Nota 2) della traiettoria nel punto considerato, risulta:",
+                    "![Geometria del raggio di curvatura|small](/fisica-images/fig_030.avif)",
                     "$$ ds = \\rho d\\vartheta, $$",
                     "**Nota 2:** Il raggio di curvatura in un dato punto di una curva è il raggio del cerchio (cerchio osculatore) che meglio approssima la curva nel punto assegnato.",
                     "così:",
@@ -471,6 +496,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "**Esempio:** (moto circolare) Si dice **circolare** il moto la cui traiettoria è una circonferenza. Siccome il vettore velocità cambia sempre di direzione, dalla relazione (2.24) segue che l’accelerazione centripeta risulterà sempre diversa da zero; l’accelerazione tangenziale invece sarà nulla nel caso di **moto circolare uniforme**, quando il modulo della velocità si mantiene costante nel tempo. La descrizione del moto circolare può essere effettuata attraverso l’impiego delle coordinate cartesiane oppure tramite l’ascissa curvilinea o, ancora, con le coordinate polari; tutte queste descrizioni sono legate tra loro essendo:",
                     "$$ \\begin{cases} x = R \\cos \\vartheta, \\\\ y = R \\sin \\vartheta, \\end{cases} $$",
                     "ovvero",
+                    "![Descrizione del moto circolare|small](/fisica-images/fig_031.avif)",
                     "$$ s = R \\vartheta, $$",
                     "dove $x$ e $y$ rappresentano le coordinate cartesiane del punto, $R$ il raggio della circonferenza, $\\vartheta$ l’angolo polare e $s$ l’ascissa curvilinea. Dalla relazione (2.14) il modulo della velocità in questo moto vale:",
                     "$$ v = \\frac{ds}{dt} = R \\frac{d\\vartheta}{dt} = R \\omega, \\hspace{4cm} \\tag{2.26} $$",
@@ -479,6 +505,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "è detta **velocità angolare** o **pulsazione** e, dimensionalmente si esprime come:",
                     "$$ [\\omega] = \\frac{rad}{s}. $$",
                     "È possibile dare un’interpretazione vettoriale della velocità angolare disponendo un sistema di riferimento cartesiano tridimensionale in modo che la traiettoria giaccia nel piano $xy$ ed il suo centro sia situato nell’origine $O$ del sistema di riferimento. Poniamo:",
+                    "![Vettore velocità angolare|medium](/fisica-images/fig_032.avif)",
                     "$$ \\mathbf{\\omega} = \\hat{z}\\omega, $$",
                     "e consideriamo il vettore:",
                     "$$ \\mathbf{u} \\equiv \\mathbf{\\omega} \\times \\mathbf{r}, $$",
@@ -492,6 +519,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} = \\frac{d}{dt} (\\mathbf{\\omega} \\times \\mathbf{r}) = \\frac{d\\mathbf{\\omega}}{dt} \\times \\mathbf{r} + \\mathbf{\\omega} \\times \\frac{d\\mathbf{r}}{dt} = \\mathbf{\\alpha} \\times \\mathbf{r} + \\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}), \\hspace{4cm} \\tag{2.29} $$",
                     "dove si è posto:",
                     "$$ \\mathbf{\\alpha} \\equiv \\frac{d\\mathbf{\\omega}}{dt}, \\hspace{4cm} \\tag{2.30} $$",
+                    "![Componenti dell'accelerazione nel moto circolare|medium](/fisica-images/fig_033.avif)",
                     "che è denominata **accelerazione angolare**. Siccome la variazione $d\\mathbf{\\omega}$ del vettore $\\mathbf{\\omega}$ è sempre diretta nella direzione del vettore $\\mathbf{\\omega}$ stesso, il vettore $\\mathbf{\\alpha} \\times \\mathbf{r}$ è disposto tangenzialmente alla traiettoria ed il verso dipende dal segno della derivata $d\\omega/dt$; il vettore $\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})$ è diretto normalmente alla traiettoria. Questi vettori costituiscono quindi le componenti tangenziali e normali alla traiettoria del vettore accelerazione:",
                     "$$ \\begin{cases} a_t = |\\mathbf{\\alpha} \\times \\mathbf{r}|, \\\\ a_n = |\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})|; \\end{cases} $$",
                     "in particolare, il loro modulo vale, rispettivamente:",
@@ -500,6 +528,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ a_n = |\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})| = \\omega |\\mathbf{\\omega} \\times \\mathbf{r}| = \\omega^2 r \\sin \\gamma = R \\omega^2. $$",
                     "Ciò in accordo con le relazioni (2.25), essendo l’accelerazione tangenziale $dv/dt = d(R\\omega)/dt = R d\\omega/dt = R\\alpha$ e l’accelerazione normale $v^2/R = (R\\omega)^2/R = R\\omega^2$; pertanto risulta:",
                     "$$ \\mathbf{a} = \\hat{t} a_t + \\hat{n} a_n = \\hat{t} R\\alpha + \\hat{n} R\\omega^2 \\hspace{4cm} \\tag{2.31} $$",
+                    "![Accelerazione centripeta nel moto circolare uniforme|small](/fisica-images/fig_034.avif)",
                     "Come già anticipato, nel moto circolare uniforme, siccome $dv/dt = 0$, è nulla la componente tangenziale dell’accelerazione; poiché tale componente vale anche $R\\alpha = R d\\omega/dt$, la velocità angolare si mantiene costante nel tempo. Indicando con $\\omega_0$ il modulo della velocità angolare, dalla relazione (2.27) segue $d\\vartheta = \\omega_0 dt$ che, integrata, fornisce la legge di variazione temporale dell’angolo polare $\\vartheta$:",
                     "$$ \\vartheta = \\vartheta_0 + \\omega_0 (t - t_0), $$",
                     "in cui $\\vartheta_0$ è l’angolo corrispondente all’istante $t_0$. In corrispondenza di un giro completo del punto materiale lungo la traiettoria circolare si ha $\\vartheta - \\vartheta_0 = 2\\pi$, così, indicando con $T \\equiv t - t_0$ il tempo necessario a percorrere tale giro, risulta:",
@@ -515,6 +544,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "in cui $\\omega_0$ è la velocità angolare al tempo $t_0$. Infine, dalla (2.27) segue:",
                     "$$ \\vartheta = \\vartheta_0 + \\int_{t_0}^t \\omega d\\zeta = \\vartheta_0 + \\int_{t_0}^t [\\omega_0 + \\alpha_0 (\\zeta - t_0)] d\\zeta = \\vartheta_0 + \\omega_0 (t - t_0) + \\frac{1}{2} \\alpha_0 (t - t_0)^2, $$",
                     "che fornisce la legge di variazione temporale dell’angolo polare $\\vartheta$.",
+                    "![Versori in coordinate polari|small](/fisica-images/fig_035.avif)",
                     "**Esempio:** (cinematica del moto piano in coordinate polari) Siano $\\hat{r}$ e $\\hat{\\vartheta}$ rispettivamente il versore associato alla direzione del vettore posizione di un punto $P$ ed il versore ortogonale a tale direzione orientato come mostrato in figura. Con riferimento alla figura, questi versori possono esprimersi relativamente ad un sistema di riferimento cartesiano ortogonale come:",
                     "$$ \\hat{r} = \\hat{x} \\cos \\vartheta + \\hat{y} \\sin \\vartheta, $$",
                     "$$ \\hat{\\vartheta} = \\hat{x} \\cos \\left( \\vartheta + \\frac{\\pi}{2} \\right) + \\hat{y} \\sin \\left( \\vartheta + \\frac{\\pi}{2} \\right) = -\\hat{x} \\sin \\vartheta + \\hat{y} \\cos \\vartheta; $$",
@@ -534,7 +564,7 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "3-moti-relativi",
-        title: "3 MOTI RELATIVI",
+        title: "Lezione 3: MOTI RELATIVI",
         subsections: [
             {
                 title: "3.1 Velocità relativa e accelerazione relativa",
@@ -545,6 +575,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "Se consideriamo un sistema di riferimento solidale con la particella $P_1$, il vettore posizione di $P_2$ sarà:",
                     "$$ \\mathbf{r}_{21} \\equiv \\mathbf{r}_2 - \\mathbf{r}_1, \\hspace{4cm} \\tag{3.2} $$",
                     "per cui, dalle relazioni (3.1), la derivata rispetto al tempo di tale vettore rappresenterà la velocità di $P_2$ relativamente ad un osservatore solidale a $P_1$:",
+                    "![Moto relativo tra due punti|medium](/fisica-images/fig_036.avif)",
                     "$$ \\mathbf{v}_{21} = \\frac{d\\mathbf{r}_{21}}{dt} = \\frac{d}{dt}(\\mathbf{r}_2 - \\mathbf{r}_1) = \\frac{d\\mathbf{r}_2}{dt} - \\frac{d\\mathbf{r}_1}{dt} = \\mathbf{v}_2 - \\mathbf{v}_1. \\hspace{4cm} \\tag{3.3} $$",
                     "Analogamente è possibile riferire il moto di $P_1$ ad un sistema di riferimento solidale con la particella $P_2$, in tal caso il vettore posizione di $P_1$, sarà:",
                     "$$ \\mathbf{r}_{12} \\equiv \\mathbf{r}_1 - \\mathbf{r}_2, \\hspace{4cm} \\tag{3.4} $$",
@@ -560,6 +591,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{a}_{12} = \\frac{d^2 \\mathbf{r}_{12}}{dt^2} = \\frac{d^2}{dt^2}(\\mathbf{r}_1 - \\mathbf{r}_2) = \\frac{d^2 \\mathbf{r}_1}{dt^2} - \\frac{d^2 \\mathbf{r}_2}{dt^2} = \\mathbf{a}_1 - \\mathbf{a}_2, \\hspace{4cm} \\tag{3.7} $$",
                     "così, confrontando la (3.6) e la (3.7), si ha:",
                     "$$ \\mathbf{a}_{12} = -\\mathbf{a}_{21}. $$"
+                    ,
                 ]
             },
             {
@@ -574,6 +606,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "sostituendo la (3.8) nella (3.9) si ottiene:",
                     "$$ \\mathbf{r}' = \\mathbf{r} - \\mathbf{V}t \\hspace{4cm} \\tag{3.10} $$",
                     "a tale espressione corrispondono le relazioni scalari:",
+                    "![Moto relativo traslatorio|medium](/fisica-images/fig_037.avif)",
                     "$$ \\begin{cases} x' = x - Vt, \\\\ y' = y, \\\\ z' = z, \\\\ t' = t. \\end{cases} \\hspace{4cm} \\tag{3.11} $$",
                     "Si osservi che è stata aggiunta la relazione $t' = t$ per esplicitare l’ipotesi che i tempi misurati dai due osservatori siano i medesimi. In altri termini si ipotizza che le misure di tempo siano indipendenti dal moto dell’osservatore. Tale supposizione deve, naturalmente, essere eventualmente suffragata dagli esperimenti. Le relazioni (3.11) che legano le osservazioni tra due sistemi di riferimento in moto traslatorio uniforme, sono dette **trasformazioni di Galilei**.",
                     "Derivando ambo i membri della relazione (3.10), si ha:",
@@ -589,12 +622,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "che corrisponde alle relazioni scalari:",
                     "$$ \\begin{cases} a_x' = a_x, \\\\ a_y' = a_y, \\\\ a_z' = a_z. \\end{cases} $$",
                     "Cioè osservatori in moto relativo traslatorio uniforme misurano la stessa accelerazione di uno stesso punto materiale, e quindi l’accelerazione è indipendente dal moto rettilineo uniforme dell’osservatore. Concludiamo che l’accelerazione è una grandezza invariante per il passaggio da un sistema di riferimento a qualsiasi altro in moto rettilineo uniforme rispetto ad esso."
+                    ,
                 ]
             },
             {
                 title: "3.3 Moto relativo generale",
                 content: [
                     "Consideriamo due osservatori $O$ e $O'$ in moto l’uno rispetto all’altro e stabiliamo, nel caso generale, le relative descrizioni del moto di un punto materiale $P$. Supponiamo che il punto $O'$ si muova con velocità $\\mathbf{V}$ e che, inoltre, l’insieme dei tre assi del sistema di riferimento con origine $O'$ ruoti rigidamente con velocità angolare $\\mathbf{\\omega}$ rispetto al sistema con origine $O$. Esprimendo la relazione (3.9) tra le posizioni del punto materiale $P$ misurate rispetto ai due sistemi di riferimento, attraverso i versori dei corrispondenti sistemi, si ha:",
+                    "![Moto relativo generale con rotazione|medium](/fisica-images/fig_038.avif)",
                     "$$ x'\\hat{x}' + y'\\hat{y}' + z'\\hat{z}' = (x-X)\\hat{x} + (y-Y)\\hat{y} + (z-Z)\\hat{z}; \\hspace{4cm} \\tag{3.13} $$",
                     "A differenza del caso precedente in cui i due sistemi si muovono di moto rettilineo uniforme uno rispetto all’altro, le coordinate di $O'$ rispetto a $O$ non valgono $V_x t, V_y t$ e $V_z t$, inoltre i versori $\\hat{x}', \\hat{y}'$ e $\\hat{z}'$, in generale, variano in direzione e verso e, di conseguenza, la loro derivata non è nulla, pertanto, derivando ambo i membri della (3.13), si ha:",
                     "$$ \\frac{dx'}{dt}\\hat{x}' + \\frac{dy'}{dt}\\hat{y}' + \\frac{dz'}{dt}\\hat{z}' + x'\\frac{d\\hat{x}'}{dt} + y'\\frac{d\\hat{y}'}{dt} + z'\\frac{d\\hat{z}'}{dt} = $$",
@@ -610,6 +645,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove $\\mathbf{v}'$ è la velocità di $P$ rispetto al sistema di riferimento con origine in $O'$, $\\mathbf{v}$ è la velocità di $P$ rispetto al sistema con origine in $O$ e:",
                     "$$ \\mathbf{v}_t \\equiv \\mathbf{V} + \\mathbf{\\omega} \\times \\mathbf{r}', $$",
                     "detta **velocità di trascinamento**, è la velocità con cui si muove rispetto al sistema con origine $O$ il punto solidale col sistema di origine $O'$ che, nell’istante considerato è situato nella posizione occupata da $P$. Tale interpretazione della velocità di trascinamento deriva dalla sua espressione, infatti alla velocità $\\mathbf{V}$ di $O'$ rispetto a $O$ è sommata la velocità $\\mathbf{\\omega} \\times \\overrightarrow{O'P}$ con cui si muove l’estremo libero del vettore ruotante $\\overrightarrow{O'P}$; inoltre, se $P$ è solidale col sistema di origine in $O'$, cioè $\\mathbf{v}' = \\mathbf{0}$, allora la velocità di $P$ rispetto al sistema di origine in $O$ è pari a $\\mathbf{V} + \\mathbf{\\omega} \\times \\mathbf{r}'$.",
+                    "![Velocità di trascinamento rotatorio|small](/fisica-images/fig_039.avif)",
                     "Due particolari espressioni della (3.16) si hanno se $\\mathbf{\\omega} = \\mathbf{0}$ o se $\\mathbf{V} = \\mathbf{0}$. Nel primo caso si ha il semplice moto traslatorio di un sistema rispetto all’altro e la relazione (3.16) si riduce alla (3.12). Nel secondo caso il sistema con origine in $O'$ ruota rispetto al sistema con origine in $O$ mentre il punto $O'$ si mantiene a riposo rispetto a $O$, per cui la (3.16) si esprime come $\\mathbf{v}' = \\mathbf{v} - \\mathbf{\\omega} \\times \\mathbf{r}'$ e la velocità di trascinamento vale $\\mathbf{\\omega} \\times \\mathbf{r}'$; questo caso è detto **moto di trascinamento rotatorio**.",
                     "Per valutare la relazione tra le accelerazioni del punto materiale $P$ misurate rispetto ai due diversi sistemi di riferimento deriviamo ambo i membri della relazione (3.15):",
                     "$$ \\frac{dv_x'}{dt}\\hat{x}' + \\frac{dv_y'}{dt}\\hat{y}' + \\frac{dv_z'}{dt}\\hat{z}' + v_x'\\frac{d\\hat{x}'}{dt} + v_y'\\frac{d\\hat{y}'}{dt} + v_z'\\frac{d\\hat{z}'}{dt} + \\frac{d\\mathbf{\\omega}}{dt} \\times (x'\\hat{x}' + y'\\hat{y}' + z'\\hat{z}') + $$",
@@ -632,12 +668,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{a}' = \\mathbf{g}_0 - \\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}) - 2\\mathbf{\\omega} \\times \\mathbf{v}', $$",
                     "in quanto le origini dei due sistemi, $O$ e $O'$, coincidono e $\\mathbf{r}' \\equiv \\mathbf{r}$ e inoltre il moto rotatorio è uniforme. Supponiamo che il moto del punto rispetto alla superficie terrestre avvenga molto lentamente o affatto, in modo da poter trascurare l’accelerazione di Coriolis. In questo caso, l’accelerazione misurata nel sistema solidale alla Terra è detta **accelerazione efficace di gravità** $\\mathbf{g}$, così:",
                     "$$ \\mathbf{g} = \\mathbf{g}_0 - \\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}). $$",
+                    "![Gravità apparente e accelerazione centrifuga|medium](/fisica-images/fig_040.avif)",
                     "Il termine $-\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})$ è detto **accelerazione centrifuga**, essendo diretta verso l’esterno. Supponendo che $\\mathbf{g}_0$ sia diretta verticalmente, per effetto dell’accelerazione centrifuga la direzione di $\\mathbf{g}$ devia lievemente dalla direzione radiale. L’accelerazione centrifuga è massima all’equatore e diminuisce spostandosi verso i poli, essendo il suo modulo pari a:",
                     "$$ |\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})| = \\omega^2 R \\sin \\alpha = \\omega^2 R \\cos \\beta, $$",
                     "dove $R$ è il raggio terrestre pari a $6.37 \\times 10^6 m$ circa, $\\alpha$ è l’angolo compreso tra $\\mathbf{r}$ e $\\mathbf{\\omega}$ e $\\beta \\equiv 90^\\circ - \\alpha$ è la latitudine; in particolare, all’equatore $\\beta = 0^\\circ$ e:",
                     "$$ |\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})| = \\omega^2 R \\approx 3.30 \\times 10^{-2} m/s^2. $$",
                     "Pertanto l’accelerazione efficace di gravità aumenta spostandosi dall’equatore verso i poli.",
                     "**Esempio:** (Deviazione di un corpo in caduta libera dovuta all’accelerazione di Coriolis, all’equatore) All’equatore il vettore velocità $\\mathbf{v}'$ di un corpo che cade forma un angolo di $90^\\circ$ con la direzione di $\\mathbf{\\omega}$, per cui dalla (3.18) il modulo dell’accelerazione di Coriolis vale:",
+                    "![Deviazione di Coriolis per un corpo in caduta all'equatore|medium](/fisica-images/fig_041.avif)",
                     "$$ a_c = |-2\\mathbf{\\omega} \\times \\mathbf{v}'| = 2\\omega v'. $$",
                     "Considerando un sistema di riferimento in cui l’asse $x$ è orientato come il vettore $\\mathbf{a}_c$ ($\\hat{x} = \\mathbf{a}_c / a_c$), l’accelerazione del corpo in caduta lungo questo asse vale:",
                     "$$ a_x = 2\\omega v', $$",
@@ -652,41 +690,42 @@ export const fisicaCourseContent: MainSection[] = [
                     "eliminando il tempo tra queste due ultime espressioni si trova:",
                     "$$ x = \\frac{1}{3} \\omega \\sqrt{\\frac{8h^3}{g}} \\approx \\frac{1.53 \\times 10^{-2}}{\\sqrt{m}} h^{3/2}. $$",
                     "Così, ad esempio, per un corpo che cade da un’altezza di $100 m$ si ha una deviazione $x$ rispetto alla verticale di $1.53 cm$."
+                    ,
                 ]
             }
         ]
     },
     {
         id: "4-dinamica-punto-materiale",
-        title: "4 DINAMICA DEL PUNTO MATERIALE",
+        title: "Lezione 4: DINAMICA DEL PUNTO MATERIALE",
         subsections: [
             {
-                title: "Introduzione",
+                title: "4.1 Introduzione",
                 content: [
                     "A differenza della cinematica in cui i moti sono descritti solo geometricamente attraverso l’uso dei vettori posizione, velocità ed accelerazione, nella dinamica vengono analizzate le cause che danno origine al moto. In generale, il moto di un corpo è determinato dalla sua interazione con l’ambiente circostante; in una prima fase di questo studio saranno considerati i soli punti materiali, in modo da poter prescindere dalla forma del corpo nello studio dell’interazione. Inoltre si studierà la dinamica di corpi in moto con velocità trascurabili rispetto a quella della luce nel vuoto, circa $3 \\times 10^8 m/s$, e di dimensioni superiori di quelle delle particelle componenti i sistemi atomici. Tale ambito di studio è detto meccanica classica.",
                     "Lo studio dinamico del moto dei corpi richiede la specificazione sia delle caratteristiche del punto materiale, quali massa, carica, momento di dipolo elettrico ecc., che la definizione dell’ambiente nel quale sono situati i corpi. A partire da tali informazioni, nota la velocità iniziale di un corpo, la dinamica deve prevederne il successivo moto. Si riterranno validi i procedimenti seguiti a tale fine solo se produrranno dei risultati in accordo con l’esperienza."
                 ]
             },
             {
-                title: "4.1 Prima legge di Newton",
+                title: "4.2 Prima legge di Newton",
                 content: [
                     "Una efficace descrizione del moto si ebbe a partire dal diciassettesimo secolo, prima con Galileo e quindi con Newton. Originariamente si riteneva che i moti avessero luogo per l’azione di influenze esterne, o forze, mentre lo stato naturale dei corpi era l’assenza di moto; pertanto, affinché si avesse il moto di un corpo, ad esempio rettilineo uniforme, su di esso doveva essere esercitata continuamente un’azione e, al cessare di questa, il moto sarebbe terminato. Tale convinzione era avvalorata dall’esperienza quotidiana che vede, ad esempio, la necessità di una spinta continua di un corpo su una superficie orizzontale scabra per mantenere il moto rettilineo uniforme. Il valore degli studi di Galileo e Newton sta nella capacità di separare dagli aspetti caratteristici e determinanti dei processi analizzati gli elementi estranei e perturbatori presenti nell’esperienza. Nella pratica si osserva che al ridursi degli agenti perturbatori, ad esempio attraverso operazioni di levigatura, lubrificazione ecc., la diminuzione della velocità di un corpo lasciato a sé stesso sulla superficie orizzontale procede sempre più lentamente. Di conseguenza, è possibile estrapolare tale caratteristica affermando che qualora si potessero eliminare tutte le perturbazioni, il corpo continuerebbe a muoversi di moto rettilineo uniforme.",
                     "Pertanto è necessario un agente esterno per modificare la velocità di un corpo ma non occorre alcun agente per mantenerne la velocità. Così il moto sul piano ha origine da una spinta e la superficie scabra esercita su di esso un’azione per rallentarlo. In entrambi i casi delle azioni determinano un cambiamento di velocità del corpo ovvero un’accelerazione. Questo principio prende il nome di prima legge di Newton e viene così enunciato:",
                     "\"Ogni corpo non sottoposto ad azioni esterne (punto materiale libero) persiste nel suo stato di quiete o di moto rettilineo uniforme\".",
-                    "![Concezione pregalileiana del moto](/IMAGES/pre_galilean_motion.avif)",
                     "Alternativamente, la prima legge può esprimersi affermando che, in assenza di azioni, l’accelerazione di un corpo è nulla, cioè la sua velocità non cambia. Quindi, siccome l’accelerazione del corpo è determinata dall’interazione con l’ambiente circostante, un corpo isolato si troverà o in quiete o in moto con velocità costante. La proprietà secondo cui i corpi restino in quiete o mantengano il loro moto rettilineo uniforme in assenza di interazioni con l’ambiente circostante è detta **inerzia**. Per tale motivo la prima legge di Newton è anche denominata **principio di inerzia**.",
                     "Per stabilire la prima legge di Newton, a causa della relatività del concetto di moto, è necessario specificare il sistema di riferimento rispetto al quale il moto è riferito. Si assume, pertanto, che il moto del corpo sia relativo ad un osservatore non soggetto ad interazioni con l’ambiente circostante. Tale osservatore è detto **inerziale** ed il corrispondente sistema di riferimento è detto **sistema di riferimento inerziale**. Ovviamente un sistema di riferimento solidale ad un altro osservatore in moto rettilineo uniforme relativamente ad un sistema di riferimento inerziale è, esso stesso, un sistema di riferimento inerziale. Pertanto esistono molteplici sistemi di riferimento inerziali gli uni in moto rettilineo uniforme rispetto agli altri. Un sistema di riferimento inerziale nel senso testé descritto è un’astrazione, non potendo isolare completamente un corpo. Tuttavia, in molti casi, le interazioni di un corpo con l’ambiente circostante possono essere considerate trascurabili per i processi che si intende studiare per cui, senza commettere gravi errori, il sistema di riferimento solidale col corpo può essere ritenuto un sistema di riferimento inerziale."
+                    ,
                 ]
             },
             {
-                title: "4.2 Forza",
+                title: "4.3 Forza",
                 content: [
                     "Le cause che determinano una variazione della velocità di un punto materiale in un certo sistema di riferimento sono dette **forze**. Per caratterizzare completamente tale concetto occorre stabilire operativamente il criterio di uguaglianza, le regole di somma ed, infine, l’unità di misura. A tale scopo occorre riferirsi alle risultanze sperimentali. Dall’osservazione che un punto materiale, a riposo su un piano privo di elementi che ne possono alterare il moto, si muove lungo la direzione nella quale viene spinto, segue che la forza ha carattere vettoriale. Il criterio per stabilire l’uguaglianza di due forze può essere stabilito a partire dall’accelerazione che esse determinano; cioè diremo che due forze applicate successivamente ad uno stesso corpo sono uguali se ne determinano la stessa accelerazione, dove, per accelerazione, si intende il vettore accelerazione.",
                     "È possibile verificare tali caratteristiche delle forze adoperando, ad esempio, una molla. Si osserva infatti che se si comprime o si allunga entro certi limiti una molla a partire dalla posizione di riposo, agli estremi viene esercitata una forza che è sempre la stessa a parità di compressione o di allungamento. Per stabilire le regole di somma si può collegare la molla ad un punto materiale e, mantenendo fisso il punto, estendere la molla di una certa entità quindi, lasciando andare il punto materiale, se ne può osservare l’accelerazione in un intervallo di tempo in cui si fa in modo che l’allungamento sia mantenuto costante. Osservando il moto in tale istante si trova che due forze di uguale intensità, agenti lungo la stessa direzione e con lo stesso verso, determinano sul corpo un’accelerazione doppia rispetto a quella prodotta da una singola forza. Se invece le due forze agiscono lungo direzioni diverse, si determina un’accelerazione pari alla somma vettoriale delle accelerazioni che si hanno quando le due forze agiscono separatamente sul corpo."
                 ]
             },
             {
-                title: "4.3 Seconda legge di Newton",
+                title: "4.4 Seconda legge di Newton",
                 content: [
                     "Dalle considerazioni precedenti segue che tra la forza e l’accelerazione sussiste una relazione di proporzionalità vettoriale, cioè indicando con $\\mathbf{F}$ il vettore forza e con $\\mathbf{a}$ l’accelerazione che esso determina su un dato corpo, si ha:",
                     "$$ \\mathbf{F} \\propto \\mathbf{a}. $$",
@@ -714,14 +753,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "**Esempio:** Descriviamo il moto di un corpo lanciato con velocità iniziale $\\mathbf{v}_0$ su un piano scabro. L’espressione della (4.1) è:",
                     "$$ m a = -f_k, $$",
                     "dove $\\mathbf{f}_k$ indica la forza d’attrito. Da tale relazione segue:",
+                    "![Forza di attrito dinamico che decelera un corpo|small](/fisica-images/fig_042.avif)",
                     "$$ a = -\\frac{f_k}{m}. $$",
-                    "![Diagramma delle forze attrito](/IMAGES/friction_diagram.avif)",
                     "Il moto è di tipo uniformemente decelerato, così dalle relazioni (2.10) si ottiene:",
+                    "![Grafico velocità-tempo nel moto decelerato dall'attrito|small](/fisica-images/fig_043.avif)",
                     "$$ v = v_0 - \\frac{f_k}{m} t $$",
                     "da cui segue che al tempo $(mv_0)/f_k$ il corpo si arresta. La legge oraria del moto si ricava dalle (2.10) assumendo che all’istante iniziale il corpo sia nell’origine del sistema di riferimento ($x=0$):",
                     "$$ x = v_0 t - \\frac{f_k}{2m} t^2, $$",
                     "così il moto cessa dopo che il corpo ha percorso una distanza pari a $mv_0^2 / (2f_k)$.",
                     "**Esempio:** Stabiliamo la velocità raggiunta a distanza $d$ dal punto di partenza da un corpo di massa $m$ posto su una superficie orizzontale priva di attrito, quando è soggetto ad una forza costante $F$ partendo da fermo ($v_0 = 0$). Risulta:",
+                    "![Moto di un corpo soggetto a forza costante|small](/fisica-images/fig_044.avif)",
                     "$$ m \\frac{dv}{dt} = F; $$",
                     "integrando questa equazioni con la condizione iniziale $v_0 = 0$, si ha:",
                     "$$ v = \\frac{F}{m} t, $$",
@@ -731,28 +772,29 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ t_d = \\sqrt{\\frac{2md}{F}}, $$",
                     "in cui la velocità vale:",
                     "$$ v_d = \\frac{F}{m} t_d = \\frac{F}{m} \\sqrt{\\frac{2md}{F}} = \\sqrt{\\frac{2Fd}{m}} $$",
-                    "![Corpo soggetto a forza costante](/IMAGES/force_constant_example.avif)",
                     "**Esempio:** Su un supporto in moto su un piano orizzontale senza attrito con velocità $\\mathbf{v}_0$ è posto un corpo di massa $m$. Il sistema così costituito, raggiungendo una superficie scabra, subisce una decelerazione per cui il modulo della sua velocità passa da $v_0$ a $v_1 < v_0$ in un tempo $T$. Stabiliamo la forza che agisce sul corpo di massa $m$. L’accelerazione cui è soggetto il sistema è:",
                     "$$ a = \\frac{v_1 - v_0}{T} $$",
                     "dove $a < 0$ essendo $v_1 < v_0$, così la forza agente sul corpo è diretta nel verso contrario a quello del moto e vale:",
+                    "![Forze di attrito tra corpi sovrapposti in moto relativo|medium](/fisica-images/fig_045.avif)",
                     "$$ F = ma = m \\frac{v_1 - v_0}{T}. $$",
                     "Tale forza è diretta nel verso contrario di $\\mathbf{v}_0$. Qualora la forza di attrito tra il corpo di massa $m$ e il suo supporto è inferiore a tale valore, la massa $m$ slitterà sul supporto in quanto, come osservato rispetto ad un sistema di riferimento solidale al piano, la massa decelera meno rapidamente del supporto."
+                    ,
                 ]
             },
             {
-                title: "4.4 Terza legge di Newton",
+                title: "4.5 Terza legge di Newton",
                 content: [
                     "Nell’introdurre la dinamica si è affermato che il moto di un corpo si origina dalla sua interazione con l’ambiente circostante. Successivamente tale interazione è stata descritta attraverso l’introduzione del concetto di forza. Pertanto concludiamo che i corpi interagiscono con l’ambiente in cui si situano attraverso forze. In particolare, esaminando le forze agenti su un corpo si osserva che ciascuna è originata dall’azione di un altro corpo facente parte dell’ambiente circostante. D’altra parte il corpo dell’ambiente, avendo come parte del suo ambiente il primo corpo, interagisce con esso. Sperimentalmente si osserva che, quando un corpo esercita una forza su di un altro, questo a sua volta esercita una forza sul primo. Tale coppia di forze è caratterizzata da essere uguale in modulo e direzione, ma opposta in verso. Si può quindi affermare che:",
                     "\"Quando due corpi esercitano delle forze l’uno verso l’altro, queste hanno lo stesso modulo, la stessa direzione e verso opposto\".",
                     "Questa affermazione è nota come **terza legge di Newton**. Tradizionalmente, nell’interazione tra due corpi una delle forze viene arbitrariamente denominata **azione** e l’altra **reazione**, così la legge di Newton viene comunemente espressa attraverso l’enunciato: \"Ad ogni azione corrisponde una reazione uguale e contraria\".",
+                    "![Coppia di forze azione e reazione|medium](/fisica-images/fig_046.avif)",
                     "E’ possibile rappresentare matematicamente tale legge considerando l’interazione tra due corpi; supponiamo che il corpo 1 eserciti una forza $\\mathbf{F}_{12}$ sul corpo 2, allora sperimentalmente si verifica che il corpo 2 eserciterà sul corpo 1 una forza $\\mathbf{F}_{21}$ tale che:",
                     "$$ \\mathbf{F}_{12} = -\\mathbf{F}_{21}; $$",
                     "come è specificato dal diverso ordine degli indici di questa espressione, le due forze agiscono su corpi differenti. Se così non fosse, ovvero le due forze agissero sul medesimo corpo, la risultante delle forze agenti su di esso sarebbe nulla, per cui non potrebbe aversi alcuna accelerazione.",
-                    "![Azione e reazione](/IMAGES/action_reaction.avif)"
                 ]
             },
             {
-                title: "4.5 Classificazione delle forze",
+                title: "4.6 Classificazione delle forze",
                 content: [
                     "Tutte le forze responsabili dei fenomeni naturali sono riconducibili a quattro tipi di interazioni fondamentali: l’interazione gravitazionale, l’interazione elettromagnetica, l’interazione debole e l’interazione forte. L’interazione gravitazionale, la prima ad essere scoperta e studiata, si esplica tra i corpi dotati di massa; l’interazione elettromagnetica caratterizza i corpi che posseggono una carica elettrica; l’interazione debole è responsabile di alcuni tipi di decadimenti di particelle e l’interazione forte garantisce la stabilità dei nuclei atomici. Di recente si è compreso che due di queste interazioni, quella elettromagnetica e quella debole sono, su scala microscopica, due diversi aspetti della stessa interazione che prende il nome, pertanto, di **interazione elettrodebole**.",
                     "La pratica quotidiana suggerisce che l’azione di una forza su di un corpo richieda il contatto tra il corpo e l’agente che determina l’azione. Ad esempio la spinta di un corpo su un piano ne determina il moto. D’altra parte, sempre nella pratica quotidiana, osserviamo la manifestazione di forze che non richiedono alcun contatto, come la forza di interazione tra i pianeti e il Sole o la forza che si esplica tra cariche elettriche. Il problema dell’interazione a distanza fu risolto nel diciannovesimo secolo da Michel Faraday attraverso l’introduzione del concetto di **campo**. Un corpo, in virtù di una qualche sua proprietà, come la massa o la carica elettrica, genera nello spazio attorno a sé un campo attraverso il quale gli altri corpi interagiscono con il corpo che lo ha generato; il campo, quindi, media l’interazione fra i corpi. Apparentemente tale entità non ha alcun ruolo nella dinamica delle forze di contatto; tuttavia un esame microscopico dell’azione di tale forze, evidenzia che anche esse sono riconducibili ad una delle quattro forme di interazione testé descritte. Inoltre anche tali forze, sulla scala microscopica, si manifestano attraverso un’interazione a distanza e, pertanto, mediata da un campo. La mediazione di un campo nell’interazione tra due corpi sembra solo un altro modo per descrivere una stessa cosa tuttavia, in molteplici circostanze, i campi presentano una realtà quasi indipendente dagli oggetti che li generano. Ciò segue dal fatto che, sebbene spesso non sia cosa manifesta, l’interazione fra due corpi non è istantanea, per cui il campo rappresenta l’entità che si propaga da un corpo all’altro affinché si verifichi l’interazione.",
@@ -760,16 +802,18 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.6 Forza peso",
+                title: "4.7 Forza peso",
                 content: [
                     "Supponiamo di poter considerare la Terra un sistema di riferimento inerziale. Sperimentalmente si osserva che in prossimità della Terra un corpo, indipendentemente dalla sua massa, quando è lasciato libero, acquista un’accelerazione il cui modulo vale, in media, circa $9.8 m/s^2$. Questa accelerazione è conseguenza dell’interazione tra la Terra e il corpo e la forza corrispondente è detta **peso**. Dalla (4.1), se $\\mathbf{g}$ indica l’accelerazione del corpo, nota come **accelerazione di gravità**, e $\\mathbf{P}$ il peso, allora:",
+                    "![Forza peso|small](/fisica-images/fig_047.avif)",
                     "$$ \\mathbf{P} = m\\mathbf{g}, $$",
                     "dove $m$ è la massa inerziale del corpo. Naturalmente, in presenza di altre forze l’accelerazione che acquista il corpo è diversa da $\\mathbf{g}$, ciò si verifica in particolare quando il corpo cade nell’aria in quanto, agendo su di esso l’attrito dell’aria, l’accelerazione risulta minore di $g$. Il valore indicato per il modulo di $\\mathbf{g}$ di $9.8 m/s^2$ va inteso quale valore medio, in quanto tale accelerazione dipende, in generale, dal luogo in cui si effettua la misura. Ciò implica che il peso non è una caratteristica intrinseca dei corpi come lo è, ad esempio, la massa; infatti il peso di un corpo determinato su un altro pianeta sarebbe differente da quello misurato sulla Terra. Per effetto della rotazione attorno al suo asse, la Terra, in effetti, non costituisce un sistema di riferimento inerziale e qualsiasi sistema di riferimento sulla Terra possiede una accelerazione centrifuga rispetto ad un sistema di riferimento inerziale. Ciò determina una variazione del modulo di $\\mathbf{g}$ dell’ordine dello $0.3\\%$ tra i poli e l’equatore; tuttavia, vista l’esiguità dell’effetto, questo può essere, in prima approssimazione, trascurato. Fissato il valore di $g$, la relazione precedente mostra che, considerando i moduli, massa e peso sono proporzionali e, in particolare, a $1 kg$ corrisponde un peso di $9.8 N$. Tale relazione giustifica la pratica comune secondo cui i corpi vengono “pesati” in $kg$. Tuttavia nei calcoli è opportuno distinguere queste due grandezze e non fare uso della massa in $kg$ laddove andrebbe adoperato il peso in $N$.",
-                    "![Forza peso](/IMAGES/weight_force.avif)",
+                    "![Coppia di forze di contatto azione-reazione|small](/fisica-images/fig_061.avif)",
+                    "![Interazione gravitazionale Terra-Satellite|medium](/fisica-images/fig_049.avif)",
                     "**Esempio:** Consideriamo un corpo in prossimità della superficie della Terra, ad esempio un satellite; su di esso agisce la forza di gravità $\\mathbf{F}_{12}$, allora, dalla terza legge di Newton, sulla Terra agisce quale reazione, la forza di attrazione del satellite sulla Terra $\\mathbf{F}_{21}$. Per effetto di questa forza la Terra è accelerata verso il satellite tuttavia, a causa della sua elevata massa, tale accelerazione non può essere facilmente misurata.",
-                    "![Forze gravitazionali Terra-Satellite](/IMAGES/gravity_forces.avif)",
+                    "![Reazione vincolare su un piano orizzontale|small](/fisica-images/fig_048.avif)",
                     "**Esempio:** Consideriamo un corpo a riposo su un piano orizzontale posto sulla Terra. Su di esso agisce la forza $\\mathbf{P}$ tuttavia, siccome il corpo non è accelerato, evidentemente su di esso agisce un’altra forza uguale in modulo e direzione ma opposta in verso. Tale forza è esercitata dal piano di appoggio e prende il nome di **reazione vincolare** $\\mathbf{N}$. Le forze $\\mathbf{P}$ ed $\\mathbf{N}$ non costituiscono una coppia di azione e reazione in quanto agiscono sullo stesso corpo. Come già visto, la reazione a $\\mathbf{P}$ è applicata alla Terra, la reazione a $\\mathbf{N}$ è rappresentata dalla forza con la quale il corpo agisce sul piano.",
-                    "![Corpo su piano con forze](/IMAGES/body_on_plane_forces.avif)",
+                    "![Diagramma delle forze e tensione della fune|large](/fisica-images/fig_050.avif)",
                     "**Esempio:** Consideriamo un corpo sospeso ad un soffitto tramite una corda di massa trascurabile. Sul corpo agiscono la forza peso $\\mathbf{P}$ e la tensione della corda $\\mathbf{T}$; siccome il corpo è in quiete, cioè la sua accelerazione è nulla, deve risultare:",
                     "$$ \\mathbf{T} = -\\mathbf{P}. $$",
                     "Malgrado tale relazione, la tensione della corda non costituisce la reazione a $\\mathbf{P}$ essendo esercitata sullo stesso corpo. La reazione a $\\mathbf{T}$ è la forza $\\mathbf{F}$ che il corpo esercita sulla corda. Contemporaneamente la corda esercita sul soffitto una forza $\\mathbf{F}_S$ e il soffitto, viceversa, esercita sulla corda una forza $\\mathbf{R}$. Le coppie di azione e reazione sono pertanto:",
@@ -780,7 +824,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "per cui, confrontando le relazioni precedenti, si ottiene:",
                     "$$ \\mathbf{P} = -\\mathbf{T} = \\mathbf{F} = -\\mathbf{R} = \\mathbf{F}_S, $$",
                     "cioè la corda, se di massa trascurabile rispetto a quella del corpo, trasmette senza modifiche il peso del corpo al vincolo costituito dal soffitto.",
-                    "![Sistema corpo appeso con forze](/IMAGES/suspended_body_forces.avif)",
+                    "![Forze trasmesse da una fune tra un carrello e un corpo|large](/fisica-images/fig_051.avif)",
                     "**Esempio:** Consideriamo un corpo tirato da un carrello su un piano orizzontale tramite una corda priva di massa. Supponiamo, per semplicità, che sia trascurabile l’attrito tra il corpo e il piano ma non tra il carrello e il piano. Per muoversi il carrello deve spingere sul piano esercitando una forza $\\mathbf{f}_{cp}$; quale reazione il piano esercita una forza $\\mathbf{f}_{pc}$ sul carrello, così:",
                     "$$ \\mathbf{f}_{cp} = -\\mathbf{f}_{pc}. $$",
                     "Il carrello tira la corda con la forza $\\mathbf{f}_{cs}$, per cui la corda esercita sul carrello la tensione $\\mathbf{f}_{sc}$ con:",
@@ -799,11 +843,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ m_c a_c = f_{cs} - f_{sm} = f_{cs} - ma. $$",
                     "D’altra parte, siccome la corda e il corpo si mantengono legati, le reciproche accelerazioni sono uguali, cioè $a_c = a$, così",
                     "$$ (m + m_c) a = f_{cs} $$",
-                    "![Carrello che tira un corpo](/IMAGES/cart_pulling_body.avif)",
+                    "![Interazione tra blocchi spinti su un piano|large](/fisica-images/fig_052.avif)",
                     "**Esempio:** Consideriamo la spinta di due corpi su un piano e supponiamo che ciascun corpo sia posto su un carrello in maniera da potersi muovere senza attrito sul piano. Colui che spinge i due corpi esercita sul piano una forza $\\mathbf{f}_{LP}$, per cui il piano reagisce sull’operatore con la forza $\\mathbf{f}_{PL}$ tale che:",
                     "$$ \\mathbf{f}_{LP} = -\\mathbf{f}_{PL}. $$",
                     "L’operatore spinge sul primo corpo con forza $\\mathbf{f}_{L1}$ e il corpo reagisce con la forza $\\mathbf{f}_{1L}$, dove:",
                     "$$ \\mathbf{f}_{1L} = -\\mathbf{f}_{L1}. $$",
+                    "Prima della formulazione della legge di inerzia (o primo principio della dinamica), la concezione aristotelica prevedeva che per mantenere un corpo in moto fosse necessaria l'applicazione costante di una forza. Secondo questa visione pre-galileiana, cessata l'azione della forza (ad esempio, smettendo di spingere un carretto), il moto si sarebbe arrestato.",
+                    "![Concezione pregalileiana del moto (Aristotelica)|medium](/fisica-images/fig_254.avif)",
+
                     "Infine il primo corpo esercita la forza $\\mathbf{f}_{12}$ sul secondo corpo e quest’ultimo esercita sul primo la forza $\\mathbf{f}_{21}$ con",
                     "$$ \\mathbf{f}_{21} = -\\mathbf{f}_{12}. $$",
                     "Assumendo quale direzione positiva quella del moto, per i due corpi risulta:",
@@ -812,7 +859,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "d’altra parte $f_{12} = f_{21}$ e $a_1 = a_2$, così",
                     "$$ (m_1 + m_2) a = f_{L1}, $$",
                     "cioè il sistema si comporta come un unico blocco di massa $m_1 + m_2$; le forze interne $\\mathbf{f}_{12}$ ed $\\mathbf{f}_{21}$ non influenzano il moto del sistema annullandosi complessivamente. Il moto si esplica grazie alla reazione del piano $\\mathbf{f}_{PL}$ determinata dall’attrito che, qualora venisse meno, impedirebbe l’azione della forza $\\mathbf{f}_{L1}$.",
-                    "![Due corpi spinti](/IMAGES/two_bodies_pushed.avif)",
+                    "![Macchina di Atwood|medium](/fisica-images/fig_053.avif)",
                     "**Esempio:** Consideriamo il sistema di figura in cui due corpi di masse $m_1$ ed $m_2$ sono collegati fra loro attraverso una corda priva di massa tramite una carrucola libera di ruotare attorno al suo asse. Supponiamo che il moto avvenga nel senso indicato dalla freccia, per cui $m_1$ si muove verso il basso e $m_2$ verso l’alto. Applicando la seconda legge di Newton alle due masse si trova:",
                     "$$ m_1 a = m_1 g - T_1, $$",
                     "$$ m_2 a = T_2 - m_2 g, \\hspace{4cm} \\tag{4.2} $$",
@@ -825,13 +872,15 @@ export const fisicaCourseContent: MainSection[] = [
                     "Nota l’accelerazione dei due corpi, attraverso le (4.2) si può ricavare la tensione del filo:",
                     "$$ T = \\frac{2m_1 m_2}{m_1 + m_2} g. $$",
                     "Si noti che, se $m_1 > m_2$, l’accelerazione è positiva e la carrucola ruota nel verso indicato dalla freccia.",
-                    "![Macchina di Atwood](/IMAGES/atwood_machine.avif)",
+                    "![Sistema con piano inclinato e massa appesa|medium](/fisica-images/fig_054.avif)",
                     "**Esempio:** Consideriamo il sistema di figura in cui il corpo di massa $m_1$ può muoversi senza attrito sul piano inclinato e stabiliamone il moto; in figura sono mostrati i diagrammi delle forze. Proiettando sugli assi, per il corpo di massa $m_1$ si ha:",
+                    "![Diagramma di corpo libero su piano inclinato|small](/fisica-images/fig_055.avif)",
                     "$$ x: \\quad m_1 a = T - m_1 g \\sin \\vartheta, \\hspace{4cm} \\tag{4.3} $$",
                     "$$ y: \\quad 0 = N - m_1 g \\cos \\vartheta, \\hspace{4cm} \\tag{4.4} $$",
                     "e per il corpo di massa $m_2$",
                     "$$ x': \\quad 0 = 0, \\hspace{4cm} \\tag{4.5} $$",
                     "$$ y': \\quad m_2 a = m_2 g - T; \\hspace{4cm} \\tag{4.6} $$",
+                    "![Diagramma di corpo libero per la massa appesa|small](/fisica-images/fig_056.avif)",
                     "non essendo specificata, su può supporre trascurabile la massa della corda, per cui la tensione da essa esercitata su entrambi i corpi è uguale; inoltre, essendo i corpi collegati, anche le loro accelerazioni sono uguali. In particolare, dalla (4.6) segue:",
                     "$$ T = m_2 g - m_2 a, \\hspace{4cm} \\tag{4.7} $$",
                     "e sommando membro a membro la (4.3), e la (4.6) si ottiene:",
@@ -842,41 +891,45 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ T = g \\frac{m_1 m_2}{m_1 + m_2} (1 + \\sin \\vartheta). $$",
                     "Infine l’equazione (4.4) fornisce l’intensità della reazione vincolare:",
                     "$$ N = m_1 g \\cos \\vartheta. $$",
-                    "![Piano inclinato con carrucola](/IMAGES/inclined_plane_pulley.avif)"
                 ]
             },
             {
-                title: "4.7 Misura delle forze",
+                title: "4.8 Misura delle forze",
                 content: [
                     "Siccome è complicato misurare le accelerazioni, la misura della forza attraverso la misura dell’accelerazione prodotta su corpi di massa nota non è un metodo operativamente praticabile. Solitamente si preferisce correlare la misura delle forze alle variazioni di forma o di dimensioni di un corpo sul quale sono applicate. In particolare tale approccio, detto **metodo statico**, per distinguerlo dall’altro che è denominato **metodo dinamico**, fa uso della caratteristica derivata dalla seconda legge di Newton secondo la quale se un corpo soggetto a delle forze si trova a riposo, la risultante delle forze agenti su di esso è nulla. Se, ad esempio, in un sistema di riferimento inerziale sul corpo in quiete agiscono due forze, necessariamente esse devono avere uguali intensità e direzione ma verso opposto così, scegliendo come unità di misura una di esse, tutte le altre forze possono essere misurate per confronto.",
+                    "![Forza elastica di richiamo in una molla|small](/fisica-images/fig_057.avif)",
                     "Una molla estesa esercita una forza di richiamo che, entro un certo limite di allungamento, detto **limite di elasticità**, è proporzionale all’allungamento stesso. Se la molla è sospesa verticalmente ad un supporto rigido ed all’altro estremo è collegato un corpo di massa $m$, in condizioni di equilibrio la forza $\\mathbf{F}$ esercitata dalla molla eguaglierà il peso $\\mathbf{P}$ del corpo. Supponiamo che l’elongazione per un corpo di una certa massa sia $x_c$ allora, se $F_c$ indica l’intensità della forza che provoca tale allungamento, in corrispondenza della applicazione di una generica forza $\\mathbf{F}$ si determinerà un allungamento $x$ tale che:",
                     "$$ \\frac{F}{F_c} = \\frac{x}{x_c}; $$",
                     "così, se $F_c$ è una forza campione, è possibile misurare l’intensità di $\\mathbf{F}$ attraverso una misura dell’allungamento $x$ che essa produce sulla molla:",
                     "$$ F = x \\frac{F_c}{x_c} $$",
+                    "![Attrito statico contro forza applicata|small](/fisica-images/fig_063.avif)",
                     "e, in particolare con tale sistema la scala che misura l’elongazione della molla può essere tarata direttamente in unità di forza. Lo strumento che opera secondo questo principio prende il nome di **dinamometro**.",
-                    "![Dinamometro a molla](/IMAGES/dynamometer.avif)"
+                    "![Equilibrio su piano inclinato|small](/fisica-images/fig_064.avif)",
+                    "**Esempio:** (Equilibrio su un piano inclinato) Un corpo di massa $m$ è posto su un piano inclinato scabro che forma un angolo $\\vartheta$ con l’orizzontale. Le forze agenti sul corpo sono la forza peso e la reazione vincolare $\\mathbf{R}$ del piano. La condizione di equilibrio si traduce nella relazione vettoriale:",
                 ]
             },
             {
-                title: "4.8 Forza d’attrito",
+                title: "4.9 Forza d’attrito",
                 content: [
                     "La forza d’attrito è stata definita operativamente come l’agente che determina l’arresto di un corpo in moto su un piano orizzontale scabro. In generale tale forza si esercita ogni qual volta si ha un contatto tra corpi ed è caratterizzata dall’avere sempre direzione opposta al loro moto relativo. Pertanto le forze di attrito tendono sempre a contrastare il moto relativo tra i corpi. Tuttavia è possibile constatare che le forze di attrito si esplicano tra i corpi anche in assenza di moto relativo.",
                     "Consideriamo un corpo di massa $m$ in quiete su una superficie orizzontale scabra. Su di esso agisce la forza peso $m\\mathbf{g}$ e, siccome è in quiete, una reazione vincolare $\\mathbf{N}$ tale che:",
+                    "![Equilibrio statico su piano orizzontale|small](/fisica-images/fig_058.avif)",
                     "$$ \\mathbf{N} + m\\mathbf{g} = \\mathbf{0}. $$",
                     "Supponiamo di applicare a tale corpo una forza $\\mathbf{F}$ parallela al piano. Sperimentalmente si osserva che, per intensità di $\\mathbf{F}$ sufficientemente piccole, il corpo rimane in quiete. In tale circostanza si può affermare che la forza $\\mathbf{F}$ è contrastata da una forza di attrito $\\mathbf{f}_s$ esercitata dal piano parallelamente ad $\\mathbf{F}$, ovvero:",
+                    "![Diagramma delle forze con attrito statico|medium](/fisica-images/fig_059.avif)",
                     "$$ \\mathbf{N} + m\\mathbf{g} + \\mathbf{F} + \\mathbf{f}_s = \\mathbf{0}. $$",
                     "In generale, le forze di attrito agenti tra corpi fermi sono dette **forze di attrito statico**, così $\\mathbf{f}_s$ è una **forza di attrito statico**. Dalla precedente espressione concludiamo che in presenza di una sollecitazione $\\mathbf{F}$ tale da non determinare il moto del corpo, la reazione $\\mathbf{R}$ sviluppata dalla superficie cessa d’essere verticale e in particolare, posto:",
                     "$$ \\mathbf{R} \\equiv \\mathbf{N} + \\mathbf{f}_s, $$",
                     "risulta:",
                     "$$ \\mathbf{R} = -(m\\mathbf{g} + \\mathbf{F}), $$",
                     "e l’angolo $\\beta$ formato dalla reazione $\\mathbf{R}$ e la direzione normale vale:",
+                    "![Cono di attrito e angolo della reazione vincolare|medium](/fisica-images/fig_060.avif)",
                     "$$ \\beta = \\arctan \\left( \\frac{f_s}{N} \\right). $$",
                     "Affinché il corpo resti in quiete sul piano deve risultare:",
                     "$$ \\mathbf{N} = -m\\mathbf{g}, $$",
                     "$$ \\mathbf{F} = -\\mathbf{f}_s, $$",
                     "pertanto l’angolo $\\beta$ vale:",
                     "$$ \\beta = \\arctan \\left( \\frac{F}{mg} \\right). $$",
-                    "![Forze su corpo in quiete su piano scabro](/IMAGES/static_friction_forces.avif)",
                     "Supponiamo di aumentare progressivamente l’intensità della forza $\\mathbf{F}$; sperimentalmente si osserva che il corpo permane nello stato di quiete fintanto $F$ non eccede un valore massimo $F_{max}$ oltre il quale il corpo prende a muoversi. Cioè la superficie scabra può sviluppare una forza di attrito statico la cui massima intensità $f_{s\\ max}$ vale:",
                     "$$ f_{s\\ max} = F_{max}. $$",
                     "Se sul corpo viene esercitata una forza $\\mathbf{F}_N$ verso il basso, ovvero viene premuto contro il piano, si osserva che l’intensità della forza necessaria a mettere in moto il corpo, $F_{max}$, aumenta col crescere del modulo di $\\mathbf{F}_N$; d’altra parte, siccome la reazione normale esercitata dal piano $\\mathbf{N}$ è pari alla somma $m\\mathbf{g} + \\mathbf{F}_N$, concludiamo che $F_{max}$ è proporzionale al modulo di $\\mathbf{N}$ e quindi anche $f_{s\\ max}$ gode della stessa proporzionalità. Tale relazione viene indicata con:",
@@ -889,8 +942,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\beta_s \\equiv \\arctan \\mu_s, \\hspace{4cm} \\tag{4.9} $$",
                     "risulta:",
                     "$$ \\beta \\le \\beta_s, $$",
+                    "![Cono di attrito statico|medium](/fisica-images/fig_062.avif)",
                     "cioè la superficie scabra è in grado di sviluppare una reazione $\\mathbf{R}$ tale da essere contenuta in un cono, detto **cono di attrito statico**, che ha il vertice nel punto di contatto della superficie con il corpo (punto materiale) e angolo di semiapertura $\\beta_s$. Qualora il corpo considerato venga ruotato in modo da appoggiare sul piano una faccia di superficie differente, si osserva che il coefficiente di attrito $\\mu_s$ resta invariato. Concludiamo quindi che la massima forza di attrito statico che si esplica tra due superfici ha un’intensità proporzionale all’intensità della forza normale tra le due superfici e il coefficiente di proporzionalità $\\mu_s$ dipende dalla natura e dallo stato di levigatezza delle superfici ma, entro grandi limiti, risulta indipendente dall’area di contatto tra le due superfici. Queste leggi empiriche hanno validità approssimata e, in particolare, non valgono se l’area di contatto è molto piccola (ad esempio se il corpo è appoggiato su lame o su punte), oppure se la forza normale alla superficie d’appoggio, $\\mathbf{F}_N + m\\mathbf{g}$, è così intensa da deformare la superficie.",
-                    "![Cono di attrito statico](/IMAGES/friction_cone.avif)",
                     "Supponiamo di applicare al corpo una forza $\\mathbf{F}$ parallela al piano di appoggio, di intensità superiore a $\\mu_s mg$. In tale caso, poiché la forza di attrito statico può raggiungere al massimo l’intensità $\\mu_s N$, non riesce ad equilibrare la forza $\\mathbf{F}$ e il corpo prende a muoversi. La risultante delle forze agenti sul corpo è $\\mathbf{F} - \\mathbf{f}_{s\\ max}$, essendo il peso $m\\mathbf{g}$ equilibrato dalla componente $\\mathbf{N}$ della reazione del vincolo, così l’accelerazione $\\mathbf{a}^*$ cui è soggetto il corpo varrebbe:",
                     "$$ \\mathbf{a}^* = \\frac{1}{m} (\\mathbf{F} - \\mathbf{f}_{s\\ max}), $$",
                     "di modulo:",
@@ -898,6 +951,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "Tuttavia si osserva sperimentalmente che il moto del corpo è uniformemente accelerato, ma il modulo dell’accelerazione $\\mathbf{a}$ presenta un valore maggiore di $a^*$, ma minore di $F/m$:",
                     "$$ a^* < a < \\frac{F}{m}, \\hspace{4cm} \\tag{4.10} $$",
                     "ovvero la risultante delle forze agenti sul corpo in moto ha intensità costante, cioè è indipendente dalla velocità e minore di $F$. Concludiamo che il moto è contrastato da una forza $\\mathbf{f}_d$ di intensità inferiore a $f_{s\\ max}$ che denominiamo **forza di attrito dinamico**. Questa forza segue le stesse leggi dell’attrito statico, ossia è proporzionale all’intensità della forza normale $\\mathbf{N}$ e, entro grandi limiti, è approssimativamente indipendente dalle superfici poste a contatto e dalla velocità relativa dei corpi a contatto. Pertanto, esprimendo il modulo della forza di attrito dinamico come:",
+                    "![Attrito dinamico su piano inclinato|small](/fisica-images/fig_065.avif)",
                     "$$ f_d = \\mu_d N, \\hspace{4cm} \\tag{4.11} $$",
                     "dove $\\mu_d$ è denominato **coefficiente di attrito dinamico**, l’accelerazione assunta dal corpo vale:",
                     "$$ a = \\frac{1}{m} (F - f_d); $$",
@@ -916,7 +970,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mu_d = \\tan \\vartheta_d, $$",
                     "dove, siccome $\\mu_s > \\mu_d$, segue:",
                     "$$ \\vartheta_s > \\vartheta_d. $$",
-                    "![Blocco su piano inclinato con attrito](/IMAGES/inclined_plane_friction.avif)",
                     "Quando un corpo si muove in un fluido con velocità $\\mathbf{v}$ è soggetto ad una forza d’attrito che, in generale, si esprime come:",
                     "$$ \\mathbf{f}_v = -\\gamma v^\\alpha \\frac{\\mathbf{v}}{v}, $$",
                     "dove $\\gamma$ è una costante che dipende dalla forma del corpo e $\\alpha$ è un coefficiente numerico, con $\\alpha > 1$. Per piccole velocità è possibile assumere per l’intensità di tale forza l’espressione:",
@@ -932,7 +985,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "e la velocità limite è:",
                     "$$ v_L = g \\frac{m - m_f}{\\gamma} $$",
                     "che, nel caso in cui $m_f \\ll m$, diventa pari a $mg/\\gamma$.",
-                    "![Caduta libera in fluido viscoso](/IMAGES/viscous_fall.avif)",
                     "**Esempio:** Stabiliamo la legge di variazione della velocità per un corpo di massa pari a $60 kg$, in caduta libera per effetto della gravità in un fluido con coefficiente di viscosità pari a $2 \\times 10^{-3} kg/s$, supponendo che il corpo parta da fermo (assumiamo per semplicità che sia $m_f \\ll m$). Esprimendo l’accelerazione attraverso la velocità, l’equazione del moto si scrive:",
                     "$$ m \\frac{dv(t)}{dt} = mg - \\gamma v(t). \\hspace{4cm} \\tag{4.13} $$",
                     "Per risolvere numericamente tale equazione sostituiamo alla derivata $dv/dt$ l’accelerazione media calcolata tra l’istante $t$ e l’istante $t + \\Delta t$:",
@@ -951,6 +1003,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "| 75 | 28.5 |",
                     "| 90 | 29.0 |",
                     "| 105 | 29.2 |",
+                    "![Forze agenti su un corpo in moto in un fluido|small](/fisica-images/fig_066.avif)",
                     "| 120 | 29.3 |",
                     "| 135 | 29.4 |",
                     "| 150 | 29.4 |",
@@ -970,6 +1023,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "e, passando agli esponenziali:",
                     "$$ v(t) = \\frac{mg}{\\gamma} \\left( 1 - e^{-\\gamma t/m} \\right). $$",
                     "Da tale relazione ricaviamo $v_L$ come limite di $v(t)$ per $t \\to \\infty$:",
+                    "![Velocità limite in un fluido viscoso|medium](/fisica-images/fig_067.avif)",
                     "$$ v_L = \\lim_{t \\to \\infty} v(t) = \\frac{mg}{\\gamma} \\approx 29.4 cm/s. $$",
                     "Si definisce **tempo di rilassamento** $\\tau$, il tempo necessario affinché $v(t)$ differisca da $v_L$ di un fattore pari a $1/e$, dove $e = 2.71828...$, ovvero:",
                     "$$ v(\\tau) = v_L \\left( 1 - \\frac{1}{e} \\right), $$",
@@ -978,13 +1032,13 @@ export const fisicaCourseContent: MainSection[] = [
                     "Così la legge di variazione della velocità può esprimersi come:",
                     "$$ v(t) = v_L \\left( 1 - e^{-t/\\tau} \\right); $$",
                     "In figura è mostrato il grafico della velocità del corpo in funzione del tempo, ricavato sia attraverso il metodo approssimato che con la procedura analitica. Si noti che in corrispondenza del tempo di rilassamento la tangente alla curva $v = v(t)$, calcolata per $t = 0$, interseca l’asintoto $v = v_L$; pertanto il tempo di rilassamento fornisce un’indicazione del tempo che impiega la velocità a differire dal valore limite per meno di una quantità prefissata.",
-                    "![Grafico velocità tempo rilassamento](/IMAGES/velocity_time_relaxation.avif)"
                 ]
             },
             {
-                title: "4.9 Moti oscillatori",
+                title: "4.10 Moti oscillatori",
                 content: [
                     "Consideriamo un corpo collegato ad un estremo di una molla il cui altro estremo è connesso ad un supporto rigido. Come già visto, entro i limiti di elasticità la molla esercita sul corpo una forza di richiamo $\\mathbf{F}$ proporzionale all’allungamento (o compressione) $x$ della molla. Se indichiamo con $k$ il relativo coefficiente di proporzionalità, assumendo che la molla sia estesa lungo l’asse $x$ di un arbitrario sistema di riferimento, si ha:",
+                    "![Legge di Hooke e limite elastico|small](/fisica-images/fig_068.avif)",
                     "$$ \\mathbf{F} = -kx\\hat{x}. \\hspace{4cm} \\tag{4.14} $$",
                     "Tale espressione prende il nome di **legge di Hooke** e la sua validità è limitata unicamente a piccoli valori dell’elongazione rispetto all’intera lunghezza della molla. Un punto materiale soggetto a questo tipo forza prende il nome di **oscillatore armonico**. L’equazione del moto dell’oscillatore armonico per un corpo di massa $m$ è:",
                     "$$ m\\mathbf{a} = -kx\\hat{x}; $$",
@@ -1000,6 +1054,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ x(t) = X_0 \\sin(\\omega_0 t + \\phi) \\hspace{4cm} \\tag{4.16} $$",
                     "soddisfa la (4.15), dove $X_0$ e $\\phi$ sono costanti determinate dalle condizioni iniziali:",
                     "$$ x(0) \\equiv x_0, $$",
+                    "![Moto armonico semplice: posizione nel tempo|medium](/fisica-images/fig_069.avif)",
                     "$$ \\left. \\frac{dx(t)}{dt} \\right|_{t=0} \\equiv v_0. \\hspace{4cm} \\tag{4.17} $$",
                     "Per verificare la validità dell’ipotesi sostituiamo $x(t)$ dato dalla (4.16) nell’equazione (4.15); a tale scopo calcoliamone le derivate:",
                     "$$ \\frac{dx(t)}{dt} = \\omega_0 X_0 \\cos(\\omega_0 t + \\phi), $$",
@@ -1055,7 +1110,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "Nel caso in cui il discriminante dell’equazione caratteristica è nullo, cioè $1 - \\omega_0^2 \\tau^2 = 0$, si può provare che le due soluzioni dell’equazione differenziale (4.20) sono $e^{-|\\lambda|t}$ e $t e^{-|\\lambda|t}$, dove $\\lambda$ vale $-1/\\tau$, così la soluzione generale si scrive:",
                     "$$ x(t) = e^{-t/\\tau} (c_1 + c_2 t), $$",
                     "in cui le costanti $c_1$ e $c_2$ sono determinate a partire dalle condizioni iniziali. Anche in questa circostanza si ha un **moto smorzato** privo di oscillazioni.",
-                    "![Grafico moto smorzato](/IMAGES/damped_motion.avif)",
+                    "![Regimi di smorzamento: sovrasmorzato e critico|medium](/fisica-images/fig_070.avif)",
+
                     "Se il discriminante dell’equazione caratteristica è negativo, cioè $1 - \\omega_0^2 \\tau^2 < 0$, le due soluzioni di tale equazione si possono esprimere nella forma:",
                     "$$ \\lambda_{1,2} = -\\frac{1}{\\tau} \\pm \\frac{1}{\\tau} \\sqrt{1 - \\omega_0^2 \\tau^2} = -\\frac{1}{\\tau} \\pm \\frac{1}{\\tau} \\sqrt{-(1 - \\omega_0^2 \\tau^2)} = -\\frac{1}{\\tau} \\pm \\frac{j}{\\tau} \\sqrt{\\omega_0^2 \\tau^2 - 1} = -\\frac{1}{\\tau} \\pm j\\omega_0 \\sqrt{1 - \\frac{1}{\\omega_0^2 \\tau^2}} = $$",
                     "$$ = -\\frac{1}{\\tau} \\pm j\\omega, $$",
@@ -1076,8 +1132,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ x(t) = e^{-t/\\tau} (A_0 \\sin \\phi \\cos \\omega t + A_0 \\cos \\phi \\sin \\omega t) = A_0 e^{-t/\\tau} \\sin(\\omega t + \\phi), $$",
                     "ovvero:",
                     "$$ x(t) = A_0 e^{-t/\\tau} \\sin(\\omega t + \\phi). $$",
+                    "![Moto oscillatorio smorzato nel tempo|medium](/fisica-images/fig_071.avif)",
                     "In questo caso il corpo, spostato dalla sua posizione di equilibrio tende a tornarvi attraverso un **moto oscillatorio** con ampiezza decrescente. Si osservi che, nel limite $\\tau \\to \\infty$ dalla (4.21) si ottiene $\\omega = \\omega_0$, cioè la pulsazione coincide con quella dell’oscillatore armonico.",
-                    "![Oscillazione smorzata](/IMAGES/damped_oscillation.avif)",
                     "Consideriamo un corpo di massa $m$ soggetto oltre che alla forza elastica (4.14) ed alla forza di attrito viscoso (4.12) anche ad una forza che varia col tempo con legge sinusoidale, $\\mathbf{F}_0 \\sin \\omega t$; tale sistema prende il nome di **oscillatore forzato**. L’equazione del moto sarà:",
                     "$$ m\\mathbf{a} = -kx\\hat{x} - \\gamma\\mathbf{v} + \\mathbf{F}_0 \\sin \\omega t, $$",
                     "ovvero, indicando con $F_0$ la proiezione del vettore $\\mathbf{F}_0$ lungo la direzione $x$ ed esplicitando le quantità, si ottiene:",
@@ -1120,22 +1176,22 @@ export const fisicaCourseContent: MainSection[] = [
                     "che prende il nome di **pulsazione di risonanza**. Si noti che l’espressione precedente ha significato solo se $\\tau > \\sqrt{2}/\\omega_0$ altrimenti $A(\\omega)$ ha un andamento monotono decrescente. Inoltre, nel limite di piccolo smorzamento, per $\\tau \\to \\infty$, si ha:",
                     "$$ \\lim_{\\tau \\to \\infty} \\omega_R = \\omega_0, $$",
                     "cioè la pulsazione di risonanza coincide con quella di oscillazione libera. In figura è mostrato il grafico della funzione $A = A(\\omega)$ per vari valori del parametro $\\tau$. In corrispondenza della pulsazione di risonanza l’ampiezza (4.25) e la fase (4.26) della soluzione a regime della (4.23) diventano rispettivamente:",
+                    "![Curve di risonanza: ampiezza in funzione della frequenza|medium](/fisica-images/fig_072.avif)",
                     "$$ A(\\omega_R) = \\frac{F_0}{m} \\frac{1}{\\sqrt{(\\omega_0^2 - \\omega_R^2)^2 + \\frac{4\\omega_R^2}{\\tau^2}}} = \\frac{F_0}{m} \\frac{1}{\\sqrt{\\left( \\omega_0^2 - \\omega_0^2 + \\frac{2}{\\tau^2} \\right)^2 + \\frac{4}{\\tau^2} \\left( \\omega_0^2 - \\frac{2}{\\tau^2} \\right)}} = $$",
                     "$$ = \\frac{F_0}{m} \\frac{1}{\\sqrt{\\frac{4}{\\tau^4} + \\frac{4\\omega_0^2}{\\tau^2} - \\frac{8}{\\tau^4}}} = \\frac{F_0}{m} \\frac{1}{\\sqrt{\\frac{4\\omega_0^2}{\\tau^2} - \\frac{4}{\\tau^4}}} = \\frac{\\tau F_0}{2m} \\frac{1}{\\sqrt{\\omega_0^2 - \\frac{1}{\\tau^2}}}, $$",
                     "$$ \\tan \\phi(\\omega_R) = -\\frac{2\\omega_0 \\sqrt{1 - \\frac{2}{\\omega_0^2 \\tau^2}}}{\\tau \\left[ \\omega_0^2 - \\left( \\omega_0^2 - \\frac{2}{\\tau^2} \\right) \\right]} = -\\frac{2\\omega_0 \\sqrt{1 - \\frac{2}{\\omega_0^2 \\tau^2}}}{\\frac{2}{\\tau}} = -\\omega_0 \\tau \\sqrt{1 - \\frac{2}{\\omega_0^2 \\tau^2}} = -\\sqrt{\\omega_0^2 \\tau^2 - 2}. $$",
                     "In particolare, nel limite di piccolo smorzamento si ha:",
                     "$$ \\lim_{\\tau \\to \\infty} A(\\omega_R) = +\\infty, $$",
                     "cioè il picco della risonanza in tali condizioni si ha alla pulsazione $\\omega_0$ ed è infinito.",
-                    "![Risonanza ampiezza](/IMAGES/resonance_amplitude.avif)"
                 ]
             },
             {
-                title: "4.10 Sistemi non inerziali e forze fittizie",
+                title: "4.11 Sistemi non inerziali e forze fittizie",
                 content: [
                     "In un sistema di riferimento inerziale le forze agenti su un punto materiale possono sempre essere ricondotte ad altri sistemi fisici presenti nell’ambiente in cui si esplica il moto. Lo stesso non accade nei sistemi di riferimento non inerziali; ad esempio, se ci si muove su un treno, quando questo frena o accelera bruscamente o curva, trasformandosi quindi in un sistema di riferimento non inerziale, si avverte una spinta in avanti o indietro o di lato. Si avverte, cioè, una forza la cui origine non è attribuibile ad alcun agente esterno; essa è conseguenza della non inerzialità del sistema di riferimento. Le forze che presentano queste caratteristiche prendono il nome di **forze fittizie** o **apparenti**.",
                     "Consideriamo, ad esempio, un sistema di riferimento originariamente in moto rettilineo uniforme rispetto ad un sistema di riferimento inerziale. Sul sistema in moto, ad esempio un treno, un osservatore $B$ ha disposto su un tavolo orizzontale privo di attrito una palla da biliardo $P$; siccome il treno si muove di moto rettilineo uniforme con velocità $\\mathbf{v}$, la palla rimane a riposo sul piano. Dal punto di vista di un osservatore stazionario $A$ la palla, che non è vincolata nella direzione del moto, si muove di moto rettilineo uniforme con la stessa velocità $\\mathbf{v}$ del treno. Supponiamo ora che il treno subisca una brusca frenata. Dal punto di vista dell’osservatore $A$, siccome la palla non è vincolata nella direzione del moto, continuerà a muoversi nella direzione originaria con la stessa velocità $\\mathbf{v}$; quindi tra il treno che, decelerato, si arresta e la palla, si genera una velocità relativa conseguente al fatto che, mentre il treno decelera, la palla continua a muoversi di moto rettilineo uniforme. L’osservatore $B$ invece vede che, rispetto al treno cui è solidale, la palla subisce un’accelerazione poiché da ferma prende a muoversi. Siccome la variazione della velocità di un corpo viene originata dall’azione su di esso di una forza, l’osservatore $B$ attribuisce l’accelerazione della palla ad una forza, sebbene non sia identificabile nell’ambiente circostante di $B$ alcun agente che ne possa essere responsabile. Una forza con tale caratteristica è detta **forza fittizia** o **apparente** o **forza d’inerzia**. L’osservatore $B$ è certo che si tratti di una forza poiché, qualora ne voglia annullare l’effetto, mantenendo la palla a riposo nel suo sistema di riferimento, deve esercitare su di essa una forza. Dal punto di vista dell’osservatore $A$ questa forza serve a frenare la palla contemporaneamente al treno mentre per $B$ questa forza equilibra la forza di inerzia consentendo alla palla di restare a riposo nel sistema non inerziale, contrastando l’azione della forza di inerzia stessa.",
-                    "![Sistemi non inerziali treno](/IMAGES/non_inertial_train.avif)",
                     "Per formalizzare queste osservazioni consideriamo un sistema di riferimento inerziale che, convenzionalmente denominiamo “fisso” ed un sistema di riferimento non inerziale che denominiamo “mobile”. Supponiamo che il sistema mobile si muova rispetto a quello fisso di moto traslatorio con velocità non costante. Se un punto materiale $P$ di massa $m$ si muove nel sistema fisso sotto l’azione di una forza $\\mathbf{F}$, la sua accelerazione $\\mathbf{a}$ soddisferà, per un sistema fisso, la relazione (4.1). Siccome la velocità nel sistema mobile non è costante, l’accelerazione $\\mathbf{a}'$ di $P$ in tale sistema è diversa dall’accelerazione $\\mathbf{a}$ nel sistema fisso. In particolare risulta:",
+                    "![Sistemi di riferimento inerziali e non inerziali (vagone)|large](/fisica-images/fig_073.avif)",
                     "$$ \\mathbf{a} = \\mathbf{a}' + \\mathbf{A}, $$",
                     "dove $\\mathbf{A}$ è l’accelerazione del sistema mobile. Sostituendo questa relazione nella (4.1), si ha:",
                     "$$ \\mathbf{F} = m\\mathbf{a} = m(\\mathbf{a}' + \\mathbf{A}) = m\\mathbf{a}' + m\\mathbf{A}, $$",
@@ -1143,6 +1199,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{F} - m\\mathbf{A} = m\\mathbf{a}'. $$",
                     "Quindi eseguendo una misura della forza nel suo sistema di riferimento non inerziale l’osservatore mobile trova un risultato diverso dalla forza $\\mathbf{F}$ misurata nel sistema inerziale. La forza osservata è pari a $\\mathbf{F}$ diminuita della quantità $m\\mathbf{A}$ che rappresenta la forza di inerzia. Tale forza è pari al prodotto della massa del corpo per l’accelerazione del sistema mobile cambiata di segno. Notiamo infine che, qualora si voglia mantenere in quiete il punto $P$ nel sistema mobile, ovvero si voglia $\\mathbf{a}' = \\mathbf{0}$, deve essere $\\mathbf{F} - m\\mathbf{A} = \\mathbf{0}$; cioè al punto materiale deve essere applicata una forza reale $\\mathbf{F}$ pari a $m\\mathbf{A}$. Queste considerazioni possono essere facilmente generalizzate al caso in cui il sistema non inerziale si muova di moto qualunque. In tale circostanza, dalla relazione (3.17) l’accelerazione $\\mathbf{a}$ di $P$ nel sistema di riferimento inerziale può esprimersi come:",
                     "$$ \\mathbf{a} = \\mathbf{a}' + \\mathbf{a}_t + \\mathbf{a}_c = \\mathbf{a}' + [\\mathbf{A} + \\mathbf{\\alpha} \\times \\mathbf{r}' + \\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}')] + 2\\mathbf{\\omega} \\times \\mathbf{v}', $$",
+                    "![Sistema di riferimento rotante|medium](/fisica-images/fig_074.avif)",
                     "dove $\\mathbf{r}'$ e $\\mathbf{v}'$ sono, rispettivamente, il vettore posizione e la velocità di $P$ nel sistema di riferimento non inerziale e $\\mathbf{\\omega}$ e $\\mathbf{\\alpha}$ sono, rispettivamente, la velocità e l’accelerazione angolare con cui il sistema mobile ruota rispetto a quello fisso. Sostituendo questa relazione nell’espressione (4.1), si ha:",
                     "$$ \\mathbf{F} - m\\mathbf{a}_t - m\\mathbf{a}_c = m\\mathbf{a}'; \\hspace{4cm} \\tag{4.27} $$",
                     "in questo caso generale l’accelerazione di trascinamento $\\mathbf{a}_t$ determina un termine della forza d’inerzia che, a differenza del caso precedente, è diverso da punto a punto nel sistema mobile, in quanto dipende da $\\mathbf{r}'$; inoltre compare un ulteriore termine, detto **forza di Coriolis**, dipendente dalla velocità del punto materiale nel sistema mobile.",
@@ -1150,16 +1207,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{a}' = \\mathbf{0}, \\mathbf{v}' = \\mathbf{0}, $$",
                     "pertanto nell’espressione (4.27) è nulla la forza di Coriolis, che dipende da $\\mathbf{v}'$, ed è nullo il secondo membro che contiene l’accelerazione $\\mathbf{a}'$; inoltre, nell’espressione dell’accelerazione di trascinamento $\\mathbf{A} + \\mathbf{\\alpha} \\times \\mathbf{r}' + \\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}')$, siccome le origini dei due sistemi di riferimento $O$ e $O'$ coincidono durante il moto, l’accelerazione $\\mathbf{A}$ deve essere nulla e, poiché il moto avviene con velocità angolare costante, deve essere nulla anche l’accelerazione angolare $\\mathbf{\\alpha}$. Pertanto la condizione di equilibrio del punto materiale $P$ è:",
                     "$$ \\mathbf{f} - m\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}') = \\mathbf{0}. $$",
+                    "![Vettori forza centrifuga e centripeta|medium](/fisica-images/fig_075.avif)",
                     "La forza apparente $-m\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r}')$ è una forza centrifuga, essendo diretta come $\\mathbf{r}'$, di modulo $m\\omega^2 r$; pertanto, allo scopo di bilanciare nel sistema mobile tale forza apparente, sul punto materiale deve agire la forza $\\mathbf{f}$ diretta nel verso opposto a $\\mathbf{r}'$ e di intensità:",
                     "$$ f = m\\omega^2 r \\approx 236.9 N, $$",
                     "siccome $\\omega$, pari a $2\\pi$ volte la frequenza di rotazione della piattaforma, vale $12.6 rad/s$. Dal punto di vista di un osservatore inerziale, affinché il punto materiale $P$ si muovi lungo una traiettoria circolare di raggio $r$ attorno ad $O$ con velocità angolare $\\mathbf{\\omega}$, su di esso deve agire una forza centripeta, ovvero diretta verso l’asse di rotazione e di intensità pari a $m\\omega^2 r$. Il vettore velocità $\\mathbf{v}$ del punto materiale sarà sempre diretto tangenzialmente alla sua traiettoria ed avrà intensità:",
                     "$$ v = r\\omega \\approx 37.7 m/s. $$",
                     "Qualora l’agente che determina la forza centripeta sul punto materiale viene a cessare, il corpo si sposterà tangenzialmente alla traiettoria nella direzione del vettore $\\mathbf{v}$ nell’istante in cui la forza centripeta si annulla, ed avrà velocità pari a $r\\omega$.",
-                    "![Piattaforma rotante forze](/IMAGES/rotating_platform.avif)"
                 ]
             },
             {
-                title: "4.11 Quantità di moto e impulso",
+                title: "4.12 Quantità di moto e impulso",
                 content: [
                     "La seconda legge di Newton può essere espressa in una forma più generale attraverso l’introduzione di un’opportuna grandezza vettoriale denominata **quantità di moto**. Il vettore quantità di moto $\\mathbf{p}$ di una particella di massa $m$ che si muove con velocità $\\mathbf{v}$ è pari a:",
                     "$$ \\mathbf{p} \\equiv m\\mathbf{v}. \\hspace{4cm} \\tag{4.28} $$",
@@ -1180,6 +1237,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "\"In un sistema di riferimento inerziale, un punto materiale non sottoposto ad azioni, mantiene costante la sua quantità di moto\".",
                     "Consideriamo due particelle, rispettivamente di masse $m_1$ ed $m_2$, che possono interagire tra loro ma che risultano isolate dall’ambiente esterno, ovvero tali che la sola forza che agisce su ciascuna particella è quella esercitata dall’altra particella. Siano $\\mathbf{p}_1$ e $\\mathbf{p}_2$ le rispettive quantità di moto, allora dalla seconda legge di Newton espressa nella forma (4.29), segue:",
                     "$$ \\frac{d\\mathbf{p}_1}{dt} = \\mathbf{F}_{21}, $$",
+                    "![Forze interne in un sistema di due particelle|small](/fisica-images/fig_077.avif)",
                     "$$ \\frac{d\\mathbf{p}_2}{dt} = \\mathbf{F}_{12}, \\hspace{4cm} \\tag{4.31} $$",
                     "dove $\\mathbf{F}_{21}$ è la forza esercitata sulla particella di massa $m_1$ dalla particella di massa $m_2$ e $\\mathbf{F}_{12}$ è la forza esercitata su $m_2$ da $m_1$. Dalla terza legge di Newton segue: $\\mathbf{F}_{12} = -\\mathbf{F}_{21}$, cioè:",
                     "$$ \\mathbf{F}_{12} + \\mathbf{F}_{21} = \\mathbf{0}, $$",
@@ -1204,20 +1262,23 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathcal{I} = p(t) - p(t_0) = mv_f, $$",
                     "da cui segue:",
                     "$$ v_f = \\frac{\\mathcal{I}}{m} \\approx 19 m/s. $$"
+                    ,
                 ]
             },
             {
-                title: "4.12 Momento di una forza e momento angolare",
+                title: "4.13 Momento di una forza e momento angolare",
                 content: [
                     "Nell’analisi del moto di punti materiali lungo traiettorie curvilinee risulta opportuno adoperare la seconda legge di Newton in una formulazione alternativa comprendente la quantità di moto. Tale formulazione diventa, inoltre, particolarmente utile nello studio del moto di sistemi di punti materiali. Per stabilire tale formulazione occorre introdurre due nuovi vettori, il momento di una forza e il momento angolare.",
                     "Consideriamo una forza $\\mathbf{F}$ applicata ad un punto materiale $P$ ed un generico punto $O$; si definisce **momento della forza** $\\mathbf{F}$ rispetto ad $O$ il vettore:",
                     "$$ \\mathbf{\\tau} \\equiv \\mathbf{r} \\times \\mathbf{F}, \\hspace{4cm} \\tag{4.32} $$",
+                    "![Definizione di momento di una forza (vettore)|medium](/fisica-images/fig_078.avif)",
                     "dove $\\mathbf{r} \\equiv \\overrightarrow{OP}$. L’intensità di tale vettore è:",
                     "$$ \\tau = rF \\sin \\vartheta, $$",
                     "così, posto:",
                     "$$ b \\equiv r \\sin \\vartheta, $$",
                     "risulta:",
                     "$$ \\tau = Fb $$",
+                    "![Braccio di una forza rispetto a un polo|small](/fisica-images/fig_079.avif)",
                     "dove $b$, detto **braccio** (della forza $\\mathbf{F}$ rispetto ad $O$) rappresenta la distanza tra la direzione di $\\mathbf{F}$ e il punto $O$ che, in questo contesto viene solitamente definito **polo**. Qualora sul punto $P$ agiscano più forze, cioè se",
                     "$$ \\mathbf{F} = \\sum_{i=1}^n \\mathbf{F}_i, $$",
                     "il momento di $\\mathbf{F}$ vale",
@@ -1225,15 +1286,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "cioè $\\mathbf{\\tau}$ è la somma dei momenti di ciascuna forza.",
                     "Le dimensioni del momento sono il prodotto di una lunghezza per le dimensioni della forza e l’unità di misura è:",
                     "$$ [\\tau] = N \\cdot m. $$",
-                    "![Momento di una forza](/IMAGES/torque.avif)",
                     "Consideriamo un punto materiale $P$ di massa $m$ e velocità $\\mathbf{v}$ ed un generico punto $O$; si definisce **momento angolare** $\\mathbf{L}$ o **momento della quantità di moto** rispetto ad $O$ il vettore:",
                     "$$ \\mathbf{L} = \\mathbf{r} \\times \\mathbf{p} = \\mathbf{r} \\times (m\\mathbf{v}). \\hspace{4cm} \\tag{4.33} $$",
+                    "![Definizione di momento angolare|medium](/fisica-images/fig_080.avif)",
                     "dove $\\mathbf{r} \\equiv \\overrightarrow{OP}$. La dimensione del momento angolare è:",
                     "$$ [L] = \\frac{kg \\cdot m^2}{s} = \\frac{kg \\cdot m^2}{s^2} \\cdot s = (N \\cdot m) \\cdot s = J \\cdot s, $$",
                     "avendo definito il **joule** ($J$) come il prodotto $N \\cdot m$. Consideriamo un punto materiale $P$ di massa $m$ in moto lungo una traiettoria curvilinea piana. Sia $\\mathbf{r}$ il vettore posizione di $P$ rispetto ad un’origine $O$. Decomponiamo il vettore $\\mathbf{v}$ nella direzione di $\\mathbf{r}$ e nella direzione perpendicolare ad $\\mathbf{r}$:",
                     "$$ \\mathbf{v} = \\mathbf{v}_r + \\mathbf{v}_t; $$",
                     "il modulo del momento angolare di $P$ rispetto a $O$ vale:",
                     "$$ L = |\\mathbf{L}| = |\\mathbf{r} \\times \\mathbf{p}| = |\\mathbf{r} \\times (m\\mathbf{v})| = |\\mathbf{r} \\times (m\\mathbf{v}_r + m\\mathbf{v}_t)| = mrv_t, $$",
+                    "![Componenti del momento angolare|medium](/fisica-images/fig_081.avif)",
                     "essendo $\\mathbf{r}$ e $\\mathbf{v}_r$ paralleli. In particolare se il moto è circolare, $\\mathbf{v}_r = \\mathbf{0}$ e dalla (2.28), si ha (Nota 2):",
                     "$$ \\mathbf{L} = \\mathbf{r} \\times (m\\mathbf{v}) = m\\mathbf{r} \\times (\\mathbf{\\omega} \\times \\mathbf{r}) = m[(\\mathbf{r} \\cdot \\mathbf{r})\\mathbf{\\omega} - (\\mathbf{r} \\cdot \\mathbf{\\omega})\\mathbf{r}] = mr^2 \\mathbf{\\omega} = I\\mathbf{\\omega}. $$",
                     "**Nota 2:** Si è fatto uso dell’identità vettoriale $\\mathbf{A} \\times (\\mathbf{B} \\times \\mathbf{C}) = (\\mathbf{A} \\cdot \\mathbf{C})\\mathbf{B} - (\\mathbf{A} \\cdot \\mathbf{B})\\mathbf{C}$.",
@@ -1253,6 +1315,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\Delta \\mathbf{r} = \\mathbf{r}(t + \\Delta t) - \\mathbf{r}(t), $$",
                     "il vettore che congiunge le posizioni occupate da un pianeta rispettivamente ai tempi $t$ e $t + \\Delta t$. Consideriamo il vettore così definito:",
                     "$$ \\Delta \\mathbf{s} = \\frac{1}{2} \\mathbf{r} \\times \\Delta \\mathbf{r}; \\hspace{4cm} \\tag{4.35} $$",
+                    "![Velocità areolare|small](/fisica-images/fig_082.avif)",
                     "per $\\Delta \\mathbf{r}$ piccolo, in modo che $\\mathbf{r}(t)$ è confrontabile con $\\mathbf{r}(t + \\Delta t)$, questo vettore è caratterizzato dall’avere il modulo pari all’area del triangolo che congiunge i punti (Nota 3) $O$, $P(t)$ e $P(t + \\Delta t)$. Dividendo ambo i membri della (4.35) per $\\Delta t$ e passando al limite per $\\Delta t \\to 0$, si trova:",
                     "$$ \\frac{d\\mathbf{s}}{dt} = \\frac{1}{2} \\mathbf{r} \\times \\frac{d\\mathbf{r}}{dt} = \\frac{1}{2} \\mathbf{r} \\times \\mathbf{v}, $$",
                     "dove $d\\mathbf{s}/dt$ è detta **velocità areolare**. Dalla (4.33) segue:",
@@ -1261,6 +1324,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ s = \\frac{L}{2m} t, $$",
                     "avendo assunto che l’area descritta dal vettore posizione del pianeta all’istante di tempo iniziale $t = 0$ fosse nulla. Questa relazione è l’espressione della **seconda legge di Keplero** relativa ai moti dei pianeti del sistema solare, cioè che le aree descritte dal raggio vettore che unisce il Sole al pianeta sono proporzionali ai tempi impiegati per descriverle. Quindi tale legge equivale alla costanza del momento angolare del pianeta, conseguenza del fatto che la forza agente sul pianeta è centrale.",
                     "**Nota 3:** Infatti, con riferimento alla figura, se $\\mathbf{r}(t + \\Delta t) \\approx \\mathbf{r}(t)$, risulta: $\\Delta s = \\frac{1}{2} \\Delta r \\, r \\sin \\gamma = \\frac{1}{2} \\Delta r \\, r \\sin(\\pi - \\alpha) = \\frac{1}{2} \\Delta r \\, r \\sin \\alpha = \\frac{1}{2} |\\Delta \\mathbf{r} \\times \\mathbf{r}|$.",
+                    "![Dimostrazione geometrica velocità areolare|small](/fisica-images/fig_083.avif)",
                     "**Esempio:** (accelerazione dovuta ad una forza centrale) Se il momento angolare di un corpo è costante, come nel caso in cui il corpo è soggetto ad una forza centrale, risulta conveniente esprimere l’accelerazione del corpo in funzione del suo momento angolare. Dalla definizione (4.33), facendo uso dell’espressione della velocità in funzione delle coordinate polari (2.35), si ottiene:",
                     "$$ \\mathbf{L} = \\mathbf{r} \\times (m\\mathbf{v}) = m\\mathbf{r} \\times \\left( \\frac{dr}{dt}\\hat{r} + r\\frac{d\\vartheta}{dt}\\hat{\\vartheta} \\right) = m\\mathbf{r} \\times \\left( r\\frac{d\\vartheta}{dt}\\hat{\\vartheta} \\right) = mr^2 \\frac{d\\vartheta}{dt} \\hat{r} \\times \\hat{\\vartheta}; $$",
                     "pertanto, in modulo, risulta:",
@@ -1274,26 +1338,28 @@ export const fisicaCourseContent: MainSection[] = [
                     "infine, sostituendo nella (4.38) si ha:",
                     "$$ \\mathbf{a} = \\left[ -\\frac{L^2}{m^2 r^2} \\frac{d^2}{d\\vartheta^2} \\left( \\frac{1}{r} \\right) - r \\frac{L^2}{m^2 r^4} \\right] \\hat{r} = -\\frac{L^2}{m^2 r^2} \\left[ \\frac{d^2}{d\\vartheta^2} \\left( \\frac{1}{r} \\right) + \\frac{1}{r} \\right] \\hat{r}; \\hspace{4cm} \\tag{4.39} $$",
                     "tale espressione prende il nome di **formula di Binet**."
+                    ,
                 ]
             }
         ]
     },
     {
         id: "5-lavoro-ed-energia",
-        title: "5 LAVORO ED ENERGIA",
+        title: "Lezione 5: LAVORO ED ENERGIA",
         subsections: [
             {
-                title: "Introduzione",
+                title: "5.1 Introduzione",
                 content: [
                     "La valutazione dell’equazione del moto di una particella a partire dalla forza agente su di essa risulta particolarmente semplice qualora la forza è costante; in tal caso è possibile stabilire banalmente l’accelerazione del corpo e tale determinazione corrisponde, di fatto, ad un problema di cinematica. Lo studio del moto della particella diviene più complicato nella circostanza in cui la forza agente non è costante, ma dipende dal tempo o dalla posizione. Come già visto nei precedenti esempi, tale studio può essere portato avanti attraverso l’integrazione delle equazioni del moto.",
                     "Con l’introduzione dei concetti di lavoro e di energia è possibile effettuare una descrizione del moto alternativa a quanto visto fino ad ora, giungendo ai medesimi risultati che si ottengono tramite l’applicazione diretta delle leggi di Newton. In più circostanze l’analisi del problema condotta seguendo questo approccio risulta generalmente più semplice rispetto all’applicazione della seconda legge di Newton."
                 ]
             },
             {
-                title: "5.1 Lavoro di una forza",
+                title: "5.2 Lavoro di una forza",
                 content: [
                     "Consideriamo un punto materiale $P$ in moto lungo una curva $\\mathcal{L}$ per effetto di una forza $\\mathbf{F}$; sia $\\mathbf{r}$ il vettore posizione del punto in un sistema di riferimento inerziale. In un intervallo di tempo $dt$ il punto compie uno spostamento $d\\mathbf{r}$. Si definisce **lavoro elementare** della forza $\\mathbf{F}$ agente sul punto materiale $P$ che si sposta di $d\\mathbf{r}$ la quantità scalare:",
                     "$$ dW \\equiv \\mathbf{F} \\cdot d\\mathbf{r} = F dr \\cos \\vartheta. \\hspace{4cm} \\tag{5.1} $$",
+                    "![Definizione di lavoro di una forza|medium](/fisica-images/fig_084.avif)",
                     "Siccome l’accelerazione $\\mathbf{a}$ della particella può esprimersi attraverso la relazione (2.21) tramite la componente tangenziale $a_t$ e quella normale $a_n$ alla traiettoria, di conseguenza, dalla (4.1) la forza $\\mathbf{F}$ può esprimersi come:",
                     "$$ \\mathbf{F} = m\\mathbf{a} = m(\\hat{t}a_t + \\hat{n}a_n) = \\mathbf{F}_t + \\mathbf{F}_n, $$",
                     "dove $\\mathbf{F}_t$ e $\\mathbf{F}_n$ sono, rispettivamente, le componenti della forza $\\mathbf{F}$ tangenziale e normale alla traiettoria; sostituendo questa espressione nella (5.1) si ottiene:",
@@ -1304,19 +1370,23 @@ export const fisicaCourseContent: MainSection[] = [
                     "Dalla relazione (5.1) segue che se $\\vartheta < 90^\\circ$ allora $dW > 0$ e il lavoro è detto **motore**; se $90^\\circ < \\vartheta \\le 180^\\circ$ allora $dW < 0$ e il lavoro è detto **resistente**; infine se $\\vartheta = 90^\\circ$ risulta $dW = 0$ essendo in questo caso la forza $\\mathbf{F}$ ortogonale a $d\\mathbf{r}$.",
                     "**Esempio:** Consideriamo il moto di un corpo lungo una traiettoria circolare $\\mathcal{C}$ con velocità angolare costante. In tal tal caso l’accelerazione del corpo sarà solo centripeta e pertanto sul corpo deve agire una forza che, dalla (2.25) è pari a:",
                     "$$ \\mathbf{F} = m\\mathbf{a}_n = m \\frac{v^2}{R} \\hat{n}, $$",
+                    "![Lavoro nullo della forza centripeta|small](/fisica-images/fig_085.avif)",
                     "dalla relazione (5.1), il lavoro elementare fatto dal tale forza in corrispondenza di uno spostamento infinitesimo lungo la traiettoria $\\mathcal{C}$ vale:",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{r} = \\left( m \\frac{v^2}{R} \\hat{n} \\right) \\cdot (\\hat{t} ds) = 0, $$",
+                    "![Forza centripeta e lavoro nullo|small](/fisica-images/fig_076.avif)",
                     "cioè la forza $\\mathbf{F}$ non compie lavoro.",
                     "**Esempio:** Consideriamo un corpo in moto su di un piano orizzontale, il lavoro elementare svolto dalla forza di gravità in corrispondenza di uno spostamento $d\\mathbf{r}$ sul piano è:",
+                    "![Lavoro nullo della forza peso su traiettoria orizzontale|small](/fisica-images/fig_086.avif)",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{r} = (m\\mathbf{g}) \\cdot d\\mathbf{r} = 0, $$",
                     "essendo $m\\mathbf{g}$ ortogonale a $d\\mathbf{r}$.",
                     "Esprimendo lo spostamento $d\\mathbf{r}$ attraverso la (2.3) come somma degli spostamenti elementari lungo gli assi coordinati, la (5.1) può scriversi come:",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{r} = \\mathbf{F} \\cdot (\\hat{x} dx + \\hat{y} dy + \\hat{z} dz) = F_x dx + F_y dy + F_z dz, $$",
                     "dove $F_x$, $F_y$ e $F_z$ rappresentano le componenti della forza lungo i tre assi coordinati. Il lavoro compiuto dalla forza $\\mathbf{F}$ quando il punto materiale si sposta lungo la curva $\\mathcal{L}$ tra un punto $P_1$ ed un punto $P_2$ si ottiene sommando i lavori elementari relativi agli infiniti spostamenti $d\\mathbf{r}$ in cui è diviso il percorso da $P_1$ a $P_2$; tale somma prende il nome di **integrale di linea lungo $\\mathcal{L}$**:",
-                    "$$ W_{12} = \\int_{\\mathcal{L}}^{P_2}_{P_1} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{\\mathcal{L}}^{P_2}_{P_1} F_x dx + F_y dy + F_z dz. \\hspace{4cm} \\tag{5.2} $$",
+                    "$$ W_{12} = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}} = \\int_{P_1}^{P_2} (F_x dx + F_y dy + F_z dz) \\big|_{\\mathcal{L}}. \\hspace{4cm} \\tag{5.2} $$",
                     "Pertanto, in generale, il lavoro eseguito dalla forza $\\mathbf{F}$ nello spostamento del punto materiale dalla posizione $P_1$ a quella $P_2$ lungo un percorso $\\mathcal{L}$ è l’integrale di linea di $\\mathbf{F}$ da $P_1$ a $P_2$ lungo $\\mathcal{L}$.",
                     "Nel sistema $SI$ il lavoro viene misurato in **joule** ($J$) e $1 J$ è il lavoro fatto da una forza di $1 N$ in corrispondenza di uno spostamento di $1 m$ del suo punto di applicazione nella direzione della forza.",
                     "**Esempio:** Consideriamo un corpo soggetto ad una forza $\\mathbf{F}$, in moto rettilineo su un piano. Risulta:",
+                    "![Lavoro di una forza costante su un percorso rettilineo|medium](/fisica-images/fig_087.avif)",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{r} = F_x dx = F \\cos \\vartheta dx $$",
                     "così, in corrispondenza di uno spostamento $s$ lungo una retta, si ha:",
                     "$$ W = \\int_0^s \\mathbf{F} \\cdot d\\mathbf{r} = \\int_0^s F \\cos \\vartheta dx = F \\cos \\vartheta \\int_0^s dx = Fs \\cos \\vartheta; $$",
@@ -1326,28 +1396,33 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ F - mg = 0, $$",
                     "cioè la forza deve avere intensità:",
                     "$$ F = mg. $$",
+                    "![Lavoro per sollevare un corpo verticalmente|small](/fisica-images/fig_088.avif)",
                     "In corrispondenza dello spostamento del corpo sino alla quota $h$ il lavoro eseguito da tale forza vale:",
                     "$$ W = \\int_0^h F dy = Fh = mgh, \\hspace{4cm} \\tag{5.3} $$",
                     "**Esempio:** Consideriamo un corpo di massa $m$ che sale con velocità costante lungo un piano inclinato privo di attrito a partire dal suolo, fino ad una quota $h$. Siccome il moto avviene a velocità costante, la risultante delle forze agenti sul corpo lungo la direzione del moto deve essere nulla, cioè:",
                     "$$ F - mg \\sin \\vartheta = 0, $$",
                     "dove $F$ è il modulo della forza con cui viene spinto il blocco:",
                     "$$ F = mg \\sin \\vartheta. $$",
+                    "![Lavoro per spostare un corpo su un piano inclinato|medium](/fisica-images/fig_089.avif)",
                     "In corrispondenza dello spostamento del corpo sino alla quota $h$, il corpo avrà compiuto uno spostamento $s$ lungo il piano inclinato pari a:",
                     "$$ s = \\frac{h}{\\sin \\vartheta}, $$",
                     "così il lavoro eseguito dalla forza $\\mathbf{F}$ vale:",
                     "$$ W = \\int_0^s F dx = Fs = mg \\sin \\vartheta \\frac{h}{\\sin \\vartheta} = mgh, $$",
                     "quindi il lavoro è lo stesso che si otterrebbe qualora il corpo fosse sollevato verticalmente con velocità costante sino alla quota $h$ senza adoperare il piano inclinato.",
                     "**Esempio:** Consideriamo una molla elastica di costante $k$ e stabiliamo il lavoro fatto dalla molla per portare un corpo ad essa collegato da una posizione $x_i$ ad una posizione $x_f$. Siccome il problema è unidimensionale, dalla (4.14) risulta:",
+                    "![Lavoro di una forza elastica (molla)|medium](/fisica-images/fig_090.avif)",
                     "$$ W = \\int_{x_i}^{x_f} (-kx) dx = \\frac{1}{2} k x_i^2 - \\frac{1}{2} k x_f^2. \\hspace{4cm} \\tag{5.4} $$",
                     "Si osservi che se $x_i > x_f$, cioè se la deformazione iniziale è maggiore di quella finale, $W > 0$, mentre se $x_i < x_f$, allora $W < 0$; quindi la molla compie un lavoro positivo solo quando tende a riportare il corpo nella posizione di equilibrio. In particolare, il lavoro eseguito dalla molla per portare il corpo dalla posizione di equilibrio $x_i = 0$ ad una generica posizione $x_f = x$ è:",
                     "$$ W = \\int_0^x (-k\\xi) d\\xi = -\\frac{1}{2} k x^2. $$",
                     "Siccome $W \\propto |x|$, il lavoro della molla è lo stesso sia in compressione che in estensione. Stabiliamo il lavoro fatto da una forza esterna $\\mathbf{F}_{ext}$ per portare il corpo connesso alla molla da una posizione iniziale $x_i = 0$ ad una finale $x = x_f$; in questo caso, affinché il corpo sia in equilibrio in ogni punto del percorso da $x_i$ a $x_f$, la forza $\\mathbf{F}_{ext}$ deve risultare uguale in modulo ma opposta alla forza elastica di richiamo (4.13), così:",
                     "$$ W = \\int_0^x F_{ext} dx = \\int_0^x (k\\xi) d\\xi = \\frac{1}{2} k x^2. $$",
+                    "![Molla e forza esterna: lavoro ed energia potenziale elastica|medium](/fisica-images/fig_091.avif)",
                     "Ciò segue, per altro, dal fatto che $\\mathbf{F}_{ext}$ è sempre diretta come lo spostamento $d\\mathbf{r} = \\hat{x} dx$, per cui risulta sempre $W > 0$; infatti, con riferimento allo schema di figura, se $\\mathbf{F}_{ext}$ è nel verso delle $x$ positive, lo spostamento avviene in tale verso e viceversa.",
                     "**Esempio:** Consideriamo una sonda spaziale in moto dalla Terra a Marte. Indicando con $M$ la massa solare e con $m$ quella della sonda, quando questa si trova a distanza $r$ dal Sole, questo esercita sulla sonda una forza, detta **forza gravitazionale**, pari a:",
                     "$$ \\mathbf{F} = -G \\frac{Mm}{r^2} \\hat{r}, $$",
                     "dove $G$ è la **costante di gravitazione** pari a circa $6.67 \\times 10^{11} Nm^2/kg^2$. Il lavoro eseguito da tale forza sulla sonda nel moto dalla Terra a Marte è:",
                     "$$ W = \\int_{r_1}^{r_2} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{r_1}^{r_2} \\left( -G \\frac{Mm}{r^2} \\hat{r} \\right) \\cdot d\\mathbf{r} = GMm \\left( \\frac{1}{r_2} - \\frac{1}{r_1} \\right), $$",
+                    "![Lavoro gravitazionale per spostare una sonda dalla Terra a Marte|medium](/fisica-images/fig_092.avif)",
                     "dove $r_1$ e $r_2$ sono, rispettivamente, le distanze del Sole dalla Terra e da Marte. Così siccome $r_1$ vale circa $1.5 \\times 10^{11} m$ e $r_2$ vale circa $2.3 \\times 10^{11} m$, la massa del Sole è di circa $1.99 \\times 10^{30} kg$ e assumendo che la massa della sonda sia di $100 kg$, si ha:",
                     "$$ W \\approx 3.0 \\times 10^{10} J. $$",
                     "Si noti che il risultato conseguito è indipendente dal percorso tra la Terra e Marte ma dipende unicamente dai punti estremi di tale percorso. Pertanto, se la sonda si spostasse lungo un percorso differente da quello rettilineo, il lavoro eseguito dalla forza $\\mathbf{F}$ su di essa sarebbe lo stesso. Osserviamo inoltre che se $r_2 \\ge r_1$, allora $W \\le 0$ altrimenti, per $r_2 < r_1$ si ha $W > 0$, cioè, in particolare, il lavoro fatto da $\\mathbf{F}$ è positivo se il satellite si avvicina al Sole; ciò è conseguenza del fatto che tale forza è attrattiva, ossia il corrispondente vettore punta sempre verso il Sole.",
@@ -1364,10 +1439,12 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove $F$ è espressa in newton e le coordinate $x$ e $y$ in metri. Per calcolare il corrispondente lavoro utilizziamo l’espressione generale (5.2):",
                     "$$ W = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{P_1}^{P_2} F_x dx + F_y dy = \\int_{P_1}^{P_2} [(3xy + x^2) dx + (2y + 5) dy] = $$",
                     "$$ = \\int_0^3 \\left\\{ \\left[ 3x \\left( \\frac{2}{3}x \\right) + x^2 \\right] dx + \\left[ 2 \\left( \\frac{2}{3}x \\right) + 5 \\right] d \\left( \\frac{2}{3}x \\right) \\right\\} = \\int_0^3 \\left( 2x^2 + x^2 + \\frac{8}{9}x + \\frac{10}{3} \\right) dx = \\left. \\left( x^3 + \\frac{4}{9}x^2 + \\frac{10}{3}x \\right) \\right|_0^3 = 41 J. $$",
+                    "![Lavoro lungo un percorso rettilineo (grafico)|small](/fisica-images/fig_093.avif)",
                     "Qualora lo spostamento abbia luogo lungo un percorso differente il valore del lavoro cambia. Consideriamo infatti lo spostamento lungo la traiettoria parabolica di equazione $y = (2/9)x^2$, il lavoro vale:",
                     "$$ W = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{P_1}^{P_2} F_x dx + F_y dy = \\int_{P_1}^{P_2} [(3xy + x^2) dx + (2y + 5) dy] = $$",
                     "$$ = \\int_0^3 \\left\\{ \\left[ 3x \\left( \\frac{2}{9}x^2 \\right) + x^2 \\right] dx + \\left[ 2 \\left( \\frac{2}{9}x^2 \\right) + 5 \\right] d \\left( \\frac{2}{9}x^2 \\right) \\right\\} = $$",
                     "$$ = \\int_0^3 \\left( \\frac{2}{3}x^3 + x^2 + \\frac{16}{81}x^3 + \\frac{20}{9}x \\right) dx = \\left. \\left( \\frac{35}{162}x^4 + \\frac{1}{3}x^3 + \\frac{10}{9}x^2 \\right) \\right|_0^3 = 36.5 J. $$",
+                    "![Lavoro lungo un percorso parabolico (grafico)|medium](/fisica-images/fig_094.avif)",
                     "**Esempio:** Un punto materiale si muove sotto l’azione di una forza pari a",
                     "$$ \\mathbf{F} = bx \\hat{x}, $$",
                     "in cui $b$ è una costante positiva e il corrispondente moto è descritto dalle equazioni orarie:",
@@ -1399,6 +1476,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ = R^2 d\\vartheta - R^2 \\cos \\vartheta \\sin \\vartheta d\\vartheta. $$",
                     "Infine, in corrispondenza di una rotazione lungo la circonferenza $\\mathcal{C}$ l’angolo $\\vartheta$ varia tra 0 e $2\\pi$ così, integrando si ha:",
                     "$$ W = \\int_0^{2\\pi} (R^2 d\\vartheta - R^2 \\cos \\vartheta \\sin \\vartheta d\\vartheta) = 2\\pi R^2 - R^2 \\int_0^{2\\pi} \\cos \\vartheta \\sin \\vartheta d\\vartheta = 2\\pi R^2 - R^2 \\int_0^0 \\zeta d\\zeta = 2\\pi R^2. $$",
+                    "![Lavoro non nullo su un percorso chiuso (forza non conservativa)|small](/fisica-images/fig_096.avif)",
                     "Tale risultato rappresenta il lavoro svolto dalla forza $\\mathbf{F}$ in corrispondenza di una rotazione del punto materiale lungo la circonferenza.",
                     "Un’ulteriore proprietà del lavoro derivante dalla sua formulazione matematica è rappresentata dall’additività. Consideriamo un insieme di forze, $\\mathbf{F}_1, \\mathbf{F}_2, ..., \\mathbf{F}_N$, agenti su di uno stesso punto materiale; il lavoro compiuto dalla forza risultante $\\mathbf{F}$ pari a",
                     "$$ \\mathbf{F} = \\mathbf{F}_1 + \\mathbf{F}_2 + ... + \\mathbf{F}_N, $$",
@@ -1406,10 +1484,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ W_{12} = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{P_1}^{P_2} (\\mathbf{F}_1 + \\mathbf{F}_2 + ... + \\mathbf{F}_N) \\cdot d\\mathbf{r} = \\int_{P_1}^{P_2} \\mathbf{F}_1 \\cdot d\\mathbf{r} + \\int_{P_1}^{P_2} \\mathbf{F}_2 \\cdot d\\mathbf{r} + ... + \\int_{P_1}^{P_2} \\mathbf{F}_N \\cdot d\\mathbf{r} = $$",
                     "$$ = W_1^{(12)} + W_2^{(12)} + ... + W_N^{(12)}, $$",
                     "cioè il lavoro della risultante $\\mathbf{F}$ in corrispondenza di un certo spostamento è uguale alla somma dei lavori eseguiti da ciascuna componente relativamente allo stesso spostamento."
+                    ,
                 ]
             },
             {
-                title: "5.2 Potenza",
+                title: "5.3 Potenza",
                 content: [
                     "Per caratterizzare un sistema dal punto di vista energetico, oltre alla capacità di compiere un certo lavoro, è opportuno stabilire la rapidità con cui tale lavoro può essere eseguito; a tale scopo si introduce il concetto di potenza. La **potenza istantanea** sviluppata da un agente è data da:",
                     "$$ P = \\frac{dW}{dt}, $$",
@@ -1425,7 +1504,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.3 Energia cinetica",
+                title: "5.4 Energia cinetica",
                 content: [
                     "Consideriamo un punto materiale di massa $m$ indipendente dalla velocità soggetto ad una forza $\\mathbf{F}$; dalla relazione (5.1), esprimendo la forza attraverso la (4.30), si ha:",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{r} = m \\frac{d\\mathbf{v}}{dt} \\cdot d\\mathbf{r}, \\hspace{4cm} \\tag{5.6} $$",
@@ -1451,44 +1530,49 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ v_f = \\sqrt{2gh}, $$",
                     "che è lo stesso risultato che si otterrebbe dalla diretta applicazione delle leggi di Newton.",
                     "**Esempio:** Consideriamo un punto materiale di massa $m$, in quiete, connesso ad una molla di costante elastica $k$. Supponiamo di applicare al punto una forza $\\mathbf{F}_{ext}$ costante in modulo, direzione e verso. Il lavoro eseguito dalla risultante delle forze agenti sul corpo in corrispondenza di uno spostamento $x$ sarà:",
+                    "![Sistema molla con forza esterna costante (diagramma)|medium](/fisica-images/fig_097.avif)",
                     "$$ W = \\int_0^x F_T(\\xi) d\\xi, $$",
                     "dove:",
                     "$$ F_T(x) = F_{ext} - kx, $$",
                     "per cui",
                     "$$ W = \\int_0^x (F_{ext} - k\\xi) d\\xi = F_{ext}x - \\frac{1}{2} k x^2. $$",
+                    "![Grafico del lavoro motore e resistente nel sistema molla|medium](/fisica-images/fig_098.avif)",
                     "Dal teorema dell’energia cinetica, siccome la velocità iniziale è nulla, risulta:",
                     "$$ F_{ext}x - \\frac{1}{2} k x^2 = \\frac{1}{2} m v^2, $$",
                     "così l’espressione della velocità in relazione alla posizione del corpo è:",
                     "$$ v = \\sqrt{\\frac{x}{m} (2F_{ext} - kx)}. \\hspace{4cm} \\tag{5.10} $$",
+                    "![Grafico della forza risultante nel sistema molla|medium](/fisica-images/fig_099.avif)",
                     "Da tale relazione ricaviamo la posizione $x_A$ in corrispondenza della quale si arresta il corpo; ciò accade quando si annulla la velocità, ossia quando $x$ vale:",
                     "$$ x_A = \\frac{2F_{ext}}{k}. $$",
                     "Dall’esame della (5.10) deduciamo che il modulo della velocità e quindi l’energia cinetica crescono fino ad un massimo che si ottiene quando i moduli della forza $\\mathbf{F}_{ext}$ e della forza elastica della molla sono uguali, dopo di che l’energia cinetica prende a diminuire per annullarsi in $x_A$. Il lavoro complessivo di $F_T(x)$ sarà nullo, come consegue sia dal fatto che l’area sottesa da tale funzione tra 0 e $x_A$ è nulla, sia dal teorema dell’energia cinetica, essendo nulle le velocità iniziali e finali del corpo.",
-                    "![Grafici lavoro molla con forza costante](/IMAGES/spring_work_graph.avif)",
+                    "![Diagramma di fase: velocità in funzione della posizione|medium](/fisica-images/fig_100.avif)",
                     "**Esempio:** (Lavoro di una forza di attrito dinamico) In corrispondenza del moto di un corpo da un punto $P_1$ ad un punto $P_2$ lungo un percorso $\\mathcal{L}_{12}$ su un piano scabro il lavoro della forza di attrito dinamico $\\mathbf{f}_d$ vale:",
-                    "$$ W = \\int_{\\mathcal{L}_{12}}^{P_2}_{P_1} \\mathbf{f}_d \\cdot d\\mathbf{r} = \\int_{\\mathcal{L}_{12}}^{P_2}_{P_1} \\left( -\\mu_d N \\frac{\\mathbf{v}}{v} \\right) \\cdot d\\mathbf{r} = -\\mu_d N \\int_{\\mathcal{L}_{12}}^{P_2}_{P_1} dr = -\\mu_d N \\mathcal{L}_{12} = -\\mu_d N L $$",
+                    "$$ W = \\int_{P_1}^{P_2} \\mathbf{f}_d \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}_{12}} = \\int_{P_1}^{P_2} \\left( -\\mu_d N \\frac{\\mathbf{v}}{v} \\right) \\cdot d\\mathbf{r} = -\\mu_d N \\int_{P_1}^{P_2} dr = -\\mu_d N \\mathcal{L}_{12} = -\\mu_d N L $$",
                     "dove, dalla (4.11) la forza di attrito dinamico è stata espressa vettorialmente tenendo conto che è sempre opposta alla direzione del moto stabilita dal versore $\\mathbf{v}/v$ e si è indicato con $\\mathcal{L}_{12}$ la lunghezza $L$ del percorso $\\mathcal{L}_{12}$, misurata lungo la traiettoria del corpo nel suo moto. Ne segue che, fissato il prodotto $\\mu_d N$, cioè il modulo di $\\mathbf{f}_d$, si ha un diverso lavoro in corrispondenza di differenti percorsi $\\mathcal{L}_{12}$ che portano dal punto $P_1$ al punto $P_2$ e pertanto, a differenza, ad esempio, del lavoro della forza peso o di quello della forza gravitazionale, il lavoro della forza di attrito dinamico non può esprimersi come la differenza dei valori di una funzione delle coordinate nei punti $P_1$ e $P_2$. Si noti inoltre che il lavoro della forza di attrito dinamico è sempre resistente (cioè $\\mathbf{f}_d \\cdot d\\mathbf{r} < 0$) e qualora cambia il verso del moto, si inverte anche quello di $\\mathbf{f}_d$, essendo tale vettore proporzionale all’opposto del versore $\\mathbf{v}/v$. È possibile includere l’attrito dinamico nella caratterizzazione energetica del moto su un piano scabro osservando che, nel caso in cui il moto è soggetto solo a tale forza, si ha:",
                     "$$ -f_d = ma = m \\frac{dv}{dt} = m \\frac{dv}{dx} \\frac{dx}{dt} = m \\frac{dv}{dx} v, $$",
                     "e moltiplicando ambo i membri per $dx$, segue:",
                     "$$ -f_d dx = mv dv, $$",
                     "così, integrando ambo i membri lungo un percorso $\\mathcal{L}_{12}$ dal punto $P_1$ al punto $P_2$, si ha:",
-                    "$$ -f_d L = -f_d \\mathcal{L}_{12} = \\int_{\\mathcal{L}_{12}}^{P_2}_{P_1} \\mathbf{f}_d \\cdot d\\mathbf{r} = \\int_{v_1}^{v_2} mv dv = \\frac{1}{2} m v_2^2 - \\frac{1}{2} m v_1^2 = E_{k2} - E_{k1}, $$",
+                    "$$ -f_d L = -f_d \\mathcal{L}_{12} = \\int_{P_1}^{P_2} \\mathbf{f}_d \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}_{12}} = \\int_{v_1}^{v_2} mv \, dv = \\frac{1}{2} m v_2^2 - \\frac{1}{2} m v_1^2 = E_{k2} - E_{k1}, $$",
                     "cioè:",
                     "$$ E_{k2} - E_{k1} = -f_d L. $$",
                     "Quindi nel moto su una superficie scabra lungo una traiettoria di lunghezza $L$, l’energia cinetica di un corpo diminuisce sempre di una quantità $f_d L$. Sperimentalmente si osserva che a tale diminuzione corrisponde un riscaldamento sia del corpo che della superficie scabra. Qualora sul corpo agiscano altre forze oltre all’attrito, il teorema dell’energia cinetica assume la forma:",
                     "$$ W - f_d L = E_{k2} - E_{k1}, $$",
                     "in cui $W$ rappresenta il lavoro eseguito dalla risultante delle forze agenti sul corpo esclusa la forza di attrito dinamico."
+                    ,
                 ]
             },
             {
-                title: "5.4 Forze conservative, energia potenziale",
+                title: "5.5 Forze conservative, energia potenziale",
                 content: [
                     "Negli esempi precedenti si è visto che per talune forze, come la forza elastica o la forza peso, il lavoro calcolato tra due punti dipende dalle sole coordinate di tali punti e risulta indipendente dal particolare percorso che congiunge i punti stessi; al contrario, per altre forze, come la forza di attrito, il lavoro dipende dalla traiettoria tra i punti. Le forze per le quali il lavoro non dipende dal cammino percorso sono dette **conservative** mentre quelle per le quali non vale tale proprietà sono dette **non conservative**.",
                     "Per una forza conservativa $\\mathbf{F}$ il calcolo del lavoro tra due punti $P_1$ e $P_2$ non richiede la conoscenza del particolare percorso seguito così, tale determinazione può essere eseguita considerando la traiettoria tra $P_1$ e $P_2$ che comporta il calcolo più semplice; considerando le traiettorie $\\mathcal{L}_I$ e $\\mathcal{L}_{II}$, in tale caso si ha:",
-                    "$$ \\int_{\\mathcal{L}_I}^{P_2}_{P_1} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{\\mathcal{L}_{II}}^{P_2}_{P_1} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r}, $$",
+                    "$$ \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}_I} = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}_{II}} = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r}, $$",
+                    "![Indipendenza del lavoro dal percorso per forze conservative|small](/fisica-images/fig_095.avif)",
                     "dove, nell’ultimo integrale, si prescinde dal percorso da $P_1$ a $P_2$ essendo, per ipotesi, ininfluente. Siccome il lavoro di una forza conservativa dipende dai soli punti estremi $P_1$ e $P_2$ del percorso, se si inverte il senso di percorrenza tra tali punti, ossia ci si sposta da $P_2$ a $P_1$, il lavoro cambia di segno:",
                     "$$ \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{r} = -\\int_{P_2}^{P_1} \\mathbf{F} \\cdot d\\mathbf{r}. $$",
                     "Un generico percorso chiuso $\\mathcal{C}$ può essere rivisto come l’unione di due percorsi aperti, il primo $\\mathcal{L}_{AB}$ da un punto generico $A$ di $\\mathcal{C}$ ad un altro punto $B$ sempre di $\\mathcal{C}$ e il secondo, $\\mathcal{L}_{BA}$ da $B$ a $A$:",
-                    "$$ \\oint_{\\mathcal{C}} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{\\mathcal{L}_{AB}}^{B}_{A} \\mathbf{F} \\cdot d\\mathbf{r} + \\int_{\\mathcal{L}_{BA}}^{A}_{B} \\mathbf{F} \\cdot d\\mathbf{r}, $$",
+                    "$$ \\oint_{\\mathcal{C}} \\mathbf{F} \\cdot d\\mathbf{r} = \\int_{A}^{B} \\mathbf{F} \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}_{AB}} + \\int_{B}^{A} \\mathbf{F} \\cdot d\\mathbf{r} \\big|_{\\mathcal{L}_{BA}}, $$",
                     "in cui si è fatto uso del simbolo $\\oint$ per indicare l’integrazione lungo una curva chiusa. Se la forza $\\mathbf{F}$ è conservativa i due integrali al secondo membro sono uno l’opposto dell’altro, per cui:",
                     "$$ \\oint_{\\mathcal{C}} \\mathbf{F} \\cdot d\\mathbf{r} = 0; $$",
                     "siccome tale caratteristica prescinde dal particolare percorso chiuso $\\mathcal{C}$, concludiamo che il lavoro di una forza conservativa fatto lungo un generico percorso chiuso è sempre nullo.",
@@ -1529,12 +1613,12 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{F} = -f(r)\\hat{r}, $$",
                     "cioè costantemente diretta verso il centro di forza (ossia $\\mathbf{F}$ è una forza attrattiva). Il lavoro elementare di tale forza in corrispondenza di uno spostamento $d\\mathbf{l}$ vale:",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{l} = |\\mathbf{F}| |d\\mathbf{l}| \\cos \\vartheta = f(r) dl \\cos \\vartheta = -f(r) dr, $$",
+                    "![Lavoro di una forza centrale lungo un percorso curvo|small](/fisica-images/fig_101.avif)",
                     "dove $\\vartheta$ è l’angolo compreso tra i vettori $\\mathbf{F}$ e $d\\mathbf{l}$ e siccome $dr$ vale $-dl \\cos \\vartheta$. Pertanto, posto $r_1 \\equiv \\overline{OP}_1$ e $r_2 \\equiv \\overline{OP}_2$, il lavoro corrispondente al percorso da $P_1$ a $P_2$ lungo la traiettoria $\\gamma$ vale:",
                     "$$ W_{12} = \\int_{P_1}^{P_2} \\mathbf{F} \\cdot d\\mathbf{l} = \\int_{r_1}^{r_2} [-f(r)] dr. $$",
                     "Se $U(r)$ è la primitiva della funzione $f(r)$, cioè $f(r) = dU(r)/dr$, sostituendo nell’espressione precedente si trova:",
                     "$$ W_{12} = \\int_{r_1}^{r_2} [-f(r)] dr = \\int_{r_1}^{r_2} \\left[ -\\frac{dU}{dr} \\right] dr = -\\int_{r_1}^{r_2} dU = -[U(r_2) - U(r_1)]. $$",
                     "Dal fatto che il lavoro $W_{12}$ non dipende dalla traiettoria $\\gamma$ da $P_1$ a $P_2$ concludiamo che una forza centrale è conservativa. Nel caso esaminato in questo esempio la funzione energia potenziale associata a $\\mathbf{F}$ coincide con $U(r)$.",
-                    "![Lavoro forza centrale](/IMAGES/central_force_work.avif)",
                     "**Esempio:** La forza gravitazionale esercitata su un punto materiale di massa $m_1$ da un punto materiale di massa $m_2$ posto a distanza $r$ è:",
                     "$$ \\mathbf{F} = -G \\frac{m_1 m_2}{r^2} \\hat{r}, $$",
                     "tale forza è evidentemente di tipo centrale e il lavoro da essa compiuto nello spostamento del punto di massa $m_1$ da una posizione a distanza $r_1$ da $m_2$ ad una a distanza $r_2$, sempre da $m_2$, vale:",
@@ -1556,7 +1640,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.5 Conservazione dell’energia meccanica",
+                title: "5.6 Conservazione dell’energia meccanica",
                 content: [
                     "Per una forza conservativa la (5.9) e la (5.11) valgono simultaneamente, così, confrontando tali relazioni, si ha",
                     "$$ E_{p1} - E_{p2} = E_{k2} - E_{k1}, $$",
@@ -1581,13 +1665,14 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.6 Dinamica di un corpo soggetto a forze conservative",
+                title: "5.7 Dinamica di un corpo soggetto a forze conservative",
                 content: [
                     "Consideriamo un punto materiale di massa $m$ soggetto a sole forze conservative e supponiamo che l’energia potenziale vari nella direzione $x$ secondo il diagramma mostrato in figura. Dalle relazioni (5.8) e (5.15) segue che l’energia del corpo vale:",
                     "$$ E = \\frac{1}{2} m v^2 + E_p(x), $$",
                     "per cui il modulo della velocità del punto materiale è dato da:",
                     "$$ v = \\sqrt{\\frac{2}{m} [E - E_p(x)]} \\hspace{4cm} \\tag{5.17} $$",
                     "Affinché tale relazione risulti valida deve risultare sempre $E \\ge E_p(x)$. Consideriamo una possibile curva di energia potenziale per un moto unidimensionale e valutiamo le caratteristiche del moto del punto materiale relativamente a differenti valori dell’energia.",
+                    "![Diagramma dell'energia potenziale e della forza (equilibrio stabile e instabile)|medium](/fisica-images/fig_102.avif)",
                     "Con riferimento alla figura seguente, consideriamo il caso in cui l’energia del corpo vale $E_0$; in tale circostanza l’energia del corpo è sempre inferiore all’energia potenziale tranne in corrispondenza dell’ascissa $x_5$ in cui $E$ è uguale all’energia potenziale. Dalla (5.17) segue che il corpo si mantiene in quiete in corrispondenza del punto $x_5$. Se il punto materiale viene spostato a destra da tale posizione, poiché la funzione $E_p(x)$ in tale direzione è crescente, dalla relazione (5.12) segue che su di esso agisce una forza diretta verso sinistra; se al contrario il punto è spostato a sinistra rispetto alla posizione $x_5$ su di esso agisce una forza diretta verso destra, poiché $E_p(x)$ in questa direzione è decrescente. Se ne conclude che qualora il punto materiale venga spostato dalla posizione di minimo dell’energia potenziale sul tale punto agisce sempre una forza attrattiva che tende a riportarlo nella posizione originaria, che pertanto rappresenta una posizione di equilibrio **stabile** per il punto materiale.",
                     "Supponiamo ora che l’energia del punto materiale valga $E_1$; in questo caso, se il punto materiale si muove da $x_5$ verso $x_6$ la sua velocità diminuisce con l’avvicinarsi a tale posizione e in particolare in questa posizione la velocità si annulla. La forza agente sul punto, che è nulla in $x_5$, aumenta di intensità con l’approssimarsi a $x_6$ ed è sempre diretta nel verso negativo delle $x$; in $x_6$ tale forza è massima e determina un’inversione della direzione del moto, pertanto il punto materiale prende a muoversi verso $x_4$. Tale forza inverte la sua direzione dopo che il punto ha superato la posizione di equilibrio $x_5$; in $x_4$ la velocità si annulla nuovamente e il moto inverte la sua direzione. Le posizioni $x_4$ e $x_6$ sono dette **punti di inversione del moto**. In questo caso il punto materiale è vincolato a muoversi tra i due punti di inversione e la regione all’interno della quale è confinato tale moto prende il nome di **buca di potenziale**.",
                     "Sviluppando in serie la funzione $E_p(x)$ intorno alla posizione di equilibrio $x_5$ si ottiene:",
@@ -1599,28 +1684,30 @@ export const fisicaCourseContent: MainSection[] = [
                     "Consideriamo la circostanza in cui l’energia del punto sia pari a $E_2$, allora il moto si esplica tra gli intervalli $[x_3, x_7]$ e $[x_9, x_{11}]$ come nel caso precedente. Il punto materiale non può passare da un intervallo all’altro e la regione compresa tra tali intervalli e interdetta al moto è detta **barriera di potenziale**. Si osservi che la posizione di massimo relativo $x_8$ rappresenta una posizione di equilibrio per un punto materiale con energia pari all’energia potenziale in corrispondenza del massimo; a differenza della posizione $x_5$ tuttavia, qualora il punto materiale venga spostato da $x_8$ su di esso agisce una forza repulsiva che tende ad allontanarlo da tale posizione. Ne segue che il massimo relativo dell’energia potenziale rappresenta una posizione di equilibrio **instabile** per il punto materiale.",
                     "Supponiamo che il punto materiale sia caratterizzato dall’energia $E_3$ e assumiamo inoltre che si muova nella direzione negativa delle $x$. Allora durante tale moto la sua velocità varierà in relazione alla (5.17) e, in particolare aumenterà dove $E_p(x)$ decresce e viceversa. Giunta nel punto $x_2$ la velocità del punto sarà nulla e il moto invertirà la sua direzione.",
                     "Infine, qualora il punto materiale sia in una regione in cui $E_p(x)$ si mantiene costante, come nell’intorno del punto $x_1$ all’energia $E_4$, poiché la pendenza della funzione energia potenziale è nulla, la forza agente sul punto materiale è nulla. Tale regione è detta di **equilibrio indifferente** poiché il punto materiale può essere spostato al suo interno senza risentire di forze attrattive o repulsive.",
-                    "![Diagramma energia potenziale](/IMAGES/potential_energy_diagram.avif)",
                     "Attraverso l’applicazione della legge di conservazione dell’energia è possibile dedurre l’equazione del moto. Esprimendo la relazione (5.17) come:",
                     "$$ \\frac{dx}{dt} = \\sqrt{\\frac{2}{m} [E - E_p(x)]} $$",
                     "e separando le variabili, si ottiene:",
                     "$$ \\frac{dx}{\\sqrt{\\frac{2}{m} [E - E_p(x)]}} = dt $$",
                     "dalla quale, nota l’espressione dell’energia potenziale $E_p(x)$ e la condizione iniziale, si può ricavare l’equazione del moto $x(t)$. In questo caso si ha il vantaggio di risolvere un’equazione differenziale del primo ordine anziché una del secondo, come imposto dalla seconda legge della dinamica.",
                     "**Esempio:** Consideriamo un punto materiale di massa $m$ vincolato all’estremità di una molla di costante elastica $k$ posta su un piano orizzontale privo di attrito e fissata all’altro estremo ad un vincolo fisso. L’energia potenziale associata alla forza elastica (4.14) vale:",
+                    "![Oscillatore armonico semplice: massa e molla|small](/fisica-images/fig_103.avif)",
                     "$$ E_p(x) = \\frac{1}{2} k x^2; $$",
                     "assumere che la costante additiva arbitraria sia nulla corrisponde a fissare l’origine dell’energia potenziale nel punto di equilibrio $x=0$. In una posizione generica l’energia del punto materiale vale:",
                     "$$ E = E_k + E_p = \\frac{1}{2} m v^2 + \\frac{1}{2} k x^2. \\hspace{4cm} \\tag{5.18} $$",
-                    "Se in un grafico si rappresentano contemporaneamente la funzione energia potenziale $E_p(x)$ e il livello corrispondente all’energia meccanica $E$, il principio di conservazione dell’energia viene espresso dal fatto che si mantiene costante la somma delle distanze tra i punti del grafico dell’energia potenziale e, rispettivamente il livello di riferimento $E_p=0$ e il livello dell’energia meccanica. Con riferimento alla figura, per ogni valore di $x$ risulta quindi costante la somma $\\overline{KP} + \\overline{PH}$ e pari a $\\overline{KH}$, dove $\\overline{KP}$ rappresenta l’energia cinetica, $\\overline{PH}$ rappresenta l’energia potenziale e $\\overline{KH}$ l’energia meccanica. In particolare, se il sistema ha un’energia $E$, dalla (5.18) segue che la velocità del punto materiale varia con $x$ secondo la legge:",
+                    "Se in un grafico si rappresentano contemporaneamente la funzione energia potenziale $E_p(x)$ e il livello corrispondente all’energia meccanica $E$, il principio di conservazione dell’energia viene espresso dal fatto che si mantiene costante la somma delle distanze tra i punti del grafico dell’energia potenziale e, rispettivamente il livello di riferimento $E_p=0$ e il livello dell’energia meccanica.",
+                    "![Energia potenziale e forza nell'oscillatore armonico|medium](/fisica-images/fig_104.avif)",
+                    "Con riferimento alla figura, per ogni valore di $x$ risulta quindi costante la somma $\\overline{KP} + \\overline{PH}$ e pari a $\\overline{KH}$, dove $\\overline{KP}$ rappresenta l’energia cinetica, $\\overline{PH}$ rappresenta l’energia potenziale e $\\overline{KH}$ l’energia meccanica. In particolare, se il sistema ha un’energia $E$, dalla (5.18) segue che la velocità del punto materiale varia con $x$ secondo la legge:",
                     "$$ v = \\sqrt{\\frac{2E}{m} - \\frac{k}{m} x^2}, $$",
                     "con:",
                     "$$ \\frac{2E}{m} - \\frac{k}{m} x^2 \\ge 0, $$",
                     "da cui segue:",
                     "$$ -\\sqrt{\\frac{2E}{k}} \\le x \\le \\sqrt{\\frac{2E}{k}}, $$",
                     "cioè il moto è limitato tra i punti $x_A \\equiv -\\sqrt{2E/k}$ e $x_B \\equiv \\sqrt{2E/k}$; in corrispondenza di questi estremi l’energia cinetica è nulla mentre l’energia potenziale assume il suo valore massimo, pari ad $E$. Al contrario, per $x=0$ l’energia potenziale è nulla e l’energia cinetica assume il valore massimo, pari a $E$ e la velocità vale $\\sqrt{2E/m}$. Dalla relazione (5.12) la forza $\\mathbf{F}$ agente sul punto materiale vale $-\\hat{x} dE_p(x)/dx$, così nel tratto da $x_A$ a $0$ in cui la funzione $E_p(x)$ è decrescente, la derivata $dE_p(x)/dx$ è negativa e di conseguenza $\\mathbf{F}$ è diretta nel verso positivo delle $x$, al contrario se $E_p(x)$ è crescente. Nell’origine in cui $E_p(x)$ manifesta un minimo, la forza $\\mathbf{F}$ ha intensità nulla. Quindi, sia nel tratto decrescente che in quello crescente della funzione $E_p(x)$ la forza agente sul punto materiale è tale da riportare tale punto verso la posizione di equilibrio $x=0$ in cui tale forza agente è nulla. Pertanto concludiamo che $x=0$ è un punto di equilibrio stabile per questo moto.",
-                    "![Oscillatore armonico energia](/IMAGES/harmonic_oscillator_energy.avif)",
                     "**Esempio:** (pendolo semplice) Consideriamo un punto materiale di massa $m$ sospeso ad una fune inestensibile di lunghezza $l$ e di massa trascurabile rispetto a $m$. Assumendo quale origine dell’energia potenziale la posizione più bassa della traiettoria del punto materiale, $O$, risulta:",
                     "$$ E_p(y) = mgy, $$",
                     "in cui $y$ è la distanza $\\overline{OQ}$ di figura. Tale lunghezza può esprimersi come la differenza tra $\\overline{CO}$ e $\\overline{CQ}$, ovvero:",
                     "$$ y = \\overline{CO} - \\overline{CQ} = l - l \\cos \\vartheta = l(1 - \\cos \\vartheta); $$",
+                    "![Pendolo semplice: coordinate e forze|small](/fisica-images/fig_105.avif)",
                     "pertanto l’energia meccanica del punto materiale vale:",
                     "$$ E = \\frac{1}{2} m v^2 + E_p(y) = \\frac{1}{2} m v^2 + mgl(1 - \\cos \\vartheta). \\hspace{4cm} \\tag{5.19} $$",
                     "Siccome la traiettoria del punto materiale è un arco di circonferenza, la velocità $v$ del punto materiale può esprimersi attraverso la corrispondente velocità angolare $\\omega$ come $l\\omega$, ossia:",
@@ -1642,20 +1729,20 @@ export const fisicaCourseContent: MainSection[] = [
                     "Questa è l’equazione differenziale (4.15) dell’oscillatore armonico e pertanto il moto che essa descrive è un moto armonico di pulsazione $\\omega_0$, cioè:",
                     "$$ \\vartheta(t) = \\Theta \\sin(\\omega_0 t + \\phi), $$",
                     "in cui $\\Theta$ e $\\phi$ sono stabiliti attraverso le condizioni iniziali.",
-                    "![Pendolo semplice](/IMAGES/simple_pendulum.avif)"
                 ]
             }
         ]
     },
     {
         id: "6-dinamica-sistemi-punti",
-        title: "6 DINAMICA DEI SISTEMI DI PUNTI MATERIALI",
+        title: "Lezione 6: DINAMICA DEI SISTEMI DI PUNTI MATERIALI",
         subsections: [
             {
-                title: "Introduzione",
+                title: "6.1 Introduzione",
                 content: [
                     "Consideriamo un sistema di $n$ punti materiali, con $n > 1$, interagenti tra loro e con il resto dell’universo. Nello studio di un tale sistema risulta conveniente scomporre la forza agente sull’$i$-esimo punto nella somma della risultante delle **forze esterne** $\\mathbf{F}_i^{(ext)}$ e quella delle forze esercitate sul punto da tutte le altre $n-1$ particelle $\\mathbf{F}_i^{(int)}$, dette **forze interne**:",
                     "$$ \\mathbf{F}_i = \\mathbf{F}_i^{(int)} + \\mathbf{F}_i^{(ext)}. $$",
+                    "![Sistema di punti materiali: coordinate e forze|medium](/fisica-images/fig_106.avif)",
                     "La distinzione tra forze interne ed esterne è totalmente arbitraria in quanto è possibile estrinsecare dal sistema di $n$ punti materiali uno di questi e considerare tra le forze esterne agenti sulle $n-1$ restanti particelle del sistema, la forza esercitata su queste dal punto materiale separato. In accordo con la terza legge di Newton la forza $\\mathbf{F}_{ij}$ che l’$i$-esimo punto del sistema esercita sul $j$-esimo punto è uguale ed opposta alla forza $\\mathbf{F}_{ji}$ che il $j$-esimo punto esercita sull’$i$-esimo punto:",
                     "$$ \\mathbf{F}_{ij} = -\\mathbf{F}_{ji} \\qquad i, j = 1, 2, ..., n \\hspace{4cm} \\tag{6.1} $$",
                     "pertanto, benché la risultante delle forze interne agenti sull’$i$-esimo punto $\\mathbf{F}_i^{(int)}$ è diversa da zero, la risultante di tutte le forze interne del sistema è nulla:",
@@ -1676,14 +1763,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{L} = \\sum_i \\mathbf{L}_i = \\sum_i \\mathbf{r}_i \\times \\mathbf{p}_i, $$",
                     "e l’energia cinetica totale",
                     "$$ E_k \\equiv \\sum_i E_{ki} = \\sum_i \\frac{1}{2} m_i v_i^2. $$",
-                    "![Sistema di punti materiali](/IMAGES/particle_system.avif)"
                 ]
             },
             {
-                title: "6.1 Centro di massa di un sistema di punti",
+                title: "6.2 Centro di massa di un sistema di punti",
                 content: [
                     "Si definisce **centro di massa** di un sistema di punti materiali il punto dello spazio il cui vettore posizione è pari a:",
                     "$$ \\mathbf{r}_{CM} \\equiv \\frac{\\sum_i m_i \\mathbf{r}_i}{\\sum_i m_i} = \\frac{1}{m} \\sum_i m_i \\mathbf{r}_i \\hspace{4cm} \\tag{6.3} $$",
+                    "![Centro di massa di un sistema discreto di punti|medium](/fisica-images/fig_107.avif)",
                     "dove",
                     "$$ m \\equiv \\sum_i m_i \\hspace{4cm} \\tag{6.4} $$",
                     "è la massa totale del sistema. Qualora la velocità dei punti è diversa da zero, di conseguenza lo sarà anche la velocità del centro di massa:",
@@ -1706,6 +1793,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{F}^{(ext)} = m\\mathbf{a}_{CM} = m \\frac{d\\mathbf{v}_{CM}}{dt} = \\frac{d}{dt}(m\\mathbf{v}_{CM}) = \\frac{d\\mathbf{p}}{dt}. $$",
                     "Da questa relazione e dalla precedente segue quindi che il moto del centro di massa è determinato dalle sole forze esterne al sistema; al contrario le forze interne non possono modificare lo stato di moto del sistema. In particolare, se il sistema è isolato, dal principio di conservazione della quantità di moto segue che $\\mathbf{p}$ è costante, quindi se il sistema è isolato, cioè su ciascuna particella che lo costituisce agiscono solo forze interne, il centro di massa si muove con velocità costante in qualsiasi sistema di riferimento inerziale.",
                     "**Esempio:** Consideriamo un sistema costituito da due punti, rispettivamente di massa $m_1$ e $m_2$, situati a distanza $d$ l’uno dall’altro. Considerando un sistema di riferimento con origine $O$ situata sulla retta congiungente i due punti; dalla (6.3) la posizione del centro di massa è:",
+                    "![Centro di massa di un sistema a due corpi (1D)|small](/fisica-images/fig_108.avif)",
                     "$$ x_{CM} = \\frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} $$",
                     "così, siccome $d = x_2 - x_1$, si ha",
                     "$$ x_{CM} = x_1 + \\frac{m_2}{m_1 + m_2} d $$",
@@ -1717,8 +1805,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "segue:",
                     "$$ \\frac{a}{b} = \\frac{m_2}{m_1} $$",
                     "cioè il centro di massa è situato sul segmento compreso tra due masse ed è prossimo al corpo di massa maggiore. Ad esempio, nel sistema costituito dalla Terra e dal Sole, considerando che la massa del Sole è di $1.99 \\times 10^{30} kg$ e quella della Terra è $6.0 \\times 10^{24} kg$ e la reciproca distanza è di $1.5 \\times 10^{11} m$, il centro di massa si trova a $4.5 \\times 10^5 m$ dal centro del Sole ossia, poiché il raggio solare è di $7 \\times 10^8 m$, il centro di massa è all’interno del Sole.",
-                    "![Due masse con centro di massa](/IMAGES/two_masses_cm.avif)",
                     "**Esempio:** Consideriamo un corpo di massa $m$ lanciato orizzontalmente da una quota $h$ con velocità $\\mathbf{v}_0$ il quale, in volo, si rompe in due frammenti di masse $m_1$ e $m_2$. Tale rottura, essendo determinata da forze interne, non provoca alcuna variazione della traiettoria del centro di massa, così è possibile studiare il moto di tale punto con le leggi della cinematica:",
+                    "![Moto del centro di massa durante un'esplosione in volo|medium](/fisica-images/fig_109.avif)",
                     "$$ x_{CM} = v_0 t, $$",
                     "$$ y_{CM} = h - \\frac{1}{2} g t^2. $$",
                     "Imponendo che sia $y_{CM} = 0$ è possibile stabilire la coordinata di impatto $x_{CM}^{(G)}$ del centro di massa; eliminando la variabile $t$ nelle equazioni precedenti, per $y_{CM} = 0$ segue $t = \\sqrt{2h/g}$ e quindi:",
@@ -1728,9 +1816,9 @@ export const fisicaCourseContent: MainSection[] = [
                     "segue che le corrispondenti coordinate di impatto sono:",
                     "$$ x_1^{(G)} = \\frac{m x_{CM}^{(G)} - m_2 x_2^{(G)}}{m_1}, $$",
                     "$$ x_2^{(G)} = \\frac{m x_{CM}^{(G)} - m_1 x_1^{(G)}}{m_2}. $$",
-                    "![Esplosione proiettile](/IMAGES/projectile_explosion.avif)",
                     "**Esempio:** Una persona di massa $m_p$ è posta ad un’estremità di una barca di massa $m_b$ e lunga $l$. La barca galleggia sulla superficie dell’acqua e, nel contatto tra la barca e l’acqua, l’attrito può essere considerato trascurabile. In accordo col sistema di riferimento indicato in figura, ad un certo istante la persona si sposta all’estremità opposta della barca. Stabiliamo l’ascissa $x_p'$ della persona nella seconda circostanza, relativamente al sistema di riferimento specificato. Nella situazione iniziale, siccome l’origine $O$ del sistema di riferimento coincide con la posizione $x_p$ della persona e supponendo che il centro di massa della barca sia nel suo centro geometrico, la posizione del centro di massa del sistema è:",
                     "$$ x_{CM} = \\frac{m_p x_p + m_b x_b}{m_p + m_b} = \\frac{m_b}{m_p + m_b} \\frac{l}{2}. $$",
+                    "![Conservazione della quantità di moto: uomo su una barca|medium](/fisica-images/fig_110.avif)",
                     "Quando la persona ha raggiunto l’altra estremità della barca, il centro di massa del sistema diventa:",
                     "$$ x_{CM}' = \\frac{m_p x_p' + m_b x_b'}{m_p + m_b}, $$",
                     "dove $x_b' - x_p' = \\frac{l}{2}$ quindi, sostituendo si ha:",
@@ -1740,20 +1828,21 @@ export const fisicaCourseContent: MainSection[] = [
                     "da cui segue:",
                     "$$ x_p' = \\frac{m_b}{m_p + m_b} l = 2 x_{CM}. $$",
                     "Quindi nel passaggio dalla condizione iniziale a quella finale, come la persona si sposta da un estremo all’altro, la barca retrocede in misura tale da conservare la posizione del centro di massa del sistema.",
-                    "![Barca persona spostamento](/IMAGES/boat_person_displacement.avif)"
                 ]
             },
             {
-                title: "6.2 Momento angolare di un sistema di punti",
+                title: "6.3 Momento angolare di un sistema di punti",
                 content: [
                     "Consideriamo un insieme di punti materiali di masse $m_1, m_2, ..., m_n$ e velocità $\\mathbf{v}_1, \\mathbf{v}_2, ..., \\mathbf{v}_n$ rispetto ad un sistema di riferimento inerziale. Posto:",
                     "$$ \\mathbf{r}_i^{(P)} \\equiv \\mathbf{r}_i - \\mathbf{r}_P, $$",
                     "il momento angolare del sistema rispetto al polo situato nel punto $P$ è:",
                     "$$ \\mathbf{L} = \\sum_i \\mathbf{r}_i^{(P)} \\times (m_i \\mathbf{v}_i); $$",
+                    "![Momento angolare di un sistema rispetto a un polo P|medium](/fisica-images/fig_111.avif)",
                     "derivando questa espressione rispetto al tempo si ha:",
                     "$$ \\frac{d\\mathbf{L}}{dt} = \\sum_i \\left[ \\frac{d\\mathbf{r}_i^{(P)}}{dt} \\times (m_i \\mathbf{v}_i) + \\mathbf{r}_i^{(P)} \\times \\left( m_i \\frac{d\\mathbf{v}_i}{dt} \\right) \\right]. \\hspace{4cm} \\tag{6.7} $$",
                     "La derivata $d\\mathbf{r}_i^{(P)}/dt$ è:",
                     "$$ \\frac{d\\mathbf{r}_i^{(P)}}{dt} = \\mathbf{v}_i - \\mathbf{v}_P $$",
+                    "![Velocità relative rispetto a un polo mobile|medium](/fisica-images/fig_112.avif)",
                     "dove $\\mathbf{v}_i$ e $\\mathbf{v}_P$ sono, rispettivamente, la velocità del punto di massa $m_i$ e del polo $P$ rispetto al sistema di riferimento specificato; inoltre, poiché il sistema di riferimento è inerziale, segue:",
                     "$$ m_i \\frac{d\\mathbf{v}_i}{dt} = m_i \\mathbf{a}_i = \\mathbf{F}_i^{(ext)} + \\mathbf{F}_i^{(int)}, $$",
                     "quindi, sostituendo nella relazione (6.7), si ha:",
@@ -1767,6 +1856,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{\\tau}_i^{(int)} + \\mathbf{\\tau}_j^{(int)} = \\mathbf{r}_i^{(P)} \\times \\mathbf{F}_{ij} + \\mathbf{r}_j^{(P)} \\times \\mathbf{F}_{ji} = \\mathbf{r}_i^{(P)} \\times (-\\mathbf{F}_{ji}) + \\mathbf{r}_j^{(P)} \\times \\mathbf{F}_{ji}, $$",
                     "essendo, dalla (6.1), $\\mathbf{F}_{ij} = -\\mathbf{F}_{ji}$, così risulta:",
                     "$$ \\mathbf{\\tau}_i^{(int)} + \\mathbf{\\tau}_j^{(int)} = (\\mathbf{r}_j^{(P)} - \\mathbf{r}_i^{(P)}) \\times \\mathbf{F}_{ji}; $$",
+                    "![Annullamento dei momenti delle forze interne|small](/fisica-images/fig_113.avif)",
                     "d’altra parte, il vettore $\\mathbf{r}_j^{(P)} - \\mathbf{r}_i^{(P)}$ è parallelo a $\\mathbf{F}_{ji}$, così la somma al primo membro è nulla. Siccome il momento totale delle forze interne di un sistema di particelle $\\mathbf{\\tau}^{(int)}$ è costituito dalla somma di tutti i possibili termini $\\mathbf{\\tau}_i^{(int)} + \\mathbf{\\tau}_j^{(int)}$, ne segue che indipendentemente dal polo scelto risulta:",
                     "$$ \\mathbf{\\tau}^{(int)} = \\mathbf{0}. \\hspace{4cm} \\tag{6.8} $$",
                     "Pertanto la derivata del momento angolare vale:",
@@ -1774,14 +1864,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "Il termine $-\\mathbf{v}_P \\times (m\\mathbf{v}_{CM})$ risulta nullo se il polo $P$ è in quiete nel sistema di riferimento inerziale e $\\mathbf{v}_P = \\mathbf{0}$, oppure se è in quiete il centro di massa del sistema di particelle e $\\mathbf{v}_{CM} = \\mathbf{0}$ o se il polo coincide col centro di massa e quindi $\\mathbf{v}_P = \\mathbf{v}_{CM}$ o infine, se $\\mathbf{v}_P$ è parallelo a $\\mathbf{v}_{CM}$; in tutte queste circostanze la (6.9) diventa:",
                     "$$ \\frac{d\\mathbf{L}}{dt} = \\mathbf{\\tau}^{(ext)} \\hspace{4cm} \\tag{6.10} $$",
                     "e l’evoluzione temporale del momento angolare del sistema di punti rispetto al polo $P$ è determinata dal solo momento delle forze esterne calcolato rispetto allo stesso polo. Nel caso in cui vale la relazione (6.10), ovvero $\\mathbf{v}_P \\times (m\\mathbf{v}_{CM}) = \\mathbf{0}$, se il momento delle forze esterne $\\mathbf{\\tau}^{(ext)}$ è nullo il momento angolare si mantiene costante. Ciò si verifica se il sistema è isolato, per cui $\\mathbf{F}^{(ext)} = \\mathbf{0}$ e $\\mathbf{L}$ si conserva rispetto ad ogni polo per cui $\\mathbf{v}_P \\times (m\\mathbf{v}_{CM}) = \\mathbf{0}$, oppure se $\\mathbf{\\tau}^{(ext)}$ è nullo rispetto ad un certo polo, malgrado sul sistema agiscono delle forze esterne. Nel primo caso, poiché $\\mathbf{F}^{(ext)} = \\mathbf{0}$, oltre al momento angolare del sistema si conserva anche la sua quantità di moto mentre, in generale, nel secondo caso questa grandezza non si conserva.",
-                    "![Momento angolare sistema di punti](/IMAGES/angular_momentum_system.avif)"
                 ]
             },
             {
-                title: "6.3 Sistema di riferimento del centro di massa",
+                title: "6.4 Sistema di riferimento del centro di massa",
                 content: [
                     "Dato un insieme di particelle, risulta spesso di particolare utilità un sistema di riferimento con origine nel centro di massa di tale insieme. Solitamente, assegnato un sistema di riferimento inerziale, è opportuno assumere gli assi coordinati del sistema del centro di massa paralleli a quelli del sistema inerziale. Ciò determina un moto traslatorio del sistema del centro di massa, ma non rettilineo uniforme, a meno che non sia nulla la risultante delle forze esterne agenti sul sistema di particelle $\\mathbf{F}^{(ext)}$ e, di conseguenza, sia nulla l’accelerazione del centro di massa $\\mathbf{a}_{CM}$. Indicando con un apice le grandezze riferite al centro di massa, per l’$i$-esima particella del sistema risulta:",
                     "$$ \\mathbf{r}_i = \\mathbf{r}_i' + \\mathbf{r}_{CM} $$",
+                    "![Sistema di riferimento del centro di massa|medium](/fisica-images/fig_114.avif)",
                     "e di conseguenza:",
                     "$$ \\mathbf{v}_i = \\mathbf{v}_i' + \\mathbf{v}_{CM}, \\hspace{4cm} \\tag{6.11} $$",
                     "essendo il moto di trascinamento traslatorio. Ovviamente, in tale sistema risulta:",
@@ -1824,10 +1914,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "detto **massa ridotta** della coppia di particelle di masse $m_1$ e $m_2$, segue:",
                     "$$ \\mu \\mathbf{a}_{12} = \\mathbf{F}_{12}; $$",
                     "cioè il moto relativo di due particelle soggette alla loro mutua interazione è equivalente al moto, relativo ad un osservatore inerziale, di una particella avente massa pari alla massa ridotta e soggetta ad una forza pari alla loro forza di mutua interazione. Tale schematizzazione consente di ridurre quindi il moto di una coppia di particelle isolate al moto di una singola particella di massa pari alla massa ridotta del sistema. Inoltre, se $m_1 \\ll m_2$, risulta $\\mu \\approx m_1$, così ad esempio, nella descrizione del moto di un satellite artificiale attorno alla Terra, è possibile usare la massa del satellite anziché la massa ridotta del sistema Terra – satellite. D’altra parte, se $m_1 = m_2$, si ha $\\mu = m_1/2$, come accade, ad esempio, nello studio dell’interazione tra una coppia di protoni o, approssimativamente, nello studio dell’interazione tra un protone e un neutrone.",
-                    "![Due particelle centro di massa](/IMAGES/two_particles_cm_frame.avif)",
                     "**Esempio:** Consideriamo un sistema costituito da due particelle di massa $m_1$ e $m_2$ e velocità $\\mathbf{v}_1$ e $\\mathbf{v}_2$ rispetto ad un sistema di riferimento inerziale. Il vettore posizione e la velocità del centro di massa valgono rispettivamente:",
                     "$$ \\mathbf{r}_{CM} = \\frac{m_1 \\mathbf{r}_1 + m_2 \\mathbf{r}_2}{m_1 + m_2}, $$",
                     "$$ \\mathbf{v}_{CM} = \\frac{m_1 \\mathbf{v}_1 + m_2 \\mathbf{v}_2}{m_1 + m_2}. $$",
+                    "![Velocità nel sistema del centro di massa|medium](/fisica-images/fig_116.avif)",
                     "Nel sistema del centro di massa le velocità delle due particelle sono:",
                     "$$ \\mathbf{v}_1' = \\mathbf{v}_1 - \\mathbf{v}_{CM} = \\mathbf{v}_1 - \\frac{m_1 \\mathbf{v}_1 + m_2 \\mathbf{v}_2}{m_1 + m_2} = \\frac{m_2}{m_1 + m_2} (\\mathbf{v}_1 - \\mathbf{v}_2) = \\frac{m_2}{m_1 + m_2} \\mathbf{v}_{12}, $$",
                     "$$ \\mathbf{v}_2' = \\mathbf{v}_2 - \\mathbf{v}_{CM} = \\mathbf{v}_2 - \\frac{m_1 \\mathbf{v}_1 + m_2 \\mathbf{v}_2}{m_1 + m_2} = \\frac{m_1}{m_1 + m_2} (\\mathbf{v}_2 - \\mathbf{v}_1) = -\\frac{m_1}{m_1 + m_2} \\mathbf{v}_{12}, $$",
@@ -1843,12 +1933,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathbf{L} = m_1 r_1^2 \\mathbf{\\omega} + m_2 r_2^2 \\mathbf{\\omega} = (m_1 r_1^2 + m_2 r_2^2) \\mathbf{\\omega} = 2mr^2 \\mathbf{\\omega} $$",
                     "dove $m = m_1, m_2$ e $r = r_1, r_2$. Supponiamo che le distanze dei punti dall’asse in un certo istante vengano cambiate e valgano rispettivamente $r_1'$ e $r_2'$. Il momento angolare in tale circostanza diventa:",
                     "$$ \\mathbf{L}' = 2mr'^2 \\mathbf{\\omega}'. $$",
-                    "Su tale sistema le uniche forze agenti sono la tensione della sbarretta e la forza peso. La prima fornisce ai punti la forza centripeta necessaria al moto circolare e, trattandosi di forza interna, ha momento nullo. La seconda ha momento risultante nullo rispetto ad $O$. Pertanto, siccome il momento delle forze esterne agenti sul sistema è nullo, segue che il momento angolare si conserva e $\\mathbf{L} = \\mathbf{L}'$, da cui si ha:",
+                    "![Sistema rotante a due corpi: conservazione momento angolare|medium](/fisica-images/fig_117.avif)",
+                    "Su tale sistema le uniche forze agenti sono la tensione della sbarretta e la forza peso. La prima fornisce ai punti la forza centripeta necessaria al moto circolare e, trattandosi di forza interna, ha momento nullo. La seconda ha momento risultante nullo rispetto ad $O$.",
+                    "![Forze agenti sul sistema rotante (peso e tensione)|small](/fisica-images/fig_118.avif)",
+                    "Pertanto, siccome il momento delle forze esterne agenti sul sistema è nullo, segue che il momento angolare si conserva e $\\mathbf{L} = \\mathbf{L}'$, da cui si ha:",
                     "$$ 2mr^2 \\mathbf{\\omega} = 2mr'^2 \\mathbf{\\omega}', $$",
                     "ovvero:",
                     "$$ \\mathbf{\\omega}' = \\left( \\frac{r}{r'} \\right)^2 \\mathbf{\\omega}, $$",
                     "siccome $r' > r$, segue $\\omega' < \\omega$, cioè la rotazione rallenta a seguito dell’allungamento specificato.",
-                    "![Rotazione dumbbell allungabile](/IMAGES/rotating_dumbbell.avif)",
                     "Consideriamo un insieme di particelle di masse $m_i$; in un sistema di riferimento inerziale il momento angolare rispetto all’origine assunta come polo è:",
                     "$$ \\mathbf{L} = \\sum_i \\mathbf{r}_i \\times (m_i \\mathbf{v}_i) = \\sum_i (\\mathbf{r}_i' + \\mathbf{r}_{CM}) \\times [m_i (\\mathbf{v}_i' + \\mathbf{v}_{CM})] = $$",
                     "$$ = \\sum_i \\mathbf{r}_i' \\times (m_i \\mathbf{v}_i') + \\sum_i \\mathbf{r}_i' \\times (m_i \\mathbf{v}_{CM}) + \\sum_i \\mathbf{r}_{CM} \\times (m_i \\mathbf{v}_i') + \\sum_i \\mathbf{r}_{CM} \\times (m_i \\mathbf{v}_{CM}) = $$",
@@ -1856,10 +1948,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "e utilizzando le relazioni (6.13) e (6.14) si ottiene:",
                     "$$ \\mathbf{L} = \\mathbf{L}' + \\mathbf{r}_{CM} \\times (m\\mathbf{v}_{CM}) = \\mathbf{L}' + \\mathbf{L}_{CM}, $$",
                     "cioè il momento angolare del sistema di punti può esprimersi tramite le grandezze proprie del sistema di riferimento del centro di massa come somma del momento angolare del sistema di punti rispetto al centro di massa $\\mathbf{L}'$ e dal momento del centro di massa rispetto al sistema di riferimento inerziale. Dall’espressione precedente è possibile osservare che, sebbene per un punto materiale la nullità della quantità di moto implica la nullità del momento angolare, nel caso di un sistema di particelle, se è nulla la quantità di moto del centro di massa $m\\mathbf{v}_{CM}$ non è in generale nullo $\\mathbf{L}$ siccome i punti possono essere dotati di moto; viceversa, se $\\mathbf{L}$ è nullo allora, in generale, non è necessariamente nulla la quantità di moto del centro di massa, ma risulta $\\mathbf{L}_{CM} = -\\mathbf{L}'$."
+                    ,
                 ]
             },
             {
-                title: "6.4 Energia di un sistema di particelle",
+                title: "6.5 Energia di un sistema di particelle",
                 content: [
                     "Consideriamo un insieme di $n$ punti materiali di masse $m_1, m_2, ..., m_n$; il lavoro elementare $dW_i$ della forza $\\mathbf{F}_i$ agente sull’$i$-esimo punto in corrispondenza di uno spostamento $d\\mathbf{r}_i$ vale:",
                     "$$ dW_i = \\mathbf{F}_i \\cdot d\\mathbf{r}_i; \\hspace{4cm} \\tag{6.16} $$",
@@ -1869,6 +1962,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ W = W^{(ext)} + W^{(int)}. $$",
                     "In particolare il termine $dW_i^{(int)}$ è costituito dalla somma di termini del tipo:",
                     "$$ \\mathbf{F}_{ij} \\cdot d\\mathbf{r}_j + \\mathbf{F}_{ji} \\cdot d\\mathbf{r}_i = \\mathbf{F}_{ij} \\cdot d\\mathbf{r}_j - \\mathbf{F}_{ij} \\cdot d\\mathbf{r}_i = \\mathbf{F}_{ij} \\cdot d(\\mathbf{r}_j - \\mathbf{r}_i) = \\mathbf{F}_{ij} \\cdot d\\mathbf{r}_{ij}, $$",
+                    "![Lavoro delle forze interne in un sistema a due corpi|small](/fisica-images/fig_115.avif)",
                     "quindi il contributo al lavoro da parte delle forze interne non è, in generale, nullo ed è determinato dal cambiamento delle distanze mutue tra i punti materiali. Infatti laddove tali distanze restano immutate, come accade per un sistema rigido, risulta $W^{(int)} = 0$. La relazione (6.16) può essere espressa tramite la velocità $\\mathbf{v}_i$ dell’$i$-esimo punto come:",
                     "$$ dW_i = \\mathbf{F}_i \\cdot d\\mathbf{r}_i = m_i \\mathbf{v}_i \\cdot d\\mathbf{v}_i, $$",
                     "così, integrando sulle traiettorie e sommando su tutti i punti, si ottiene:",
@@ -1889,10 +1983,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove $E_k' = (1/2)\\sum_i m_i v_i'^2$ è l’energia cinetica del sistema di particelle riferita al centro di massa, il termine $E_{kCM} = (1/2)mv_{CM}^2$ è l’energia cinetica del centro di massa inteso come un punto materiale la cui massa è data dalla relazione (6.4) e il termine $\\sum_i m_i \\mathbf{v}_i' \\cdot \\mathbf{v}_{CM}$ è nullo per la (6.14). La relazione",
                     "$$ E_k = E_k' + E_{kCM} \\hspace{4cm} \\tag{6.17} $$",
                     "rappresenta l’espressione del **teorema di König**."
+                    ,
                 ]
             },
             {
-                title: "6.5 Azione di forze su punti diversi di un sistema di punti",
+                title: "6.6 Azione di forze su punti diversi di un sistema di punti",
                 content: [
                     "Consideriamo un insieme di $n$ punti materiali soggetti alle forze $\\mathbf{F}_1, \\mathbf{F}_2, ..., \\mathbf{F}_n$. Il momento $\\mathbf{\\tau}$ risultante di tali forze rispetto all’origine assunta come polo $O$ vale:",
                     "$$ \\mathbf{\\tau} = \\sum_i \\mathbf{r}_i \\times \\mathbf{F}_i $$",
@@ -1900,24 +1995,29 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\overrightarrow{OO'} = \\mathbf{r}_i - \\mathbf{r}_i', $$",
                     "il momento $\\mathbf{\\tau}'$ rispetto al polo $O'$ vale:",
                     "$$ \\mathbf{\\tau}' = \\sum_i \\mathbf{r}_i' \\times \\mathbf{F}_i = \\sum_i (\\mathbf{r}_i - \\overrightarrow{OO'}) \\times \\mathbf{F}_i = \\sum_i \\mathbf{r}_i \\times \\mathbf{F}_i - \\overrightarrow{OO'} \\times \\sum_i \\mathbf{F}_i = \\mathbf{\\tau} - \\overrightarrow{OO'} \\times \\mathbf{F} $$",
+                    "![Variazione del momento al variare del polo|medium](/fisica-images/fig_119.avif)",
                     "dove $\\mathbf{F} = \\sum_i \\mathbf{F}_i$ è la risultante di tutte le forze agenti sul sistema. Dalla precedente espressione si evince che il momento dipende, in generale, dalla scelta del polo, a meno che la risultante delle forze agenti sul sistema non sia nulla.",
-                    "**Esempio:** Consideriamo il sistema costituito da due punti materiali sui quali agiscono due forze, $\\mathbf{F}_1$ e $\\mathbf{F}_2$, di uguale intensità, applicate su due rette parallele e di verso opposto. In questa circostanza si dice che il sistema forma una **coppia**, la cui risultante è nulla, essendo $\\mathbf{F}_2 = -\\mathbf{F}_1$. Il momento rispetto ad un generico polo $O$ vale:",
+                    "**Esempio:** Consideriamo il sistema costituito da due punti materiali sui quali agiscono due forze, $\\mathbf{F}_1$ e $\\mathbf{F}_2$, di uguale intensità, applicate su due rette parallele e di verso opposto. In questa circostanza si dice che il sistema forma una **coppia**, la cui risultante è nulla, essendo $\\mathbf{F}_2 = -\\mathbf{F}_1$.",
+                    "![Coppia di forze: geometria e momento|small](/fisica-images/fig_120.avif)",
+                    "Il momento rispetto ad un generico polo $O$ vale:",
                     "$$ \\mathbf{\\tau}_1 = \\mathbf{r}_1 \\times \\mathbf{F}_1, $$",
                     "$$ \\mathbf{\\tau}_2 = \\mathbf{r}_2 \\times \\mathbf{F}_2, $$",
                     "così il momento risultante è:",
                     "$$ \\mathbf{\\tau} = \\mathbf{\\tau}_1 + \\mathbf{\\tau}_2 = \\mathbf{r}_1 \\times \\mathbf{F}_1 + \\mathbf{r}_2 \\times \\mathbf{F}_2 = \\mathbf{r}_1 \\times \\mathbf{F}_1 - \\mathbf{r}_2 \\times \\mathbf{F}_1 = \\Delta \\mathbf{r} \\times \\mathbf{F}_1, $$",
+                    "![Momento risultante di una coppia di forze|medium](/fisica-images/fig_121.avif)",
                     "essendo $\\Delta \\mathbf{r} \\equiv \\mathbf{r}_1 - \\mathbf{r}_2$. Siccome la risultante delle forze agenti sul sistema è nulla, tale risultato risulta indipendente dalla posizione del polo. Il modulo di $\\mathbf{\\tau}$ vale:",
                     "$$ \\tau = \\Delta r F_1 \\sin \\vartheta = (\\Delta r \\sin \\vartheta) F_1, $$",
                     "dove quantità",
                     "$$ b = \\Delta r \\sin \\vartheta $$",
                     "prende il nome di **braccio della coppia** e rappresenta la distanza tra le due rette di applicazione delle forze. Pertanto:",
                     "$$ \\tau = bF_1. $$",
-                    "![Coppia di forze e momento](/IMAGES/force_couple_moment.avif)",
+                    "![Geometria del braccio di una coppia|small](/fisica-images/fig_122.avif)",
                     "Quanto ottenuto nell’esempio precedente è in accordo con la relazione (6.8) secondo la quale il momento delle forze interne è nullo; ciò in quanto le forze interne costituiscono un insieme di coppie con braccio di lunghezza nulla per cui il corrispondente momento è nullo rispetto a qualsiasi polo."
+                    ,
                 ]
             },
             {
-                title: "6.6 Generalità sulla dinamica dei sistemi di punti",
+                title: "6.7 Generalità sulla dinamica dei sistemi di punti",
                 content: [
                     "Abbiamo visto che le equazioni che descrivono il moto di un sistema di punti materiali sono:",
                     "$$ \\mathbf{F}^{(ext)} = m\\mathbf{a}_{CM} = \\frac{d\\mathbf{p}}{dt}, $$",
@@ -1936,14 +2036,15 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "7-dinamica-corpo-rigido",
-        title: "7 DINAMICA DEL CORPO RIGIDO",
+        title: "Lezione 7: DINAMICA DEL CORPO RIGIDO",
         subsections: [
             {
-                title: "Introduzione",
+                title: "7.1 Introduzione",
                 content: [
                     "Per corpo rigido si intende un sistema di punti materiali caratterizzati dal fatto che le loro mutue distanze si mantengono costanti nel tempo, indipendentemente dalle eventuali sollecitazioni a cui è soggetto il sistema. Sebbene tale sistema costituisca un’astrazione, esistono numerosi casi pratici che soddisfano le proprietà di un corpo rigido in corrispondenza di piccole sollecitazioni.",
                     "Per i sistemi costituiti da un numero molto grande di punti, come nel caso dei corpi solidi, risulta opportuno introdurre una grandezza che caratterizzi la distribuzione delle masse nel corpo. Consideriamo un elemento di volume infinitesimo $dV$ del corpo e sia $dm$ la massa contenuta in tale volume; si definisce **densità** del corpo la quantità:",
                     "$$ \\rho \\equiv \\frac{dm}{dV}, $$",
+                    "![Elemento di massa e densità in un corpo continuo|small](/fisica-images/fig_123.avif)",
                     "dove il volume $dV$ deve essere sufficientemente grande da contenere un numero elevato di molecole costituenti il corpo, ma abbastanza piccolo perché le proprietà del corpo si possano ritenere praticamente uniformi in esso. Dalla precedente definizione segue che la massa $m$ del corpo può esprimersi come:",
                     "$$ m = \\int_{\\mathcal{V}} \\rho dV. $$",
                     "In particolare se $\\rho$ è uniforme la massa $m$ vale $\\rho \\mathcal{V}$ e pertanto:",
@@ -1952,13 +2053,15 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.1 Moto di un corpo rigido",
+                title: "7.2 Moto di un corpo rigido",
                 content: [
                     "Trattandosi di un corpo esteso, il moto di un corpo rigido è determinato dalle forze esterne che agiscono su di esso e sono, in generale, applicate in punti diversi del corpo. L’insieme delle forze agenti è caratterizzato da una forza risultante $\\mathbf{F}^{(ext)}$ e da un momento risultante $\\mathbf{\\tau}^{(ext)}$ indipendenti tra loro. Inoltre, mantenendosi invariate le mutue distanze tra le particelle che lo compongono, il lavoro delle forze interne al corpo rigido è nullo, per cui è solo il lavoro delle forze esterne a produrre la variazione dell’energia cinetica del corpo rigido. Pertanto, in quest’ambito di studio, non è necessario distinguere le forze interne da quelle esterne, essendo solo queste ultime a determinare la dinamica del corpo rigido e si farà a meno dell’indicazione \"ext\" in corrispondenza dei vettori che stabiliscono la dinamica del corpo.",
                     "Si definisce **moto rigido** di un sistema di punti, un moto durante il quale resta invariata la distanza tra le coppie di punti che lo costituiscono. Gli spostamenti rigidi elementari sono la traslazione e la rotazione.",
+                    "![Cinematica del corpo rigido: traslazione e rotazione|medium](/fisica-images/fig_124.avif)",
                     "Per **traslazione** di un corpo rigido si intende il moto rigido che lascia invariata la terna $O'x'y'z'$ solidale al corpo rispetto a quella di un riferimento fisso $Oxyz$. Ne segue che il vettore spostamento è lo stesso per ogni punto del corpo e di conseguenza la velocità e l’accelerazione di tutti i punti sono le stesse ad ogni istante. Lo studio di questo moto può pertanto ricondursi allo studio del moto di un qualsiasi punto del sistema o, eventualmente, al moto del centro di massa, anche se tale punto non appartiene fisicamente al sistema ma, comunque, si mantiene fisso rispetto ad esso.",
                     "Per **rotazione** di un corpo rigido si intende il moto che lascia invariata la posizione dei punti di una retta, denominata **asse di rotazione**. In tale caso lo spostamento subito dal generico punto $P$ del sistema dipende dalla sua distanza dall’asse di rotazione $uu'$. Se quest’asse è fisso, la traiettoria di $P$ sarà un arco di circonferenza ortogonale all’asse di rotazione e di raggio pari alla distanza del punto dall’asse. Se la posizione di $P$ è riferita ad un punto $O$ dell’asse $uu'$ mediante il vettore di posizione $\\mathbf{r}$, lo spostamento infinitesimo $d\\mathbf{r}$, determinato da una rotazione di vettore (Nota 1) $d\\mathbf{\\vartheta}$ è:",
                     "$$ d\\mathbf{r} = d\\mathbf{\\vartheta} \\times \\mathbf{r} $$",
+                    "![Rotazione attorno ad un asse fisso: relazione vettoriale|medium](/fisica-images/fig_125.avif)",
                     "**Nota 1:** Il vettore $d\\mathbf{\\vartheta}$ associato alla rotazione è un vettore di modulo pari allo spostamento angolare infinitesimo $d\\vartheta$, direzione coincidente con l’asse di rotazione e verso determinato dal senso di rotazione in base alla regola della mano destra.",
                     "così, introdotta la velocità angolare $\\mathbf{\\omega}$ pari a $d\\mathbf{\\vartheta}/dt$, dalla relazione (2.28) la velocità del punto si scrive:",
                     "$$ \\mathbf{v} = \\frac{d\\mathbf{r}}{dt} = \\frac{d\\mathbf{\\vartheta}}{dt} \\times \\mathbf{r} = \\mathbf{\\omega} \\times \\mathbf{r} $$",
@@ -1967,8 +2070,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "in cui $\\mathbf{\\alpha} \\times \\mathbf{r}$ è l’accelerazione tangenziale e $\\mathbf{\\omega} \\times (\\mathbf{\\omega} \\times \\mathbf{r})$ è l’accelerazione centripeta di modulo $\\omega^2 r \\sin \\phi$, dove $\\phi$ è l’angolo tra la direzione dell’asse $uu'$ e quella del vettore $\\mathbf{r}$.",
                     "Se si considera il moto rigido di un corpo rispetto ad un riferimento fisso $Oxyz$, detto $O'x'y'z'$ un sistema di riferimento con origine nel punto $O'$ del corpo ed appartenente all’asse, non fisso, di rotazione, per la legge di composizione delle velocità la velocità $\\mathbf{v}$ di un generico punto di posizione $\\mathbf{r}$ rispetto ad $O'$ vale:",
                     "$$ \\mathbf{v} = \\mathbf{v}_{O'} + \\mathbf{\\omega} \\times \\mathbf{r}', $$",
+                    "![Moto generale di un corpo rigido: traslazione e rotazione|medium](/fisica-images/fig_126.avif)",
                     "cioè lo spostamento elementare $\\mathbf{v}dt$ che caratterizza ciascun punto del corpo è composto da una traslazione con velocità $\\mathbf{v}_{O'}$ ed una rotazione di velocità angolare $\\mathbf{\\omega}$.",
-                    "![Rotazione rigida](/IMAGES/rigid_rotation_vectors.avif)",
                     "Le equazioni che descrivono il moto di un corpo rigido sono le relazioni (4.29) e (4.34):",
                     "$$ \\frac{d\\mathbf{p}}{dt} = \\mathbf{F}, $$",
                     "$$ \\frac{d\\mathbf{L}}{dt} = \\mathbf{\\tau}, $$",
@@ -1982,18 +2085,21 @@ export const fisicaCourseContent: MainSection[] = [
                     "i vettori $\\mathbf{r}$ e $\\mathbf{v}$ sono perpendicolari tra loro, così $\\mathbf{L}$ è diretto lungo l’asse; inoltre, per ciascun elemento $dm$ il modulo dei vettori $\\mathbf{r}$ e $\\mathbf{v}$ è costante e in particolare risulta:",
                     "$$ r = R, $$",
                     "$$ v = r\\omega = R\\omega $$",
+                    "![Velocità tangenziale di un elemento dell'anello|small](/fisica-images/fig_127.avif)",
                     "così, il modulo del momento angolare, vale:",
                     "$$ L = \\int_m R R\\omega dm' = R^2 \\omega \\int_m dm' = mR^2 \\omega. $$",
                     "La quantità $mR^2$ è una proprietà dell’anello relativa al particolare asse di rotazione scelto. Vettorialmente la relazione precedente si esprime:",
                     "$$ \\mathbf{L} = mR^2 \\mathbf{\\omega}. $$",
                     "**Esempio:** Valutiamo il momento angolare di un disco sottile omogeneo che ruota nelle stesse condizioni del precedente esempio. Sia $R$ il suo raggio ed $m$ la sua massa. In tali condizioni, il momento angolare elementare $dL$ dell’elemento $dm$ del disco vale:",
                     "$$ dL = rv dm, $$",
+                    "![Elemento di massa e velocità in un disco rotante|small](/fisica-images/fig_128.avif)",
                     "dove $r$ e $v$ sono, rispettivamente, la distanza dall’asse e la velocità dell’elemento $dm$. Quindi, siccome $v = r\\omega$, si ha:",
                     "$$ dL = rvdm = r r\\omega dm = \\omega r^2 dm = \\omega r^2 \\sigma dS, $$",
                     "dove $\\sigma$ è la densità superficiale del disco, pari a:",
                     "$$ \\sigma = \\frac{m}{S} = \\frac{m}{\\pi R^2}. $$",
                     "L’elemento di superficie $dS$ può esprimersi come:",
                     "$$ dS = r d\\phi dr, $$",
+                    "![Integrazione disco in coordinate polari|small](/fisica-images/fig_129.avif)",
                     "così, sostituendo:",
                     "$$ dL = \\omega r^2 \\sigma r d\\phi dr = \\omega \\sigma r^3 d\\phi dr. $$",
                     "Integrando questa espressione si ha:",
@@ -2002,16 +2108,19 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ dL = dm r^2 \\omega, $$",
                     "dove $dm$ può esprimersi tramite la densità superficiale $\\sigma$ come:",
                     "$$ dm = 2\\pi r \\sigma dr $$",
+                    "![Integrazione disco per anelli concentrici|small](/fisica-images/fig_130.avif)",
                     "così, sostituendo, si ottiene:",
                     "$$ dL = 2\\pi r \\sigma r^2 \\omega dr = 2\\pi \\sigma r^3 \\omega dr, $$",
                     "che porta a quanto già trovato."
+                    ,
                 ]
             },
             {
-                title: "7.2 Centro di massa di un corpo continuo",
+                title: "7.3 Centro di massa di un corpo continuo",
                 content: [
                     "Consideriamo un corpo rigido di massa $m$ e densità $\\rho$. Estendendo a tale corpo la definizione di centro di massa per un sistema di punti materiali, possiamo esprimere tale grandezza come la somma di infiniti vettori $\\mathbf{r} dm$ associati all’elemento infinitesimo di massa $dm$ rispetto ad un opportuno sistema di riferimento, divisa per la massa $m$. Pertanto:",
                     "$$ \\mathbf{r}_{CM} = \\frac{\\int_m \\mathbf{r} dm'}{\\int_m dm'} = \\frac{1}{m} \\int_V \\mathbf{r} \\rho dV $$",
+                    "![Integrazione su un corpo rigido generico|small](/fisica-images/fig_131.avif)",
                     "essendo $dm$ pari a $\\rho dV$. Se il corpo è omogeneo, ovvero se $\\rho$ è indipendente dalla posizione, la posizione del centro di massa non dipende dalla massa del corpo ma solo dalla sua forma, ciò in quanto $\\mathbf{r}_{CM}$ è la media del vettore $\\mathbf{r}$ calcolata sul volume $\\mathcal{V}$ del corpo:",
                     "$$ \\mathbf{r}_{CM} = \\frac{1}{m} \\int_\\mathcal{V} \\mathbf{r} \\rho dV = \\frac{\\rho}{m} \\int_\\mathcal{V} \\mathbf{r} dV = \\frac{1}{\\mathcal{V}} \\int_\\mathcal{V} \\mathbf{r} dV, $$",
                     "essendo $\\rho$ uniforme. Così, ad esempio, per una sbarretta omogenea il centro di massa è situato nel punto medio. Inoltre, per un corpo omogeneo simmetrico rispetto ad un punto, un asse o un piano, il centro di massa coincide con il centro di simmetria o è un punto del piano o dell’asse di simmetria. Infine, se esistono più assi o piani di simmetria, il centro di massa è situato sulla loro intersezione. Ad esempio, in un triangolo ci sono tre assi di simmetria costituiti dalle tre mediane, così il centro di massa è situato all’intersezione di questi tre assi.",
@@ -2024,6 +2133,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "cioè, in accordo con quanto anticipato, il centro di massa della sbarretta è situato nel suo punto medio.",
                     "**Esempio:** Consideriamo una lamina triangolare omogenea di massa $m$, altezza $h$ e base $b$. La densità superficiale vale:",
                     "$$ \\sigma = \\frac{m}{S} = \\frac{2m}{bh}, $$",
+                    "![Calcolo centro di massa lamina triangolare|small](/fisica-images/fig_132.avif)",
                     "dove $S$ è la superficie del triangolo. Dalla geometria del sistema segue che l’ordinata $y$ dell’elemento di superficie $dS$ vale:",
                     "$$ y = \\frac{2h}{b} x, $$",
                     "così l’elemento $dm$ si scrive:",
@@ -2031,15 +2141,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "e l’ordinata $y_{CM}$ del centro di massa vale:",
                     "$$ y_{CM} = \\frac{1}{m} \\int_m y dm' = \\frac{2}{\\sigma b h} \\int_S y dS' = \\frac{2}{bh} \\int_0^h y \\frac{b}{h} y dy = \\frac{2}{h^2} \\int_0^h y^2 dy = \\frac{2}{h^2} \\frac{h^3}{3} = \\frac{2}{3} h; $$",
                     "ovviamente risulta $x_{CM} = 0$.",
-                    "![Centro di massa lamina triangolare](/IMAGES/triangular_lamina_cm.avif)"
                 ]
             },
             {
-                title: "7.3 Rotazioni rigide attorno ad un asse fisso",
+                title: "7.4 Rotazioni rigide attorno ad un asse fisso",
                 content: [
                     "Consideriamo un corpo rigido in rotazione attorno ad un asse fisso in un sistema di riferimento inerziale. Siccome i punti dell’asse sono fissi, conviene adoperarli per il calcolo dei momenti; consideriamo quindi un sistema di riferimento inerziale con l’asse $z$ coincidente con l’asse di rotazione, in modo che il versore $\\hat{z}$ valga $\\mathbf{\\omega}/\\omega$. Il momento angolare di un generico punto $P_i$ del corpo è:",
                     "$$ \\mathbf{L}_i = \\mathbf{r}_i \\times (m_i \\mathbf{v}_i); $$",
-                    "tale vettore è ortogonale al piano definito da $\\mathbf{r}_i$ e $\\mathbf{v}_i$ e la sua direzione forma con l’asse $z$ un angolo pari a $\\pi/2 - \\vartheta_i$, dove $\\vartheta_i$ è l’angolo compreso tra la direzione di $\\mathbf{r}_i$ e quella dell’asse $z$. L’angolo tra le direzioni dei vettori $\\mathbf{r}_i$ e $\\mathbf{v}_i$ è di $\\pi/2$, inoltre dalla (2.28) il vettore $\\mathbf{v}_i$ può esprimersi attraverso la velocità angolare come $\\mathbf{\\omega} \\times \\mathbf{r}_i$ per cui in modulo vale $\\omega r_i \\sin \\vartheta_i = R_i \\omega$, dove",
+                    "tale vettore è ortogonale al piano definito da $\\mathbf{r}_i$ e $\\mathbf{v}_i$ e la sua direzione forma con l’asse $z$ un angolo pari a $\\pi/2 - \\vartheta_i$, dove $\\vartheta_i$ è l’angolo compreso tra la direzione di $\\mathbf{r}_i$ e quella dell’asse $z$.",
+                    "![Momento angolare di un punto in un corpo rigido|medium](/fisica-images/fig_133.avif)",
+                    "L’angolo tra le direzioni dei vettori $\\mathbf{r}_i$ e $\\mathbf{v}_i$ è di $\\pi/2$, inoltre dalla (2.28) il vettore $\\mathbf{v}_i$ può esprimersi attraverso la velocità angolare come $\\mathbf{\\omega} \\times \\mathbf{r}_i$ per cui in modulo vale $\\omega r_i \\sin \\vartheta_i = R_i \\omega$, dove",
                     "$$ R_i \\equiv r_i \\sin \\vartheta_i $$",
                     "è la proiezione di $\\mathbf{r}_i$ perpendicolarmente all’asse $z$, pari a $(x_i^2 + y_i^2)^{1/2}$. La proiezione del momento angolare $\\mathbf{L}_i$ lungo l’asse di rotazione è detta **momento angolare assiale** e si esprime come:",
                     "$$ L_{iz} = L_i \\cos \\left( \\frac{\\pi}{2} - \\vartheta_i \\right) = L_i \\sin \\vartheta_i = m_i r_i \\sin \\vartheta_i R_i \\omega = m_i R_i^2 \\omega. $$",
@@ -2048,19 +2159,26 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove la grandezza",
                     "$$ I_z \\equiv \\sum_i m_i R_i^2 = \\sum_i m_i (x_i^2 + y_i^2) \\hspace{4cm} \\tag{7.2} $$",
                     "prende il nome di **momento di inerzia** del corpo rispetto all’asse $z$. Tale quantità, che esprime la relazione di proporzionalità tra il momento angolare assiale e la velocità angolare dipende sia dalla massa $m_i$ dei singoli punti che dalla loro distanza $R_i$ dall’asse di rotazione.",
-                    "In generale, il vettore momento angolare del corpo rigido $\\mathbf{L}$ non è parallelo al vettore $\\mathbf{\\omega}$ ma è caratterizzato da un moto in cui l’estremo libero ruota attorno alla direzione di $\\mathbf{\\omega}$, ossia $\\mathbf{L}$ compie un **moto di precessione**. La componente parallela all’asse di rotazione è diretta come $\\mathbf{\\omega}$ e può variare solo in modulo e non dipende dal polo scelto; la componente perpendicolare all’asse di rotazione $\\mathbf{L}_\\perp$ varia in direzione, può variare in modulo, dipende dalla scelta del polo e in modulo vale $L_{i\\perp} = L_i \\cos \\vartheta_i = m_i r_i R_i \\omega \\cos \\vartheta_i$.",
+                    "In generale, il vettore momento angolare del corpo rigido $\\mathbf{L}$ non è parallelo al vettore $\\mathbf{\\omega}$ ma è caratterizzato da un moto in cui l’estremo libero ruota attorno alla direzione di $\\mathbf{\\omega}$, ossia $\\mathbf{L}$ compie un **moto di precessione**.",
+                    "![Decomposizione momento angolare e precessione|medium](/fisica-images/fig_134.avif)",
+                    "La componente parallela all’asse di rotazione è diretta come $\\mathbf{\\omega}$ e può variare solo in modulo e non dipende dal polo scelto; la componente perpendicolare all’asse di rotazione $\\mathbf{L}_\\perp$ varia in direzione, può variare in modulo, dipende dalla scelta del polo e in modulo vale $L_{i\\perp} = L_i \\cos \\vartheta_i = m_i r_i R_i \\omega \\cos \\vartheta_i$.",
                     "Quando il corpo presenta un asse di simmetria e la rotazione avviene attorno a tale asse, per ogni elemento del corpo il corrispondente vettore $\\mathbf{L}_i$ ha un vettore simmetrico $\\mathbf{L}_j$, associato all’elemento diametralmente opposto a quello dato rispetto l’asse. In questo caso il vettore momento angolare del corpo è orientato lungo l’asse di rotazione e pertanto risulta parallelo a $\\mathbf{\\omega}$. Si può dimostrare che per ogni corpo, indipendentemente dalla forma, esistono tre direzioni mutuamente perpendicolari tali che il momento angolare è parallelo all’asse di rotazione. Queste direzioni sono denominate **assi principali di inerzia** ed i corrispondenti momenti d’inerzia sono detti **momenti principali d’inerzia**. Gli assi principali coincidono con alcuni degli assi di simmetria qualora il corpo possieda qualche simmetria. Ad esempio, in una sfera tutti gli assi passanti per il centro sono assi principali o in un corpo a simmetria cilindrica, sono assi principali l’asse di simmetria e tutti gli assi ad esso perpendicolari. La relazione scalare (7.1), nel caso di rotazioni intorno ad un asse principale, può essere espressa nella forma vettoriale",
                     "$$ \\mathbf{L} = I\\mathbf{\\omega} \\hspace{4cm} \\tag{7.3} $$",
                     "in cui $I$ è il corrispondente momento principale d’inerzia. In questa circostanza, se $\\mathbf{L}$ è variabile la derivata $d\\mathbf{L}/dt$ è parallela a $\\mathbf{\\omega}$ e, siccome tale derivata dalla (4.34) è uguale al momento delle forze esterne $\\mathbf{\\tau}$ che causa la variazione di $\\mathbf{L}$, il momento $\\mathbf{\\tau}$ è diretto come il vettore $\\mathbf{\\omega}$. Se invece $\\mathbf{L}$ è costante anche $\\mathbf{\\omega}$ lo è; naturalmente, nel caso reale sul sistema agisce un momento d’attrito che tende ad annullare la rotazione per cui, affinché $\\mathbf{L}$ resti costante è necessario che sul sistema agisca un momento uguale ed opposto a quello determinato dalle forze d’attrito.",
-                    "![Moto di precessione di L](/IMAGES/precession_L.avif)",
-                    "**Esempio:** Consideriamo il sistema di figura in cui due sfere uguali di massa $m$ sono collegate da un’asta rigida di lunghezza $2R$. Supponiamo che inizialmente il sistema ruoti attorno ad un asse passante per il punto medio le sfere $r$ perpendicolare all’asta rigida con velocità angolare $\\mathbf{\\omega}$. Il momento angolare di ciascuna sfera vale:",
+                    "**Esempio:** Consideriamo il sistema di figura in cui due sfere uguali di massa $m$ sono collegate da un’asta rigida di lunghezza $2R$.",
+                    "![Sistema simmetrico rotante (due sfere su asta)|small](/fisica-images/fig_135.avif)",
+                    "Supponiamo che inizialmente il sistema ruoti attorno ad un asse passante per il punto medio le sfere $r$ perpendicolare all’asta rigida con velocità angolare $\\mathbf{\\omega}$. Il momento angolare di ciascuna sfera vale:",
                     "$$ \\mathbf{L}_1 = \\mathbf{r}_1 \\times (m\\mathbf{v}_1), $$",
                     "$$ \\mathbf{L}_2 = \\mathbf{r}_2 \\times (m\\mathbf{v}_2); $$",
                     "questi vettori sono uguali così, dalla (2.28), siccome $\\mathbf{v}_1 = \\mathbf{\\omega} \\times \\mathbf{r}_1$, si ha:",
                     "$$ \\mathbf{L} = 2\\mathbf{L}_1 = 2\\mathbf{r}_1 \\times (m\\mathbf{v}_1) = 2m\\mathbf{r}_1 \\times (\\mathbf{\\omega} \\times \\mathbf{r}_1) = 2m[(\\mathbf{r}_1 \\cdot \\mathbf{r}_1)\\mathbf{\\omega} - (\\mathbf{r}_1 \\cdot \\mathbf{\\omega})\\mathbf{r}_1] = 2mR^2 \\mathbf{\\omega}, $$",
-                    "essendo $\\mathbf{r}_1 \\cdot \\mathbf{\\omega} = 0$ poiché $\\mathbf{r}_1$ è perpendicolare a $\\mathbf{\\omega}$; quindi il momento angolare è un vettore di modulo pari a $2mR^2 \\omega$ e parallelo alla velocità angolare, ovvero il sistema ruota attorno ad un asse principale ed il momento d’inerzia vale $2mR^2$. Supponiamo che il sistema sia modificato in modo che l’asta formi un angolo $\\vartheta$ con l’asse di rotazione. In questo caso il momento angolare del sistema diventa:",
+                    "![Momento angolare in un sistema simmetrico: L parallelo a omega|small](/fisica-images/fig_136.avif)",
+                    "essendo $\\mathbf{r}_1 \\cdot \\mathbf{\\omega} = 0$ poiché $\\mathbf{r}_1$ è perpendicolare a $\\mathbf{\\omega}$; quindi il momento angolare è un vettore di modulo pari a $2mR^2 \\omega$ e parallelo alla velocità angolare, ovvero il sistema ruota attorno ad un asse principale ed il momento d’inerzia vale $2mR^2$.",
+                    "![Momento torcente netto sul sistema|small](/fisica-images/fig_137.avif)",
+                    "Supponiamo che il sistema sia modificato in modo che l’asta formi un angolo $\\vartheta$ con l’asse di rotazione. In questo caso il momento angolare del sistema diventa:",
                     "$$ \\mathbf{L} = 2\\mathbf{L}_1 = 2\\mathbf{r}_1 \\times (m\\mathbf{v}_1) = 2m\\mathbf{r}_1 \\times (\\mathbf{\\omega} \\times \\mathbf{r}_1) = 2m[(\\mathbf{r}_1 \\cdot \\mathbf{r}_1)\\mathbf{\\omega} - (\\mathbf{r}_1 \\cdot \\mathbf{\\omega})\\mathbf{r}_1] = $$",
                     "$$ = 2mR^2 \\mathbf{\\omega} - 2mR \\omega \\cos \\vartheta \\mathbf{r}_1; $$",
+                    "![Sistema asimmetrico: L non parallelo a omega|medium](/fisica-images/fig_138.avif)",
                     "in tale circostanza, siccome i vettori $\\mathbf{r}_1$ e $\\mathbf{\\omega}$ non sono perpendicolari ($\\vartheta \\neq \\pi/2$), il secondo addendo di questa espressione non è nullo per cui $\\mathbf{L}$ e $\\mathbf{\\omega}$ non risultano paralleli. Il modulo del momento angolare totale può essere dedotto dalla relazione precedente, essendo:",
                     "$$ L = \\sqrt{(2mR^2)^2 \\omega^2 - (2mR \\omega \\cos \\vartheta)^2 r_1^2} = \\sqrt{(2mR^2 \\omega)^2 (1 - \\cos^2 \\vartheta)} = 2mR^2 \\omega \\sin \\vartheta, $$",
                     "che coincide col valore precedente se $\\vartheta = \\pi/2$. Il fatto che $\\mathbf{L}$ e $\\mathbf{\\omega}$ non sono paralleli indica che la rotazione non avviene attorno ad un asse principale. In questo caso la componente di $\\mathbf{L}$ nella direzione di $\\mathbf{\\omega}$ (asse $z$) ha modulo:",
@@ -2076,33 +2194,37 @@ export const fisicaCourseContent: MainSection[] = [
                     "d’altra parte, siccome $\\mathbf{L}_z$ è costante, risulta $d\\mathbf{L}_z/dt = \\mathbf{0}$, così:",
                     "$$ \\mathbf{\\tau} = \\frac{d\\mathbf{L}_\\perp}{dt} $$",
                     "dove $\\mathbf{L}_\\perp$ ha il modulo costante e pari a $mR^2 \\omega \\sin \\vartheta \\cos \\vartheta$ e l’estremo libero in rotazione attorno all’asse $z$.",
-                    "![Precessione momento angolare sfere](/IMAGES/spheres_angular_momentum.avif)"
                 ]
             },
             {
-                title: "7.4 Calcolo del momento d’inerzia",
+                title: "7.5 Calcolo del momento d’inerzia",
                 content: [
                     "Il momento d’inerzia rispetto ad un’asse (asse $z$) di un sistema di punti materiali $m_1, m_2, ..., m_n$, posti alle distanze $R_1, R_2, ..., R_n$ dall’asse è dato dalla relazione (7.2) $\\sum_i m_i R_i^2$, attraverso la quale è possibile dedurre che tale grandezza, calcolata rispetto ad un’asse di un corpo, fornisce una misura di quanta massa del corpo dista dall’asse.",
+                    "![Momento d'inerzia discreto: somma di punti materiali|small](/fisica-images/fig_139.avif)",
                     "Consideriamo un corpo continuo di densità $\\rho$, volume $\\mathcal{V}$ e massa $m$; il contributo di un elemento $dm$ del corpo al calcolo del momento d’inerzia rispetto ad un asse (asse $z$) è $R^2 dm$, dove $R$ è la distanza dell’elemento dall’asse. D’altra parte la massa dell’elemento $dm$ è pari a $\\rho dV$, così il momento d’inerzia del corpo continuo può esprimersi come:",
                     "$$ I = \\int_m R^2 d\\mu = \\int_\\mathcal{V} R^2 \\rho dV $$",
+                    "![Momento d'inerzia continuo: integrazione su volume|small](/fisica-images/fig_140.avif)",
                     "e, poiché $R^2 = x^2 + y^2$, si ha anche:",
                     "$$ I = \\int_\\mathcal{V} (x^2 + y^2) \\rho dV. $$",
                     "Dal fatto che il momento d’inerzia viene definito attraverso sommatorie o integrali segue che si tratta di una grandezza additiva, pertanto, se il corpo risulta costituito da più parti, il momento d’inerzia totale rispetto ad un’asse è pari alla somma dei momenti d’inerzia parziali, calcolati tutti rispetto allo stesso asse. Fissato un asse, il calcolo del momento di inerzia di un corpo procede in maniera analoga a quanto visto relativamente al centro di massa.",
-                    "![Calcolo momento inerzia corpo continuo](/IMAGES/moment_inertia_continuous.avif)",
                     "**Esempio:** Consideriamo un anello sottile di raggio $R$ e massa $m$. Se $\\lambda$ rappresenta la densità lineare dell’anello, pari a:",
                     "$$ \\lambda = \\frac{m}{2\\pi R}, $$",
+                    "![Momento d'inerzia: anello sottile|small](/fisica-images/fig_141.avif)",
                     "l’elemento infinitesimo di massa $dm$ può esprimersi come $\\lambda dl$, pertanto il momento di inerzia dell’anello rispetto ad un asse passante per il suo centro e perpendicolare al suo piano è:",
                     "$$ I = \\int_m R^2 d\\mu = \\int_0^{2\\pi R} R^2 \\lambda dl = 2\\pi R R^2 \\lambda = 2\\pi R^3 \\frac{m}{2\\pi R} = mR^2. $$",
                     "**Esempio:** Consideriamo un guscio cilindrico sottile di raggio $R$, altezza $h$ e massa $m$. Se $\\sigma$ rappresenta la densità superficiale del guscio, pari a:",
                     "$$ \\sigma = \\frac{m}{2\\pi Rh}, $$",
+                    "![Momento d'inerzia: cilindro cavo|small](/fisica-images/fig_142.avif)",
                     "l’elemento infinitesimo di massa $dm$ può esprimesi come $\\sigma ds$, pertanto il momento di inerzia del guscio rispetto al suo asse è:",
                     "$$ I = \\int_m R^2 d\\mu = \\int_S R^2 \\sigma ds = 2\\pi Rh R^2 \\sigma = 2\\pi R^3 h \\frac{m}{2\\pi Rh} = mR^2. $$",
                     "**Esempio:** Consideriamo un disco omogeneo di raggio $R$, spessore $h$ e massa $m$. La densità (volumetrica) vale:",
                     "$$ \\rho = \\frac{m}{\\pi R^2 h}, $$",
+                    "![Momento d'inerzia: disco o cilindro pieno|small](/fisica-images/fig_143.avif)",
                     "così l’elemento infinitesimo di massa $dm$ del disco può esprimersi come $\\rho dV$ e pertanto il momento di inerzia del disco rispetto al suo asse è:",
                     "$$ I = \\int_m R^2 d\\mu = \\int_0^h \\int_0^{2\\pi} \\int_0^R r^2 h d\\phi dr d\\rho = h\\rho \\int_0^{2\\pi} d\\phi \\int_0^R r^3 dr = h\\rho 2\\pi \\frac{R^4}{4} = h \\frac{m}{\\pi R^2 h} 2\\pi \\frac{R^4}{4} = \\frac{1}{2} mR^2. \\hspace{4cm} \\tag{7.4} $$",
                     "**Esempio:** Consideriamo un’asta sottile di lunghezza $d$ e massa $m$. La densità lineare $\\lambda$ dell’asta vale $m/d$, per cui il momento di inerzia rispetto ad un asse perpendicolare all’asta e passante per il suo centro vale:",
                     "$$ I = \\int_m R^2 d\\mu = \\int_{-d/2}^{d/2} R^2 \\lambda dR = \\lambda \\left( \\frac{d^3}{24} + \\frac{d^3}{24} \\right) = \\frac{m}{d} \\frac{d^3}{12} = \\frac{1}{12} md^2. \\hspace{4cm} \\tag{7.5} $$",
+                    "![Momento d'inerzia: asta sottile|small](/fisica-images/fig_144.avif)",
                     "Nella tabella seguente è indicato il momento di inerzia di alcuni corpi di massa $m$, relativamente a specificati assi.",
                     "| Corpo | Asse | Momento d'inerzia |",
                     "| :--- | :--- | :--- |",
@@ -2121,23 +2243,24 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.5 Teorema di Huygens-Steiner",
+                title: "7.6 Teorema di Huygens-Steiner",
                 content: [
                     "Il calcolo del momento d’inerzia di un corpo rispetto ad un asse può risultare particolarmente complesso qualora l’asse in questione non è un asse di simmetria. Si osservi come, negli esempi precedenti, il calcolo del momento d’inerzia risulta semplice in quanto l’asse passa per il centro di massa dei vari corpi. Tuttavia i momenti di inerzia rispetto ad assi paralleli ad uno passante per il centro di massa sono legati attraverso una formula particolarmente semplice. Consideriamo un corpo di massa $m$ e calcoliamo il momento d’inerzia rispetto ad un asse ($z'$) passante per il centro di massa. Per un elemento di massa $m_i$ del corpo, posto a distanza $R_i'$ dall’asse $z'$, il momento d’inerzia rispetto a tale asse vale $m_i R_i'^2$, ovvero $m_i (x_i'^2 + y_i'^2)$ essendo $R_i'^2$ pari a $x_i'^2 + y_i'^2$; pertanto, rispetto al centro di massa il relativo momento d’inerzia del corpo, $I_{CM}$, vale:",
                     "$$ I_{CM} = \\sum_i m_i R_i'^2 = \\sum_i m_i (x_i'^2 + y_i'^2). \\hspace{4cm} \\tag{7.6} $$",
                     "Con riferimento alla figura, il momento d’inerzia rispetto all’asse $z$, parallelo a $z'$ è dato dalla relazione (7.2); d’altra parte, poiché $y_i$ può esprimersi come $y_i' + d$, dove $d$ è la distanza dell’origine $O$ del sistema $xyz$ dal centro di massa del corpo e inoltre $x_i$ è uguale a $x_i'$, la relazione (7.2) può esprimersi come:",
                     "$$ I = \\sum_i m_i (x_i^2 + y_i^2) = \\sum_i m_i [x_i'^2 + (y_i' + d)^2] = \\sum_i m_i (x_i'^2 + y_i'^2 + 2y_i'd + d^2) = $$",
+                    "![Teorema degli assi paralleli (Huygens-Steiner)|medium](/fisica-images/fig_145.avif)",
                     "$$ = \\sum_i m_i (x_i'^2 + y_i'^2) + 2d \\sum_i m_i y_i' + d^2 \\sum_i m_i. $$",
                     "In questa relazione, dalla (7.6), il primo addendo è il momento d’inerzia rispetto al centro di massa; il secondo addendo è nullo, essendo pari alla coordinata $y$ del centro di massa $y_{CM}$ rispetto al sistema di riferimento del centro di massa; infine l’ultimo addendo vale $md^2$, pertanto:",
                     "$$ I = I_{CM} + md^2; \\hspace{4cm} \\tag{7.7} $$",
                     "da tale risultato, che prende il nome di **teorema di Huygens-Steiner**, segue che una volta noto il momento d’inerzia $I_{CM}$ rispetto ad un asse passante per il centro di massa è possibile ricavare il momento d’inerzia rispetto ad un qualsiasi asse ad esso parallelo. Si noti infine che il momento $I$ è sempre maggiore di $I_{CM}$.",
                     "**Esempio:** Facendo uso del risultato indicato dalla relazione (7.5), attraverso l’applicazione del teorema di Huygens-Steiner, è possibile determinare il momento d’inerzia di un’asta sottile rispetto ad un’asse perpendicolare all’asta e passante per un suo estremo. Indicando con $I_{CM}$ il momento d’inerzia rispetto all’asse passante per il centro di massa, $(1/12)md^2$, dalla (7.7) segue:",
                     "$$ I = I_{CM} + m \\left( \\frac{d}{2} \\right)^2 = \\frac{1}{12} md^2 + \\frac{1}{4} md^2 = \\frac{1+3}{12} md^2 = \\frac{1}{3} md^2. $$",
-                    "![Teorema assi paralleli](/IMAGES/parallel_axis_theorem.avif)"
+                    "![Applicazione del teorema di Steiner ad un'asta sottile|small](/fisica-images/fig_146.avif)",
                 ]
             },
             {
-                title: "7.6 Equazioni del moto di un corpo rigido",
+                title: "7.7 Equazioni del moto di un corpo rigido",
                 content: [
                     "Il momento angolare totale di un sistema di particelle e il momento della risultante delle forze agenti su di esso, entrambi calcolati rispetto ad un punto in quiete rispetto ad un sistema di riferimento inerziale, sono legati tra loro dalla relazione (4.34):",
                     "$$ \\frac{d\\mathbf{L}}{dt} = \\mathbf{\\tau}. $$",
@@ -2160,11 +2283,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "Se il centro di massa non è situato sull’asse di rotazione tale punto descrive una circonferenza sul piano perpendicolare all’asse con centro nell’intersezione tra tale piano e l’asse. Dalla relazione (2.31) l’accelerazione del centro di massa vale:",
                     "$$ \\mathbf{a}_{CM} = R_{CM} \\alpha \\hat{t} + R_{CM} \\omega^2 \\hat{n}, $$",
                     "dove $R_{CM}$ è la distanza del centro di massa dall’asse di rotazione.",
-                    "![Accelerazione centro di massa rotazione](/IMAGES/cm_rotation_acceleration.avif)"
                 ]
             },
             {
-                title: "7.7 Energia cinetica di rotazione",
+                title: "7.8 Energia cinetica di rotazione",
                 content: [
                     "L’energia cinetica per un sistema di particelle vale:",
                     "$$ E_k = \\sum_i \\frac{1}{2} m_i v_i^2, $$",
@@ -2187,10 +2309,13 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ E_k = \\frac{1}{2} I_z \\omega^2 = \\frac{1}{2} (I_{CM} + md^2)\\omega^2 = \\frac{1}{2} I_{CM} \\omega^2 + \\frac{1}{2} m (\\omega d)^2; $$",
                     "d’altra parte il prodotto $\\omega d$ è pari alla velocità del centro di massa $v_{CM}$, pertanto:",
                     "$$ E_k = \\frac{1}{2} I_{CM} \\omega^2 + \\frac{1}{2} m v_{CM}^2. $$",
+                    "![Energia cinetica di un corpo rigido rotante|medium](/fisica-images/fig_147.avif)",
                     "Cioè, se il centro di massa non è situato sull’asse di rotazione, ovvero se $d \\neq 0$ e quindi $v_{CM} \\neq 0$, in accordo col teorema di König l’energia cinetica del sistema è somma dell’energia cinetica $E_k'$ pari a $(1/2)I_{CM}\\omega^2$ del moto rispetto al centro di massa e dell’energia cinetica del centro di massa $E_{kCM}$ pari a $(1/2)mv_{CM}^2$. Infine, se le forze sono conservative, la quantità:",
                     "$$ E_k = \\frac{1}{2} I_{CM} \\omega^2 + \\frac{1}{2} m v_{CM}^2 + E_p, $$",
                     "si mantiene costante.",
-                    "**Esempio:** Un disco di raggio pari a $0.5 m$ e massa di $20 kg$ può ruotare liberamente attorno ad un asse passante per il suo centro. Stabiliamo l’accelerazione angolare e la velocità angolare dopo $2 s$ dall’applicazione di una forza di $9.8 N$, tramite una cinghia avvolta attorno al bordo del disco, supponendo che la velocità angolare iniziale sia nulla. Con riferimento alla figura si osserva che le forze esterne agenti sono la forza di trazione $\\mathbf{F}$, il peso $M\\mathbf{g}$ e le reazioni dei vincoli $\\mathbf{F}'$. Calcolando i momenti rispetto al centro di massa, si trova che solo $\\mathbf{F}$ ha momento $\\mathbf{\\tau}$ diverso da zero pertanto, siccome l’asse $zz'$ è un asse principale, segue:",
+                    "**Esempio:** Un disco di raggio pari a $0.5 m$ e massa di $20 kg$ può ruotare liberamente attorno ad un asse passante per il suo centro. Stabiliamo l’accelerazione angolare e la velocità angolare dopo $2 s$ dall’applicazione di una forza di $9.8 N$, tramite una cinghia avvolta attorno al bordo del disco, supponendo che la velocità angolare iniziale sia nulla.",
+                    "![Dinamica rotazionale di un disco fisso|small](/fisica-images/fig_148.avif)",
+                    "Con riferimento alla figura si osserva che le forze esterne agenti sono la forza di trazione $\\mathbf{F}$, il peso $M\\mathbf{g}$ e le reazioni dei vincoli $\\mathbf{F}'$. Calcolando i momenti rispetto al centro di massa, si trova che solo $\\mathbf{F}$ ha momento $\\mathbf{\\tau}$ diverso da zero pertanto, siccome l’asse $zz'$ è un asse principale, segue:",
                     "$$ \\tau = I\\alpha, $$",
                     "dove il modulo del momento $\\mathbf{\\tau}$ vale:",
                     "$$ \\tau = RF $$",
@@ -2204,8 +2329,9 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ 2F' - F - mg = 0, $$",
                     "e quindi",
                     "$$ F' = \\frac{1}{2} (F + Mg) \\approx 102.9 N. $$",
-                    "![Disco rotante con forza](/IMAGES/rotating_disk_forces.avif)",
-                    "**Esempio:** Nelle stesse condizioni dell’esempio precedente, calcoliamo l’accelerazione angolare del disco nell’ipotesi che alla cinghia sia applicato un corpo di massa $m$ pari a $1 kg$. L’equazione del moto della massa $m$ è:",
+                    "**Esempio:** Nelle stesse condizioni dell’esempio precedente, calcoliamo l’accelerazione angolare del disco nell’ipotesi che alla cinghia sia applicato un corpo di massa $m$ pari a $1 kg$.",
+                    "![Sistema accoppiato: massa sospesa e disco rotante|small](/fisica-images/fig_149.avif)",
+                    "L’equazione del moto della massa $m$ è:",
                     "$$ ma = mg - F, $$",
                     "dove $\\mathbf{F}$ è la trazione esercitata sul disco dal corpo e di conseguenza, $-\\mathbf{F}$ è la reazione che il disco esercita sul corpo. L’accelerazione $a$ può esprimersi come $R\\alpha$; inoltre l’equazione del moto del disco è:",
                     "$$ I\\alpha = \\tau, $$",
@@ -2221,7 +2347,9 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ F = m(g - a) = 8.9 N, $$",
                     "infine, le reazioni del vincolo hanno intensità pari a:",
                     "$$ F' = \\frac{1}{2} (F + Mg) = 102.4 N. $$",
-                    "**Esempio:** Un disco con le stesse caratteristiche di quello dell’esempio precedente è disposto come in figura. Stabiliamo l’accelerazione angolare e quella verso il basso del centro di massa. Anche in questo caso l’asse di rotazione $zz'$ è un asse principale quindi risulta:",
+                    "**Esempio:** Un disco con le stesse caratteristiche di quello dell’esempio precedente è disposto come in figura.",
+                    "![Moto di srotolamento (tipo yo-yo)|small](/fisica-images/fig_150.avif)",
+                    "Stabiliamo l’accelerazione angolare e quella verso il basso del centro di massa. Anche in questo caso l’asse di rotazione $zz'$ è un asse principale quindi risulta:",
                     "$$ I\\alpha = \\tau $$",
                     "dove $I = (1/2)MR^2$ e $\\tau = RF$ così, sostituendo si ha:",
                     "$$ F = \\frac{1}{2} MR\\alpha. $$",
@@ -2236,22 +2364,23 @@ export const fisicaCourseContent: MainSection[] = [
                     "e l’accelerazione $a$ vale",
                     "$$ a = R\\alpha = 6.53 m/s^2, $$",
                     "che è indipendente dalla massa e molto minore dell’accelerazione di caduta libera. Il centro di massa si muove, quindi, di moto uniformemente accelerato.",
-                    "![Disco rotante con massa appesa](/IMAGES/rotating_disk_mass.avif)"
                 ]
             },
             {
-                title: "7.8 Moto di puro rotolamento",
+                title: "7.9 Moto di puro rotolamento",
                 content: [
                     "Consideriamo un corpo di forma cilindrica situato su un piano e in movimento rispetto ad esso. Tale moto può esplicarsi secondo tre modalità:",
                     "1. **Moto di traslazione**: Le velocità di tutti i punti del corpo sono uguali tra loro e parallele al piano; in questo caso si dice comunemente che il corpo in questione striscia sul piano.",
                     "2. **Moto rototraslatorio**: Il corpo rotola sul piano e i punti di contatto hanno velocità diversa da zero rispetto al piano.",
                     "3. **Moto di puro rotolamento**: I punti di contatto tra corpo e piano presentano una velocità nulla rispetto al piano.",
                     "In questo ambito affrontiamo lo studio del terzo caso corrispondente, ad esempio, al moto di una ruota. In tale circostanza il moto può essere considerato come un moto di rotazione semplice intorno ad un asse parallelo all’asse della ruota e coincidente ad ogni istante con la linea di contatto con il piano (**asse istantaneo di rotazione**).",
-                    "![Distribuzione velocità rotolamento](/IMAGES/rolling_velocity_distribution.avif)",
+                    "![Geometria del rotolamento e asse istantaneo|small](/fisica-images/fig_152.avif)",
                     "Come evidenzia la prima figura, le velocità dei punti della ruota sono, in ciascun punto, normali alla congiungente il punto con la traccia dell’asse di rotazione ed hanno intensità pari a $\\omega \\overline{OP}$. Questa distribuzione istantanea di velocità si può ottenere sovrapponendo una distribuzione uniforme in cui tutti i punti si muovono con velocità $\\mathbf{v}_{CM}$, propria dell’asse della ruota ed una rotazione intorno all’asse della ruota con velocità angolare $\\mathbf{\\omega}$. Affinché, istante per istante, il punto $O$ resti fermo sulla ruota deve agire una forza; siccome il punto $O$ è fermo, la forza è una forza di attrito statico che si esercita tra il piano e la ruota.",
+                    "![Decomposizione del moto di rotolamento: traslazione + rotazione|medium](/fisica-images/fig_151.avif)",
                     "La velocità di un punto $P$ del corpo posto a distanza $r$ dal centro di massa si scrive come:",
                     "$$ \\mathbf{v}_P = \\mathbf{v}_{CM} + \\mathbf{\\omega} \\times \\mathbf{r}, $$",
                     "ovvero come somma della velocità del centro di massa e della velocità di $P$ rispetto al centro di massa. La condizione affinché si abbia un moto di puro rotolamento è che la velocità $\\mathbf{v}_O$ dei punti situati sull’asse istantaneo di rotazione sia nulla; allora dalla relazione precedente, che è valida per ogni punto del corpo, segue:",
+                    "![Relazione vettoriale nel rotolamento puro|small](/fisica-images/fig_153.avif)",
                     "$$ \\mathbf{v}_{CM} = -\\mathbf{\\omega} \\times \\mathbf{R}, $$",
                     "in cui il vettore $\\mathbf{R}$ ha origine nel centro di massa ed ha l’estremo libero in un punto dell’asse istantaneo di rotazione. Pertanto, nel moto di puro rotolamento, esiste una relazione definita tra la velocità con cui trasla il centro di massa e la velocità angolare, cioè tali grandezze non sono indipendenti. In modulo, siccome $\\mathbf{R}$ e $\\mathbf{\\omega}$ sono perpendicolari, si ha:",
                     "$$ v_{CM} = \\omega R $$",
@@ -2259,12 +2388,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ a_{CM} = \\alpha R. $$",
                     "Il moto testé descritto può aversi o per l’azione sull’asse di una forza orizzontale costante o attraverso l’applicazione sull’asse di un momento costante oppure, nel caso più generale, per l’azione contemporanea sull’asse sia di una forza che di un momento.",
                     "Consideriamo la prima circostanza, cioè supponiamo che il corpo rotoli senza strisciare su una superficie piana orizzontale per effetto di una forza orizzontale costante $\\mathbf{F}$ applicata all’asse. Sul corpo agiscono inoltre la forza peso $m\\mathbf{g}$ e la reazione $\\mathbf{F}_R$ del piano. Tale reazione si decompone in una componente normale $\\mathbf{N}$ ed una tangenziale $\\mathbf{f}$ (forza di attrito statico). Poiché $\\mathbf{F}$ è orientata nel verso positivo delle $x$, affinché il punto di contatto $O$ resti fermo la forza $\\mathbf{f}$ deve essere opposta a $\\mathbf{F}$, ovvero orientata nel verso negativo delle $x$. L’equazione del moto del centro di massa è:",
+                    "![Forze su un corpo che rotola (F applicata)|medium](/fisica-images/fig_154.avif)",
                     "$$ m\\mathbf{a}_{CM} = \\mathbf{F} + \\mathbf{F}_R + m\\mathbf{g}, $$",
                     "che, decomposta lungo gli assi coordinati, è:",
                     "$$ m a_{CM} = F - f, \\hspace{4cm} \\tag{7.10} $$",
                     "$$ 0 = N - mg, $$",
                     "dalla seconda delle quali segue immediatamente $N = mg$. L’equazione del moto di rotazione, scelto il centro di massa $CM$ come polo, si scrive:",
                     "$$ I\\mathbf{\\alpha} = \\mathbf{R} \\times \\mathbf{f} $$",
+                    "![Momento della forza d'attrito nel rotolamento|small](/fisica-images/fig_155.avif)",
                     "siccome, delle forze agenti, $\\mathbf{f}$ è l’unica ad avere momento rispetto al centro di massa diverso da zero. Poiché $\\mathbf{R}$ ed $\\mathbf{f}$ sono tra loro perpendicolari, segue:",
                     "$$ I\\alpha = Rf; $$",
                     "d’altra parte l’accelerazione $\\alpha$ vale $a_{CM}/R$ così, sostituendo segue:",
@@ -2278,7 +2409,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "Affinché non si abbia lo strisciamento, ovvero il punto $O$ resti fermo, l’intensità della forza $\\mathbf{f}$ non può superare l’intensità della massima forza d’attrito statico $\\mu_s N$ pari a $\\mu_s mg$. Quindi, dovendo risultare $f \\le \\mu_s N$, segue:",
                     "$$ F \\le \\mu_s N \\left( 1 + \\frac{mR^2}{I} \\right) \\equiv F_{max}, $$",
                     "pertanto, se l’intensità della forza $F$ supera il valore massimo $F_{max}$, il corpo rotola e striscia contemporaneamente.",
-                    "![Ruota con forza applicata all'asse](/IMAGES/wheel_force_axis.avif)",
                     "Consideriamo ora la circostanza secondo cui all’asse del corpo è applicato un momento $\\mathbf{\\tau}$, ad esempio attraverso un motore. In questo caso, affinché non si abbia slittamento la forza $\\mathbf{f}$ deve avere verso di figura. L’equazione del moto del centro di massa è:",
                     "$$ m\\mathbf{a}_{CM} = \\mathbf{F}_R + m\\mathbf{g} $$",
                     "che, decomposta lungo gli assi coordinati è:",
@@ -2297,7 +2427,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "Infine, affinché non si abbia lo strisciamento deve essere $f \\le \\mu_s N$, dove $N$ vale $mg$, ovvero:",
                     "$$ \\tau \\le \\mu_s mgR \\left( 1 + \\frac{I}{mR^2} \\right) \\equiv \\tau_{max} $$",
                     "così, se $\\tau$ supera il valore massimo $\\tau_{max}$ il corpo, oltre a rotolare, striscia. Si noti che a differenza della circostanza precedente in cui la reazione tangente $\\mathbf{f}$ si oppone al moto determinato dalla forza $\\mathbf{F}$, in questo caso, in cui il moto è originato dall’azione del momento $\\mathbf{\\tau}$, è la forza $\\mathbf{f}$ a causare l’accelerazione del centro di massa (dalla relazione (7.12)), cioè quando un motore fa girare una ruota è l’attrito col suolo che lo spinge in avanti.",
-                    "![Ruota con momento applicato](/IMAGES/wheel_torque.avif)",
                     "Nel caso più generale in cui si ha l’azione contemporanea della forza e del momento, non conoscendo a priori il verso della forza $\\mathbf{f}$ la assumiamo concorde con $\\mathbf{F}$ (concorde con l’asse $x$), allora le equazioni del moto si scrivono come:",
                     "$$ m a_{CM} = F + f, $$",
                     "$$ I\\alpha = \\tau - Rf, $$",
@@ -2308,11 +2437,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove, affinché si abbia il moto di puro rotolamento deve risultare $f \\le \\mu_s N = \\mu_s mg$. La forza di attrito $\\mathbf{f}$ sarà concorde o discorde con $\\mathbf{F}$ a seconda se $\\tau$ sia maggiore o minore di $IF/mR$ e, in particolare, quando $\\tau = IF/mR$ la forza $\\mathbf{f}$ è nulla e l’accelerazione del centro di massa $a_{CM}$ vale $F/m$. Cioè per $\\tau = IF/mR$ è possibile un moto accelerato anche in assenza di attrito; questo è il motivo, ad esempio, per cui occorre spingere un’autovettura le cui ruote hanno perso aderenza, come accade su una superficie ghiacciata.",
                     "In tutti i casi esaminati il moto di traslazione e il moto di rotazione risultano entrambi accelerati, cioè $a_{CM}$ e $\\alpha$ sono costanti se è tale la sollecitazione applicata. Per avere un moto accelerato è essenziale la presenza dell’attrito (statico) salvo in casi particolari. Tuttavia le forze e i momenti agenti devono essere tali che la forza d’attrito non superi la forza massima di attrito statico altrimenti il corpo, oltre che rotolare, striscia, situazione quest’ultima, in cui agisce l’attrito dinamico. Si noti che nel moto di puro rotolamento la forza d’attrito non compie lavoro essendo applicata ad un punto che, istante per istante, è fermo, quindi pur essendoci la forza, non c’è alcuno spostamento; ne segue che in tale circostanza vale la legge di conservazione dell’energia meccanica.",
                     "Sperimentalmente si osserva che un corpo che rotola senza strisciare su una superficie orizzontale, in assenza di forze e momenti applicati, dopo un certo tempo si arresta. Ciò suggerisce l’esistenza di un’altra forma di attrito, detto **attrito volvente** o **di rotolamento**, attribuito alla deformazione locale del piano in corrispondenza del corpo. L’attrito volvente si può schematizzare introducendo un momento resistente applicato sul corpo che rotola, il cui modulo è proporzionale alla componente normale $N$ della forza di contatto tra il corpo e il piano d’appoggio:",
+                    "![Momento resistente da attrito volvente|small](/fisica-images/fig_156.avif)",
                     "$$ \\tau_R = \\rho_v N; $$",
                     "sperimentalmente si osserva che il **coefficiente di attrito volvente** $\\rho_v$ è largamente indipendente da $N$, dal raggio del corpo di forma circolare che rotola e dalla velocità angolare di rotolamento, ma dipende dalla natura e dallo stato di lavorazione delle superfici a contatto. Per vincere il momento dovuto all’attrito volvente si deve applicare al corpo, di massa $m$ e raggio $R$, una forza di trazione $F$ tale che:",
                     "$$ F \\ge \\frac{\\tau_R}{R} = \\frac{\\rho_v N}{R} = \\frac{\\rho_v mg}{R}. $$",
                     "L’effetto dell’attrito volvente risulta solitamente molto piccolo per cui il suo contributo viene spesso trascurato.",
-                    "**Esempio:** Valutiamo la velocità raggiunta da un corpo cilindrico di massa $m$ che rotola senza strisciare lungo un piano inclinato a partire da un istante iniziale $t=0$ in cui è a riposo alla quota $h$. Applicando il principio di conservazione dell’energia si ha:",
+                    "**Esempio:** Valutiamo la velocità raggiunta da un corpo cilindrico di massa $m$ che rotola senza strisciare lungo un piano inclinato a partire da un istante iniziale $t=0$ in cui è a riposo alla quota $h$.",
+                    "![Conservazione dell'energia nel rotolamento su piano inclinato|small](/fisica-images/fig_157.avif)",
+                    "Applicando il principio di conservazione dell’energia si ha:",
                     "$$ E_{p1} + E_{k1} = E_{p2} + E_{k2}, $$",
                     "dove $E_{p1}$ vale $mgh$, $E_{k1}$ è zero essendo il corpo in quiete all’istante iniziale, $E_{p2}$ è zero, se si assume il livello di riferimento dell’energia potenziale passante per il centro del corpo quando questo è alla base del piano e infine $E_{k2}$ vale $(1/2)I\\omega^2 + (1/2)mv_{CM}^2$, dove $\\omega$ e $v_{CM}$ sono, rispettivamente, la velocità angolare e la velocità del centro di massa del corpo e $I$ è il momento d’inerzia del corpo calcolato rispetto al suo asse longitudinale. Sostituendo si ha:",
                     "$$ mgh = \\frac{1}{2} I \\omega^2 + \\frac{1}{2} m v_{CM}^2 = \\frac{1}{2} I \\frac{v_{CM}^2}{R^2} + \\frac{1}{2} m v_{CM}^2, $$",
@@ -2320,6 +2452,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ v_{CM} = \\sqrt{\\frac{2gh}{1 + \\frac{I}{mR^2}}}. $$",
                     "Qualora il corpo scivolasse senza attrito, l’espressione del principio di conservazione dell’energia sarebbe $mgh = (1/2) m v_{CM}^2$, da cui si ha $v_{CM} = \\sqrt{2gh}$. Invece, quando il corpo rotola senza strisciare l’energia potenziale iniziale $mgh$ si trasforma in energia cinetica di rotazione $(1/2)I\\omega^2$ del moto rispetto al centro di massa ed energia cinetica di traslazione del centro di massa $(1/2)mv_{CM}^2$. Per tale motivo la velocità finale del moto lungo il piano inclinato soddisfa la disuguaglianza:",
                     "$$ v_{CM} < \\sqrt{2gh}. $$",
+                    "![Forze su un corpo che rotola su piano inclinato|medium](/fisica-images/fig_158.avif)",
                     "Indicando con $\\mathbf{f}$ la forza di attrito statico tra il corpo ed il piano, l’equazione del moto del centro di massa è:",
                     "$$ m a_{CM} = mg \\sin \\vartheta - f $$",
                     "e l’equazione del moto di rotazione attorno al centro di massa è:",
@@ -2334,8 +2467,9 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\tan \\vartheta \\le \\mu_s \\left( 1 + \\frac{mR^2}{I} \\right), $$",
                     "cioè, affinché si abbia un moto di puro rotolamento l’inclinazione del piano non deve superare il valore massimo",
                     "$$ \\vartheta_m = \\arctan \\left[ \\mu_s \\left( 1 + \\frac{mR^2}{I} \\right) \\right]. $$",
-                    "![Rotolamento piano inclinato](/IMAGES/rolling_inclined_plane.avif)",
-                    "**Esempio:** Consideriamo un cilindro pieno, di massa pari a $20 kg$ e raggio di $25 cm$ che rotola senza strisciare su un piano orizzontale. All’asse del cilindro è applicato un momento, perpendicolare al piano del foglio ed entrante, di modulo pari a $30 Nm$ ed è contemporaneamente sospeso, tramite un filo inestensibile e di massa trascurabile, un corpo di massa pari a $10 kg$. Stabiliamo l’accelerazione del centro di massa del cilindro, la tensione del filo e il minimo valore consentito per il coefficiente d’attrito affinché il cilindro rotoli senza strisciare. Si noti che la direzione della forza $\\mathbf{T}$ agente sul cilindro e il verso di rotazione determinato dal momento $\\mathbf{\\tau}$ fanno sì che la forza d’attrito $\\mathbf{f}$ deve avere verso opposto rispetto a $\\mathbf{T}$. Assumendo che il verso di $\\mathbf{a}_{CM}$ sia concorde con quello di $\\mathbf{f}$ (se poi, attraverso i calcoli, si trova $a_{CM} < 0$, allora il verso di tale vettore è opposto a quello arbitrariamente assunto), segue l’equazione del moto del centro di massa del cilindro:",
+                    "**Esempio:** Consideriamo un cilindro pieno, di massa pari a $20 kg$ e raggio di $25 cm$ che rotola senza strisciare su un piano orizzontale. All’asse del cilindro è applicato un momento, perpendicolare al piano del foglio ed entrante, di modulo pari a $30 Nm$ ed è contemporaneamente sospeso, tramite un filo inestensibile e di massa trascurabile, un corpo di massa pari a $10 kg$.",
+                    "![Sistema rototraslante accoppiato: cilindro e massa sospesa|medium](/fisica-images/fig_159.avif)",
+                    "Stabiliamo l’accelerazione del centro di massa del cilindro, la tensione del filo e il minimo valore consentito per il coefficiente d’attrito affinché il cilindro rotoli senza strisciare. Si noti che la direzione della forza $\\mathbf{T}$ agente sul cilindro e il verso di rotazione determinato dal momento $\\mathbf{\\tau}$ fanno sì che la forza d’attrito $\\mathbf{f}$ deve avere verso opposto rispetto a $\\mathbf{T}$. Assumendo che il verso di $\\mathbf{a}_{CM}$ sia concorde con quello di $\\mathbf{f}$ (se poi, attraverso i calcoli, si trova $a_{CM} < 0$, allora il verso di tale vettore è opposto a quello arbitrariamente assunto), segue l’equazione del moto del centro di massa del cilindro:",
                     "$$ m_1 a_{CM} = f - T. $$",
                     "L’equazione del moto di rotazione è:",
                     "$$ I\\alpha = \\tau - Rf, $$",
@@ -2350,20 +2484,21 @@ export const fisicaCourseContent: MainSection[] = [
                     "essendo $I = (1/2)m_1 R^2$. Se $\\tau > m_2 gR$ il moto avviene nella direzione di $\\mathbf{f}$, altrimenti avviene nella direzione opposta. Sostituendo tale valore nell’espressione di $T$ segue che tale quantità vale $103.5 N$, mentre $f$ è di $114.5 N$. Infine, dovendo valere $f < \\mu_s m_1 g$, segue:",
                     "$$ \\mu_s \\ge \\frac{f}{m_1 g} \\approx 0.58; $$",
                     "se $\\mu_s$ è minore, l’attrito del piano risulta insufficiente a garantire il puro rotolamento.",
-                    "![Cilindro con momento e massa appesa](/IMAGES/cylinder_torque_mass.avif)"
                 ]
             },
             {
-                title: "7.9 Impulso angolare",
+                title: "7.10 Impulso angolare",
                 content: [
                     "Attraverso la seconda legge di Newton è stata riguardata la variazione infinitesima della quantità di moto $d\\mathbf{p}$ come l’impulso elementare della forza $\\mathbf{F} = d\\mathbf{p}/dt$ tra i tempi $t$ e $t + dt$. In analogia, dalla relazione (4.34) è possibile definire la quantità $d\\mathbf{L}$ come **impulso angolare elementare** del momento $\\mathbf{\\tau}$. Integrando tale quantità tra i tempi $t_1$ e $t_2$ si ottiene l’impulso angolare del momento $\\mathbf{\\tau}$ nell’intervallo $t_2 - t_1$:",
                     "$$ \\vec{\\mathcal{I}}_\\tau = \\int_{t_1}^{t_2} \\mathbf{\\tau} dt = \\mathbf{L}(t_2) - \\mathbf{L}(t_1); $$",
-                    "pertanto l’impulso angolare di $\\mathbf{\\tau}$ è pari alla variazione del momento angolare del corpo. Così, come per mettere in moto un corpo occorre applicare ad esso una forza per un breve istante, analogamente per determinare la rotazione di un corpo attorno ad un asse fisso o per farlo rotolare bisogna applicargli un momento per un breve tempo. Ad esempio, per porre in rotazione un’asta rigida sospesa ad un estremo è possibile applicare una forza intensa $\\mathbf{F}$ per un breve tempo. Se $\\mathbf{R}$ è il vettore che origina dal punto in cui l’asta è vincolata ed ha l’estremo libero in corrispondenza punto di applicazione della forza $\\mathbf{F}$, rispetto al polo $O$ situato nel punto di sospensione si ha:",
+                    "pertanto l’impulso angolare di $\\mathbf{\\tau}$ è pari alla variazione del momento angolare del corpo. Così, come per mettere in moto un corpo occorre applicare ad esso una forza per un breve istante, analogamente per determinare la rotazione di un corpo attorno ad un asse fisso o per farlo rotolare bisogna applicargli un momento per un breve tempo. Ad esempio, per porre in rotazione un’asta rigida sospesa ad un estremo è possibile applicare una forza intensa $\\mathbf{F}$ per un breve tempo.",
+                    "![Impulso angolare su un'asta rigida vincolata|small](/fisica-images/fig_160.avif)",
+                    "Se $\\mathbf{R}$ è il vettore che origina dal punto in cui l’asta è vincolata ed ha l’estremo libero in corrispondenza punto di applicazione della forza $\\mathbf{F}$, rispetto al polo $O$ situato nel punto di sospensione si ha:",
                     "$$ \\vec{\\mathcal{I}}_\\tau = \\int_{t_1}^{t_2} \\mathbf{\\tau} dt = \\int_{t_1}^{t_2} (\\mathbf{R} \\times \\mathbf{F}) dt = \\mathbf{R} \\times \\int_{t_1}^{t_2} \\mathbf{F} dt = \\mathbf{R} \\times \\vec{\\mathcal{I}}, $$",
                     "se la forza è applicata tra gli istanti $t_1$ e $t_2$. Il prodotto vettoriale $\\mathbf{R} \\times \\vec{\\mathcal{I}}$ viene spesso indicato come **momento dell’impulso** $\\vec{\\mathcal{I}}$ (della forza $\\mathbf{F}$). Nell’espressione dell’integrale non compaiono le forze di reazione del vincolo perché hanno momento nullo essendo applicate in $O$ e si è trascurato il momento della forza peso $\\mathbf{R}_p \\times \\mathbf{p}$ perché assunto piccolo rispetto al momento di $\\mathbf{F}$.",
-                    "![Impulso angolare su asta](/IMAGES/angular_impulse_rod.avif)",
                     "**Esempio:** Consideriamo un’asta di massa $m$ e lunghezza $l$ che può ruotare in un piano verticale attorno ad un suo estremo. Stabiliamo la velocità del centro di massa quando l’asta, lasciata cadere dalla sua posizione orizzontale, raggiunge la posizione verticale. Quando l’asta è in posizione orizzontale l’energia totale vale $mgl$ mentre quando raggiunge la posizione verticale l’energia vale $(1/2)I\\omega^2 + mg(l/2)$, pertanto dal principio di conservazione dell’energia segue:",
                     "$$ mgl = \\frac{1}{2} I \\omega^2 + mg \\frac{l}{2}, $$",
+                    "![Centro di percussione e velocità del CM|small](/fisica-images/fig_161.avif)",
                     "dove",
                     "$$ I = \\frac{1}{3} ml^2 $$",
                     "così, sostituendo, si ha:",
@@ -2372,57 +2507,63 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\omega = \\sqrt{\\frac{3g}{l}}. $$",
                     "Infine, siccome $v_{CM}$ vale $\\omega l/2$, si ha:",
                     "$$ v_{CM} = \\sqrt{\\frac{3gl}{4}}. $$"
+                    ,
                 ]
             },
             {
-                title: "7.10 Statica",
+                title: "7.11 Statica",
                 content: [
                     "Per un punto materiale in quiete la condizione di equilibrio è che la risultante delle forze agenti su di esso sia nulla. Nel caso di un corpo rigido tale condizione non è sufficiente a garantire l’equilibrio in quanto il corpo può essere soggetto ad un momento che ne altera la condizione di equilibrio. Pertanto le condizioni di equilibrio statico per un corpo rigido inizialmente in quiete sono:",
                     "$$ \\sum_i \\mathbf{F}_i = \\mathbf{0}, $$",
                     "$$ \\sum_i \\mathbf{\\tau}_i = \\mathbf{0}, $$",
                     "ovvero, per ottenere l’equilibrio traslazionale la somma di tutte le forze agenti deve essere uguale a zero e per ottenere l’equilibrio rotazionale la somma di tutti i momenti deve essere uguale a zero. In particolare se $\\sum_i \\mathbf{F}_i = \\mathbf{0}$, si ha l’equilibrio statico del centro di massa, $\\mathbf{v}_{CM} = \\mathbf{0}$; mentre se $\\sum_i \\mathbf{\\tau}_i = \\mathbf{0}$ non si ha moto rotatorio, $\\mathbf{\\omega} = \\mathbf{0}$. In particolare se risulta $\\sum_i \\mathbf{F}_i = \\mathbf{0}$ il momento totale $\\sum_i \\mathbf{\\tau}_i$ è indipendente dalla scelta del polo così, se è nullo rispetto ad un polo, è tale rispetto a qualsiasi altro polo.",
                     "Consideriamo un corpo sospeso soggetto alla forza peso. Se il centro di massa non si trova lungo la verticale passante per il punto di sospensione $O$, il momento della forza peso $\\mathbf{R} \\times (m\\mathbf{g})$ determina un’accelerazione angolare del corpo. In questo caso non può esserci equilibrio statico a meno che non intervenga un altro momento a contrastare il momento della forza peso. Se invece il centro di massa è situato lungo la verticale per $O$ ed ha velocità nulla, la posizione è di equilibrio. Tale condizione è soddisfatta sia che il centro di massa si situi al di sopra che al di sotto del punto di sospensione lungo la verticale. Tuttavia nel primo caso l’equilibrio è **instabile**, ovvero se ne viene allontanato se ne distanzia ulteriormente, nel secondo caso è di **equilibrio stabile**, cioè se ne viene allontanato tende a tornare nella posizione originaria. Infine se il punto di sospensione coincide col centro di massa l’equilibrio è detto **indifferente** poiché, essendo sempre nullo il momento della forza peso, il corpo permane in qualsiasi posizione in cui viene abbandonato.",
-                    "![Equilibrio corpo sospeso](/IMAGES/suspended_body_equilibrium.avif)",
+                    "![Momento della forza peso su un corpo rigido vincolato|small](/fisica-images/fig_162.avif)",
                     "**Esempio:** Un’asta di massa $m$ è in quiete appoggiata a due supporti. Stabiliamo le reazioni determinate da tali supporti. L’equilibrio traslazionale implica:",
                     "$$ N_1 + N_2 = mg $$",
+                    "![Equilibrio statico: trave su due appoggi|medium](/fisica-images/fig_163.avif)",
                     "e, assumendo il centro di massa come polo, l’equilibrio rotazionale implica:",
                     "$$ x_1 N_1 = x_2 N_2. $$",
                     "Facendo il sistema tra tali relazioni si ha:",
                     "$$ N_1 = \\frac{x_2}{x_1 + x_2} mg, $$",
                     "$$ N_2 = \\frac{x_1}{x_1 + x_2} mg. $$",
                     "Si noti che se $x_1 = x_2$ allora $N_1 = mg/2 = N_2$.",
-                    "![Asta su due supporti](/IMAGES/rod_on_supports.avif)",
-                    "**Esempio:** Una scala di massa $m$ e lunghezza $l$ è poggiata con un estremo $A$ ad una parete verticale senza attrito e con l’altro estremo $B$ sul pavimento in cui è presente l’attrito. Stabiliamo le reazioni dei vincoli. Siccome il vincoli in $A$ è liscio, la reazione si esplica solo normalmente alla parete; al contrario in $B$, il vincoli presenta attrito e quindi la reazione forma un angolo diverso da zero con la direzione verticale. La condizione di equilibrio traslazionale implica:",
+                    "**Esempio:** Una scala di massa $m$ e lunghezza $l$ è poggiata con un estremo $A$ ad una parete verticale senza attrito e con l’altro estremo $B$ sul pavimento in cui è presente l’attrito.",
+                    "![Geometria di una scala appoggiata al muro|small](/fisica-images/fig_164.avif)",
+                    "Stabiliamo le reazioni dei vincoli. Siccome il vincoli in $A$ è liscio, la reazione si esplica solo normalmente alla parete; al contrario in $B$, il vincoli presenta attrito e quindi la reazione forma un angolo diverso da zero con la direzione verticale. La condizione di equilibrio traslazionale implica:",
                     "$$ x: \\quad N_A - N_{Bx} = 0, $$",
                     "$$ y: \\quad N_{By} - mg = 0. $$",
                     "Assumendo $B$ come polo, la condizione di equilibrio rotazionale si scrive:",
+                    "![Diagramma di corpo libero della scala|medium](/fisica-images/fig_165.avif)",
                     "$$ \\mathbf{\\tau}_{mg} + \\mathbf{\\tau}_{N_A} = \\mathbf{r}_{mg} \\times (m\\mathbf{g}) - \\mathbf{r}_{F_A} \\times \\mathbf{N}_A = \\mathbf{0} $$",
                     "ovvero, passando ai moduli:",
                     "$$ \\frac{l}{2} mg \\sin \\alpha - l N_A \\sin \\beta = 0; $$",
+                    "![Dettaglio del momento della forza peso|small](/fisica-images/fig_166.avif)",
                     "d’altra parte, siccome $\\alpha = \\pi - \\vartheta$ e $\\beta = (\\pi/2) + \\vartheta$, si ha:",
                     "$$ \\frac{l}{2} mg \\sin \\vartheta - l N_A \\cos \\vartheta = 0. $$",
                     "Da questa relazione segue:",
                     "$$ N_A = \\frac{1}{2} mg \\tan \\vartheta, $$",
                     "e quindi:",
                     "$$ N_B = \\sqrt{N_{Bx}^2 + N_{By}^2} = \\sqrt{N_A^2 + (mg)^2} = \\sqrt{\\frac{1}{4} (mg)^2 \\tan^2 \\vartheta + (mg)^2} = mg \\sqrt{\\frac{1}{4} \\tan^2 \\vartheta + 1}. $$",
+                    "![Dettaglio delle reazioni vincolari|small](/fisica-images/fig_167.avif)",
                     "La forza $\\mathbf{F}_B$ forma, con la verticale, un angolo $\\phi$ tale che:",
                     "$$ \\tan \\phi = \\frac{N_{Bx}}{N_{By}} = \\frac{mg \\tan \\vartheta}{2mg} = \\frac{1}{2} \\tan \\vartheta; $$",
                     "la scala resta in equilibrio se il pavimento riesce ad esplicare la forza di attrito $N_{Bx}$ pari a $(1/2)mg \\tan \\vartheta$ e quindi se è soddisfatta la condizione:",
                     "$$ \\frac{1}{2} mg \\tan \\vartheta \\le \\mu_S N_{By} = \\mu_S mg. $$",
                     "ovvero se $\\tan \\vartheta \\le 2\\mu_S$.",
-                    "![Scala appoggiata al muro](/IMAGES/ladder_wall.avif)"
                 ]
             }
         ]
     },
     {
         id: "8-urti",
-        title: "8 GLI URTI",
+        title: "Lezione 8: GLI URTI",
         subsections: [
             {
-                title: "Introduzione",
+                title: "8.1 Introduzione",
                 content: [
                     "Per **urto** si intende l’interazione tra due particelle o due corpi estesi che si esplica attraverso forze di tipo impulsivo in un tempo trascurabile rispetto ai tempi tipici di osservazione del moto, prima e dopo tale interazione. Sebbene il senso comune associ ad un urto tra due corpi il contatto tra questi, in pratica da un esame microscopico dell’interazione che si ha tra i corpi durante l’urto, è possibile dedurre che tale assunzione risulta priva di significato. Ad esempio, nell’interazione di due particelle dotate della stessa carica, queste non giungono mai realmente a contatto ma si respingono per effetto dell’intensa repulsione colombiana che si esplica tra loro a breve distanza.",
+                    "![Forze di interazione impulsive durante un urto|small](/fisica-images/fig_168.avif)",
                     "Consideriamo l’urto tra due particelle isolate, rispettivamente di masse $m_1$ ed $m_2$. Posto $\\mathbf{F}_{21}$ la forza esercitata da $m_2$ su $m_1$, per effetto dell’interazione la quantità di moto della particella $m_1$ varierà di una quantità $\\Delta \\mathbf{p}_1$ pari a:",
                     "$$ \\Delta \\mathbf{p}_1 = \\int_{t_1}^{t_2} \\mathbf{F}_{21} dt; $$",
                     "analogamente, se $\\mathbf{F}_{12}$ è la forza esercitata da $m_1$ su $m_2$, la variazione della quantità di moto di $m_2$ sarà:",
@@ -2434,7 +2575,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "ovvero la quantità di moto totale del sistema $\\mathbf{p}(t) = \\mathbf{p}_1(t) + \\mathbf{p}_2(t)$ si mantiene costante durante l’urto. Tale risultato rappresenta un’ovvia conseguenza del fatto che il sistema è isolato, quindi non agiscono su di esso forze esterne e le forze di interazione, essendo interne, non provocano la variazione della quantità di moto del sistema. In presenza di forze esterne è possibile considerare approssimativamente valido il principio conservazione della quantità di moto del sistema, purché tali forze non abbiano carattere impulsivo e la durata dell’urto sia abbastanza piccola. Infatti la variazione $\\Delta \\mathbf{p}$ della quantità di moto totale del sistema $\\mathbf{p}$ dovuta alle sole forze esterne può esprimersi come:",
                     "$$ \\Delta \\mathbf{p} = \\int_{t_1}^{t_2} \\mathbf{F}^{(ext)} dt = \\langle \\mathbf{F}^{(ext)} \\rangle \\Delta t, $$",
                     "per cui se la media della forza esterna $\\langle \\mathbf{F}^{(ext)} \\rangle$ nell’intervallo $\\Delta t = t_2 - t_1$ è piccola o se è tale l’intervallo $\\Delta t$, risulta di conseguenza trascurabile la variazione $\\Delta \\mathbf{p}$ della quantità di moto totale determinata da $\\mathbf{F}^{(ext)}$. Mentre la quantità di moto totale si conserva in tutti gli urti in cui le forze esterne agenti sul sistema sono trascurabili, l’energia cinetica totale, in generale, non si conserva. In particolare la conservazione dell’energia cinetica durante l’urto viene adoperata per stabilire una classificazione dei processi d’urto.",
-                    "![Urto tra due particelle](/IMAGES/collision_particles.avif)",
                     "Lo studio degli urti può essere svolto sia rispetto ad un sistema di riferimento inerziale che nel sistema del centro di massa. Se $\\mathbf{v}_{CM}$ è la velocità del centro di massa rispetto al sistema di riferimento inerziale (solitamente denominato in questo ambito **sistema del laboratorio**), le velocità delle due particelle $\\mathbf{v}_1$ e $\\mathbf{v}_2$ rispetto a questo sistema sono legate alle velocità rispetto al centro di massa $\\mathbf{v}_1'$ e $\\mathbf{v}_2'$ dalle relazioni:",
                     "$$ \\mathbf{v}_1 = \\mathbf{v}_1' + \\mathbf{v}_{CM}, $$",
                     "$$ \\mathbf{v}_2 = \\mathbf{v}_2' + \\mathbf{v}_{CM}. $$",
@@ -2447,13 +2587,15 @@ export const fisicaCourseContent: MainSection[] = [
                     "così",
                     "$$ \\mathbf{p}_{1i}' = -\\mathbf{p}_{2i}', $$",
                     "$$ \\mathbf{p}_{1f}' = -\\mathbf{p}_{2f}', $$",
+                    "![Confronto tra urto nel sistema del laboratorio e nel sistema del CM|medium](/fisica-images/fig_169.avif)",
                     "cioè un osservatore posto nel sistema del centro di massa vede le due particelle muoversi verso il centro di massa con quantità di moto uguali ed opposte prima dell’urto ed allontanarsi dal centro di massa, sempre con quantità di moto uguali ed opposte dopo l’urto. In generale $\\mathbf{p}_{1i}' \\neq \\mathbf{p}_{1f}'$ e $\\mathbf{p}_{2i}' \\neq \\mathbf{p}_{2f}'$."
                 ]
             },
             {
-                title: "8.1 Urto completamente anelastico",
+                title: "8.2 Urto completamente anelastico",
                 content: [
                     "La massima perdita di energia cinetica si ha quando le due particelle di massa $m_1$ e $m_2$ dopo l’urto si muovono come un’unica particella di massa pari alla somma $m_1 + m_2$. Un urto di questo tipo è detto **completamente anelastico**. Indicando con $\\mathbf{v}_1$ e $\\mathbf{v}_2$ le velocità prima dell’urto e con $\\mathbf{v}'$ la velocità delle due particelle accoppiate dopo l’urto, quindi se vale il principio di conservazione della quantità di moto risulta:",
+                    "![Urto completamente anelastico unidimensionale|small](/fisica-images/fig_170.avif)",
                     "$$ m_1 \\mathbf{v}_1 + m_2 \\mathbf{v}_2 = (m_1 + m_2) \\mathbf{v}', $$",
                     "ovvero:",
                     "$$ \\mathbf{v}' = \\frac{m_1 \\mathbf{v}_1 + m_2 \\mathbf{v}_2}{m_1 + m_2} \\equiv \\mathbf{v}_{CM}, $$",
@@ -2484,21 +2626,22 @@ export const fisicaCourseContent: MainSection[] = [
                     "da cui segue:",
                     "$$ \\tan \\vartheta = \\frac{m_2 v_2}{m_1 v_1}, $$",
                     "$$ v_{CM} = \\frac{\\sqrt{(m_1 v_1)^2 + (m_2 v_2)^2}}{m_1 + m_2}. $$",
+                    "![Urto completamente anelastico bidimensionale|small](/fisica-images/fig_171.avif)",
                     "**Esempio:** (pendolo balistico) Consideriamo il dispositivo di figura costituito da un blocco di legno sospeso verticalmente ad un filo. Una pallottola di massa $m$ e velocità $\\mathbf{v}$ diretta orizzontalmente urta il blocco e vi si conficca. Se il tempo di collisione, solitamente dell’ordine dei millesimi di secondo, è piccolo rispetto al periodo di oscillazione del pendolo, il filo resta verticale durante l’urto. Siccome sul sistema non agiscono forze dirette orizzontalmente (la forza peso è verticale) la componente della quantità di moto lungo questa direzione si conserva. Pertanto, se $m_b$ è la massa del blocco sospeso, si ha:",
                     "$$ mv = (m + m_b) v', $$",
                     "dove $v'$ è la velocità del sistema pallottola+blocco, pari a:",
                     "$$ v' = \\frac{m}{m + m_b} v. $$",
+                    "![Pendolo balistico: urto e oscillazione|medium](/fisica-images/fig_172.avif)",
                     "Dopo l’urto, dalla conservazione dell’energia meccanica durante l’oscillazione , risulta:",
                     "$$ \\frac{1}{2} (m + m_b) v'^2 = (m + m_b) gh, $$",
                     "ovvero:",
                     "$$ v' = \\sqrt{2gh} $$",
                     "che, sostituita nell’espressione precedente, fornisce la velocità iniziale della pallottola:",
                     "$$ v = \\left( 1 + \\frac{m_b}{m} \\right) \\sqrt{2gh}. $$",
-                    "![Pendolo balistico](/IMAGES/ballistic_pendulum.avif)"
                 ]
             },
             {
-                title: "8.2 Urto elastico",
+                title: "8.3 Urto elastico",
                 content: [
                     "Se le forze interne che si manifestano durante l’urto sono conservative, oltre a conservarsi la quantità di moto si conserva anche l’energia cinetica. In questo caso i corpi che si urtano subiscono deformazioni di tipo elastico per poi tornare nella configurazione precedente all’urto. Siccome l’energia potenziale non cambia durante l’urto, resta costante anche l’energia cinetica. Per tale urto, che è detto pertanto, **elastico**, valgono quindi le condizioni:",
                     "$$ \\mathbf{p}_i = \\mathbf{p}_f, $$",
@@ -2526,12 +2669,12 @@ export const fisicaCourseContent: MainSection[] = [
                     "Dalle precedenti espressioni risulta inoltre che, se $m_1 = m_2$ allora $v_{1f} = v_{2i}$ e $v_{2f} = v_{1i}$, cioè a seguito dell’urto si ha uno scambio di velocità. Se $m_1 \\gg m_2$, allora $v_{1f} \\approx v_{1i}$ e $v_{2f} \\approx 2v_{1i} - v_{2i}$, cioè la velocità della particella di massa $m_1$ resta praticamente invariata. Infine, se $m_1 \\ll m_2$ e la particella di massa $m_2$ è ferma, $v_{2i} = 0$, allora $v_{1f} = -v_{1i}$ e $v_{2f} \\approx 0$, cioè la particella di massa $m_1$ rimbalza all’indietro e quella di massa $m_2$ resta praticamente ferma. Quest’ultimo caso si ha nella circostanza in cui una particella colpisce un corpo massiccio fermo, come può essere una parete. Osserviamo che se $v_{2i} = 0$ la quantità di moto totale prima dell’urto è $m_1 v_{1i}$ e, assumendo che sia $v_{2f} = 0$, la quantità di moto non si conserva. Ciò è spiegato dal fatto che è necessaria una forza esterna di tipo impulsivo per mantenere fermo il corpo di massa $m_2$ e ciò non consente la conservazione della quantità di moto.",
                     "**Esempio:** Consideriamo un urto obliquo contro una parete immobile liscia. Sia $\\vartheta$ l’angolo formato dalla direzione del vettore velocità $\\mathbf{v}_i$ con la normale alla parete; il vettore $\\mathbf{v}_i$ può essere decomposto parallelamente e perpendicolarmente al piano in due vettori, rispettivamente di modulo $v_i \\sin \\vartheta$ e $v_i \\cos \\vartheta$. L’urto non avviene nella direzione parallela alla parete, per cui in tale direzione si conserva la quantità di moto e, pertanto, dopo l’urto la componente della velocità in questa direzione continua ad essere $v_i \\sin \\vartheta$. Nella direzione ortogonale, per quanto visto, la velocità si inverte e, dopo l’urto, la componente normale alla superficie vale $-v_i \\cos \\vartheta$. Pertanto",
                     "$$ v_f = v_i, $$",
+                    "![Urto elastico obliquo contro una parete|small](/fisica-images/fig_173.avif)",
                     "e $\\mathbf{v}_f$ forma con la normale alla parete un angolo pari a $\\vartheta$, cioè si ha una situazione analoga a quella della riflessione di un raggio luminoso da parte di uno specchio piano.",
-                    "![Riflessione urto elastico parete](/IMAGES/elastic_collision_wall.avif)"
                 ]
             },
             {
-                title: "8.3 Urto anelastico",
+                title: "8.4 Urto anelastico",
                 content: [
                     "Quando in un urto si conserva la quantità di moto in assenza di forze esterne di tipo impulsivo, non si conserva l’energia cinetica e le particelle si separano dopo l’interazione, l’urto viene detto **anelastico**. In tale circostanza una parte dell’energia cinetica, prima dell’urto nel sistema del centro di massa, viene assorbita nell’interazione convertendosi in energia potenziale di deformazione o in calore; cioè si può scrivere:",
                     "$$ E_{kf}' = e^2 E_{ki}', $$",
@@ -2565,7 +2708,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "8.4 Urti tra punti materiali e corpi rigidi o tra corpi rigidi",
+                title: "8.5 Urti tra punti materiali e corpi rigidi o tra corpi rigidi",
                 content: [
                     "Il punto di partenza per lo studio degli urti tra punti materiali e corpi rigidi o degli urti tra corpi rigidi è la determinazione delle leggi di conservazione valide. La costanza della quantità di moto si ha se sul sistema agiscono solo forze interne o quelle esterne non sono di tipo impulsivo. In particolare, se esiste un vincolo che tiene fermo un punto del corpo rigido, non si verifica la conservazione della quantità di moto poiché durante l’urto il vincolo sviluppa una forza di tipo impulsivo. La costanza dell’energia cinetica del sistema si ha soltanto se è noto a priori che l’urto è di tipo elastico. La costanza del momento angolare si ha qualora, rispetto ad un certo polo fisso nel sistema di laboratorio o coincidente col centro di massa, il momento della risultante delle forze esterne, comprese quelle vincolari, è nullo; si ha la conservazione del momento angolare se agiscono solo forze interne, indipendentemente dalla scelta del polo. In particolare, per un corpo vincolato, durante l’urto i vincoli esplicano delle forze tali che l’impulso $\\vec{\\mathcal{I}}$ della forza risultante $\\mathbf{F}_v$ e l’impulso angolare $\\vec{\\mathcal{I}}_\\tau$ del momento risultante $\\mathbf{\\tau}_v$, rispettivamente pari a",
                     "$$ \\vec{\\mathcal{I}} = \\int_{\\Delta t} \\mathbf{F}_v dt, $$",
@@ -2577,6 +2720,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ v_{CM} = \\frac{m_2}{m_1 + m_2} v, $$",
                     "dove la posizione del centro di massa rispetto al centro $O$ è:",
                     "$$ x_{CM} = \\frac{m_2 x}{m_1 + m_2} \\hspace{4cm} \\tag{8.13} $$",
+                    "![Urto eccentrico anelastico: proiettile e asta libera|medium](/fisica-images/fig_174.avif)",
                     "e il centro di massa continua a muoversi dopo l’urto lungo la linea tratteggiata di figura. Assumendo quale polo per il calcolo del momento angolare il centro di massa del sistema, si ha:",
                     "$$ I\\omega = L = m_2 v(x - x_{CM}), $$",
                     "dove $L$ è il momento angolare totale del sistema; il momento d’inerzia rispetto al centro $O$ dell’asta è dato dalla (7.5) e vale $m_1 l^2 / 12$ e rispetto al centro di massa, per il teorema di Huygens-Steiner (7.7), vale $m_1 l^2 / 12 + m_1 x_{CM}^2$; per il proiettile il momento d’inerzia rispetto ad $O$ vale $m_2 x^2$. Pertanto la relazione precedente si scrive:",
@@ -2584,13 +2728,13 @@ export const fisicaCourseContent: MainSection[] = [
                     "da cui, facendo uso della relazione (8.13) segue (Nota: Errore nel testo originale, momento d'inerzia proiettile è rispetto a CM, non O):",
                     "$$ \\omega = \\frac{m_2 v(x - x_{CM})}{\\frac{1}{12} m_1 l^2 + m_1 x_{CM}^2 + m_2 (x - x_{CM})^2} = \\frac{m_2 x v}{\\frac{1}{12} (m_1 + m_2) l^2 + m_2 x^2}, $$",
                     "e la rotazione avviene in senso antiorario. Si noti che $\\omega$ dipende da $x$ per cui colpendo l’asta in $O$, la velocità del centro di massa avrebbe lo stesso valore determinato, ma $\\omega$ risulterebbe nulla.",
-                    "![Urto proiettile asta](/IMAGES/rod_projectile_collision.avif)",
                     "**Esempio:** Supponiamo che l’asta dell’esempio precedente sia vincolata ad un estremo attorno al quale ruota senza attrito. Assumiamo per semplicità che risulti $m_1 = m_2 \\equiv m$ e sia $d$ la distanza dell’estremo fisso $P$ dal punto di impatto. Stabiliamo la velocità angolare finale del sistema. La presenza del vincolo impedisce, in questo caso, l’applicazione del principio di conservazione della quantità di moto a causa della forza impulsiva esercitata dal vincolo. È invece possibile applicare il principio di conservazione del momento angolare rispetto a $P$ siccome il momento delle forze vincolari rispetto a tale punto è nullo; pertanto",
                     "$$ I\\omega = L = mvd, $$",
                     "dove $I$, in questo caso vale:",
                     "$$ I = \\frac{1}{3} ml^2 + md^2, $$",
                     "così:",
                     "$$ \\omega = \\frac{vd}{\\frac{1}{3} l^2 + d^2}. $$",
+                    "![Urto anelastico contro un'asta vincolata (pendolo fisico)|small](/fisica-images/fig_175.avif)",
                     "La quantità di moto del sistema immediatamente prima dell’urto è pari alla quantità di moto del solo proiettile. Posto $\\hat{u}_v = \\mathbf{v}/v$ si ha:",
                     "$$ \\mathbf{p}_i = m\\mathbf{v} = mv\\hat{u}_v. $$",
                     "La quantità di moto dopo l’urto è pari alla somma della quantità di moto del proiettile e dell’asta subito dopo l’urto; le loro velocità valgono $\\omega d$ e $\\omega l/2$, così:",
@@ -2598,9 +2742,9 @@ export const fisicaCourseContent: MainSection[] = [
                     "pertanto l’impulso $\\vec{\\mathcal{I}}$ delle forze del vincolo vale:",
                     "$$ \\vec{\\mathcal{I}} = \\mathbf{p}_f - \\mathbf{p}_i = m \\left[ \\omega \\left( d + \\frac{l}{2} \\right) - v \\right] \\hat{u}_v = mlv \\frac{\\frac{d}{l} - \\frac{2}{3}}{\\frac{l^2}{3} + d^2} \\hat{u}_v, $$",
                     "così se $d > 2l/3$, l’impulso è diretto come $\\mathbf{v}$, mentre se $d < 2l/3$ è opposto a $\\mathbf{v}$ e, se $d = 2l/3$, l’impulso è nullo, cioè è come se ci si trovasse nelle condizioni del precedente esempio, con $x$ pari a $2l/3 - l/2 = l/6$, ottenendo quindi lo stesso valore della velocità angolare $6v/7l$; ovviamente l’effetto del vincolo continua a manifestarsi determinando la rotazione dell’asta dopo l’urto.",
-                    "![Urto asta vincolata](/IMAGES/rod_pivot_collision.avif)",
                     "**Esempio:** Un’asta di lunghezza $l$ e massa $m_1$ ruota con velocità angolare $\\mathbf{\\omega}$, in verso antiorario, in un piano verticale attorno ad un asse fisso orizzontale. Una particella di massa $m_2$ e velocità $\\mathbf{v}$ colpisce un estremo dell’asta e vi si conficca. Stabiliamo la velocità angolare dopo l’urto. Nell’urto non si conservano né la quantità di moto né l’energia cinetica ma si conserva la componente del momento angolare parallela all’asse di rotazione, non essendo presenti momenti esterni in tale direzione; invece la componente del momento angolare ortogonale all’asse di rotazione, dovuta alla particella, viene annullata nell’urto dal momento esplicato dai supporti dell’asta che vincolano l’asse di rotazione. La componente del momento angolare lungo la direzione di rotazione $L_i$ prima dell’urto, vale:",
                     "$$ L_i = I\\omega = \\frac{1}{12} m_1 l^2 \\omega, $$",
+                    "![Conservazione del momento angolare: urto con asta rotante|medium](/fisica-images/fig_177.avif)",
                     "essendo $I = (1/12)m_1 l^2$; mentre dopo l’urto:",
                     "$$ L_f = \\left[ I + m_2 \\left( \\frac{l}{2} \\right)^2 \\right] \\omega_f = \\left( \\frac{1}{12} m_1 l^2 + \\frac{1}{4} m_2 l^2 \\right) \\omega_f = \\frac{1}{12} (m_1 + 3m_2) l^2 \\omega_f. $$",
                     "Siccome:",
@@ -2616,24 +2760,25 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mathcal{I} = m_2 \\sqrt{v^2 + \\frac{1}{4} (l\\omega_f)^2}, $$",
                     "ed il vettore $\\vec{\\mathcal{I}}$, situato nel piano $xy$, forma con l’asse $y$ un angolo $\\vartheta$ pari a :",
                     "$$ \\vartheta = \\arctan \\left( \\frac{\\mathcal{I}_x}{\\mathcal{I}_y} \\right) = \\arctan \\left( \\frac{2v}{l\\omega_f} \\right). $$",
+                    "![Componenti dell'impulso vincolare|small](/fisica-images/fig_176.avif)",
                     "L’impulso del momento esercitato dal vincolo è pari alla variazione della componente del momento angolare ortogonale all’asse di rotazione $\\mathbf{L}^\\perp$, in quanto, come visto, la componente parallela si conserva. Indicato con $\\mathbf{r}$ il vettore posizione del punto di impatto di $m_2$, si ha:",
                     "$$ \\mathbf{L}_i^\\perp = \\mathbf{r} \\times (m_2 \\mathbf{v}), $$",
                     "$$ \\mathbf{L}_f^\\perp = \\mathbf{0}, $$",
                     "pertanto",
                     "$$ \\vec{\\mathcal{I}}_\\tau = \\mathbf{L}_f^\\perp - \\mathbf{L}_i^\\perp = -\\mathbf{r} \\times (m_2 \\mathbf{v}), $$",
+                    "![Impulso angolare e variazione del momento angolare|small](/fisica-images/fig_178.avif)",
                     "che è diretto lungo la direzione delle $y$ negative ed ha modulo:",
                     "$$ \\mathcal{I}_\\tau = r m_2 v = \\frac{1}{2} l m_2 v. $$",
-                    "![Urto asta rotante vincolo](/IMAGES/rotating_rod_collision.avif)"
                 ]
             }
         ]
     },
     {
         id: "9-gravitazione-universale",
-        title: "9 GRAVITAZIONE UNIVERSALE",
+        title: "Lezione 9: GRAVITAZIONE UNIVERSALE",
         subsections: [
             {
-                title: "Introduzione",
+                title: "9.1 Introduzione",
                 content: [
                     "Le conoscenze relative alla forza di gravitazione si sono sviluppate a partire dalle osservazioni astronomiche del moto dei pianeti del sistema solare. Attraverso tali osservazioni Tyco Brahe raccolse un insieme di dati tramite i quali, successivamente, Johannes Keplero identificò delle regolarità nel moto dei pianeti che espresse attraverso delle leggi. Tali leggi, note come **leggi di Keplero** rappresentano una descrizione cinematica del moto dei pianeti e si enunciano nella maniera seguente:",
                     "1. \"Rispetto al Sole ogni pianeta descrive un’orbita ellittica di cui il Sole occupa uno dei fuochi\".",
@@ -2643,13 +2788,14 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.1 La legge di gravitazione universale",
+                title: "9.2 La legge di gravitazione universale",
                 content: [
                     "Dopo la formulazione delle leggi della dinamica, il più importante contributo di Newton allo sviluppo della meccanica fu l’identificazione delle leggi dell’interazione gravitazionale; ossia l’interazione che si esplica tra due generici corpi materiali che determina un moto descrivibile attraverso le leggi di Keplero.",
                     "Il moto di un corpo soggetto ad una forza centrale è caratterizzato dal fatto che il momento angolare $\\mathbf{L}$ calcolato rispetto al centro di forza è una costante del moto. Siccome la velocità areolare $d\\mathbf{s}/dt$ si può esprimere come:",
                     "$$ \\frac{d\\mathbf{s}}{dt} = \\frac{1}{2} \\mathbf{r} \\times \\mathbf{v} = \\frac{\\mathbf{L}}{2m}, $$",
                     "dove $m$ è la massa del corpo, alla costanza del momento angolare corrisponde la seconda legge di Keplero, che pertanto indica che la forza $\\mathbf{F}$ associata all’interazione gravitazionale è di tipo centrale:",
                     "$$ \\mathbf{F} = f(r)\\hat{r}. $$",
+                    "![Moto in campo di forza centrale e velocità areolare|small](/fisica-images/fig_179.avif)",
                     "Supponiamo, in prima approssimazione che le orbite dei pianeti, sebbene ellittiche, si possano considerare circolari, allora, dall’espressione della velocità areolare, segue:",
                     "$$ \\frac{ds}{dt} = \\frac{1}{2} rv = \\frac{1}{2} r^2 \\omega $$",
                     "essendo, in tale ipotesi, i vettori $\\mathbf{r}$ e $\\mathbf{v}$ perpendicolari e inoltre esprimendo $v$ attraverso la velocità angolare $\\omega$ come $r\\omega$ dalla (2.28). Dalla costanza della velocità areolare e dall’ipotesi di orbite circolari (cioè con $r$ costante), segue la costanza di $\\omega$. Se $\\omega$ è costante, allora, dalle relazioni (2.30) e (2.31) segue che l’accelerazione tangenziale del pianeta è nulla e pertanto la sua accelerazione deve essere esclusivamente di tipo centripeto. Pertanto la forza agente sul pianeta può esprimersi come:",
@@ -2667,12 +2813,12 @@ export const fisicaCourseContent: MainSection[] = [
                     "il modulo della forza di interazione tra il Sole e il pianeta si esprime come:",
                     "$$ F = G \\frac{Mm}{r^2}. $$",
                     "**Nota 1:** Questa ipotesi segue dalla constatazione che l’eccentricità dell’orbita dei pianeti del sistema solare è molto piccola, per cui le corrispondenti orbite possono ritenersi, almeno in prima approssimazione, circolari.",
-                    "![Forza di gravità Sole-Pianeta](/IMAGES/gravity_sun_planet.avif)",
                     "Data la semplicità di questa espressione, Newton ipotizzò che si trattasse di una formula di carattere generale ed enunciò la seguente **legge di gravitazione universale**:",
                     "\"Ogni particella materiale esistente nell’universo attira ogni altra particella con una forza gravitazionale. Le forze gravitazionali esistenti tra due particelle (tra loro opposte per il principio di azione e reazione) hanno come retta di applicazione la retta passante per le due particelle e intensità proporzionale al prodotto delle masse delle particelle e inversamente proporzionale al quadrato della loro distanza\".",
                     "Nella trattazione precedente, a rigore, in luogo della massa $m$ occorrerebbe considerare la massa ridotta $\\mu$ del sistema composto da $m$ e $M$, pari a $mM/(m+M)$, tuttavia nel caso considerato $M \\gg m$, per cui $\\mu \\approx m$.",
                     "**Esempio:** Nel caso di Giove, che costituisce il pianeta più pesante del sistema solare, $m$ vale $1.8971 \\times 10^{27} kg$ e considerando che la massa $M$ del Sole è $1.989 \\times 10^{30} kg$, la massa ridotta del sistema è $1.895 \\times 10^{27} kg$, cioè risulta inferiore a $m$ dello $0.001\\%$ circa. Si noti che nel sistema solare il Sole contiene il $99.85\\%$ della massa dell’intero sistema mentre i pianeti concorrono solo allo $0.135\\%$ di tale massa.",
                     "Vettorialmente, l’espressione della forza gravitazionale esercitata da un corpo di massa $m_1$ su un corpo di massa $m_2$, supposti puntiformi, vale:",
+                    "![Legge di gravitazione universale: forza tra due masse|small](/fisica-images/fig_180.avif)",
                     "$$ \\mathbf{F} = -G \\frac{m_1 m_2}{r^2} \\hat{r}. $$",
                     "La costante di proporzionalità $G$ fu misurata sperimentalmente nel 1798 da Henry Cavendish adoperando una bilancia di torsione, in modo da rilevare la forza di attrazione tra due masse sferiche. Il valore attualmente noto di $G$ è:",
                     "$$ G \\approx 6.6759 \\times 10^{-11} \\frac{m^3}{kg \\cdot s^2}. $$",
@@ -2703,12 +2849,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "Infine, se $R_T$ è il raggio della Terra e $h$ la distanza del satellite dal suolo terrestre, si ha:",
                     "$$ h = d - R_T = \\sqrt[3]{\\frac{G m_T T^2}{4\\pi^2}} - R_T \\approx 3.59 \\times 10^7 m, $$",
                     "cioè il satellite orbita ad una quota di circa $36000 km$ dalla superficie terrestre."
+                    ,
                 ]
             },
             {
-                title: "9.2 Massa inerziale e massa gravitazionale",
+                title: "9.3 Massa inerziale e massa gravitazionale",
                 content: [
                     "La massa che compare nell’espressione della legge di gravitazione universale e che caratterizza l’intensità della forza con cui due corpi si attraggono viene denominata **massa gravitazionale**. Tale massa, in principio, risulta di natura completamente differente dalla massa inerziale che compare nella seconda legge di Newton e che determina l’accelerazione di un corpo in corrispondenza dell’azione di una forza. Consideriamo un corpo di massa inerziale $m$ situato in prossimità della Terra; in tale circostanza vale relazione:",
+                    "![Confronto tra massa inerziale e massa gravitazionale|small](/fisica-images/fig_181.avif)",
                     "$$ mg = G \\frac{m_T' m'}{R^2}, $$",
                     "dove con l’apice sono indicate le masse gravitazionali. Da tale identità segue:",
                     "$$ g = G \\frac{m_T'}{R^2} \\frac{m'}{m}, $$",
@@ -2719,7 +2867,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.3 Equazione della traiettoria",
+                title: "9.4 Equazione della traiettoria",
                 content: [
                     "Consideriamo un sistema isolato costituito da due corpi puntiformi, rispettivamente di masse $m$ e $M$. In un sistema di riferimento inerziale risulta:",
                     "$$ m\\mathbf{a}_m = -G \\frac{mM}{r^2} \\hat{r}, $$",
@@ -2728,6 +2876,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\mu = \\frac{mM}{m + M}, $$",
                     "il sistema viene assimilato ad un unico corpo di massa $\\mu$ soggetto alla forza di interazione muta, per cui:",
                     "$$ \\mu\\mathbf{a} = -G \\frac{mM}{r^2} \\hat{r}. $$",
+                    "![Moto in campo centrale: massa ridotta|small](/fisica-images/fig_182.avif)",
                     "Utilizzando la formula di Binet (4.39) per esprimere l’accelerazione $\\mathbf{a}$ in coordinate polari di un corpo di massa $\\mu$, si ottiene:",
                     "$$ -\\frac{L^2}{\\mu^2 r^2} \\left[ \\frac{d^2}{d\\vartheta^2} \\left( \\frac{1}{r} \\right) + \\frac{1}{r} \\right] = -G \\frac{mM}{r^2}, $$",
                     "ovvero:",
@@ -2762,10 +2911,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "La costante $d$ ha le dimensioni di una lunghezza e dipende dalle dimensioni geometriche dell’orbita. Dalla relazione precedente si ha:",
                     "$$ L^2 = G \\mu mM \\varepsilon d, \\hspace{4cm} \\tag{9.5} $$",
                     "quindi i parametri dell’orbita $\\varepsilon$ e $d$ determinano il valore costante assunto dal momento angolare."
+                    ,
                 ]
             },
             {
-                title: "9.4 Orbite ed energia totale",
+                title: "9.5 Orbite ed energia totale",
                 content: [
                     "Assumendo che il livello zero dell’energia potenziale sia posto all’infinito, l’energia potenziale gravitazionale di un corpo puntiforme di massa $m$ posto a distanza $r$ da un corpo puntiforme di massa $M$ si esprime come:",
                     "$$ E_p = -\\frac{GMm}{r}; $$",
@@ -2794,16 +2944,18 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ E = 0 \\implies orbita\\ parabolica; $$",
                     "$$ E > 0 \\implies orbita\\ iperbolica. $$",
                     "Poiché l’energia totale $E$ è somma dell’energia cinetica $E_k$ e potenziale $E_p$, fissata che sia quest’ultima, il segno di $E$ è condizionato dalla relazione tra $E_k$ e $E_p$. D’altra parte, essendo $E_k$ pari a $(1/2)\\mu v^2$, la forma della traiettoria è condizionata dal valore della velocità.",
-                    "![Tipi di orbite](/IMAGES/orbit_types.avif)",
                     "**Esempio:** I risultati appena conseguiti assumo un importante valore quando si vuole mettere in orbita un satellite artificiale. Supponiamo di lanciare dalla Terra un satellite; dopo aver raggiunto la massima altezza $h$ in un punto $P$ riceve una spinta attraverso o propri propulsori acquistando una velocità orizzontale $\\mathbf{v}_0$. In questo modo l’energia totale $E$ del satellite nel punto $P$ vale:",
                     "$$ E = \\frac{1}{2} \\mu v_0^2 - G \\frac{m m_T}{R + h}, $$",
+                    "![Tipi di orbite in funzione dell'energia totale|medium](/fisica-images/fig_183.avif)",
                     "dove $R$ e $m_T$ sono rispettivamente il raggio e la massa della Terra, $m$ è la massa del satellite e $\\mu \\approx m$ la massa ridotta tra $m$ e $m_T$. A seconda del valore di $v_0$ si può avere una traiettoria chiusa che, eventualmente, può comportare la ricaduta sulla Terra, o un’orbita aperta, impiegata nei viaggi interplanetari.",
                     "Nel sistema solare le orbite sono chiuse quindi l’energia totale del sistema pianeta-Sole deve essere negativa e, di conseguenza, la forma delle orbite deve risultare ellittica, in accordo con la prima legge di Keplero. Nel caso di orbite ellittiche il semiasse maggiore $a$ soddisfa la relazione (si veda l’Appendice):",
                     "$$ a = \\frac{\\varepsilon d}{1 - \\varepsilon^2} $$",
                     "e pertanto l’energia totale (9.7) può esprimersi come:",
                     "$$ E = \\frac{GmM}{2} \\frac{\\varepsilon^2 - 1}{\\varepsilon d} = -\\frac{GmM}{2a} $$",
+                    "![Energia potenziale efficace ed energia totale|medium](/fisica-images/fig_184.avif)",
                     "ed il momento angolare (9.5):",
                     "$$ L^2 = G \\mu mM \\varepsilon d = G \\mu mMa(1 - \\varepsilon^2). \\hspace{4cm} \\tag{9.8} $$",
+                    "![Punti di inversione e orbita ellittica|small](/fisica-images/fig_185.avif)",
                     "Quindi, assegnata l’energia $E$, viene di conseguenza stabilita la lunghezza del semiasse maggiore $a$ ma non l’eccentricità dell’orbita che è definita una volta che è specificato il modulo del momento angolare $L$. Pertanto l’energia totale ed il momento angolare risultano tra loro indipendenti.",
                     "Dalla costanza della velocità areolare $\\mathbf{v}_A$, (4.36), per un corpo di massa ridotta $\\mu$:",
                     "$$ \\mathbf{v}_A = \\frac{\\mathbf{L}}{2\\mu} $$",
@@ -2836,7 +2988,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.5 Energia potenziale efficace",
+                title: "9.6 Energia potenziale efficace",
                 content: [
                     "Dalle relazioni (9.6) e (4.37) segue che l’energia cinetica di un corpo di massa ridotta $\\mu$ può esprimersi come:",
                     "$$ E_k = \\frac{1}{2} \\mu v^2 = \\frac{1}{2} \\mu \\left( \\frac{dr}{dt} \\right)^2 + \\frac{1}{2} \\mu r^2 \\left( \\frac{d\\vartheta}{dt} \\right)^2 = \\frac{1}{2} \\mu \\left( \\frac{dr}{dt} \\right)^2 + \\frac{1}{2} \\mu r^2 \\left( \\frac{L}{\\mu r^2} \\right)^2 = \\frac{1}{2} \\mu \\left( \\frac{dr}{dt} \\right)^2 + \\frac{1}{2} \\frac{L^2}{\\mu r^2}. $$",
@@ -2856,40 +3008,42 @@ export const fisicaCourseContent: MainSection[] = [
                     "per cui le regioni cinematicamente accessibili al moto radiale sono quelle per cui $E \\ge E_{p\\ eff}$ e, siccome $E_{p\\ eff}$ presenta il minimo $E_{p\\ eff}^{(min)}$, deve risultare:",
                     "$$ E \\ge E_{p\\ eff}^{(min)}. $$",
                     "Se $E = E_{p\\ eff}^{(min)}$ la regione permessa al moto radiale corrisponde ad un solo punto, cioè in tale circostanza $r$ si mantiene costante ed il moto è circolare e, dalla (4.37), siccome $L = \\mu r^2(d\\vartheta/dt)$ con $L$ costante, anche $d\\vartheta/dt$ è costante, cioè il moto è uniforme. Se $E > E_{p\\ eff}^{(min)}$ il moto radiale si svolge nella regione $r_1 \\le r \\le r_2$, dove $r_1$ e $r_2$ (con $r_2 < +\\infty$) sono le ascisse dei punti di intersezione della retta di ordinata $E$ con il grafico della funzione $E_{p\\ eff}(r)$; se $r_2 < +\\infty$ la traiettoria si svolge nella regione finita compresa tra due circonferenze (nel piano del moto) di raggi $r_1$ e $r_2$; se $r_2 = +\\infty$ il corpo tende ad allontanarsi indefinitamente dall’origine $r=0$, cioè la traiettoria è aperta.",
-                    "![Energia potenziale efficace](/IMAGES/effective_potential_energy.avif)"
                 ]
             }
         ]
     },
     {
         id: "10-primo-principio-termodinamica",
-        title: "10 PRIMO PRINCIPIO DELLA TERMODINAMICA",
+        title: "Lezione 10: PRIMO PRINCIPIO DELLA TERMODINAMICA",
         subsections: [
             {
-                title: "Introduzione",
+                title: "10.1 Introduzione",
                 content: [
                     "Nell’ambito della meccanica si verifica che il lavoro delle forze agenti su un corpo è pari alla variazione della sua energia cinetica. In particolare, in presenza di forze conservative è possibile introdurre una funzione, detta energia potenziale, tale che la somma dell’energia cinetica e dell’energia potenziale, denominata energia meccanica, si mantiene costante durante il moto. La conservazione dell’energia meccanica non si ha in presenza di forze dissipative quali, ad esempio, l’attrito per cui nei processi meccanici reali, essendo sempre presenti degli agenti dissipativi, la conservazione dell’energia meccanica non è mai soddisfatta. Ciò non implica l’esistenza di interazioni non conservative a livello microscopico essendo le forze d’attrito, ad esempio, originate dalle molteplici singole interazioni che si esplicano fra due corpi a contatto, ciascuna delle quali è espressa da una forza conservativa. La non conservatività dell’interazione osservata a livello macroscopico ha origine nel fatto che, quando un corpo descrive una traiettoria chiusa, sebbene ritorni al termine del moto nella posizione originaria, le singole molecole che lo costituiscono non tornano nella posizione originaria. Ne segue che lo stato finale è dissimile, a livello microscopico, da quello iniziale. Uno degli obiettivi della termodinamica è l’estensione dello studio dei bilanci energetici nei processi fisici, in maniera da includere tutti gli scambi di energia che hanno modo di esplicarsi nell’interazione dei corpi macroscopici."
                 ]
             },
             {
-                title: "10.1 Stato termodinamico",
+                title: "10.2 Stato termodinamico",
                 content: [
                     "In meccanica lo stato di un sistema è completamente noto qualora, in un certo istante, sono note la posizione e la velocità di ogni punto materiale che lo costituisce. Il grande numero di elementi che costituisce un sistema termodinamico rende impraticabile un analogo approccio per la caratterizzazione di uno stato termodinamico; inoltre questo modo di procedere risulta anche inutile in quanto l’interesse relativo ai sistemi termodinamici è limitato unicamente a proprietà medie, per cui una descrizione dettagliata del sistema, secondo un approccio meccanico, risulterebbe superflua. Nello studio della termodinamica si tende a fissare l’attenzione ad una porzione limitata di materia, che costituisce il **sistema termodinamico** oggetto dell’indagine; tutto ciò che non è parte del sistema termodinamico, ma che interagisce con esso determinandone l’evoluzione fisica, è detto **ambiente circostante**. Infine l’insieme del sistema termodinamico e dell’ambiente circostante costituisce l’**universo termodinamico**. L’interazione tra il sistema e l’ambiente può esplicarsi attraverso scambi di materia e, o, scambi di energia. La modalità di interazione consente quindi una classificazione dei sistemi termodinamici: un sistema di dice **aperto** se scambia con l’ambiente circostante energia e materia, è detto **chiuso** se scambia solo energia ed è detto **isolato** se non ha scambi con l’ambiente né di energia né di materia. L’universo termodinamico, che va inteso in senso locale, formato dal sistema e dal relativo ambiente è da considerarsi un sistema isolato. Per poter descrivere quanto accade nel sistema termodinamico occorre specificare delle opportune grandezze; una descrizione macroscopica richiede l’impiego di un numero limitato di grandezze quali, ad esempio, il volume, la pressione e la temperatura. Le grandezze necessarie e sufficienti a descrivere lo stato interno del sistema prendono il nome di **variabili termodinamiche**. La termodinamica si propone di mettere in relazione le variazioni intervenute nelle variabili termodinamiche di un sistema termodinamico, determinate dalle sue interazioni con l’ambiente circostante."
+                    ,
                 ]
             },
             {
-                title: "10.2 Equilibrio termodinamico",
+                title: "10.3 Equilibrio termodinamico",
                 content: [
                     "Un sistema è detto in **equilibrio termodinamico** se le variabili termodinamiche che lo caratterizzano sono costanti nel tempo; in tali circostanze, queste variabili prendono il nome di **variabili di stato**. Affinché si abbia questa condizione di equilibrio devono aversi allo stesso tempo l’equilibrio meccanico, nel senso espresso dalla statica, l’equilibrio chimico, ovvero non devono aversi reazioni chimiche nel sistema e l’equilibrio termico, cioè la temperatura deve essere uniforme. Sottintendendo l’equilibrio chimico in ogni successiva considerazione, l’equilibrio di un sistema richiede la soddisfazione delle condizioni di equilibrio all’interno del sistema o delle particelle che lo compongono, nell’interazione tra queste parti e nell’interazione tra il sistema e l’ambiente.",
                     "In condizioni di equilibrio le variabili termodinamiche di un sistema sono legate tra loro da una relazione detta **equazione di stato**, della forma $f(x_1, x_2, ..., x_n) = 0$, dove $x_1, x_2, ..., x_n$ sono le $n$ variabili termodinamiche del sistema in equilibrio. Ciascuna delle variabili che compaiono nell’equazione di stato possono esprimersi attraverso le altre risolvendo l’equazione di stato rispetto alla variabile di interesse, per cui lo stato del sistema è completamente determinato da $n-1$ qualunque delle $n$ quantità $x_1, x_2, ..., x_n$. Se $n=3$ le due variabili termodinamiche vengono generalmente rappresentate in forma grafica su di un piano in un sistema di assi cartesiani coordinati. Senza perdita di generalità d’ora in avanti considereremo sistemi con massa e composizione costante, descrivibili ciascuno attraverso due sole variabili termodinamiche $x$ e $y$ indipendenti.",
                     "Assegnati due differenti stati di equilibrio termodinamico di uno stesso sistema è possibile il passaggio da uno stato all’altro tramite una **trasformazione termodinamica**. Sebbene gli stati estremi della trasformazione sono di equilibrio, in generale gli stati intermedi, attraverso i quali si esplica la trasformazione, non lo sono. Ciò implica che, durante una trasformazione non sempre è possibile stabilire tutte le variabili termodinamiche del sistema.",
                     "Sperimentalmente si osserva che lo stato di equilibrio di un sistema è condizionato sia dalla vicinanza di altri sistemi, che dalla natura delle pareti che li separano. Consideriamo due sistemi termodinamici $A$ e $B$ separati da una parete. La parete è detta **adiabatica** quando ogni stato di equilibrio $x_A, y_A$ del sistema $A$ può coesistere con ogni stato di equilibrio $x_B, y_B$ del sistema $B$; nel caso pratico la parete deve essere in grado di sostenere gli sforzi determinati dalle differenze di coordinate dei due stati. La parete è detta **conduttrice** o **diatermica** se, a partire da due distinti stati di equilibrio, caratterizzati dalle variabili $x_A, y_A$ e $x_B, y_B$, i due sistemi saranno soggetti ad una trasformazione termodinamica spontanea che si arresterà in corrispondenza di un comune stato di equilibrio per l’insieme costituito dai sistemi $A$ e $B$. In tal caso i due sistemi sono detti in **equilibrio termico**. Cioè l’equilibrio termico è lo stato raggiunto da due o più sistemi quando questi vengono posti a contatto attraverso una parete conduttrice."
+                    ,
                 ]
             },
             {
-                title: "10.3 Pressione",
+                title: "10.4 Pressione",
                 content: [
                     "A differenza dei corpi solidi, che sono caratterizzati da una forma propria, le sostanze liquide o i gas, generalmente denominati **fluidi**, non manifestano tale proprietà assumendo la forma del recipiente che li contiene. Prescindendo dalla loro struttura atomica o molecolare, dal punto di vista macroscopico i fluidi sono riguardati come sistemi continui, cioè costituiti da un numero infinito di elementi, ciascuno di massa $dm$ pari a $\\rho dV$, dove $\\rho$ è la densità e $dV$ è il volume contenente la massa $dm$. Una caratteristica distintiva dei fluidi è la possibilità di scorrimento di una parte di fluido rispetto ad un altra o rispetto alle pareti del contenitore. A tale scorrimento si oppone una forza di attrito interno al fluido; però, nel caso dei fluidi non esiste un equivalente dell’attrito statico, ovvero il fluido non può resistere allo scorrimento, non potendosi stabilire una condizione di equilibrio per un opportuno valore della sollecitazione applicata. Ne segue che, se un fluido è in quiete, le forze tra i suoi elementi devono agire normalmente alle superfici di separazione perché altrimenti si avrebbe lo scorrimento degli elementi gli uni sugli altri, cessando, di conseguenza, lo stato di quiete.",
+                    "![Definizione di pressione su un elemento di superficie|small](/fisica-images/fig_186.avif)",
                     "Sperimentalmente si osserva che, in un fluido in quiete la forza infinitesima $d\\mathbf{F}$ esercitata su una superficie infinitesima di area $dS$ ha intensità proporzionale a $dS$ ed è perpendicolare alla superficie. Si definisce **pressione** $p$ in un punto del fluido, la quantità:",
                     "$$ p \\equiv \\frac{dF}{dS}, $$",
                     "ossia il rapporto tra l’intensità della forza agente perpendicolarmente alla superficie infinitesima contenente il punto e l’area della superficie stessa. Le dimensioni della pressione sono quelle di una forza diviso una superficie e, nel sistema **MKS** si esprime come",
@@ -2899,25 +3053,26 @@ export const fisicaCourseContent: MainSection[] = [
                     "Se per l’azione della pressione su un fluido se ne provoca lo spostamento, le forze che determinano la pressione compiono un lavoro. Consideriamo una forza $d\\mathbf{F}$, che agisce perpendicolarmente ad una superficie infinitesima $dS$ causandone lo spostamento di una quantità $dx$. Il corrispondente lavoro vale:",
                     "$$ dW = dF dx = p dS dx = p dV, \\hspace{4cm} \\tag{10.1} $$",
                     "essendo $dV$ il volume infinitesimo descritto dalla superficie $dS$ nello spostamento $dx$. Dalla relazione precedente si ha quindi che, per una variazione finita $V$ del volume, il lavoro vale $\\int_V p dV'$.",
-                    "![Lavoro pressione fluido](/IMAGES/fluid_pressure_work.avif)"
                 ]
             },
             {
-                title: "10.4 Temperatura",
+                title: "10.5 Temperatura",
                 content: [
                     "Consideriamo due sistemi $A$ e $B$, inizialmente separati da una parete adiabatica e posti ciascuno a contatto con un sistema $C$ attraverso una parete conduttrice. L’insieme sia contenuto in un recipiente a pareti adiabatiche. Sperimentalmente si osserva che, una volta raggiunto l’equilibrio termico tra i sistemi $A$ e $C$ e i sistemi $B$ e $C$, quando la parete adiabatica tra $A$ e $B$ viene sostituita da una parete conduttrice, i sistemi $A$ e $B$ risultano in equilibrio termico tra loro. Questa proprietà costituisce il **principio zero della termodinamica** (R.H. Fowler) il cui enunciato afferma che:",
                     "\"Due sistemi in equilibrio termico con un terzo sistema, sono in equilibrio termico fra loro\"",
-                    "![Principio zero della termodinamica](/IMAGES/zeroth_law.avif)",
+                    "![Principio zero della termodinamica|medium](/fisica-images/fig_187.avif)",
                     "Consideriamo uno stato del sistema termodinamico $A$ descritto dalle coordinate $x_1, y_1$, ed uno stato del sistema termodinamico $B$ descritto dalle coordinate $x_1', y_1'$. Supponiamo che lo stato di $A$ sia in equilibrio con lo stato di $B$. Separiamo il sistema $A$ da $B$ e variamone lo stato, attraverso la variazione delle sue coordinate. In generale si osserva che è possibile trovare un altro stato di $A$, $x_2, y_2$, che è in equilibrio con lo stato $x_1', y_1'$ di $B$; procedendo in questa maniera è possibile trovare tutto un insieme di stati di $A$ $x_1, y_1, x_2, y_2, x_3, y_3$, ecc., ciascuno dei quali si trova in equilibrio termico con lo stesso stato $x_1', y_1'$ di $B$. Riportando questi stati su un diagramma $xy$, si vede che essi giacciono su una curva continua detta **isoterma**. Pertanto un’isoterma è il luogo dei punti del diagramma $xy$ che rappresenta gli stati del sistema $A$ in equilibrio con uno stato definito del sistema $B$. Il ruolo di $A$ e di $B$ può essere scambiato, per cui è possibile identificare un’isoterma $I'$ del sistema $B$ corrispondente all’isoterma $I$ del sistema $A$. Caratteristica delle due isoterme è che tutti gli stati di $A$ rappresentati dai punti dell’isoterma $I$ di $A$ sono in equilibrio con tutti gli stati di $B$ rappresentati dai punti dell’isoterma $I'$ di $B$. Se ora si sceglie un altro stato di $B$ non situato sull’isoterma $I'$ è possibile identificare una seconda isoterma di $A$ corrispondente al nuovo stato di $B$ scelto e, successivamente, invertendo il ruolo dei due sistemi, costruire l’intera isoterma di $B$ corrispondente alla nuova isoterma di $A$. Cioè, al variare dello stato di riferimento è possibile costruire tutto un insieme di isoterme per il sistema $A$ e, in corrispondenza, tutto un insieme di isoterme per il sistema $B$. A ciascuna isoterma dell’insieme $A$ corrisponde una ed una sola isoterma dell’insieme $B$ e, inoltre, in generale, stati di sistemi diversi ma appartenenti alle isoterme corrispondenti sono caratterizzati dalla proprietà di risultare in equilibrio termico tra loro.",
+                    "![Corrispondenza tra stati e isoterme|medium](/fisica-images/fig_188.avif)",
                     "Il concetto precedente può esprimersi affermando che esiste una grandezza che assume lo stesso valore nei due stati corrispondenti e ciò assicura che i due stati risultino in equilibrio termico tra loro. A questa grandezza viene attribuito il nome di **temperatura**. Quindi la temperatura rappresenta una variabile termodinamica che consente di stabilire se un sistema è in equilibrio termico o meno con altri sistemi.",
+                    "![Coerenza della temperatura empirica|medium](/fisica-images/fig_189.avif)",
                     "È possibile rappresentare la temperatura di tutti i sistemi di equilibrio tra loro con un unico numero; per cui, stabilendo una regola per attribuire un numero a ciascuna isoterma dell’insieme di isoterme di un certo sistema, si fissa una scala di temperatura.",
-                    "![Isoterme e temperatura](/IMAGES/isotherms.avif)"
                 ]
             },
             {
-                title: "10.5 Misura della temperatura",
+                title: "10.6 Misura della temperatura",
                 content: [
                     "Affinché un sistema possa essere adoperato per la misura della temperatura, ovvero quale **termometro**, occorre innanzitutto costruire l’insieme delle isoterme, quindi è necessario stabilire una regola per associare un numero ad ogni isoterma. Tale numero verrà associato alla temperatura di un qualunque altro sistema che si trovi in equilibrio termico col termometro. A tale scopo si può scegliere un opportuno percorso nel piano $xy$, quale, ad esempio, la retta $y=y_1$ che interseca tutte le isoterme alla medesima ordinata, ma a differenti ascisse corrispondenti a ciascuna isoterma. Quindi si assume che la temperatura associata ad ogni isoterma sia una conveniente funzione di tale ascissa $x$ dei punti di intersezione. La coordinata $x$ è detta **caratteristica termometrica** e la scala di temperatura fissata dalla forma della funzione della $x$, $T(x)$ prende il nome di **funzione termometrica**.",
+                    "![Isoterme e scala empirica di temperatura|small](/fisica-images/fig_190.avif)",
                     "I termometri più usati sono: il termometro a gas a volume costante, che ha come caratteristica termometrica la pressione; il termometro a liquido in un capillare di vetro, che ha come caratteristica termometrica la lunghezza della colonna di liquido; il termometro a resistenza elettrica; il termometro a termocoppia a pressione costante, che ha come caratteristica termometrica la forza elettromotrice termoelettrica. Una volta stabilita la grandezza $x$ variabile con la temperatura, ovvero la caratteristica termometrica e la corrispondente funzione termometrica $T(x)$, occorre identificare un sistema in uno stato di equilibrio esattamente definito e facilmente riproducibile al quale può essere attribuito, in maniera arbitraria, un certo valore della temperatura, detto **punto fisso**. Nel 1954 la Conferenza dei Pesi e delle Misure ha stabilito quale punto fisso campione il **punto triplo** dell’acqua, cioè lo stato in cui ghiaccio, acqua liquida e vapore d’acqua saturo sono in equilibrio. Alla temperatura di questo punto fisso è stato attribuito il valore di 273.16 gradi **Kelvin**.",
                     "Per esprimere numericamente la temperatura, preso uno qualsiasi dei termometri elencati ed indicando con $x$ la corrispondente caratteristica termometrica, la temperatura da associare all’isoterma che viene intersecata dalla retta $y=y_1$ in corrispondenza del valore $x$ della caratteristica termometrica è data dalla relazione:",
                     "$$ T(x) = \\alpha x, $$",
@@ -2935,11 +3090,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "da cui segue:",
                     "$$ T_F = \\frac{9}{5} T_C + 32, $$",
                     "così al punto di fusione del ghiaccio, $0 ^\\circ C$, corrisponde $32 ^\\circ F$ e al punto di ebollizione dell’acqua, $100 ^\\circ C$, corrisponde $212 ^\\circ F$. La temperatura d’ambiente, convenzionalmente di $20 ^\\circ C$, vale $293,15 K$ o $68 ^\\circ F$.",
-                    "![Scale termometriche](/IMAGES/thermometric_scales.avif)"
                 ]
             },
             {
-                title: "10.6 Dilatazione termica",
+                title: "10.7 Dilatazione termica",
                 content: [
                     "Tra gli effetti più vistosi determinati dai cambiamenti di temperatura di un corpo rientra quello della variazione, a parità di altre condizioni, delle dimensioni del corpo stesso. L’aumento di ciascuna delle dimensioni spaziali del corpo, l’altezza, la lunghezza e lo spessore, prende il nome di **dilatazione lineare**. Se $l$ rappresenta una di tali dimensioni, la sua variazione infinitesima $dl$ corrispondente alla variazione infinitesima $dT$ della temperatura è data dalla relazione:",
                     "$$ dl = \\alpha l dT, $$",
@@ -2959,21 +3113,21 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.7 Trasformazioni",
+                title: "10.8 Trasformazioni",
                 content: [
                     "In corrispondenza di una trasformazione termodinamica un sistema evolve da uno stato di equilibrio iniziale ad uno stato di equilibrio finale. In tal caso si dice che il sistema ha subito un cambiamento di stato. In generale la trasformazione di un sistema comporta il passaggio attraverso stati di non equilibrio. Consideriamo un sistema termodinamico costituito da una certa quantità di gas racchiusa in un cilindro dotato di pistone mobile. In condizioni di equilibrio la forza esercitata dal gas sul pistone è esattamente bilanciata dalla forza esercitata dall’ambiente esterno sul pistone; ad esempio tale forza può essere la risultante della forza dovuta alla pressione esterna e di una forza aggiuntiva dovuta al peso di un certo corpo appoggiato sul pistone. Supponiamo di alterare istantaneamente tale equilibrio rimuovendo, ad esempio, il corpo appoggiato sul pistone. Tale azione può determinare vari fenomeni. Possono originarsi dei moti turbolenti che provocano la spinta del pistone verso l’alto; possono determinarsi delle variazioni locali della temperatura a causa, ad esempio, dell’attrito tra il cilindro e il pistone in moto; possono prodursi delle reazioni chimiche determinate dalle variazioni di pressione e temperatura. Durante la manifestazione di tali fenomeni, non essendo il sistema in equilibrio, le variabili termodinamiche che caratterizzano il sistema non sono definite, poiché non assumono il medesimo valore in tutte le parti del sistema. Cioè una trasformazione che si esplica attraverso stati di non equilibrio non è descrivibile in termodinamica; pertanto, affinché possa risultare descrivibile, è necessario che la trasformazione si evolva attraverso stati di equilibrio termodinamico. Ciò è possibile se le forze esterne agenti sul sistema vengono variate di tanto poco da dare luogo ad una forza infinitesima non equilibrata, in maniera tale che il nuovo stato del sistema differisca, istante per istante, di un infinitesimo da uno stato di equilibrio e quindi possa ancora essere considerato uno stato di equilibrio. Variando le forze o la temperatura esterna sempre di un infinitesimo alla volta ed aspettando un tempo sufficiente prima di determinare la successiva variazione, in modo che il sistema abbia modo di portarsi all’equilibrio, è possibile conseguire il cambiamento di stato del sistema attraverso il passaggio di una serie di stati di equilibrio o, comunque, attraverso stati che differiscono per un infinitesimo da uno stato di equilibrio termodinamico e pertanto confondibili con uno stato di equilibrio. Dovendo consentire al sistema di conseguire l’equilibrio dopo ogni trasformazione infinitesima, un cambiamento di stato di questo tipo necessita di un tempo molto lungo per prodursi. Per tale motivo queste trasformazioni sono dette **quasi statiche**; tali trasformazioni non possono riprodursi esattamente in laboratorio ma possono essere approssimate con buona precisione. Se durante la trasformazione quasi statica, che porta il sistema da uno stato iniziale $i$ ad uno stato finale $f$ non ci sono effetti dissipativi, allora la trasformazione risulta essere anche **reversibile**, cioè può essere percorsa a ritroso riportando il sistema dallo stato $f$ allo stato $i$. Ciò richiede che, quando il sistema ritorna allo stato iniziale, anche l’ambiente circostante viene riportato nella situazione iniziale. Si noti che la quasi staticità di una trasformazione non implica la reversibilità. Infatti, se si pensa a due recipienti contenenti gas a pressioni diverse collegati da un tubo attraverso un rubinetto, regolando opportunamente il rubinetto è possibile rendere la trasformazione piccola a piacere; tuttavia ciò non implica la reversibilità. La presenza di effetti dissipativi impedisce la reversibilità della trasformazione siccome le forze d’attrito non sono mai infinitamente piccole e inoltre perché, essendo sempre resistenti, se si invertono le forze esterne che provocano la trasformazione, quella nuova che si realizza non è l’inverso della precedente. Consideriamo una compressione infinitamente lenta di un gas, cioè tale che la pressione esterna al gas supera di infinitamente poco la pressione interna per cui, se si diminuisce anche di infinitamente poco la pressione esterna, questa può diventare inferiore a quella del gas il quale, anziché comprimersi, si espande. Nella realtà un qualsiasi gas presenta attrito interno e con le pareti del contenitore così non è detto che l’inversione delle cause esterne che provocano la trasformazione determina il fatto che il gas percorra esattamente la trasformazione inversa, in quanto le forze di attrito non si invertono con l’inversione della trasformazione. Nel caso reale, in genere, una trasformazione è tale che non è neppure possibile avere dei valori anche approssimati delle variabili termodinamiche. Tuttavia in molti casi è possibile ridurre le cause che determinano l’irreversibilità, cioè le forze d’attrito, in maniera tale che una trasformazione reversibile può rappresentare, con buona approssimazione, una trasformazione reale, e quindi irreversibile.",
-                    "![Trasformazione termodinamica cilindro](/IMAGES/thermodynamic_cylinder.avif)"
                 ]
             },
             {
-                title: "10.8 Primo principio della termodinamica",
+                title: "10.9 Primo principio della termodinamica",
                 content: [
                     "Consideriamo un sistema termodinamico isolato dall’ambiente circostante tramite delle pareti adiabatiche, in maniera tale da impedire gli scambi termici, ovvero le interazioni con l’ambiente circostante derivanti da una differenza di temperatura tra il sistema e l’ambiente. Supponiamo che la temperatura iniziale del sistema sia $T_i$ e di voler effettuare una trasformazione che lo porti ad una temperatura più elevata $T_f$ senza che si abbiano interazioni con l’ambiente esterno causate da una differenza di temperatura tra l’ambiente e il sistema stesso (**trasformazione adiabatica**); supponiamo inoltre che durante la trasformazione la pressione resti costante. Per fissare le idee supponiamo che il sistema sia costituito da una certa quantità d’acqua racchiusa in un recipiente adiabatico alla pressione atmosferica. Con riferimento al sistema di figura, per raggiungere l’obiettivo di portare la temperatura dell’acqua da $T_i$ a $T_f$ è possibile, ad esempio, far girare un mulinello eseguendo del lavoro meccanico; l’acqua così agitata si riscalda per effetto dell’attrito. Alternativamente si può riscaldare l’acqua facendo scorrere corrente attraverso un resistore immerso nell’acqua; l’energia elettrica necessaria può essere prodotta eseguendo un lavoro meccanico su di un generatore senza perdite; se si considera il generatore elettrico quale parte del sistema, anche questa seconda trasformazione viene realizzata con la sola esecuzione di lavoro adiabatico. Naturalmente esistono infiniti modi per effettuare la trasformazione con la sola esecuzione di lavoro adiabatico. Sperimentalmente si osserva che il lavoro speso, a parità di massa d’acqua, è sempre proporzionale alla variazione di temperatura dell’acqua $T_f - T_i$, con la medesima costante di proporzionalità. Tale risultato può essere assunto come legge generale, la quale afferma che il lavoro eseguito su un sistema, in una qualsiasi trasformazione adiabatica che porti quest’ultimo da uno stato iniziale ad uno stato finale, è sempre lo stesso, ossia è indipendente dalla trasformazione.",
+                    "![Esperimento di Joule sull'equivalente meccanico del calore|medium](/fisica-images/fig_191.avif)",
                     "Dalla meccanica sappiamo che il lavoro eseguito da una forza conservativa per spostare un punto materiale tra due posizioni differenti dipende solo dalle due posizioni e non dal percorso seguito dal punto materiale per spostarsi fra le due posizioni. Ciò implica l’esistenza di una funzione delle coordinate spaziali del punto materiale il cui valore, calcolato nella posizione iniziale e sottratto al valore calcolato nella posizione finale è uguale al lavoro compiuto. A questa funzione è stato attribuito il nome di energia potenziale. Analogamente in termodinamica, l’osservazione che il lavoro adiabatico fatto da un sistema termodinamico dipende soltanto dagli stati iniziale e finale e non dalla particolare trasformazione seguita per passare da uno stato all’altro, suggerisce l’esistenza di una funzione $U$ delle variabili termodinamiche del sistema il cui valore nello stato iniziale $U_i$ meno il valore nello stato finale $U_f$, è uguale al lavoro adiabatico $W_{if}^{(ad)}$ compiuto per passare da uno stato all’altro. Tale funzione delle variabili di stato del sistema o, più semplicemente, **funzione di stato**, è detta **energia interna** del sistema e l’affermazione precedente si traduce nella relazione:",
                     "$$ W_{if}^{(ad)} = U_i - U_f = -\\Delta U, $$",
                     "dove $\\Delta U = U_f - U_i$. I segni sono tali perché, se il sistema fornisce lavoro all’esterno, si assume che sia $W_{if}^{(ad)} > 0$, cioè tale lavoro viene fatto a spese dell’energia interna che di conseguenza diminuisce, $U_f < U_i$; se invece si compie lavoro dall’esterno sul sistema, si assume che sia $W_{if}^{(ad)} < 0$, in modo che questo accresca l’energia interna, $U_f > U_i$. La relazione precedente, che rappresenta il principio di conservazione dell’energia per le trasformazioni adiabatiche esprime l’esistenza di una funzione, l’energia interna, che è funzione dello stato del sistema, ovvero è funzione di tutte le variabili termodinamiche necessarie e sufficienti per specificare il sistema. Generalmente non è possibile scrivere tale funzione in una forma matematica semplice e spesso non se ne conosce l’espressione; la cosa importante è la sue esistenza e che si tratti di una funzione di stato. La relazione precedente può essere riguardata, peraltro, come una definizione per la funzione energia interna. Assegnato un valore arbitrario all’energia interna del sistema, in un certo stato preso quale riferimento, l’energia interna in un qualsiasi altro stato è determinata dal lavoro adiabatico scambiato; cioè, in analogia all’energia potenziale, l’energia interna è definita a meno di una costante arbitraria, fisicamente irrilevante essendo importanti le sole differenze di valori dell’energia interna corrispondenti a stati distinti.",
-                    "![Esperimento Joule calore lavoro](/IMAGES/joule_experiment.avif)",
                     "La trasformazione che porta la temperatura del sistema da un valore iniziale $T_i$ ad uno finale $T_f$, con $T_f > T_i$, si può anche effettuare senza bisogno di eseguire alcun lavoro. A tale scopo è possibile fare interagire termicamente il sistema, per esempio una certa quantità d’acqua a pressione atmosferica, con la fiamma di un fornello attraverso delle pareti conduttrici. In questa circostanza si ha evidentemente una variazione della funzione energia interna $\\Delta U$ pari a quella prodotta dall’esercizio del lavoro adiabatico, sebbene non sia stato eseguito alcun lavoro. Viceversa, in questo caso, è stato consentito lo scambio termico tra il sistema e l’ambiente circostante, cioè è stata permessa l’interazione determinata da una differenza di temperatura tra il sistema e l’ambiente. Si definisce **calore** $Q$ ciò che viene cambiato tra il sistema e l’ambiente circostante a causa di una differenza di temperatura; allora, perché sia fatto salvo il principio di conservazione dell’energia, in questa circostanza è necessario che il calore scambiato durante la trasformazione risulti pari alla variazione dell’energia interna.",
+                    "![Definizione di calore come energia scambiata|small](/fisica-images/fig_192.avif)",
                     "$$ Q = U_f - U_i = \\Delta U $$",
                     "dove, convenzionalmente, il calore è considerato positivo se assorbito dal sistema e negativo se ceduto.",
                     "Nel caso più generale, in cui la trasformazione da uno stato iniziale $i$ ad uno stato finale $f$ venga realizzata sia effettuando del lavoro che consentendo scambi di calore tra il sistema e l’ambiente circostante a causa di una differenza di temperatura, la variazione di energia interna è data da:",
@@ -2988,20 +3142,21 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ W_{if} = \\int_i^f dW, $$",
                     "che dipendono, in generale, dalla particolare trasformazione seguita e, pertanto, non possono essere espressi come differenza di valori di una funzione di stato calcolata in corrispondenza degli stati iniziale e finale. Ciò si esprime matematicamente affermando che, mentre $dU$ è un differenziale esatto, $dQ$ e $dW$ non lo sono, sebbene per semplicità siano indicati con lo stesso simbolo.",
                     "La convenzioni sui segni di lavoro e calore ha origini storiche e sono state adottate sulla base del funzionamento delle macchine termiche in cui normalmente entra del calore e viene compiuto del lavoro. Con tale convenzione i flussi di calore e di lavoro hanno segno opposti e, in particolare, risulta:",
+                    "![Convenzione sui segni per calore e lavoro|small](/fisica-images/fig_193.avif)",
                     "Calore che entra nel sistema dall’esterno: $Q > 0$",
                     "Lavoro che è eseguito dal sistema sull’esterno: $W > 0$",
                     "Calore che esce nel sistema verso l’esterno: $Q < 0$",
                     "Lavoro che è eseguito dall’esterno sul sistema: $W < 0$",
                     "Un modo per rammentare le convenzioni sui segni consiste nello scrivere il primo principio nella forma $U_f - U_i = Q - W$ e riguardare il sistema come una “banca” di energia in cui il calore positivo costituisce un deposito e il lavoro positivo un prelievo.",
-                    "![Convenzione segni calore lavoro](/IMAGES/heat_work_sign_convention.avif)"
                 ]
             },
             {
-                title: "10.9 Calore",
+                title: "10.10 Calore",
                 content: [
                     "È noto che mettere a contatto attraverso una parete conduttrice due sistemi isolati a differente temperatura comporta che, dopo un certo tempo, i sistemi raggiungono una temperatura intermedia tra le temperature originarie. Fino all’inizio del diciannovesimo secolo tali fenomeni si spiegavano postulando l’esistenza in ogni corpo di una sostanza denominata **calorico**. Si credeva che un corpo ad alta temperatura contenesse molto calorico mentre uno a bassa temperatura ne contenesse poco. Ponendo a contatto i due corpi, quello più ricco di calorico ne avrebbe ceduto una parte all’altro, in misura tale che la comune temperatura finale dei due sistemi a contatto assumesse un valore intermedio tra quelli di partenza.",
                     "Attualmente il calore non è considerato una sostanza, ma viene definito come l’ente che viene scambiato fra un sistema e l’ambiente circostante esclusivamente in virtù di una differenza di temperatura. Alla luce del primo principio della termodinamica il calore viene rivisto come energia che viene trasferita. Quindi il calore fluisce da un punto ad un altro e, quando il flusso è cessato, il termine calore perde la ragione d’essere. Pertanto parlare di “calore di un corpo” è altrettanto improprio che parlare di “lavoro in un corpo”. Dal primo principio segue che l’esecuzione di lavoro e il flusso di calore costituiscono due maniere tramite le quali è possibile variare l’energia interna di un corpo.",
                     "Consideriamo un sistema $A$ posto a contatto termico con un sistema $B$ ed assumiamo che i due sistemi siano racchiusi in un contenitore adiabatico. Applicando il primo principio a ciascun sistema si ha:",
+                    "![Sistemi in contatto termico|small](/fisica-images/fig_194.avif)",
                     "$$ Q^{(A)} = U_f^{(A)} - U_i^{(A)} + W^{(A)}, $$",
                     "$$ Q^{(B)} = U_f^{(B)} - U_i^{(B)} + W^{(B)}, $$",
                     "e sommando membro a membro si ha:",
@@ -3009,16 +3164,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "Poiché $\\left( U_f^{(A)} + U_f^{(B)} \\right) - \\left( U_i^{(A)} + U_i^{(B)} \\right)$ è la variazione di energia interna del sistema composto e $W^{(A)} + W^{(B)}$ il lavoro fatto dal sistema composto, segue che $Q^{(A)} + Q^{(B)}$ è il calore trasferito dal sistema composto. D’altra parte essendo tale sistema isolato , risulta $Q^{(A)} + Q^{(B)} = 0$, ovvero",
                     "$$ Q^{(A)} = -Q^{(B)} $$",
                     "cioè, in condizioni adiabatiche, il calore ceduto o ricevuto dal sistema $A$ è uguale al calore ricevuto o ceduto dal sistema $B$.",
-                    "![Sistemi a contatto in contenitore adiabatico](/IMAGES/adiabatic_contact_systems.avif)",
                     "Se un sistema esegue una qualsiasi trasformazione in cui gli stati iniziale e finale coincidono, ovvero una **trasformazione ciclica**, naturalmente $U_f = U_i$, cioè:",
                     "$$ \\Delta U = 0, $$",
                     "in tal caso risulta:",
                     "$$ Q = W, \\hspace{4cm} \\tag{10.5} $$",
                     "cioè il calore scambiato è uguale al lavoro scambiato. In particolare, se il sistema assorbe calore dall’esterno, $Q > 0$, allora fornisce lavoro all’esterno ($W > 0$) e costituisce una **macchina termica**. Se invece il sistema cede calore all’esterno, $Q < 0$, allora deve essere eseguito del lavoro sul sistema dall’ambiente ($W < 0$), e il sistema funziona come un **agente dissipativo**, come l’attrito. Quindi il primo principio della termodinamica stabilisce l’equivalenza tra calore e lavoro indicando, peraltro, la maniera per eseguire una misura del calore scambiato. Il calore viene, pertanto, può essere espresso in joule."
+                    ,
                 ]
             },
             {
-                title: "10.10 Calorimetria",
+                title: "10.11 Calorimetria",
                 content: [
                     "Una definizione del calore in forma operativa, cioè attraverso la specificazione di un campione e di un metodo di misura fu, dal punto di vista storico, precedente alla scoperta del primo principio della termodinamica ed alla successiva identificazione del calore quale energia in transito attraverso i confini di un sistema termodinamico. I metodi sviluppati in tale ambito, denominato **calorimetria**, vengono utilizzati ancora attualmente allo scopo di effettuare misure di quantità di calore.",
                     "Quando una certa quantità di calore viene ceduta ad un sistema, si ha un innalzamento della corrispondente temperatura. Tale caratteristica non vale in generale; infatti in corrispondenza di un cambiamento di fase di una sostanza il calore assorbito dal sistema non fa aumentare la sua temperatura ma provoca l’aumento della parte di sostanza che ha cambiato fase cioè, ad esempio, da solido è passata a liquido o da liquido è passata alla fase di vapore; ciò è quanto avviene al sistema che realizza il punto triplo dell’acqua, in cui il calore che gli viene ceduto non determina l’innalzamento della temperatura del sistema, ma solo la variazione della frazione di ghiaccio rispetto alla parte liquida e di vapore. Si definisce **capacità termica** alla temperatura $T$ la quantità:",
@@ -3049,7 +3204,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.11 Cambiamenti di fase",
+                title: "10.12 Cambiamenti di fase",
                 content: [
                     "Lo scambio di calore tra un sistema e l’esterno non sempre determina una variazione di temperatura. Ciò è quanto accade in corrispondenza di un **cambiamento di fase**, ovvero nel passaggio di una sostanza da uno stato (solido, liquido, gassoso) ad un altro. Ad esempio, il ghiaccio fonde o l’acqua bolle senza cambiare temperatura e, nei processi inversi, l’acqua ghiaccia o il vapore condensa senza assorbire calore. La quantità di calore per unità di massa scambiata durante un cambiamento di fase viene denominata **calore latente** del processo. Pertanto il calore $Q$ trasferito in tale circostanza vale:",
                     "$$ Q = \\lambda m, \\hspace{4cm} \\tag{10.6} $$",
@@ -3061,29 +3216,31 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "11-leggi-dei-gas",
-        title: "11 LEGGI DEI GAS",
+        title: "Lezione 11: LEGGI DEI GAS",
         subsections: [
             {
-                title: "Introduzione",
+                title: "11.1 Introduzione",
                 content: [
                     "Per gas si intende un fluido privo di forma o volume proprio e facilmente comprimibile in modo da conseguire notevoli variazioni di pressione e densità. Le variabili termodinamiche più appropriate per caratterizzare lo stato termodinamico e le eventuali trasformazioni di un gas racchiuso in un contenitore sono, per piccoli volumi del contenitore, la pressione, il volume e la temperatura. Se il volume del contenitore cambia, ad esempio perché una parete è mobile, il gas può anche scambiare lavoro con l’ambiente esterno; inoltre, se le pareti del contenitore sono conduttrici può anche aversi uno scambio di calore con l’ambiente esterno. Quindi a seconda se le pareti del contenitore sono fisse o mobili e sono adiabatiche o conduttrici il gas può compiere trasformazioni in cui scambia lavoro, calore o entrambi con l’ambiente esterno. Tali interazioni obbediscono al primo principio della termodinamica. L’equazione di stato che correla tra loro le variabili che descrivono lo stato termodinamico del gas risulta generalmente molto complessa. Tuttavia nelle ipotesi in cui la temperatura del gas non sia eccessivamente bassa (in modo che il gas non condensi nella sua fase liquida), o troppo alta, e che la pressione sia bassa, l’equazione di stato è molto semplice. Un gas con tali caratteristiche è detto **gas ideale**. Naturalmente un gas ideale non esiste in natura ma tale concetto risulta nondimeno utile poiché i gas reali si comportano, a basse pressioni, come un gas ideale. A livello microscopico il gas ideale è caratterizzato da specifiche proprietà delle molecole costituenti e delle interazioni sia mutue che col contenitore."
                 ]
             },
             {
-                title: "11.1 Le leggi dei gas ideali",
+                title: "11.2 Le leggi dei gas ideali",
                 content: [
                     "Consideriamo un gas ideale in equilibrio termodinamico alla pressione $p_1$, contenuto in un volume $V_1$ alla temperatura $T_1$. Supponiamo di variare il volume del recipiente da $V_1$ a $V_2$, mantenendo costante la temperatura; allora la pressione finale $p_2$ del gas soddisfa la relazione:",
                     "$$ p_2 V_2 = p_1 V_1. \\qquad (T_2 = T_1) $$",
                     "Tale legge, scoperta sperimentalmente da R. Boyle nel 1660, afferma che, se la temperatura di un gas viene mantenuta costante, il volume del gas varia in proporzione inversa alla pressione. La **legge di Boyle** può essere rappresentata graficamente in un piano in cui sull’asse delle ascisse è riportato il volume del gas e sull’asse delle ordinate la sua pressione (**piano di Clapeyron**). In tale piano il luogo dei punti che rappresentano gli stati di equilibrio di un gas ad una data temperatura è costituito da un ramo di iperbole equilatera. Siccome una trasformazione in cui la temperatura è mantenuta costante prende il nome di **isoterma**, le iperboli che rappresentano la legge di Boyle nel piano di Clapeyron, sono dette **isoterme del gas ideale**.",
-                    "![Isoterme piano Clapeyron](/IMAGES/clapeyron_isotherms.avif)",
+                    "![Isoterme di un gas ideale nel piano PV|medium](/fisica-images/fig_195.avif)",
                     "Consideriamo un gas in equilibrio termico con una sorgente alla temperatura $T_C$, dove $T_C$ è espressa in $^{\\circ}C$, contenuto in un recipiente di volume $V$ dotato di una parete mobile, in modo da conseguire sempre l’equilibrio meccanico con l’ambiente esterno, ossia pressione interna uguale alla pressione esterna che assumiamo costante. Se in queste condizioni si fa variare la temperatura $T_C$, consentendo al gas di raggiungere ogni volta l’equilibrio termico, si trova che il volume varia con la temperatura $T_C$ secondo la legge:",
                     "$$ V = V_0 (1 + \\alpha T_C). $$",
+                    "![Lavoro in trasformazione isobara|small](/fisica-images/fig_196.avif)",
                     "dove $V_0$ è il volume del gas per $T_C = 0^{\\circ}C$ e il coefficiente $\\alpha$, pari a $(1/V_0)dV/dT_C$, detto **coefficiente di dilatazione del gas**, è una quantità poco dipendente dal tipo di gas. Una trasformazione in cui la pressione è mantenuta costante è detta **isobara** ed è rappresentata nel piano di Clapeyron da un segmento di retta parallelo all’asse orizzontale. La relazione precedente prende il nome di **legge isobara di Volta - Gay Lussac**.",
                     "Consideriamo un gas racchiuso in un contenitore di volume $V$, privo di pareti mobili. Misurando la pressione all’interno del gas, quando questo è in equilibrio termico con diverse sorgenti di calore, si trova che la pressione varia con la temperatura $T_C$ secondo la legge:",
                     "$$ p = p_0 (1 + \\beta T_C), $$",
+                    "![Lavoro nullo in trasformazione isocora|small](/fisica-images/fig_197.avif)",
                     "dove $p_0$ è la pressione del gas per $T_C = 0^{\\circ}C$ e il coefficiente $\\beta$, pari a $(1/p_0)dp/dT_C$, è una quantità poco dipendente dal tipo di gas. Una trasformazione in cui il volume è mantenuto costante è detta **isocora** ed è rappresentata nel piano di Clapeyron da un segmento di retta parallelo all’asse verticale. La relazione precedente prende il nome di **legge isocora di Volta - Gay Lussac**.",
-                    "![Trasformazioni isobara isocora](/IMAGES/isobaric_isochoric_graphs.avif)",
                     "Per tutti i gas risulta, nel limite del gas ideale di bassa pressione ed alta temperatura:",
+                    "![Limite di gas ideale per i coefficienti di dilatazione|medium](/fisica-images/fig_198.avif)",
                     "$$ \\lim_{p \\to 0} \\alpha = \\lim_{p \\to 0} \\beta \\approx (0.0036611 \\pm 0.0000003) ^{\\circ}C^{-1} \\approx \\frac{1}{(273.15 \\pm 0.02)^{\\circ}C} $$",
                     "Questa caratteristica suggerisce di scegliere lo zero della scala di temperatura, anziché in maniera arbitraria, come avviene per la scala centigrada, in modo tale che esso sia opportunamente legato alle proprietà dei gas ideali in modo da consentire di esprimere nella maniera più semplice le loro leggi. Questo è quanto si ottiene fissando lo zero della scala Kelvin alla temperatura di $-273.15 ^{\\circ}C$. Posto allora:",
                     "$$ T = T_C + 273.15, $$",
@@ -3093,8 +3250,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ V = V_0 \\alpha \\left( \\frac{1}{\\alpha} + T_C \\right) = V_0 \\alpha T, \\hspace{4cm} \\tag{11.1} $$",
                     "$$ p = p_0 \\alpha \\left( \\frac{1}{\\alpha} + T_C \\right) = p_0 \\alpha T, \\hspace{4cm} \\tag{11.2} $$",
                     "in cui la temperatura $T$ è espressa in Kelvin. Si ribadisce che queste relazioni non mantengono la loro validità a temperature prossime allo zero, siccome prima di raggiungere tali temperature i gas cessano di comportarsi come gas ideali, cessando di esistere in quanto tali perché soggetti a transizioni di fase che li portano nello stato liquido o in quello solido.",
-                    "![Grafico coefficiente dilatazione](/IMAGES/expansion_coefficient_graph.avif)",
                     "Consideriamo un gas in equilibrio termico con una sorgente ad una certa temperatura, racchiuso in un recipiente dotato di una parete mobile in modo da avere sempre l’equilibrio meccanico con l’ambiente esterno, per cui la pressione interna al contenitore si mantiene sempre uguale a quella esterna che si ritiene costante. In queste condizioni di temperatura e di pressione costante si varia la quantità di gas presente nel recipiente registrandone il volume $V$. Nota la massa del gas contenuto e nota la massa molecolare, dal rapporto tra queste due quantità è possibile stabilire il numero $N$ di molecole di gas presenti nel recipiente. Ciò che si osserva è quanto mostrato nel grafico di figura, ossia esiste una relazione di proporzionalità diretta tra il volume $V$ e il numero $N$ di molecole del gas, cioè il volume aumenta linearmente all’aumentare del numero di molecole. Inoltre si osserva che sostituendo il gas nel recipiente con un numero uguale di molecole di un gas differente, alla stessa pressione e temperatura, il nuovo gas occupa lo stesso volume. Questo risultato prende il nome di **legge di Avogadro** e stabilisce che volumi uguali di gas diversi contengono lo stesso numero di molecole. Il numero $N$ di molecole contenute in una massa $M$ di gas è pari al rapporto:",
+                    "![Legge di Avogadro: Volume vs Numero di molecole|small](/fisica-images/fig_199.avif)",
                     "$$ N = \\frac{M}{m}, \\hspace{4cm} \\tag{11.3} $$",
                     "dove $m$ è la massa di ciascuna molecola che compone il gas. La massa $m$ è pari al prodotto della massa molecolare $A$ per l’unità di massa atomica $m_{amu}$ che, convenzionalmente, è 1/12 di quella dell’atomo di carbonio e vale:",
                     "$$ m_{amu} \\equiv 1.6604 \\times 10^{-27} kg, $$",
@@ -3120,11 +3277,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "per cui una mole di butano ha una massa:",
                     "$$ M_{C_4H_{10}} = A_{C_4H_{10}} \\cdot 1 g = 58.08 g $$",
                     "**Nota 1:** Questa pressione corrisponde alla pressione atmosferica di una colonna d’aria al livello del mare, alla temperatura di $0^{\\circ}C$ ed alla latitudine di $45^{\\circ}$ e viene convenzionalmente chiamata **atmosfera standard** e si indica con **atm**.",
-                    "![Legge di Avogadro](/IMAGES/avogadro_law_graph.avif)"
                 ]
             },
             {
-                title: "11.2 Equazione di stato del gas ideale",
+                title: "11.3 Equazione di stato del gas ideale",
                 content: [
                     "Consideriamo $n$ moli di un gas alla pressione di $101.325 kPa$ ed alla temperatura $T_0$ di $T_0 = 273.15 K$; per quanto visto esse occupano un volume $V_0$ pari a $n V_m$. Se, mantenendo costante il volume, la temperatura viene portata al valore $T$, dalla relazione (11.2) segue:",
                     "$$ p(T) = p_0 \\alpha T; $$",
@@ -3141,12 +3297,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove:",
                     "$$ k = \\frac{R}{N_A} = 1.3807 \\times 10^{-23} \\frac{J}{K} \\hspace{4cm} \\tag{11.7} $$",
                     "è detta **costante di Boltzmann**."
+                    ,
                 ]
             },
             {
-                title: "11.3 Energia interna di un gas ideale",
+                title: "11.4 Energia interna di un gas ideale",
                 content: [
                     "**Esempio:** Consideriamo un fluido in quiete, ovvero tale che tutti gli elementi che lo costituiscono hanno accelerazione e velocità nulla in un sistema di riferimento inerziale, pertanto le forze agenti su ogni sua parte hanno risultante nulla. Consideriamo un elemento infinitesimo di fluido di massa:",
+                    "![Elemento di fluido in equilibrio idrostatico|small](/fisica-images/fig_200.avif)",
                     "$$ dm = \\rho dV = \\rho dx dy dz = \\rho dS dz, $$",
                     "dove $\\rho$ è la densità del fluido e $dS$ la superficie orizzontale $dx dy$. Siccome il fluido è in quiete la forza orizzontale agente su di esso, dovuta alla sola pressione del fluido circostante, ha risultante nulla. Anche la risultante della forza verticale è nulla, ma tale risultante è originata oltre che dalla pressione del fluido circostante, anche dal peso dell’elemento stesso. Se $\\mathbf{F}$ è la forza esercitata sulla faccia superiore dell’elemento, e $\\mathbf{F} + d\\mathbf{F}$ la forza esercitata sulla faccia inferiore, per avere l’equilibrio verticale deve risultare:",
                     "$$ F - g dm - (F + dF) = 0 $$",
@@ -3161,8 +3319,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "e integrando a partire dalla quota $z = 0$, in cui la pressione è $p_0$ e la temperatura è $T_0$, si ha:",
                     "$$ p = p_0 e^{-\\frac{Mg}{RT} z}. $$",
                     "Questa relazione, nota come **equazione barometrica**, fornisce il valore della pressione atmosferica in funzione dell’altezza rispetto alla superficie della Terra; si noti che si è assunto $g$ indipendente da $z$. L’equazione barometrica è applicabile a rigore solo se la temperatura si può ritenere indipendente dalla quota $z$; tale condizione si realizza solo nella stratosfera, a una quota approssimativamente compresa tra $11 km$ e $25 km$ s.l.m. Al di sotto sussiste un continuo movimento di masse d’aria dall’alto verso il basso e viceversa.",
-                    "![Elemento di fluido forze](/IMAGES/fluid_element_forces.avif)",
                     "Per stabilire la dipendenza dell’energia interna di un gas ideale dalle sue coordinate termodinamiche consideriamo l’esperienza dell’espansione libera, eseguita da Joule. Consideriamo un contenitore con pareti rigide conduttrici, diviso in due parti da una strozzatura munita di rubinetto. Uno dei due scomparti è riempito con una certa quantità di gas, mentre nell’altro c’è il vuoto. Il contenitore è immerso in un recipiente adiabatico (**calorimetro**) e la temperatura di equilibrio del sistema vale $T$. Aprendo il rubinetto il gas si espande fino ad occupare entrambi gli scomparti, cioè tutto il volume a disposizione. Questo tipo di trasformazione è detta **espansione libera** siccome la pressione nella seconda metà del contenitore è nulla e non ci sono, quindi, forze esterne che agiscono sul gas. Sperimentalmente si osserva che, indipendentemente da come viene eseguito il processo, ad esempio aprendo più o meno il rubinetto, la temperatura misurata alla fine del processo è approssimativamente uguale alla temperatura di equilibrio $T$, ma la differenza tra la temperatura finale e quella iniziale è tanto più piccola quanto più il gas usato è vicino alle condizioni di gas ideale (bassa pressione). Questa conclusione, inoltre, vale anche se si cambiano le dimensioni dei due scomparti. Se la temperatura del gas non cambia al termine del processo, vuol dire che il gas non scambia calore col calorimetro, cioè:",
+                    "![Espansione libera di Joule|medium](/fisica-images/fig_201.avif)",
                     "$$ Q = 0. $$",
                     "D’altra parte, siccome le pareti del contenitore sono rigide, il lavoro effettuato durante la trasformazione è pure nullo:",
                     "$$ W = 0; $$",
@@ -3173,15 +3331,16 @@ export const fisicaCourseContent: MainSection[] = [
                     "per ogni volume $V_i$ e $V_f$. Tale identità è possibile solo se la funzione $U$ è indipendente dal volume occupato dal gas e quindi se è dipendente dalla sola temperatura:",
                     "$$ U = U(T). $$",
                     "Se ora si scelgono come variabili indipendenti la pressione e la temperatura, si può provare in maniera analoga che $U$ non dipende neanche dalla pressione. In conclusione, l’energia interna di un gas ideale dipende dalla sola temperatura.",
-                    "![Espansione libera Joule](/IMAGES/joule_free_expansion.avif)"
                 ]
             },
             {
-                title: "11.4 Trasformazioni di un gas ideale",
+                title: "11.5 Trasformazioni di un gas ideale",
                 content: [
                     "Consideriamo due stati di equilibrio $A$ e $B$ per un sistema costituito da una certa quantità di gas ideale. Una trasformazione quasi statica che porti lo stato del gas da $A$ a $B$ può essere rappresentata nel piano di Clapeyron: infatti gli stati intermedi della trasformazione sono di equilibrio e quindi i valori della variabili termodinamiche caratteristiche del sistema in ogni punto della trasformazione sono definiti. Al contrario una trasformazione che non ha luogo attraverso stati di equilibrio non è rappresentabile in tale piano e viene indicata graficamente con una linea tratteggiata tra gli stati estremi. Il lavoro infinitesimo $dW$ scambiato dal sistema in corrispondenza dell’espansione o della compressione del gas, dalla (10.1) vale $p dV$, per cui il lavoro $W$ corrispondente alla trasformazione da $A$ a $B$ vale:",
+                    "![Confronto tra trasformazioni quasistatiche e non|medium](/fisica-images/fig_202.avif)",
                     "$$ W = \\int_A^B p dV; $$",
                     "naturalmente l’applicabilità di questa relazione è condizionata dalla conoscenza della dipendenza funzionale della pressione $p$ dal volume $V$ durante la trasformazione da $A$ a $B$. Tuttavia è possibile osservare che per una trasformazione isocora tra gli stati $A$ e $B$ si ha $V_A = V_B$, per cui $W = 0$; se il gas si espande, cioè $V_B > V_A$, il gas compie lavoro sull’ambiente esterno e $W > 0$; se il gas si comprime, cioè $V_B < V_A$, l’ambiente esterno compie lavoro sul gas e $W < 0$. Inoltre è possibile attribuire un significato geometrico al lavoro in una trasformazione quasi statica in quanto è pari all’area sottesa dalla curva, nel piano di Clapeyron che descrive la trasformazione. In particolare un una trasformazione ciclica reversibile il lavoro è dato dall’area racchiusa dal ciclo e risulta $W > 0$ se il ciclo è percorso in senso orario e $W < 0$ se il ciclo è percorso in senso antiorario.",
+                    "![Diagrammi PV e lavoro nei cicli|medium](/fisica-images/fig_203.avif)",
                     "La rappresentazione geometrica conferma la considerazione circa il fatto che il lavoro compiuto da un sistema nel passare da uno stato iniziale ad uno stato finale dipende oltre che dagli stati estremi della trasformazione anche dalla particolare trasformazione. Infatti relativamente alla trasformazione tra gli stati $A$ e $B$ del sistema si nota che se cambia la curva che congiunge i due punti rappresentativi dello stato cambia, in generale, l’area della superficie che rappresenta il lavoro compiuto. Siccome il lavoro espresso dalla precedente relazione non è indipendente dal particolare modo in cui il volume viene variato da $V_A$ a $V_B$, segue che il lavoro infinitesimo $p dV$ non è un differenziale esatto, cioè non esiste una funzione di stato, cioè di $p$, $V$ e $T$, tale che $p dV$ possa esprimersi con il differenziale di tale funzione.",
                     "Se il sistema è soggetto ad una trasformazione reversibile dallo stato $A$ allo stato $B$, dall’espressione del lavoro in una trasformazione segue che, quando tale trasformazione viene percorsa nel senso contrario, da $B$ ad $A$, il lavoro cambia di segno:",
                     "$$ W_{BA} = -W_{AB}. $$",
@@ -3202,7 +3361,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "Consideriamo una trasformazione isobara $AC$ dove, anche in questo caso, i punti $A$ e $C$ si trovano su isoterme in cui la differenza di temperatura è $dT$; il calore $dQ_p$ scambiato in tale trasformazione è dato dalla (11.10) e vale per $n$ moli di un gas perfetto:",
                     "$$ dQ_p = n c_p dT. $$",
                     "**Nota 2:** Con la notazione $(dQ/dT)_V$ si sottintende che la derivata $dQ/dT$ è calcolata mantenendo costante il volume $V$.",
-                    "![Trasformazioni p-V lavoro](/IMAGES/pV_work_transformations.avif)",
                     "Il lavoro $dW$ in questa trasformazione è dato dalla (10.1) in cui $dW > 0$, poiché il gas si è espanso ($V_A < V_C$); così, dalle relazioni (10.4) e (11.11) si ha:",
                     "$$ dQ_p = n c_p dT = dU + p dV = dQ_V + p dV, $$",
                     "cioè:",
@@ -3210,6 +3368,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "e dalle relazioni (11.9) e (11.10) segue:",
                     "$$ c_p > c_V. \\hspace{4cm} \\tag{11.12} $$",
                     "Pertanto il calore che occorre cedere ad una mole di gas ideale per determinare l’aumento della sua temperatura di $1 K$ è maggiore a pressione costante che a volume costante in quanto, a pressione costante, il gas compie anche del lavoro (Nota 3).",
+                    "![Relazione di Mayer tra Cp e Cv|medium](/fisica-images/fig_204.avif)",
                     "Per stabilire l’espressione dell’energia interna consideriamo due generici stati di equilibrio del gas, $A$ e $B$. La differenza $\\Delta U = U_B - U_A$ deve essere indipendente dalla particolare trasformazione che collega gli stati $A$ e $B$ del sistema, per cui identificando uno stato intermedio $C$ tale che il volume del gas in tale stato è uguale a quello dello stato $A$ e la temperatura è uguale a quella delle stato $B$, scegliamo per il calcolo l’isocora $AC$ e l’isoterma $CB$; la differenza $\\Delta U$ può esprimersi come:",
                     "$$ \\Delta U = U_B - U_A = U_B - U_C + U_C - U_A. $$",
                     "Siccome l’energia interna dipende dalla sola temperatura, sarà la stessa per tutti gli stati dell’isoterma $e$, in particolare:",
@@ -3220,7 +3379,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\Delta U = Q, $$",
                     "in cui $Q$ rappresenta il calore scambiato a volume costante, così:",
                     "**Nota 3:** La ragione della differenza tra $c_p$ e $c_V$ può comprendersi anche osservando che, se l’aumento di temperatura viene realizzato a volume costante, il calore assorbito determina il solo aumento dell’energia interna. Se viceversa viene realizzato a pressione costante si ha lo stesso aumento di energia interna, ma poiché il volume aumenta, si ha anche un lavoro e il tutto deve necessariamente avvenire a spese del calore assorbito.",
-                    "![Trasformazione per calcolo energia interna](/IMAGES/internal_energy_calc.avif)",
                     "$$ \\Delta U = Q = n \\int_{T_A}^{T_B} c_V dT $$",
                     "e, in particolare, se $c_V$ è indipendente dalla temperatura risulta:",
                     "$$ \\Delta U = n c_V (T_B - T_A). \\hspace{4cm} \\tag{11.13} $$",
@@ -3244,17 +3402,18 @@ export const fisicaCourseContent: MainSection[] = [
                     "| :--- | :--- | :--- | :--- | :--- |",
                     "| gas monoatomici | $He, Ne, Ar, ...$ | $\\frac{3}{2}R$ | $\\frac{5}{2}R$ | $\\frac{5}{3}$ |",
                     "| gas biatomici | $H_2, N_2, NO, CO, ...$ | $\\frac{5}{2}R$ | $\\frac{7}{2}R$ | $\\frac{7}{5}$ |",
-                    "![Grafico calore specifico H2](/IMAGES/specific_heat_H2.avif)",
+                    "![Calore specifico molare in funzione della temperatura per H2|medium](/fisica-images/fig_206.avif)",
                     "Per altri gas ideali biatomici, come per i gas ideali poliatomici come $CO_2, NH_3, CH_4$ i calori specifici sono più marcatamente variabili con la temperatura in relazione al particolare gas considerato."
+                    ,
                 ]
             },
             {
-                title: "11.5 Trasformazioni adiabatiche",
+                title: "11.6 Trasformazioni adiabatiche",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente chiuso da un pistone mobile. Supponiamo che le pareti del recipiente e del pistone siano isolanti al calore in modo tale che il gas non possa scambiare calore con l’esterno. Dal primo principio, siccome la trasformazione è adiabatica e $Q=0$, si ha $W = -\\Delta U$ e, assumendo costante il calore specifico $c_V$, dalla relazione (11.13) risulta:",
+                    "![Lavoro come forza esterna agente sul pistone|small](/fisica-images/fig_207.avif)",
                     "$$ W_{AB} = -\\Delta U = -n c_V (T_B - T_A) = n c_V (T_A - T_B) \\hspace{4cm} \\tag{11.19} $$",
                     "cioè il lavoro compiuto in una trasformazione adiabatica, indipendentemente dal fatto che la trasformazione sia o meno reversibile, dipende dalla sola variazione della temperatura. In corrispondenza di un’espansione adiabatica $W_{AB} > 0$, così $\\Delta U < 0$, cioè $T_B < T_A$, ovvero il gas si raffredda; se invece si ha una compressione adiabatica $W_{AB} < 0$, così $\\Delta U > 0$, cioè $T_B > T_A$, ovvero il gas si riscalda. Tramite l’espressione precedente, noto il lavoro compiuto $W_{AB}$ a partire da un determinato stato caratterizzato da una temperatura $T_A$, è possibile stabilire la temperatura finale $T_B$; l’equazione di stato $p_B V_B = n R T_B$ consente allora di valutare $p_B$ o $V_B$ noto che sia uno dei due. Tale proprietà è conseguenza dl fatto che con un certo lavoro $W_{AB}$ si può giungere a vari stati finali a seconda di come si comprime o si fa espandere il gas.",
-                    "![Trasformazione adiabatica](/IMAGES/adiabatic_process.avif)",
                     "Se il pistone viene spostato molto lentamente e gli attriti sono trascurabili, la trasformazione può essere considerata reversibile. Per ciascuna trasformazione infinitesima che la costituisce, dalla (10.4) si ha:",
                     "$$ dQ = dU + dW = 0, $$",
                     "e inoltre, dalle relazioni (11.14) e (10.1) segue:",
@@ -3276,46 +3435,49 @@ export const fisicaCourseContent: MainSection[] = [
                     "che prende il nome di **equazione di Poisson** ed è valida qualunque sia la massa del gas e lo stato di partenza della trasformazione. L’equazione di stato (11.6) consente di ricavare un altra relazione caratteristica della trasformazione adiabatica reversibile così, esprimendo nella (11.20) il volume $V$ come $nRT/p$, si ha:",
                     "$$ pT^{\\frac{\\gamma}{1-\\gamma}} = cost. $$",
                     "L’equazione (11.21) è rappresentata nel piano di Clapeyron dal grafico di figura. In tale piano è possibile confrontare tale equazione con quella caratteristica di una isoterma, $pV = cost$. Ciò che si osserva è che nel caso dell’adiabatica la pressione diminuisce più rapidamente di quanto avviene nell’isoterma; ciò in quanto nell’espansione adiabatica non solo aumenta il volume, ma contemporaneamente diminuisce la temperatura; dall’equazione di stato (11.6), siccome la pressione si esprime come $nRT/V$, segue che entrambi i fattori contribuiscono a far diminuire la pressione. Per tale motivo, nel piano di Clapeyron, la curva adiabatica è più ripida dell’isoterma. Si può verificare analiticamente tale proprietà calcolando la derivata della pressione rispetto al volume nel punto $A$ per entrambe le trasformazioni; per l’isoterma si ha:",
+                    "![Confronto pendenze adiabatica e isoterma|medium](/fisica-images/fig_205.avif)",
                     "$$ \\left. \\frac{dp}{dV} \\right|_{V=V_A}^{(iso)} = \\left. \\frac{d}{dV} \\left( \\frac{p_A V_A}{V} \\right) \\right|_{V=V_A} = -\\left. \\left( \\frac{p_A V_A}{V^2} \\right) \\right|_{V=V_A} = -\\frac{p_A}{V_A}; $$",
                     "mentre per l’adiabatica:",
                     "$$ \\left. \\frac{dp}{dV} \\right|_{V=V_A}^{(ad)} = \\left. \\frac{d}{dV} \\left( \\frac{p_A V_A^\\gamma}{V^\\gamma} \\right) \\right|_{V=V_A} = -\\gamma \\left. \\left( \\frac{p_A V_A^\\gamma}{V^{\\gamma+1}} \\right) \\right|_{V=V_A} = -\\gamma \\frac{p_A}{V_A}, $$",
                     "siccome $\\gamma > 1$, segue:",
                     "$$ \\left| \\left. \\frac{dp}{dV} \\right|_{V=V_A}^{(iso)} \\right| < \\left| \\left. \\frac{dp}{dV} \\right|_{V=V_A}^{(ad)} \\right|, $$",
                     "cioè l’adiabatica ha pendenza negativa superiore a quella dell’isoterma. Si osservi che una trasformazione adiabatica reversibile è una trasformazione ideale, in quanto è impossibile garantire contemporaneamente l’adiabaticità e la simultanea quasi staticità e mancanza di attriti. Le due trasformazioni adiabatiche e le rispettive caratteristiche possono essere rappresentate secondo lo schema di figura:",
-                    "![Isoterma vs Adiabatica](/IMAGES/isotherm_vs_adiabatic.avif)",
-                    "![Schema compressione/espansione adiabatica](/IMAGES/adiabatic_schematic.avif)"
+                    "![Schemi di compressione ed espansione adiabatica|medium](/fisica-images/fig_208.avif)",
                 ]
             },
             {
-                title: "11.6 Trasformazioni isoterme",
+                title: "11.7 Trasformazioni isoterme",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente chiuso da un pistone; supponiamo che il recipiente sia posto in contatto termico con una sorgente di calore a temperatura $T$. Dal primo principio, siccome la temperatura del gas resta costante e di conseguenza l’energia interna del gas non varia, risulta $\\Delta U = 0$, così:",
+                    "![Contatto termico con sorgente a temperatura T|small](/fisica-images/fig_209.avif)",
                     "$$ W_{AB} = Q_{AB}. $$",
                     "In corrispondenza di un’espansione isoterma $W_{AB} > 0$, per cui $Q_{AB} > 0$, cioè il gas compie lavoro assorbendo calore; se invece si ha una compressione isoterma $W_{AB} < 0$ e $Q_{AB} < 0$, cioè il gas subisce del lavoro e cede calore. Dalla relazione (11.6) segue che il lavoro nella trasformazione isoterma reversibile da $A$ a $B$ è:",
                     "$$ W_{AB} = \\int_A^B p dV = \\int_A^B \\frac{nRT}{V} dV = nRT \\int_A^B \\frac{dV}{V} = nRT \\ln \\frac{V_B}{V_A}. \\hspace{4cm} \\tag{11.22} $$",
+                    "![Compressione isoterma reversibile con pistone|small](/fisica-images/fig_214.avif)",
                     "In questo caso, siccome $W_{AB} = Q_{AB}$, il calore scambiato è sempre diverso da zero, a meno che non risulti $T=0$, condizione che non è fisicamente raggiungibile. Le trasformazioni isoterme si schematizzano come indicato nella figura.",
-                    "![Schema trasformazioni isoterme](/IMAGES/isothermal_schematic.avif)",
+                    "![Schemi di compressione ed espansione isoterma|medium](/fisica-images/fig_210.avif)",
                     "**Esempio:** Un recipiente metallico contiene 5 moli di gas ideale alla pressione $p_A$ di $2 \\times 10^5 Pa$. Tale recipiente è collegato ad un altro recipiente tramite un capillare attraverso il quale il gas può fluire lentamente. Il secondo recipiente è dotato di un pistone mobile privo di attrito sul quale agisce una pressione $p_B$ di $5 \\times 10^5 Pa$. Tutto il sistema è situato in un ambiente in cui la temperatura è di $300 K$. Stabiliamo il lavoro fatto dal gas nella trasformazione che porta dalla pressione $p_A$ a quella $p_B$. Sebbene la trasformazione sia isoterma e quasi-statica, in quanto il gas scorre lentamente mantenendosi in equilibrio termico con l’ambiente, tuttavia non è reversibile poiché non è stabilito l’equilibrio meccanico per effetto della differenza finita di pressione $p_A - p_B$. Pertanto il lavoro eseguito dal gas contro la pressione esterna nel passare dallo stato $A$ a quello $B$ è:",
                     "$$ W_{AB} = p_B (V_B - V_A) = p_B \\left( \\frac{nRT}{p_B} - \\frac{nRT}{p_A} \\right) = nRT \\left( 1 - \\frac{p_B}{p_A} \\right) \\approx 11.8 kJ. $$",
                     "L’irreversibilità del processo non consente di calcolare tale grandezza attraverso l’espressione (11.22) che porterebbe al risultato errato di $37.4 kJ$. In questo caso, sebbene la trasformazione evolva lentamente, comunque non è reversibile.",
-                    "![Espansione irreversibile con pistone](/IMAGES/irreversible_expansion.avif)"
+                    "![Sistema con due recipienti a contatto termico|small](/fisica-images/fig_211.avif)",
                 ]
             },
             {
-                title: "11.7 Trasformazioni isocore",
+                title: "11.8 Trasformazioni isocore",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente posto in contatto termico con una sorgente di calore. Siccome le pareti del recipiente sono fisse, il volume del gas è costante, pertanto $W = 0$ e il gas può solo scambiare calore con l’ambiente circostante. Pertanto, dal primo principio, si ha $Q = \\Delta U$ e, assumendo costante il calore specifico $c_V$, dalla relazione (11.13) si ha:",
+                    "![Contatto termico a volume costante|small](/fisica-images/fig_212.avif)",
                     "$$ Q = \\Delta U = n c_V (T_B - T_A). $$",
                     "Dall’equazione (11.6), siccome il volume si mantiene costante, si ha:",
                     "$$ \\frac{p_A}{T_A} = \\frac{nR}{V_A} = \\frac{nR}{V_B} = \\frac{p_B}{T_B}, $$",
                     "cioè:",
                     "$$ \\frac{p_A}{p_B} = \\frac{T_A}{T_B}. $$",
                     "Quindi, se si cede calore al gas, la sua temperatura e la sua pressione aumentano mentre, viceversa, se si assorbe calore dal gas, la sua temperatura e la sua pressione diminuiscono. La trasformazione testé descritta viene effettuata ponendo il recipiente contenente il gas a temperatura $T_A$ a contatto termico con una sorgente a temperatura $T_B$. La trasformazione realizzata in questa maniera è irreversibile, siccome non c’è in ogni istante l’equilibrio termico tra il gas e l’ambiente esterno (la sorgente). Affinché diventi una trasformazione isocora reversibile il contenitore deve essere posto inizialmente in contatto termico con una sorgente a temperatura $T_1$ pari a $T_A + dT$, poi con una sorgente a temperatura $T_2$ pari a $T_1 + dT$, e così via sino alla temperatura $T_B$, attraverso una serie infinita di sorgenti. Le trasformazioni isocore si schematizzano come mostrato in figura.",
-                    "![Schema trasformazioni isocore](/IMAGES/isochoric_schematic.avif)"
+                    "![Schemi di riscaldamento e raffreddamento isocoro|medium](/fisica-images/fig_213.avif)",
                 ]
             },
             {
-                title: "11.8 Trasformazioni isobare",
+                title: "11.9 Trasformazioni isobare",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente chiuso da un pistone sul quale agisce una pressione esterna costante $p$; supponiamo che il recipiente sia posto a contatto termico con una sorgente. In corrispondenza di una trasformazione isobara, dalla (11.6) segue:",
                     "$$ \\frac{V_A}{V_B} = \\frac{T_A}{T_B} \\hspace{4cm} \\tag{11.23} $$",
@@ -3328,7 +3490,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "dalle relazioni (10.1), (11.6) e (11.24) il lavoro scambiato vale:",
                     "$$ W_{AB} = p(V_B - V_A) = p V_A (x - 1) = nRT_A \\left( \\frac{T_B}{T_A} - 1 \\right) = nR(T_B - T_A). $$",
                     "Come è facile verificare, tali espressioni soddisfano il primo principio della termodinamica $Q_{AB} - W_{AB} = \\Delta U$, in cui la variazione di energia interna è espressa dalla relazione (11.13). In questa trasformazione, se il gas cede calore, il suo volume e la sua temperatura diminuiscono e il gas subisce lavoro, mentre se il gas assorbe calore, il suo volume e la sua temperatura aumentano e il gas compie lavoro. Per effettuare tale trasformazione è possibile operare in maniera irreversibile ponendo il gas a temperatura $T_A$ in contatto termico con una sorgente a temperatura $T_B$, mantenendo costante la pressione esercitata sulla parete mobile; l’irreversibilità è conseguente alla mancanza di equilibrio termico. Per operare il modo reversibile occorre adoperare una serie infinita di sorgenti di calore infinitesime. Le trasformazioni isobare si schematizzano come mostrato in figura.",
-                    "![Schema trasformazioni isobare](/IMAGES/isobaric_schematic.avif)",
+                    "![Schemi di espansione e compressione isobara|medium](/fisica-images/fig_215.avif)",
                     "**Esempio:** Una mole d’aria contenuta alla temperatura $T_0$ di $400 K$ in un recipiente con pareti adiabatiche viene compressa adiabaticamente e reversibilmente; il lavoro $W_E$ fatto dall’esterno sull’aria è di $8.319 J$. Stabiliamo il rapporto di compressione supponendo che il recipiente non assorba calore dall’aria e che questa, considerata come miscuglio di ossigeno e azoto, si comporti come un gas ideale. Il lavoro $W$ fatto dal gas vale:",
                     "$$ W = -W_E $$",
                     "inoltre, siccome il processo è adiabatico e $Q=0$, dal primo principio segue:",
@@ -3344,10 +3506,11 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.9 Trasformazioni cicliche",
+                title: "11.10 Trasformazioni cicliche",
                 content: [
                     "In una trasformazione in cui gli stati iniziale e finale coincidono, cioè una **trasformazione ciclica**, valendo l’identità (10.5) tra calore $Q$ e lavoro $W$ scambiati, queste due quantità devono risultare entrambe positive o negative. Con riferimento alla convenzione dei segni per il calore e il lavoro, se $W > 0$ e $Q > 0$, cioè il sistema produce lavoro assorbendo calore dall’esterno, il ciclo è detto **termico**; se $W < 0$ e $Q < 0$, cioè l’ambiente esterno esercita del lavoro sul sistema che cede calore all’ambiente, il ciclo è detto **frigorifero**. Un dispositivo che opera attraverso un ciclo termico è detto **macchina termica**, mentre se funziona tramite un ciclo frigorifero è detto **macchina frigorifera**.",
                     "**Esempio:** La macchina a vapore rappresenta un esempio di macchina termica; prescindendo dai dettagli tecnici, tale dispositivo opera nella maniera seguente: da una sorgente di calore si preleva una certa quantità di calore ottenuta dalla combustione di qualche materiale e tale calore viene ceduto ad una sostanza, come vapore o aria, che si espande compiendo lavoro e raffreddandosi; infine la sostanza viene versata in un serbatoio a temperatura inferiore a quella della prima sorgente. Quindi la macchina preleva un calore $Q_2$ dalla prima sorgente, ne converte una parte in lavoro $W$ e cede la parte restante $Q_1$ alla sorgente fredda che può essere un condensatore o l’aria esterna. Quindi, ciò che richiede la macchina per il suo funzionamento è il calore $Q_2$, mentre ciò che si ricava è il lavoro $W$; il calore $Q_1$ invece, rappresenta l’energia persa ai fini del funzionamento del dispositivo.",
+                    "![Esempio di trasformazione ciclica nel piano PV|medium](/fisica-images/fig_216.avif)",
                     "Consideriamo, in generale, l’insieme delle trasformazioni che costituiscono un ciclo, siano $Q_1 < 0$ e $Q_2 > 0$ rispettivamente le somme dei calori ceduti e assorbiti dal sistema, allora il calore complessivamente scambiato nel ciclo è:",
                     "$$ Q = Q_1 + Q_2. $$",
                     "Se $W$ è il lavoro complessivamente scambiato nel ciclo, dalla relazione precedente e dalla (10.5) si ha:",
@@ -3356,20 +3519,22 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ \\eta = \\frac{W}{Q_2} = \\frac{Q_1 + Q_2}{Q_2} = 1 + \\frac{Q_1}{Q_2} = 1 - \\frac{|Q_1|}{Q_2}. \\hspace{4cm} \\tag{11.25} $$",
                     "Sperimentalmente risulta $0 \\le \\eta < 1$, per cui $W < Q_2$, cioè in un ciclo termico solo la quantità $\\eta Q_2 < Q_2$ viene trasformata in lavoro mentre il resto viene ceduto.",
                     "**Esempio:** (**Ciclo di Carnot**). È possibile provare che una macchina ciclica funzionante con una sola sorgente di calore non può produrre lavoro assorbendo calore dalla sorgente. Una macchina termica, per poter funzionare e trasformare energia termica in energia meccanica richiede almeno due sorgenti di calore a temperature diverse, $T_1$ e $T_2 > T_1$. Un ciclo reversibile che faccia uso di due sole sorgenti può essere realizzato nel modo seguente: il sistema scambia i calori $Q_1$ e $Q_2$ con le sue sorgenti in modo reversibile, ovvero il sistema viene posto, in tempi successivi, a contatto termico con le sorgenti eseguendo due trasformazioni isoterme reversibili ($AB$ e $CD$ in figura); d’altra parte il sistema deve scambiare calore solo con queste sorgenti, perciò deve passare da una temperatura all’altra senza scambi di calore, cioè per mezzo di trasformazioni adiabatiche reversibili ($BC$ e $DA$ in figura). Pertanto un ciclo reversibile che usi due sole sorgenti di calore è costituito da due trasformazioni isoterme reversibili collegate attraverso due trasformazioni adiabatiche reversibili. Tale ciclo viene denominato **ciclo di Carnot**. Consideriamo $n$ moli di gas ideale contenute in un recipiente cilindrico chiuso da un pistone scorrevole senza attrito; le pareti del recipiente e del pistone siano adiabatiche, in modo da impedire qualsiasi scambio di calore tra il gas e l’esterno, tranne la base del recipiente che è conduttrice a meno che non venga ricoperta da una parete adiabatica. Il ciclo di Carnot mostrato in figura può venire realizzato attraverso le seguenti fasi:",
-                    "![Ciclo di Carnot](/IMAGES/carnot_cycle.avif)",
                     "1. **Espansione isoterma reversibile**. Il gas è nello stato di equilibrio $A$, in contatto termico con la sorgente a temperatura $T_2$ e il pistone viene lasciato sollevarsi lentamente in modo da ottenere una trasformazione reversibile. In ciascuna trasformazione infinitesima, a seguito di una diminuzione $dp$ della pressione esterna, il gas si espande di un volume $dV$ raffreddandosi di una quantità $dT$; ne segue che durante tale trasformazione infinitesima la sorgente cede al gas il calore $dQ$. Il gas passa quindi dallo stato $A$ di coordinate $p_A, V_A, T_2$ allo stato $B$, di coordinate $p_B, V_B, T_2$. Dalla relazione (11.22) il lavoro fatto dal gas nell’espansione isoterma vale:",
                     "$$ W_{AB} = nRT_2 \\ln \\frac{V_B}{V_A} \\hspace{4cm} \\tag{11.26} $$",
                     "e inoltre, mantenendosi costante la temperatura, risulta $\\Delta U = U_B - U_A = 0$ per cui, dal primo principio, segue:",
                     "$$ Q_2 = Q_{AB} = W_{AB} = nRT_2 \\ln \\frac{V_B}{V_A}. \\hspace{4cm} \\tag{11.27} $$",
+                    "![Fase 1: Espansione isoterma reversibile|small](/fisica-images/fig_217.avif)",
                     "2. **Espansione adiabatica reversibile**. La base del recipiente viene coperta dalla parete adiabatica e il pistone viene lasciato sollevarsi lentamente in modo che la trasformazione sia reversibile. Pertanto, a seguito di una diminuzione $dp$ della pressione esterna, il gas si espande di un volume $dV$, raffreddandosi di una quantità $dT$. In tale trasformazione il gas passa dallo stato $B$ di coordinate $p_B, V_B, T_2$ allo stato $C$, di coordinate $p_C, V_C, T_1$, con $T_1 < T_2$. Il lavoro fatto dal gas nell’espansione adiabatica è dato dalla relazione (11.19) e vale:",
                     "$$ W_{BC} = -\\Delta U_{BC} = n c_V (T_2 - T_1), $$",
                     "con $Q_{BC} = 0$ e, inoltre, dalla (11.20) risulta:",
                     "$$ T_2 V_B^{\\gamma-1} = T_1 V_C^{\\gamma-1}. \\hspace{4cm} \\tag{11.28} $$",
+                    "![Fase 2: Espansione adiabatica reversibile|small](/fisica-images/fig_218.avif)",
                     "3. **Compressione isoterma reversibile**. La parete adiabatica viene rimossa in modo che il gas risulti in contatto termico con la sorgente a temperatura $T_1$ e il pistone viene abbassato lentamente in modo da ottenere una trasformazione reversibile. In ogni trasformazione infinitesima la pressione esterna viene incrementata di $dp$ e di conseguenza il gas si comprime di un volume $dV$ riscaldandosi di $dT$; ne segue che durante la trasformazione infinitesima il gas cede alla sorgente il calore $dQ$. Nella trasformazione il gas passa dallo stato $C$ di coordinate $p_C, V_C, T_1$ allo stato $D$, di coordinate $p_D, V_D, T_1$. Dalla (11.22) il lavoro fatto nella trasformazione è:",
                     "$$ W_{CD} = nRT_1 \\ln \\frac{V_D}{V_C} \\hspace{4cm} \\tag{11.29} $$",
                     "e siccome $V_D < V_C$, risulta $W_{CD} < 0$, cioè l’ambiente esterno compie lavoro sul gas. Siccome la compressione è isoterma e $\\Delta U = 0$, dal primo principio segue:",
                     "$$ Q_1 = Q_{CD} = W_{CD} = nRT_1 \\ln \\frac{V_D}{V_C}; \\hspace{4cm} \\tag{11.30} $$",
                     "il fatto che $Q_1 < 0$ conferma che il gas cede calore alla sorgente.",
+                    "![Fase 3: Compressione isoterma reversibile|small](/fisica-images/fig_219.avif)",
                     "4. **Compressione adiabatica reversibile**. Alla base del recipiente viene applicata la parete adiabatica e il pistone viene abbassato lentamente in modo che la trasformazione risulti reversibile. Ad ogni trasformazione infinitesima intermedia la pressione esterna viene aumentata di $dp$ e il volume del gas si comprime di $dV$, riscaldandosi di $dT$. In tale trasformazione il gas passa dallo stato $D$ di coordinate $p_D, V_D, T_1$, allo stato di partenza $A$, di coordinate $p_A, V_A, T_2$. Dalla (11.19) il lavoro subito dal gas è:",
                     "$$ W_{DA} = -\\Delta U_{DA} = n c_V (T_1 - T_2) = -W_{BC}, \\hspace{4cm} \\tag{11.31} $$",
                     "anche in questo caso, siccome $T_1 < T_2$, si ha $W_{DA} < 0$, essendo fatto dall’esterno il lavoro per spingere il pistone. Inoltre $Q_{DA} = 0$ e dalla (11.20):",
@@ -3386,11 +3551,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "cioè il rendimento della macchina che esegue il ciclo di Carnot descritto da un gas ideale con calore specifico costante dipende solo dal rapporto di temperatura delle due sorgenti. Il rendimento è nullo se $T_1 = T_2$ e cresce al diminuire del rapporto $T_1/T_2$, il limite $\\eta = 1$ si ha solo se $T_1 \\to 0$ o $T_2 \\to \\infty$; siccome tali valori costituiscono limiti sperimentali non raggiungibili, ne segue che risulta sempre $0 \\le \\eta < 1$. Dalle relazioni (11.30) e (11.33) segue che il lavoro scambiato dal sistema con la sorgente a temperatura $T_1$ nell’isoterma $CD$ vale",
                     "$$ Q_1 = nRT_1 \\ln \\frac{V_D}{V_C} = -nRT_1 \\ln \\frac{V_C}{V_D} = -nRT_1 \\ln \\frac{V_B}{V_A}, $$",
                     "confrontando tale relazione con la (11.27), poiché $T_2 > T_1$, segue $Q_2 > |Q_1|$, ovvero il calore assorbito dal gas nel ciclo è maggiore di quello ceduto; pertanto complessivamente il gas assorbe calore siccome $Q_1 + Q_2 > 0$ producendo il lavoro $W = Q_1 + Q_2$. In figura è schematizzato questo processo.",
-                    "![Schema macchina termica](/IMAGES/heat_engine_scheme.avif)",
+                    "![Il Ciclo di Carnot completo nel piano PV|medium](/fisica-images/fig_220.avif)",
                     "In un ciclo **frigorifero** il sistema assorbe lavoro dall’ambiente cedendo calore, cioè $Q=W < 0$. Nel caso più semplice di macchina che opera tra due sole sorgenti, il sistema assorbe il calore $Q_1$ dalla sorgente a temperatura inferiore $T_1$ e assorbe il lavoro $W$ dall’esterno, cedendo il calore $Q_2$ alla sorgente a temperatura superiore $T_2$. Fissate che siano le temperature $T_1$ e $T_2$, una macchina frigorifera è tanto migliore quanto maggiore risulta il calore estratto dalla sorgente fredda a parità di lavoro ricevuto. Pertanto si definisce **efficienza** o **coefficiente di prestazione** di un ciclo frigorifero, il rapporto:",
                     "$$ \\xi = \\frac{Q_1}{|W|}. $$",
                     "Sperimentalmente si osserva che $Q_1 < |Q_2|$, cioè il calore ceduto alla sorgente a temperatura più alta è sempre maggiore, in modulo, di quello sottratto alla sorgente a bassa temperatura; dal primo principio, siccome $Q_1 + |W| = |Q_2|$, ciò implica che la trasformazione ciclica richiede sempre la fornitura di lavoro affinché abbia luogo.",
-                    "![Schema macchina frigorifera](/IMAGES/refrigerator_scheme.avif)",
                     "**Esempio:** Un esempio di ciclo frigorifero è costituito dal ciclo di Carnot percorso in senso inverso. In tale circostanza il gas assorbe il calore",
                     "$$ Q_1 = nRT_1 \\ln \\frac{V_C}{V_D} $$",
                     "dalla sorgente a temperatura $T_1$ e cede il calore",
@@ -3405,7 +3569,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.10 Teoria cinetica dei gas ideali",
+                title: "11.11 Teoria cinetica dei gas ideali",
                 content: [
                     "Le leggi dei gas, sebbene descrivano in maniera sostanzialmente corretta il comportamento dei gas nel limite del gas ideale, hanno un fondamento di natura esclusivamente empirica, essendo relazioni dedotte unicamente per via sperimentale. Una giustificazione teorica di tali leggi costituisce la premessa per la formulazione della teoria cinetica dei gas. Il punto di partenza di tale teoria è l’interpretazione delle variabili termodinamiche di un gas, pressione, volume e temperatura, in termini di grandezza cinematiche proprie di ogni costituente elementare del gas. D’altra parte se il numero di particelle del gas contenute in un determinato volume è grande, è possibile fornire solo un’interpretazione di carattere statistico di tali grandezze, ossia valutare i loro valori medi in un certo intervallo di tempo. Naturalmente le ipotesi su cui si basa la teoria cinetica dei gas non sono accessibili sperimentalmente, essendo praticamente impossibile seguire il moto di ciascuna particella del gas; pertanto tale teoria non va intesa quale fedele descrizione della realtà, ma un approccio per la sua descrizione attraverso un appropriato modello, ossia il **modello di gas ideale**. La misura della fedeltà del modello è costituita dalla verifica sperimentale dei risultati conseguiti attraverso la correlazione tra le grandezza macroscopiche e quelle microscopiche. Le caratteristiche fisiche del modello di gas ideale su cui si basa la teoria cinetica dei gas sono:",
                     "1. Un gas di cui è stabilita la natura chimica è costituito da particelle indistinguibili ed identiche chiamate **molecole**.",
@@ -3418,9 +3582,11 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.11 Calcolo cinetico della pressione",
+                title: "11.12 Calcolo cinetico della pressione",
                 content: [
                     "Consideriamo un gas formato da $N$ molecole con le proprietà del modello cinetico, contenuto in un recipiente cubico di spigolo $l$ con le facce parallele ai piani coordinati del sistema $x, y, z$ di riferimento. Sia $\\mathbf{v}_i = v_{ix}\\hat{x} + v_{iy}\\hat{y} + v_{iz}\\hat{z}$ la velocità della $i$-esima molecola, con $i = 1, 2, ..., N$ e $m$ la sua massa. Quando la molecola urta contro una parete, siccome per ipotesi si tratta di un urto elastico contro una parete rigida e inamovibile, la componente della velocità perpendicolare alla parete cambia di segno mentre la componente parallela rimane invariata. Consideriamo la parete del cubo perpendicolare all’asse $x$; se $\\mathbf{v}_i$ è la velocità della molecola prima dell’urto contro tale parete, dopo l’urto avrà componenti $v'_{ix} = -v_{ix}$, $v'_{iy} = v_{iy}$ e $v'_{iz} = v_{iz}$. Pertanto la componente lungo $x$ della quantità di moto della molecola subirà una variazione pari a $m(v'_{ix} - v_{ix}) = -2mv_{ix}$. Siccome la quantità di moto totale si conserva, la parete acquista in seguito all’urto con la molecola una quantità di moto:",
+                    "![Volume cubico contenente gas ideale|small](/fisica-images/fig_224.avif)",
+                    "![Urto molecolare contro una parete|medium](/fisica-images/fig_225.avif)",
                     "$$ \\Delta p_{ix} = -2mv_{ix}. \\hspace{4cm} \\tag{11.35} $$",
                     "Il successivo urto della molecola contro la parete considerata avviene dopo il tempo necessario per attraversare il cubo nei due sensi, lungo la direzione $x$:",
                     "$$ \\Delta t_{ix} = \\frac{2l}{v_{ix}}. \\hspace{4cm} \\tag{11.36} $$",
@@ -3447,11 +3613,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "essendo $n N_A = N$, d’altra parte il rapporto $R/N_A$ è pari alla costante di Boltzmann (11.7), così:",
                     "$$ \\langle E_k \\rangle = \\frac{3}{2} kT. $$",
                     "In questo modo si identifica il legame tra una grandezza macroscopica, quale la temperatura del gas e una grandezza microscopica, come l’energia cinetica di traslazione delle molecole. Quindi l’energia cinetica media traslazionale di una molecola di un gas ideale è proporzionale alla temperatura del gas.",
-                    "![Molecola urto parete](/IMAGES/molecule_wall_collision.avif)"
                 ]
             },
             {
-                title: "11.12 Principio di equipartizione dell’energia",
+                title: "11.13 Principio di equipartizione dell’energia",
                 content: [
                     "Consideriamo un gas ideale monoatomico alla temperatura $T$; assumendo che le molecole del gas siano puntiformi, l’energia cinetica traslazionale media $\\langle E_k \\rangle$ rappresenta tutta e sola l’energia posseduta in media da ciascuna molecola, per cui in questo caso il prodotto di questa quantità per il numero totale $N$ di molecole costituenti il gas rappresenta l’energia interna $U$ del gas stesso, pertanto:",
                     "$$ u = \\frac{U}{N} = \\langle E_k \\rangle = \\frac{1}{2} m \\langle v^2 \\rangle = \\frac{1}{2} m \\langle v_x^2 \\rangle + \\frac{1}{2} m \\langle v_y^2 \\rangle + \\frac{1}{2} m \\langle v_z^2 \\rangle = \\frac{3}{2} kT $$",
@@ -3460,6 +3625,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "Cioè, ad ogni termine dell’espressione dell’energia interna per molecola $u$ corrisponde la stessa energia, pari a $kT/2$. Il risultato testé conseguito ha carattere generale e prende il nome di **principio di equipartizione dell’energia**. Esso afferma che l’energia disponibile dipende dalla sola temperatura ed è ripartita in parti uguali per ciascuno dei modi indipendenti nei quali una molecola può immagazzinare energia. Ognuna delle forme indipendenti sotto le quali si manifesta l’energia prende il nome di **grado di libertà**, per cui un gas monoatomico ha 3 soli gradi di libertà corrispondenti ai tre moti traslatori indipendenti che ciascuna molecola del gas può descrivere lungo tre assi cartesiani ortogonali. Pertanto, in un sistema con $l$ gradi di libertà, risulta:",
                     "$$ u = \\frac{U}{N} = \\frac{l}{2} kT. \\hspace{4cm} \\tag{11.40} $$",
                     "Una molecola biatomica può essere rappresentata come due atomi puntiformi, separati da una distanza fissa. L’energia cinetica totale di questa molecola è somma dell’energia cinetica traslazionale del centro di massa e di quella rotazionale. Se si considera il sistema di riferimento $x', y', z'$ di figura, solidale al centro di massa della molecola e con origine in esso, disponendo tale sistema relativamente alla molecola così come indicato in figura, nell’espressione dell’energia cinetica di rotazione non è presente il termine di rotazione attorno all’asse $z'$ essendo nullo il relativo momento d’inerzia. Pertanto l’energia per molecola è:",
+                    "![Gradi di libertà rotazionali di una molecola biatomica|small](/fisica-images/fig_226.avif)",
                     "$$ u = \\frac{U}{N} = \\langle E_k \\rangle = \\frac{1}{2} m \\langle v_x^2 \\rangle + \\frac{1}{2} m \\langle v_y^2 \\rangle + \\frac{1}{2} m \\langle v_z^2 \\rangle + \\frac{1}{2} I_x' \\langle \\omega_x'^2 \\rangle + \\frac{1}{2} I_y' \\langle \\omega_y'^2 \\rangle, $$",
                     "dove, in questo caso, per simmetria risulta $I_x' = I_y'$. La molecola considerata ha, quindi, 5 gradi di libertà e pertanto:",
                     "$$ u = \\frac{U}{N} = \\langle E_k \\rangle = \\frac{5}{2} kT. $$",
@@ -3467,11 +3633,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ c_V = \\frac{1}{n} \\frac{dU}{dT} = \\frac{1}{n} \\frac{d}{dT} \\left( N \\frac{l}{2} kT \\right) = \\frac{1}{n} N \\frac{l}{2} k = N_A \\frac{l}{2} \\frac{R}{N_A} = \\frac{l}{2} R, $$",
                     "da cui segue, ad esempio, che per gas monoatomici, $l=3$ e di conseguenza $c_V$ vale $3R/2$ e per gas biatomici, $l=5$ e $c_V$ vale $5R/2$. Nel caso della molecola biatomica si è supposto che la distanza interatomica fosse costante. Ciò è valido finché la temperatura non è troppo elevata altrimenti occorre considerare i termini energetici associati alle variazioni di tale distanza e le relazioni precedenti perdono di validità.",
                     "Sebbene questa trattazione dei calori specifici fornisca una giustificazione alle differenze di proprietà dei gas al variare del numero di atomi che compongono la molecola, essa risulta solo parzialmente soddisfacente non prevedendo, ad esempio, la dipendenza, per un dato gas, del calore specifico dalla temperatura, come mostrato nel caso della molecola dell’idrogeno. Per questa e per altre ragioni la teoria classica deve essere sostituita da una che si basa su una descrizione più accurata del comportamento microscopico della materia. Per una adeguata teoria dei calori specifici dei gas, come dei solidi e dei liquidi, si deve far ricorso alla meccanica quantistica.",
-                    "![Molecola biatomica gradi libertà](/IMAGES/diatomic_molecule_dof.avif)"
                 ]
             },
             {
-                title: "11.13 I gas reali",
+                title: "11.14 I gas reali",
                 content: [
                     "Il modello cinetico in cui il gas è considerato un insieme di particelle puntiformi non interagenti consente di riprodurre l’equazione di stato dei gas ideali nel limite di estrema rarefazione ed elevata temperatura del gas. Al di fuori di queste condizioni limite una descrizione del comportamento dei gas reali richiede di tenere conto delle dimensioni finite delle molecole del gas e del fatto che interagiscono tra loro anche a distanza. Nell’equazione di stato dei gas ideali, $pV = nRT$, il volume $V$ rappresenta sia il volume del recipiente che contiene il gas, che il volume fisicamente accessibile a ciascuna molecola, in quanto considerata dal modello priva di dimensioni. Si può tenere conto delle dimensioni delle molecole di un gas reale sostituendo, nell’equazione di stato, al volume $V$, un volume $V - nb$, in cui $b$, detto **covolume**, rappresenta la parte del volume del recipiente inaccessibile al moto molecolare. Se le molecole vengono assimilate a sfere rigide, ciascuna di volume $V_0$, il covolume è proporzionale al volume $NV_0$ occupato dalle $N$ molecole contenute nel recipiente. Precisamente si trova che il covolume vale:",
                     "$$ b = 4NV_0. $$",
@@ -3480,60 +3645,64 @@ export const fisicaCourseContent: MainSection[] = [
                     "dove $m$ è la massa di ciascuna molecola e $c$ ed $a$ sono delle costanti di proporzionalità. L’equazione di stato dei gas reali diviene allora:",
                     "$$ \\left( p + a \\frac{n^2}{V^2} \\right) (V - nb) = nRT, $$",
                     "che prende il nome di **equazione di stato di Van der Waals**. I coefficienti $a$ e $b$ di questa equazione sono caratteristici del particolare gas in esame. Si noti che qualora il volume delle molecole si può ritenere nullo, $b \\to 0$, e il gas è rarefatto, $V \\to \\infty$, tale relazione si riduce all’equazione di stato dei gas ideali (11.6).",
-                    "![Forze Van der Waals](/IMAGES/van_der_waals_forces.avif)"
+                    "![Origine molecolare della tensione superficiale|small](/fisica-images/fig_227.avif)"
                 ]
             }
         ]
     },
     {
         id: "12-secondo-principio-termodinamica",
-        title: "12 SECONDO PRINCIPIO DELLA TERMODINAMICA",
+        title: "Lezione 12: SECONDO PRINCIPIO DELLA TERMODINAMICA",
         subsections: [
             {
-                title: "Introduzione",
+                title: "12.1 Introduzione",
                 content: [
                     "Il primo principio della termodinamica stabilisce l’equivalenza fra calore scambiato e lavoro meccanico e quindi che il calore assorbito o ceduto da un sistema termodinamico ne modifica la relativa energia interna, così come accade per effetto di un lavoro meccanico eseguito su o da tale sistema. Tuttavia, il primo principio non esaurisce la descrizione dei processi che coinvolgono scambi di calore o di lavoro col sistema; infatti si possono immaginare numerosi processi che, pur soddisfacendo il primo principio, nella realtà non hanno luogo. Se, ad esempio, si mettono a contatto due corpi a differente temperatura, sebbene il primo principio non vieti tanto il passaggio di quantità di calore dal corpo più caldo a quello più freddo quanto il viceversa, nella pratica il secondo caso non si osserva mai. Analogamente, data una sorgente dalla quale è possibile estrarre del calore, il primo principio consente di stabilire quanto lavoro si ottiene attraverso la trasformazione di una certa quantità di calore ma non pone alcun limite alla possibilità di trasformare in lavoro il calore estratto. Pertanto si potrebbe immaginare un’ipotetica macchina ciclica in grado di trasformare interamente in lavoro il calore estratto da una sorgente praticamente inesauribile, come ad esempio il mare. Tuttavia, nella pratica, si verifica che è impossibile convertire interamente in lavoro quantità di calore prelevato con continuità da una sorgente a temperatura costante (Nota 1). Da questi e da altri esempi di processi che, sebbene compatibili con il primo principio della termodinamica, in realtà non si verificano, si evince che in natura esistono delle trasformazioni irreversibili che avvengono sempre in un determinato verso. Il secondo principio della termodinamica rappresenta una legge di carattere sperimentale che trae origine da tale constatazione.",
-                    "**Nota 1:** Un ipotetico dispositivo funzionante su questo principio realizzerebbe un **moto perpetuo di seconda specie**, per distinguerlo dal **moto perpetuo di prima specie** che si basa sulla violazione del principio di conservazione dell’energia."
+                    "**Nota 1:** Un ipotetico dispositivo funzionante su questo principio realizzerebbe un **moto perpetuo di seconda specie**, per distinguerlo dal **moto perpetuo di prima specie** che si basa sulla violazione del principio di conservazione dell’energia.",
+                    "![Conversione di lavoro in calore|small](/fisica-images/fig_228.avif)"
                 ]
             },
             {
-                title: "12.1 Enunciati di Kelvin-Planck e di Clausius",
+                title: "12.2 Enunciati di Kelvin-Planck e di Clausius",
                 content: [
                     "Il secondo principio della termodinamica ha due differenti enunciati che derivano dall’osservazione di due diversi fatti sperimentali, tuttavia essi si rivelano tra loro completamente equivalenti. L’enunciato di Kelvin-Planck afferma:",
                     "\"È impossibile realizzare una trasformazione il cui unico risultato sia la conversione in lavoro del calore fornito da una sorgente a temperatura uniforme\".",
                     "In una espansione isoterma di un gas ideale il gas compie un lavoro $W$ sull’ambiente esterno a spese del calore $Q$ prelevato dall’unica sorgente con la quale il gas è a contatto termico. In questo caso la conversione di calore in lavoro è completa perché, essendo costante l’energia interna, $\\Delta U = 0$ e di conseguenza $Q=W>0$. Tuttavia questo non rappresenta l’unico risultato della trasformazione, poiché lo stato finale del gas è differente da quello iniziale (il volume è aumentato e la pressione è diminuita). Per riportare il sistema nello stato iniziale tramite una generica trasformazione, in modo da realizzare un ciclo termico, occorre assorbire lavoro e cedere calore. Quindi l’enunciato di Kelvin-Planck esclude che in un ciclo realizzato con una sola sorgente termica tutto il calore $Q$ assorbito da questa venga convertito in lavoro $W>0$, cioè in lavoro fatto verso l’esterno. Quindi in questa trasformazione per la quale dal primo principio si ha $Q=W$, non può aversi $Q=W>0$. Ovvero dall’enunciato di Kelvin-Planck segue che in una trasformazione ciclica realizzata con un unica sorgente, detta **trasformazione ciclica monoterma**, deve risultare:",
+                    "![Schema di macchina termica impossibile secondo Kelvin-Planck|small](/fisica-images/fig_221.avif)",
                     "$$ Q = W \\le 0, $$",
                     "dove $Q$ è il calore scambiato con la sorgente durante il ciclo e $W$ rappresenta il lavoro fatto nel ciclo. Questa disuguaglianza esprime l’impossibilità di ricavare lavoro da un sistema in una trasformazione ciclica con una sola sorgente termica. Se il ciclo è reversibile nella relazione precedente deve necessariamente aversi l’uguaglianza ($Q=W=0$) perché, se fosse $W<0$, quando durante il ciclo si inverte il verso di percorrenza si avrebbe $W>0$ in violazione dell’enunciato di Kelvin-Planck. L’enunciato di Clausius nel secondo principio afferma:",
                     "\"È impossibile realizzare una trasformazione il cui unico risultato sia il passaggio di calore da un corpo ad una data temperatura ad un altro a temperatura maggiore\".",
                     "Pertanto la trasformazione che determina il passaggio di calore da un corpo ad uno più caldo può avvenire purché tale passaggio non rappresenti l’unico risultato della trasformazione stessa. Infatti in un ciclo frigorifero il calore viene prelevato da una sorgente ad una certa temperatura e trasferito ad un’altra a temperatura maggiore, tuttavia ciò non costituisce l’unico risultato della trasformazione in quanto occorre esercitare del lavoro dall’esterno affinché il ciclo abbia luogo.",
+                    "![Schema di macchina frigorifera|small](/fisica-images/fig_222.avif)",
                     "Nello schema seguente sono rappresentate, in tratteggio, la trasformazione proibita in base all’enunciato di Kelvin-Planck e la corrispondente trasformazione consentita:",
-                    "![Enunciato Kelvin-Planck](/IMAGES/kelvin_planck_statement.avif)",
+                    "![Confronto enunciato di Kelvin-Planck: impossibile vs possibile|medium](/fisica-images/fig_229.avif)",
                     "Nello schema seguente sono rappresentate, in tratteggio, la trasformazione proibita in base all’enunciato di Clausius e la corrispondente trasformazione consentita:",
-                    "![Enunciato Clausius](/IMAGES/clausius_statement.avif)"
+                    "![Confronto enunciato di Clausius: impossibile vs possibile|medium](/fisica-images/fig_230.avif)",
                 ]
             },
             {
-                title: "12.2 Equivalenza degli enunciati di Kelvin-Planck e Clausius",
+                title: "12.3 Equivalenza degli enunciati di Kelvin-Planck e Clausius",
                 content: [
                     "Benché le due espressioni del secondo principio appaiano a prima vista scorrelate, è possibile provare che esse esprimono le stesse limitazioni così, ammettendo che uno dei due enunciati non sia valido, ne segue la falsità dell’altro.",
                     "Supponiamo, in contraddizione con l’enunciato di Kelvin-Planck, che esista una macchina (tratteggiata in figura), in grado di realizzare un processo ciclico che trasformi integralmente il calore in lavoro. Sia $W$ il lavoro prodotto da tale macchina trasformando il calore $Q$ prelevato da una sorgente a temperatura $T_2$. Questo lavoro $W=Q$ può essere adoperato per il funzionamento di una macchina di Carnot operante come una macchina frigorifera che prelevi il calore $Q_1$ dalla sorgente a temperatura $T_1 < T_2$ e ceda il calore $|Q_2'| = Q_1 + W = Q_1 + Q$ alla sorgente a temperatura $T_2$. La macchina complessiva, costituita dall’insieme delle due macchine, assorbe $Q_1$ dalla sorgente a temperatura inferiore $T_1$ e, senza altri effetti, cede $|Q_2'| - Q = Q_1 + Q - Q = Q_1$ alla sorgente a temperatura superiore $T_2$, violando l’enunciato di Clausius.",
-                    "![Equivalenza Kelvin-Clausius Caso 1](/IMAGES/kelvin_clausius_equivalence_1.avif)",
+                    "![Falsità di Kelvin-Planck implica falsità di Clausius|medium](/fisica-images/fig_231.avif)",
                     "Supponiamo ora che, in contraddizione con l’enunciato di Clausius, esista una macchina che abbia la capacità di trasferire senza alcun altro effetto la quantità di calore $Q$ da una sorgente a temperatura $T_1$ ad un’altra a temperatura $T_2 > T_1$. In questa condizione, attraverso una macchina di Carnot opportunamente dimensionata, operante tra le temperature $T_1$ e $T_2$, preleviamo la quantità di calore $Q_2 = Q$ dalla seconda sorgente, cedendo $Q_1$ alla prima, producendo un lavoro per ciclo pari a $W = Q_2 - Q_1 = Q - Q_1$, dove $W > 0$, essendo $Q_2 > |Q_1|$. La macchina complessiva, quindi, converte in lavoro $W$ tutto e solo il calore $Q - Q_1$ prelevato dalla sola sorgente a temperatura $T_1$ senza altri effetti, contravvenendo pertanto all’enunciato di Kelvin-Planck.",
-                    "![Equivalenza Kelvin-Clausius Caso 2](/IMAGES/kelvin_clausius_equivalence_2.avif)",
+                    "![Falsità di Clausius implica falsità di Kelvin-Planck|medium](/fisica-images/fig_232.avif)",
                     "Occorre altresì aggiungere che in tali dimostrazioni si è implicitamente ammesso che le macchine accoppiate compissero lo stesso numero di cicli per unità di tempo, ossia ad un ciclo completo di una corrispondesse un ciclo completo dell’altra. Questa rappresenta un’ipotesi esemplificativa che non modifica, comunque, i risultati ottenuti."
                 ]
             },
             {
-                title: "12.3 Irreversibilità e secondo principio della termodinamica",
+                title: "12.4 Irreversibilità e secondo principio della termodinamica",
                 content: [
                     "Attraverso il secondo principio della termodinamica si mette in luce il fatto che numerosi fenomeni naturali avvengono in un verso ben preciso e che, di conseguenza, risultano intrinsecamente irreversibili, cioè non è possibile realizzare una combinazione di fenomeni che ripristini esattamente lo stato iniziale. Ad esempio, nel passaggio di calore da un corpo ad un altro a temperatura inferiore il secondo principio della termodinamica vieta il processo inverso, cioè il passaggio di calore dal corpo a temperatura più bassa a quello a temperatura più alta, senza determinare alcuna variazione nel sistema stesso o nell’ambiente circostante. Consideriamo un pendolo che oscilla e che, per effetto degli attriti, riduce progressivamente l’ampiezza delle sue oscillazioni. Anche in questa circostanza il secondo principio della termodinamica impedisce il processo inverso, ossia il ripristino spontaneo dell’ampiezza delle oscillazioni in quanto ciò richiederebbe l’estrazione di calore dall’aria e la sua completa trasformazione in lavoro meccanico. Cioè bisognerebbe produrre del lavoro facendo uso di una sola sorgente di calore. Si può constatare, quindi, che in ogni trasformazione naturale si esplica la conversione di qualche forma di energia interna con un conseguente aumento della temperatura. Tali trasformazioni risultano irreversibili perché altrimenti si potrebbe trasformare del calore, pari alla variazione di questa energia interna, in lavoro, contravvenendo al secondo principio della termodinamica, il quale afferma che la trasformazione di calore in lavoro non può essere completa. Le limitazioni espresse dal secondo principio della termodinamica sono intimamente connesse alle cause che rendono i processi naturali irreversibili e che determinano, quindi, il verso delle trasformazioni spontanee di un sistema che non si trovi all’equilibrio."
                 ]
             },
             {
-                title: "12.4 Teorema di Carnot",
+                title: "12.5 Teorema di Carnot",
                 content: [
                     "Il teorema di Carnot stabilisce la frazione massima del calore assorbito da una macchina termica che può essere trasformato in lavoro; dimostrato da Carnot nel 1824 facendo uso della teoria del calorico, venne successivamente riformulato da Kelvin e Clausius. Questo teorema, conseguenza del secondo principio, può essere considerato come un altro suo enunciato. Il teorema di Carnot afferma:",
                     "\"Tutte le macchine reversibili operanti fra due medesime temperature hanno lo stesso rendimento; nessuna macchina irreversibile che lavori tra le stesse temperature può avere rendimento maggiore di quello delle macchine reversibili\"",
+                    "![Due macchine tra le stesse sorgenti (Teorema di Carnot - caso generale)|medium](/fisica-images/fig_233.avif)",
                     "Questo teorema contiene due affermazioni che vanno dimostrate successivamente. Consideriamo due macchine reversibili $R$ e $R'$ operanti tra le stesse due temperature $T_1$ e $T_2 > T_1$, che possono differire per la sostanza usata e per i punti che limitano le trasformazioni e definiscono il ciclo. Supponiamo che i lavori $W$ e $W'$ prodotti dalle due macchine siano uguali. Siano inoltre $Q_2$ e $Q_1$ le quantità di calore che la macchina $R$ preleva, rispettivamente, dalla sorgente a temperatura $T_2$ e cede alla sorgente a temperatura $T_1$ e siano $Q_2'$ e $Q_1'$ le analoghe quantità di calore per la macchina $R'$. Poiché $W = W'$, i rendimenti delle due macchine sono:",
                     "$$ \\eta = \\frac{W}{Q_2}, $$",
                     "$$ \\eta' = \\frac{W'}{Q_2'} = \\frac{W}{Q_2'}, $$",
@@ -3542,10 +3711,11 @@ export const fisicaCourseContent: MainSection[] = [
                     "Supponiamo che sia $\\eta > \\eta'$, cioè",
                     "$$ Q_2 < Q_2'. $$",
                     "Per verificare come tale ipotesi non sia lecita supponiamo di collegare le due macchine in modo che $R$ operi in senso diretto e $R'$ in senso inverso, cosicché il lavoro fornito da $R$ è esattamente uguale a quello assorbito da $R'$. Dalla relazione precedente e dall’identità dei due lavori segue:",
+                    "![Schema dimostrazione Teorema di Carnot (accoppiamento macchine)|small](/fisica-images/fig_234.avif)",
                     "$$ Q_1 - Q_1' = Q_2' - Q_2 > 0. $$",
                     "Quindi la macchina complessiva, costituita da $R$ e $R'$ accoppiate, assorbe il calore $Q_1 - Q_1' > 0$ dalla sorgente a temperatura $T_1$ e cede il calore $Q_2' - Q_2 < 0$ alla sorgente a temperatura $T_2 > T_1$ senza scambiare lavoro con l’ambiente circostante. Ciò è in contrasto con il secondo principio espresso attraverso l’enunciato di Clausius, per cui è scorretta l’ipotesi iniziale $\\eta > \\eta'$. Ripetendo lo stesso ragionamento, supponendo che $R'$ operi in senso diretto e $R$ in senso inverso, si può mostrare che $\\eta'$ non può essere maggiore di $\\eta$. Si conclude quindi che deve essere necessariamente:",
+                    "![Risultato impossibile: violazione dell'enunciato di Clausius|small](/fisica-images/fig_235.avif)",
                     "$$ \\eta = \\eta'. $$",
-                    "![Teorema di Carnot](/IMAGES/carnot_theorem_diagram.avif)",
                     "Per dimostrare la seconda parte del teorema supponiamo che la macchina $R$ sia irreversibile. Ripetendo il ragionamento precedente si mostra che $\\eta_{irr}$ non può essere maggiore di $\\eta_{rev}$. D’altra parte, siccome $R$ non può operare nel senso inverso essendo per ipotesi irreversibile, non è possibile provare che $\\eta'$ non può essere maggiore di $\\eta_{irr}$ così, siccome $\\eta' = \\eta_{rev}$, segue:",
                     "$$ \\eta_{irr} \\le \\eta_{rev}, $$",
                     "che prova la seconda parte del teorema di Carnot.",
@@ -3559,7 +3729,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.5 Temperatura termodinamica assoluta",
+                title: "12.6 Temperatura termodinamica assoluta",
                 content: [
                     "L’indipendenza del rendimento di una macchina reversibile dalla natura della sostanza adoperata e il fatto che tale rendimento dipenda unicamente dalle temperature tra cui opera la macchina, consente l’introduzione di una nuova scala delle temperature esente dai problemi che presenta una qualsiasi scala empirica. Una tale scala, nota come **scala termodinamica assoluta**, venne definita nel 1850 da Kelvin.",
                     "Per una macchina termica reversibile che scambi le quantità di calore $Q_{rif}$ e $Q$ con due sorgenti di calore, rispettivamente alle temperature $T_{rif}$ e $T$ dalla (12.1) si ha:",
@@ -3574,21 +3744,23 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.6 Disuguaglianza di Clausius",
+                title: "12.7 Disuguaglianza di Clausius",
                 content: [
                     "La relazione (12.1), valida per una qualsiasi macchina termica funzionante con due sorgenti di calore alle temperature $T_1$ e $T_2$ può essere generalizzata in modo da includere i casi di trasformazioni cicliche effettuate adoperando più di due sorgenti di calore.",
                     "**Esempio:** Il ciclo reversibile eseguito da un gas ideale mostrato in figura sfrutta tre sorgenti di calore e consiste di tre isoterme reversibili e tre adiabatiche reversibili",
-                    "![Ciclo 3 sorgenti](/IMAGES/cycle_three_sources.avif)",
+                    "![Ciclo reversibile con più isoterme e adiabatiche|medium](/fisica-images/fig_223.avif)",
                     "Consideriamo una macchina termica $M$ che scambi i calori $Q_1, Q_2, ..., Q_n$ con $n$ sorgenti alle temperature $T_1, T_2, ..., T_n$, scambiando contemporaneamente il lavoro $W$ con l’ambiente esterno. Siano $R_1, R_2, ..., R_n$, $n$ macchine reversibili operanti tra una sorgente a temperatura $T_0$, scambiando rispettivamente i calori $Q_{01}, Q_{02}, ..., Q_{0n}$ e le sorgenti a temperature $T_1, T_2, ..., T_n$, scambiando i calori $-Q_1, -Q_2, ..., -Q_n$, cioè opposti a quelli scambiati con le stesse sorgenti dalla macchina $M$. Dalla relazione (12.1) segue che per l’$i$-esima macchina reversibile risulta:",
+                    "![Schema per la dimostrazione del Teorema di Clausius (macchine ausiliarie)|small](/fisica-images/fig_237.avif)",
                     "$$ \\frac{Q_{0i}}{T_0} + \\frac{(-Q_i)}{T_i} = 0 $$",
                     "e, sommando membro a membro tutte le $n$ relazioni che si possono scrivere per le $n$ macchine $R_1, R_2, ..., R_n$ si ottiene:",
                     "$$ \\frac{1}{T_0} \\sum_{i=1}^n Q_{0i} = \\sum_{i=1}^n \\frac{Q_i}{T_i}. \\hspace{4cm} \\tag{12.3} $$",
+                    "![Scomposizione di un ciclo reversibile in cicli di Carnot|medium](/fisica-images/fig_236.avif)",
                     "La macchina complessiva costituita da $M$ e dalle $n$ macchine $R_1, R_2, ..., R_n$ compie una trasformazione ciclica monoterma in quanto sfrutta la sola sorgente alla temperatura $T_0$, siccome le altre $n$ sorgenti ricevono tanto calore quanto ne cedono; pertanto la quantità di calore totale scambiata con tale sorgente non può essere positiva:",
+                    "![Schema semplificato: unica sorgente per il sistema complessivo|small](/fisica-images/fig_238.avif)",
                     "$$ \\sum_{i=1}^n Q_{0i} \\le 0, \\hspace{4cm} \\tag{12.4} $$",
                     "dove il segno di uguaglianza vale solo se il ciclo è reversibile, ovvero, poiché $R_1, R_2, ..., R_n$ sono reversibili, solo se $M$ è una macchina reversibile. Confrontando le relazioni (12.3) e (12.4) si ha:",
                     "$$ \\sum_{i=1}^n \\frac{Q_i}{T_i} \\le 0, \\hspace{4cm} \\tag{12.5} $$",
                     "relazione valida per una generica macchina operante tra $n$ sorgenti di calore; il segno di uguaglianza vale solo se la macchina considerata è reversibile.",
-                    "![Macchine multiple con Clausius](/IMAGES/multiple_engines_clausius.avif)",
                     "È possibile considerare un numero infinito di sorgenti di calore le cui temperature differiscono infinitamente poco l’una dalla successiva e che scambiano delle quantità infinitesime di calore $dQ$ col sistema termodinamico considerato. In questo caso il segno di sommatoria deve essere sostituito dal segno di integrale, ottenendo:",
                     "$$ \\oint_{\\gamma} \\frac{dQ}{T} \\le 0, \\hspace{4cm} \\tag{12.6} $$",
                     "dove il simbolo $\\oint_\\gamma$ indica che l’integrale è esteso a tutto il ciclo $\\gamma$ descritto dalla macchina considerata. Le relazioni (12.5) e (12.6) costituiscono l’espressione della **disuguaglianza di Clausius** per una generica macchina; in particolare, se la macchina è reversibile, invertendo tutti i cicli si ha che tutte le quantità si calore scambiate cambiano di segno e deve essere $\\sum_{i=1}^n (-Q_{0i}) \\le 0$. Ciò comporta l’inversione delle disuguaglianze delle precedenti espressioni e, per ottenere la compatibilità tra le due situazioni deve aversi, necessariamente:",
@@ -3603,21 +3775,22 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.7 Entropia",
+                title: "12.8 Entropia",
                 content: [
                     "Consideriamo un sistema termodinamico inizialmente nello stato $A$ e supponiamo di portare tale sistema in uno stato $B$ attraverso la trasformazione reversibile $\\gamma_1$ indicata in figura, dove gli stati del sistema considerato sono indicati, ad esempio, dalle variabili di pressione e volume e di riportarlo, successivamente, allo stato iniziale $A$ mediante la trasformazione reversibile $\\gamma_2$, diversa dalla prima. Siccome l’insieme delle due trasformazioni reversibili costituisce un ciclo reversibile, ad esso si può applicare la relazione di Clausius per le macchine reversibili così, dalla (12.7), se $\\gamma$ è il ciclo completo, si ha:",
                     "$$ \\oint_{\\gamma} \\frac{dQ}{T} = \\int_{A \\gamma_1}^B \\frac{dQ}{T} + \\int_{B \\gamma_2}^A \\frac{dQ}{T} = 0. $$",
                     "In queste espressioni la temperatura $T$ che compare nell’integrale di Clausius è la temperatura della sorgente con la quale il sistema scambia il calore $dQ$ tuttavia, poiché il ciclo è reversibile, $T$ coincide con la temperatura del sistema. Così, nella valutazione dell’integrale si possono adoperare le coordinate termodinamiche del sistema anziché le grandezze caratteristiche delle sorgenti. Relativamente alla trasformazione reversibile $\\gamma_2$ si ha:",
+                    "![Indipendenza del percorso per l'integrale di Clausius (Entropia)|small](/fisica-images/fig_239.avif)",
                     "$$ \\int_{A \\gamma_2}^B \\frac{dQ}{T} = -\\int_{B \\gamma_2}^A \\frac{dQ}{T}, $$",
                     "perché cambiando il verso della trasformazione, per ogni tratto infinitesimo di trasformazione, il differenziale $dQ$ cambia segno siccome quello che prima era calore ceduto diventa calore assorbito e viceversa. Pertanto si ha:",
                     "$$ \\int_{A \\gamma_1}^B \\frac{dQ}{T} = \\int_{A \\gamma_2}^B \\frac{dQ}{T} $$",
                     "per qualunque trasformazione reversibile $\\gamma_1$ e $\\gamma_2$ che colleghi gli stati $A$ e $B$. Dall’arbitrarietà delle trasformazioni reversibili $\\gamma_1$ e $\\gamma_2$ segue che la quantità $\\int_A^B dQ/T$ non dipende dalla particolare trasformazione reversibile che congiunge gli stati $A$ e $B$ del sistema termodinamico considerato. Possiamo quindi dedurre che esiste una funzione $S$ delle coordinate termodinamiche del sistema tale che la differenza $\\Delta S$ dei suoi valori calcolati nei due stati di equilibrio $B$ e $A$ è uguale all’integrale considerato:",
                     "$$ \\Delta S = S_B - S_A = \\int_{A \\gamma}^B \\frac{dQ}{T}. \\hspace{4cm} \\tag{12.9} $$",
+                    "![L'entropia è una funzione di stato: indipendenza dal percorso|medium](/fisica-images/fig_241.avif)",
                     "La funzione di stato $S$ è detta **entropia** del sistema termodinamico considerato. Tale funzione risulta definita dalla precedente relazione a meno di una costante additiva arbitraria; inoltre l’entropia è una grandezza estensiva, nel senso che l’entropia di un sistema costituito da più parti è pari alla somma dell’entropia delle sue parti. Per una trasformazione infinitesima che implica una variazione infinitesima delle coordinate termodinamiche del sistema risulta:",
                     "$$ dS = \\frac{dQ}{T}. $$",
                     "Si nota quindi che, sebbene $dQ$ non sia un differenziale esatto, l’indipendenza dell’integrale $\\int_A^B dQ/T$ dalla trasformazione $\\gamma$ tra gli stati $A$ e $B$, purché $\\gamma$ sia reversibile, fa sì che $dQ/T$ sia un differenziale esatto avendo, a meno di una costante additiva arbitraria, $S$ quale primitiva.",
                     "La definizione data per l’entropia consente, naturalmente, la determinazione di variazioni di entropia relativamente a qualunque trasformazione che porti il sistema dallo stato iniziale di equilibrio $A$ allo stato finale di equilibrio $B$, in quanto tale variazione dipende solo dagli stati $A$ e $B$ e non dalla trasformazione. Per il calcolo si tratta semplicemente di scegliere un’arbitraria trasformazione reversibile che colleghi gli stati $A$ e $B$. L’unità di misura dell’entropia è $J/K$.",
-                    "![Ciclo termodinamico reversibile](/IMAGES/reversible_cycle.avif)",
                     "**Esempio:** Stabiliamo la variazione di entropia corrispondente ad un’espansione libera di un gas ideale tale da raddoppiare il volume di $n$ moli di gas. Questa trasformazione non è quasi statica né reversibile, sebbene gli stati estremi della trasformazione, $A$ e $B$, siano di equilibrio; le relative coordinate termodinamiche del sistema sono:",
                     "$$ A: \\quad p_A, V_A, T $$",
                     "$$ B: \\quad p_B = \\frac{1}{2} p_A, V_B = 2V_A, T. $$",
@@ -3632,24 +3805,25 @@ export const fisicaCourseContent: MainSection[] = [
                     "per cui, sostituendo nella relazione precedente, si ha:",
                     "$$ \\Delta S = nR \\ln \\frac{V_B}{V_A} = R \\ln 2. $$",
                     "Naturalmente le trasformazioni reversibili adoperate ai fini del calcolo sono trasformazioni ideali che non condividono nulla con la trasformazione reale a parte gli stati iniziale e finale. Notiamo infine che in questa trasformazione spontanea risulta $\\Delta S > 0$, cioè l’entropia del sistema è aumentata.",
-                    "![Trasformazione adiabatica irreversibile](/IMAGES/irreversible_adiabatic_entropy.avif)",
                     "**Esempio:** Calcoliamo la variazioni di entropia corrispondente al trasferimento di una quantità di calore $Q$ da una sorgente a temperatura $T_2$ ad una a temperatura $T_1 < T_2$; tale processo è spontaneo e irreversibile. Il sistema è costituito da due parti, la sorgente a temperatura $T_1$ che assorbe il calore $Q$ e la sorgente a temperatura $T_2$ che cede il calore $Q$. La variazione di entropia $\\Delta S$ del sistema è la somma delle variazioni di entropia $\\Delta S_1$ e $\\Delta S_2$ delle due sorgenti considerate separatamente. La variazione $\\Delta S_1$ della sorgente che assorbe il calore $Q$ è:",
                     "$$ \\Delta S_1 = \\int_A^B \\frac{dQ}{T_1} = \\frac{1}{T_1} \\int_A^B dQ = \\frac{Q}{T_1}, $$",
                     "mentre la variazione $\\Delta S_2$ della sorgente che cede il calore $Q$ è:",
                     "$$ \\Delta S_2 = \\int_A^B \\frac{dQ}{T_2} = \\frac{1}{T_2} \\int_A^B dQ = -\\frac{Q}{T_2}, $$",
                     "sebbene le due sorgenti scambino la stessa quantità di calore in valore assoluto, tale quantità è negativa dal punto di vista della sorgente a temperatura maggiore, $-Q$, in quanto questa sorgente cede del calore ed è positiva dal punto di vista della sorgente a temperatura minore, $Q$, siccome questa sorgente assorbe del calore. Ne segue che $\\Delta S_1 > 0$ e $\\Delta S_2 < 0$. La variazione totale di entropia è:",
                     "$$ \\Delta S = \\Delta S_1 + \\Delta S_2 = \\frac{Q}{T_1} - \\frac{Q}{T_2} = Q \\left( \\frac{1}{T_1} - \\frac{1}{T_2} \\right). \\hspace{4cm} \\tag{12.10} $$",
+                    "![Flusso spontaneo di calore e aumento dell'entropia|medium](/fisica-images/fig_242.avif)",
                     "Quindi, anche in questo processo spontaneo risulta $\\Delta S > 0$ essendo $T_1 < T_2$, cioè l’entropia complessiva è aumentata.",
-                    "![Trasferimento calore sorgenti](/IMAGES/heat_transfer_entropy.avif)"
                 ]
             },
             {
-                title: "12.8 L’entropia e il secondo principio della termodinamica",
+                title: "12.9 L’entropia e il secondo principio della termodinamica",
                 content: [
                     "Consideriamo un sistema termodinamico inizialmente in equilibrio nello stato $A$ e supponiamo di portare tale sistema nello stato di equilibrio $B$ attraverso una qualsiasi trasformazione reale (**irr**) e pertanto irreversibile e di riportarlo successivamente allo stato $A$ mediante una trasformazione reversibile (**rev**). Siccome il ciclo completo è formato dalle due trasformazioni, applicando la relazione (12.8) si ha:",
                     "$$ \\oint \\frac{dQ}{T} = \\int_{A \\text{ irr}}^B \\frac{dQ}{T} + \\int_{B \\text{ rev}}^A \\frac{dQ}{T} = \\int_{A \\text{ irr}}^B \\frac{dQ}{T} - \\int_{A \\text{ rev}}^B \\frac{dQ}{T} < 0; $$",
                     "d’altra parte, dalla (12.9) l’integrale $\\int_{A \\text{ rev}}^B dQ/T$ risulta pari alla differenza di entropia $S_B - S_A$, così segue:",
                     "$$ S_B - S_A > \\int_{A \\text{ irr}}^B \\frac{dQ}{T}. $$",
+                    "![Derivazione della disuguaglianza di Clausius|medium](/fisica-images/fig_243.avif)",
+                    "![Confronto tra trasformazione reversibile e irreversibile (Disuguaglianza di Clausius)|medium](/fisica-images/fig_240.avif)",
                     "Ciò significa che in una trasformazione reale l’integrale $\\int_A^B dQ/T$ non fornisce la variazione di entropia tra i due stati $A$ e $B$ ma un risultato inferiore a tale differenza. Per calcolare $S_B - S_A$ è necessario che l’integrale di Clausius venga calcolato lungo una generica trasformazione reversibile che colleghi i due stati considerati. L’espressione precedente può essere generalizzata ad una qualsiasi trasformazione che colleghi gli stati $A$ e $B$, nella forma:",
                     "$$ S_B - S_A \\ge \\int_A^B \\frac{dQ}{T}, \\hspace{4cm} \\tag{12.11} $$",
                     "dove l’uguaglianza vale solo nel caso in cui la trasformazione è reversibile. In particolare se il sistema che descrive la trasformazione tra gli stati $A$ e $B$ è isolato termicamente, cioè se la trasformazione è adiabatica, l’integrale al secondo membro della (12.11) è nullo in quanto il sistema non scambia calore con l’ambiente circostante ($dQ=0$), pertanto:",
@@ -3664,11 +3838,10 @@ export const fisicaCourseContent: MainSection[] = [
                     "Tale sistema più ampio è un sistema isolato che subisce una generica trasformazione e pertanto:",
                     "$$ \\Delta S_{univ} \\ge 0. \\hspace{4cm} \\tag{12.12} $$",
                     "Siccome l’irreversibilità determina sempre un aumento dell’entropia dell’universo, poiché i processi naturali sono tutti irreversibili, possiamo dedurre che ogni processo naturale si evolve nel verso che determina un aumento dell’entropia dell’universo. Tale evoluzione cessa in corrispondenza della condizione di massima entropia compatibile con le condizioni fisiche dell’universo termodinamico rappresentato dal sistema considerato e dal suo ambiente circostante. Questo stato di massima entropia corrisponde allo stato di equilibrio stabile. L’aumento di entropia dell’universo in corrispondenza di trasformazioni irreversibili non implica che l’entropia debba necessariamente aumentare in ogni parte del sistema e dell’ambiente circostante. Sono possibili diminuzioni locali di entropia, purché in altre parti si abbiano corrispondenti aumenti di entropia in misura tale da soddisfare la relazione (12.12). Notiamo infine che il principio dell’aumento dell’entropia determina il verso in cui scorre il tempo. Tutte le leggi del moto sono compatibili con un’inversione della direzione del tempo, così come per il primo principio della termodinamica; il secondo principio invece, attraverso il principio di aumento dell’entropia, vieta l’inversione delle trasformazioni naturali e pertanto introduce un’asimmetria tra il passato e il futuro.",
-                    "![Ciclo irreversibile entropia](/IMAGES/irreversible_entropy_cycle.avif)"
                 ]
             },
             {
-                title: "12.9 Entropia del gas ideale",
+                title: "12.10 Entropia del gas ideale",
                 content: [
                     "Consideriamo la trasformazione che porta $n$ moli di gas ideale da uno stato $A$ ad uno stato $B$. Dalle relazioni (10.4) e (11.9) segue che il calore infinitesimo $dQ$ scambiato dal gas durante la trasformazione vale:",
                     "$$ dQ = n c_V dT + dW $$",
@@ -3691,13 +3864,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "Siccome l’entropia è una funzione di stato, può essere scelta quale variabile indipendente per la descrizione, unitamente ad un’altra variabile indipendente opportunamente scelta, dello stato termodinamico di un sistema. Generalmente la coppia di variabili scelte quali coordinate termodinamiche è $(S, T)$. Nel piano $(S, T)$ una trasformazione isoterma reversibile è rappresentata con un segmento di retta parallelo all’asse orizzontale e compreso tra i punti estremi della trasformazione; dalla relazione (12.14) segue che la temperatura, in uno stato intermedio di una trasformazione isocora reversibile da uno stato $A$ ad uno stato $B$ vale:",
                     "$$ T = T_A e^{\\frac{S-S_A}{n c_V}} $$",
                     "per cui tale trasformazione è rappresentata nel piano $(S, T)$ tramite un’esponenziale; analogamente, dalla (12.15) una trasformazione isobara reversibile è rappresentata nel piano $(S, T)$ dall’esponenziale:",
+                    "![Rappresentazione di trasformazioni isocore e isobare nel piano T-S|medium](/fisica-images/fig_244.avif)",
                     "$$ T = T_A e^{\\frac{S-S_A}{n c_p}}, $$",
                     "che, dalla disuguaglianza (11.12) è caratterizzato da una pendenza inferiore a quella della corrispondente alla trasformazione isocora; infine in una trasformazione adiabatica reversibile, non essendoci scambio termico con l’ambiente circostante, la variazione di entropia è nulla, per tale motivo una trasformazione adiabatica è detta anche **isoentropica** ed è rappresentata, nel piano $(S, T)$, da un segmento di retta parallelo all’asse verticale e compreso tra i punti estremi della trasformazione.",
                     "Siccome durante una trasformazione reversibile il calore scambiato $dQ$ è pari a $TdS$, la quantità di calore complessivamente scambiata nel passaggio reversibile da uno stato $A$ ad uno stato $B$ vale:",
                     "$$ Q = \\int_A^B T dS \\hspace{4cm} \\tag{12.16} $$",
                     "che, nel piano $(S, T)$ corrisponde all’area della superficie sottesa dalla curva che in tale piano rappresenta la trasformazione considerata. In particolare il calore scambiato è assorbito, passando da $A$ a $B$, con $S_B > S_A$ e ceduto passando da $B$ ad $A$, con $S_A > S_B$.",
-                    "![Trasformazioni piano T-S](/IMAGES/ts_diagram_transformations.avif)",
                     "**Esempio:** (Rappresentazione del ciclo di Carnot nel piano entropia-temperatura) Nel piano $(S, T)$ il ciclo di Carnot ha la forma di un rettangolo e dalla relazione (12.16) l’area delimitata dal ciclo è pari alla somma $Q_1 + Q_2$ dei calori complessivamente scambiati durante tale ciclo; questa somma è positiva se il ciclo è percorso in senso orario, negativa altrimenti. Per il primo principio, tale area rappresenta anche il lavoro compiuto. Ciò consente di ricavare il rendimento della macchina attraverso questo grafico come il rapporto dell’area racchiusa dal ciclo (pari a $W$) e l’area sottesa dalla curva superiore (pari a $Q$). Il calore assorbito nel ciclo vale:",
+                    "![Ciclo di Carnot nel piano entropico (T-S)|medium](/fisica-images/fig_245.avif)",
                     "$$ Q_2 = T_2 (S_2 - S_1) $$",
                     "e il calore ceduto è:",
                     "$$ Q_1 = T_1 (S_1 - S_2), $$",
@@ -3705,14 +3879,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ Q = Q_1 + Q_2 = (T_2 - T_1)(S_2 - S_1) = W $$",
                     "e, in accordo con la (11.34) il rendimento vale:",
                     "$$ \\eta = \\frac{W}{Q_2} = \\frac{(T_2 - T_1)(S_2 - S_1)}{T_2 (S_2 - S_1)} = 1 - \\frac{T_1}{T_2}. $$",
-                    "![Ciclo Carnot piano T-S](/IMAGES/carnot_ts_diagram.avif)"
                 ]
             },
             {
-                title: "12.10 Entropia ed energia utilizzabile",
+                title: "12.11 Entropia ed energia utilizzabile",
                 content: [
                     "Nei precedenti esempi si è mostrato che in corrispondenza di una trasformazione irreversibile di un sistema aumenta l’entropia dell’universo e, contemporaneamente, si osserva una riduzione della capacità dell’universo a compiere lavoro meccanico. Infatti è possibile provare che ogni qualvolta ha luogo una trasformazione irreversibile è come se una quantità di energia fosse convertita da una forma adoperabile ai fini dell’esecuzione del lavoro ad una forma di energia completamente inutilizzabile a tali scopi. Questa energia $E_{in}$ è pari a:",
                     "$$ E_{in} = T_0 \\Delta S_{univ}, $$",
+                    "![Schema generale di macchina termica e conversione energia|medium](/fisica-images/fig_246.avif)",
                     "in cui $T_0$ è la temperatura della sorgente di calore a temperatura più bassa e $\\Delta S_{univ}$ è la variazione di entropia dell’universo provocata dalla trasformazione irreversibile.",
                     "**Esempio:** Consideriamo l’espansione libera di $n$ moli di gas ideale dal volume $V_A$ al volume $V_B$; la corrispondente variazione di entropia del gas, uguale a quella dell’universo a causa dell’adiabaticità del processo vale, dalla (12.13):",
                     "$$ \\Delta S_{univ} = \\int_A^B \\frac{dQ}{T} = \\int_{T_A}^{T_B} n c_V \\frac{dT}{T} + \\int_{V_A}^{V_B} nR \\frac{dV}{V} = n c_V \\ln \\frac{T_B}{T_A} + nR \\ln \\frac{V_B}{V_A} = nR \\ln \\frac{V_B}{V_A}. $$",
@@ -3720,6 +3894,7 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ W_R = nRT \\ln \\frac{V_B}{V_A}. $$",
                     "Tuttavia nel caso dell’espansione libera il gas non produce lavoro e non scambia calore, quindi $W = Q = 0$, per cui la differenza $E_{in}$ tra il lavoro $W_R$ che si sarebbe ottenuto operando reversibilmente tra i medesimi stati $A$ e $B$ e il lavoro effettivamente ottenuto vale:",
                     "$$ E_{in} = W_R - W = nRT \\ln \\frac{V_B}{V_A} = T \\Delta S_{univ}. $$",
+                    "![Concetto di integrale come area (Lavoro/Entropia)|medium](/fisica-images/fig_247.avif)",
                     "**Esempio:** Consideriamo il trasferimento di una certa quantità di calore $Q$ da una sorgente a temperatura $T_2$ ad una a temperatura $T_1 < T_2$. Dalla relazione (12.10) la corrispondente variazione di entropia dell’universo, costituito dalle due sorgenti, vale:",
                     "$$ \\Delta S_{univ} = Q \\left( \\frac{1}{T_1} - \\frac{1}{T_2} \\right). $$",
                     "Lo stesso risultato, cioè il passaggio del calore $Q$ dalla sorgente a temperatura $T_2$ a quella a temperatura $T_1$, poteva ottenersi con una macchina di Carnot operante tra le medesime sorgenti; in tal caso, allo scambio di una quantità di calore $Q$ dalla sorgente a temperatura più alta a quella a temperatura più bassa corrisponderebbe un lavoro verso l’esterno che, dalle relazioni (11.32) e (11.34), è pari a:",
@@ -3738,7 +3913,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ W_R = Q_2 \\eta = Q_2 \\left( 1 + \\frac{T_1}{T_2} \\right), $$",
                     "così l’energia utilizzabile vale:",
                     "$$ E_{in} = W_R - W = Q_2 \\left( 1 - \\frac{T_1}{T_2} \\right) - (Q_1 + Q_2) = Q_2 - Q_2 \\frac{T_1}{T_2} - Q_1 - Q_2 = -Q_1 - Q_2 \\frac{T_1}{T_2} = T_1 \\left[ - \\left( \\frac{Q_1}{T_1} + \\frac{Q_2}{T_2} \\right) \\right] = T_1 \\Delta S_{univ}. $$",
-                    "![Macchina ciclica irreversibile](/IMAGES/irreversible_cyclic_machine.avif)",
                     "L’espressione oppenuta in questi esempi è valida per qualunque processo irreversibile. Siccome tutte le trasformazioni naturali sono irreversibili, segue che l’energia diviene continuamente inutilizzabile per l’esecuzione di lavoro; tale osservazione va sotto il nome di **principio di degradazione dell’energia**. Formulato originariamente da Kelvin, esso consente di dare un’importante interpretazione dell’entropia, cioè la variazione di tale grandezza in una trasformazione fornisce una misura dell’energia non più utilizzabile per compiere del lavoro. Tale energia non va considerata come persa, in quanto per il primo principio della termodinamica la conservazione dell’energia deve sempre essere soddisfatta, ma come energia trasformata in una forma non più utilizzabile per produrre lavoro meccanico e, in un certo senso, sprecata. Nelle trasformazioni reversibili, siccome la variazione di entropia è nulla, risulta nulla anche l’energia $E_{in}$. Pertanto la conversione più efficiente di energia interna in lavoro meccanico si ottiene utilizzando una trasformazione o un ciclo reversibile."
                 ]
             }
@@ -3746,10 +3920,17 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "appendice",
-        title: "APPENDICE",
+        title: "Lezione 13: APPENDICE",
         subsections: [
             {
-                title: "A.1 Derivate notevoli",
+                title: "13.1 Elementi di Matematica e Geometria",
+                content: [
+                    "Inseriamo qui alcuni richiami di geometria e sistemi di coordinate utili per la trattazione dell'elettrostatica.",
+
+                ]
+            },
+            {
+                title: "13.2 A.1 Derivate notevoli",
                 content: [
                     "$$ \\frac{d}{dx}(k) = 0 $$",
                     "$$ \\frac{d}{dx}(x) = 1 $$",
@@ -3790,7 +3971,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "A.2 Integrali notevoli",
+                title: "13.3 A.2 Integrali notevoli",
                 content: [
                     "$$ \\int_{x_0}^x d\\xi = x - x_0 $$",
                     "$$ \\int_{x_0}^x k f(\\xi) d\\xi = k \\int_{x_0}^x f(\\xi) d\\xi $$",
@@ -3831,8 +4012,9 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "A.3 Teorema fondamentale del calcolo",
+                title: "13.4 A.3 Teorema fondamentale del calcolo",
                 content: [
+                    "![Teorema fondamentale del calcolo integrale|medium](/fisica-images/fig_teorema_fondamentale.png)",
                     "Consideriamo una funzione continua $y = f(x)$ e stabiliamo il tasso di accrescimento dell’area sottesa dalla sua curva tra due punti. Sia $y$ il valore assunto dalla funzione in corrispondenza di un punto $x$ e consideriamo l’intervallo di ampiezza $\\Delta x$ compreso tra $x$ e $x + \\Delta x$. In tale intervallo l’area $a$ considerata risulterà aumentata di una quantità $\\Delta a$ così il corrispondente tasso di crescita sarà:",
                     "$$ \\frac{\\Delta a}{\\Delta x}. $$",
                     "Possiamo considerare un valore $y'$ dell’ordinata $y$ tale che l’area $y'\\Delta x$ è uguale a $\\Delta a$:",
@@ -3848,14 +4030,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "per cui, sostituendo nella relazione precedente, si ottiene:",
                     "$$ \\frac{d}{dx} \\int_{x_0}^x f(\\xi) d\\xi = f(x), $$",
                     "quindi l’operazione di integrazione può essere riguardata come l’operazione inversa della derivazione; questo risultato prende il nome di **teorema fondamentale del calcolo**.",
-                    "![Teorema fondamentale del calcolo](/IMAGES/fundamental_theorem_calculus.avif)"
                 ]
             },
             {
-                title: "A.4 Sezioni coniche",
+                title: "13.5 A.4 Sezioni coniche",
                 content: [
                     "Si definisce **sezione conica** la curva generata da un punto che si sposta in modo tale da mantenere costante il rapporto fra la distanza da un punto, detto **fuoco**, ed una retta, detta **direttrice**. Tale valore costante prende il nome di **eccentricità**; in particolare, con riferimento alla figura, l’eccentricità $\\varepsilon$ vale:",
                     "$$ \\varepsilon = \\frac{PF}{PQ}. $$",
+                    "![Geometria dell'ellisse|medium](/fisica-images/fig_248.avif)",
                     "Posto:",
                     "$$ r = \\overline{PF}, $$",
                     "$$ d = \\overline{FD}, $$",
@@ -3879,21 +4061,21 @@ export const fisicaCourseContent: MainSection[] = [
                     "Infine l’area dell’ellisse risulta:",
                     "$$ A = \\pi a b = \\pi a^2 \\sqrt{1 - \\varepsilon^2}, $$",
                     "e per $\\varepsilon = 0$ l’ellisse coincide con un cerchio.",
-                    "![Geometria sezioni coniche](/IMAGES/conic_section_geometry.avif)"
                 ]
             },
             {
-                title: "A.5 Sistemi di coordinate",
+                title: "13.6 A.5 Sistemi di coordinate",
                 content: [
                     "In molteplici circostanze non risulta efficace l’impiego dei sistemi di coordinate cartesiani, sia nel piano che nello spazio. Ciò accade in particolare quando risulta più conveniente esprimere le posizioni dei punti attraverso degli angoli e delle distanze.",
                     "Nel piano l’identificazione della posizione di un punto $P$ attraverso un raggio ed un angolo è detta **polare**: la coordinata radiale $\\rho$ rappresenta la distanza di $P$ da un’origine $O$ detta **polo**; la coordinata angolare $\\vartheta$ è l’angolo che la retta posta in corrispondenza di $0^{\\circ}$ deve descrivere per sovrapporsi alla retta passante per $P$ e per $O$. In figura sono confrontate le coordinate cartesiane del punto $P$ con le corrispondenti coordinate polari. Note le coordinate cartesiane $x$ e $y$ di $P$ è possibile dedurre le corrispondenti coordinate polari $\\rho$ e $\\vartheta$ attraverso le relazioni:",
+                    "![Coordinate polari piane|medium](/fisica-images/fig_249.avif)",
                     "$$ \\rho = \\sqrt{x^2 + y^2}, $$",
                     "$$ \\tan \\vartheta = \\frac{y}{x}; $$",
                     "viceversa, risulta:",
                     "$$ x = \\rho \\cos \\vartheta, $$",
                     "$$ y = \\rho \\sin \\vartheta; $$",
-                    "![Coordinate polari](/IMAGES/polar_coords.avif)",
                     "La naturale estensione del sistema di coordinate polari nelle tre dimensioni è rappresentata dal sistema **cilindrico**. In questo caso la posizione del punto $P$ è rappresentata attraverso le coordinate polari $\\rho$ e $\\phi$ della proiezione $P'$ di $P$ sul piano $xy$ e dalla distanza $z$ di $P$ da tale piano (si veda la figura). Le coordinate cilindriche $\\rho$, $\\phi$ e $z$ del punto $P$ possono essere dedotte da quelle cartesiane attraverso le relazioni:",
+                    "![Coordinate cilindriche|medium](/fisica-images/fig_250.avif)",
                     "$$ \\rho = \\sqrt{x^2 + y^2}, $$",
                     "$$ \\tan \\phi = \\frac{y}{x}, $$",
                     "$$ z = z; $$",
@@ -3901,8 +4083,8 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ x = \\rho \\cos \\vartheta, $$",
                     "$$ y = \\rho \\sin \\vartheta, $$",
                     "$$ z = z. $$",
-                    "![Coordinate cilindriche](/IMAGES/cylindrical_coords.avif)",
                     "Il sistema di coordinate **sferiche** identifica un punto nello spazio attraverso una distanza e due angoli. In particolare $\\rho$ è la distanza del punto $P$ dall’origine $O$, $\\vartheta$ è l’angolo compreso tra l’asse $z$ e il segmento $OP$ e $\\phi$ è l’angolo compreso tra l’asse $x$ e la proiezione $OP'$ del segmento $OP$ sul piano $xy$ (si veda la figura). Le coordinate sferiche $\\rho$, $\\vartheta$ e $\\phi$ del punto $P$ possono essere dedotte da quelle cartesiane attraverso le relazioni:",
+                    "![Coordinate sferiche|medium](/fisica-images/fig_251.avif)",
                     "$$ \\rho = \\sqrt{x^2 + y^2 + z^2}, $$",
                     "$$ \\tan \\phi = \\frac{y}{x}, $$",
                     "$$ \\cos \\vartheta = \\frac{z}{\\sqrt{x^2 + y^2 + z^2}}; $$",
@@ -3910,7 +4092,6 @@ export const fisicaCourseContent: MainSection[] = [
                     "$$ x = \\rho \\sin \\vartheta \\cos \\phi, $$",
                     "$$ y = \\rho \\sin \\vartheta \\sin \\phi, $$",
                     "$$ z = \\rho \\cos \\vartheta. $$",
-                    "![Coordinate sferiche](/IMAGES/spherical_coords.avif)",
                     "Spesso la necessità di un cambiamento di sistema di coordinate si ha nel calcolo di integrali; ciò accade, ad esempio, qualora il dominio di integrazione è caratterizzato da simmetrie tali da rendere inadeguato l’uso delle coordinate cartesiane. Supponiamo di dover integrare la funzione $f(x_1, x_2, ..., x_n)$ su un dominio $V$. Siano",
                     "$$ x_1 = T_1(\\xi_1, \\xi_2, ..., \\xi_n), $$",
                     "$$ x_2 = T_2(\\xi_1, \\xi_2, ..., \\xi_n), $$",
@@ -3926,11 +4107,14 @@ export const fisicaCourseContent: MainSection[] = [
                     "ne segue che l’integrale di tale funzione nel domino specificato può esprimersi come:",
                     "$$ \\int_S f(x, y) dx dy = \\int_{\\Sigma} f(\\rho \\cos \\vartheta, \\rho \\sin \\vartheta) \\frac{\\partial(x, y)}{\\partial(\\rho, \\vartheta)} d\\rho d\\vartheta = \\int_{\\Sigma} f(\\rho \\cos \\vartheta, \\rho \\sin \\vartheta) \\rho d\\rho d\\vartheta, $$",
                     "in cui $\\Sigma$ rappresenta il nuovo dominio di integrazione.",
-                    "Il risultato conseguito attraverso l’esempio precedente si presta ad un’utile interpretazione geometrica. Il cambiamento di variabile richiede che si stabilisca l’espressione dell’elemento di area $dx dy$ nelle coordinate specificate, in questo caso le coordinate polari. Dalla figura mostrata si può osservare che l’elemento infinitesimo di area può esprimersi attraverso queste coordinate come un rettangolo infinitesimo di lati $\\rho d\\vartheta$ e $d\\rho$; l’elemento d’area vale pertanto $\\rho d\\rho d\\vartheta$, così come dedotto in maniera analitica. Analogamente, nello spazio, come è mostrato dalla figura, l’elemento infinitesimo di volume in coordinate sferiche è il parallelepipedo di lati $\\rho d\\vartheta$, $d\\rho$ e $\\rho \\sin \\vartheta d\\phi$, pertanto il volume di tale elemento vale $\\rho^2 \\sin \\vartheta d\\rho d\\vartheta d\\phi$; infatti la matrice jacobiana della trasformazione da coordinate cartesiane a coordinate sferiche vale",
+                    "Il risultato conseguito attraverso l’esempio precedente si presta ad un’utile interpretazione geometrica. Il cambiamento di variabile richiede che si stabilisca l’espressione dell’elemento di area $dx dy$ nelle coordinate specificate, in questo caso le coordinate polari.",
+                    "![Elemento di area in coordinate polari|medium](/fisica-images/fig_253.avif)",
+                    "Dalla figura mostrata si può osservare che l’elemento infinitesimo di area può esprimersi attraverso queste coordinate come un rettangolo infinitesimo di lati $\\rho d\\vartheta$ e $d\\rho$; l’elemento d’area vale pertanto $\\rho d\\rho d\\vartheta$, così come dedotto in maniera analitica.",
+                    "![Elemento di volume in coordinate sferiche|medium](/fisica-images/fig_252.avif)",
+                    "Analogamente, nello spazio, come è mostrato dalla figura, l’elemento infinitesimo di volume in coordinate sferiche è il parallelepipedo di lati $\\rho d\\vartheta$, $d\\rho$ e $\\rho \\sin \\vartheta d\\phi$, pertanto il volume di tale elemento vale $\\rho^2 \\sin \\vartheta d\\rho d\\vartheta d\\phi$; infatti la matrice jacobiana della trasformazione da coordinate cartesiane a coordinate sferiche vale",
                     "$$ \\frac{\\partial(x, y, z)}{\\partial(\\rho, \\vartheta, \\phi)} = \\begin{vmatrix} \\sin \\vartheta \\cos \\phi & \\rho \\cos \\vartheta \\cos \\phi & -\\rho \\sin \\vartheta \\sin \\phi \\\\ \\sin \\vartheta \\sin \\phi & \\rho \\cos \\vartheta \\sin \\phi & \\rho \\sin \\vartheta \\cos \\phi \\\\ \\cos \\vartheta & -\\rho \\sin \\vartheta & 0 \\end{vmatrix} = \\rho^2 |\\sin \\vartheta|. $$",
-                    "![Elementi di volume polari e sferici](/IMAGES/volume_elements.avif)"
                 ]
             }
         ]
     }
-];
+]

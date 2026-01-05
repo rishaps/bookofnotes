@@ -150,7 +150,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
             {/* Theme Toggle - Fixed top right */}
             <button
                 onClick={toggleTheme}
-                className="fixed top-4 right-4 z-[70] p-2 text-content-primary hover-glow"
+                className="fixed top-4 right-4 z-[110] p-2 text-content-primary hover-glow"
                 aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -159,36 +159,43 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
             {/* Mobile Sidebar Overlay */}
             {isSidebarOpen && (
                 <div
-                    className="fixed inset-0 z-[55] bg-black/50 lg:hidden"
+                    className="fixed inset-0 z-[90] bg-black/50 lg:hidden"
                     onClick={() => setIsSidebarOpen(false)}
                 />
             )}
 
-            {/* Mobile Navigation Buttons - Index and Home */}
-            <div className="fixed top-4 left-4 z-[70] lg:hidden flex items-center gap-2">
-                {/* Mobile Menu Button with better contrast */}
-                <button
-                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                    className="p-2.5 text-content-primary hover:opacity-75 transition-colors hover-glow"
-                    aria-label="Apri Indice"
-                >
-                    <Menu className="w-6 h-6" />
-                </button>
+            {/* Mobile Navigation Header - Fixed at top */}
+            <div className="fixed top-0 left-0 w-full h-16 bg-[var(--bg-body)] z-[50] lg:hidden flex items-center px-4">
+                <div className="flex items-center gap-2">
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        className="p-2 text-content-primary hover-glow"
+                        aria-label="Apri Indice"
+                    >
+                        <Menu className="w-6 h-6" />
+                    </button>
 
-                {/* Mobile Home Button */}
-                <button
-                    onClick={() => navigate('/subjects')}
-                    className="p-2.5 text-content-primary hover:opacity-75 transition-colors hover-glow"
-                    aria-label="Torna alla Homepage"
-                >
-                    <Home className="w-6 h-6" />
-                </button>
+                    {/* Mobile Home Button */}
+                    <button
+                        onClick={() => navigate('/subjects')}
+                        className="p-2 text-content-primary hover-glow"
+                        aria-label="Torna alla Homepage"
+                    >
+                        <Home className="w-6 h-6" />
+                    </button>
+
+                    {/* Active Subject Title on Header */}
+                    <span className="ml-2 text-[10px] uppercase tracking-widest font-bold text-content-secondary line-clamp-1">
+                        {subject.title}
+                    </span>
+                </div>
             </div>
 
             {/* Left Sidebar - Fixed */}
             <aside
                 className={`
-                    fixed top-0 left-0 h-screen z-[60] bg-[var(--bg-body)]
+                    fixed top-0 left-0 h-screen z-[100] bg-[var(--bg-body)] !opacity-100 shadow-xl lg:shadow-none
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                     ${isTOCVisible ? 'w-80' : 'w-10'}
                 `}
@@ -302,7 +309,6 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
 // Subjects that are blocked from direct URL access (incomplete content)
 const BLOCKED_SUBJECTS = [
-    'fisica',
     'elettrotecnica',
     'analisi-2',
     'architettura-os',

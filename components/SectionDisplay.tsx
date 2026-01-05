@@ -1,25 +1,17 @@
-
 import React, { useState, useEffect } from 'react';
 import katex from 'katex';
 import { MainSection, SubSection, TableData } from '../types';
-
-// Images are in public folder, use direct paths (only Fig 1 and Fig 2)
-const image1 = '/image1.jpg';
-const image2 = '/image2.jpg';
 import { Search, X, ZoomIn, Info } from 'lucide-react';
 import { createPortal } from 'react-dom';
 
-const RiskRewardChart = React.lazy(() => import('./RiskRewardChart'));
 const MathRenderer = React.lazy(() => import('./MathRenderer'));
 
 interface SectionDisplayProps {
   section: MainSection;
-  fontSizeLevel?: number; // 0 = small, 1 = normal, 2 = large
+  fontSizeLevel?: number;
 }
 
-const highlightPattern = /(\*\*)/g;
-
-// Helper to ensure path starts with / relative to public
+// Ensure path starts with / relative to public
 const normalizeImagePath = (src: string) => {
   if (src.startsWith('http') || src.startsWith('/')) return src;
   return `/${src}`;
@@ -29,36 +21,31 @@ const ImageThumbnail: React.FC<{ src: string; alt: string; onImageClick: (src: s
   const [imgSrc, setImgSrc] = useState(normalizeImagePath(src));
   const [hasError, setHasError] = useState(false);
 
-  // If initial src changes, reset
-  useEffect(() => {
-    setImgSrc(normalizeImagePath(src));
-    setHasError(false);
-  }, [src]);
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    // Optional: logic to detect orientation could go here
+  };
 
-  if (hasError) {
-    return (
-      <div className="p-4 border border-red-200 rounded text-red-500 text-xs text-center">
-        Image not found: {alt}
-      </div>
-    );
-  }
+  if (hasError) return null;
 
   return (
     <div
-      className="relative cursor-zoom-in my-4"
+      className="relative cursor-zoom-in my-6 group flex flex-col items-center"
       onClick={() => onImageClick(imgSrc, alt)}
     >
-      <img
-        src={imgSrc}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        onError={(e) => {
-          console.error(`Failed to load image: ${imgSrc}`);
-          setHasError(true);
-        }}
-        className="w-full h-auto max-w-[250px] mx-auto object-contain rounded-lg border border-content-primary/10 shadow-sm transition-transform duration-300 hover:scale-[1.01]"
-      />
+      <div className="relative overflow-hidden rounded-lg bg-white p-2 border border-content-primary/10 shadow-sm transition-all duration-300 hover:shadow-md">
+        <img
+          src={imgSrc}
+          alt={alt}
+          loading="lazy"
+          onLoad={handleImageLoad}
+          onError={() => setHasError(true)}
+          className="max-w-full h-auto max-h-[300px] object-contain mx-auto"
+        />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+          <ZoomIn className="text-content-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md" size={24} />
+        </div>
+      </div>
+      {alt && <p className="caption-highlight mt-2">{alt}</p>}
     </div>
   );
 };
@@ -67,68 +54,118 @@ const isTableData = (item: string | TableData): item is TableData => {
   return (item as TableData).headers !== undefined;
 };
 
-// Regex matches:
-// 1. **bold** (group 1)
-// 2. $inline math$ (group 2), handling escaped dollars if we wanted, but simple $...$ for now
-const contentPattern = /(\*\*[^*]+\*\*)|(\$[^$]+\$)/g;
+// --- Math Parsing Utilities ---
 
-// Helper to render just the math parts of a string
+// Matches: **bold**, $inline$, or $$block$$
+// Note: We prioritize detecting block math $$...$$ first
+const INLINE_MATH_BLOCK_THRESHOLD = 140;
+const estimateInlineMathLength = (latex: string) => {
+  let length = 0;
+  for (let i = 0; i < latex.length; i++) {
+    const ch = latex[i];
+    if (ch === '\\') {
+      let j = i + 1;
+      if (j < latex.length && /[A-Za-z]/.test(latex[j])) {
+        while (j < latex.length && /[A-Za-z]/.test(latex[j])) {
+          j += 1;
+        }
+      } else if (j < latex.length) {
+        j += 1;
+      }
+      length += 1;
+      i = j - 1;
+      continue;
+    }
+    if (ch === '{' || ch === '}' || ch === '^' || ch === '_') {
+      continue;
+    }
+    length += 1;
+  }
+  return length;
+};
+const shouldInlineMathBeBlock = (latex: string) => {
+  const normalized = latex.replace(/\s+/g, ' ').trim();
+  return estimateInlineMathLength(normalized) >= INLINE_MATH_BLOCK_THRESHOLD ||
+    normalized.includes('\\begin{') ||
+    normalized.includes('\\end{') ||
+    normalized.includes('\\\\');
+};
+
 const renderMathParts = (text: string, keyPrefix: string = '') => {
-  const mathPattern = /(\$[^$]+\$)/g;
-  const parts = text.split(mathPattern);
+  // 1. Split by Block Math $$...$$
+  const blockParts = text.split(/(\$\$[^$]+\$\$)/g);
 
   return (
     <>
-      {parts.map((part, index) => {
-        if (!part) return null;
-
-        if (part.startsWith('$') && part.endsWith('$')) {
-          const latex = part.substring(1, part.length - 1);
-          try {
-            const html = katex.renderToString(latex, {
-              throwOnError: false,
-              displayMode: false,
-            });
-            return (
-              <span
-                key={`${keyPrefix}${index}`}
-                className="inline-math"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-            );
-          } catch (e) {
-            return <span key={`${keyPrefix}${index}`} className="text-red-400">{part}</span>;
-          }
+      {blockParts.map((part, bIdx) => {
+        if (part.startsWith('$$') && part.endsWith('$$')) {
+          const latex = part.slice(2, -2);
+          return (
+            <React.Suspense key={`${keyPrefix}-block-${bIdx}`} fallback={<div className="h-6 w-full animate-pulse" />}>
+              <MathRenderer latex={latex} />
+            </React.Suspense>
+          );
         }
 
-        return <span key={`${keyPrefix}${index}`}>{part}</span>;
+        // 2. Split by Inline Math $...$ inside text blocks
+        const inlineParts = part.split(/(\$[^$]+\$)/g);
+        return (
+          <span key={`${keyPrefix}-text-${bIdx}`}>
+            {inlineParts.map((subPart, iIdx) => {
+              if (subPart.startsWith('$') && subPart.endsWith('$')) {
+                const latex = subPart.slice(1, -1);
+                if (shouldInlineMathBeBlock(latex)) {
+                  return (
+                    <React.Suspense
+                      key={`${keyPrefix}-inline-${iIdx}`}
+                      fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}
+                    >
+                      <MathRenderer latex={latex} inline />
+                    </React.Suspense>
+                  );
+                }
+                try {
+                  const html = katex.renderToString(latex, {
+                    throwOnError: false,
+                    displayMode: false,
+                    strict: false,
+                  });
+                  return (
+                    <span
+                      key={`${keyPrefix}-inline-${iIdx}`}
+                      className="inline-math-container"
+                    >
+                      <span className="inline-math px-1" dangerouslySetInnerHTML={{ __html: html }} />
+                    </span>
+                  );
+                } catch (e) {
+                  return <span key={iIdx} className="text-red-500 font-mono text-xs">{latex}</span>;
+                }
+              }
+              return <span key={iIdx}>{subPart}</span>;
+            })}
+          </span>
+        );
       })}
     </>
   );
 };
 
-const renderWithHighlights = (value: string, boldClass = "font-bold text-content-primary") => {
+const renderWithHighlights = (value: string) => {
   if (!value) return null;
-
-  // Normalize invisible chars once here too, just in case
   const normalizedValue = value.replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '');
 
-  // Simple split by double asterisks
-  // Even indices are regular text, odd indices are bold
-  // This is much more robust than regex for simple Markdown bold
-  const parts = normalizedValue.split('**');
+  // Handle Markdown Bold (**text**)
+  const parts = normalizedValue.split(/(\*\*[^*]+\*\*)/g);
 
   return (
     <>
       {parts.map((part, index) => {
-        // Odd indices = content between ** **
-        if (index % 2 === 1) {
-          // Recursively process math inside bold content
-          return <strong key={index} className={boldClass}>{renderMathParts(part, `bold-${index}-`)}</strong>;
+        if (part.startsWith('**') && part.endsWith('**')) {
+          const content = part.slice(2, -2);
+          return <strong key={index} className="font-bold text-content-primary">{renderMathParts(content, `bold-${index}`)}</strong>;
         }
-
-        // Even indices = regular text (outside **)
-        return <span key={index}>{renderMathParts(part, `text-${index}-`)}</span>;
+        return <React.Fragment key={index}>{renderMathParts(part, `plain-${index}`)}</React.Fragment>;
       })}
     </>
   );
@@ -136,65 +173,19 @@ const renderWithHighlights = (value: string, boldClass = "font-bold text-content
 
 const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
   if (isTableData(item)) {
-    // Check if this is the "Sintesi" table to render a chart
-    const isSintesiTable = item.headers.includes("Soggetto") && item.headers.includes("Cosa apporta");
-
-    if (isSintesiTable) {
-      // Transform data for chart
-      // We'll create a dummy "Risk/Reward" visualization based on the table data
-      const chartData = [
-        { name: 'Proprietari', risk: 90, reward: 90, type: 'Variabile' },
-        { name: 'Manager', risk: 60, reward: 80, type: 'Mista' },
-        { name: 'Lavoratori', risk: 20, reward: 40, type: 'Fissa' },
-        { name: 'Fornitori', risk: 30, reward: 30, type: 'Fissa' },
-        { name: 'Finanziatori', risk: 40, reward: 20, type: 'Fissa' },
-      ];
-
-      return (
-        <div className="my-12 space-y-8">
-          <div className="overflow-x-auto p-1">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr>
-                  {item.headers.map((header, index) => (
-                    <th key={index} className="p-4 text-xs font-mono font-medium text-premium-gold uppercase tracking-widest">{header}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {item.rows.map((row, rowIndex) => (
-                  <tr key={rowIndex} className="transition-colors">
-                    {row.map((cell, cellIndex) => (
-                      <td key={cellIndex} className="p-4 text-sm text-content-secondary font-light">{renderWithHighlights(cell)}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="risk-reward-chart-container p-6">
-            <React.Suspense fallback={<div className="h-[300px] w-full animate-pulse"></div>}>
-              <RiskRewardChart data={chartData} />
-            </React.Suspense>
-          </div>
-        </div>
-      );
-    }
-
     return (
-      <div className="my-4 overflow-x-auto">
-        <table className="w-full text-left border border-content-primary/20">
+      <div className="my-6 overflow-x-auto">
+        <table className="w-full text-left border border-content-primary/20 bg-bg-glass">
           <thead>
-            <tr className="border-b border-content-primary/20">
+            <tr className="border-b border-content-primary/20 bg-content-primary/5">
               {item.headers.map((header, index) => (
-                <th key={index} className="p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0">{header}</th>
+                <th key={index} className="p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0 text-sm uppercase tracking-wider">{header}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {item.rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0">
+              <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0 hover:bg-content-primary/5 transition-colors">
                 {row.map((cell, cellIndex) => (
                   <td key={cellIndex} className="p-3 text-content-primary border-r border-content-primary/10 last:border-r-0">{renderWithHighlights(cell)}</td>
                 ))}
@@ -207,207 +198,106 @@ const ContentRenderer: React.FC<{ item: string | TableData; onImageClick: (src: 
   }
 
   const text = (item as string).trim();
-  const cleanText = text.replace(/\*\*/g, '');
 
-  // Callout: warning / attenzione
-  if (/^Attenzione\s*[:\-]/i.test(text)) {
-    const content = text.replace(/^Attenzione\s*[:\-]\s*/i, '');
+  // --- Visual Component: Callouts ---
+  if (/^(Attenzione|Nota|Ricorda|Esempio)\s*[:\-]/i.test(text)) {
+    const match = text.match(/^(\w+)\s*[:\-]\s*(.+)/s);
+    if (match) {
+      const [, type, content] = match;
+      const colors = {
+        'Attenzione': 'border-red-500 bg-red-50/10 text-red-700 dark:text-red-300',
+        'Nota': 'border-blue-500 bg-blue-50/10 text-blue-700 dark:text-blue-300',
+        'Ricorda': 'border-amber-500 bg-amber-50/10 text-amber-700 dark:text-amber-300',
+        'Esempio': 'border-emerald-500 bg-emerald-50/10 text-emerald-700 dark:text-emerald-300'
+      };
+      const style = colors[type as keyof typeof colors] || colors['Nota'];
 
-    return (
-      <div className="my-4 px-4 py-3 border-l-2 border-content-primary/30">
-        <p className="text-sm font-bold text-content-primary mb-1">Attenzione</p>
-        <p className="text-sm text-content-primary">{renderWithHighlights(content)}</p>
-      </div>
-    );
+      return (
+        <div className={`my-6 pl-4 border-l-4 ${style} py-2`}>
+          <span className="block font-bold text-xs uppercase tracking-widest mb-1 opacity-75">{type}</span>
+          <p className="text-content-primary leading-relaxed">{renderWithHighlights(content)}</p>
+        </div>
+      );
+    }
   }
 
-  // Callout: info / nota
-  if (/^(Nota|Info)\s*[:\-]/i.test(text)) {
-    const content = text.replace(/^(Nota|Info)\s*[:\-]\s*/i, '');
-
-    return (
-      <div className="my-8 px-6 py-4 gap-4">
-        <p className="text-xs font-mono font-bold tracking-widest uppercase text-sky-500 mb-2 flex items-center gap-2">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-          Nota
-        </p>
-        <p className="text-sm leading-relaxed text-content-secondary font-light">{renderWithHighlights(content)}</p>
-      </div>
-    );
-  }
-
-  // Check for math pattern
-  const normalizedText = text.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]+/, '');
-
-  // Check for markdown image syntax: ![alt](url)
-  const imageMatch = normalizedText.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+  // --- Visual Component: Markdown Images ---
+  // Syntax: ![alt text](url)
+  // --- Visual Component: Markdown Images ---
+  // Syntax: ![alt text](url)
+  // Also supports flags in alt text: ![Caption|small](url)
+  const imageMatch = text.match(/^\!\[([^\]]*)\]\(([^)]+)\)$/);
   if (imageMatch) {
-    const [, alt, src] = imageMatch;
+    let [, rawAlt, src] = imageMatch;
+
+    // Parse flags from alt text: |left, |right, |small, |medium, |large
+    const isLeft = rawAlt.includes('|left');
+    const isRight = rawAlt.includes('|right');
+    const isSmall = rawAlt.includes('|small');
+    const isLarge = rawAlt.includes('|large');
+    const hasFloat = isLeft || isRight;
+
+    // Clean alt text for display - remove ALL flags
+    const alt = rawAlt.replace(/\|(left|right|small|medium|large)/g, '').trim();
+
+    // Width class
+    const widthClass = isSmall
+      ? "lg:w-3/12"
+      : isLarge
+        ? "lg:w-8/12"
+        : hasFloat ? "lg:w-5/12" : "w-full max-w-lg"; // Centered images get max-width
+
+    // Float class - only if |left or |right specified
+    const floatClass = isLeft
+      ? "lg:float-left lg:mr-12 lg:clear-left"
+      : isRight
+        ? "lg:float-right lg:ml-12 lg:clear-right"
+        : "mx-auto"; // Center by default
+
     return (
-      <div className="image-block w-full lg:w-5/12 lg:float-right lg:ml-8 lg:clear-right">
+      <div className={`image-block w-full ${widthClass} ${floatClass} mb-4`}>
         <ImageThumbnail src={src} alt={alt} onImageClick={onImageClick} />
-        {alt && (
-          <p className="caption-highlight">
-            {alt}
-          </p>
-        )}
       </div>
     );
   }
 
-  // Check for italic caption (starts with *)
-  if (normalizedText.startsWith('*') && normalizedText.endsWith('*') && !normalizedText.startsWith('**')) {
-    const caption = normalizedText.slice(1, -1);
+  // --- Visual Component: Block Math (Standalone $$) ---
+  if (text.startsWith('$$')) {
+    const latex = text.replace(/^\$\$|\$\$$/g, '');
     return (
-      <p className="text-xs font-mono text-content-muted text-center italic mt-2 mb-6">
-        {caption}
-      </p>
-    );
-  }
-
-  if (normalizedText.startsWith('$$')) {
-    const latex = normalizedText.replace(/^\$\$|\$\$$/g, '');
-    return (
-      <React.Suspense fallback={<div className="my-8 h-12 animate-pulse bg-premium-glass rounded-sm"></div>}>
+      <React.Suspense fallback={<div className="my-8 h-12 w-full bg-premium-glass animate-pulse"></div>}>
         <MathRenderer latex={latex} />
       </React.Suspense>
     );
   }
 
-  // Check for code blocks
-  // Simple check: starts with ```
-  if (normalizedText.startsWith('```')) {
-    const match = normalizedText.match(/```(\w+)?\n([\s\S]*?)```/);
-    // Fallback if regex fails (e.g. valid markdown but slight variation) or just standard split
-    const codeContent = match ? match[2] : normalizedText.replace(/```(\w+)?/, '').replace(/```$/, '');
-    const lang = match ? match[1] : '';
-
+  // --- Visual Component: Lists ---
+  if (text.match(/^([●○*-])\s/)) {
     return (
-      <div className="my-6">
-        {lang && (
-          <div className="px-4 py-2 text-xs font-mono font-bold uppercase text-premium-gold">
-            {lang}
-          </div>
-        )}
-        <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed text-content-secondary">
-          <code>{codeContent}</code>
-        </pre>
-      </div>
-    );
-  }
-
-  if (text.startsWith('●') || text.startsWith('○') || text.startsWith('* ') || text.startsWith('- ')) {
-    const content = text.replace(/^[●○*-]\s*/, '').trim();
-
-    // Check for "Term: Definition" pattern
-    const colonIndex = content.indexOf(':');
-    if (colonIndex !== -1 && colonIndex < 60) {
-      const term = content.substring(0, colonIndex + 1);
-      const definition = content.substring(colonIndex + 1);
-
-      return (
-        <p className="course-list-item pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
-          <strong className="font-bold">{renderWithHighlights(term)}</strong>{renderWithHighlights(definition)}
+      <div className="flex items-start gap-3 my-2 pl-2">
+        <span className="text-premium-gold mt-1.5 text-[8px]">●</span>
+        <p className="text-content-primary flex-1 leading-relaxed">
+          {renderWithHighlights(text.replace(/^([●○*-])\s/, ''))}
         </p>
-      );
-    }
-
-    return (
-      <p className="course-list-item pl-6 relative text-content-primary before:content-['•'] before:absolute before:left-0">
-        {renderWithHighlights(content)}
-      </p>
-    );
-  }
-
-  if (cleanText.startsWith("L’impresa è un istituto economico")) {
-    return (
-      <div className="flex flex-col lg:flex-row items-start gap-8 group">
-        <div className="flex-1">
-          <p className="text-content-secondary leading-relaxed font-light text-lg group-hover:text-content-primary transition-colors duration-300">
-            {renderWithHighlights(item as string)}
-          </p>
-        </div>
-        <div className="image-block w-full lg:w-1/3 flex-shrink-0">
-          <ImageThumbnail src={image1} alt="Schema della definizione economica di impresa" onImageClick={onImageClick} />
-          <p className="caption-highlight">Il sistema impresa</p>
-        </div>
       </div>
     );
   }
 
-  if (cleanText.startsWith("I soggetti economici in relazione con l’impresa")) {
-    return (
-      <div className="flex flex-col lg:flex-row items-start gap-8 group mt-8">
-        <div className="flex-1">
-          <p className="text-xl text-premium-gold mb-4">{renderWithHighlights(item as string, "font-bold")}</p>
-          <p className="text-content-secondary leading-relaxed font-light">
-            Questa figura illustra le relazioni tra l'impresa e i vari soggetti economici che interagiscono con essa, evidenziando i flussi di beni, servizi e denaro.
-          </p>
-        </div>
-        <div className="image-block w-full lg:w-1/3 flex-shrink-0">
-          <ImageThumbnail src={image2} alt="Schema dei soggetti economici in relazione con l’impresa" onImageClick={onImageClick} />
-          <p className="caption-highlight">Soggetti economici</p>
-        </div>
-      </div>
-    );
-  }
-
-
-  // Bold titles that are not part of the main structure
-  const boldableKeywords = [
-    'Obiettivi dell’impresa', 'Tipologie di impresa', 'Definizioni giuridiche', 'Forme giuridiche',
-    'Proprietà e controllo', 'Startup e spin‐off', 'I soggetti economici', 'Stakeholder e relazioni',
-    'Prestatori di lavoro', 'Fornitori', 'Finanziatori', 'Comunità di riferimento', 'Stato e Pubblica Amministrazione',
-    'Sintesi:', 'Classificazione delle imprese', 'Impresa individuale e impresa familiare', 'Imprese collettive e società',
-    'Società di persone', 'Società di capitali', 'Società cooperative', 'Riepilogo a confronto', 'Come scegliere la forma giuridica',
-    'Proprietari, manager e problema del controllo', 'Strumenti per allineare proprietà e management',
-    'Ambiti regolati dalla corporate governance', 'Organi nel sistema tradizionale', 'Sistemi di governance',
-    'Parole chiave per descrivere l’impresa', 'Valore economico dell’impresa', 'Attività d’impresa e processi aziendali', 'Processi aziendali',
-    'Organigramma e unità organizzative', 'Cos’è il bilancio d’esercizio', 'Chi è interessato al bilancio',
-    'Bilancio annuale e bilanci infrannuali', 'Bilancio dell’impresa vs bilancio consolidato',
-    '1.1 Definizione economica di impresa'
-  ];
-
-  const isBoldTitle = boldableKeywords.some(keyword => cleanText.startsWith(keyword));
-
-  if (isBoldTitle) {
-    return <p className="minor-heading">{renderWithHighlights(item as string, "font-bold")}</p>;
-  }
-
-  // Check for numbered sub-headings (e.g. 1.1.1, 2.1.3) OR single numbered lists (e.g. 1. Title)
-  // The regex matches:
-  // ^\d+(\.\d+)+\s  -> 1.1, 1.1.1 (multi-level)
-  // OR
-  // ^\d+\.\s        -> 1., 2. (single level)
-  // We check cleanText to ignore potential ** at start
-  if (/^(\d+(\.\d+)+|\d+\.)\s/.test(cleanText)) {
-    return (
-      <p className="minor-heading">
-        {renderWithHighlights(item as string)}
-      </p>
-    );
-  }
-
+  // --- Default Paragraph ---
   return (
-    <p className="text-content-primary">
-      {renderWithHighlights(item as string)}
+    <p className="text-content-primary mb-4 leading-relaxed text-lg font-light">
+      {renderWithHighlights(text)}
     </p>
   );
 };
 
-interface SubSectionDisplayProps {
-  subsection: SubSection;
-  anchorId: string;
-  onImageClick: (src: string, alt: string) => void;
-}
+// --- Subsections & Lightbox ---
 
-const SubSectionDisplay: React.FC<SubSectionDisplayProps> = ({ subsection, anchorId, onImageClick }) => (
-  <div id={anchorId} className="mb-4 last:mb-0 flow-root">
-    {/* Subsection Title - 18px semibold */}
-    <h3 className="subsection-title">
-      {renderMathParts(subsection.title, 'title-')}
+const SubSectionDisplay: React.FC<{ subsection: SubSection; anchorId: string; onImageClick: (src: string, alt: string) => void }> = ({ subsection, anchorId, onImageClick }) => (
+  <div id={anchorId} className="mb-8 last:mb-0">
+    <h3 className="subsection-title border-b border-content-primary/10 pb-2 mb-6">
+      {renderMathParts(subsection.title)}
     </h3>
-    {/* Minimal paragraph spacing handled by CSS */}
     <div className="text-content-primary">
       {subsection.content.map((item, index) => (
         <ContentRenderer key={index} item={item} onImageClick={onImageClick} />
@@ -416,41 +306,22 @@ const SubSectionDisplay: React.FC<SubSectionDisplayProps> = ({ subsection, ancho
   </div>
 );
 
-interface LightboxProps {
-  src: string;
-  alt: string;
-  onClose: () => void;
-}
-
-const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
+const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({ src, alt, onClose }) => {
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
+    const handleEsc = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in duration-200"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-bg-body/95 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={onClose}>
+      <button onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full hover:bg-content-primary/10 transition-colors">
+        <X className="w-8 h-8 text-content-primary" />
       </button>
-      <img
-        src={src}
-        alt={alt}
-        className="max-w-full max-h-[90vh] lightbox-image rounded-lg shadow-2xl shadow-black/50 scale-95 animate-in zoom-in-95 duration-300"
-        onClick={(e) => e.stopPropagation()}
-      />
-      <p className="absolute bottom-6 left-0 right-0 text-center text-gray-400 font-mono text-sm tracking-widest uppercase pointer-events-none">
-        {alt}
-      </p>
+      <div className="max-w-5xl w-full max-h-screen flex flex-col items-center">
+        <img src={src} alt={alt} className="max-w-full max-h-[85vh] object-contain shadow-2xl rounded-sm" onClick={(e) => e.stopPropagation()} />
+        <p className="mt-4 text-content-primary/80 font-mono text-sm tracking-widest uppercase">{alt}</p>
+      </div>
     </div>,
     document.body
   );
@@ -459,34 +330,23 @@ const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
 const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel = 1 }) => {
   const [lightboxImage, setLightboxImage] = useState<{ src: string, alt: string } | null>(null);
 
-  // Font size classes based on level
-  const fontSizeClass = fontSizeLevel === 0 ? 'text-sm' : fontSizeLevel === 2 ? 'text-lg' : 'text-base';
-
   return (
-    <section id={section.id} className="pt-8 -mt-8 mb-6 text-left">
-      {lightboxImage && (
-        <Lightbox
-          src={lightboxImage.src}
-          alt={lightboxImage.alt}
-          onClose={() => setLightboxImage(null)}
-        />
-      )}
-      {/* Section Title - 24px bold */}
-      <h2 className="section-title">
+    <section id={section.id} className={`max-w-3xl mx-auto pt-8 mb-12 animate-in slide-in-from-bottom-4 duration-500`}>
+      {lightboxImage && <Lightbox src={lightboxImage.src} alt={lightboxImage.alt} onClose={() => setLightboxImage(null)} />}
+
+      <h2 className="section-title text-4xl font-bold mb-8 tracking-tight text-content-primary">
         {section.title}
       </h2>
-      <div>
-        {section.subsections.map((subsection, index) => {
-          const anchorId = `${section.id}-${index}`;
-          return (
-            <SubSectionDisplay
-              key={anchorId}
-              subsection={subsection}
-              anchorId={anchorId}
-              onImageClick={(src, alt) => setLightboxImage({ src, alt })}
-            />
-          );
-        })}
+
+      <div className="space-y-12">
+        {section.subsections.map((subsection, index) => (
+          <SubSectionDisplay
+            key={`${section.id}-${index}`}
+            subsection={subsection}
+            anchorId={`${section.id}-${index}`}
+            onImageClick={(src, alt) => setLightboxImage({ src, alt })}
+          />
+        ))}
       </div>
     </section>
   );

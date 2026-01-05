@@ -6,7 +6,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 1: Logica Matematica",
         subsections: [
             {
-                title: "Nozioni Primitive e Assiomi",
+                title: "1.1 Nozioni Primitive e Assiomi",
                 content: [
                     "In matematica, non tutto può essere definito o dimostrato. Esistono concetti e verità di partenza che vengono accettati intuitivamente o per convenzione.",
                     "**Nozione primitiva:** Un concetto fondamentale non definito tramite termini più semplici, ma accettato intuitivamente. Esempio classico: il concetto di \"punto\" nella geometria euclidea.",
@@ -16,7 +16,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teoremi e Dimostrazioni",
+                title: "1.2 Teoremi e Dimostrazioni",
                 content: [
                     "A differenza degli assiomi, i teoremi sono affermazioni la cui verità deve essere stabilita attraverso un processo logico deduttivo.",
                     "**Teorema:** Una proposizione che viene dimostrata vera a partire dagli assiomi e dalle nozioni primitive, utilizzando le regole della logica.",
@@ -32,7 +32,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 2: Logica delle Proposizioni",
         subsections: [
             {
-                title: "Definizioni Fondamentali",
+                title: "2.1 Definizioni Fondamentali",
                 content: [
                     "**Proposizione:** qualsiasi affermazione o enunciato a cui è possibile attribuire univocamente un valore di verità: **Vero (V)** oppure **Falso (F)**.",
                     "Esempio: \"Sono uno studente di Ingegneria Gestionale\" è una proposizione perché può essere solo vera o falsa.",
@@ -40,7 +40,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Tavole della Verità",
+                title: "2.2 Tavole della Verità",
                 content: [
                     "I connettivi logici sono definiti tramite le **tavole della verità**, che mostrano il valore di verità della proposizione composta per ogni possibile combinazione dei valori delle proposizioni componenti.",
                     "**1) Negazione ($\\sim p$ o $\\neg p$):** Inverte il valore di verità.",
@@ -55,7 +55,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Equivalenze Logiche e Leggi",
+                title: "2.3 Equivalenze Logiche e Leggi",
                 content: [
                     "Due proposizioni si dicono **logicamente equivalenti** se hanno la stessa tavola della verità.",
                     "**Equivalenza dell'Implicazione:** Un risultato fondamentale è che l'implicazione $p \\Rightarrow q$ è equivalente a $\\neg p \\vee q$.",
@@ -66,7 +66,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Tautologie, Contraddizioni e De Morgan",
+                title: "2.4 Tautologie, Contraddizioni e De Morgan",
                 content: [
                     "**Tautologia:** una proposizione composta che risulta **sempre vera**, indipendentemente dai valori di verità delle sue componenti.",
                     "Esempio classico: $\\neg p \\vee p$ (Principio del terzo escluso).",
@@ -85,7 +85,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 3: Simboli e Operazioni Fondamentali",
         subsections: [
             {
-                title: "Insiemi e Simbologia di Base",
+                title: "3.1 Insiemi e Simbologia di Base",
                 content: [
                     "**Appartenenza ($\\in$):** Indica che un elemento fa parte di un insieme. Si usano lettere minuscole per gli elementi e maiuscole per gli insiemi.",
                     "Esempio: $a \\in A$ (a appartiene ad A).",
@@ -94,7 +94,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Insiemi Numerici Fondamentali",
+                title: "3.2 Insiemi Numerici Fondamentali",
                 content: [
                     "**$\\mathbb{N}$ (Numeri Naturali):** $\\{0, 1, 2, 3...\\} = \\{n \\in \\mathbb{Z} | n \\ge 0\\}$",
                     "**$\\mathbb{Z}$ (Numeri Interi):** $\\{..., -2, -1, 0, 1, 2, ...\\}$",
@@ -105,7 +105,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Relazioni tra Insiemi e Quantificatori",
+                title: "3.3 Relazioni tra Insiemi e Quantificatori",
                 content: [
                     "**Quantificatori Logici:**",
                     "*   **Universale ($\\forall$):** \"Per ogni\" o \"per tutti\".",
@@ -117,7 +117,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Operazioni tra Insiemi",
+                title: "3.4 Operazioni tra Insiemi",
                 content: [
                     "Dati due insiemi $A, B$ contenuti in un universo $U$:",
                     "**1. Unione ($A \\cup B$):** L'insieme degli elementi che appartengono ad $A$ **oppure** a $B$.",
@@ -134,7 +134,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempi Pratici",
+                title: "3.5 Esempi Pratici",
                 content: [
                     "Siano $A=\\{5, 8, 9, 12, 16\\}$ e $B=\\{5, 8, 24\\}$.",
                     "**Unione:** $A \\cup B = \\{5, 8, 9, 12, 16, 24\\}$",
@@ -150,7 +150,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 4: Insiemi Numerici e Completezza",
         subsections: [
             {
-                title: "Insiemi $\\mathbb{Q}$ e $\\mathbb{R}$",
+                title: "4.1 Insiemi $\\mathbb{Q}$ e $\\mathbb{R}$",
                 content: [
                     "**Numeri Razionali ($\\mathbb{Q}$):** Insieme dei numeri esprimibili come rapporto tra interi.",
                     "$$ \\mathbb{Q} = \\left\\{\\frac{n}{m} \\mid n, m \\in \\mathbb{Z}, m \\neq 0\\right\\} $$",
@@ -164,7 +164,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Maggioranti, Minoranti ed Estremi",
+                title: "4.2 Maggioranti, Minoranti ed Estremi",
                 content: [
                     "Sia $X = \\mathbb{R}$ (o $\\mathbb{Q}$) e sia $E \\subset X$. Diciamo che $E$ è:",
                     "*   **Limitato superiormente:** se esiste $M \\in X$ tale che $\\forall x \\in E, x \\le M$. $M$ si dice **maggiorante**.",
@@ -181,7 +181,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Estremo Superiore e Inferiore",
+                title: "4.3 Estremo Superiore e Inferiore",
                 content: [
                     "Spesso un insieme limitato non ha massimo (es. l'intervallo $(0, 1)$ non ha massimo perché $1 \\notin (0,1)$). Introduciamo quindi concetti più generali.",
                     "**Estremo Superiore ($sup(E)$):** È il **minimo dei maggioranti**.",
@@ -198,7 +198,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Assioma di Completezza ed Esempi",
+                title: "4.4 Assioma di Completezza ed Esempi",
                 content: [
                     "**Assioma di Completezza:** Ogni sottoinsieme non vuoto di $\\mathbb{R}$ limitato superiormente ammette estremo superiore in $\\mathbb{R}$.",
                     "*(Questo assioma distingue $\\mathbb{R}$ da $\\mathbb{Q}$. In $\\mathbb{Q}$ possono esserci insiemi limitati senza sup razionale, es. $\\{x \\in \\mathbb{Q} \\mid x^2 < 2\\}$ ha sup $\\sqrt{2} \\notin \\mathbb{Q}$)*.",
@@ -217,7 +217,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 5: Induzione, Sommatorie e Coefficienti Binomiali",
         subsections: [
             {
-                title: "Principio di Induzione",
+                title: "5.1 Principio di Induzione",
                 content: [
                     "Il **Principio di Induzione** è una tecnica di dimostrazione fondamentale per proposizioni $P(n)$ che dipendono da un numero naturale $n$.",
                     "**Schema di dimostrazione:**",
@@ -227,7 +227,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempi di Induzione",
+                title: "5.2 Esempi di Induzione",
                 content: [
                     "**1. Disuguaglianza di Bernoulli:** $\\forall n \\in \\mathbb{N}, x \\in \\mathbb{R}, x \\ge -1$, vale $(1+x)^n \\ge 1+nx$.",
                     "*   **Base ($n=0$):** $(1+x)^0 \\ge 1+0 \\Rightarrow 1 \\ge 1$ (Vero).",
@@ -242,7 +242,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Sommatorie",
+                title: "5.3 Sommatorie",
                 content: [
                     "**Definizione:** $\\sum_{k=1}^{n} a_k = a_1 + a_2 + ... + a_n$",
                     "**Proprietà:**",
@@ -254,7 +254,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Coefficiente Binomiale",
+                title: "5.4 Coefficiente Binomiale",
                 content: [
                     "Dati $n, k \\in \\mathbb{N}$ con $0 \\le k \\le n$, si definisce:",
                     "$$ \\binom{n}{k} = \\frac{n!}{k!(n-k)!} $$",
@@ -275,7 +275,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 6: Binomio di Newton e Numeri Complessi",
         subsections: [
             {
-                title: "Formula del Binomio di Newton",
+                title: "6.1 Formula del Binomio di Newton",
                 content: [
                     "Per ogni $n \\ge 1$ e per ogni coppia di numeri reali $a, b$, vale la seguente uguaglianza:",
                     "$$ (a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k $$",
@@ -288,7 +288,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Insieme dei Numeri Complessi ($\\mathbb{C}$)",
+                title: "6.2 Insieme dei Numeri Complessi ($\\mathbb{C}$)",
                 content: [
                     "**Motivazione:** Equazioni come $x^2 = -1$ non hanno soluzioni in $\\mathbb{R}$. È necessario estendere i numeri reali.",
                     "**Definizione:** L'insieme $\\mathbb{C}$ è definito come $\\mathbb{R}^2 = \\{(a,b) \\mid a,b \\in \\mathbb{R}\\}$ dotato delle operazioni:",
@@ -299,7 +299,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Forma Algebrica",
+                title: "6.3 Forma Algebrica",
                 content: [
                     "Si definisce l'**Unità Immaginaria** $i = (0,1)$.",
                     "Proprietà fondamentale: **$i^2 = -1$**.",
@@ -316,7 +316,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Proprietà di Re(z) e Im(z)",
+                title: "6.4 Proprietà di Re(z) e Im(z)",
                 content: [
                     "Per ogni $z_1, z_2 \\in \\mathbb{C}$ e $\\alpha \\in \\mathbb{R}$:",
                     "1.  $Re(z_1 + z_2) = Re(z_1) + Re(z_2)$",
@@ -326,7 +326,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi Svolti",
+                title: "6.5 Esercizi Svolti",
                 content: [
                     "**1. Semplificare $z = \\frac{\\sqrt{3}i-2}{\\sqrt{3}i+2}$:**",
                     "Moltiplico numeratore e denominatore per il coniugato del denominatore ($-2 - \\sqrt{3}i = -(2+\\sqrt{3}i)$ oppure direttamente $\\sqrt{3}i-2$):",
@@ -345,7 +345,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 7: Piano Cartesiano e Modulo",
         subsections: [
             {
-                title: "Piano di Gauss e Coniugato",
+                title: "7.1 Piano di Gauss e Coniugato",
                 content: [
                     "Poiché $\\mathbb{C} \\cong \\mathbb{R}^2$, possiamo rappresentare ogni numero complesso $z = a+ib$ come un punto $P(a,b)$ nel **Piano Cartesiano (di Gauss)**.",
                     "L'asse $x$ è l'**Asse Reale**, l'asse $y$ è l'**Asse Immaginario**.",
@@ -361,7 +361,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Modulo di un Numero Complesso",
+                title: "7.2 Modulo di un Numero Complesso",
                 content: [
                     "**Definizione:** Il modulo $|z|$ è la distanza del punto $z$ dall'origine.",
                     "Se $z = a+ib$, allora:",
@@ -376,7 +376,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizio Svolto",
+                title: "7.3 Esercizio Svolto",
                 content: [
                     "**Risolvere $z^2 + \\overline{z} = 0$**",
                     "Pongo $z = x+iy$. L'equazione diventa:",
@@ -396,7 +396,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 8: Rappresentazione Trigonometrica",
         subsections: [
             {
-                title: "Coordinate Polari",
+                title: "8.1 Coordinate Polari",
                 content: [
                     "I punti nel piano complesso possono essere individuati non solo tramite coordinate cartesiane $(a,b)$, ma anche tramite **coordinate polari** $(\\rho, \\theta)$.",
                     "**Modulo ($\\rho$):** $\\rho = |z| = \\sqrt{a^2+b^2}$ (distanza dall'origine).",
@@ -406,7 +406,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Forma Trigonometrica",
+                title: "8.2 Forma Trigonometrica",
                 content: [
                     "Un numero complesso $z \\neq 0$ può essere scritto in **forma trigonometrica (o polare)**:",
                     "$$ z = \\rho(\\cos \\theta + i \\sin \\theta) $$",
@@ -417,7 +417,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Formula di De Moivre",
+                title: "8.3 Formula di De Moivre",
                 content: [
                     "La formula di De Moivre permette di calcolare facilmente le potenze di un numero complesso:",
                     "$$ z^n = [\\rho(\\cos \\theta + i \\sin \\theta)]^n = \\rho^n (\\cos(n\\theta) + i \\sin(n\\theta)) $$",
@@ -428,7 +428,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Radici n-esime",
+                title: "8.4 Radici n-esime",
                 content: [
                     "Le soluzioni dell'equazione $z^n = w$ sono dette **radici n-esime** di $w$.",
                     "Se $w = r(\\cos \\varphi + i \\sin \\varphi)$, esistono esattamente $n$ radici distinte:",
@@ -438,7 +438,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempi di Radici",
+                title: "8.5 Esempi di Radici",
                 content: [
                     "**1. Radici cubiche di $-1$:** $z^3 = -1$.",
                     "$|w|=1$, $\\arg(w)=\\pi$. $\\rho_k = 1$, $\\theta_k = \\frac{\\pi + 2k\\pi}{3}$.",
@@ -459,7 +459,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 9: Teorema Fondamentale dell'Algebra",
         subsections: [
             {
-                title: "Teorema Fondamentale dell'Algebra",
+                title: "9.1 Teorema Fondamentale dell'Algebra",
                 content: [
                     "Ogni equazione polinomiale a coefficienti complessi di grado $n \\ge 1$ ha esattamente $n$ soluzioni in $\\mathbb{C}$ (contate con la loro molteplicità).",
                     "$$ a_n z^n + a_{n-1}z^{n-1} + \\dots + a_1 z + a_0 = 0 $$",
@@ -468,7 +468,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Metodo di Risoluzione con Modulo e Argomento",
+                title: "9.2 Metodo di Risoluzione con Modulo e Argomento",
                 content: [
                     "Per risolvere equazioni del tipo $z^n = w$ o equazioni che coinvolgono $\\overline{z}$ e $|z|$, si usa la rappresentazione polare:",
                     "Poniamo $z = \\rho e^{i\\theta}$ con $\\rho \\ge 0$ e $\\theta \\in [0, 2\\pi)$.",
@@ -480,7 +480,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizio Tipo Esame: $iz^3 = \\overline{z}$",
+                title: "9.3 Esercizio Tipo Esame: $iz^3 = \\overline{z}$",
                 content: [
                     "Sicuramente $z=0$ è soluzione. Per $z \\neq 0$, poniamo $z = \\rho e^{i\\theta}$.",
                     "Ricordando che $i = e^{i\\pi/2}$:",
@@ -492,7 +492,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizio: $(z+3i)^4 + 36 = 0$",
+                title: "9.4 Esercizio: $(z+3i)^4 + 36 = 0$",
                 content: [
                     "Poniamo $y = z+3i$. L'equazione diventa $y^4 = -36$.",
                     "$|w| = 36$, $\\arg(w) = \\pi$.",
@@ -505,7 +505,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizio: $8z = i|z|^3\\overline{z}$",
+                title: "9.5 Esercizio: $8z = i|z|^3\\overline{z}$",
                 content: [
                     "Poniamo $z = \\rho e^{i\\alpha}$. L'equazione diventa:",
                     "$8\\rho e^{i\\alpha} = \\rho^4 e^{i\\pi/2} e^{-i\\alpha}$.",
@@ -524,7 +524,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 10: Esercizi Completi sui Numeri Complessi",
         subsections: [
             {
-                title: "Operazioni Algebriche",
+                title: "10.1 Operazioni Algebriche",
                 content: [
                     "Siano $z = 3+2i$ e $w = 2-5i$.",
                     "**Somma:** $z+w = (3+2) + (2-5)i = 5-3i$",
@@ -536,7 +536,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Radici di $-i$",
+                title: "10.2 Radici di $-i$",
                 content: [
                     "Calcolare le radici cubiche di $-i$: $z^3 = -i$.",
                     "$|w|=1$, $\\arg(w) = \\frac{3\\pi}{2}$.",
@@ -547,7 +547,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Potenze con De Moivre",
+                title: "10.3 Potenze con De Moivre",
                 content: [
                     "**Calcolare $(1+i)^{10}$:**",
                     "$|1+i| = \\sqrt{2}$, $\\arg(1+i) = \\pi/4$.",
@@ -557,7 +557,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Luoghi Geometrici",
+                title: "10.4 Luoghi Geometrici",
                 content: [
                     "**1. $Re(z^2 + z\\overline{z} + iz + i) = 0$**",
                     "Ponendo $z = x+iy$: $Re[2x^2 - y + i(\\dots)] = 0 \\Rightarrow 2x^2 - y = 0$.",
@@ -572,7 +572,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi Vari",
+                title: "10.5 Esercizi Vari",
                 content: [
                     "**1. Risolvere $2i\\overline{z} = 3+5i$:**",
                     "Ponendo $z = a+ib$: $2i(a-ib) = 3+5i \\Rightarrow 2b + 2ia = 3+5i$.",
@@ -593,7 +593,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 11: Funzioni a Una Variabile",
         subsections: [
             {
-                title: "Definizione di Funzione",
+                title: "11.1 Definizione di Funzione",
                 content: [
                     "Il concetto di funzione nasce per esprimere la dipendenza di una grandezza variabile rispetto a un'altra grandezza, considerata indipendente.",
                     "**Definizione:** Dati due insiemi $A$ e $B$, una **funzione** $f: A \\rightarrow B$ è una legge che ad ogni elemento $x \\in A$ associa **uno e un solo** elemento $f(x) \\in B$.",
@@ -607,7 +607,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Grafico e Zeri",
+                title: "11.2 Grafico e Zeri",
                 content: [
                     "**Grafico:** Il grafico di $f$ è il sottoinsieme di $\\mathbb{R}^2$ definito da:",
                     "$$ G_f = \\{(x,y) \\in \\mathbb{R}^2 \\mid x \\in A, y = f(x)\\} $$",
@@ -616,7 +616,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Parità e Periodicità",
+                title: "11.3 Parità e Periodicità",
                 content: [
                     "**Funzione Pari:** $f(x) = f(-x)$ per ogni $x \\in A$ (simmetria rispetto all'asse $y$).",
                     "**Funzione Dispari:** $f(x) = -f(-x)$ per ogni $x \\in A$ (simmetria rispetto all'origine).",
@@ -625,7 +625,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Monotonia e Limitatezza",
+                title: "11.4 Monotonia e Limitatezza",
                 content: [
                     "**Monotona Crescente:** $x_1 < x_2 \\Rightarrow f(x_1) \\le f(x_2)$.",
                     "**Monotona Decrescente:** $x_1 < x_2 \\Rightarrow f(x_1) \\ge f(x_2)$.",
@@ -635,7 +635,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi su Dominio e Immagine",
+                title: "11.5 Esercizi su Dominio e Immagine",
                 content: [
                     "**1. $f(x) = \\frac{2+x}{x-3}$**",
                     "*   Dominio: $x \\neq 3 \\Rightarrow (-\\infty, 3) \\cup (3, +\\infty)$.",
@@ -655,7 +655,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 12: Funzioni Elementari",
         subsections: [
             {
-                title: "Funzioni Potenza",
+                title: "12.1 Funzioni Potenza",
                 content: [
                     "**Definizione:** $f(x) = x^\\alpha$, con $\\alpha \\in \\mathbb{R} \\setminus \\{0\\}$.",
                     `![Grafici Funzioni Potenza](/FIRST-YEAR-IMAGES/funzioni-potenza.png)`,
@@ -669,7 +669,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzioni Esponenziali",
+                title: "12.2 Funzioni Esponenziali",
                 content: [
                     "**Definizione:** $f(x) = a^x$ con $a > 0, a \\neq 1$.",
                     `![Grafico Funzione Esponenziale](/FIRST-YEAR-IMAGES/funzione-esponenziale.png)`,
@@ -681,7 +681,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzioni Logaritmiche",
+                title: "12.3 Funzioni Logaritmiche",
                 content: [
                     "**Definizione:** $f(x) = \\log_a x$ con $a > 0, a \\neq 1$.",
                     `![Grafico Funzione Logaritmica](/FIRST-YEAR-IMAGES/funzione-logaritmica.png)`,
@@ -694,7 +694,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzione Valore Assoluto",
+                title: "12.4 Funzione Valore Assoluto",
                 content: [
                     "**Definizione:**",
                     "$$ |x| = \\begin{cases} x & \\text{se } x \\ge 0 \\\\ -x & \\text{se } x < 0 \\end{cases} $$",
@@ -704,7 +704,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Parte Intera e Mantissa",
+                title: "12.5 Parte Intera e Mantissa",
                 content: [
                     "**Parte Intera (Floor):** $[x] = \\max\\{k \\in \\mathbb{Z} \\mid k \\le x\\}$.",
                     "*   Dominio: $\\mathbb{R}$. Immagine: $\\mathbb{Z}$.",
@@ -723,7 +723,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 13: Funzioni Trigonometriche",
         subsections: [
             {
-                title: "Seno e Coseno",
+                title: "13.1 Seno e Coseno",
                 content: [
                     "Data una $x \\in \\mathbb{R}$, sia $P_x$ il punto sulla circonferenza unitaria ottenuto ruotando di un angolo $x$ dal punto $(1,0)$.",
                     `![Circonferenza Unitaria](/FIRST-YEAR-IMAGES/circonferenza-unitaria.png)`,
@@ -740,7 +740,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Tangente e Cotangente",
+                title: "13.2 Tangente e Cotangente",
                 content: [
                     "**Tangente:** $\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$, con dominio $\\mathbb{R} \\setminus \\{\\frac{\\pi}{2} + k\\pi\\}$.",
                     "**Cotangente:** $\\cot(x) = \\frac{\\cos(x)}{\\sin(x)}$, con dominio $\\mathbb{R} \\setminus \\{k\\pi\\}$.",
@@ -752,7 +752,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Formule di Addizione",
+                title: "13.3 Formule di Addizione",
                 content: [
                     "**Somma di angoli:**",
                     "*   $\\sin(x+y) = \\sin x \\cos y + \\cos x \\sin y$",
@@ -764,7 +764,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzioni Inverse",
+                title: "13.4 Funzioni Inverse",
                 content: [
                     "Poiché le funzioni trigonometriche non sono globalmente invertibili (sono periodiche), si restringono a intervalli di monotonia.",
                     "**Arcoseno:** $\\arcsin: [-1, 1] \\rightarrow [-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$. Dispari.",
@@ -773,7 +773,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi Svolti",
+                title: "13.5 Esercizi Svolti",
                 content: [
                     "**1. Calcolare $\\cos(\\arcsin(1/3))$:**",
                     "L'immagine di $\\arcsin$ è $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$, dove il coseno è positivo.",
@@ -793,7 +793,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 14: Composizione e Inversione di Funzioni",
         subsections: [
             {
-                title: "Composizione di Funzioni",
+                title: "14.1 Composizione di Funzioni",
                 content: [
                     "Date due funzioni $f: A \\rightarrow B$ e $g: B \\rightarrow \\mathbb{R}$ con $f(A) \\subseteq D_g$, si definisce la **funzione composta**:",
                     "$$ (g \\circ f)(x) = g[f(x)], \\quad \\forall x \\in A $$",
@@ -802,7 +802,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi sulla Composizione",
+                title: "14.2 Esercizi sulla Composizione",
                 content: [
                     "Date $f(x) = x^2-2$, $g(x) = \\log_2(x-1)$, $h(x) = \\sqrt{x}$:",
                     "**1. $g \\circ f(x) = \\log_2(x^2-3)$**",
@@ -814,7 +814,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Iniettività, Suriettività, Biettività",
+                title: "14.3 Iniettività, Suriettività, Biettività",
                 content: [
                     "Sia $f: A \\rightarrow B$.",
                     "**Iniettiva:** $f(x_1) = f(x_2) \\Rightarrow x_1 = x_2$ (ogni immagine ha al più una controimmagine).",
@@ -824,7 +824,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzione Inversa",
+                title: "14.4 Funzione Inversa",
                 content: [
                     "Se $f: A \\rightarrow B$ è **invertibile** (biettiva), esiste $f^{-1}: B \\rightarrow A$ tale che:",
                     "$$ f^{-1}(y) = x \\iff y = f(x) $$",
@@ -835,7 +835,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizio: Inversa di sinh(x)",
+                title: "14.5 Esercizio: Inversa di sinh(x)",
                 content: [
                     "Calcolare l'inversa di $f(x) = \\sinh(x) = \\frac{e^x - e^{-x}}{2}$.",
                     "$y = \\frac{e^x - e^{-x}}{2} \\Rightarrow 2ye^x = e^{2x} - 1 \\Rightarrow e^{2x} - 2ye^x - 1 = 0$.",
@@ -851,7 +851,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 15: Funzioni Iperboliche",
         subsections: [
             {
-                title: "Seno Iperbolico",
+                title: "15.1 Seno Iperbolico",
                 content: [
                     "**Definizione:**",
                     "$$ \\sinh(x) = \\frac{e^x - e^{-x}}{2} $$",
@@ -863,7 +863,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Coseno Iperbolico",
+                title: "15.2 Coseno Iperbolico",
                 content: [
                     "**Definizione:**",
                     "$$ \\cosh(x) = \\frac{e^x + e^{-x}}{2} $$",
@@ -875,7 +875,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Tangente Iperbolica e Identità",
+                title: "15.3 Tangente Iperbolica e Identità",
                 content: [
                     "**Tangente Iperbolica:**",
                     "$$ \\tanh(x) = \\frac{\\sinh(x)}{\\cosh(x)} = \\frac{e^x - e^{-x}}{e^x + e^{-x}} $$",
@@ -893,7 +893,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 16: Successioni e Limiti",
         subsections: [
             {
-                title: "Successioni",
+                title: "16.1 Successioni",
                 content: [
                     "Una **successione** è una funzione $f: \\mathbb{N} \\rightarrow \\mathbb{R}$. Si usa la notazione $a_n = f(n)$.",
                     "Esempio: $(a_n)_{n \\in \\mathbb{N}} = (0, 1, 4, 9, 16, ...) \\Rightarrow a_n = n^2$.",
@@ -901,7 +901,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Definizione di Limite",
+                title: "16.2 Definizione di Limite",
                 content: [
                     "**Convergenza:** $(a_n)$ converge a $l \\in \\mathbb{R}$ se:",
                     "$$ (\\forall \\epsilon > 0)(\\exists N \\in \\mathbb{N})(\\forall n \\ge N) |a_n - l| \\le \\epsilon $$",
@@ -912,7 +912,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teoremi Fondamentali",
+                title: "16.3 Teoremi Fondamentali",
                 content: [
                     "**Unicità del Limite:** Se $(a_n)$ converge, il limite è unico.",
                     "**Teorema di Monotonia:** Una successione monotona crescente e limitata superiormente converge a $\\sup\\{a_n\\}$.",
@@ -921,7 +921,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Algebra dei Limiti",
+                title: "16.4 Algebra dei Limiti",
                 content: [
                     "Se $a_n \\to a$ e $b_n \\to b$ (con $a, b \\in \\mathbb{R}$):",
                     "*   $a_n \\pm b_n \\to a \\pm b$",
@@ -932,7 +932,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Il Numero di Nepero ($e$)",
+                title: "16.5 Il Numero di Nepero ($e$)",
                 content: [
                     "La successione $a_n = \\left(1 + \\frac{1}{n}\\right)^n$ è monotona crescente e limitata.",
                     "$$ \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^n = e \\approx 2.71828... $$",
@@ -941,7 +941,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Gerarchia degli Infiniti",
+                title: "16.6 Gerarchia degli Infiniti",
                 content: [
                     "Per $n \\to \\infty$, velocità di crescita:",
                     "$$ \\log_a n \\ll n^\\alpha \\ll a^n \\ll n! \\ll n^n $$",
@@ -959,7 +959,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 17: Confronti e Stime Asintotiche",
         subsections: [
             {
-                title: "Simboli di Landau",
+                title: "17.1 Simboli di Landau",
                 content: [
                     "Siano $(a_n)$ e $(b_n)$ successioni con $b_n \\neq 0$ definitivamente. Si studia $\\lim \\frac{a_n}{b_n}$.",
                     "**1. o-piccolo:** Se il limite è $0$, $(a_n)$ è trascurabile rispetto a $(b_n)$.",
@@ -971,7 +971,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Stime Asintotiche Notevoli (per $x \\to 0$)",
+                title: "17.2 Stime Asintotiche Notevoli (per $x \\to 0$)",
                 content: [
                     "*   $\\sin x \\sim x$, $\\arcsin x \\sim x$",
                     "*   $\\tan x \\sim x$, $\\arctan x \\sim x$",
@@ -983,7 +983,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio del Rapporto",
+                title: "17.3 Criterio del Rapporto",
                 content: [
                     "Sia $(a_n) \\subset (0, +\\infty)$. Se esiste $\\lim \\frac{a_{n+1}}{a_n} = l$:",
                     "*   $l < 1 \\Rightarrow \\lim a_n = 0$",
@@ -994,7 +994,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi con Stime",
+                title: "17.4 Esercizi con Stime",
                 content: [
                     "**1. $\\lim_{x \\to 0} \\frac{x^2 \\sin^3(2x)}{3\\sin(x^5)}$**",
                     "$\\sin(2x) \\sim 2x$, $\\sin(x^5) \\sim x^5$.",
@@ -1011,7 +1011,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 18: Limiti di Funzioni e Asintoti",
         subsections: [
             {
-                title: "Definizione Successionale",
+                title: "18.1 Definizione Successionale",
                 content: [
                     "Sia $f: I \\subseteq \\mathbb{R} \\to \\mathbb{R}$ e $c \\in \\bar{\\mathbb{R}}$.",
                     "Si dice $\\lim_{x \\to c} f(x) = l$ se per ogni successione $(x_n) \\subseteq I \\setminus \\{c\\}$ con $x_n \\to c$, si ha $f(x_n) \\to l$.",
@@ -1020,7 +1020,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Definizione Topologica ($\\epsilon$-$\\delta$)",
+                title: "18.2 Definizione Topologica ($\\epsilon$-$\\delta$)",
                 content: [
                     "**Limite finito al finito:** $\\lim_{x \\to c} f(x) = l$",
                     "$$ (\\forall \\epsilon > 0)(\\exists \\delta > 0)(\\forall x \\in D_f, 0 < |x-c| < \\delta) |f(x) - l| < \\epsilon $$",
@@ -1031,7 +1031,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Asintoto Orizzontale",
+                title: "18.3 Asintoto Orizzontale",
                 content: [
                     "La funzione $f$ ha **asintoto orizzontale** $y = l$ per $x \\to +\\infty$ (o $-\\infty$) se:",
                     "$$ \\lim_{x \\to \\pm\\infty} f(x) = l \\in \\mathbb{R} $$",
@@ -1039,7 +1039,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Asintoto Verticale",
+                title: "18.4 Asintoto Verticale",
                 content: [
                     "La funzione $f$ ha **asintoto verticale** $x = c$ se:",
                     "$$ \\lim_{x \\to c^+} f(x) = \\pm\\infty \\quad \\text{oppure} \\quad \\lim_{x \\to c^-} f(x) = \\pm\\infty $$",
@@ -1047,7 +1047,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Asintoto Obliquo",
+                title: "18.5 Asintoto Obliquo",
                 content: [
                     "La funzione $f$ ha **asintoto obliquo** $y = mx + q$ per $x \\to \\pm\\infty$ se:",
                     "$$ \\lim_{x \\to \\pm\\infty} [f(x) - (mx+q)] = 0 $$",
@@ -1057,7 +1057,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempi",
+                title: "18.6 Esempi",
                 content: [
                     "**1. $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$**",
                     "$= \\lim_{x \\to 1} \\frac{(x-1)(x+1)}{x-1} = \\lim_{x \\to 1} (x+1) = 2$.",
@@ -1074,7 +1074,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 19: Teoremi sui Limiti e Esercizi",
         subsections: [
             {
-                title: "Limiti Laterali",
+                title: "19.1 Limiti Laterali",
                 content: [
                     "**Definizione:** Se $c \\in \\mathbb{R}$ e $l \\in \\mathbb{R}$, si dice che $\\lim_{x \\to c^+} f(x) = l$ se per ogni successione $(x_n)_{n \\in \\mathbb{N}} \\subset D(f)$ tale che $x_n \\to c$ con $x_n > c$ $\\forall n \\in \\mathbb{N}$, si ha che $\\lim_{n \\to \\infty} f(x_n) = l$.",
                     "Analogamente per il **limite sinistro** $x \\to c^-$ con $x_n < c$.",
@@ -1082,7 +1082,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Asintoto Obliquo (Dettaglio)",
+                title: "19.2 Asintoto Obliquo (Dettaglio)",
                 content: [
                     "**Definizione:** Si dice che la funzione $f$ ha **asintoto obliquo** di equazione $y = mx + q$ per $x \\to \\pm\\infty$ se:",
                     "$$ \\lim_{x \\to \\pm\\infty} [f(x) - (mx+q)] = 0 $$",
@@ -1093,14 +1093,14 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Asintoto Verticale (Dettaglio)",
+                title: "19.3 Asintoto Verticale (Dettaglio)",
                 content: [
                     "**Definizione:** Si dice che $f$ ha un **asintoto verticale** di equazione $x = c$ ($c \\in \\mathbb{R}$) per $x \\to c$ se:",
                     "$$ \\lim_{x \\to c} f(x) = \\pm\\infty \\quad \\text{oppure} \\quad \\lim_{x \\to c^\\pm} f(x) = \\pm\\infty $$"
                 ]
             },
             {
-                title: "Teorema del Confronto",
+                title: "19.4 Teorema del Confronto",
                 content: [
                     "**Enunciato:** Se $\\lim_{x \\to c} f(x) = \\lim_{x \\to c} g(x) = l$ e $f(x) \\le h(x) \\le g(x)$ **definitivamente** per $x \\to c$, allora:",
                     "$$ \\lim_{x \\to c} h(x) = l $$",
@@ -1108,14 +1108,14 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema di Permanenza del Segno",
+                title: "19.5 Teorema di Permanenza del Segno",
                 content: [
                     "**1.** Se $\\lim_{x \\to c} f(x) = l > 0$, allora $f(x) > 0$ **definitivamente** per $x \\to c$.",
                     "**2.** Se $f(x) \\ge 0$ definitivamente per $x \\to c$ e $\\lim_{x \\to c} f(x) = l$, allora $l \\ge 0$."
                 ]
             },
             {
-                title: "Algebra dei Limiti (Funzioni)",
+                title: "19.6 Algebra dei Limiti (Funzioni)",
                 content: [
                     "Supponiamo che $\\lim f(x) = l_1$ e $\\lim g(x) = l_2$ con $l_1, l_2 \\in \\mathbb{R}$. Allora:",
                     "*   $\\lim [f(x) \\pm g(x)] = l_1 \\pm l_2$",
@@ -1124,7 +1124,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi sui Limiti (Parte 1)",
+                title: "19.7 Esercizi sui Limiti (Parte 1)",
                 content: [
                     "**1.** $\\lim_{n \\to \\infty} \\frac{\\ln(n+2^n)}{n}$",
                     "$= \\lim_{n \\to \\infty} \\frac{\\ln(2^n(1+\\frac{n}{2^n}))}{n} = \\lim_{n \\to \\infty} \\frac{n \\ln 2 + \\ln(1+\\frac{n}{2^n})}{n} = \\ln 2$.",
@@ -1140,7 +1140,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Verifiche con Definizione $\\epsilon$-$\\delta$",
+                title: "19.8 Verifiche con Definizione $\\epsilon$-$\\delta$",
                 content: [
                     "**8. Verificare:** $\\lim_{x \\to -4} \\frac{-2}{(x+4)^2} = -\\infty$",
                     "$(\\forall K > 0, \\exists \\delta > 0)$ tale che $\\forall x \\neq -4$, $|x+4| < \\delta \\Rightarrow \\frac{-2}{(x+4)^2} < -K$.",
@@ -1153,7 +1153,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi sui Limiti (Parte 2)",
+                title: "19.9 Esercizi sui Limiti (Parte 2)",
                 content: [
                     "**10. Dimostrare che il limite non esiste:** $\\lim_{x \\to \\infty} \\frac{3+2\\sin x}{2-\\cos x}$",
                     "Consideriamo due sottosuccessioni:",
@@ -1171,7 +1171,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi sugli Asintoti",
+                title: "19.10 Esercizi sugli Asintoti",
                 content: [
                     "**15.** $f(x) = 2x + 3\\sqrt{x^2+x}$",
                     "Per $x \\to -\\infty$: $f(x) = 2x + 3|x|\\sqrt{1+1/x} = 2x - 3x\\sqrt{1} = -x \\to +\\infty$.",
@@ -1194,7 +1194,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 20: Continuità",
         subsections: [
             {
-                title: "Definizione di Continuità",
+                title: "20.1 Definizione di Continuità",
                 content: [
                     "Ricordiamo che $\\lim_{x \\to 0} \\sin(x) = 0 = \\sin(0)$. Questo è un esempio di funzione **continua**.",
                     "**Definizione:** Dato $I \\subseteq \\mathbb{R}$ un intervallo, $c \\in I$ e $f: I \\to \\mathbb{R}$ una funzione, diremo che $f(x)$ è **continua in $c$** se:",
@@ -1203,7 +1203,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempio: Funzione Non Continua",
+                title: "20.2 Esempio: Funzione Non Continua",
                 content: [
                     "Si consideri la funzione $f: \\mathbb{R} \\to \\mathbb{R}$ definita da:",
                     "$$ f(x) = \\begin{cases} x & \\text{se } x \\in \\mathbb{Q} \\\\ x^2 & \\text{se } x \\in \\mathbb{I} \\text{ (irrazionali)} \\end{cases} $$",
@@ -1215,7 +1215,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Osservazioni sulla Continuità",
+                title: "20.3 Osservazioni sulla Continuità",
                 content: [
                     "**1.** Le funzioni continue devono la loro importanza al fatto che $\\lim_{x \\to c} f(x) = f(c)$ può essere interpretato come: \"piccole variazioni di $x$\" $\\to$ \"piccole variazioni di $f(x)$\".",
                     "**2.** La presenza di un **asintoto verticale** in $c$ implica che $f$ non sia continua in $c$.",
@@ -1226,7 +1226,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzione di Heaviside",
+                title: "20.4 Funzione di Heaviside",
                 content: [
                     "**Esempio:** La funzione di Heaviside (o funzione gradino):",
                     "$$ H(x) = \\begin{cases} 1 & \\text{se } x \\ge 0 \\\\ 0 & \\text{se } x < 0 \\end{cases} $$",
@@ -1235,7 +1235,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Prolungamento per Continuità",
+                title: "20.5 Prolungamento per Continuità",
                 content: [
                     "Le funzioni elementari sono continue in tutto il loro dominio. La funzione $f(x) = \\frac{\\sin x}{x}$, $\\forall x \\in \\mathbb{R} \\setminus \\{0\\}$, è continua in tutto $\\mathbb{R} \\setminus \\{0\\}$.",
                     "Inoltre $\\lim_{x \\to 0} f(x) = 1$.",
@@ -1245,7 +1245,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Algebra delle Funzioni Continue",
+                title: "20.6 Algebra delle Funzioni Continue",
                 content: [
                     "**Teorema:** Sia $I \\subseteq \\mathbb{R}$ un intervallo, $c \\in I$, $f, g: I \\to \\mathbb{R}$ funzioni continue in $c$. Allora:",
                     "1. $f \\pm g$ è continua in $c$.",
@@ -1254,14 +1254,14 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Continuità della Funzione Composta",
+                title: "20.7 Continuità della Funzione Composta",
                 content: [
                     "**Teorema:** Siano $g$ una funzione definita in un intorno di $x_0$, continua in $x_0$, e $f$ una funzione definita in un intorno di $t_0 = g(x_0)$ e continua in $t_0$.",
                     "Allora $f \\circ g$ è definita in un intorno di $x_0$ e **continua in $x_0$**."
                 ]
             },
             {
-                title: "Continuità delle Funzioni Elementari",
+                title: "20.8 Continuità delle Funzioni Elementari",
                 content: [
                     "**Teorema:** Le seguenti funzioni sono continue in tutti i punti del proprio insieme di definizione:",
                     "1. Potenze a esponente intero, razionale, reale",
@@ -1272,7 +1272,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema degli Zeri",
+                title: "20.9 Teorema degli Zeri",
                 content: [
                     "**Interpretazione geometrica:** Una funzione continua su un intervallo ha un grafico che \"si può tracciare senza staccare la penna dal foglio\".",
                     "**Teorema degli Zeri:** Siano $a < b$ numeri reali e $f: [a,b] \\to \\mathbb{R}$ una funzione continua con $f(a)f(b) < 0$.",
@@ -1282,7 +1282,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema dei Valori Intermedi",
+                title: "20.10 Teorema dei Valori Intermedi",
                 content: [
                     "**Teorema:** Siano $a < b$ e $f: [a, b] \\to \\mathbb{R}$ continua. Se $y_1, y_2 \\in f([a,b])$, allora per ogni $\\lambda \\in \\mathbb{R}$ compreso tra $y_1$ e $y_2$:",
                     "$$ \\exists x_{\\lambda} \\in [a,b] \\text{ tale che } f(x_{\\lambda}) = \\lambda $$",
@@ -1290,7 +1290,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema di Weierstrass",
+                title: "20.11 Teorema di Weierstrass",
                 content: [
                     "**Teorema:** Siano $a < b$ e $f: [a, b] \\to \\mathbb{R}$ una funzione continua. Allora:",
                     "1. $f$ è **limitata** in $[a, b]$.",
@@ -1302,7 +1302,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Continuità della Funzione Inversa",
+                title: "20.12 Continuità della Funzione Inversa",
                 content: [
                     "**Teorema:** Sia $I \\subseteq \\mathbb{R}$ un intervallo e $f: I \\to \\mathbb{R}$ una funzione continua. Allora $f$ è **invertibile** in $I$ se e solo se è **strettamente monotona**.",
                     "In tal caso, $J = f(I)$ è un intervallo e $f^{-1}: J \\to I$ è **continua**.",
@@ -1312,7 +1312,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esercizi sulla Continuità",
+                title: "20.13 Esercizi sulla Continuità",
                 content: [
                     "**1. Dimostrare che $e^x \\cos(x) + 1 = 0$ ha infinite soluzioni reali.**",
                     "Sia $f(x) = e^x \\cos(x) + 1$, continua in tutto $\\mathbb{R}$.",
@@ -1336,7 +1336,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 21: Calcolo Differenziale",
         subsections: [
             {
-                title: "Introduzione alla Derivata",
+                title: "21.1 Introduzione alla Derivata",
                 content: [
                     "Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ continua. Consideriamo un punto $P(x_0, y_0)$ sul grafico di $f$ con $x_0 \\in (a, b)$ e $Q(x, y)$ un punto mobile sul grafico.",
                     "$$ \\frac{y-y_0}{x-x_0} = \\frac{f(x)-f(x_0)}{x-x_0} \\quad \\text{(Coefficiente angolare della retta secante)} $$",
@@ -1346,7 +1346,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Definizione di Derivata",
+                title: "21.2 Definizione di Derivata",
                 content: [
                     "**Definizione:** Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ una funzione. Si dice che è **derivabile** in $x_0 \\in (a, b)$ se esiste finito il limite:",
                     "$$ L = \\lim_{x \\to x_0} \\frac{f(x)-f(x_0)}{x-x_0} $$",
@@ -1358,7 +1358,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempi di Derivate",
+                title: "21.3 Esempi di Derivate",
                 content: [
                     "**1. $f(x) = |x|$:**",
                     "$(\\forall x_0 > 0) f'(x_0) = 1$; $(\\forall x_0 < 0) f'(x_0) = -1$.",
@@ -1368,7 +1368,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Continuità e Derivabilità",
+                title: "21.4 Continuità e Derivabilità",
                 content: [
                     "**Teorema:** Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ una funzione derivabile in $x_0 \\in (a, b)$. Allora $f$ è **continua** in $x_0$.",
                     "**NON È SEMPRE VERO IL CONTRARIO.** (Esempio: $|x|$ è continua in $0$ ma non derivabile.)",
@@ -1377,7 +1377,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Algebra delle Derivate",
+                title: "21.5 Algebra delle Derivate",
                 content: [
                     "**Teorema:** Siano $f, g: [a, b] \\to \\mathbb{R}$ funzioni derivabili in $x_0 \\in (a, b)$. Allora:",
                     "*   $(f \\pm g)'(x_0) = f'(x_0) \\pm g'(x_0)$",
@@ -1387,7 +1387,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Regola della Catena",
+                title: "21.6 Regola della Catena",
                 content: [
                     "**Teorema:** Siano $f, g: \\mathbb{R} \\to \\mathbb{R}$ tali che $g$ è derivabile in $x_0$ e $f$ è derivabile in $g(x_0)$.",
                     "Allora la composta $f \\circ g$ è derivabile in $x_0$:",
@@ -1396,7 +1396,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Derivate Notevoli",
+                title: "21.7 Derivate Notevoli",
                 content: [
                     "*   $\\frac{d}{dx}(a^x) = a^x \\ln(a)$ (con $a > 0$)",
                     "*   $\\frac{d}{dx}(x^x) = [\\ln(x) + 1] \\cdot x^x$",
@@ -1408,7 +1408,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Derivata della Funzione Inversa",
+                title: "21.8 Derivata della Funzione Inversa",
                 content: [
                     "**Teorema:** Sia $f: [a, b] \\to [c, d]$ una funzione continua e invertibile. Se $f$ è derivabile in $x_0 \\in (a, b)$ e inoltre $f'(x_0) \\neq 0$, allora $f^{-1}$ è derivabile in $y_0 = f(x_0)$:",
                     "$$ (f^{-1})'(y_0) = \\frac{1}{f'(x_0)} $$",
@@ -1422,7 +1422,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 22: Punti Stazionari e Teoremi Fondamentali",
         subsections: [
             {
-                title: "Punti di Estremo Locale",
+                title: "22.1 Punti di Estremo Locale",
                 content: [
                     "**Definizione:** Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ una funzione. Si dice che:",
                     "*   $x_0 \\in [a, b]$ è un punto di **MINIMO LOCALE** se $(\\exists \\delta > 0)(\\forall x \\in (x_0-\\delta, x_0+\\delta) \\cap [a, b]) f(x_0) \\le f(x)$.",
@@ -1430,7 +1430,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Punti di Non Derivabilità",
+                title: "22.2 Punti di Non Derivabilità",
                 content: [
                     "Sono punti in cui la funzione non è derivabile:",
                     "*   **ANGOLOSI:** $f'(x_0^+) \\neq f'(x_0^-)$ [almeno una finita].",
@@ -1439,7 +1439,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema di Fermat",
+                title: "22.3 Teorema di Fermat",
                 content: [
                     "**Teorema:** Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ una funzione derivabile in $x_0 \\in (a, b)$. Se $x_0$ è un **punto di estremo locale**, allora $f'(x_0) = 0$.",
                     "**N.B.** I punti $x \\in (a, b)$ in cui $f'(x)=0$ si chiamano **punti stazionari** o **critici** di $f$.",
@@ -1451,7 +1451,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema di Lagrange (Valor Medio)",
+                title: "22.4 Teorema di Lagrange (Valor Medio)",
                 content: [
                     "**Teorema:** Sia $f: [a, b] \\to \\mathbb{R}$ una funzione **continua** in $[a, b]$ e **derivabile** in $(a, b)$. Allora:",
                     "$$ \\exists c \\in (a, b) \\text{ tale che } f'(c) = \\frac{f(b)-f(a)}{b-a} $$",
@@ -1459,7 +1459,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema di Rolle",
+                title: "22.5 Teorema di Rolle",
                 content: [
                     "**Teorema:** Sia $f: [a, b] \\to \\mathbb{R}$ continua in $[a, b]$, derivabile in $(a, b)$ e tale che $f(a) = f(b)$.",
                     "Allora $\\exists c \\in (a, b)$ tale che $f'(c) = 0$.",
@@ -1467,7 +1467,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Test di Monotonia",
+                title: "22.6 Test di Monotonia",
                 content: [
                     "**Teorema:** Sia $f: [a, b] \\to \\mathbb{R}$ una funzione continua in $[a, b]$ e derivabile in $(a, b)$. Allora:",
                     "*   $f$ crescente in $[a, b] \\Leftrightarrow f'(x) \\ge 0, \\forall x \\in (a, b)$.",
@@ -1483,7 +1483,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 23: Derivata Seconda e Convessità",
         subsections: [
             {
-                title: "Epigrafico e Convessità",
+                title: "23.1 Epigrafico e Convessità",
                 content: [
                     "La **derivata seconda** fornisce informazioni circa la velocità di variazione della pendenza (curvatura).",
                     "**Definizione:** Sia $I \\subseteq \\mathbb{R}$ un intervallo e $f: I \\to \\mathbb{R}$ una funzione. Si chiama **epigrafico** di $f$ l'insieme:",
@@ -1494,7 +1494,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema della Convessità",
+                title: "23.2 Teorema della Convessità",
                 content: [
                     "**Teorema:** Siano $a < b$ reali e $f: (a, b) \\to \\mathbb{R}$ una funzione. Allora:",
                     "**1)** Se $f$ è derivabile in $(a, b)$:",
@@ -1507,7 +1507,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Punti di Flesso",
+                title: "23.3 Punti di Flesso",
                 content: [
                     "**Definizione:** Il punto $x_0 \\in (a, b)$ si dice di **flesso** per $f$ se $\\exists h > 0$ tale che $(x_0-h, x_0+h) \\subset (a, b)$ e inoltre:",
                     "$f$ convessa/concava in $(x_0-h, x_0)$ e $f$ concava/convessa in $(x_0, x_0+h)$.",
@@ -1516,7 +1516,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Regola di De L'Hôpital",
+                title: "23.4 Regola di De L'Hôpital",
                 content: [
                     "**Teorema:** Siano $f, g: (a, b) \\to \\mathbb{R}$ funzioni derivabili in $(a, b)$ con $g'(x) \\neq 0$ in $(a, b)$.",
                     "Se $\\lim_{x \\to a^+} f(x) = \\lim_{x \\to a^+} g(x) = 0$ (oppure $\\pm\\infty$) e esiste il limite:",
@@ -1532,7 +1532,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 24: Formule di Taylor-Maclaurin",
         subsections: [
             {
-                title: "Teorema di Taylor con Resto di Peano",
+                title: "24.1 Teorema di Taylor con Resto di Peano",
                 content: [
                     "Siano $a < b$ reali e $f: (a, b) \\to \\mathbb{R}$ una funzione derivabile $n$ volte in $x_0 \\in (a, b)$ ($n \\ge 1$).",
                     "$$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + o((x-x_0)^n) \\text{ per } x \\to x_0 $$",
@@ -1540,7 +1540,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempi di Sviluppi",
+                title: "24.2 Esempi di Sviluppi",
                 content: [
                     "**1. $f(x) = e^x$, $x_0 = 0$:**",
                     "$e^x = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\dots + \\frac{x^n}{n!} + o(x^n)$",
@@ -1555,7 +1555,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Sviluppi Notevoli (Maclaurin)",
+                title: "24.3 Sviluppi Notevoli (Maclaurin)",
                 content: [
                     "$$ \\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\dots = \\sum_{k=0}^{n} \\frac{(-1)^k x^{2k+1}}{(2k+1)!} + o(x^{2n+2}) $$",
                     "$$ \\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\dots = \\sum_{k=0}^{n} \\frac{(-1)^k x^{2k}}{(2k)!} + o(x^{2n+1}) $$",
@@ -1565,7 +1565,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Taylor con Resto di Lagrange",
+                title: "24.4 Taylor con Resto di Lagrange",
                 content: [
                     "**Teorema:** Siano $a < b$ reali e $f: (a, b) \\to \\mathbb{R}$ derivabile $n+1$ volte in $(a, b)$. Fissato $x_0 \\in (a, b)$, $\\forall x \\in (a, b)$ esiste $c$ strettamente compreso tra $x$ e $x_0$ tale che:",
                     "$$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \\frac{f^{(n+1)}(c)}{(n+1)!} (x-x_0)^{n+1} $$",
@@ -1573,7 +1573,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Proprietà dell'o-piccolo",
+                title: "24.5 Proprietà dell'o-piccolo",
                 content: [
                     "*   $o(f) \\pm o(f) = o(f)$",
                     "*   $o(c \\cdot f) = c \\cdot o(f) = o(f)$",
@@ -1591,7 +1591,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 25: Introduzione al Calcolo Integrale",
         subsections: [
             {
-                title: "Primitive e Integrale Indefinito",
+                title: "25.1 Primitive e Integrale Indefinito",
                 content: [
                     "**Definizione:** Sia $I \\subseteq \\mathbb{R}$ un intervallo aperto e $f: I \\to \\mathbb{R}$ una funzione. Una funzione $F: I \\to \\mathbb{R}$ derivabile in $I$ si chiama **primitiva** di $f$ se:",
                     "$$ F'(t) = f(t), \\quad \\forall t \\in I $$",
@@ -1602,7 +1602,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Primitive Elementari",
+                title: "25.2 Primitive Elementari",
                 content: [
                     "*   $\\int k dx = kx + c$ (con $k \\in \\mathbb{R}$)",
                     "*   $\\int x^\\alpha dx = \\frac{x^{\\alpha+1}}{\\alpha+1} + c$ (con $\\alpha \\neq -1$)",
@@ -1618,7 +1618,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrazione per Sostituzione",
+                title: "25.3 Integrazione per Sostituzione",
                 content: [
                     "**Teorema:** Sia $G$ una primitiva di $g$ e $t = \\phi(x)$ con $\\phi$ derivabile. Allora:",
                     "$$ \\int g(\\phi(x))\\phi'(x) dx = G(\\phi(x)) + c $$",
@@ -1631,7 +1631,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrazione per Parti",
+                title: "25.4 Integrazione per Parti",
                 content: [
                     "**Formula:** Siano $f, g$ funzioni derivabili. Allora:",
                     "$$ \\int f(x)g'(x) dx = f(x)g(x) - \\int f'(x)g(x) dx $$",
@@ -1643,7 +1643,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Sostituzioni Convenienti",
+                title: "25.5 Sostituzioni Convenienti",
                 content: [
                     "**Per radici:**",
                     "*   Per $\\sqrt{a^2-x^2}$: $x=a\\sin t$ oppure $x=a\\tanh t$.",
@@ -1652,7 +1652,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrazione di Funzioni Razionali",
+                title: "25.6 Integrazione di Funzioni Razionali",
                 content: [
                     "Per $f(x) = \\frac{P(x)}{Q(x)}$ (funzione razionale):",
                     "**1)** Se $\\deg(P) \\ge \\deg(Q)$: divisione polinomiale.",
@@ -1670,7 +1670,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 26: Integrale di Riemann",
         subsections: [
             {
-                title: "Introduzione",
+                title: "26.1 Introduzione",
                 content: [
                     "Siano $a < b$ reali e $f: [a,b] \\to \\mathbb{R}$ una funzione. Ci poniamo il problema di calcolare l'area della regione:",
                     "$$ E = \\{(x,y) \\in \\mathbb{R}^2 \\mid a \\le x \\le b, 0 \\le y \\le f(x)\\} $$",
@@ -1681,7 +1681,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Somme di Riemann",
+                title: "26.2 Somme di Riemann",
                 content: [
                     "**Definizione:** Per $a < b$ e $f: [a, b] \\to \\mathbb{R}$ limitata, definiamo la **partizione** $P = \\{x_0, ..., x_n\\}$ con $a = x_0 < x_1 < ... < x_n = b$.",
                     "La **somma di Riemann** di $f$ associata alla partizione $P$ è:",
@@ -1689,7 +1689,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzione Riemann-Integrabile",
+                title: "26.3 Funzione Riemann-Integrabile",
                 content: [
                     "**Definizione:** Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ limitata. Diciamo che $f$ è **Riemann-integrabile** in $[a, b]$ se esiste finito il limite $\\lim_{n \\to \\infty} R_f^P$ e tale limite non dipende dalla scelta dei punti $\\xi_i$.",
                     "In tal caso si pone:",
@@ -1697,7 +1697,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Classi di Funzioni Integrabili",
+                title: "26.4 Classi di Funzioni Integrabili",
                 content: [
                     "**Teorema:** Se $f: [a, b] \\to \\mathbb{R}$ è **continua**, allora è integrabile in $[a, b]$.",
                     "**Teorema:** Se $f$ è **limitata e monotona** in $[a, b]$, allora è integrabile.",
@@ -1707,7 +1707,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Proprietà dell'Integrale Definito",
+                title: "26.5 Proprietà dell'Integrale Definito",
                 content: [
                     "1. $(\\forall c \\in \\mathbb{R}) \\int_{a}^{b} c \\, dx = c(b-a)$.",
                     "2. Se $f$ è integrabile in $[a, b]$ e $c \\in (a, b)$: $\\int_{a}^{b} f(x)dx = \\int_{a}^{c} f(x)dx + \\int_{c}^{b} f(x)dx$.",
@@ -1718,7 +1718,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teorema Fondamentale del Calcolo",
+                title: "26.6 Teorema Fondamentale del Calcolo",
                 content: [
                     "**1. Primo Teorema (Funzione Integrale):** Se $f: [a, b] \\to \\mathbb{R}$ è continua, allora la funzione integrale:",
                     "$$ G(x) = \\int_{a}^{x} f(t) dt $$",
@@ -1736,7 +1736,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 27: Integrali Impropri",
         subsections: [
             {
-                title: "Integrale Improprio di Prima Specie",
+                title: "27.1 Integrale Improprio di Prima Specie",
                 content: [
                     "L'integrale di Riemann richiede che $I$ sia un intervallo **limitato** e che $f$ sia **limitata** in $I$. Gli integrali impropri estendono questa nozione.",
                     "**Definizione (Intervallo non limitato):** Per $a \\in \\mathbb{R}$ e $f: [a, +\\infty) \\to \\mathbb{R}$ continua, diciamo che $f$ è integrabile in $[a, +\\infty)$ se:",
@@ -1747,7 +1747,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Esempio Fondamentale (DA SAPERE)",
+                title: "27.2 Esempio Fondamentale (DA SAPERE)",
                 content: [
                     "**Studiare la convergenza di $\\int_{1}^{+\\infty} \\frac{1}{x^\\alpha} dx$:**",
                     "*   Per $\\alpha = 1$: $\\int_{1}^{+\\infty} \\frac{1}{x} dx = \\lim_{\\omega \\to +\\infty} [\\ln|x|]_1^\\omega = +\\infty$ (diverge).",
@@ -1757,7 +1757,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrale Improprio di Seconda Specie",
+                title: "27.3 Integrale Improprio di Seconda Specie",
                 content: [
                     "**Definizione (Funzione non limitata):** Siano $a < b$ e $f: [a, b) \\to \\mathbb{R}$ tale che $\\lim_{x \\to b^-} f(x) = \\pm\\infty$.",
                     "Diciamo che $f$ è integrabile in $[a, b)$ se:",
@@ -1770,7 +1770,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio del Confronto",
+                title: "27.4 Criterio del Confronto",
                 content: [
                     "**Teorema:** Sia $a \\in \\mathbb{R}$ e $f, g: [a, +\\infty) \\to \\mathbb{R}$ continue tali che $(\\exists b \\ge a)(\\forall x \\ge b) 0 \\le f(x) \\le g(x)$.",
                     "Allora:",
@@ -1780,7 +1780,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio del Confronto Asintotico",
+                title: "27.5 Criterio del Confronto Asintotico",
                 content: [
                     "**Teorema:** Siano $f, g: [a, +\\infty) \\to \\mathbb{R}$ continue e non negative definitivamente. Se:",
                     "$$ \\lim_{x \\to +\\infty} \\frac{f(x)}{g(x)} = L \\neq 0 $$",
@@ -1789,7 +1789,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio di Convergenza Assoluta",
+                title: "27.6 Criterio di Convergenza Assoluta",
                 content: [
                     "**Teorema:** Sia $f: [a, +\\infty) \\to \\mathbb{R}$ continua. Allora:",
                     "$$ \\int_{a}^{+\\infty} |f(x)| dx \\text{ converge } \\Rightarrow \\int_{a}^{+\\infty} f(x) dx \\text{ converge} $$",
@@ -1804,7 +1804,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 28: Serie Numeriche",
         subsections: [
             {
-                title: "Definizione di Serie",
+                title: "28.1 Definizione di Serie",
                 content: [
                     "Data una successione $(a_n)_{n \\in \\mathbb{N}} \\subset \\mathbb{R}$, vogliamo dare un senso alla **somma infinita**:",
                     "$$ \\sum_{k=0}^{+\\infty} a_k = a_0 + a_1 + a_2 + a_3 + \\dots $$",
@@ -1815,7 +1815,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie Geometrica",
+                title: "28.2 Serie Geometrica",
                 content: [
                     "Per ogni $q \\neq 1$, sappiamo che $(\\forall N \\in \\mathbb{N})$:",
                     "$$ \\sum_{i=0}^{N} q^i = \\frac{1 - q^{N+1}}{1-q} $$",
@@ -1824,7 +1824,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie di Mengoli e Somma Telescopica",
+                title: "28.3 Serie di Mengoli e Somma Telescopica",
                 content: [
                     "**Serie di Mengoli:**",
                     "$$ \\sum_{k=1}^{\\infty} \\frac{1}{k(k+1)} = \\sum_{k=1}^{\\infty} \\left(\\frac{1}{k} - \\frac{1}{k+1}\\right) = 1 $$",
@@ -1833,7 +1833,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie Armonica",
+                title: "28.4 Serie Armonica",
                 content: [
                     "La **serie armonica** è **divergente**:",
                     "$$ \\sum_{k=1}^{\\infty} \\frac{1}{k} = +\\infty $$",
@@ -1843,7 +1843,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Condizione Necessaria per la Convergenza",
+                title: "28.5 Condizione Necessaria per la Convergenza",
                 content: [
                     "**Teorema:** Se $\\sum_{k=0}^{\\infty} a_k$ converge, allora $\\lim_{n \\to \\infty} a_n = 0$.",
                     "**ATTENZIONE:** Il viceversa è **FALSO**! (Vedi serie armonica: $a_n = 1/n \\to 0$ ma la serie diverge.)",
@@ -1851,7 +1851,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie a Termini Non Negativi",
+                title: "28.6 Serie a Termini Non Negativi",
                 content: [
                     "Se $(a_n) \\subset [0, +\\infty)$, allora $(S_N)$ è una successione **monotona crescente**:",
                     "$$ S_{N+1} = S_N + a_{N+1} \\ge S_N $$",
@@ -1860,7 +1860,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio del Confronto",
+                title: "28.7 Criterio del Confronto",
                 content: [
                     "**Teorema:** Siano $(a_n), (b_n) \\subset [0, +\\infty)$ successioni tali che $a_n \\le b_n$. Allora:",
                     "*   $\\sum b_n$ converge $\\Rightarrow \\sum a_n$ converge.",
@@ -1868,7 +1868,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio del Confronto Asintotico",
+                title: "28.8 Criterio del Confronto Asintotico",
                 content: [
                     "**Teorema:** Siano $(a_n), (b_n) \\subset [0, +\\infty)$ tali che:",
                     "$$ \\lim_{n \\to \\infty} \\frac{a_n}{b_n} = l \\in (0, +\\infty) $$",
@@ -1877,7 +1877,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio del Rapporto",
+                title: "28.9 Criterio del Rapporto",
                 content: [
                     "**Teorema:** Sia $(a_n) \\subset [0, +\\infty)$ e supponiamo che esista:",
                     "$$ l = \\lim_{n \\to \\infty} \\frac{a_{n+1}}{a_n} \\ge 0 $$",
@@ -1888,7 +1888,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio della Radice $n$-esima",
+                title: "28.10 Criterio della Radice $n$-esima",
                 content: [
                     "**Teorema:** Sia $(a_n)$ una successione e supponiamo che esista:",
                     "$$ l = \\lim_{n \\to \\infty} \\sqrt[n]{a_n} $$",
@@ -1899,7 +1899,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Criterio dell'Integrale",
+                title: "28.11 Criterio dell'Integrale",
                 content: [
                     "**Teorema:** Sia $f: [1, +\\infty) \\to \\mathbb{R}$ una funzione **decrescente e positiva**. Sia $a_n = f(n)$.",
                     "Allora:",
@@ -1907,7 +1907,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Convergenza Assoluta e Criterio di Leibniz",
+                title: "28.12 Convergenza Assoluta e Criterio di Leibniz",
                 content: [
                     "**Definizione:** La serie è **assolutamente convergente** se la serie dei moduli $\\sum |a_k|$ converge.",
                     "**Osservazione:** Ogni serie assolutamente convergente è anche (semplicemente) convergente.",
@@ -1922,7 +1922,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 29: Esercizi Taylor e Limiti",
         subsections: [
             {
-                title: "Esercizi di Sviluppo",
+                title: "29.1 Esercizi di Sviluppo",
                 content: [
                     "**1.** Calcolare $\\sinh(1)$ con tre termini non nulli e stimare l'errore.",
                     "$\\sinh(x) \\approx x + \\frac{x^3}{6} + \\frac{x^5}{120} + o(x^5)$",
@@ -1934,7 +1934,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Limiti con Taylor",
+                title: "29.2 Limiti con Taylor",
                 content: [
                     "**4.** $\\lim_{x \\to 0} \\frac{\\pi^x - 3^x}{x}$",
                     "$= \\lim \\frac{1+x\\ln\\pi - 1 - x\\ln 3 + o(x)}{x} = \\ln\\pi - \\ln 3 = \\ln(\\frac{\\pi}{3})$.",
@@ -1946,7 +1946,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Limiti con o-piccolo",
+                title: "29.3 Limiti con o-piccolo",
                 content: [
                     "**7.** $\\lim_{x \\to 0} \\frac{e^{-x^2/2} - \\cos x}{\\sin^2 x - \\sin(x^2)}$",
                     "Numeratore $\\sim \\frac{1}{12}x^4$. Denominatore: $\\sin^2 x - \\sin(x^2) \\approx (x^2 - \\frac{x^4}{3}) - x^2 = -\\frac{x^4}{3}$.",
@@ -1962,7 +1962,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 30: Esercizi Integrali",
         subsections: [
             {
-                title: "Integrali con Fratti Semplici",
+                title: "30.1 Integrali con Fratti Semplici",
                 content: [
                     "**1.** $\\int \\frac{3}{x^2+4} dx = \\frac{3}{2} \\arctan(\\frac{x}{2}) + c$",
                     "**2.** $\\int \\frac{1}{x^2-6x+5} dx = \\int \\frac{1}{(x-1)(x-5)} dx$",
@@ -1972,7 +1972,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrali con Sostituzione",
+                title: "30.2 Integrali con Sostituzione",
                 content: [
                     "**5.** $\\int 5^x dx = \\frac{5^x}{\\ln 5} + c$",
                     "**6.** $\\int \\cos x \\cdot e^{\\sin x} dx = e^{\\sin x} + c$",
@@ -1982,7 +1982,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrali per Parti",
+                title: "30.3 Integrali per Parti",
                 content: [
                     "**10.** $\\int x^2 \\sin x dx$ (per parti due volte)",
                     "$= -x^2 \\cos x + 2x \\sin x + 2 \\cos x + c$",
@@ -1992,7 +1992,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrali Definiti",
+                title: "30.4 Integrali Definiti",
                 content: [
                     "**13.** $\\int_{0}^{1/2} e^{2x} dx = \\frac{1}{2}(e-1)$",
                     "**14.** $\\int_{2}^{3} \\frac{x}{\\sqrt{x-2}} dx = \\frac{14}{3}$",
@@ -2008,7 +2008,7 @@ export const analisi1CourseContent: MainSection[] = [
         title: "Lezione 31: Esercizi Serie",
         subsections: [
             {
-                title: "Serie Convergenti",
+                title: "31.1 Serie Convergenti",
                 content: [
                     "**1.** $\\sum_{n=1}^{\\infty} \\frac{\\cos n^4}{n^2+1}$: Poiché $|\\frac{\\cos n^4}{n^2+1}| \\le \\frac{1}{n^2}$ e $\\sum \\frac{1}{n^2}$ converge, **converge assolutamente**.",
                     "**2.** $\\sum_{n=1}^{\\infty} \\frac{\\ln n}{n^3}$: $\\frac{\\ln n}{n^3} \\le \\frac{\\sqrt{n}}{n^3} = \\frac{1}{n^{2.5}}$. **Converge**.",
@@ -2017,7 +2017,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie Divergenti",
+                title: "31.2 Serie Divergenti",
                 content: [
                     "**5.** $\\sum_{n=1}^{\\infty} (1-\\frac{1}{n^2})^{n^2}$: $\\lim_{n \\to \\infty} (1-\\frac{1}{n^2})^{n^2} = \\frac{1}{e} \\neq 0$. **Diverge** (criterio necessario).",
                     "**6.** $\\sum_{n=1}^{\\infty} (\\frac{n+1}{n-1})^n$: $\\lim = e^2 \\neq 0$. **Diverge**.",
@@ -2025,7 +2025,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie con Parametro",
+                title: "31.3 Serie con Parametro",
                 content: [
                     "**8.** $\\sum_{n=1}^{+\\infty} \\frac{x^n}{n 2^n}$",
                     "Criterio radice: $l = \\lim \\sqrt[n]{(\\frac{x}{2})^n} = \\frac{|x|}{2}$.",
@@ -2038,10 +2038,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-1-insiemi-complessi",
-        title: "Riassunto: Insiemi e Numeri Complessi",
+        title: "Lezione 32: Riassunto: Insiemi e Numeri Complessi",
         subsections: [
             {
-                title: "Insiemi Numerici",
+                title: "32.1 Insiemi Numerici",
                 content: [
                     "**Assioma di Completezza:** Ogni sottoinsieme di $\\mathbb{R}$, non vuoto, limitato superiormente (inferiormente) possiede un estremo superiore (o inferiore).",
                     "**Estremo:** $\\forall x \\in E, \\sup \\ge x$ (superiore); $\\forall x \\in E, \\inf \\le x$ (inferiore).",
@@ -2052,7 +2052,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Sommatorie e Binomio",
+                title: "32.2 Sommatorie e Binomio",
                 content: [
                     "**Sommatoria:** $a_1 + a_2 + \\dots + a_n = \\sum_{k=1}^{n} a_k$",
                     "**Coefficiente Binomiale:** $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ con $0! = 1$.",
@@ -2061,7 +2061,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Numeri Complessi - Operazioni",
+                title: "32.3 Numeri Complessi - Operazioni",
                 content: [
                     "**Insieme:** $\\mathbb{C} = \\mathbb{R}^2 = \\{(x,y) \\mid x,y \\in \\mathbb{R}\\}$.",
                     "**Operazioni:** $(a,b) + (c,d) = (a+c, b+d)$; $(a,b) \\cdot (c,d) = (ac-bd, ad+bc)$.",
@@ -2071,7 +2071,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Coniugato e Modulo",
+                title: "32.4 Coniugato e Modulo",
                 content: [
                     "**Coniugato:** $\\bar{z} = a-ib$.",
                     "Proprietà: $|\\bar{z}| = |z|$, $\\overline{z \\pm w} = \\bar{z} \\pm \\bar{w}$, $\\overline{z \\cdot w} = \\bar{z} \\cdot \\bar{w}$.",
@@ -2081,7 +2081,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Forma Trigonometrica e Polare",
+                title: "32.5 Forma Trigonometrica e Polare",
                 content: [
                     "**Coordinate Polari:** $\\rho = |z|$ (raggio), $\\theta$ (angolo polare).",
                     "$x = \\rho \\cos \\theta$, $y = \\rho \\sin \\theta$.",
@@ -2094,7 +2094,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Radici n-esime",
+                title: "32.6 Radici n-esime",
                 content: [
                     "Sia $w \\in \\mathbb{C}$ e $n \\in \\mathbb{N}$. L'equazione $z^n = w$ ha:",
                     "1. Se $w = 0 \\Rightarrow z = 0$ (unica soluzione).",
@@ -2107,10 +2107,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-2-funzioni-limiti",
-        title: "Riassunto: Funzioni e Limiti",
+        title: "Lezione 33: Riassunto: Funzioni e Limiti",
         subsections: [
             {
-                title: "Definizioni Fondamentali",
+                title: "33.1 Definizioni Fondamentali",
                 content: [
                     "**Funzione:** concetto che esprime la dipendenza di una grandezza variabile rispetto a una indipendente.",
                     "**Dominio e Codominio:** $f: A \\to B$, $A = \\text{dom}(f)$, $B = \\text{codom}(f)$.",
@@ -2119,7 +2119,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Proprietà delle Funzioni",
+                title: "33.2 Proprietà delle Funzioni",
                 content: [
                     "**Pari:** $f(x) = f(-x)$ (simmetria rispetto asse $y$).",
                     "**Dispari:** $f(x) = -f(-x)$ (simmetria rispetto origine).",
@@ -2132,7 +2132,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Funzioni Elementari",
+                title: "33.3 Funzioni Elementari",
                 content: [
                     "**Potenza:** $f(x) = x^\\alpha$. **Esponenziale:** $f(x) = a^x$. **Logaritmica:** $f(x) = \\log_a x$.",
                     "**Trigonometriche:** $\\sin x, \\cos x, \\tan x, \\cot x, \\arcsin x, \\arccos x, \\arctan x$.",
@@ -2141,7 +2141,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Definizioni di Limite",
+                title: "33.4 Definizioni di Limite",
                 content: [
                     "**Def. Successionale:** $\\lim_{x \\to c} f(x) = l$ se per ogni $(x_n)$ con $x_n \\to c$ ($x_n \\neq c$), si ha $f(x_n) \\to l$.",
                     "**Def. Topologica ($\\epsilon$-$\\delta$):** $\\lim_{x \\to c} f(x) = l$ se:",
@@ -2151,7 +2151,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Asintoti",
+                title: "33.5 Asintoti",
                 content: [
                     "**Orizzontale:** Se $\\lim_{x \\to \\infty} f(x) = l \\Rightarrow y = l$.",
                     "**Verticale:** Se $\\lim_{x \\to c} f(x) = \\pm\\infty \\Rightarrow x = c$.",
@@ -2159,7 +2159,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teoremi sui Limiti",
+                title: "33.6 Teoremi sui Limiti",
                 content: [
                     "**Unicità:** Se $\\lim_{x \\to c} f(x) = l$, allora $l$ è unico.",
                     "**Confronto:** Se $\\lim f = \\lim g = l$ e $f(x) \\le h(x) \\le g(x)$ def., allora $\\lim h = l$.",
@@ -2170,10 +2170,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-3-continuita-derivate",
-        title: "Riassunto: Continuità, Successioni e Derivate",
+        title: "Lezione 34: Riassunto: Continuità, Successioni e Derivate",
         subsections: [
             {
-                title: "Continuità",
+                title: "34.1 Continuità",
                 content: [
                     "**Definizione:** $f$ è continua in $c$ se $\\lim_{x \\to c} f(x) = f(c)$.",
                     "**Algebra:** Se $f, g$ continue in $c$: $f \\pm g$, $f \\cdot g$, $f/g$ continue in $c$.",
@@ -2182,7 +2182,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Teoremi sulla Continuità",
+                title: "34.2 Teoremi sulla Continuità",
                 content: [
                     "**Teorema degli Zeri:** Se $f: [a,b] \\to \\mathbb{R}$ continua e $f(a)f(b) < 0$, allora $\\exists x_0 \\in (a,b)$ con $f(x_0) = 0$.",
                     "**Valori Intermedi:** Se $y_1, y_2 \\in f([a,b])$, allora $\\forall \\lambda$ tra $y_1$ e $y_2$, $\\exists x_\\lambda$ con $f(x_\\lambda) = \\lambda$.",
@@ -2192,7 +2192,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Successioni",
+                title: "34.3 Successioni",
                 content: [
                     "**Definizione:** Funzione $f: \\mathbb{N} \\to \\mathbb{R}$, $a_n = f(n)$.",
                     "**Convergenza:** $\\lim_{n \\to \\infty} a_n = l$ se $(\\forall \\epsilon > 0)(\\exists N)(\\forall n \\ge N) |a_n - l| < \\epsilon$.",
@@ -2203,7 +2203,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Limiti Notevoli",
+                title: "34.4 Limiti Notevoli",
                 content: [
                     "*   $\\lim_{n \\to \\infty} (1+1/a_n)^{a_n} = e$",
                     "*   $\\lim_{n \\to \\infty} (1+a/n)^n = e^a$",
@@ -2214,7 +2214,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Stime Asintotiche (per $x \\to 0$)",
+                title: "34.5 Stime Asintotiche (per $x \\to 0$)",
                 content: [
                     "$\\sin x \\sim x$, $\\arcsin x \\sim x$, $\\tan x \\sim x$, $\\arctan x \\sim x$",
                     "$1 - \\cos x \\sim x^2/2$, $e^x - 1 \\sim x$, $a^x - 1 \\sim x \\ln a$",
@@ -2222,7 +2222,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Derivate",
+                title: "34.6 Derivate",
                 content: [
                     "**Definizione:** $f'(x_0) = \\lim_{x \\to x_0} \\frac{f(x) - f(x_0)}{x - x_0}$ (se esiste finito).",
                     "**Continuità:** Se $f$ derivabile in $x_0$, allora $f$ è continua in $x_0$.",
@@ -2232,7 +2232,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Punti Critici",
+                title: "34.7 Punti Critici",
                 content: [
                     "**Minimo Locale:** $(\\exists \\delta > 0)$ $f(x_0) \\le f(x)$ per $|x - x_0| < \\delta$.",
                     "**Massimo Locale:** $(\\exists \\delta > 0)$ $f(x_0) \\ge f(x)$ per $|x - x_0| < \\delta$.",
@@ -2246,10 +2246,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-4-taylor-integrali",
-        title: "Riassunto: Taylor, Integrali e Serie",
+        title: "Lezione 35: Riassunto: Taylor, Integrali e Serie",
         subsections: [
             {
-                title: "Calcolo Differenziale Avanzato",
+                title: "35.1 Calcolo Differenziale Avanzato",
                 content: [
                     "**Punti Stazionari:** $f'(x_0) = 0 \\Rightarrow$ punto critico.",
                     "**Teorema di Fermat:** Se $x_0$ è estremo locale e $f$ derivabile, allora $f'(x_0) = 0$.",
@@ -2260,7 +2260,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Convessità e Flessi",
+                title: "35.2 Convessità e Flessi",
                 content: [
                     "**Epigrafico:** $E_f = \\{(x,y) \\in \\mathbb{R}^2 \\mid x \\in I, y \\ge f(x)\\}$.",
                     "**Teorema Convessità:** $f$ convessa $\\iff f'$ crescente $\\iff f'' \\ge 0$.",
@@ -2269,7 +2269,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Taylor",
+                title: "35.3 Taylor",
                 content: [
                     "**Formula Generica:** $f(x) = f(x_0) + f'(x_0)(x-x_0) + \\frac{f''(x_0)}{2}(x-x_0)^2 + \\dots$",
                     "**Resto di Peano:** $o((x-x_0)^n)$",
@@ -2277,7 +2277,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrali",
+                title: "35.4 Integrali",
                 content: [
                     "**Primitiva:** $F'(x) = f(x)$.",
                     "**Sostituzione:** $\\frac{d}{dx}(G \\circ P)(x) = G'(P(x)) \\cdot P'(x)$.",
@@ -2289,7 +2289,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie Numeriche",
+                title: "35.5 Serie Numeriche",
                 content: [
                     "**Geometrica:** $\\sum q^n = \\frac{1}{1-q}$ se $|q| < 1$.",
                     "**Mengoli:** $\\sum \\frac{1}{n(n+1)} = 1$ (telescopica).",
@@ -2302,10 +2302,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-5-geometria",
-        title: "Riassunto: Geometria Analitica",
+        title: "Lezione 36: Riassunto: Geometria Analitica",
         subsections: [
             {
-                title: "Operazioni tra Vettori",
+                title: "36.1 Operazioni tra Vettori",
                 content: [
                     "**Somma:** $\\vec{x} + \\vec{y}$ (componente per componente).",
                     "**Prodotto scalare-vettore:** $\\alpha \\vec{x}$.",
@@ -2317,7 +2317,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Prodotto Vettoriale",
+                title: "36.2 Prodotto Vettoriale",
                 content: [
                     "**Norma:** $||\\vec{x} \\times \\vec{y}|| = ||\\vec{x}|| \\cdot ||\\vec{y}|| \\cdot \\sin\\theta$.",
                     "**Area Parallelogramma:** $||\\vec{x} \\times \\vec{y}||$.",
@@ -2327,7 +2327,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Disuguaglianze",
+                title: "36.3 Disuguaglianze",
                 content: [
                     "**Cauchy-Schwarz:** $|\\vec{x} \\cdot \\vec{y}| \\le ||\\vec{x}|| \\cdot ||\\vec{y}||$.",
                     "**Disuguaglianza Triangolare:** $||\\vec{x} + \\vec{y}|| \\le ||\\vec{x}|| + ||\\vec{y}||$.",
@@ -2335,7 +2335,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Rette e Piani",
+                title: "36.4 Rette e Piani",
                 content: [
                     "**Retta - Eq. Vettoriale:** $r: P_0 + \\lambda \\vec{d}$.",
                     "**Retta - Eq. Parametrica:** $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.",
@@ -2349,10 +2349,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-6-dimostrazioni",
-        title: "Riassunto: Dimostrazioni Chiave",
+        title: "Lezione 37: Riassunto: Dimostrazioni Chiave",
         subsections: [
             {
-                title: "Divergenza della Serie Armonica",
+                title: "37.1 Divergenza della Serie Armonica",
                 content: [
                     "**Per assurdo:** Supponiamo $\\sum_{k=1}^{\\infty} \\frac{1}{k} = S \\in \\mathbb{R}$.",
                     "$(\\forall \\epsilon > 0)(\\exists N_0)(\\forall N > N_0) |S_N - S| \\le \\epsilon$.",
@@ -2363,7 +2363,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Serie di Mengoli (Telescopica)",
+                title: "37.2 Serie di Mengoli (Telescopica)",
                 content: [
                     "$\\sum_{k=1}^{\\infty} \\frac{1}{k(k+1)} = \\sum_{k=1}^{\\infty} \\left(\\frac{1}{k} - \\frac{1}{k+1}\\right)$.",
                     "**Serie Telescopica:** $\\sum_{k=1}^{N} (b_k - b_{k+1}) = b_1 - b_{N+1}$.",
@@ -2372,7 +2372,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Disuguaglianza di Cauchy-Schwarz",
+                title: "37.3 Disuguaglianza di Cauchy-Schwarz",
                 content: [
                     "**Caso a)** Se $\\vec{x} = 0$ o $\\vec{y} = 0$: ovviamente verificata ($0 \\le 0$).",
                     "**Caso b)** Se $\\vec{x} \\neq 0$ e $\\vec{y} \\neq 0$: definiamo $\\varphi(t) = ||t\\vec{x} + \\vec{y}||^2 \\ge 0$.",
@@ -2383,7 +2383,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Norma del Prodotto Vettoriale",
+                title: "37.4 Norma del Prodotto Vettoriale",
                 content: [
                     "**Identità di Lagrange:** $(\\vec{x} \\cdot \\vec{y})^2 + ||\\vec{x} \\times \\vec{y}||^2 = ||\\vec{x}||^2 ||\\vec{y}||^2$.",
                     "$||\\vec{x} \\times \\vec{y}||^2 = ||\\vec{x}||^2 ||\\vec{y}||^2 - (\\vec{x} \\cdot \\vec{y})^2$",
@@ -2393,7 +2393,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Altri Teoremi",
+                title: "37.5 Altri Teoremi",
                 content: [
                     "**Unicità del Limite:** Per $\\epsilon > 0$, $|l_1 - l_2| \\le |l_1 - a_n| + |a_n - l_2| \\le 2\\epsilon$. Quindi $l_1 = l_2$.",
                     "**Monotonia:** Se $(a_n)$ è crescente e limitata, allora $\\lim a_n = \\sup\\{a_n\\}$.",
@@ -2405,10 +2405,10 @@ export const analisi1CourseContent: MainSection[] = [
     },
     {
         id: "riassunto-7-formule",
-        title: "Riassunto: Formule da Memorizzare",
+        title: "Lezione 38: Riassunto: Formule da Memorizzare",
         subsections: [
             {
-                title: "Sviluppi di Taylor-Maclaurin",
+                title: "38.1 Sviluppi di Taylor-Maclaurin",
                 content: [
                     "$$ e^x = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\dots + \\frac{x^n}{n!} + o(x^n) $$",
                     "$$ \\frac{1}{1-x} = 1 + x + x^2 + \\dots + x^n + o(x^n) $$",
@@ -2421,7 +2421,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Relazioni Asintotiche (per $f(x) \\to 0$)",
+                title: "38.2 Relazioni Asintotiche (per $f(x) \\to 0$)",
                 content: [
                     "*   $\\sin(f(x)) \\sim f(x)$",
                     "*   $\\arcsin(f(x)) \\sim f(x)$",
@@ -2437,7 +2437,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Integrali Notevoli",
+                title: "38.3 Integrali Notevoli",
                 content: [
                     "*   $\\int \\frac{f'(x)}{f^2(x)+1} dx = \\arctan(f(x)) + C$",
                     "*   $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$",
@@ -2446,7 +2446,7 @@ export const analisi1CourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "Definizioni $\\epsilon$-$\\delta$ di Limite",
+                title: "38.4 Definizioni $\\epsilon$-$\\delta$ di Limite",
                 content: [
                     "**1. Finito al finito:** $(\\forall \\epsilon > 0)(\\exists \\delta > 0)$ $|x-c| < \\delta \\Rightarrow |f(x)-l| < \\epsilon$.",
                     "**2. Infinito al finito:** $(\\forall K > 0)(\\exists \\delta > 0)$ $|x-c| < \\delta \\Rightarrow f(x) > K$.",

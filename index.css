@@ -1,18 +1,17 @@
-/* ... existing imports ... */
 @import "tailwindcss";
 @config "./tailwind.config.js";
 
 @layer base {
     :root {
-        /* --- LIGHT MODE: Cream / Paper --- */
-        --bg-body: #FFFDF2;
-        /* Cream / Off-white */
-        --premium-black: #FFFDF2;
+        /* --- LIGHT MODE: Strict White --- */
+        --bg-body: #FFFFFF;
+        /* Pure White */
+        --premium-black: #FFFFFF;
         /* Match background */
-        --premium-dark: #F5F3E6;
-        /* Slightly darker cream for cards */
-        --premium-gray: #E6E4D9;
-        /* Darker cream for borders */
+        --premium-dark: #F5F5F5;
+        /* Very light gray for cards */
+        --premium-gray: #E5E5E5;
+        /* Light gray for borders */
         --premium-gold: #000000;
         /* Black accent */
 
@@ -23,8 +22,8 @@
         --content-muted: #666666;
         /* Medium gray for metadata */
 
-        --border-primary: #E6E4D9;
-        /* Cream borders */
+        --border-primary: #E5E5E5;
+        /* Light gray borders */
         --bg-glass: rgba(0, 0, 0, 0.03);
     }
 
@@ -91,11 +90,98 @@
         overscroll-behavior-y: contain;
     }
 
+    /* Sidebar Opaque Background */
+    aside {
+        background-color: var(--bg-body) !important;
+        opacity: 1 !important;
+    }
+
     /* High refresh rate selection style */
     ::selection {
         background: var(--content-primary);
         color: var(--bg-body);
     }
+}
+
+/* === KATEX FORMULA STYLING === */
+
+.math-container {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem 0;
+    position: relative;
+    clear: both;
+    /* Prevent overflow by forcing multi-line formulas */
+    overflow-x: visible;
+    overflow-y: visible;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.math-container-inline {
+    margin: 0.5rem 0;
+}
+
+.math-container::-webkit-scrollbar {
+    display: none;
+}
+
+.math-container-multiline .mtable {
+    border-collapse: separate !important;
+    border-spacing: 0 0.35em;
+}
+
+/* Spacing between stacked formulas */
+.math-container+.math-container {
+    margin-top: 2rem !important;
+}
+
+/* The wrapper inside */
+.math-scroll-wrapper {
+    display: inline-block;
+    min-width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+/* KaTeX overrides */
+.katex-display {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.katex {
+    font-size: 1em !important;
+    color: var(--content-primary) !important;
+    line-height: 1.5 !important;
+}
+
+/* Fix colors for dark/light mode */
+.katex .frac-line,
+.katex .overline-line,
+.katex .underline-line,
+.katex .sqrt>.root,
+.katex .macron {
+    background-color: var(--content-primary) !important;
+    border-color: var(--content-primary) !important;
+}
+
+.katex .mord.text {
+    font-family: 'Geist', sans-serif !important;
+}
+
+/* 
+   FIX for Multi-line formulas (using \\ in LaTeX):
+   Ensure there is space between the lines inside a single block.
+*/
+.katex-display>.katex>.katex-html>.tag {
+    margin-right: 1em !important;
+}
+
+@layer base {
 
     /* --- STRICT SQUARED AESTHETIC --- */
     /* Remove all rounded corners ("corneration") globally */
@@ -139,6 +225,7 @@
         filter: none;
         mix-blend-mode: normal;
     }
+
 }
 
 @layer utilities {
@@ -160,6 +247,23 @@
         /* Blue-400 for dark mode with subtle glow */
         color: #60A5FA !important;
         filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.4));
+    }
+
+    /* Lesson Rail specific glow */
+    .rail-item-glow {
+        transition: all 0.2s ease;
+    }
+
+    .rail-item-glow:hover,
+    .rail-item-glow.active {
+        color: #2563EB !important;
+        filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.5));
+    }
+
+    .dark .rail-item-glow:hover,
+    .dark .rail-item-glow.active {
+        color: #60A5FA !important;
+        filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
     }
 
     /* Target SVG strokes if color doesn't cascade for some icons */
@@ -273,6 +377,21 @@
         margin-bottom: 32px;
         width: 100%;
         border-collapse: collapse;
+        /* Override global border:none */
+        border: 1px solid rgba(var(--content-primary), 0.2) !important;
+        border: 1px solid color-mix(in srgb, var(--content-primary) 20%, transparent) !important;
+    }
+
+    .course-content table th,
+    .course-content table td {
+        border: 1px solid color-mix(in srgb, var(--content-primary) 20%, transparent) !important;
+        padding: 12px;
+    }
+
+    .course-content table th {
+        font-weight: bold;
+        background: var(--bg-glass);
+        border-bottom: 2px solid color-mix(in srgb, var(--content-primary) 40%, transparent) !important;
     }
 
     /* Images */
@@ -389,25 +508,12 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+
 }
 
-/* KaTeX Math Styling - Ensure fractions are visible */
+/* Base KaTeX styling - colors only */
 .katex {
     color: inherit !important;
-}
-
-/* Make math blocks scale to fit container without scroll */
-.katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-width: 100%;
-    padding: 0.5em 0;
-}
-
-.katex-display>.katex {
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
 }
 
 .katex .frac-line {
@@ -429,9 +535,30 @@
     border-bottom-color: currentColor !important;
 }
 
-/* Ensure inline math inherits color */
+/* Inline math container - prevent overflow */
+.inline-math-container {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: visible;
+    overflow-y: visible;
+    vertical-align: middle;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.inline-math-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Inline math styling */
+.inline-math {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 .inline-math .katex {
     color: inherit;
+    white-space: nowrap !important;
 }
 
 .inline-math .katex .frac-line {

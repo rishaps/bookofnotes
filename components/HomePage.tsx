@@ -15,7 +15,7 @@ const getLessonCount = (slug: string): number => {
         case 'fondamenti-informatica': return informaticaContent.length;
         case 'analisi-1': return analisi1CourseContent.length;
         case 'geometria-algebra': return geometriaCourseContent.length;
-        case 'fisica': return 0; // fisicaCourseContent.length;
+        case 'fisica': return fisicaCourseContent.length;
         default: return 0;
     }
 };
@@ -102,25 +102,22 @@ const HomePage: React.FC = () => {
             className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col relative"
             style={{ fontFamily: "'Departure Mono', monospace" }}
         >
-            {/* Theme Toggle - Fixed Position */}
-            <div className="fixed top-4 right-4 z-40">
-                <ThemeToggle inline={true} />
+            {/* Header - Fixed top on all devices */}
+            <div className="fixed top-0 left-0 w-full h-16 md:h-20 bg-[var(--bg-body)] z-40 flex items-center px-4 md:px-6">
+                <h1
+                    className="text-xs md:text-lg font-bold tracking-widest uppercase"
+                    style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.15em' }}
+                >
+                    BOOK OF NOTES
+                </h1>
+
+                <div className="ml-auto">
+                    <ThemeToggle inline={true} />
+                </div>
             </div>
 
-
-
-            {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
-            {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
-            {/* BOOK OF NOTES - Fixed top left with mobile responsiveness */}
-            <h1
-                className="fixed top-4 left-4 md:left-6 text-xs md:text-lg font-bold tracking-widest uppercase z-40 bg-[var(--bg-body)] px-2 py-1"
-                style={{ fontFamily: "'Departure Mono', monospace", letterSpacing: '0.15em' }}
-            >
-                BOOK OF NOTES
-            </h1>
-
             {/* Main content wrapper - centered vertically and horizontally */}
-            <div className="flex-1 flex flex-col items-center justify-center px-8 py-12">
+            <div className="flex-1 flex flex-col items-center justify-start md:justify-center px-8 pt-24 pb-12 md:py-12">
 
                 {/* Header with TOC centered */}
                 <header className="w-full max-w-5xl mb-8">

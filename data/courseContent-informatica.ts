@@ -7,7 +7,7 @@ export const informaticaContent: MainSection[] = [
         title: "Lezione 1: Rappresentazione dell'Informazione",
         subsections: [
             {
-                title: "Lezione 1.1 --> Introduzione alla Rappresentazione",
+                title: "1.1 Introduzione alla Rappresentazione",
                 content: [
                     `**Concetto Fondamentale**`,
                     `I moderni calcolatori elettronici possono manipolare informazioni rappresentabili esclusivamente da sequenze composte da due possibili valori (1 o 0, vero o falso, acceso o spento). Nonostante questa apparente limitazione, i calcolatori sono in grado di memorizzare ed elaborare qualsiasi tipo di informazione numerica, testuale, visiva e sonora.`,
@@ -15,7 +15,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.2 --> La Logica Binaria",
+                title: "1.2 La Logica Binaria",
                 content: [
                     `**George Boole e l'Algebra Booleana**`,
                     `![George Boole](/FIRST-YEAR-IMAGES/george-boole.png)`,
@@ -23,8 +23,8 @@ export const informaticaContent: MainSection[] = [
                     `Il successo dell'algebra di Boole deriva dal fatto che può essere realizzata efficacemente mediante circuiti elettronici.`,
                     `**I Bit e gli Operatori Fondamentali**`,
                     `Nell'algebra booleana esistono due possibili valori, **vero** e **falso**, che vengono generalmente rappresentati con i **bit** (Binary Digit, ossia cifra binaria):`,
-                    `- $0$ → falso`,
-                    `- $1$ → vero`,
+                    `- $0$ --> falso`,
+                    `- $1$ --> vero`,
                     `L'algebra definisce alcune operazioni elementari tra bit:`,
                     `- **Congiunzione logica (AND)**: indicata con il simbolo $\\land$`,
                     `- **Disgiunzione logica (OR)**: indicata con il simbolo $\\lor$`,
@@ -33,7 +33,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.3 --> Tabelle di Verità",
+                title: "1.3 Tabelle di Verità",
                 content: [
                     `**Definizione**`,
                     `Un modo semplice per descrivere il comportamento degli operatori logici è mediante l'uso di **tabelle di verità**. Una tabella di verità mostra il valore di una espressione logica per ogni possibile valore dei suoi parametri.`,
@@ -51,7 +51,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.4 --> Esempio: Costruzione di una Tabella di Verità",
+                title: "1.4 Esempio: Costruzione di una Tabella di Verità",
                 content: [
                     `**Problema**: Scrivere la tabella di verità dell'espressione $(x \\land y) \\lor (\\neg y)$`,
                     `**Svolgimento**:`,
@@ -65,7 +65,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.5 --> Proprietà degli Operatori Booleani",
+                title: "1.5 Proprietà degli Operatori Booleani",
                 content: [
                     `Usando le tabelle di verità è possibile dimostrare le seguenti proprietà degli operatori di base:`,
                     `**Commutatività**`,
@@ -94,7 +94,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.6 --> Derivare Espressioni da Tabelle di Verità",
+                title: "1.6 Derivare Espressioni da Tabelle di Verità",
                 content: [
                     `**Il Problema Inverso**`,
                     `Abbiamo visto come sia possibile scrivere la tabella di verità di una espressione booleana data. Tuttavia, è spesso necessario risolvere il **problema inverso**, cioè costruire una espressione booleana che corrisponda ad una tabella di verità assegnata.`,
@@ -110,7 +110,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.7 --> Altri Operatori Logici",
+                title: "1.7 Altri Operatori Logici",
                 content: [
                     `Gli operatori $\\land$, $\\lor$ e $\\neg$ sono sufficienti per definire qualsiasi espressione booleana, e quindi qualunque altro operatore logico. Esistono tuttavia altri operatori che vengono usati frequentemente.`,
                     `**Operatore XOR (OR Esclusivo)**`,
@@ -128,7 +128,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 1.8 --> Esercizi sulla Logica Binaria",
+                title: "1.8 Esercizi sulla Logica Binaria",
                 content: [
                     `**Esercizio 1.1** - L'implicazione logica $x \\rightarrow y$ ("se $x$ allora $y$") è definita come $(\\neg x) \\lor y$. Scrivere la tabella di verità dell'operatore $\\rightarrow$.`,
                     `**Esercizio 1.2** - Mostrare come sia possibile realizzare l'operatore $\\neg$ utilizzando esclusivamente l'operatore $\\oplus$ (XOR). *Suggerimento*: può essere utile far uso anche di costanti $0$ e/o $1$.`,
@@ -162,7 +162,7 @@ export const informaticaContent: MainSection[] = [
         title: "Lezione 2: Rappresentazione dell'Informazione Numerica",
         subsections: [
             {
-                title: "Lezione 2.1 --> Sistemi di Numerazione Posizionali",
+                title: "2.1 Sistemi di Numerazione Posizionali",
                 content: [
                     `**Introduzione ai Numeri Naturali**`,
                     `In questa sezione esamineremo come vengono rappresentati i valori numerici all'interno di un calcolatore elettronico. Iniziamo dal tipo numerico più semplice, cioè i numeri naturali $\\mathbb{N} = \\{0, 1, 2, \\ldots\\}$ (valori interi non negativi).`,
@@ -180,7 +180,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 2.2 --> Basi di Numerazione in Informatica",
+                title: "2.2 Basi di Numerazione in Informatica",
                 content: [
                     `![Sistemi Maya e Babilonesi](/FIRST-YEAR-IMAGES/maya-babilonesi-numeri.png)`,
                     `*Figura 2.1: (A sinistra) le 20 cifre del sistema di numerazione posizionale in base 20 usato dagli antichi Maya. (A destra) le 59 cifre diverse da zero del sistema di numerazione posizionale in base 60 usato dagli antichi Babilonesi.*`,
@@ -195,7 +195,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 2.3 --> Conversione da Base b a Base 10",
+                title: "2.3 Conversione da Base b a Base 10",
                 content: [
                     `Per convertire un numero espresso in base $b$ nella corrispondente rappresentazione in base 10, si moltiplica ciascuna cifra per il corrispondente peso (potenza di $b$) e si sommano i risultati.`,
                     `**Esempio 2.1**: Convertire in decimale i seguenti valori:`,
@@ -211,7 +211,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "Lezione 2.4 --> Conversione da Base 10 a Base b",
+                title: "2.4 Conversione da Base 10 a Base b",
                 content: [
                     `Per la conversione in base $b \\geq 2$ di un intero $v \\geq 0$ si adotta il **procedimento della divisione ripetuta**. Si divide ripetutamente $v$ per $b$ fino a quando il risultato della divisione intera è zero. La sequenza dei **resti** indica la rappresentazione in base $b$ (il primo resto ottenuto indica la cifra meno significativa).`,
                     `**Algoritmo di Conversione**:`,
@@ -261,7 +261,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.5 --> Somma Binaria Senza Segno",
+                title: "2.5 Somma Binaria Senza Segno",
                 content: [
                     `La somma tra due numeri binari si esegue con lo stesso meccanismo della somma tra numeri decimali: si sommano le cifre corrispondenti da destra verso sinistra, tenendo conto di eventuali riporti.`,
                     `**Tabella della Somma Binaria**`,
@@ -281,7 +281,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.6 --> Rappresentazione in Complemento a Due",
+                title: "2.6 Rappresentazione in Complemento a Due",
                 content: [
                     `Per rappresentare anche valori interi negativi si utilizza la **rappresentazione in complemento a due**.`,
                     `**Metodo 1**: Se $v \\geq 0$, la rappresentazione coincide con quella binaria normale. Se $v < 0$, la rappresentazione è la codifica binaria del valore positivo $2^n + v$.`,
@@ -307,7 +307,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.7 --> Somma in Complemento a Due",
+                title: "2.7 Somma in Complemento a Due",
                 content: [
                     `Un vantaggio della rappresentazione in complemento a due è che la somma si può effettuare con le stesse regole della somma binaria.`,
                     `**Esempio 2.6**: Calcolare $1101\\,0100_{2C} + 1110\\,0101_{2C}$ con $n = 8$ bit.`,
@@ -332,7 +332,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.8 --> Rappresentazione in Virgola Mobile (IEEE 754)",
+                title: "2.8 Rappresentazione in Virgola Mobile (IEEE 754)",
                 content: [
                     `La rappresentazione standard di valori reali nei calcolatori è basata sullo **standard IEEE 754**. Tale standard consente di rappresentare numeri reali con 32 (precisione singola), 64 (precisione doppia) oppure 128 bit (precisione quadrupla).`,
                     `Un valore reale può essere scritto in **notazione scientifica normalizzata** come $m \\times 2^n$, dove la mantissa $m$ è compresa tra $1$ e $2$ ($1 \\leq |m| < 2$).`,
@@ -350,7 +350,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.9 --> Rappresentazione dell'Informazione Non Numerica",
+                title: "2.9 Rappresentazione dell'Informazione Non Numerica",
                 content: [
                     `**Codifica dei Caratteri**`,
                     `La codifica più diffusa è la **codifica ASCII** (American Standard Code for Information Interchange), che prevede 128 simboli codificati con 7 bit. In tutti i calcolatori moderni si usa una codifica a 8 bit (1 byte).`,
@@ -368,7 +368,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.10 --> Rappresentazione Audio e Compressione",
+                title: "2.10 Rappresentazione Audio e Compressione",
                 content: [
                     `![Campionamento Audio](/FIRST-YEAR-IMAGES/campionamento-audio.png)`,
                     `*Figura 2.3: Un segnale audio viene prima sottoposto a campionamento (misurazione in istanti discreti), poi a quantizzazione (discretizzazione dei valori di ampiezza).*`,
@@ -388,7 +388,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 2.11 --> Esercizi sulla Rappresentazione Numerica",
+                title: "2.11 Esercizi sulla Rappresentazione Numerica",
                 content: [
                     `![Calcolatore Setun](/FIRST-YEAR-IMAGES/setun-computer.png)`,
                     `*Figura 2.4: Calcolatore ternario Setun, costruito nel 1958 da Nicolay Brusentsov dell'Università di Stato di Mosca.*`,
@@ -431,7 +431,7 @@ until v = 0
         title: "Lezione 3: Architettura dei Calcolatori",
         subsections: [
             {
-                title: "Lezione 3.1 --> Introduzione ai Circuiti Logici",
+                title: "3.1 Introduzione ai Circuiti Logici",
                 content: [
                     `![Macchina Analitica di Babbage](/FIRST-YEAR-IMAGES/babbage-engine.png)`,
                     `*Figura 3.1: Prototipo della macchina analitica di Charles Babbage, considerata il primo esempio di calcolatore programmabile di tipo generale.*`,
@@ -443,7 +443,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.2 --> Full Adder (Sommatore)",
+                title: "3.2 Full Adder (Sommatore)",
                 content: [
                     `Il **1-bit full adder** è una rete logica in grado di calcolare la somma binaria con riporto. Riceve in input tre valori binari $A$, $B$ e $C_{in}$, e calcola:`,
                     `- $S = A + B + C_{in}$ (somma)`,
@@ -461,7 +461,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.3 --> Comparatore",
+                title: "3.3 Comparatore",
                 content: [
                     `Un **comparatore ad 1 bit** riceve in input due bit $A$, $B$ e produce tre bit in output:`,
                     `- $GT = 1$ se e solo se $A > B$`,
@@ -476,7 +476,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.4 --> Multiplexer",
+                title: "3.4 Multiplexer",
                 content: [
                     `Un **multiplexer 2-a-1** permette di selezionare il valore di uno dei 2 ingressi. Ha tre input binari $A$, $B$, $S$ (selettore) e produce un output $R$:`,
                     `- $R = A$ se $S = 0$`,
@@ -489,7 +489,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.5 --> Flip-Flop",
+                title: "3.5 Flip-Flop",
                 content: [
                     `Un **flip-flop** è un circuito in grado di memorizzare un singolo valore binario per riutilizzarlo in seguito. Si basa su circuiti che contengono cicli, in cui uno o più segnali continuano a circolare.`,
                     `**SR and-or latch**`,
@@ -505,7 +505,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.6 --> Unità Aritmetico-Logica (ALU)",
+                title: "3.6 Unità Aritmetico-Logica (ALU)",
                 content: [
                     `La **ALU ad 1 bit** combina le componenti viste fin qui. Ha tre input binari $A$, $B$, $C_{in}$, un input $Op$ (2 bit) e due output $R$ e $C_{out}$.`,
                     `**Operazioni supportate**`,
@@ -520,7 +520,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.7 --> L'Architettura di von Neumann",
+                title: "3.7 L'Architettura di von Neumann",
                 content: [
                     `![John von Neumann](/FIRST-YEAR-IMAGES/von-neumann.png)`,
                     `*Figura 3.11: John von Neumann (28 dicembre 1903 - 8 febbraio 1957), matematico che ha proposto nel 1945 l'architettura che porta il suo nome.*`,
@@ -537,7 +537,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.8 --> La CPU (Central Processing Unit)",
+                title: "3.8 La CPU (Central Processing Unit)",
                 content: [
                     `La **CPU** è responsabile dell'esecuzione delle istruzioni, che possono essere:`,
                     `- **Aritmetico/logiche**: somma, prodotto, AND, OR, ecc.`,
@@ -560,7 +560,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.9 --> Il Ciclo Fetch-Decode-Execute",
+                title: "3.9 Il Ciclo Fetch-Decode-Execute",
                 content: [
                     `L'unità di controllo esegue ripetutamente il **ciclo fetch-decode-execute**:`,
                     `![Ciclo Fetch-Decode-Execute](/FIRST-YEAR-IMAGES/fetch-decode-execute.png)`,
@@ -578,7 +578,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.10 --> La Memoria RAM",
+                title: "3.10 La Memoria RAM",
                 content: [
                     `La **RAM (Random Access Memory)** è una memoria volatile organizzata come una sequenza di byte.`,
                     `![Struttura RAM](/FIRST-YEAR-IMAGES/ram-structure.png)`,
@@ -596,7 +596,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 3.11 --> Esercizi sull'Architettura",
+                title: "3.11 Esercizi sull'Architettura",
                 content: [
                     `**Esercizio 3.1** - Disegnare un circuito logico con un input $A$ e un output $R$ che valga sempre $0$, usando solo porte AND, OR e NOT (senza costanti).`,
                     `$$\\begin{array}{|c|c|} \\hline A & R \\\\ \\hline 0 & 0 \\\\ 1 & 0 \\\\ \\hline \\end{array}$$`,
@@ -617,7 +617,7 @@ until v = 0
         title: "Lezione 4: Algoritmi",
         subsections: [
             {
-                title: "Lezione 4.1 --> Introduzione agli Algoritmi",
+                title: "4.1 Introduzione agli Algoritmi",
                 content: [
                     `![al-Khwārizmī](/FIRST-YEAR-IMAGES/al-khwarizmi.png)`,
                     `*Figura 4.1: Francobollo emesso in Unione Sovietica per commemorare al-Khwārizmī (c. 780 - c. 850), matematico persiano da cui deriva il termine "algoritmo".*`,
@@ -636,7 +636,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 4.2 --> Proprietà degli Algoritmi",
+                title: "4.2 Proprietà degli Algoritmi",
                 content: [
                     `Un algoritmo deve godere delle seguenti proprietà fondamentali:`,
                     `**Atomicità**: I passi devono essere elementari, cioè non ulteriormente scomponibili in azioni più semplici.`,
@@ -652,7 +652,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 4.3 --> Concetti Fondamentali",
+                title: "4.3 Concetti Fondamentali",
                 content: [
                     `**Precondizioni e Postcondizioni**`,
                     `- **Precondizioni**: Proprietà che devono valere inizialmente affinché l'algoritmo produca il risultato corretto`,
@@ -668,7 +668,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 4.4 --> Diagrammi di Flusso",
+                title: "4.4 Diagrammi di Flusso",
                 content: [
                     `I **diagrammi di flusso** (flowchart) sono una notazione grafica in cui vari tipi di poligoni rappresentano i passi dell'algoritmo, e le frecce indicano l'ordine di esecuzione.`,
                     `![Diagramma di Flusso - Euclide](/FIRST-YEAR-IMAGES/euclid-flowchart.png)`,
@@ -685,7 +685,7 @@ until v = 0
                 ]
             },
             {
-                title: "Lezione 4.5 --> Pseudocodice e Programmazione Strutturata",
+                title: "4.5 Pseudocodice e Programmazione Strutturata",
                 content: [
                     `Lo **pseudocodice** è una notazione per descrivere algoritmi in modo più strutturato rispetto al linguaggio naturale, ma meno rigido di un linguaggio di programmazione.`,
                     `**Algoritmo di Euclide in pseudocodice**:`,
@@ -714,7 +714,7 @@ Stampa n
                 ]
             },
             {
-                title: "Lezione 4.6 --> Logica di Floyd-Hoare",
+                title: "4.6 Logica di Floyd-Hoare",
                 content: [
                     `La **logica di Floyd-Hoare** consente di dimostrare formalmente la correttezza di un algoritmo, specificando come le istruzioni modificano lo stato del programma.`,
                     `**Tripla di Hoare**`,
@@ -731,7 +731,7 @@ Stampa n
                 ]
             },
             {
-                title: "Lezione 4.7 --> Regole per Condizionali e Cicli",
+                title: "4.7 Regole per Condizionali e Cicli",
                 content: [
                     `**Struttura condizionale if-then-else**`,
                     `$$\\frac{\\{C \\land P\\} S_1 \\{Q\\}, \\ \\{\\neg C \\land P\\} S_2 \\{R\\}}{\\{P\\} \\ \\text{if } C \\text{ then } S_1 \\text{ else } S_2 \\ \\{Q \\lor R\\}}$$`,
@@ -757,7 +757,7 @@ Post: p = x^n
                 ]
             },
             {
-                title: "Lezione 4.8 --> Esempi di Dimostrazioni di Correttezza",
+                title: "4.8 Esempi di Dimostrazioni di Correttezza",
                 content: [
                     `**Esempio 1: Scambio di variabili senza variabile temporanea**`,
                     `\`\`\`
@@ -793,7 +793,7 @@ Post: s = Σa[0..n-1]
                 ]
             },
             {
-                title: "Lezione 4.9 --> Esercizi sugli Algoritmi",
+                title: "4.9 Esercizi sugli Algoritmi",
                 content: [
                     `**Esercizio 4.1** - Dati tre valori interi $a, b, c$ di cui due uguali, scrivere un algoritmo che determina il valore ripetuto. (Suggerimento: è possibile risolvere con un solo confronto)`,
                     `**Esercizio 4.2** - Nell'algoritmo di Euclide, cosa succede se la precondizione "$n > 0$ e $m > 0$" non è soddisfatta?`,
@@ -828,7 +828,7 @@ end while
         title: "Lezione 5: Linguaggi di Programmazione",
         subsections: [
             {
-                title: "Lezione 5.1 --> Interpreti e Compilatori",
+                title: "5.1 Interpreti e Compilatori",
                 content: [
                     `![Pannello PDP-8/E](/FIRST-YEAR-IMAGES/pdp8-panel.png)`,
                     `*Figura 5.1: Pannello di controllo del calcolatore PDP-8/E prodotto dalla Digital Equipment Corporation.*`,
@@ -849,7 +849,7 @@ end while
                 ]
             },
             {
-                title: "Lezione 5.2 --> Linguaggi di Basso e Alto Livello",
+                title: "5.2 Linguaggi di Basso e Alto Livello",
                 content: [
                     `**Linguaggi di basso livello**: Non forniscono alcuna astrazione rispetto alle caratteristiche del processore. I programmi possono usare solo le istruzioni direttamente supportate dal processore.`,
                     `**Svantaggi dei linguaggi di basso livello**:`,
@@ -866,7 +866,7 @@ end while
                 ]
             },
             {
-                title: "Lezione 5.3 --> Esempio di Compilazione",
+                title: "5.3 Esempio di Compilazione",
                 content: [
                     `**Programma C**:`,
                     `\`\`\`c
@@ -902,7 +902,7 @@ bl printf
                 ]
             },
             {
-                title: "Lezione 5.4 --> Paradigmi di Programmazione",
+                title: "5.4 Paradigmi di Programmazione",
                 content: [
                     `I **paradigmi di programmazione** classificano i linguaggi in base alle loro caratteristiche.`,
                     `**Linguaggi Imperativi**`,
@@ -922,7 +922,7 @@ int MCD(int n, int m) {
 (define (square x) (* x x))
 (define (double x) (* 2 x))
 (define (compose f g) (lambda (x) (f (g x))))
-((compose square double) 3)  ; → 36
+((compose square double) 3)  ; --> 36
 \`\`\``,
                     `**Linguaggi Object-Oriented**`,
                     `I programmi sono insiemi di oggetti con stato e operazioni. Esempi: SmallTalk, C++, Java, C#.`,
@@ -938,7 +938,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 5.5 --> Grammatiche BNF",
+                title: "5.5 Grammatiche BNF",
                 content: [
                     `La **sintassi** di un linguaggio specifica la struttura delle frasi valide. La **semantica** specifica il significato delle frasi.`,
                     `Una **grammatica** può specificare la sintassi:`,
@@ -960,7 +960,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 5.6 --> Alberi di Derivazione",
+                title: "5.6 Alberi di Derivazione",
                 content: [
                     `**Esempio: Grammatica per numeri**`,
                     `\`\`\`
@@ -978,7 +978,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 5.7 --> Grammatiche Ambigue",
+                title: "5.7 Grammatiche Ambigue",
                 content: [
                     `Una grammatica per cui esiste una frase con più alberi di derivazione distinti è detta **grammatica ambigua**.`,
                     `**Esempio: Espressioni aritmetiche**`,
@@ -997,7 +997,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 5.8 --> Esercizi sulle Grammatiche",
+                title: "5.8 Esercizi sulle Grammatiche",
                 content: [
                     `![Rosa dei venti](/FIRST-YEAR-IMAGES/compass-rose.png)`,
                     `*Figura 5.5: Rosa dei venti.*`,
@@ -1025,7 +1025,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
         title: "Lezione 6: Il Linguaggio C89 ANSI",
         subsections: [
             {
-                title: "Lezione 6.1 --> Sintassi del Linguaggio",
+                title: "6.1 Sintassi del Linguaggio",
                 content: [
                     `**Introduzione allo Standard ANSI C89**`,
                     `Lo standard **ANSI del linguaggio C** è stato progettato per promuovere la portabilità dei programmi C fra diversi sistemi informatici. La norma copre tre aree principali:`,
@@ -1058,7 +1058,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 6.2 --> Compilazione ed Esecuzione",
+                title: "6.2 Compilazione ed Esecuzione",
                 content: [
                     `**L'Estensione del File**`,
                     `L'estensione **.c** comunica al compilatore il contenuto del file e permette all'editor di riconoscere il linguaggio C ed evidenziare le parole chiave.`,
@@ -1109,7 +1109,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 6.3 --> Funzioni e Sottoprogrammi",
+                title: "6.3 Funzioni e Sottoprogrammi",
                 content: [
                     `**4.3.1 Concetto di Sottoprogramma**`,
                     `I **sottoprogrammi** sono composti da funzioni e sottoprocedure. Il loro ruolo è scomporre un problema in piccoli task, ciascuno gestito da un singolo sottoprogramma.`,
@@ -1178,12 +1178,12 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                     `L'operazione di **casting** converte temporaneamente il tipo di una variabile:`,
                     `(tipo_destinazione) nome_variabile`,
                     `Il casting ha **priorità maggiore** rispetto agli operatori aritmetici:`,
-                    `- avg = (float)tot / num → Prima converte tot, poi divide`,
-                    `- avg = (float)(tot / num) → Prima divide, poi converte`
+                    `- avg = (float)tot / num --> Prima converte tot, poi divide`,
+                    `- avg = (float)(tot / num) --> Prima divide, poi converte`
                 ]
             },
             {
-                title: "Lezione 6.4 --> Costrutti di Controllo in C",
+                title: "6.4 Costrutti di Controllo in C",
                 content: [
                     `**4.4.1 Costrutto if**`,
                     `**Sintassi Base**:`,
@@ -1255,7 +1255,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 6.5 --> Strutture Dati",
+                title: "6.5 Strutture Dati",
                 content: [
                     `**4.5.1 Array Monodimensionali (Vettori)**`,
                     `Struttura dati che permette di memorizzare più valori **omogenei** con un unico nome.`,
@@ -1352,7 +1352,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "Lezione 6.6 --> Algoritmi non immediati",
+                title: "6.6 Algoritmi non immediati",
                 content: [
                     `**Rotazione di una Matrice**`,
                     `Per ruotare una matrice quadrata in senso orario:`,
@@ -1413,7 +1413,7 @@ int main(int argc, char *argv[]){
         title: "Lezione 7: Esercitazioni",
         subsections: [
             {
-                title: "Esercitazione 7.1 --> Esercizi di Approfondimento",
+                title: "7.1 Esercitazione 7.1 --> Esercizi di Approfondimento",
                 content: [
                     `**Esercizio 1 - Padding**`,
                     `Si vuole rappresentare a video un valore naturale \`num\` utilizzando un numero a scelta di cifre \`k\` inserendo \`0\` nelle posizioni più significative.`,
@@ -1583,7 +1583,7 @@ int main (int argc, char *argv[]){
                 ]
             },
             {
-                title: "Esercitazione 7.2 --> Esercizi del Laboratorio",
+                title: "7.2 Esercitazione 7.2 --> Esercizi del Laboratorio",
                 content: [
                     `**27/09/2022 - Operazioni Base**`,
                     `**Esercizio 1: Calcolatrice Polacca**`,

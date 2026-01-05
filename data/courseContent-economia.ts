@@ -7,7 +7,7 @@ export const courseContent: MainSection[] = [
     title: "Lezione 1: Fondamenti dell'Impresa",
     subsections: [
       {
-        title: "Lezione 1.0 ‐‐> Cos’è l’impresa?",
+        title: "1.1 Cos’è l’impresa?",
         content: [
           `**1.1 Definizione economica di impresa**`,
           `L’**impresa** è un istituto economico che si concretizza in un insieme di risorse materiali (capannoni, macchinari, strumenti, automezzi, immobili…) e immateriali (licenze software, brevetti, capitale umano, know‐how…) coordinate stabilmente nel tempo per la produzione di beni (output tangibili) e/o di servizi (output intangibili).`,
@@ -19,7 +19,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 1.1 ‐‐> Classificazioni dell’impresa: Obiettivi, Dimensioni, Settore, Stato Giuridico",
+        title: "1.2 Classificazioni dell’impresa: Obiettivi, Dimensioni, Settore, Stato Giuridico",
         content: [
           `**Obiettivi dell’impresa e valore economico**`,
           `**1.1 Obiettivo principale (impresa for profit)**`,
@@ -53,7 +53,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 1.2 ‐‐> Proprietà, Controllo, Sistemi di Corporate Governance e Stakeholder",
+        title: "1.3 Proprietà, Controllo, Sistemi di Corporate Governance e Stakeholder",
         content: [
           `**Proprietà e controllo dell’impresa**`,
           `**1.1 Distinzione nelle grandi imprese for profit**`,
@@ -436,7 +436,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 1.3 ‐‐> Parole chiave caratteristiche dell’impresa e definizione di Valore Economico",
+        title: "1.4 Parole chiave caratteristiche dell’impresa e definizione di Valore Economico",
         content: [
           `Parole chiave per descrivere l’impresa`,
           `**1.1 Portafoglio di business**`,
@@ -504,7 +504,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 1.4 ‐‐> Attività delle Imprese e Processi Aziendali (Catena del Valore)",
+        title: "1.5 Attività delle Imprese e Processi Aziendali (Catena del Valore)",
         content: [
           `Attività d’impresa e processi aziendali`,
           `**1.1 Attività: definizione e perché sono importanti**`,
@@ -584,7 +584,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 1.5 ‐‐> Strutture Organizzative (Organigramma, Funzionale vs Divisionale)",
+        title: "1.6 Strutture Organizzative (Organigramma, Funzionale vs Divisionale)",
         content: [
           `Organigramma e unità organizzative`,
           `L'organigramma è la rappresentazione grafica della struttura organizzativa, dove:`,
@@ -635,7 +635,7 @@ export const courseContent: MainSection[] = [
     title: "Lezione 2: Contabilità Esterna e Bilancio",
     subsections: [
       {
-        title: "Lezione 2.0 ‐‐> Contabilità Esterna (Bilancio d’Esercizio, Chi è Interessato e Regole Contabili)",
+        title: "2.1 Contabilità Esterna (Bilancio d’Esercizio, Chi è Interessato e Regole Contabili)",
         content: [
           `**Cos’è il bilancio d’esercizio**`,
           `È lo strumento principale di accountability esterna dell’impresa: l’impresa “rende conto” del proprio operato a soggetti esterni.`,
@@ -659,7 +659,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.1 ‐‐> Prospettive Contabili e Principio di Competenza Economica (Utile vs Flusso di Cassa)",
+        title: "2.2 Prospettive Contabili e Principio di Competenza Economica (Utile vs Flusso di Cassa)",
         content: [
           `**Chi fissa le regole contabili**`,
           `**1.1 In Italia**`,
@@ -708,7 +708,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.2 ‐‐> Il Principio di Competenza Economica, Ammortamento e Collegamento tra Stato Patrimoniale e Conto Economico",
+        title: "2.3 Il Principio di Competenza Economica, Ammortamento e Collegamento tra Stato Patrimoniale e Conto Economico",
         content: [
           `**Orizzonte del bilancio**`,
           `Il bilancio d’esercizio si riferisce sempre a un periodo di 12 mesi, chiamato **esercizio contabile/finanziario**.`,
@@ -776,7 +776,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.3 ‐‐> Stato Patrimoniale: Attivo (Attività Correnti e Non Correnti, Valutazioni e Ammortamento)",
+        title: "2.4 Stato Patrimoniale: Attivo (Attività Correnti e Non Correnti, Valutazioni e Ammortamento)",
         content: [
 
           `È un documento del bilancio che rappresenta la situazione patrimoniale dell’impresa in un istante preciso, di solito il 31 dicembre dell’anno T.`,
@@ -860,7 +860,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.4 ‐‐> Stato Patrimoniale: Passivo e Patrimonio Netto (PN, Passività Correnti e Non Correnti, Fondi per Rischi)",
+        title: "2.5 Stato Patrimoniale: Passivo e Patrimonio Netto (PN, Passività Correnti e Non Correnti, Fondi per Rischi)",
         content: [
           `**Cos’è lo stato patrimoniale (Ripasso)**`,
           `È la fotografia del patrimonio dell’impresa in un istante (di solito il 31 dicembre T).`,
@@ -902,7 +902,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.5 ‐‐> Conto Economico (Struttura Per Natura/Destinazione, Utile Operativo e Utile Netto)",
+        title: "2.6 Conto Economico (Struttura Per Natura/Destinazione, Utile Operativo e Utile Netto)",
         content: [
           `**Cos’è il conto economico**`,
           `È un documento di flusso (non una “fotografia” come lo stato patrimoniale) che rappresenta ricavi e costi generati dal 1° gennaio al 31 dicembre (in un esercizio di 12 mesi).`,
@@ -954,7 +954,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.6 ‐‐> Prospetto delle Variazioni di Patrimonio Netto, Rendiconto Finanziario e Note al Bilancio",
+        title: "2.7 Prospetto delle Variazioni di Patrimonio Netto, Rendiconto Finanziario e Note al Bilancio",
         content: [
           `**Prospetto delle variazioni del patrimonio netto**`,
           `È un documento che spiega come e perché cambia il patrimonio netto tra l’anno T‐1 e T.`,
@@ -995,7 +995,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.7 ‐‐> Indici di Bilancio: Redditività (ROE, ROI, Leva Finanziaria)",
+        title: "2.8 Indici di Bilancio: Redditività (ROE, ROI, Leva Finanziaria)",
         content: [
           `**Perché usare gli indici di bilancio**`,
           `Gli indici servono a leggere in modo sintetico il bilancio e a valutare:`,
@@ -1044,7 +1044,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 2.8 ‐‐> Indici di Bilancio: Solidità Patrimoniale (Autonomia Finanziaria) e Liquidità (Rapporto Corrente)",
+        title: "2.9 Indici di Bilancio: Solidità Patrimoniale (Autonomia Finanziaria) e Liquidità (Rapporto Corrente)",
         content: [
           `**Indici di solidità patrimoniale**`,
           `Servono a capire come l’impresa è finanziata e quanto è “robusta” dal punto di vista patrimoniale, analizzando:`,
@@ -1110,7 +1110,7 @@ export const courseContent: MainSection[] = [
     title: "Lezione 3: Contabilità Interna e Costi",
     subsections: [
       {
-        title: "Lezione 3.0 ‐‐> Contabilità Interna (Analitica): Obiettivi e Strumenti per il Management",
+        title: "3.1 Contabilità Interna (Analitica): Obiettivi e Strumenti per il Management",
         content: [
           `**1.1 Differenze chiave: contabilità esterna vs interna**`,
           `La contabilità esterna:`,
@@ -1130,7 +1130,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 3.1 ‐‐> Definizione e Classificazione di Costi (Diretti/Indiretti, Variabili/Fissi, Prodotto/Periodo)",
+        title: "3.2 Definizione e Classificazione di Costi (Diretti/Indiretti, Variabili/Fissi, Prodotto/Periodo)",
         content: [
           `**Definizione di Costo e Oggetto di Costo**`,
           `**COSTO** = valore, espresso in termini monetari, del consumo delle risorse impiegate per il raggiungimento di un obiettivo prefissato (quale realizzazione di un prodotto, erogazione di un servizio, funzionamento di un’unità organizzativa).`,
@@ -1213,7 +1213,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 3.2 ‐‐> Elementi di Progettazione di un Sistema di Costing e Processo di Allocazione dei Costi Indiretti (Full Costing vs Direct Costing)",
+        title: "3.3 Elementi di Progettazione di un Sistema di Costing e Processo di Allocazione dei Costi Indiretti (Full Costing vs Direct Costing)",
         content: [
           `**Cos’è un sistema di costing**`,
           `Per **sistema di costing** si intende l’insieme di tecniche che permettono di determinare in modo analitico il costo di attività, processi, prodotti/servizi e unità organizzative (centri di costo).`,
@@ -1266,7 +1266,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 3.3 ‐‐> Tecniche di Costing Tradizionali (Process Costing, Job Order Costing, Operation Costing)",
+        title: "3.4 Tecniche di Costing Tradizionali (Process Costing, Job Order Costing, Operation Costing)",
         content: [
           `**Tecniche di Costing**`,
           `Le tecniche di costing servono per allocare i costi indiretti ai prodotti.`,
@@ -1317,7 +1317,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 3.4 ‐‐> Activity‐Based Costing (ABC) e Metodi Causali (Resource Drivers, Activity Drivers)",
+        title: "3.5 Activity‐Based Costing (ABC) e Metodi Causali (Resource Drivers, Activity Drivers)",
         content: [
           `**Perché nasce l’Activity Based Costing**`,
           `Le tecniche tradizionali possono essere poco precise nell'allocazione proporzionale degli overhead, soprattutto quando:`,
@@ -1328,7 +1328,7 @@ export const courseContent: MainSection[] = [
           `Oggi, grazie ai sistemi informativi, è più facile raccogliere dati di costo dettagliati, quindi si può usare un metodo più sofisticato: l’**Activity Based Costing (ABC)**.`,
           `**Idea chiave dell’ABC**`,
           `L’ABC non parte dai soli centri di costo, ma introduce un anello intermedio nel flusso di allocazione:`,
-          `Risorse (costi) → Attività → Prodotti`,
+          `Risorse (costi) --> Attività --> Prodotti`,
           `Invece di chiedersi “quanto costa il prodotto X?”, l’ABC si chiede:`,
           `- quali attività vengono svolte`,
           `- quanto costa ogni attività`,
@@ -1357,7 +1357,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 3.5 ‐‐> Valorizzazione delle Scorte (FIFO, LIFO, Costo Medio)",
+        title: "3.6 Valorizzazione delle Scorte (FIFO, LIFO, Costo Medio)",
         content: [
           `**Valorizzazione delle scorte**`,
           `Negli esercizi può essere richiesto di valorizzare le scorte di prodotto finito o materie prime. Si usano tre tecniche principali.`,
@@ -1409,7 +1409,7 @@ export const courseContent: MainSection[] = [
     title: "Lezione 4: Sistemi di Decisione e Investimenti",
     subsections: [
       {
-        title: "Lezione 4.0 ‐‐> Sistemi di Decisione: Analisi degli Investimenti e Decisioni di Breve Periodo (Introduzione)",
+        title: "4.1 Sistemi di Decisione: Analisi degli Investimenti e Decisioni di Breve Periodo (Introduzione)",
         content: [
           `**Tipi di decisioni aziendali**`,
           `Le decisioni aziendali si possono classificare in due categorie principali:`,
@@ -1471,7 +1471,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 4.1 ‐‐> Concetti di Investimento e Criteri di Valutazione (DCF e Non DCF)",
+        title: "4.2 Concetti di Investimento e Criteri di Valutazione (DCF e Non DCF)",
         content: [
           `**Tipi di decisioni aziendali**`,
           `Le decisioni vengono distinte in base all’orizzonte temporale:`,
@@ -1514,7 +1514,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 4.2 ‐‐> Aspetti Teorici Iniziali: Modello di Funzionamento dell’Impresa e Flusso di Cassa Netto (NCF)",
+        title: "4.3 Aspetti Teorici Iniziali: Modello di Funzionamento dell’Impresa e Flusso di Cassa Netto (NCF)",
         content: [
           `**Modello (semplificato) di funzionamento dell’impresa**`,
           `In un modello semplificato, senza debito e senza "serbatoio" di cassa, il funzionamento dell'impresa può essere schematizzato così:`,
@@ -1546,7 +1546,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 4.3 ‐‐> Il Processo Decisionale del Manager e l'Analisi degli Impatti Competitivi (Confini del Progetto, Bundling/Unbundling)",
+        title: "4.4 Il Processo Decisionale del Manager e l'Analisi degli Impatti Competitivi (Confini del Progetto, Bundling/Unbundling)",
         content: [
           `**Il processo decisionale del manager**`,
           `Di fronte a un possibile investimento, il management segue tipicamente questi passi:`,
@@ -1589,7 +1589,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 4.4 ‐‐> Criteri DCF: NPV (Net Present Value ‐ Valore Attuale Netto) e Regola Decisionale",
+        title: "4.5 Criteri DCF: NPV (Net Present Value ‐ Valore Attuale Netto) e Regola Decisionale",
         content: [
           `**1. NPV: Il Valore Attuale Netto (Valutazione dei flussi futuri)**`,
           `$$NPV = \\sum_{t=0}^{\\infty} \\frac{NCF_t}{(1+K)^t}$$`,
@@ -1630,7 +1630,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 4.5 ‐‐> Principi di Applicazione NPV: Quattro Versioni (Azionista/Capitale Investito, Lordo/Netto Imposte)",
+        title: "4.6 Principi di Applicazione NPV: Quattro Versioni (Azionista/Capitale Investito, Lordo/Netto Imposte)",
         content: [
           `**1. L'Ammortamento e le Tasse (Il Vantaggio Fiscale)**`,
           `$$\\Delta CF = (\\Delta RIC - \\Delta Costi\\ Cash) (1-t) + Amm \\times t$$`,
@@ -1658,7 +1658,7 @@ export const courseContent: MainSection[] = [
         ]
       },
       {
-        title: "Lezione 4.6 ‐‐> Altri Criteri DCF: Profitability Index (PI), IRR e Tempo di Payback Attualizzato",
+        title: "4.7 Altri Criteri DCF: Profitability Index (PI), IRR e Tempo di Payback Attualizzato",
         content: [
           `**Altri criteri DCF oltre l’NPV**`,
           `Tutti i criteri seguenti usano flussi attualizzati, come l’NPV.`,
@@ -1684,7 +1684,7 @@ export const courseContent: MainSection[] = [
           `- **Payback Attualizzato (Discounted)**: Considera i flussi attualizzati al tasso K. È più rigoroso poiché tiene conto che i flussi futuri hanno un valore attuale inferiore.`,
           `Il Payback Period misura principalmente il rischio di liquidità e il tempo di esposizione dell'investimento, ma non ne cattura la redditività complessiva.`,
           `Da quell’anno in poi, il progetto inizia a creare valore in termini di valore attuale netto.`,
-          `Se l’orizzonte di analisi scelto T è più corto del tempo di payback attualizzato, l’investimento non si ripaga entro il periodo considerato → non è conveniente nell’orizzonte che stiamo valutando.`,
+          `Se l’orizzonte di analisi scelto T è più corto del tempo di payback attualizzato, l’investimento non si ripaga entro il periodo considerato --> non è conveniente nell’orizzonte che stiamo valutando.`,
           `**Sintesi dei criteri DCF**`,
           `- **NPV (VAN)**: misura il valore assoluto creato dal progetto (quanto valore in più genera rispetto al costo del capitale). È il criterio principale.`,
           `- **PI (Profitability Index)**: misura la redditività relativa per euro investito. Utile per confrontare progetti con dimensioni diverse.`,
@@ -1700,10 +1700,10 @@ export const courseContent: MainSection[] = [
   },
   {
     id: "glossario",
-    title: "Glossario",
+    title: "Lezione 5: Glossario",
     subsections: [
       {
-        title: "Termini e Definizioni",
+        title: "5.1 Termini e Definizioni",
         content: [
           `**Stakeholder**: Soggetto che ha un interesse (stake) nell'attività dell'impresa.`,
           `**Shareholder**: Azionista, proprietario di quote del capitale sociale.`,
@@ -1740,10 +1740,10 @@ export const courseContent: MainSection[] = [
   },
   {
     id: "formulario-esempi",
-    title: "Appendice",
+    title: "Lezione 6: Appendice",
     subsections: [
       {
-        title: "Formule Fondamentali",
+        title: "6.1 Formule Fondamentali",
         content: [
           `**1.1 Profitto (Utile)**`,
           `Il profitto è la misura base del risultato economico di un periodo.`,
