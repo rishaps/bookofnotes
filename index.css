@@ -345,7 +345,7 @@
         line-height: 1.2;
         font-weight: 700;
         margin-bottom: 32px;
-        color: var(--content-primary);
+        color: #2563EB;
     }
 
     /* Main Section Title (e.g. Lezione 1.1) */
@@ -356,7 +356,7 @@
         font-weight: 700;
         margin-top: 48px;
         margin-bottom: 16px;
-        color: var(--content-primary);
+        color: #2563EB;
     }
 
     /* Subsection Title (e.g. Definizione) */
@@ -367,7 +367,7 @@
         font-weight: 600;
         margin-top: 32px;
         margin-bottom: 12px;
-        color: var(--content-primary);
+        color: #2563EB;
     }
 
     /* Minor Heading / Inline Topic */
@@ -379,6 +379,18 @@
         margin-top: 24px;
         margin-bottom: 10px;
         color: var(--content-primary);
+    }
+
+    .dark .course-content h2,
+    .dark .course-content .section-title,
+    .dark .course-content h3,
+    .dark .course-content .subsection-title {
+        color: #60A5FA;
+    }
+
+    .dark .course-content h1,
+    .dark .course-content .chapter-title {
+        color: #60A5FA;
     }
 
     /* Body Paragraphs */
@@ -835,6 +847,7 @@
     letter-spacing: 0.08em;
     color: #111111;
     opacity: 0.55;
+    white-space: nowrap;
 }
 
 .dark .toc-soon {

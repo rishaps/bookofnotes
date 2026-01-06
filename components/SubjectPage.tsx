@@ -126,31 +126,35 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
     return (
         <div className={`subject-page min-h-screen ${themeClass} bg-[var(--bg-body)]`}>
-            {/* Minimal Header - Right Aligned */}
-            <header className="fixed top-4 right-4 z-[60]">
-                <div className="flex items-center gap-3 px-2 py-1">
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                        className="p-1 text-content-primary hover-glow lg:hidden"
-                        aria-label="Apri Indice"
-                    >
-                        <Menu className="w-5 h-5" />
-                    </button>
+            {/* Minimal Header - Home left, Theme right */}
+            <header className="fixed top-4 left-4 right-4 sm:left-6 sm:right-6 md:left-10 md:right-10 z-[120] pointer-events-auto">
+                <div className="flex items-center justify-between gap-4 px-2 py-1">
+                    <div className="flex items-center gap-3">
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                            className="p-1 text-content-primary hover-glow lg:hidden"
+                            aria-label="Apri Indice"
+                        >
+                            <Menu className="w-5 h-5" />
+                        </button>
 
-                    {/* Home Button */}
-                    <button
-                        onClick={() => navigate('/subjects')}
-                        className="flex items-center gap-2 text-content-primary hover-glow"
-                        aria-label="Torna alla Homepage"
-                    >
-                        <Home className="w-4 h-4" />
-                        <span className="hidden lg:inline text-[10px] uppercase tracking-widest">
-                            Home
-                        </span>
-                    </button>
+                        {/* Home Button */}
+                        <button
+                            onClick={() => navigate('/subjects')}
+                            className="flex items-center gap-2 text-content-primary hover-glow"
+                            aria-label="Torna alla Homepage"
+                        >
+                            <Home className="w-4 h-4" />
+                            <span className="hidden lg:inline text-[10px] uppercase tracking-widest">
+                                Home
+                            </span>
+                        </button>
+                    </div>
 
-                    <ThemeToggle inline />
+                    <div className="flex items-center">
+                        <ThemeToggle inline />
+                    </div>
                 </div>
             </header>
 
@@ -165,7 +169,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
             {/* Left Sidebar - Fixed */}
             <aside
                 className={`
-                    fixed top-0 left-0 h-screen z-[100] bg-[var(--bg-body)] !opacity-100 shadow-xl lg:shadow-none
+                    fixed top-0 left-0 h-screen z-[100] bg-[var(--bg-body)] !opacity-100 shadow-xl lg:shadow-none pointer-events-auto
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                     ${(isTOCVisible || isSidebarOpen) ? 'w-[80vw] max-w-xs lg:w-80' : 'w-0 lg:w-10'}
                 `}
@@ -175,7 +179,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                     onClick={() => setIsTOCVisible(!isTOCVisible)}
                     className={`hidden lg:flex items-center justify-center text-content-primary absolute z-20 hover-glow ${isTOCVisible
                         ? 'top-1/2 right-0 -translate-y-1/2 w-12 h-12'
-                        : 'top-1/2 left-0 -translate-y-1/2 w-10 h-24 border border-content-primary/10'
+                        : 'top-1/2 left-0 -translate-y-1/2 w-10 h-10'
                         }`}
                     title={isTOCVisible ? "Nascondi Indice" : "Mostra Indice"}
                     aria-pressed={isTOCVisible}
@@ -184,19 +188,14 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                     {isTOCVisible ? (
                         <ChevronLeft className="w-5 h-5" strokeWidth={3} />
                     ) : (
-                        <div className="flex flex-col items-center gap-2">
-                            <ChevronRight className="w-5 h-5" strokeWidth={3} />
-                            <span className="text-[10px] uppercase tracking-widest [writing-mode:vertical-rl] rotate-180">
-                                Indice
-                            </span>
-                        </div>
+                        <ChevronRight className="w-5 h-5" strokeWidth={3} />
                     )}
                 </button>
 
                 {/* Scrollable Content Container */}
                 {(isTOCVisible || isSidebarOpen) && (
                     <div
-                        className="h-full overflow-y-auto no-scrollbar pt-16 sm:pt-20 pl-6 pr-12"
+                        className="h-full overflow-y-auto no-scrollbar pt-16 sm:pt-20 pl-6 pr-12 pointer-events-auto relative z-10"
                     >
                         {/* Mobile Close Button */}
                         <button

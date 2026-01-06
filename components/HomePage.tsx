@@ -62,21 +62,13 @@ interface TocItemProps {
 
 const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) => {
     const isAvailable = lessonCount > 0;
-    const getDotCount = (seed: string) => {
-        let hash = 0;
-        for (let i = 0; i < seed.length; i += 1) {
-            hash = (hash * 31 + seed.charCodeAt(i)) % 101;
-        }
-        return 2 + (hash % 3);
-    };
-    const randomDots = '.'.repeat(getDotCount(slug));
     const leaderDots = '.'.repeat(80);
 
     return (
         <button
             onClick={isAvailable ? onClick : undefined}
             disabled={!isAvailable}
-            className={`toc-item w-full flex items-center justify-start gap-2 transition-colors py-1.5 group min-w-0 text-left ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
+            className={`toc-item w-full flex flex-nowrap items-center justify-start gap-2 transition-colors py-1.5 group min-w-0 text-left ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'
                 }`}
         >
             {isAvailable ? (
@@ -95,7 +87,9 @@ const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) 
                 <>
                     <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
                         • {title}
-                        <span className="toc-dots-random ml-2" aria-hidden="true">{randomDots}</span>
+                    </span>
+                    <span className="toc-leader" aria-hidden="true">
+                        {leaderDots}
                     </span>
                     <span className="toc-soon flex-shrink-0 uppercase">in arrivo</span>
                 </>
