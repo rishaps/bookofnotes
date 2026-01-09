@@ -4,6 +4,27 @@ import { createPortal } from 'react-dom';
 import { courseContent } from '../data/courseContent';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 
+const stripNumericPrefix = (value: string) => {
+    return value.replace(/^\s*\d+(?:\.\d+)*\s*[-:.)]?\s*/i, '').trim();
+};
+
+const getAlphaIndex = (index: number) => {
+    let value = index + 1;
+    let label = '';
+    while (value > 0) {
+        const mod = (value - 1) % 26;
+        label = String.fromCharCode(65 + mod) + label;
+        value = Math.floor((value - 1) / 26);
+    }
+    return label;
+};
+
+const formatSubsectionTitle = (title: string, index: number) => {
+    const cleanedTitle = stripNumericPrefix(title);
+    const prefix = getAlphaIndex(index);
+    return `${prefix}) ${cleanedTitle}`;
+};
+
 const MobileIndex: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isPortrait, setIsPortrait] = useState(false);
@@ -104,7 +125,7 @@ const MobileIndex: React.FC = () => {
                                                         : 'text-content-muted hover:text-content-primary hover:bg-premium-gray/50'
                                                         }`}
                                                 >
-                                                    <span className="line-clamp-1">{sub.title}</span>
+                                                    <span className="line-clamp-1">{formatSubsectionTitle(sub.title, subIdx)}</span>
                                                     {isActive && <ChevronRight size={14} className="opacity-100" />}
                                                 </button>
                                             );

@@ -383,6 +383,27 @@ const renderWithHighlights = (value: string) => {
   );
 };
 
+const stripNumericPrefix = (value: string) => {
+  return value.replace(/^\s*\d+(?:\.\d+)*\s*[-:.)]?\s*/i, '').trim();
+};
+
+const getAlphaIndex = (index: number) => {
+  let value = index + 1;
+  let label = '';
+  while (value > 0) {
+    const mod = (value - 1) % 26;
+    label = String.fromCharCode(65 + mod) + label;
+    value = Math.floor((value - 1) / 26);
+  }
+  return label;
+};
+
+const formatSubsectionTitle = (title: string, index: number) => {
+  const cleanedTitle = stripNumericPrefix(title);
+  const prefix = getAlphaIndex(index);
+  return `${prefix}) ${cleanedTitle}`;
+};
+
 const renderTable = (table: TableData) => {
   const hasHeader = table.headers.some((header) => header.trim().length > 0);
   const isFormulaTable = !hasHeader && table.rows.some((row) => row.some((cell) => cell.trim().startsWith('$')));
@@ -402,7 +423,7 @@ const renderTable = (table: TableData) => {
     return renderWithHighlights(cell);
   };
   return (
-    <div className={`my-6 ${isFormulaTable ? 'overflow-x-visible' : 'overflow-x-auto'}`}>
+    <div className={`table-wrap my-6 ${isFormulaTable ? 'table-wrap-formula' : ''}`}>
       <table className={`w-full text-center border border-content-primary/20 bg-bg-glass ${isFormulaTable ? 'formula-table' : ''}`}>
         {hasHeader && (
           <thead>
@@ -463,6 +484,25 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
   }
 
   const text = (item as string).trim();
+
+  const boldOnlyMatch = text.match(/^\*\*([^*]+)\*\*$/s);
+  if (boldOnlyMatch) {
+    const rawContent = boldOnlyMatch[1].trim();
+    const content = stripNumericPrefix(rawContent);
+    const isNumbered = rawContent !== content;
+    const headingClass = isNumbered ? 'subtopic-heading' : 'topic-heading';
+    return (
+      <p className={headingClass}>{renderMathParts(content, `heading-${content}`)}</p>
+    );
+  }
+
+  if (/^\*\*[^*]+\*\*:\s*\S/.test(text)) {
+    return (
+      <p className="definition-line">
+        {renderWithHighlights(text)}
+      </p>
+    );
+  }
 
   // --- Visual Component: Markdown Images ---
   // Syntax: ![alt text](url)
@@ -687,10 +727,10 @@ const normalizeSubsectionContent = (subsection: SubSection): ContentItem[] => {
 
 // --- Subsections & Lightbox ---
 
-const SubSectionDisplay: React.FC<{ subsection: SubSection; anchorId: string; onImageClick: (src: string, alt: string) => void }> = ({ subsection, anchorId, onImageClick }) => (
+const SubSectionDisplay: React.FC<{ subsection: SubSection; anchorId: string; subsectionIndex: number; onImageClick: (src: string, alt: string) => void }> = ({ subsection, anchorId, subsectionIndex, onImageClick }) => (
   <div id={anchorId} className="mb-8 last:mb-0">
     <h3 className="subsection-title mb-6">
-      {renderMathParts(subsection.title)}
+      {renderMathParts(formatSubsectionTitle(subsection.title, subsectionIndex))}
     </h3>
     <div className="text-content-primary">
       {normalizeSubsectionContent(subsection).map((item, index) => (
@@ -738,6 +778,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
             key={`${section.id}-${index}`}
             subsection={subsection}
             anchorId={`${section.id}-${index}`}
+            subsectionIndex={index}
             onImageClick={(src, alt) => setLightboxImage({ src, alt })}
           />
         ))}

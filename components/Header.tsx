@@ -11,6 +11,27 @@ interface SearchResult {
   matchContext?: string;
 }
 
+const stripNumericPrefix = (value: string) => {
+  return value.replace(/^\s*\d+(?:\.\d+)*\s*[-:.)]?\s*/i, '').trim();
+};
+
+const getAlphaIndex = (index: number) => {
+  let value = index + 1;
+  let label = '';
+  while (value > 0) {
+    const mod = (value - 1) % 26;
+    label = String.fromCharCode(65 + mod) + label;
+    value = Math.floor((value - 1) / 26);
+  }
+  return label;
+};
+
+const formatSubsectionTitle = (title: string, index: number) => {
+  const cleanedTitle = stripNumericPrefix(title);
+  const prefix = getAlphaIndex(index);
+  return `${prefix}) ${cleanedTitle}`;
+};
+
 const Header: React.FC = () => {
   const [progress, setProgress] = useState(0);
   // ... existing state hooks ...
@@ -45,7 +66,7 @@ const Header: React.FC = () => {
         // Search in subsection title
         if (sub.title.toLowerCase().includes(lowerQuery)) {
           results.push({
-            title: sub.title,
+            title: formatSubsectionTitle(sub.title, subIndex),
             subtitle: section.title,
             anchorId: `${section.id}-${subIndex}`,
             matchContext: 'Titolo Sottosezione'
@@ -64,7 +85,7 @@ const Header: React.FC = () => {
                 const context = item.substring(start, end);
 
                 results.push({
-                  title: sub.title,
+                  title: formatSubsectionTitle(sub.title, subIndex),
                   subtitle: section.title,
                   anchorId: `${section.id}-${subIndex}`,
                   matchContext: context
@@ -276,7 +297,7 @@ const Header: React.FC = () => {
                           setMobileMenuOpen(false);
                         }}
                       >
-                        {subsection.title}
+                        {formatSubsectionTitle(subsection.title, subIndex)}
                       </button>
                     ))}
                   </div>

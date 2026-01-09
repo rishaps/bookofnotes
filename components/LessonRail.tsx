@@ -42,6 +42,27 @@ const renderTitleWithMath = (title: string) => {
   );
 };
 
+const stripNumericPrefix = (value: string) => {
+  return value.replace(/^\s*\d+(?:\.\d+)*\s*[-:.)]?\s*/i, '').trim();
+};
+
+const getAlphaIndex = (index: number) => {
+  let value = index + 1;
+  let label = '';
+  while (value > 0) {
+    const mod = (value - 1) % 26;
+    label = String.fromCharCode(65 + mod) + label;
+    value = Math.floor((value - 1) / 26);
+  }
+  return label;
+};
+
+const formatSubsectionTitle = (title: string, index: number) => {
+  const cleanedTitle = stripNumericPrefix(title);
+  const prefix = getAlphaIndex(index);
+  return `${prefix}) ${cleanedTitle}`;
+};
+
 const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', activeLessonIndex, onLessonSelect, subjectTitle }) => {
   if (!content || content.length === 0) {
     return <div className="p-4 text-xs text-content-muted">Caricamento...</div>;
@@ -108,7 +129,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', active
                       className={`rail-item-glow text-left font-mono text-[11px] leading-tight transition-colors ${isActive ? 'text-content-secondary' : 'text-content-muted/60'}`}
                       onClick={(e) => handleLinkClick(e, index, subId)}
                     >
-                      {renderTitleWithMath(sub.title)}
+                      {renderTitleWithMath(formatSubsectionTitle(sub.title, subIndex))}
                     </button>
                   );
                 })}
