@@ -58,12 +58,25 @@ const ImageThumbnail: React.FC<{
   );
 };
 
-const isTableData = (item: string | TableData | ImageData): item is TableData => {
+const isTableData = (item: ContentItem): item is TableData => {
   return (item as TableData).headers !== undefined;
 };
 
-const isImageData = (item: string | TableData | ImageData): item is ImageData => {
+const isImageData = (item: ContentItem): item is ImageData => {
   return typeof item === 'object' && item !== null && 'url' in item;
+};
+
+type CalloutBlock = {
+  kind: 'callout';
+  label: string;
+  level: 1 | 2;
+  items: Array<string | TableData | ImageData | CalloutBlock>;
+};
+
+type ContentItem = string | TableData | ImageData | CalloutBlock;
+
+const isCalloutBlock = (item: ContentItem): item is CalloutBlock => {
+  return typeof item === 'object' && item !== null && 'kind' in item && (item as CalloutBlock).kind === 'callout';
 };
 
 const parsePipeTable = (lines: string[]): TableData | null => {
@@ -121,6 +134,118 @@ const parseLatexArrayToTable = (latex: string): TableData | null => {
     headers: headers.map(wrapMath),
     rows: parsedRows.map((row) => row.map(wrapMath)),
   };
+};
+
+const CALLOUT_TYPE_LEVELS: Record<string, 1 | 2> = {
+  esempio: 1,
+  definizione: 1,
+  nota: 2,
+  note: 2,
+  attenzione: 2,
+  ricorda: 2,
+  importante: 2,
+  osservazione: 2,
+};
+
+const unwrapLeadingBold = (value: string) => {
+  const trimmed = value.trim();
+  if (!trimmed.startsWith('**')) return trimmed;
+  const end = trimmed.indexOf('**', 2);
+  if (end === -1) return trimmed;
+  return `${trimmed.slice(2, end)}${trimmed.slice(end + 2)}`;
+};
+
+const parseCalloutStart = (value: string) => {
+  const trimmed = value.trim();
+  const unwrapped = unwrapLeadingBold(trimmed);
+  const match = unwrapped.match(/^(?:([0-9]+(?:\.[0-9]+)*)\s*)?(Attenzione|Nota|Note|Ricorda|Esempio|Definizione|Importante|Osservazione)\b(.*)$/i);
+  if (!match) return null;
+
+  const hasLeadingBold = trimmed.startsWith('**');
+  const rest = (match[3] || '').trim();
+  const hasSeparator = /[:]/.test(rest) || /\s-\s/.test(rest);
+  if (!hasLeadingBold && !hasSeparator) return null;
+
+  const leadingNumber = match[1];
+  const typeRaw = match[2];
+  const typeKey = typeRaw.toLowerCase();
+  const level = CALLOUT_TYPE_LEVELS[typeKey];
+  if (!level) return null;
+
+  let labelSuffix = '';
+  let inlineContent = '';
+  let separatorIndex = rest.indexOf(':');
+  if (separatorIndex === -1) {
+    const dashMatch = rest.match(/\s-\s/);
+    separatorIndex = dashMatch?.index ?? -1;
+  }
+
+  if (separatorIndex >= 0) {
+    labelSuffix = rest.slice(0, separatorIndex).trim();
+    inlineContent = rest.slice(separatorIndex + 1).trim();
+  } else {
+    labelSuffix = rest;
+  }
+
+  const numberPrefix = leadingNumber ? `${leadingNumber.trim()} ` : '';
+  const label = `${numberPrefix}${typeRaw}${labelSuffix ? ` ${labelSuffix}` : ''}`.trim();
+  return { label, inlineContent, level };
+};
+
+const looksLikeNumberedHeading = (value: string) => {
+  const cleaned = unwrapLeadingBold(value).trim();
+  return /^\d+(?:\.\d+)+\s+\S/.test(cleaned);
+};
+
+const groupCallouts = (items: Array<string | TableData | ImageData>): ContentItem[] => {
+  const output: ContentItem[] = [];
+  const stack: CalloutBlock[] = [];
+
+  const pushItem = (item: ContentItem) => {
+    if (stack.length > 0) {
+      stack[stack.length - 1].items.push(item);
+      return;
+    }
+    output.push(item);
+  };
+
+  items.forEach((item) => {
+    if (typeof item === 'string') {
+      const callout = parseCalloutStart(item);
+      if (callout) {
+        while (stack.length > 0 && callout.level <= stack[stack.length - 1].level) {
+          stack.pop();
+        }
+
+        const block: CalloutBlock = {
+          kind: 'callout',
+          label: callout.label,
+          level: callout.level,
+          items: [],
+        };
+
+        if (callout.inlineContent) {
+          block.items.push(callout.inlineContent);
+        }
+
+        pushItem(block);
+
+        const shouldStayOpen = callout.level === 1 || !callout.inlineContent;
+        if (shouldStayOpen) {
+          stack.push(block);
+        }
+        return;
+      }
+
+      if (looksLikeNumberedHeading(item)) {
+        stack.length = 0;
+      }
+    }
+
+    pushItem(item as ContentItem);
+  });
+
+  return output;
 };
 
 // --- Math Parsing Utilities ---
@@ -306,8 +431,20 @@ const renderTable = (table: TableData) => {
   );
 };
 
-const ContentRenderer: React.FC<{ item: string | TableData | ImageData; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
+const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
   const [isTall, setIsTall] = useState(false);
+  if (isCalloutBlock(item)) {
+    return (
+      <div className="callout-box my-6">
+        <span className="callout-label">{item.label}</span>
+        <div className="callout-content">
+          {item.items.map((entry, index) => (
+            <ContentRenderer key={`${item.label}-${index}`} item={entry} onImageClick={onImageClick} />
+          ))}
+        </div>
+      </div>
+    );
+  }
   if (isImageData(item)) {
     const caption = item.caption || item.alt || '';
     return (
@@ -326,26 +463,6 @@ const ContentRenderer: React.FC<{ item: string | TableData | ImageData; onImageC
   }
 
   const text = (item as string).trim();
-
-  // --- Visual Component: Callouts ---
-  if (/^(?:\*\*)?\s*(Attenzione|Nota|Ricorda|Esempio)\s*\d*(?:\*\*)?\s*[:\-]/i.test(text)) {
-    const match = text.match(/^(?:\*\*)?\s*(Attenzione|Nota|Ricorda|Esempio)\s*(\d+)?(?:\*\*)?\s*[:\-]\s*(.+)/is);
-    if (match) {
-      const [, type, number, content] = match;
-      const label = number ? `${type} ${number}` : type;
-
-      const cleanedContent = content
-        .replace(/\*\*([^*]+)\*\*/g, '$1')
-        .replace(/\*\*/g, '');
-
-      return (
-        <div className="callout-box my-6">
-          <span className="callout-label">{label}</span>
-          <p className="callout-content">{renderMathParts(cleanedContent, `callout-${label}`)}</p>
-        </div>
-      );
-    }
-  }
 
   // --- Visual Component: Markdown Images ---
   // Syntax: ![alt text](url)
@@ -446,7 +563,7 @@ const ContentRenderer: React.FC<{ item: string | TableData | ImageData; onImageC
   );
 };
 
-const normalizeSubsectionContent = (subsection: SubSection) => {
+const normalizeSubsectionContent = (subsection: SubSection): ContentItem[] => {
   const result: Array<string | TableData | ImageData> = [];
   const { content, title } = subsection;
   const isFormulaTableSection = /derivate notevoli|integrali notevoli/i.test(title);
@@ -499,7 +616,7 @@ const normalizeSubsectionContent = (subsection: SubSection) => {
         while (row.length < columns) row.push('');
         rows.push(row);
       }
-      return [{ headers: new Array(columns).fill(''), rows }];
+      return groupCallouts([{ headers: new Array(columns).fill(''), rows }]);
     }
   }
 
@@ -565,7 +682,7 @@ const normalizeSubsectionContent = (subsection: SubSection) => {
     i += 1;
   }
 
-  return result;
+  return groupCallouts(result);
 };
 
 // --- Subsections & Lightbox ---

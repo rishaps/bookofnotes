@@ -73,7 +73,7 @@ const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) 
         >
             {isAvailable ? (
                 <>
-                    <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
+                    <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:opacity-80' : 'text-gray-400'}`}>
                         • {title}
                     </span>
                     <span className="toc-leader" aria-hidden="true">
@@ -85,7 +85,7 @@ const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) 
                 </>
             ) : (
                 <>
-                    <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-gray-400'}`}>
+                    <span className={`toc-title flex-shrink-0 ${isAvailable ? 'text-black dark:text-white group-hover:opacity-80' : 'text-gray-400'}`}>
                         • {title}
                     </span>
                     <span className="toc-leader" aria-hidden="true">
