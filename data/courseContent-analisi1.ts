@@ -12,7 +12,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Nozione primitiva:** Un concetto fondamentale non definito tramite termini più semplici, ma accettato intuitivamente. Esempio classico: il concetto di \"punto\" nella geometria euclidea.",
                     "**Assioma (o Postulato):** Una proposizione assunta come vera senza dimostrazione. Gli assiomi costituiscono i \"mattoni\" iniziali di una teoria matematica.",
                     "Esempi celebri includono i postulati di Euclide. Consideriamo il V postulato (delle parallele):",
-                    "**Assioma:** Dato un punto $P$ situato fuori da una retta $r$, esiste una sola retta passante per $P$ parallela a $r$."
+                    "**Assioma:** Dato un punto $P$ situato fuori da una retta $r$, esiste una sola retta passante per $P$ parallela a $r$.",
+                    "![Schema del sistema assiomatico](/analisi1-images/ch1-axioms-flow.svg)"
                 ]
             },
             {
@@ -22,7 +23,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Teorema:** Una proposizione che viene dimostrata vera a partire dagli assiomi e dalle nozioni primitive, utilizzando le regole della logica.",
                     "Esempio di teorema geometrico:",
                     "**Teorema:** La somma degli angoli interni di un triangolo è sempre uguale a $\\pi$ radianti ($180^\\circ$).",
-                    "La dimostrazione di un teorema è una sequenza finita di passaggi logici che, partendo dalle ipotesi (ciò che è dato o assunto), conduce alla tesi (ciò che si vuole provare)."
+                    "La dimostrazione di un teorema è una sequenza finita di passaggi logici che, partendo dalle ipotesi (ciò che è dato o assunto), conduce alla tesi (ciò che si vuole provare).",
+                    "![Struttura della dimostrazione](/analisi1-images/ch1-proof-structure.svg)"
                 ]
             }
         ]
@@ -130,7 +132,6 @@ export const analisi1CourseContent: MainSection[] = [
                     "**4. Complementare ($C_U(A)$ o $\\bar{A}$):** Tutti gli elementi di $U$ che non appartengono ad $A$ (equivalente a $U \\setminus A$).",
                     "**5. Prodotto Cartesiano ($A \\times B$):** L'insieme di tutte le coppie ordinate $(a,b)$ con $a \\in A$ e $b \\in B$.",
                     "$$ A \\times B = \\{(a,b) \\mid a \\in A, b \\in B\\} $$",
-                    "![Diagrammi di Venn: Unione, Intersezione, Differenza](/FIRST-YEAR-IMAGES/sets_venn.svg)"
                 ]
             },
             {
@@ -349,7 +350,6 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Poiché $\\mathbb{C} \\cong \\mathbb{R}^2$, possiamo rappresentare ogni numero complesso $z = a+ib$ come un punto $P(a,b)$ nel **Piano Cartesiano (di Gauss)**.",
                     "L'asse $x$ è l'**Asse Reale**, l'asse $y$ è l'**Asse Immaginario**.",
-                    "![Piano di Gauss](/FIRST-YEAR-IMAGES/complex_plane.svg)",
                     "**Coniugato ($\\bar{z}$):** Dato $z = a+ib$, il suo coniugato è $\\bar{z} = a-ib$.",
                     "Geometricamente, $\\bar{z}$ è il simmetrico di $z$ rispetto all'asse reale.",
                     "**Proprietà del Coniugato:**",
@@ -597,7 +597,6 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Il concetto di funzione nasce per esprimere la dipendenza di una grandezza variabile rispetto a un'altra grandezza, considerata indipendente.",
                     "**Definizione:** Dati due insiemi $A$ e $B$, una **funzione** $f: A \\rightarrow B$ è una legge che ad ogni elemento $x \\in A$ associa **uno e un solo** elemento $f(x) \\in B$.",
-                    `![Mappatura di una Funzione](/FIRST-YEAR-IMAGES/funzione-mappatura.png)`,
                     `*Figura 11.1: Mappatura di una funzione $f$ da un insieme $A$ a un insieme $B$. A sinistra: una funzione valida (ogni elemento di $A$ ha una sola immagine). A destra: non è una funzione (un elemento ha due immagini).*`,
                     "*   $A = dom(f)$ è il **Dominio** (insieme di partenza).",
                     "*   $B = codom(f)$ è il **Codominio** (insieme di arrivo).",
@@ -658,7 +657,6 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "12.1 Funzioni Potenza",
                 content: [
                     "**Definizione:** $f(x) = x^\\alpha$, con $\\alpha \\in \\mathbb{R} \\setminus \\{0\\}$.",
-                    `![Grafici Funzioni Potenza](/FIRST-YEAR-IMAGES/funzioni-potenza.png)`,
                     `*Figura 12.1: Grafici delle funzioni potenza. Si notano le diverse forme per esponenti frazionari e negativi.*`,
                     "**Casi notevoli:**",
                     "*   $x^n$ con $n$ pari: Funzione pari, definita su $\\mathbb{R}$, immagine $[0, +\\infty)$.",
@@ -672,7 +670,6 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "12.2 Funzioni Esponenziali",
                 content: [
                     "**Definizione:** $f(x) = a^x$ con $a > 0, a \\neq 1$.",
-                    `![Grafico Funzione Esponenziale](/FIRST-YEAR-IMAGES/funzione-esponenziale.png)`,
                     `*Figura 12.2: Grafico della funzione esponenziale $f(x) = e^x$. La funzione è sempre positiva, strettamente crescente, e passa per il punto $(0, 1)$.*`,
                     "*   Dominio: $\\mathbb{R}$. Immagine: $(0, +\\infty)$.",
                     "*   Se $a > 1$: strettamente **crescente**.",
@@ -684,7 +681,6 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "12.3 Funzioni Logaritmiche",
                 content: [
                     "**Definizione:** $f(x) = \\log_a x$ con $a > 0, a \\neq 1$.",
-                    `![Grafico Funzione Logaritmica](/FIRST-YEAR-IMAGES/funzione-logaritmica.png)`,
                     `*Figura 12.3: Grafico della funzione logaritmica. È la funzione inversa dell'esponenziale, definita solo per $x > 0$ e con asintoto verticale in $x = 0$.*`,
                     "*   Dominio: $(0, +\\infty)$. Immagine: $\\mathbb{R}$.",
                     "*   Se $a > 1$: strettamente crescente.",
@@ -726,11 +722,9 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "13.1 Seno e Coseno",
                 content: [
                     "Data una $x \\in \\mathbb{R}$, sia $P_x$ il punto sulla circonferenza unitaria ottenuto ruotando di un angolo $x$ dal punto $(1,0)$.",
-                    `![Circonferenza Unitaria](/FIRST-YEAR-IMAGES/circonferenza-unitaria.png)`,
                     `*Figura 13.1: La circonferenza unitaria (raggio = 1). Le coordinate del punto $P$ sull'arco corrispondente all'angolo $\\theta$ sono $(\\cos\\theta, \\sin\\theta)$.*`,
                     "**Coseno:** $\\cos(x) = $ ascissa di $P_x$.",
                     "**Seno:** $\\sin(x) = $ ordinata di $P_x$.",
-                    `![Grafico Funzione Seno](/FIRST-YEAR-IMAGES/funzione-seno.png)`,
                     `*Figura 13.2: Grafico della funzione $y = \\sin(x)$. È una funzione periodica con periodo $2\\pi$, dispari, con valori compresi tra $-1$ e $1$.*`,
                     "**Proprietà fondamentali:**",
                     "*   Dominio: $\\mathbb{R}$. Immagine: $[-1, 1]$.",
@@ -744,7 +738,6 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "**Tangente:** $\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$, con dominio $\\mathbb{R} \\setminus \\{\\frac{\\pi}{2} + k\\pi\\}$.",
                     "**Cotangente:** $\\cot(x) = \\frac{\\cos(x)}{\\sin(x)}$, con dominio $\\mathbb{R} \\setminus \\{k\\pi\\}$.",
-                    `![Grafici Tangente e Cotangente](/FIRST-YEAR-IMAGES/funzioni-tangente-cotangente.png)`,
                     `*Figura 13.3: Grafici delle funzioni tangente e cotangente. Entrambe hanno periodo $\\pi$ e presentano asintoti verticali dove il denominatore si annulla.*`,
                     "*   Immagine: $\\mathbb{R}$ per entrambe.",
                     "*   Periodiche con $T = \\pi$.",
@@ -1342,7 +1335,6 @@ export const analisi1CourseContent: MainSection[] = [
                     "$$ \\frac{y-y_0}{x-x_0} = \\frac{f(x)-f(x_0)}{x-x_0} \\quad \\text{(Coefficiente angolare della retta secante)} $$",
                     "Se consideriamo il limite $x \\to x_0$, la retta secante si trasforma in **retta tangente**:",
                     "$$ y - y_0 = \\lim_{x \\to x_0} \\frac{f(x)-f(x_0)}{x-x_0} (x-x_0) $$",
-                    "![Interpretazione Geometrica della Derivata](/FIRST-YEAR-IMAGES/tangent_derivative.svg)"
                 ]
             },
             {
@@ -1489,7 +1481,6 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Definizione:** Sia $I \\subseteq \\mathbb{R}$ un intervallo e $f: I \\to \\mathbb{R}$ una funzione. Si chiama **epigrafico** di $f$ l'insieme:",
                     "$$ E_f = \\{(x,y) \\in \\mathbb{R}^2 \\mid x \\in I, y \\ge f(x)\\} $$",
                     "**Definizione:** Si dice che $f$ è **convessa in $I$** (concava) se tutte le rette secanti al grafico di $f$ si trovano **al di sopra** (sotto) del grafico.",
-                    `![Funzione Convessa](/FIRST-YEAR-IMAGES/funzione-convessa.png)`,
                     `*Figura 23.1: Una funzione convessa. La retta secante che collega $(a, f(a))$ e $(b, f(b))$ si trova al di sopra del grafico. Il punto $c$ dove la tangente è parallela alla secante è dato dal Teorema di Lagrange.*`
                 ]
             },
@@ -2089,7 +2080,6 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Formula di Eulero:** $e^{i\\theta} = \\cos \\theta + i \\sin \\theta$.",
                     "**Forma Polare:** $z = \\rho e^{i\\theta}$.",
                     "**Formula di De Moivre:** $(e^{i\\theta})^n = \\cos(n\\theta) + i \\sin(n\\theta)$.",
-                    `![Radici dell'Unità](/FIRST-YEAR-IMAGES/radici-unita-complesse.png)`,
                     `*Figura: Le radici n-esime dell'unità nel piano complesso, con la formula di Eulero.*`
                 ]
             },
@@ -2322,7 +2312,6 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Norma:** $||\\vec{x} \\times \\vec{y}|| = ||\\vec{x}|| \\cdot ||\\vec{y}|| \\cdot \\sin\\theta$.",
                     "**Area Parallelogramma:** $||\\vec{x} \\times \\vec{y}||$.",
                     "**Area Triangolo:** $\\frac{1}{2}||\\vec{x} \\times \\vec{y}||$.",
-                    `![Prodotto Vettoriale](/FIRST-YEAR-IMAGES/prodotto-vettoriale.png)`,
                     `*Figura: Il prodotto vettoriale $\\vec{C} = \\vec{A} \\times \\vec{B}$ è perpendicolare al piano contenente $\\vec{A}$ e $\\vec{B}$, con modulo $|C| = AB\\sin\\theta$.*`
                 ]
             },

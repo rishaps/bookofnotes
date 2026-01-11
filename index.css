@@ -78,7 +78,7 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
-    body {
+body {
         @apply antialiased bg-[var(--bg-body)] text-content-primary;
         font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         /* REMOVED GLOBAL TRANSITION TO FIX LAG */
@@ -88,6 +88,15 @@
         overflow-y: auto;
         overflow-x: hidden;
         overscroll-behavior-y: contain;
+    }
+
+    body.lightbox-open {
+        overflow: hidden;
+    }
+
+    body.lightbox-open > :not(.lightbox-overlay) {
+        pointer-events: none;
+        user-select: none;
     }
 
     /* Sidebar Opaque Background */
@@ -441,6 +450,23 @@
         text-align: left;
         text-justify: initial;
         hyphens: auto;
+    }
+
+    .course-content .bullet-line .math-container {
+        display: inline-block;
+        width: auto;
+        max-width: none;
+        margin: 0;
+    }
+
+    .course-content .bullet-line .math-scroll-wrapper {
+        min-width: 0;
+        text-align: left;
+        padding: 0;
+    }
+
+    .course-content .bullet-line .katex-display {
+        text-align: left !important;
     }
 
     .course-content .definition-line {

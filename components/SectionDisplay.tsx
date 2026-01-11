@@ -586,7 +586,7 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
   // --- Visual Component: Lists ---
   if (text.match(/^([●○*-])\s/)) {
     return (
-      <div className="flex items-start gap-3 my-2 pl-2">
+      <div className="bullet-line flex items-start gap-3 my-2 pl-2">
         <span className="text-premium-gold mt-1.5 text-[8px]">●</span>
         <p className="text-content-primary flex-1 leading-relaxed">
           {renderWithHighlights(text.replace(/^([●○*-])\s/, ''))}
@@ -747,13 +747,24 @@ const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({
     return () => window.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
+  useEffect(() => {
+    document.body.classList.add('lightbox-open');
+    return () => document.body.classList.remove('lightbox-open');
+  }, []);
+
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-bg-body/95 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={onClose}>
-      <button onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full hover:bg-content-primary/10 transition-colors">
-        <X className="w-8 h-8 text-content-primary" />
-      </button>
-      <div className="max-w-5xl w-full max-h-screen flex flex-col items-center">
-        <img src={src} alt={alt} className="max-w-full max-h-[85vh] object-contain shadow-2xl rounded-sm" onClick={(e) => e.stopPropagation()} />
+    <div className="lightbox-overlay fixed inset-0 z-[9999] flex items-center justify-center bg-bg-body/70 backdrop-blur-lg p-4 animate-in fade-in duration-200" onClick={onClose}>
+      <div className="max-w-5xl w-full max-h-screen flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+        <div className="relative w-full flex justify-center">
+          <img src={src} alt={alt} className="max-w-full max-h-[85vh] object-contain shadow-2xl rounded-sm" />
+          <button
+            onClick={onClose}
+            className="absolute -top-3 -right-3 p-2 rounded-full bg-bg-body/90 border border-content-primary/20 hover:bg-bg-body transition-colors"
+            aria-label="Chiudi"
+          >
+            <X className="w-6 h-6 text-content-primary" />
+          </button>
+        </div>
         <p className="mt-4 text-content-primary/80 font-mono text-sm tracking-widest uppercase">{alt}</p>
       </div>
     </div>,
