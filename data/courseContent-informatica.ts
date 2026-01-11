@@ -18,7 +18,7 @@ export const informaticaContent: MainSection[] = [
                 title: "1.2 La Logica Binaria",
                 content: [
                     `**George Boole e l'Algebra Booleana**`,
-                    `![George Boole](/FIRST-YEAR-IMAGES/george-boole.png)`,
+                    `![George Boole](/informatica-images/boole-portrait.jpg)`,
                     `Ogni calcolatore elettronico moderno rappresenta qualsiasi tipo di informazione mediante sequenze di valori binari, cioè di elementi che possono assumere solo due possibili valori. Le regole che vengono impiegate per manipolare tali valori sono quelle dell'**algebra booleana**, inventata nel 1847 dal matematico e filosofo britannico **George Boole**.`,
                     `Il successo dell'algebra di Boole deriva dal fatto che può essere realizzata efficacemente mediante circuiti elettronici.`,
                     `**I Bit e gli Operatori Fondamentali**`,
@@ -182,7 +182,7 @@ export const informaticaContent: MainSection[] = [
             {
                 title: "2.2 Basi di Numerazione in Informatica",
                 content: [
-                    `![Sistemi Maya e Babilonesi](/FIRST-YEAR-IMAGES/maya-babilonesi-numeri.png)`,
+                    `![Sistemi Maya e Babilonesi](/informatica-images/maya-babylonian-numerals.jpg)`,
                     `Le basi più frequentemente usate in informatica sono:`,
                     `- **Base 2 (binaria)**: cifre $0, 1$`,
                     `- **Base 8 (ottale)**: cifre $0, 1, \\ldots, 7$`,
@@ -355,7 +355,7 @@ until v = 0
                     `La codifica più diffusa è la **codifica ASCII** (American Standard Code for Information Interchange), che prevede 128 simboli codificati con 7 bit. In tutti i calcolatori moderni si usa una codifica a 8 bit (1 byte).`,
                     `Per alfabeti con più di 128 simboli è stata sviluppata la codifica **Unicode**, che può utilizzare 8, 16 oppure 32 bit. I primi 128 simboli della codifica a 8 bit coincidono con i caratteri ASCII per garantire compatibilità.`,
                     `**Rappresentazione delle Immagini**`,
-                    `![Confronto Vector vs Bitmap](/FIRST-YEAR-IMAGES/vector-bitmap.png)`,
+                    `![Confronto vettoriale e bitmap](/informatica-images/bitmap-vs-vector.svg)`,
                     `Nelle **rappresentazioni raster** le immagini sono rappresentate da una matrice rettangolare di **pixel** (Picture Elements). La **profondità di colore** indica quanti bit sono usati per pixel:`,
                     `- **1 bpp**: bianco/nero`,
                     `- **8 bpp**: 256 colori (indicizzati)`,
@@ -368,7 +368,7 @@ until v = 0
             {
                 title: "2.10 Rappresentazione Audio e Compressione",
                 content: [
-                    `![Campionamento Audio](/FIRST-YEAR-IMAGES/campionamento-audio.png)`,
+                    `![Campionamento audio](/informatica-images/campionamento-audio-nyquist.svg)`,
                     `**Campionamento e Quantizzazione**`,
                     `Un'onda sonora è un fenomeno analogico e continuo. Per digitalizzarla:`,
                     `- **Campionamento**: si misura l'ampiezza in istanti discreti $t_0, t_1, t_2, \\ldots$`,
@@ -387,7 +387,7 @@ until v = 0
             {
                 title: "2.11 Esercizi sulla Rappresentazione Numerica",
                 content: [
-                    `![Calcolatore Setun](/FIRST-YEAR-IMAGES/setun-computer.png)`,
+                    `![Calcolatore Setun](/informatica-images/setun-computer.png)`,
                     `**Esercizio 2.1** - Si considerino $A = 0011\\,0110_{2C}$ e $B = 1000\\,1100_{2C}$ con 8 bit. Vero o falso?`,
                     `(a) $A$ rappresenta un valore positivo`,
                     `(b) $B$ rappresenta un valore positivo`,
@@ -398,16 +398,16 @@ until v = 0
                     `(a) $1101\\,0100_2$ (b) $0000\\,1111_2$ (c) $1111\\,0000_2$ (d) $1010\\,1010_2$`,
                     `**Esercizio 2.3** - Convertire da decimale a binario in complemento a due (minimo numero di bit):`,
                     `(a) $2016_{10}$ (b) $47_{10}$ (c) $12_{10}$ (d) $-42_{10}$ (e) $-128_{10}$`,
-                    `![Keyset di Engelbart](/FIRST-YEAR-IMAGES/keyset-engelbart.png)`,
+                    `![Keyset di Engelbart](/informatica-images/engelbart-keyset.jpg)`,
                     `**Esercizio 2.4** - Il keyset di Engelbart ha 5 tasti. Ogni dito poggia su un tasto, e la pressione simultanea di uno o più tasti corrisponde ad un simbolo (se nessun tasto è premuto, il dispositivo è inerte). Quanti simboli diversi è possibile rappresentare?`,
                     `**Esercizio 2.5** - In notazione ternaria bilanciata si usano i simboli $T, 0, 1$ per rappresentare $-1, 0, +1$. Ad esempio: $10T_{bal3} = (+1) \\times 3^2 + 0 \\times 3^1 + (-1) \\times 3^0 = 9 - 1 = 8$. Qual è il massimo e minimo valore rappresentabile con $n$ trit?`,
-                    `![Orologi Binari](/FIRST-YEAR-IMAGES/orologi-binari.png)`,
+                    `![Orologi binari](/informatica-images/binary-clock.svg)`,
                     `**Esercizio 2.6** - Calcolare il risultato delle somme seguenti usando $n = 8$ bit in complemento a due; indicare se c'è overflow o underflow:`,
                     `(a) $0110\\,0111_{2C} + 1011\\,1011_{2C}$`,
                     `(b) $0100\\,0001_{2C} + 0110\\,1111_{2C}$`,
                     `(c) $1101\\,1001_{2C} + 1111\\,0001_{2C}$`,
                     `(d) $0111\\,1111_{2C} + 0000\\,0001_{2C}$`,
-                    `![Display a 16 Segmenti](/FIRST-YEAR-IMAGES/display-16-segmenti.png)`,
+                    `![Display a 16 segmenti](/informatica-images/display-16-segmenti.svg)`,
                     `**Esercizio 2.7** - Determinare i valori (in binario e decimale) che rappresentano lo stato dei display che mostrano i quattro caratteri CIAO.`,
                     `**Esercizio 2.8** - Un documento di 2 000 000 caratteri contiene solo 26 lettere minuscole, 26 maiuscole, punto e spazio.`,
                     `(a) Quanti bit con codifica ASCII?`,
@@ -426,10 +426,10 @@ until v = 0
             {
                 title: "3.1 Introduzione ai Circuiti Logici",
                 content: [
-                    `![Macchina Analitica di Babbage](/FIRST-YEAR-IMAGES/babbage-engine.png)`,
+                    `![Macchina Analitica di Babbage](/informatica-images/babbage-analytical-engine.jpg)`,
                     `Gli operatori booleani introdotti nella Lezione 1 possono essere efficientemente realizzati tramite dispositivi elettronici, e per questa ragione vengono impiegati come mattoni fondamentali per la costruzione di calcolatori.`,
                     `I calcolatori programmabili non sono stati sempre basati sull'elettronica. La **macchina analitica di Charles Babbage** è considerata il primo esempio di calcolatore programmabile di tipo generale ed era realizzabile interamente mediante parti meccaniche.`,
-                    `![Porte Logiche](/FIRST-YEAR-IMAGES/logic-gates.png)`,
+                    `![Porte logiche](/informatica-images/porte-logiche.svg)`,
                     `I circuiti logici che realizzano gli operatori booleani vengono rappresentati graficamente mediante forme standard. Tali circuiti sono detti **porte logiche**. Più porte logiche possono essere tra loro collegate formando una **rete logica** (o circuito logico), in grado di calcolare qualunque funzione booleana predefinita.`
                 ]
             },
@@ -442,9 +442,9 @@ until v = 0
                     `**Espressioni booleane ottimizzate**:`,
                     `$$S = (A \\oplus B) \\oplus C_{in}$$`,
                     `$$C_{out} = ((A \\oplus B) \\land C_{in}) \\lor (A \\land B)$$`,
-                    `![1-bit Full Adder](/FIRST-YEAR-IMAGES/full-adder-1bit.png)`,
+                    `![Addizionatore completo a 1 bit](/informatica-images/full-adder-1bit.svg)`,
                     `**4-bit Full Adder (Ripple-Carry Adder)**`,
-                    `![4-bit Full Adder](/FIRST-YEAR-IMAGES/full-adder-4bit.png)`,
+                    `![Addizionatore completo a 4 bit](/informatica-images/full-adder-4bit.svg)`,
                     `Il circuito sommatore ad un bit può essere utilizzato come base per costruire un sommatore per numeri a più bit. Quattro sommatori ad un bit possono calcolare: $A_3A_2A_1A_0 + B_3B_2B_1B_0$.`,
                     `Un sommatore basato sulla propagazione del riporto è detto **ripple-carry adder**. Sebbene sia semplice da realizzare, ha il difetto di essere inefficiente se il numero di cifre è elevato: ogni sommatore deve attendere il riporto dal precedente. Il tempo è proporzionale a $n$.`
                 ]
@@ -460,7 +460,7 @@ until v = 0
                     `$$GT = A \\land (\\neg B)$$`,
                     `$$EQ = \\neg(A \\oplus B)$$`,
                     `$$LT = (\\neg A) \\land B$$`,
-                    `![Comparatore 1-bit](/FIRST-YEAR-IMAGES/comparator-1bit.png)`,
+                    `![Comparatore a 1 bit](/informatica-images/comparatore-1bit.svg)`,
                 ]
             },
             {
@@ -469,7 +469,7 @@ until v = 0
                     `Un **multiplexer 2-a-1** permette di selezionare il valore di uno dei 2 ingressi. Ha tre input binari $A$, $B$, $S$ (selettore) e produce un output $R$:`,
                     `- $R = A$ se $S = 0$`,
                     `- $R = B$ se $S = 1$`,
-                    `![Multiplexer 2-a-1](/FIRST-YEAR-IMAGES/multiplexer-2a1.png)`,
+                    `![Multiplexer 2 a 1](/informatica-images/multiplexer-2-1.svg)`,
                     `È possibile realizzare multiplexer con più input (solitamente potenze di due): 4-a-1, 8-a-1, ecc. Per un multiplexer $2^n$-a-1 sono necessari $n$ segnali binari per il selettore.`,
                     `**Tabella di verità Multiplexer 4-a-1**`,
                     `$$\\begin{array}{|c|c|c|} \\hline S_1 & S_0 & R \\\\ \\hline 0 & 0 & In_0 \\\\ 0 & 1 & In_1 \\\\ 1 & 0 & In_2 \\\\ 1 & 1 & In_3 \\\\ \\hline \\end{array}$$`
@@ -480,11 +480,11 @@ until v = 0
                 content: [
                     `Un **flip-flop** è un circuito in grado di memorizzare un singolo valore binario per riutilizzarlo in seguito. Si basa su circuiti che contengono cicli, in cui uno o più segnali continuano a circolare.`,
                     `**SR and-or latch**`,
-                    `![Flip-flop SR and-or latch](/FIRST-YEAR-IMAGES/flipflop-andor.png)`,
+                    `![Latch SR con NAND](/informatica-images/sr-latch-nand.svg)`,
                     `Ha due ingressi $S$ (Set) e $R$ (Reset):`,
                     `$$\\begin{array}{|c|c|c|l|} \\hline S & R & Q' & \\text{Azione} \\\\ \\hline 0 & 0 & Q & \\text{Preserva stato} \\\\ 0 & 1 & 0 & \\text{Reset} \\\\ 1 & 0 & 1 & \\text{Set} \\\\ 1 & 1 & 1 & \\text{Set} \\\\ \\hline \\end{array}$$`,
                     `**SR nor latch**`,
-                    `![Flip-flop SR nor latch](/FIRST-YEAR-IMAGES/flipflop-nor.png)`,
+                    `![Latch SR con NOR](/informatica-images/sr-latch-nor.png)`,
                     `Produce due output $Q$ e $\\overline{Q}$ (uno la negazione dell'altro):`,
                     `$$\\begin{array}{|c|c|c|l|} \\hline S & R & Q' & \\text{Azione} \\\\ \\hline 0 & 0 & Q & \\text{Preserva stato} \\\\ 0 & 1 & 0 & \\text{Reset} \\\\ 1 & 0 & 1 & \\text{Set} \\\\ 1 & 1 & ? & \\text{Non ammesso} \\\\ \\hline \\end{array}$$`
                 ]
@@ -495,17 +495,17 @@ until v = 0
                     `La **ALU ad 1 bit** combina le componenti viste fin qui. Ha tre input binari $A$, $B$, $C_{in}$, un input $Op$ (2 bit) e due output $R$ e $C_{out}$.`,
                     `**Operazioni supportate**`,
                     `$$\\begin{array}{|c|l|} \\hline Op & R \\\\ \\hline 00 & A + B + C_{in} \\ (\\text{somma}) \\\\ 01 & A \\lor B \\ (\\text{OR}) \\\\ 10 & A \\land B \\ (\\text{AND}) \\\\ 11 & \\neg A \\ (\\text{NOT}) \\\\ \\hline \\end{array}$$`,
-                    `![ALU 1-bit](/FIRST-YEAR-IMAGES/alu-1bit.png)`,
+                    `![ALU a 1 bit](/informatica-images/alu-1bit.png)`,
                     `La ALU calcola sempre tutte le quattro operazioni; un multiplexer 4-a-1 seleziona il risultato in base a $Op$. Con $n$ bit di selettore si possono selezionare $2^n$ operazioni diverse.`,
                     `**ALU a 4 bit**`,
-                    `![ALU 4-bit](/FIRST-YEAR-IMAGES/alu-4bit.png)`,
+                    `![ALU a 4 bit](/informatica-images/alu-4bit.svg)`,
                     `Le quattro unità sono collegate in cascata, con $C_{out}$ di una collegato a $C_{in}$ della successiva. Lo stesso valore di $Op$ viene trasmesso a tutte le unità.`
                 ]
             },
             {
                 title: "3.7 L'Architettura di von Neumann",
                 content: [
-                    `![John von Neumann](/FIRST-YEAR-IMAGES/von-neumann.png)`,
+                    `![John von Neumann](/informatica-images/john-von-neumann.jpg)`,
                     `L'**architettura di von Neumann** consiste in tre unità funzionali:`,
                     `- **CPU (processore)**: esegue le istruzioni dei programmi`,
                     `- **Memoria**: contiene sia le istruzioni che i dati`,
@@ -526,7 +526,7 @@ until v = 0
                     `- **Lettura/scrittura in memoria**`,
                     `- **Controllo di flusso**: indirizzano verso sequenze diverse di istruzioni`,
                     `- **Input/output**: comunicazione con dispositivi esterni`,
-                    `![Struttura CPU](/FIRST-YEAR-IMAGES/cpu-structure.png)`,
+                    `![Struttura CPU](/informatica-images/cpu-block-diagram.svg)`,
                     `**Componenti della CPU**`,
                     `- **ALU**: esegue operazioni aritmetiche e logiche`,
                     `- **Registri di uso generale** ($R_0, \\ldots, R_{N-1}$): memorizzano i risultati della computazione. L'accesso ai registri è molto più efficiente dell'accesso alla memoria.`,
@@ -544,7 +544,7 @@ until v = 0
                 title: "3.9 Il Ciclo Fetch-Decode-Execute",
                 content: [
                     `L'unità di controllo esegue ripetutamente il **ciclo fetch-decode-execute**:`,
-                    `![Ciclo Fetch-Decode-Execute](/FIRST-YEAR-IMAGES/fetch-decode-execute.png)`,
+                    `![Ciclo fetch-decode-execute](/informatica-images/fetch-decode-execute.svg)`,
                     `**Fase 1: Fetch**`,
                     `La CPU copia il contenuto dell'indirizzo di memoria indicato nel PC (Program Counter) all'interno del registro IR (Instruction Register). Il valore letto rappresenta il codice dell'istruzione da eseguire.`,
                     `**Fase 2: Decode**`,
@@ -561,7 +561,7 @@ until v = 0
                 title: "3.10 La Memoria RAM",
                 content: [
                     `La **RAM (Random Access Memory)** è una memoria volatile organizzata come una sequenza di byte.`,
-                    `![Struttura RAM](/FIRST-YEAR-IMAGES/ram-structure.png)`,
+                    `![Struttura di una cella DRAM](/informatica-images/dram-cell-structure.png)`,
                     `**Unità di misura**`,
                     `$$\\begin{array}{|l|c|l|c|} \\hline \\text{Potenze di 1000} & & \\text{Potenze di 1024} & \\\\ \\hline 1 \\text{ kilobyte (kB)} & 10^3 \\text{B} & 1 \\text{ kibibyte (kiB)} & 2^{10} \\text{B} \\\\ 1 \\text{ megabyte (MB)} & 10^6 \\text{B} & 1 \\text{ mebibyte (MiB)} & 2^{20} \\text{B} \\\\ 1 \\text{ gigabyte (GB)} & 10^9 \\text{B} & 1 \\text{ gibibyte (GiB)} & 2^{30} \\text{B} \\\\ 1 \\text{ terabyte (TB)} & 10^{12} \\text{B} & 1 \\text{ tebibyte (TiB)} & 2^{40} \\text{B} \\\\ \\hline \\end{array}$$`,
                     `**Indirizzamento**`,
@@ -569,7 +569,7 @@ until v = 0
                     `- Bus 16 bit: max $2^{16} = 65536$ byte`,
                     `- Bus 32 bit: max $2^{32} \\approx 4$ GiB`,
                     `- Bus 64 bit: max $2^{64} \\approx 16$ EiB`,
-                    `![Moduli RAM](/FIRST-YEAR-IMAGES/ram-modules.png)`,
+                    `![Moduli RAM](/informatica-images/ram-modules.jpg)`,
                     `La caratteristica "random" della RAM indica che si può accedere direttamente a qualunque indirizzo senza scorrere i precedenti (a differenza delle memorie sequenziali come i nastri magnetici).`
                 ]
             },
@@ -597,7 +597,7 @@ until v = 0
             {
                 title: "4.1 Introduzione agli Algoritmi",
                 content: [
-                    `![al-Khwārizmī](/FIRST-YEAR-IMAGES/al-khwarizmi.png)`,
+                    `![al-Khwārizmī](/informatica-images/al-khwarizmi-portrait.jpg)`,
                     `Un **algoritmo** è un procedimento che può essere usato per risolvere un problema mediante una sequenza finita di passi elementari.`,
                     `Il termine deriva da **al-Khwārizmī**, matematico e astronomo persiano che lavorò nell'odierna Baghdad intorno all'anno 800 D.C. Fu autore di un trattato di algebra in cui forniva le regole per la risoluzione di equazioni fino al secondo grado, descritte come sequenze di trasformazioni algebriche elementari.`,
                     `**Esempio: Ricerca nell'elenco telefonico**`,
@@ -648,13 +648,13 @@ until v = 0
                 title: "4.4 Diagrammi di Flusso",
                 content: [
                     `I **diagrammi di flusso** (flowchart) sono una notazione grafica in cui vari tipi di poligoni rappresentano i passi dell'algoritmo, e le frecce indicano l'ordine di esecuzione.`,
-                    `![Diagramma di Flusso - Euclide](/FIRST-YEAR-IMAGES/euclid-flowchart.png)`,
+                    `![Diagramma di flusso - Euclide](/informatica-images/euclid-flowchart.svg)`,
                     `**Elementi dei diagrammi di flusso**:`,
                     `- **Nodo ovale**: Inizio/Fine dell'algoritmo`,
                     `- **Nodo rettangolare**: Istruzioni da eseguire (es. $n \\leftarrow n - m$)`,
                     `- **Nodo decisionale (rombo)**: Espressione booleana, con frecce V (vero) e F (falso)`,
                     `- **Nodo parallelogramma**: Istruzioni di input/output`,
-                    `![Programma Buran e DRAKON](/FIRST-YEAR-IMAGES/buran-drakon.png)`,
+                    `![Programma Buran e DRAKON](/informatica-images/drakon-flowchart.png)`,
                     `**Vantaggi**: Facilmente interpretabili anche da non specialisti.`,
                     `**Svantaggi**: Algoritmi complessi richiedono molto spazio; possono avere struttura arbitraria e difficile da comprendere.`
                 ]
@@ -677,7 +677,7 @@ while (n ≠ m) do
 end while
 Stampa n
 \`\`\``,
-                    `![Costrutti Programmazione Strutturata](/FIRST-YEAR-IMAGES/structured-programming.png)`,
+                    `![Costrutti di programmazione strutturata](/informatica-images/structured-program-patterns.svg)`,
                     `**Costrutti della programmazione strutturata**:`,
                     `- **Sequenza** ($S_1; S_2$): esecuzione in ordine`,
                     `- **if-then-else**: esecuzione condizionale con ramo alternativo`,
@@ -804,7 +804,7 @@ end while
             {
                 title: "5.1 Interpreti e Compilatori",
                 content: [
-                    `![Pannello PDP-8/E](/FIRST-YEAR-IMAGES/pdp8-panel.png)`,
+                    `![Pannello PDP-8/E](/informatica-images/pdp8-panel.jpg)`,
                     `Le istruzioni eseguite dai processori sono rappresentate da sequenze di bit in memoria, dette **linguaggio macchina**. Le istruzioni sono di tre tipi:`,
                     `- **Lettura/scrittura in memoria**: es. "trasferisci la parola all'indirizzo 1024 nel registro R1"`,
                     `- **Istruzioni aritmetiche e logiche**: es. "somma il contenuto dei registri R1 e R2"`,
@@ -941,10 +941,10 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
 ⟨Cifra⟩ ::= 0 | 1 | ... | 9
 \`\`\``,
                     `Le frasi valide sono tutte le sequenze non vuote di cifre.`,
-                    `![Albero di derivazione 047](/FIRST-YEAR-IMAGES/derivation-047.png)`,
+                    `![Albero di derivazione 047](/informatica-images/derivation-047.png)`,
                     `**Processo di derivazione per 047**:`,
                     `$$\\langle Num \\rangle \\to \\langle Cifra \\rangle \\langle Num \\rangle \\to 0 \\langle Num \\rangle \\to 0 \\langle Cifra \\rangle \\langle Num \\rangle \\to 04 \\langle Num \\rangle \\to 04 \\langle Cifra \\rangle \\to 047$$`,
-                    `![Albero di derivazione 010](/FIRST-YEAR-IMAGES/derivation-010.png)`,
+                    `![Albero di derivazione 010](/informatica-images/derivation-010.png)`,
                     `La radice contiene il simbolo iniziale. Le foglie contengono simboli terminali. La frase è la sequenza delle foglie da sinistra a destra.`
                 ]
             },
@@ -962,14 +962,14 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
 ⟨Expr⟩ ::= ⟨Term⟩ | ⟨Expr⟩ + ⟨Term⟩
 ⟨Term⟩ ::= ⟨Num⟩ | ⟨Term⟩ * ⟨Num⟩
 \`\`\``,
-                    `![Derivazione espressione](/FIRST-YEAR-IMAGES/derivation-expr.png)`,
+                    `![Derivazione espressione](/informatica-images/derivation-expr.png)`,
                     `La struttura dell'albero rispetta l'ordine di valutazione naturale: prima il prodotto, poi la somma.`
                 ]
             },
             {
                 title: "5.8 Esercizi sulle Grammatiche",
                 content: [
-                    `![Rosa dei venti](/FIRST-YEAR-IMAGES/compass-rose.png)`,
+                    `![Rosa dei venti](/informatica-images/compass-rose.png)`,
                     `**Esercizio 5.1** - Estendere la grammatica italiana per includere "pecora" e l'articolo "la" senza generare frasi scorrette ("la cane", "il pecora").`,
                     `**Esercizio 5.2** - Scrivere una grammatica BNF per generare gli otto punti cardinali: N, S, E, O, NE, SE, NO, SO.`,
                     `**Esercizio 5.3** - Definire una grammatica per numeri interi con/senza segno (es. −129, +79, 76, 0). Non generare zeri iniziali ridondanti (0023) né +0, −0.`,

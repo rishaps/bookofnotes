@@ -477,6 +477,20 @@ body {
         margin-bottom: 10px;
     }
 
+    .course-content .content-code-block {
+        margin: 12px 0 16px;
+        padding: 12px 14px;
+        font-size: 13px;
+        line-height: 1.6;
+        font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        color: var(--content-primary);
+        background: var(--bg-glass);
+        border: 1px solid color-mix(in srgb, var(--content-primary) 35%, transparent);
+        border-radius: 6px;
+        overflow-x: auto;
+        white-space: pre;
+    }
+
     /* Tables */
 .course-content .table-wrap {
     width: 100%;

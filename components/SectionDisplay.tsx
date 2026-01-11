@@ -367,18 +367,58 @@ const renderWithHighlights = (value: string) => {
   if (!value) return null;
   const normalizedValue = value.replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '');
 
-  // Handle Markdown Bold (**text**)
-  const parts = normalizedValue.split(/(\*\*[^*]+\*\*)/g);
-
   return (
     <>
-      {parts.map((part, index) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-          const content = part.slice(2, -2);
-          return <strong key={index} className="font-bold text-content-primary">{renderMathParts(content, `bold-${index}`)}</strong>;
+      {(() => {
+        const codeBlockPattern = /```([\s\S]*?)```/g;
+        const segments: Array<{ type: 'text' | 'code'; value: string }> = [];
+        let lastIndex = 0;
+        let match: RegExpExecArray | null;
+
+        while ((match = codeBlockPattern.exec(normalizedValue))) {
+          if (match.index > lastIndex) {
+            segments.push({ type: 'text', value: normalizedValue.slice(lastIndex, match.index) });
+          }
+          segments.push({ type: 'code', value: match[1] });
+          lastIndex = match.index + match[0].length;
         }
-        return <React.Fragment key={index}>{renderMathParts(part, `plain-${index}`)}</React.Fragment>;
-      })}
+
+        if (lastIndex < normalizedValue.length) {
+          segments.push({ type: 'text', value: normalizedValue.slice(lastIndex) });
+        }
+
+        return segments.map((segment, segmentIndex) => {
+          if (segment.type === 'code') {
+            const cleaned = segment.value.replace(/^\n/, '').replace(/\n$/, '');
+            return (
+              <pre key={`code-${segmentIndex}`} className="content-code-block">
+                <code>{cleaned}</code>
+              </pre>
+            );
+          }
+
+          const parts = segment.value.split(/(\*\*[^*]+\*\*)/g);
+          return (
+            <React.Fragment key={`text-${segmentIndex}`}>
+              {parts.map((part, index) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                  const content = part.slice(2, -2);
+                  return (
+                    <strong key={`bold-${segmentIndex}-${index}`} className="font-bold text-content-primary">
+                      {renderMathParts(content, `bold-${segmentIndex}-${index}`)}
+                    </strong>
+                  );
+                }
+                return (
+                  <React.Fragment key={`plain-${segmentIndex}-${index}`}>
+                    {renderMathParts(part, `plain-${segmentIndex}-${index}`)}
+                  </React.Fragment>
+                );
+              })}
+            </React.Fragment>
+          );
+        });
+      })()}
     </>
   );
 };
