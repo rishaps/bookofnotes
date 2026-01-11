@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="260" viewBox="0 0 860 260" role="img" aria-labelledby="title desc">
+  <title id="title">Binomial Expansion Example</title>
+  <desc id="desc">Expansion of (a+b)^3 into terms with coefficients.</desc>
+  <rect x="40" y="40" width="780" height="180" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="430" y="80" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#000000">(a + b)^3</text>
+  <text x="430" y="120" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">= a^3 + 3a^2 b + 3ab^2 + b^3</text>
+  <text x="430" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">Coefficients come from the Pascal triangle.</text>
+</svg>

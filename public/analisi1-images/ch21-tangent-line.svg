@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="320" viewBox="0 0 820 320" role="img" aria-labelledby="title desc">
+  <title id="title">Tangent Line</title>
+  <desc id="desc">Curve with a tangent line at a point.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <line x1="120" y1="240" x2="720" y2="240" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="120" y1="260" x2="120" y2="60" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+
+  <path d="M140 220 C220 200 300 160 380 120 C440 95 520 90 620 100" fill="none" stroke="#000000" stroke-width="2" />
+
+  <circle cx="380" cy="120" r="5" fill="#000000" />
+  <line x1="300" y1="160" x2="460" y2="90" stroke="#000000" stroke-width="2" />
+
+  <text x="470" y="90" font-family="Arial, sans-serif" font-size="12" fill="#000000">tangent</text>
+</svg>

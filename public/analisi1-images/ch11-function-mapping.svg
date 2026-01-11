@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="320" viewBox="0 0 820 320" role="img" aria-labelledby="title desc">
+  <title id="title">Function Mapping</title>
+  <desc id="desc">Elements in set A map to elements in set B.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <rect x="80" y="50" width="260" height="220" fill="none" stroke="#000000" stroke-width="2" />
+  <rect x="480" y="50" width="260" height="220" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" fill="#000000">A</text>
+  <text x="490" y="75" font-family="Arial, sans-serif" font-size="16" fill="#000000">B</text>
+
+  <circle cx="160" cy="110" r="6" fill="#000000" />
+  <circle cx="160" cy="170" r="6" fill="#000000" />
+  <circle cx="160" cy="230" r="6" fill="#000000" />
+
+  <circle cx="560" cy="130" r="6" fill="#000000" />
+  <circle cx="560" cy="190" r="6" fill="#000000" />
+  <circle cx="560" cy="250" r="6" fill="#000000" />
+
+  <line x1="166" y1="110" x2="554" y2="130" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="166" y1="170" x2="554" y2="190" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="166" y1="230" x2="554" y2="190" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+
+  <text x="410" y="300" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">Each element in A maps to one element in B</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="240" viewBox="0 0 840 240" role="img" aria-labelledby="title desc">
+  <title id="title">Induction Proof Flow</title>
+  <desc id="desc">Base case and inductive step lead to conclusion for all n.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <rect x="60" y="50" width="220" height="70" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="170" y="90" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">Base case</text>
+  <text x="170" y="112" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">P(n0) true</text>
+
+  <rect x="310" y="50" width="220" height="70" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="420" y="90" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">Inductive step</text>
+  <text x="420" y="112" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">P(n) -> P(n+1)</text>
+
+  <rect x="560" y="50" width="220" height="70" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="670" y="90" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">Conclusion</text>
+  <text x="670" y="112" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">P(n) for all n</text>
+
+  <line x1="280" y1="85" x2="310" y2="85" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="530" y1="85" x2="560" y2="85" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+
+  <text x="420" y="190" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">If base and step hold, the statement is true for all natural numbers.</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="260" viewBox="0 0 840 260" role="img" aria-labelledby="title desc">
+  <title id="title">Number Sets Hierarchy</title>
+  <desc id="desc">Nested rectangles show N inside Z inside Q inside R.</desc>
+  <rect x="40" y="30" width="760" height="200" fill="none" stroke="#000000" stroke-width="2" />
+  <rect x="120" y="60" width="600" height="150" fill="none" stroke="#000000" stroke-width="2" />
+  <rect x="200" y="90" width="440" height="100" fill="none" stroke="#000000" stroke-width="2" />
+  <rect x="280" y="120" width="280" height="60" fill="none" stroke="#000000" stroke-width="2" />
+
+  <text x="60" y="60" font-family="Arial, sans-serif" font-size="18" fill="#000000">R</text>
+  <text x="140" y="90" font-family="Arial, sans-serif" font-size="18" fill="#000000">Q</text>
+  <text x="220" y="120" font-family="Arial, sans-serif" font-size="18" fill="#000000">Z</text>
+  <text x="300" y="150" font-family="Arial, sans-serif" font-size="18" fill="#000000">N</text>
+</svg>

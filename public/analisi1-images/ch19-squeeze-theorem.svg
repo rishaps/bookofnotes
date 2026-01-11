@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="300" viewBox="0 0 820 300" role="img" aria-labelledby="title desc">
+  <title id="title">Squeeze Theorem</title>
+  <desc id="desc">Two functions squeeze a third toward the same limit.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <line x1="120" y1="200" x2="720" y2="200" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="420" y1="250" x2="420" y2="60" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+
+  <path d="M160 120 L420 200 L680 120" fill="none" stroke="#000000" stroke-width="2" />
+  <path d="M160 160 L420 200 L680 160" fill="none" stroke="#000000" stroke-width="2" />
+  <path d="M160 200 L420 200 L680 200" fill="none" stroke="#000000" stroke-width="2" />
+
+  <text x="430" y="195" font-family="Arial, sans-serif" font-size="12" fill="#000000">limit</text>
+</svg>

@@ -38,13 +38,15 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "**Proposizione:** qualsiasi affermazione o enunciato a cui è possibile attribuire univocamente un valore di verità: **Vero (V)** oppure **Falso (F)**.",
                     "Esempio: \"Sono uno studente di Ingegneria Gestionale\" è una proposizione perché può essere solo vera o falsa.",
-                    "**Connettivi logici:** operatori che permettono di costruire nuove proposizioni composte partendo da una o più proposizioni elementari."
+                    "**Connettivi logici:** operatori che permettono di costruire nuove proposizioni composte partendo da una o più proposizioni elementari.",
+                    "![Schema dei connettivi logici](/analisi1-images/ch2-connectives.svg)"
                 ]
             },
             {
                 title: "2.2 Tavole della Verità",
                 content: [
                     "I connettivi logici sono definiti tramite le **tavole della verità**, che mostrano il valore di verità della proposizione composta per ogni possibile combinazione dei valori delle proposizioni componenti.",
+                    "![Schema di una tavola della verità](/analisi1-images/ch2-truth-table.svg)",
                     "**1) Negazione ($\\sim p$ o $\\neg p$):** Inverte il valore di verità.",
                     "$$ \\begin{array}{c|c} p & \\neg p \\\\ \\hline V & F \\\\ F & V \\end{array} $$",
                     "**2) Congiunzione ($p \\wedge q$, \"AND\"):** Vera solo se entrambe sono vere.",
@@ -92,7 +94,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Appartenenza ($\\in$):** Indica che un elemento fa parte di un insieme. Si usano lettere minuscole per gli elementi e maiuscole per gli insiemi.",
                     "Esempio: $a \\in A$ (a appartiene ad A).",
                     "**Insieme:** Una collezione ben definita di oggetti distinti. Può essere descritto per elencazione o per proprietà caratteristica.",
-                    "Esempio: $A=\\{3,4,7\\}$ è uguale a $\\{3,7,4\\}$ (l'ordine non conta)."
+                    "Esempio: $A=\\{3,4,7\\}$ è uguale a $\\{3,7,4\\}$ (l'ordine non conta).",
+                    "![Schema di appartenenza a un insieme](/analisi1-images/ch3-set-notation.svg)"
                 ]
             },
             {
@@ -130,6 +133,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "**3. Differenza ($A \\setminus B$):** L'insieme degli elementi che appartengono ad $A$ ma **non** a $B$.",
                     "$$ A \\setminus B = \\{x \\in U \\mid x \\in A \\wedge x \\notin B\\} $$",
                     "**4. Complementare ($C_U(A)$ o $\\bar{A}$):** Tutti gli elementi di $U$ che non appartengono ad $A$ (equivalente a $U \\setminus A$).",
+                    "![Diagramma di Venn per operazioni tra insiemi](/analisi1-images/ch3-set-operations.svg)",
                     "**5. Prodotto Cartesiano ($A \\times B$):** L'insieme di tutte le coppie ordinate $(a,b)$ con $a \\in A$ e $b \\in B$.",
                     "$$ A \\times B = \\{(a,b) \\mid a \\in A, b \\in B\\} $$",
                 ]
@@ -159,6 +163,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Numeri Irrazionali ($\\mathbb{R} \\setminus \\mathbb{Q}$):** Numeri reali che non sono razionali (es. $\\pi, \\sqrt{2}$). Hanno infinite cifre decimali non periodiche.",
                     "**Gerarchia degli insiemi:**",
                     "$$ \\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R} $$",
+                    "![Schema della gerarchia degli insiemi numerici](/analisi1-images/ch4-number-hierarchy.svg)",
                     "**Proprietà di Densità:** $\\mathbb{Q}$ è denso in $\\mathbb{R}$.",
                     "Cioè: Siano $x, y \\in \\mathbb{R}$ con $x < y$, esistono **infiniti** numeri razionali $z \\in \\mathbb{Q}$ tali che:",
                     "$$ x < z < y $$"
@@ -185,6 +190,7 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "4.3 Estremo Superiore e Inferiore",
                 content: [
                     "Spesso un insieme limitato non ha massimo (es. l'intervallo $(0, 1)$ non ha massimo perché $1 \\notin (0,1)$). Introduciamo quindi concetti più generali.",
+                    "![Esempio di estremo superiore e inferiore per (0,1)](/analisi1-images/ch4-sup-inf.svg)",
                     "**Estremo Superiore ($sup(E)$):** È il **minimo dei maggioranti**.",
                     "Si dice che $s = sup(E)$ se:",
                     "1.  $s$ è un maggiorante di $E$ ($\\forall x \\in E, x \\le s$).",
@@ -224,7 +230,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Schema di dimostrazione:**",
                     "1.  **Base:** Verificare che $P(n_0)$ sia vera (di solito $n_0 = 0$ o $1$).",
                     "2.  **Passo Induttivo:** Assumendo che $P(n)$ sia vera (**Ipotesi Induttiva**), dimostrare che $P(n+1)$ è vera.",
-                    "Se entrambe le condizioni sono soddisfatte, allora $P(n)$ è vera per ogni $n \\ge n_0$."
+                    "Se entrambe le condizioni sono soddisfatte, allora $P(n)$ è vera per ogni $n \\ge n_0$.",
+                    "![Schema del principio di induzione](/analisi1-images/ch5-induction-flow.svg)"
                 ]
             },
             {
@@ -264,6 +271,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "1.  $\\binom{n}{0} = 1$ e $\\binom{n}{n} = 1$",
                     "2.  **Simmetria:** $\\binom{n}{k} = \\binom{n}{n-k}$",
                     "3.  **Identità di Pascal:** $\\binom{n}{k-1} + \\binom{n}{k} = \\binom{n+1}{k}$",
+                    "![Triangolo di Pascal e coefficienti binomiali](/analisi1-images/ch5-pascal-triangle.svg)",
                     "**Esempi:**",
                     "*   $\\binom{5}{2} = \\frac{5 \\cdot 4}{2 \\cdot 1} = 10$",
                     "*   $\\binom{116}{113} = \\binom{116}{3} = \\frac{116 \\cdot 115 \\cdot 114}{3!} = 253460$"
@@ -281,6 +289,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "Per ogni $n \\ge 1$ e per ogni coppia di numeri reali $a, b$, vale la seguente uguaglianza:",
                     "$$ (a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k $$",
                     "Questa formula permette di sviluppare la potenza $n$-esima di un binomio.",
+                    "![Esempio di sviluppo del binomio](/analisi1-images/ch6-binomial-expansion.svg)",
                     "**Dimostrazione (Induzione su n):**",
                     "Si basa sull'identità di Pascal: $\\binom{n}{k} + \\binom{n}{k-1} = \\binom{n+1}{k}$.",
                     "**Esempio:** Calcolare il coefficiente di $y^5$ nello sviluppo di $(2x - y)^5$.",
@@ -296,7 +305,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "1.  **Somma:** $(a,b) + (c,d) = (a+c, b+d)$",
                     "2.  **Prodotto:** $(a,b) \\cdot (c,d) = (ac - bd, ad + bc)$",
                     "L'elemento $(0,0)$ è neutro per la somma, $(1,0)$ è neutro per il prodotto.",
-                    "L'insieme $\\mathbb{R}$ è identificato con il sottoinsieme $\\{(a,0) \\mid a \\in \\mathbb{R}\\} \\subset \\mathbb{C}$."
+                    "L'insieme $\\mathbb{R}$ è identificato con il sottoinsieme $\\{(a,0) \\mid a \\in \\mathbb{R}\\} \\subset \\mathbb{C}$.",
+                    "![Rappresentazione sul piano complesso](/analisi1-images/ch6-complex-plane.svg)"
                 ]
             },
             {
@@ -352,6 +362,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "L'asse $x$ è l'**Asse Reale**, l'asse $y$ è l'**Asse Immaginario**.",
                     "**Coniugato ($\\bar{z}$):** Dato $z = a+ib$, il suo coniugato è $\\bar{z} = a-ib$.",
                     "Geometricamente, $\\bar{z}$ è il simmetrico di $z$ rispetto all'asse reale.",
+                    "![Coniugato e simmetria rispetto all'asse reale](/analisi1-images/ch7-conjugate-symmetry.svg)",
                     "**Proprietà del Coniugato:**",
                     "1.  $\\overline{z \\pm w} = \\overline{z} \\pm \\overline{w}$",
                     "2.  $\\overline{z \\cdot w} = \\overline{z} \\cdot \\overline{w}$",
@@ -366,6 +377,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Definizione:** Il modulo $|z|$ è la distanza del punto $z$ dall'origine.",
                     "Se $z = a+ib$, allora:",
                     "$$ |z| = \\sqrt{a^2 + b^2} = \\sqrt{z \\cdot \\overline{z}} $$",
+                    "![Modulo come distanza dall'origine](/analisi1-images/ch7-modulus-distance.svg)",
                     "**Proprietà del Modulo:**",
                     "1.  $|z| \\ge 0$ e $|z|=0 \\iff z=0$.",
                     "2.  $|z| = |\\overline{z}|$.",
@@ -402,7 +414,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Modulo ($\\rho$):** $\\rho = |z| = \\sqrt{a^2+b^2}$ (distanza dall'origine).",
                     "**Argomento ($\\theta$):** $\\theta = \\arg(z)$ è l'angolo formato dal vettore $z$ con il semiasse reale positivo.",
                     "**Relazioni tra coordinate:**",
-                    "$$ a = \\rho \\cos \\theta, \\quad b = \\rho \\sin \\theta $$"
+                    "$$ a = \\rho \\cos \\theta, \\quad b = \\rho \\sin \\theta $$",
+                    "![Coordinate polari nel piano complesso](/analisi1-images/ch8-polar-coordinates.svg)"
                 ]
             },
             {
@@ -434,7 +447,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "Se $w = r(\\cos \\varphi + i \\sin \\varphi)$, esistono esattamente $n$ radici distinte:",
                     "$$ z_k = \\sqrt[n]{r} \\left[ \\cos \\left( \\frac{\\varphi + 2k\\pi}{n} \\right) + i \\sin \\left( \\frac{\\varphi + 2k\\pi}{n} \\right) \\right] $$",
                     "con $k = 0, 1, \\dots, n-1$.",
-                    "**Interpretazione Geometrica:** Le $n$ radici sono i vertici di un **poligono regolare** di $n$ lati inscritto nella circonferenza di raggio $\\sqrt[n]{|w|}$ centrata nell'origine."
+                    "**Interpretazione Geometrica:** Le $n$ radici sono i vertici di un **poligono regolare** di $n$ lati inscritto nella circonferenza di raggio $\\sqrt[n]{|w|}$ centrata nell'origine.",
+                    "![Radici n-esime sulla circonferenza](/analisi1-images/ch8-roots-circle.svg)"
                 ]
             },
             {
@@ -464,6 +478,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "Ogni equazione polinomiale a coefficienti complessi di grado $n \\ge 1$ ha esattamente $n$ soluzioni in $\\mathbb{C}$ (contate con la loro molteplicità).",
                     "$$ a_n z^n + a_{n-1}z^{n-1} + \\dots + a_1 z + a_0 = 0 $$",
                     "con $a_i \\in \\mathbb{C}$ e $a_n \\neq 0$.",
+                    "![Radici di un polinomio nel piano complesso](/analisi1-images/ch9-polynomial-roots.svg)",
                     "**Caso particolare:** L'equazione $z^n = w$ ha esattamente $n$ soluzioni distinte (le radici n-esime di $w$)."
                 ]
             },
@@ -472,6 +487,7 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Per risolvere equazioni del tipo $z^n = w$ o equazioni che coinvolgono $\\overline{z}$ e $|z|$, si usa la rappresentazione polare:",
                     "Poniamo $z = \\rho e^{i\\theta}$ con $\\rho \\ge 0$ e $\\theta \\in [0, 2\\pi)$.",
+                    "![Soluzioni sulla circonferenza unitaria](/analisi1-images/ch9-unit-circle-solutions.svg)",
                     "**Esempio:** Risolvere $z^3 = \\overline{z}$.",
                     "$(\\rho e^{i\\theta})^3 = \\rho e^{-i\\theta} \\Rightarrow \\rho^3 e^{i3\\theta} = \\rho e^{-i\\theta}$",
                     "Confrontando moduli e argomenti:",
@@ -543,7 +559,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "$z_k = \\cos\\left(\\frac{3\\pi/2 + 2k\\pi}{3}\\right) + i \\sin\\left(\\frac{3\\pi/2 + 2k\\pi}{3}\\right)$",
                     "*   $z_0 = \\cos(\\pi/2) + i\\sin(\\pi/2) = i$",
                     "*   $z_1 = \\cos(7\\pi/6) + i\\sin(7\\pi/6) = -\\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$",
-                    "*   $z_2 = \\cos(11\\pi/6) + i\\sin(11\\pi/6) = \\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$"
+                    "*   $z_2 = \\cos(11\\pi/6) + i\\sin(11\\pi/6) = \\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$",
+                    "![Radici cubiche di -i sulla circonferenza](/analisi1-images/ch10-roots-minus-i.svg)"
                 ]
             },
             {
@@ -597,7 +614,7 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Il concetto di funzione nasce per esprimere la dipendenza di una grandezza variabile rispetto a un'altra grandezza, considerata indipendente.",
                     "**Definizione:** Dati due insiemi $A$ e $B$, una **funzione** $f: A \\rightarrow B$ è una legge che ad ogni elemento $x \\in A$ associa **uno e un solo** elemento $f(x) \\in B$.",
-                    `*Figura 11.1: Mappatura di una funzione $f$ da un insieme $A$ a un insieme $B$. A sinistra: una funzione valida (ogni elemento di $A$ ha una sola immagine). A destra: non è una funzione (un elemento ha due immagini).*`,
+                    "![Mappatura di una funzione tra insiemi](/analisi1-images/ch11-function-mapping.svg)",
                     "*   $A = dom(f)$ è il **Dominio** (insieme di partenza).",
                     "*   $B = codom(f)$ è il **Codominio** (insieme di arrivo).",
                     "*   $x$ è la **variabile indipendente**.",
@@ -657,7 +674,7 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "12.1 Funzioni Potenza",
                 content: [
                     "**Definizione:** $f(x) = x^\\alpha$, con $\\alpha \\in \\mathbb{R} \\setminus \\{0\\}$.",
-                    `*Figura 12.1: Grafici delle funzioni potenza. Si notano le diverse forme per esponenti frazionari e negativi.*`,
+                    "![Grafici delle funzioni potenza](/analisi1-images/ch12-power-functions.svg)",
                     "**Casi notevoli:**",
                     "*   $x^n$ con $n$ pari: Funzione pari, definita su $\\mathbb{R}$, immagine $[0, +\\infty)$.",
                     "*   $x^n$ con $n$ dispari: Funzione dispari, definita su $\\mathbb{R}$, immagine $\\mathbb{R}$.",
@@ -670,7 +687,7 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "12.2 Funzioni Esponenziali",
                 content: [
                     "**Definizione:** $f(x) = a^x$ con $a > 0, a \\neq 1$.",
-                    `*Figura 12.2: Grafico della funzione esponenziale $f(x) = e^x$. La funzione è sempre positiva, strettamente crescente, e passa per il punto $(0, 1)$.*`,
+                    "![Grafico della funzione esponenziale](/analisi1-images/ch12-exponential.svg)",
                     "*   Dominio: $\\mathbb{R}$. Immagine: $(0, +\\infty)$.",
                     "*   Se $a > 1$: strettamente **crescente**.",
                     "*   Se $0 < a < 1$: strettamente **decrescente**.",
@@ -681,7 +698,7 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "12.3 Funzioni Logaritmiche",
                 content: [
                     "**Definizione:** $f(x) = \\log_a x$ con $a > 0, a \\neq 1$.",
-                    `*Figura 12.3: Grafico della funzione logaritmica. È la funzione inversa dell'esponenziale, definita solo per $x > 0$ e con asintoto verticale in $x = 0$.*`,
+                    "![Grafico della funzione logaritmica](/analisi1-images/ch12-logarithm.svg)",
                     "*   Dominio: $(0, +\\infty)$. Immagine: $\\mathbb{R}$.",
                     "*   Se $a > 1$: strettamente crescente.",
                     "*   Se $0 < a < 1$: strettamente decrescente.",
@@ -722,10 +739,10 @@ export const analisi1CourseContent: MainSection[] = [
                 title: "13.1 Seno e Coseno",
                 content: [
                     "Data una $x \\in \\mathbb{R}$, sia $P_x$ il punto sulla circonferenza unitaria ottenuto ruotando di un angolo $x$ dal punto $(1,0)$.",
-                    `*Figura 13.1: La circonferenza unitaria (raggio = 1). Le coordinate del punto $P$ sull'arco corrispondente all'angolo $\\theta$ sono $(\\cos\\theta, \\sin\\theta)$.*`,
+                    "![Circonferenza unitaria e coordinate](/analisi1-images/ch13-unit-circle.svg)",
                     "**Coseno:** $\\cos(x) = $ ascissa di $P_x$.",
                     "**Seno:** $\\sin(x) = $ ordinata di $P_x$.",
-                    `*Figura 13.2: Grafico della funzione $y = \\sin(x)$. È una funzione periodica con periodo $2\\pi$, dispari, con valori compresi tra $-1$ e $1$.*`,
+                    "![Grafico della funzione seno](/analisi1-images/ch13-sine-graph.svg)",
                     "**Proprietà fondamentali:**",
                     "*   Dominio: $\\mathbb{R}$. Immagine: $[-1, 1]$.",
                     "*   Periodiche con $T = 2\\pi$.",
@@ -738,7 +755,7 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "**Tangente:** $\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$, con dominio $\\mathbb{R} \\setminus \\{\\frac{\\pi}{2} + k\\pi\\}$.",
                     "**Cotangente:** $\\cot(x) = \\frac{\\cos(x)}{\\sin(x)}$, con dominio $\\mathbb{R} \\setminus \\{k\\pi\\}$.",
-                    `*Figura 13.3: Grafici delle funzioni tangente e cotangente. Entrambe hanno periodo $\\pi$ e presentano asintoti verticali dove il denominatore si annulla.*`,
+                    "![Grafici di tangente e cotangente](/analisi1-images/ch13-tan-cot.svg)",
                     "*   Immagine: $\\mathbb{R}$ per entrambe.",
                     "*   Periodiche con $T = \\pi$.",
                     "*   Entrambe sono dispari."
@@ -791,7 +808,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "Date due funzioni $f: A \\rightarrow B$ e $g: B \\rightarrow \\mathbb{R}$ con $f(A) \\subseteq D_g$, si definisce la **funzione composta**:",
                     "$$ (g \\circ f)(x) = g[f(x)], \\quad \\forall x \\in A $$",
                     "**Dominio:** $D_{g \\circ f} = \\{x \\in D_f \\mid f(x) \\in D_g\\}$.",
-                    "**Nota:** In generale $g \\circ f \\neq f \\circ g$."
+                    "**Nota:** In generale $g \\circ f \\neq f \\circ g$.",
+                    "![Schema della composizione di funzioni](/analisi1-images/ch14-composition.svg)"
                 ]
             },
             {
@@ -864,7 +882,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "*   Dominio: $\\mathbb{R}$. Immagine: $[1, +\\infty)$.",
                     "*   Pari.",
                     "*   $\\cosh(0) = 1$.",
-                    "*   Descrive la forma di una **catenaria** (fune appesa a due estremità)."
+                    "*   Descrive la forma di una **catenaria** (fune appesa a due estremità).",
+                    "![Iperbole e funzioni iperboliche](/analisi1-images/ch15-hyperbola.svg)"
                 ]
             },
             {
@@ -890,7 +909,8 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Una **successione** è una funzione $f: \\mathbb{N} \\rightarrow \\mathbb{R}$. Si usa la notazione $a_n = f(n)$.",
                     "Esempio: $(a_n)_{n \\in \\mathbb{N}} = (0, 1, 4, 9, 16, ...) \\Rightarrow a_n = n^2$.",
-                    "Si rappresenta graficamente con i punti $(n, a_n)$ nel piano."
+                    "Si rappresenta graficamente con i punti $(n, a_n)$ nel piano.",
+                    "![Successione che converge a un limite](/analisi1-images/ch16-sequence-limit.svg)",
                 ]
             },
             {
@@ -938,6 +958,7 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Per $n \\to \\infty$, velocità di crescita:",
                     "$$ \\log_a n \\ll n^\\alpha \\ll a^n \\ll n! \\ll n^n $$",
+                    "![Confronto tra ordini di crescita](/analisi1-images/ch17-growth-rates.svg)",
                     "(con $a > 1, \\alpha > 0$).",
                     "**Conseguenze:**",
                     "*   $\\lim \\frac{(\\ln n)^a}{n^b} = 0$ per ogni $a, b > 0$.",
@@ -966,8 +987,8 @@ export const analisi1CourseContent: MainSection[] = [
             {
                 title: "17.2 Stime Asintotiche Notevoli (per $x \\to 0$)",
                 content: [
-                    "*   $\\sin x \\sim x$, $\\arcsin x \\sim x$",
-                    "*   $\\tan x \\sim x$, $\\arctan x \\sim x$",
+                    "*   $\\sin x \\sim x \\quad \\arcsin x \\sim x$",
+                    "*   $\\tan x \\sim x \\quad \\arctan x \\sim x$",
                     "*   $1 - \\cos x \\sim \\frac{1}{2}x^2$",
                     "*   $e^x - 1 \\sim x$",
                     "*   $a^x - 1 \\sim x \\ln a$",
@@ -1036,7 +1057,8 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "La funzione $f$ ha **asintoto verticale** $x = c$ se:",
                     "$$ \\lim_{x \\to c^+} f(x) = \\pm\\infty \\quad \\text{oppure} \\quad \\lim_{x \\to c^-} f(x) = \\pm\\infty $$",
-                    "**Esempio:** $\\lim_{x \\to 0^+} \\frac{1}{x} = +\\infty$, $\\lim_{x \\to 0^-} \\frac{1}{x} = -\\infty$ (asintoto $x=0$)."
+                    "**Esempio:** $\\lim_{x \\to 0^+} \\frac{1}{x} = +\\infty$, $\\lim_{x \\to 0^-} \\frac{1}{x} = -\\infty$ (asintoto $x=0$).",
+                    "![Asintoti verticali e orizzontali](/analisi1-images/ch18-asymptotes.svg)",
                 ]
             },
             {
@@ -1097,7 +1119,8 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "**Enunciato:** Se $\\lim_{x \\to c} f(x) = \\lim_{x \\to c} g(x) = l$ e $f(x) \\le h(x) \\le g(x)$ **definitivamente** per $x \\to c$, allora:",
                     "$$ \\lim_{x \\to c} h(x) = l $$",
-                    "Questo teorema è noto anche come **Teorema dei Carabinieri**."
+                    "Questo teorema è noto anche come **Teorema dei Carabinieri**.",
+                    "![Schema del teorema del confronto](/analisi1-images/ch19-squeeze-theorem.svg)",
                 ]
             },
             {
@@ -1224,7 +1247,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Esempio:** La funzione di Heaviside (o funzione gradino):",
                     "$$ H(x) = \\begin{cases} 1 & \\text{se } x \\ge 0 \\\\ 0 & \\text{se } x < 0 \\end{cases} $$",
                     "$H(x)$ è **continua in $0$ da destra** ma non da sinistra.",
-                    "Ha una discontinuità di salto in $x = 0$ con salto $= 1 - 0 = 1$."
+                    "Ha una discontinuità di salto in $x = 0$ con salto $= 1 - 0 = 1$.",
+                    "![Discontinuita di salto](/analisi1-images/ch20-discontinuity-jump.svg)",
                 ]
             },
             {
@@ -1335,6 +1359,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "$$ \\frac{y-y_0}{x-x_0} = \\frac{f(x)-f(x_0)}{x-x_0} \\quad \\text{(Coefficiente angolare della retta secante)} $$",
                     "Se consideriamo il limite $x \\to x_0$, la retta secante si trasforma in **retta tangente**:",
                     "$$ y - y_0 = \\lim_{x \\to x_0} \\frac{f(x)-f(x_0)}{x-x_0} (x-x_0) $$",
+                    "![Retta tangente a una curva](/analisi1-images/ch21-tangent-line.svg)",
                 ]
             },
             {
@@ -1418,7 +1443,8 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "**Definizione:** Siano $a < b$ reali e $f: [a, b] \\to \\mathbb{R}$ una funzione. Si dice che:",
                     "*   $x_0 \\in [a, b]$ è un punto di **MINIMO LOCALE** se $(\\exists \\delta > 0)(\\forall x \\in (x_0-\\delta, x_0+\\delta) \\cap [a, b]) f(x_0) \\le f(x)$.",
-                    "*   $x_0 \\in [a, b]$ è un punto di **MASSIMO LOCALE** se $(\\exists \\delta > 0)(\\forall x \\in (x_0-\\delta, x_0+\\delta) \\cap [a, b]) f(x_0) \\ge f(x)$."
+                    "*   $x_0 \\in [a, b]$ è un punto di **MASSIMO LOCALE** se $(\\exists \\delta > 0)(\\forall x \\in (x_0-\\delta, x_0+\\delta) \\cap [a, b]) f(x_0) \\ge f(x)$.",
+                    "![Esempio di massimo e minimo locali](/analisi1-images/ch22-local-extrema.svg)",
                 ]
             },
             {
@@ -1481,7 +1507,7 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Definizione:** Sia $I \\subseteq \\mathbb{R}$ un intervallo e $f: I \\to \\mathbb{R}$ una funzione. Si chiama **epigrafico** di $f$ l'insieme:",
                     "$$ E_f = \\{(x,y) \\in \\mathbb{R}^2 \\mid x \\in I, y \\ge f(x)\\} $$",
                     "**Definizione:** Si dice che $f$ è **convessa in $I$** (concava) se tutte le rette secanti al grafico di $f$ si trovano **al di sopra** (sotto) del grafico.",
-                    `*Figura 23.1: Una funzione convessa. La retta secante che collega $(a, f(a))$ e $(b, f(b))$ si trova al di sopra del grafico. Il punto $c$ dove la tangente è parallela alla secante è dato dal Teorema di Lagrange.*`
+                    "![Convessita e rette secanti](/analisi1-images/ch23-convex-secants.svg)",
                 ]
             },
             {
@@ -1527,7 +1553,8 @@ export const analisi1CourseContent: MainSection[] = [
                 content: [
                     "Siano $a < b$ reali e $f: (a, b) \\to \\mathbb{R}$ una funzione derivabile $n$ volte in $x_0 \\in (a, b)$ ($n \\ge 1$).",
                     "$$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + o((x-x_0)^n) \\text{ per } x \\to x_0 $$",
-                    "Se $x_0 = 0$, si parla di **formula di Maclaurin**."
+                    "Se $x_0 = 0$, si parla di **formula di Maclaurin**.",
+                    "![Approssimazione di Taylor vicino a x0](/analisi1-images/ch24-taylor-approx.svg)",
                 ]
             },
             {
@@ -1589,7 +1616,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Note:**",
                     "1. Se $F_1, F_2$ sono primitive di $f$, allora $F_1(t) = F_2(t) + c$ per una costante $c \\in \\mathbb{R}$.",
                     "2. Se $F$ è una primitiva di $f$, anche $F+c$ è una primitiva.",
-                    "L'insieme di tutte le primitive si chiama **integrale indefinito** di $f$ e si indica con $\\int f(x) dx$."
+                    "L'insieme di tutte le primitive si chiama **integrale indefinito** di $f$ e si indica con $\\int f(x) dx$.",
+                    "![Relazione tra derivata e primitiva](/analisi1-images/ch25-primitive-relationship.svg)",
                 ]
             },
             {
@@ -1668,7 +1696,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "**Esempio:** Sia $f(x) = x^2$ su $[0, b]$ con $b > 0$. Calcoliamo l'area di $E$.",
                     "1. Si divide l'intervallo $[0, b]$ in $n \\ge 1$ segmenti uguali, ognuno di lunghezza $b/n$, con punti $x_i = \\frac{ib}{n}$.",
                     "2. In ogni intervallo $I_i = [x_{i-1}, x_i]$ si considera il rettangolo inscritto di **maggiore** altezza (approssimazione per difetto).",
-                    "3. Si considera il rettangolo circoscritto di **minore** altezza (approssimazione per eccesso)."
+                    "3. Si considera il rettangolo circoscritto di **minore** altezza (approssimazione per eccesso).",
+                    "![Somme di Riemann con rettangoli](/analisi1-images/ch26-riemann-sum.svg)",
                 ]
             },
             {
@@ -1734,7 +1763,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "1. $(\\forall x > a)$ $f$ è integrabile in $[a, x]$.",
                     "2. Esiste finito il limite $\\lim_{\\omega \\to +\\infty} \\int_{a}^{\\omega} f(x) dx$.",
                     "In tal caso: $\\int_{a}^{+\\infty} f(x) dx = \\lim_{\\omega \\to +\\infty} \\int_{a}^{\\omega} f(x) dx$.",
-                    "Se il limite è finito, l'integrale è **convergente**; altrimenti è **divergente**."
+                    "Se il limite è finito, l'integrale è **convergente**; altrimenti è **divergente**.",
+                    "![Integrale improprio su intervallo infinito](/analisi1-images/ch27-improper-integral.svg)",
                 ]
             },
             {
@@ -1802,7 +1832,8 @@ export const analisi1CourseContent: MainSection[] = [
                     "Questa somma infinita si dice **serie numerica**.",
                     "Costruiamo la **successione delle somme parziali** $(S_N)_{N \\in \\mathbb{N}}$:",
                     "$$ S_0 = a_0, \\quad S_1 = a_0 + a_1, \\quad \\dots, \\quad S_N = \\sum_{k=0}^{N} a_k $$",
-                    "**Definizione:** La serie $\\sum_{k=0}^{+\\infty} a_k$ è **convergente** (divergente) se la successione $S_N$ è convergente (divergente). Se $\\lim_{N \\to \\infty} S_N = S$, poniamo $\\sum_{k=0}^{\\infty} a_k = S$."
+                    "**Definizione:** La serie $\\sum_{k=0}^{+\\infty} a_k$ è **convergente** (divergente) se la successione $S_N$ è convergente (divergente). Se $\\lim_{N \\to \\infty} S_N = S$, poniamo $\\sum_{k=0}^{\\infty} a_k = S$.",
+                    "![Somme parziali che convergono](/analisi1-images/ch28-partial-sums.svg)",
                 ]
             },
             {

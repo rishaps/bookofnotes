@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="240" viewBox="0 0 860 240" role="img" aria-labelledby="title desc">
+  <title id="title">Function Composition</title>
+  <desc id="desc">Mapping from A to B to C with composition.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <rect x="80" y="70" width="160" height="80" fill="none" stroke="#000000" stroke-width="2" />
+  <rect x="350" y="70" width="160" height="80" fill="none" stroke="#000000" stroke-width="2" />
+  <rect x="620" y="70" width="160" height="80" fill="none" stroke="#000000" stroke-width="2" />
+
+  <text x="160" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#000000">A</text>
+  <text x="430" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#000000">B</text>
+  <text x="700" y="115" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#000000">C</text>
+
+  <line x1="240" y1="110" x2="350" y2="110" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="510" y1="110" x2="620" y2="110" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="240" y1="150" x2="620" y2="150" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+
+  <text x="295" y="95" font-family="Arial, sans-serif" font-size="14" fill="#000000">f</text>
+  <text x="565" y="95" font-family="Arial, sans-serif" font-size="14" fill="#000000">g</text>
+  <text x="420" y="170" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#000000">g o f</text>
+</svg>

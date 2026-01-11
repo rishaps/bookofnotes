@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="280" viewBox="0 0 900 280" role="img" aria-labelledby="title desc">
+  <title id="title">Set Operations Diagram</title>
+  <desc id="desc">Union, intersection, and difference for sets A and B.</desc>
+  <defs>
+    <clipPath id="clip-intersection">
+      <circle cx="420" cy="120" r="55" />
+    </clipPath>
+    <mask id="mask-diff-a-b" maskUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="900" height="280" fill="black" />
+      <circle cx="700" cy="120" r="55" fill="white" />
+      <circle cx="780" cy="120" r="55" fill="black" />
+    </mask>
+  </defs>
+
+  <text x="180" y="30" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">Union</text>
+  <circle cx="140" cy="120" r="55" fill="#e0e0e0" stroke="#000000" stroke-width="2" />
+  <circle cx="220" cy="120" r="55" fill="#e0e0e0" stroke="#000000" stroke-width="2" />
+  <text x="180" y="230" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#000000">A or B</text>
+
+  <text x="460" y="30" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">Intersection</text>
+  <circle cx="500" cy="120" r="55" fill="#d0d0d0" clip-path="url(#clip-intersection)" />
+  <circle cx="420" cy="120" r="55" fill="none" stroke="#000000" stroke-width="2" />
+  <circle cx="500" cy="120" r="55" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="460" y="230" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#000000">A and B</text>
+
+  <text x="740" y="30" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">Difference</text>
+  <circle cx="700" cy="120" r="55" fill="#e0e0e0" mask="url(#mask-diff-a-b)" />
+  <circle cx="700" cy="120" r="55" fill="none" stroke="#000000" stroke-width="2" />
+  <circle cx="780" cy="120" r="55" fill="none" stroke="#000000" stroke-width="2" />
+  <text x="740" y="230" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#000000">A minus B</text>
+</svg>

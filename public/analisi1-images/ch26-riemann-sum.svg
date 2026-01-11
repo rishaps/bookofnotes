@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="300" viewBox="0 0 860 300" role="img" aria-labelledby="title desc">
+  <title id="title">Riemann Sum</title>
+  <desc id="desc">Rectangles approximating area under a curve.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <line x1="120" y1="220" x2="760" y2="220" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="120" y1="240" x2="120" y2="60" stroke="#000000" stroke-width="2" marker-end="url(#arrow)" />
+
+  <path d="M120 210 C200 180 300 140 420 120 C520 105 640 110 740 130" fill="none" stroke="#000000" stroke-width="2" />
+
+  <rect x="140" y="190" width="60" height="30" fill="#e0e0e0" stroke="#000000" stroke-width="1" />
+  <rect x="200" y="175" width="60" height="45" fill="#e0e0e0" stroke="#000000" stroke-width="1" />
+  <rect x="260" y="160" width="60" height="60" fill="#e0e0e0" stroke="#000000" stroke-width="1" />
+  <rect x="320" y="150" width="60" height="70" fill="#e0e0e0" stroke="#000000" stroke-width="1" />
+  <rect x="380" y="145" width="60" height="75" fill="#e0e0e0" stroke="#000000" stroke-width="1" />
+</svg>

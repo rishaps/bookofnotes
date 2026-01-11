@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Set Membership Diagram</title>
+  <desc id="desc">Universe U contains set A, with element a inside A.</desc>
+  <rect x="40" y="40" width="640" height="200" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="320" cy="140" r="80" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="320" cy="140" r="6" fill="#000000"/>
+  <text x="70" y="70" font-family="Arial, sans-serif" font-size="18" fill="#000000">U</text>
+  <text x="320" y="95" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#000000">A</text>
+  <text x="340" y="165" font-family="Arial, sans-serif" font-size="18" fill="#000000">a</text>
+</svg>
