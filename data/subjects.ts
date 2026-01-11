@@ -29,7 +29,7 @@ export const subjects: Subject[] = [
         title: "Fisica",
         year: "Year 1",
         slug: "fisica",
-        image: "/FIRST-YEAR-IMAGES/fisica.jpeg"
+        image: "/fisica-images/fisica.jpeg"
     },
     {
         title: "Elettrotecnica",
