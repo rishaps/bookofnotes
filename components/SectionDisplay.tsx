@@ -33,21 +33,21 @@ const ImageThumbnail: React.FC<{
   const alignClass = 'items-center';
   const imgAlignClass = 'mx-auto';
   const maxHeightClass =
-    size === 'large' ? 'max-h-[480px]' : size === 'small' ? 'max-h-[220px]' : 'max-h-[320px]';
+    size === 'large' ? 'max-h-[640px]' : size === 'small' ? 'max-h-[360px]' : 'max-h-[520px]';
 
   return (
     <div
       className={`relative cursor-zoom-in my-6 group flex flex-col ${alignClass}`}
       onClick={() => onImageClick(imgSrc, alt)}
     >
-      <div className="image-frame relative overflow-hidden rounded-lg transition-all duration-300">
+      <div className="image-frame relative w-full overflow-hidden rounded-lg transition-all duration-300">
         <img
           src={imgSrc}
           alt={alt}
           loading="lazy"
           onLoad={onImageLoad}
           onError={() => setHasError(true)}
-          className={`max-w-full h-auto ${maxHeightClass} object-contain ${imgAlignClass}`}
+          className={`w-full h-auto ${maxHeightClass} object-contain ${imgAlignClass}`}
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
           <ZoomIn className="text-content-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md" size={24} />

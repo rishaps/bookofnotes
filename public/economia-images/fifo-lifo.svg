@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="469.5"
+   height="378.5"
+   viewBox="0 0 469.5 378.5"
+   id="svg2"
+   xml:space="preserve"><defs
+   id="defs41" />
+		<rect
+   width="469"
+   height="378"
+   x="0.25"
+   y="0.25"
+   style="fill:none;stroke:black;stroke-width:0.5"
+   id="rect7" /><g
+   id="g9">
+				<rect
+   width="66.086998"
+   height="221.74001"
+   x="206.41499"
+   y="78.598"
+   style="fill:white;stroke:black"
+   id="rect11" /> 
+				<rect
+   width="26.087"
+   height="26.087"
+   x="226.41499"
+   y="174.64101"
+   style="fill:#f7f632;stroke:black;stroke-width:0.5"
+   id="rect13" /> 
+				<rect
+   width="26.087999"
+   height="26.087"
+   x="226.414"
+   y="251.467"
+   style="fill:#f03190;stroke:black;stroke-width:0.5"
+   id="rect15" /> 
+				<rect
+   width="26.087999"
+   height="26.087999"
+   x="226.414"
+   y="213.054"
+   style="fill:#64b832;stroke:black;stroke-width:0.5"
+   id="rect17" /> 
+				<rect
+   width="26.087"
+   height="26.087"
+   x="43.294998"
+   y="15.706"
+   style="fill:#f7f632;stroke:black;stroke-width:0.5"
+   id="rect19" /> 
+				<rect
+   width="26.087"
+   height="26.087999"
+   x="120.121"
+   y="15.706"
+   style="fill:#f03190;stroke:black;stroke-width:0.5"
+   id="rect21" /> 
+				<rect
+   width="26.087999"
+   height="26.087999"
+   x="81.708"
+   y="15.706"
+   style="fill:#64b832;stroke:black;stroke-width:0.5"
+   id="rect23" /> 
+				<rect
+   width="26.087999"
+   height="26.087"
+   x="347.64301"
+   y="15.706"
+   style="fill:#f03190;stroke:black;stroke-width:0.5"
+   id="rect25" /> 
+				<rect
+   width="26.087"
+   height="26.087999"
+   x="424.46899"
+   y="15.706"
+   style="fill:#f7f632;stroke:black;stroke-width:0.5"
+   id="rect27" /> 
+				<rect
+   width="26.087999"
+   height="26.087999"
+   x="386.056"
+   y="15.706"
+   style="fill:#64b832;stroke:black;stroke-width:0.5"
+   id="rect29" /> 
+				<rect
+   width="26.087999"
+   height="26.087999"
+   x="347.64301"
+   y="334.25"
+   style="fill:#f7f632;stroke:black;stroke-width:0.5"
+   id="rect31" /> 
+				<rect
+   width="26.087"
+   height="26.087999"
+   x="424.46899"
+   y="334.25"
+   style="fill:#f03190;stroke:black;stroke-width:0.5"
+   id="rect33" /> 
+				<rect
+   width="26.087999"
+   height="26.087999"
+   x="386.056"
+   y="334.25"
+   style="fill:#64b832;stroke:black;stroke-width:0.5"
+   id="rect35" /> 
+				<g
+   id="g37">
+					<polyline
+   id="polyline39"
+   points="170.839,29.033 226.414,29.033 226.414,62.946 "
+   style="fill:none;stroke:black" />
+					<path
+   d="M 227.439,65.308 C 227.939,63.655 228.398,62.58 228.931,61.254 L 223.887,61.254 C 224.113,61.729 224.88,63.655 225.379,65.308 C 225.914,67.078 226.279,68.682 226.41,69.723 C 226.539,68.682 226.905,67.077 227.439,65.308 z "
+   id="path41" />
+				</g>
+				<g
+   id="g43">
+					<polyline
+   id="polyline45"
+   points="308.079,29.033 252.504,29.033 252.504,62.946 "
+   style="fill:none;stroke:black" />
+					<path
+   d="M 310.441,28.008 C 308.787,27.508 307.712,27.049 306.386,26.516 L 306.386,31.56 C 306.861,31.334 308.786,30.567 310.441,30.068 C 312.211,29.533 313.814,29.168 314.855,29.037 C 313.814,28.908 312.211,28.542 310.441,28.008 z "
+   id="path47" />
+				</g>
+				<g
+   id="g49">
+					<polyline
+   id="polyline51"
+   points="308.153,347.294 252.578,347.294 252.578,313.381        "
+   style="fill:none;stroke:black" />
+					<path
+   d="M 310.516,346.27 C 308.862,345.77 307.787,345.31 306.461,344.778 L 306.461,349.823 C 306.936,349.596 308.861,348.83 310.516,348.331 C 312.286,347.796 313.889,347.431 314.93,347.3 C 313.889,347.169 312.285,346.803 310.516,346.27 z "
+   id="path53" />
+				</g>
+				<text
+   transform="translate(372.3936,81.2065)"
+   id="text55"><tspan
+     x="0"
+     y="0"
+     style="font-size:21px;letter-spacing:2;font-family:ArialMT"
+     id="tspan57">LIFO</tspan></text>
+				<text
+   transform="translate(371.8193,314.25)"
+   id="text59"><tspan
+     x="0"
+     y="0"
+     style="font-size:21px;letter-spacing:2;font-family:ArialMT"
+     id="tspan61">FIFO</tspan></text>
+			</g>
+	</svg>
