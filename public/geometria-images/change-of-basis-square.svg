@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+ 
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     version="1.1" baseProfile="full"
+     width="55mm" height="50mm">
+<defs>
+	<g id="ArrowH" stroke="black" stroke-width="1.5">
+		<line x1="5" x2="105" y1="0" y2="0" />
+		<line x1="105" x2="95" y1="0" y2 = "5"/>
+		<line x1="105" x2="95" y1="0" y2 = "-5"/>
+	</g>
+	<use id="ArrowV" xlink:href="#ArrowH" transform="rotate(-90)"/>
+
+	<g id="Kn">
+		<text font-size="20">K</text>
+		<text font-size="15" x="13" y="-10">n</text>
+	</g>
+	<g id="MBB">
+		<text font-size="15">M</text>
+		<text font-size="10" x="13" y="-6">B</text>
+
+		<text font-size="10" x="11" y="4" >B'</text>
+		<text font-size="15" x="19">(</text>
+		<text font-size="15" x="41">)</text>
+	</g>
+	<g id="idV">
+		<text font-size="15">id</text>
+		<text font_size="12" font-style="italic" x="10" y="5">V</text>
+
+	</g>
+</defs>
+
+<g font-style="italic">
+	<text font-size="20" x="20" y="30">V</text>
+	<text font-size="20" x="150" y="30">V</text>
+	<use xlink:href="#Kn" x="20" y="160"/>
+	<use xlink:href="#Kn" x="150" y="160"/>
+	
+	<text font-size="15" x="10" y="100">B</text>
+
+	<text font-size="15" x="170" y="100">B'</text>
+</g>
+
+<use x="80" y = "15" xlink:href="#idV" />
+
+<g transform="translate(41,172)">
+	<use font-style="italic" transform="translate(30,0)" xlink:href="#MBB"/>
+	<use transform="translate(54,0) scale(0.8,0.8)" xlink:href="#idV"/>	
+</g>
+<use x="38" y="25" xlink:href="#ArrowH" />
+<use x="38" y="155" xlink:href="#ArrowH" />
+<use x="158" y="143" xlink:href="#ArrowV" />
+<use x="28" y="143" xlink:href="#ArrowV" />
+
+</svg>

@@ -596,13 +596,17 @@ body {
 .course-content .image-frame {
     padding: 0;
     border: none;
-    background: transparent;
+    background: #ffffff;
     border-radius: 0 !important;
     box-shadow: none;
 }
 
 .dark .course-content .image-frame {
     border-color: transparent;
+}
+
+.course-content .image-frame img {
+    background: #ffffff;
 }
 
 .course-content .image-block.float-image {

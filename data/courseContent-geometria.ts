@@ -13,14 +13,16 @@ export const geometriaCourseContent: MainSection[] = [
                     "*   **Riflessiva:** se, per ogni $a \\in A$, si ha $a\\mathcal{R}a$.",
                     "*   **Simmetrica:** se, per ogni $a, b \\in A$, $a\\mathcal{R}b$ implica $b\\mathcal{R}a$.",
                     "*   **Antisimmetrica:** se, per ogni $a, b \\in A$, $a\\mathcal{R}b$ e $b\\mathcal{R}a$ implica $a = b$.",
-                    "*   **Transitiva:** se, per ogni $a, b, c \\in A$, $a\\mathcal{R}b$ e $b\\mathcal{R}c$ implica $a\\mathcal{R}c$."
+                    "*   **Transitiva:** se, per ogni $a, b, c \\in A$, $a\\mathcal{R}b$ e $b\\mathcal{R}c$ implica $a\\mathcal{R}c$.",
+                    "![Relazione di equivalenza come grafo](/geometria-images/equivalence-relation-graph.svg)"
                 ]
             },
             {
                 title: "1.2 Relazione d'Ordine",
                 content: [
                     "**Definizione 1.1.2 (Relazione d'ordine totale):** Una relazione d'ordine $\\mathcal{R}$ su un insieme $A$ si dice **relazione d'ordine** se è riflessiva, antisimmetrica e transitiva.",
-                    "Se inoltre, gli elementi di $A$ sono a due a due confrontabili, cioè, per ogni $a, b \\in A$, risulta $a\\mathcal{R}b$ oppure $b\\mathcal{R}a$, la relazione $\\mathcal{R}$ si dice **relazione d'ordine totale**."
+                    "Se inoltre, gli elementi di $A$ sono a due a due confrontabili, cioè, per ogni $a, b \\in A$, risulta $a\\mathcal{R}b$ oppure $b\\mathcal{R}a$, la relazione $\\mathcal{R}$ si dice **relazione d'ordine totale**.",
+                    "![Diagramma di Hasse per un ordine parziale](/geometria-images/hasse-powerset-3.svg)"
                 ]
             },
             {
@@ -30,7 +32,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "*   L'operazione $\\star$ è **associativa**.",
                     "*   Esiste in $G$ l'**elemento neutro**.",
                     "*   Ogni elemento $g \\in G$ è **simmetrizzabile** (ammette un inverso).",
-                    "Se l'operazione $\\star$ soddisfa anche la proprietà commutativa, il gruppo si dice **abeliano**."
+                    "Se l'operazione $\\star$ soddisfa anche la proprietà commutativa, il gruppo si dice **abeliano**.",
+                    "![Tabella di Cayley di un gruppo ciclico](/geometria-images/cayley-table-c5.svg)"
                 ]
             },
             {
@@ -60,7 +63,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Esempio 1.3.1:** Consideriamo le due matrici:",
                     "$$ A = \\begin{pmatrix} -3 & 0 & 2 \\\\ -4 & 7 & 1 \\end{pmatrix} \\quad B = \\begin{pmatrix} -5 & -1 & 2 \\\\ 0 & 1 & -2 \\\\ 1 & 1 & 3 \\end{pmatrix} $$",
                     "Il loro prodotto è:",
-                    "$$ A \\cdot B = \\begin{pmatrix} 17 & 5 & 0 \\\\ 21 & 12 & -19 \\end{pmatrix} $$"
+                    "$$ A \\cdot B = \\begin{pmatrix} 17 & 5 & 0 \\\\ 21 & 12 & -19 \\end{pmatrix} $$",
+                    "![Moltiplicazione tra matrici](/geometria-images/matrix-multiplication.svg)"
                 ]
             },
             {
@@ -69,7 +73,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Definizione 1.3.4 (Matrice identica):** L'elemento neutro delle matrici quadrate di ordine $n$ è la **matrice identica**, cioè la matrice:",
                     "$$ I_n = \\begin{pmatrix} 1 & 0 & \\cdots & 0 \\\\ 0 & 1 & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 0 & 0 & \\cdots & 1 \\end{pmatrix} $$",
                     "**Definizione 1.3.5 (Trasposta di una matrice):** Sia $A = (a_{ij})$ una matrice di $K_{m,n}$. Si dice **trasposta** di $A$ la matrice $K_{n,m}$ ottenuta scambiando tra loro le righe con le colonne:",
-                    "$$ {}^t A = (b_{ji}) \\quad \\text{ove} \\quad b_{ji} = a_{ij} $$"
+                    "$$ {}^t A = (b_{ji}) \\quad \\text{ove} \\quad b_{ji} = a_{ij} $$",
+                    "![Trasposta di una matrice](/geometria-images/matrix-transpose.svg)"
                 ]
             }
         ]
@@ -91,7 +96,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "    *   $(h + k) \\cdot v = h \\cdot v + k \\cdot v \\quad \\forall h, k \\in K, \\forall v \\in V$",
                     "    *   $h \\cdot (v + w) = h \\cdot v + h \\cdot w \\quad \\forall h \\in K, \\forall v, w \\in V$",
                     "    *   $1 \\cdot v = v \\quad \\forall v \\in V$",
-                    "Gli elementi di $V$ sono detti **vettori**, gli elementi di $K$ sono chiamati **scalari**. L'elemento neutro di $(V, +)$ è detto **vettore nullo** e indicato $\\mathbf{0}$."
+                    "Gli elementi di $V$ sono detti **vettori**, gli elementi di $K$ sono chiamati **scalari**. L'elemento neutro di $(V, +)$ è detto **vettore nullo** e indicato $\\mathbf{0}$.",
+                    "![Moltiplicazione di un vettore per uno scalare](/geometria-images/vector-scalar-multiplication.svg)"
                 ]
             },
             {
@@ -100,7 +106,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Teorema 2.1.1:** Sia $V$ uno spazio vettoriale sul campo $K$, siano $k \\in K$ e $v \\in V$. Allora:",
                     "$$ kv = \\mathbf{0} \\iff k = 0 \\text{ oppure } v = \\mathbf{0} $$",
                     "Questo teorema è fondamentale perché stabilisce che l'unico modo per ottenere il vettore nullo come prodotto di uno scalare per un vettore è che almeno uno dei due fattori sia nullo.",
-                    "![Operazioni con i Vettori](/FIRST-YEAR-IMAGES/vector_operations.png)"
+                    "![Somma di due vettori](/geometria-images/vector-addition.svg)"
                 ]
             },
             {
@@ -111,7 +117,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "1.  $\\forall u, u' \\in U$: $u + u' \\in U$ (chiusura rispetto alla somma)",
                     "2.  $\\forall k \\in K, \\forall u \\in U$: $ku \\in U$ (chiusura rispetto al prodotto per scalari)",
                     "**Proposizione 2.2.2 (Secondo criterio di riconoscimento):** $U$ è sottospazio di $V(K)$ se e soltanto se:",
-                    "$$ hv_1 + kv_2 \\in U \\quad \\forall v_1, v_2 \\in U \\text{ e } \\forall h, k \\in K $$"
+                    "$$ hv_1 + kv_2 \\in U \\quad \\forall v_1, v_2 \\in U \\text{ e } \\forall h, k \\in K $$",
+                    "![Sottospazi in $\\mathbb{R}^3$](/geometria-images/subspace-r3.png)"
                 ]
             },
             {
@@ -119,7 +126,8 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Definizione 2.3.1 (Combinazione lineare):** Siano $v_1, v_2, \\ldots, v_n \\in V(K)$. Si dice **combinazione lineare** dei vettori $v_1, v_2, \\ldots, v_n$ ogni vettore $v$:",
                     "$$ v = k_1 \\cdot v_1 + k_2 \\cdot v_2 + \\cdots + k_n \\cdot v_n \\quad \\text{con } k_1, k_2, \\ldots, k_n \\in K $$",
-                    "La combinazione lineare è il concetto chiave che collega i vettori tra loro e permette di costruire nuovi vettori a partire da quelli dati."
+                    "La combinazione lineare è il concetto chiave che collega i vettori tra loro e permette di costruire nuovi vettori a partire da quelli dati.",
+                    "![Spazio generato da due vettori](/geometria-images/linear-span-two-vectors.svg)"
                 ]
             },
             {
@@ -130,7 +138,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "Se $A$ è libero, i suoi vettori si dicono **linearmente indipendenti**.",
                     "**Definizione 2.3.3 (Sistema di vettori legato):** $A$ si dice **legato** se non è libero, cioè:",
                     "$$ \\exists k_1, k_2, \\ldots, k_n \\text{ non tutti nulli}: \\mathbf{0} = k_1 \\cdot v_1 + k_2 \\cdot v_2 + \\cdots + k_n \\cdot v_n $$",
-                    "Se $A$ è legato, i suoi vettori si dicono **linearmente dipendenti**."
+                    "Se $A$ è legato, i suoi vettori si dicono **linearmente dipendenti**.",
+                    "![Vettori linearmente dipendenti](/geometria-images/linearly-dependent-vectors-r3.svg)"
                 ]
             },
             {
@@ -164,7 +173,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Definizione 2.5.1 (Base):** Sia $S = (v_1, v_2, \\ldots, v_n)$ una sequenza libera di vettori di $V(K)$. $S$ è detta **base** se e solo se $S$ è una sequenza libera di generatori.",
                     "**Definizione 2.5.2 (Base canonica di $\\mathbb{R}^n$):**",
                     "$$ ((1, 0, 0, \\ldots, 0), (0, 1, 0, \\ldots, 0), \\ldots, (0, 0, 0, \\ldots, 1)) $$",
-                    "è una base canonica per $\\mathbb{R}^n$."
+                    "è una base canonica per $\\mathbb{R}^n$.",
+                    "![Base canonica in $\\mathbb{R}^2$](/geometria-images/basis-vectors-2d.svg)"
                 ]
             },
             {
@@ -224,7 +234,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "Se $U + W$ è una somma diretta, la indicheremo con $U \\oplus W$.",
                     "**Proposizione 2.6.4:** $U \\oplus W \\iff U \\cap W = \\{\\mathbf{0}\\}$.",
                     "**Corollario 2.6.1:** $V = U \\oplus W \\iff U + W = V$ e $U \\cap W = \\{\\mathbf{0}\\}$.",
-                    "**Corollario 2.6.2:** Se $U \\oplus W$ e $B_U$, $B_W$ sono basi di $U$ e $W$ rispettivamente, allora $B_U \\cup B_W$ è una base per $U \\oplus W$."
+                    "**Corollario 2.6.2:** Se $U \\oplus W$ e $B_U$, $B_W$ sono basi di $U$ e $W$ rispettivamente, allora $B_U \\cup B_W$ è una base per $U \\oplus W$.",
+                    "![Somma e intersezione di sottospazi](/geometria-images/subspaces-sum-intersection.svg)"
                 ]
             },
             {
@@ -251,6 +262,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "*   Se $n > 1$: $\\det(A) = \\sum_{j=1}^{n} (-1)^{1+j} a_{1j} \\det(A_{1j})$",
                     "Per una matrice $2 \\times 2$:",
                     "$$ A = \\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} \\implies |A| = a_{11}a_{22} - a_{12}a_{21} $$",
+                    "![Area del parallelogramma come determinante](/geometria-images/determinant-parallelogram-area.svg)",
                     "Per una matrice $3 \\times 3$ (Regola di Sarrus):",
                     "$$ |A| = a_{11}a_{22}a_{33} + a_{13}a_{21}a_{32} + a_{12}a_{23}a_{31} - a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33} $$"
                 ]
@@ -307,7 +319,9 @@ export const geometriaCourseContent: MainSection[] = [
                     "$$ \\begin{cases} a_{11}x_1 + a_{12}x_2 + \\cdots + a_{1n}x_n = b_1 \\\\ a_{21}x_1 + a_{22}x_2 + \\cdots + a_{2n}x_n = b_2 \\\\ \\vdots \\\\ a_{m1}x_1 + a_{m2}x_2 + \\cdots + a_{mn}x_n = b_m \\end{cases} $$",
                     "con $a_{ij}, b_l \\in K$. Gli elementi $a_{ij}$ si chiamano **coefficienti delle incognite**, gli elementi $b_l$ si dicono **termini noti**.",
                     "Il sistema si può scrivere in forma matriciale: $AX = B$",
-                    "**Definizione 3.4.2 (Sistema omogeneo):** Un sistema lineare si dice **omogeneo** quando tutti i termini noti sono nulli: $AX = \\mathbf{0}$."
+                    "**Definizione 3.4.2 (Sistema omogeneo):** Un sistema lineare si dice **omogeneo** quando tutti i termini noti sono nulli: $AX = \\mathbf{0}$.",
+                    "![Intersezione di rette come sistema lineare](/geometria-images/linear-system-intersecting-lines.svg)",
+                    "![Forma a scala di una matrice](/geometria-images/row-echelon-form.svg)"
                 ]
             },
             {
@@ -318,7 +332,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "$$ \\rho(A) = \\rho(A|B) $$",
                     "dove $A$ è la matrice incompleta e $A|B$ è la matrice completa (con la colonna dei termini noti).",
                     "Se il sistema è compatibile, l'insieme delle soluzioni forma uno spazio di dimensione $n - \\rho(A)$.",
-                    "![Intersezione di Piani e Soluzione Unica](/FIRST-YEAR-IMAGES/linear_systems_geometry.png)"
+                    "![Intersezione di piani e soluzione di un sistema](/geometria-images/intersecting-planes.svg)"
                 ]
             },
             {
@@ -346,6 +360,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "In uno spazio vettoriale $V_n(K)$ di dimensione $n$, siano $B = (e_1, e_2, \\ldots, e_n)$ e $B' = (e'_1, e'_2, \\ldots, e'_n)$ due basi. Ogni vettore della base $B'$ si può esprimere come combinazione lineare dei vettori della base $B$:",
                     "$$ E' = AE $$",
                     "**Definizione 3.5.1 (Matrice del cambiamento di base):** La matrice $A$ si dice **matrice del cambiamento di base** da $B$ a $B'$.",
+                    "![Cambiamento di base nel piano](/geometria-images/change-of-basis-square.svg)",
                     "**Proposizione 3.5.1:** La matrice $A$ del cambiamento di base da $B$ a $B'$ è invertibile e $A^{-1} = A'$ (matrice del cambiamento da $B'$ a $B$).",
                     "Le componenti di uno stesso vettore rispetto a due basi $B$ e $B'$ sono legate dalla relazione:",
                     "$$ X = {}^t A X' \\quad \\text{e} \\quad X' = {}^t A^{-1} X $$"
@@ -364,14 +379,16 @@ export const geometriaCourseContent: MainSection[] = [
                     "$$ p_A(\\lambda) = |A - \\lambda I_n| $$",
                     "L'equazione $p_A(\\lambda) = |A - \\lambda I_n| = 0$ è detta **equazione caratteristica** di $A$.",
                     "**Definizione 4.1.2 (Autovalori):** Le radici del polinomio caratteristico si chiamano **autovalori** di $A$.",
-                    "**Definizione 4.1.3 (Autospazio):** Lo spazio delle soluzioni del sistema $(A - \\lambda I_n)X = \\mathbf{0}$, dove $\\lambda$ è un autovalore, si chiama **autospazio** associato a $\\lambda$ e si indica con $V_\\lambda$."
+                    "**Definizione 4.1.3 (Autospazio):** Lo spazio delle soluzioni del sistema $(A - \\lambda I_n)X = \\mathbf{0}$, dove $\\lambda$ è un autovalore, si chiama **autospazio** associato a $\\lambda$ e si indica con $V_\\lambda$.",
+                    "![Autovettore come direzione invariata](/geometria-images/eigenvector-diagram.jpg)"
                 ]
             },
             {
                 title: "4.2 Autovettori e Matrici Simili",
                 content: [
                     "**Definizione 4.1.4 (Autovettori):** I vettori non nulli dell'autospazio $V_\\lambda$ si chiamano **autovettori** relativi a $\\lambda$.",
-                    "![Autovettori e Autovalori](/FIRST-YEAR-IMAGES/eigenvectors.png)",
+                    "![Autovettori in una rotazione](/geometria-images/eigenvectors-rotation.svg)",
+                    "![Autovettore di una matrice di rotazione](/geometria-images/eigenvector-rotation-matrix.png)",
                     "**Osservazione:** Se il polinomio caratteristico di $A \\in M_n(K)$ ha grado $n$, allora gli autovalori di $A$ sono al massimo $n$.",
                     "**Definizione 4.1.5 (Matrici simili):** Due matrici $A, B \\in M_n(K)$ si dicono **simili** se esiste $P \\in M_n(K)$ con $|P| \\neq 0$ tale che:",
                     "$$ B = P^{-1}AP \\quad \\text{oppure} \\quad PB = AP $$",
@@ -382,6 +399,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "4.3 Matrici Diagonalizzabili",
                 content: [
                     "**Definizione 4.2.1 (Matrice diagonalizzabile):** Una matrice $A \\in M_n(K)$ si dice **diagonalizzabile** se è simile ad una matrice diagonale, ovvero esistono $D, P \\in M_n(K)$ con $D$ matrice diagonale, tale che $|P| \\neq 0$ e $D = P^{-1}AP$.",
+                    "![Diagonalizzazione come rotazione](/geometria-images/diagonalization-rotation.gif)",
                     "**Teorema 4.2.1 (Primo criterio di diagonalizzabilità):** Una matrice $A \\in M_n(K)$ è diagonalizzabile se e solo se $K^n$ ammette una base costituita da autovettori di $A$.",
                     "**Osservazione:** Se $A$ è diagonalizzabile:",
                     "*   $D$ ha sulla diagonale principale gli autovalori di $A$.",
@@ -438,7 +456,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "$$ (x_1, x_2, \\ldots, x_n) * (x'_1, x'_2, \\ldots, x'_n) = x_1 x'_1 + x_2 x'_2 + \\cdots + x_n x'_n $$",
                     "**Esempio 5.1.2 (Prodotto scalare standard su matrici):** Una funzione $*: M_n(\\mathbb{R}) \\times M_n(\\mathbb{R}) \\rightarrow \\mathbb{R}$:",
                     "$$ A * B = \\sum_{i,j} a_{ij} b_{ij} $$",
-                    "cioè la somma dei prodotti degli elementi corrispondenti."
+                    "cioè la somma dei prodotti degli elementi corrispondenti.",
+                    "![Angolo tra due vettori e prodotto scalare](/geometria-images/dot-product-angle.svg)"
                 ]
             },
             {
@@ -464,6 +483,8 @@ export const geometriaCourseContent: MainSection[] = [
                     "si chiama **coefficiente di Fourier** di $v$ lungo $w$, e",
                     "$$ v_1 = \\frac{v \\cdot w}{w \\cdot w} \\cdot w $$",
                     "si chiama **proiezione** di $v$ lungo $w$.",
+                    "![Proiezione di un vettore su una retta](/geometria-images/vector-projection-line.svg)",
+                    "![Decomposizione ortogonale di un vettore](/geometria-images/orthogonal-decomposition.svg)",
                     "**Definizione 5.2.4 (Forma quadratica):** La funzione $q: V \\rightarrow K$ definita da $q(v) = v \\cdot v$ si chiama **forma quadratica** associata al prodotto scalare."
                 ]
             },
@@ -510,7 +531,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "$$ \\vdots $$",
                     "$$ e'_n = e_n - \\sum_{k=1}^{n-1} \\frac{e_n \\cdot e'_k}{e'_k \\cdot e'_k} \\cdot e'_k $$",
                     "è una **base ortogonale** di $V_n^\\circ(\\mathbb{R})$.",
-                    "![Processo di Gram-Schmidt](/FIRST-YEAR-IMAGES/gram_schmidt.png)",
+                    "![Schema del processo di Gram-Schmidt](/geometria-images/gram-schmidt.svg)",
                     "**Osservazione:** Se i primi $p$ vettori di $B$ sono già ortogonali tra loro, il metodo di Gram-Schmidt non li cambia."
                 ]
             },
@@ -574,7 +595,9 @@ export const geometriaCourseContent: MainSection[] = [
                     "2.  Uno spazio vettoriale $V_n(K)$.",
                     "3.  Un'applicazione $f: A \\times A \\rightarrow V_n(K)$ con le seguenti proprietà:",
                     "    *   $\\forall P \\in A$ e $\\forall v \\in V$, $\\exists! Q \\in A$ : $f(P, Q) = \\vec{PQ} = v$",
-                    "    *   $\\vec{PQ} + \\vec{QR} = \\vec{PR} \\quad \\forall P, Q, R \\in A$"
+                    "    *   $\\vec{PQ} + \\vec{QR} = \\vec{PR} \\quad \\forall P, Q, R \\in A$",
+                    "![Schema di spazio affine](/geometria-images/affine-space.svg)",
+                    "![Esempio di spazio affine in $\\mathbb{R}^3$](/geometria-images/affine-space-r3.png)"
                 ]
             },
             {
@@ -647,6 +670,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Definizione 6.4.1 (Equazioni parametriche di una retta in $A_n(\\mathbb{R})$):** Sia $r = [P, V_1 = \\mathcal{L}(v)]$ la retta di origine $P = (x'_1, x'_2, \\ldots, x'_n)$ e spazio di traslazione generato da $v = (l_1, l_2, \\ldots, l_n)$. Le **equazioni parametriche** di $r$ sono:",
                     "$$ \\begin{cases} x_1 = x'_1 + l_1 t \\\\ x_2 = x'_2 + l_2 t \\\\ \\vdots \\\\ x_n = x'_n + l_n t \\end{cases} \\quad \\text{con } t \\in \\mathbb{R}, (l_1, l_2, \\ldots, l_n) \\neq \\mathbf{0} $$",
+                    "![Retta in forma parametrica](/geometria-images/parametric-line.svg)",
                     "**Definizione 6.4.2 (Parametri direttori):** Si dicono **parametri direttori** di $r = [P, V_1]$ le componenti di un qualunque vettore non nullo di $V_1$."
                 ]
             },
@@ -677,7 +701,8 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Equazione cartesiana del piano:**",
                     "$$ ax + by + cz + d = 0 \\quad \\text{con } (a, b, c) \\neq (0, 0, 0) $$",
-                    "![Piano e Vettore Normale](/FIRST-YEAR-IMAGES/affine_plane_normal.png)",
+                    "![Spazio affine e spazio vettoriale](/geometria-images/affine-projective-vector-space.svg)",
+                    "![Intersezione tra retta e piano](/geometria-images/plane-line-intersection.svg)",
                     "**Equazioni cartesiane della retta in $A_3(\\mathbb{R})$:**",
                     "$$ \\begin{cases} ax + by + cz + d = 0 \\\\ a'x + b'y + c'z + d' = 0 \\end{cases} \\quad \\text{con } \\rho \\begin{pmatrix} a & b & c \\\\ a' & b' & c' \\end{pmatrix} = 2 $$",
                     "**Condizione di parallelismo tra piani:** $\\alpha \\| \\alpha' \\iff [(a, b, c)] = [(a', b', c')]$",
@@ -747,6 +772,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Distanza in $E_n(\\mathbb{R})$:** Siano $P = (x_1, x_2, \\ldots, x_n)$ e $Q = (x'_1, x'_2, \\ldots, x'_n)$. La distanza è:",
                     "$$ d(P, Q) = \\|\\vec{PQ}\\| = \\sqrt{(x'_1 - x_1)^2 + \\cdots + (x'_n - x_n)^2} $$",
+                    "![Distanza euclidea nel piano](/geometria-images/euclidean-distance-2d.svg)",
                     "**In $E_2(\\mathbb{R})$:** $d(P, Q) = \\sqrt{(x' - x)^2 + (y' - y)^2}$",
                     "**In $E_3(\\mathbb{R})$:** $d(P, Q) = \\sqrt{(x' - x)^2 + (y' - y)^2 + (z' - z)^2}$"
                 ]
@@ -756,6 +782,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Distanza punto-retta in $E_2(\\mathbb{R})$:** Sia $P = (x_0, y_0)$ e $r: ax + by + c = 0$:",
                     "$$ d(P, r) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}} $$",
+                    "![Distanza di un punto da una retta](/geometria-images/distance-point-line.svg)",
                     "**Distanza punto-piano in $E_3(\\mathbb{R})$:** Sia $P = (x_0, y_0, z_0)$ e $\\alpha: ax + by + cz + d = 0$:",
                     "$$ d(P, \\alpha) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}} $$"
                 ]
@@ -765,7 +792,8 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Definizione 7.4.1 (Retta di minima distanza):** Si dice **retta di minima distanza** tra due rette $r$ e $s$ sghembe in $E_3(\\mathbb{R})$ una retta ortogonale e incidente sia a $r$ che a $s$.",
                     "**Definizione 7.4.2 (Distanza tra rette sghembe):** La **distanza** tra due rette $r$ e $s$ sghembe è la distanza tra i punti $R$ e $S$ ottenuti intersecando la retta di minima distanza con $r$ e $s$.",
-                    "**Proposizione 7.4.1:** La retta di minima distanza tra $r$ e $s$ esiste ed è unica."
+                    "**Proposizione 7.4.1:** La retta di minima distanza tra $r$ e $s$ esiste ed è unica.",
+                    "![Distanza tra rette sghembe](/geometria-images/skew-lines-distance.svg)"
                 ]
             },
             {
@@ -781,7 +809,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "7.9 Circonferenza",
                 content: [
                     "**Definizione 7.5.1 (Circonferenza):** Dato un punto $C = (x_0, y_0)$ in $E_2(\\mathbb{R})$ e un numero reale positivo $r$, si dice **circonferenza** di centro $C$ e raggio $r$ il luogo dei punti aventi distanza $r$ da $C$.",
-                    "![Circonferenza](/FIRST-YEAR-IMAGES/circumference.svg)",
+                    "![Circonferenza con centro e raggio](/geometria-images/circle-center-radius.svg)",
                     "**Equazione cartesiana:**",
                     "$$ x^2 + y^2 + 2ax + 2by + c = 0 \\quad \\text{con } a^2 + b^2 - c > 0 $$",
                     "dove $C = (-a, -b)$ e $r = \\sqrt{a^2 + b^2 - c}$.",
@@ -792,7 +820,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "7.10 Sfera",
                 content: [
                     "**Definizione 7.5.2 (Sfera):** Sia $C = (x_0, y_0, z_0)$ e $r$ un numero reale positivo. Si dice **sfera** di raggio $r$ e centro $C$ il luogo dei punti aventi distanza $r$ da $C$.",
-                    "![Sfera](/FIRST-YEAR-IMAGES/sphere.svg)",
+                    "![Sezione verticale di una sfera](/geometria-images/sphere-cross-section.svg)",
                     "**Equazione cartesiana:**",
                     "$$ x^2 + y^2 + z^2 + 2ax + 2by + 2cz + d = 0 \\quad \\text{con } a^2 + b^2 + c^2 - d > 0 $$",
                     "dove $C = (-a, -b, -c)$ e $r = \\sqrt{a^2 + b^2 + c^2 - d}$.",
@@ -812,6 +840,10 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Definizione 8.8.1 (Superfici algebriche reali in $\\tilde{A}_3(\\mathbb{C})$):** Una superficie algebrica reale di $\\tilde{A}_3(\\mathbb{C})$ è l'insieme delle classi di autosoluzioni complesse di un'equazione del tipo:",
                     "$$ F(x_1, x_2, x_3, x_4) = 0 $$",
                     "ove $F$ è un polinomio omogeneo a coefficienti reali in $x_1, x_2, x_3, x_4$. Il grado di $F$ è chiamato **ordine** della superficie. Se $F$ è fattorizzabile in polinomi di grado positivo la superficie si dice riducibile in componenti.",
+                    "![Piano complesso (diagramma di Argand)](/geometria-images/argand-diagram.png)",
+                    "![Rotazioni sul piano complesso](/geometria-images/complex-plane-rotations.svg)",
+                    "![Radici dell'unità nel piano complesso](/geometria-images/roots-of-unity.svg)",
+                    "![Sfera di Riemann](/geometria-images/riemann-sphere.svg)",
                     "**Teorema 8.8.1 (Primo teorema dell'ordine):** L'ordine di una superficie algebrica $\\Sigma$ reale è uguale al numero di punti in comune a $\\Sigma$ e a una qualsiasi retta $r$ non contenuta in $\\Sigma$ a patto di contarli con la dovuta molteplicità.",
                     "**Corollario 8.8.1:** Se il numero di intersezioni fra la retta $r$ e la superficie $\\Sigma$ è maggiore dell'ordine di $\\Sigma$, allora $r$ è contenuta in $\\Sigma$.",
                     "**Teorema 8.8.2 (Secondo teorema dell'ordine):** L'intersezione tra una superficie algebrica reale $\\Sigma$ e un piano $\\alpha$ non componente di $\\Sigma$ è una curva dello stesso ordine di $\\Sigma$.",
@@ -834,7 +866,12 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "Analogamente la polare di $Y_\\infty$ è:",
                     "$$ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 $$",
-                    "![Sezioni Coniche](/FIRST-YEAR-IMAGES/conic_sections.svg)",
+                    "![Sezioni coniche](/geometria-images/conic-sections.svg)",
+                    "![Ellisse con assi principali](/geometria-images/ellipse-axes.svg)",
+                    "![Parabola con asse e fuoco](/geometria-images/parabola-axis.svg)",
+                    "![Iperbole semplice](/geometria-images/hyperbola-simple.svg)",
+                    "![Parabola con fuoco e direttrice](/geometria-images/parabola-focus-directrix.svg)",
+                    "![Fuochi dell'ellisse](/geometria-images/ellipse-foci.svg)",
                     "Il centro $C$ è il punto di intersezione delle polari:",
                     "$$ \\begin{cases} a_{11} x_1 + a_{12} x_2 + a_{13} x_3 = 0 & (P_1) \\\\ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 & (P_2) \\end{cases} $$",
                     "Il centro $C$ è proprio se $P_1$ e $P_2$ non sono paralleli. Se:",
@@ -900,6 +937,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "con almeno un $a_{ij} \\neq 0$. Ponendo $X = (x_1, x_2, x_3, x_4)^T$ si ha che $A$ (matrice simmetrica dei coefficienti) è tale che:",
                     "$$ Q : {}^t X A X = 0 $$",
                     "Quindi, essendo dipendente da 10 coefficienti, abbiamo $\\infty^9$ quadriche.",
+                    "![Ellissoide con assi principali](/geometria-images/ellipsoid-labeled.png)",
                     "**Proposizione 10.1.1:** Se una quadrica è riducibile, si riduce in due piani che possono essere reali e coincidenti, reali e distinti o immaginari e coniugati. Inoltre tutte le sue sezioni sono riducibili.",
                     "**Dimostrazione:** $F$ è di secondo grado ($Q$ è del second'ordine), quindi se si fattorizza in due polinomi di primo grado, essendo $F$ reale, le possibilità sono quelle elencate. Sia $Q = \\alpha \\cup \\beta$ e sia $\\gamma$ un terzo piano abbiamo che:",
                     "$$ Q \\cap \\gamma = (\\alpha \\cup \\beta) \\cap \\gamma = (\\alpha \\cap \\gamma) \\cup (\\beta \\cap \\gamma) $$",
@@ -938,6 +976,10 @@ export const geometriaCourseContent: MainSection[] = [
                     "3.  Paraboloide:",
                     "    *   ellittico",
                     "    *   iperbolico",
+                    "![Iperboloide a una falda](/geometria-images/hyperboloid-one-sheet.png)",
+                    "![Paraboloide iperbolico](/geometria-images/hyperbolic-paraboloid.png)",
+                    "![Iperboloide a due falde](/geometria-images/hyperboloid-two-sheets.png)",
+                    "![Paraboloide ellittico](/geometria-images/elliptic-paraboloid.png)",
                     "Consiglio molto vivamente di utilizzare Geogebra 3D (o anche semplicemente cercare su Google) i grafici delle quadriche sopra elencate in modo da ottenerne un riscontro visivo che è particolarmente utile durante lo svolgimento di esercizi per verificare i propri risultati."
                 ]
             },
@@ -949,7 +991,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Sezioni irriducibili di un paraboloide:** Dato che $C_\\infty$ è riducibile in due rette reali e distinte o in rette immaginarie e coniugate, i due punti dati da $r_\\infty \\cap C_\\infty$ sono reali e coincidenti, se $r_\\infty$ passa per il punto doppio di $C_\\infty$, diversamente sono punti distinti. In questo caso, se il paraboloide è iperbolico i punti sono reali, se il paraboloide è ellittico sono punti immaginari e coniugati. Pertanto, le sezioni irriducibili di un paraboloide iperbolico sono parabole e iperboli, quelle di un paraboloide ellittico sono parabole e ellissi.",
 
 
-                    "![Paraboloide Iperbolico ed Ellittico](/FIRST-YEAR-IMAGES/quadrics.png)",
+                    "![Superfici quadriche](/geometria-images/quadric-surfaces.gif)",
                     "**Studio analitico:** Ci occupiamo ora di trovare un metodo per riconoscere la conica generata dall'intersezione di una quadrica con un piano.",
                     "**Proposizione 10.6.1:** Se $Q$ è una quadrica irriducibile, la cui equazione è priva di una delle variabili $x_1, x_2$ o $x_3$, allora $Q'$ è un cilindro, con vertice in $X_\\infty$ se manca $x_1$, in $Y_\\infty$ se manca $x_2$ o in $Z_\\infty$ se manca $x_3$.",
                     "**Osservazione:** In questo modo $C = Q \\cap \\pi = Q' \\cap \\pi$, ove $Q'$ è un cilindro, perciò ci basta riconoscere il tipo di cilindro e potremo direttamente riconoscere la conica."

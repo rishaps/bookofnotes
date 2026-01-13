@@ -53,7 +53,11 @@ const ImageThumbnail: React.FC<{
           <ZoomIn className="text-content-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md" size={24} />
         </div>
       </div>
-      {alt && <p className="caption-highlight mt-2">{alt}</p>}
+      {alt && (
+        <p className="caption-highlight mt-2">
+          {renderMathParts(alt, `caption-${alt}`)}
+        </p>
+      )}
     </div>
   );
 };
@@ -497,7 +501,9 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
   if (isCalloutBlock(item)) {
     return (
       <div className="callout-box my-6">
-        <span className="callout-label">{item.label}</span>
+        <span className="callout-label">
+          {renderMathParts(item.label, `callout-${item.label}`)}
+        </span>
         <div className="callout-content">
           {item.items.map((entry, index) => (
             <ContentRenderer key={`${item.label}-${index}`} item={entry} onImageClick={onImageClick} />
@@ -805,7 +811,9 @@ const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({
             <X className="w-6 h-6 text-content-primary" />
           </button>
         </div>
-        <p className="mt-4 text-content-primary/80 font-mono text-sm tracking-widest uppercase">{alt}</p>
+        <p className="mt-4 text-content-primary/80 font-mono text-sm tracking-widest uppercase">
+          {renderMathParts(alt, `lightbox-${alt}`)}
+        </p>
       </div>
     </div>,
     document.body
@@ -820,7 +828,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
       {lightboxImage && <Lightbox src={lightboxImage.src} alt={lightboxImage.alt} onClose={() => setLightboxImage(null)} />}
 
       <h2 className="section-title text-4xl font-bold mb-8 tracking-tight text-content-primary">
-        {section.title}
+        {renderMathParts(section.title, `section-${section.title}`)}
       </h2>
 
       <div className="space-y-12">

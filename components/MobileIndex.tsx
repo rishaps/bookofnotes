@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import katex from 'katex';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { courseContent } from '../data/courseContent';
@@ -23,6 +24,37 @@ const formatSubsectionTitle = (title: string, index: number) => {
     const cleanedTitle = stripNumericPrefix(title);
     const prefix = getAlphaIndex(index);
     return `${prefix}) ${cleanedTitle}`;
+};
+
+const renderTitleWithMath = (title: string) => {
+    const mathPattern = /(\$[^$]+\$)/g;
+    const parts = title.split(mathPattern);
+
+    return (
+        <>
+            {parts.map((part, index) => {
+                if (part.startsWith('$') && part.endsWith('$')) {
+                    const latex = part.substring(1, part.length - 1);
+                    try {
+                        const html = katex.renderToString(latex, {
+                            throwOnError: false,
+                            displayMode: false,
+                        });
+                        return (
+                            <span
+                                key={index}
+                                className="inline-math"
+                                dangerouslySetInnerHTML={{ __html: html }}
+                            />
+                        );
+                    } catch (e) {
+                        return <span key={index}>{part}</span>;
+                    }
+                }
+                return <span key={index}>{part}</span>;
+            })}
+        </>
+    );
 };
 
 const MobileIndex: React.FC = () => {
@@ -125,7 +157,9 @@ const MobileIndex: React.FC = () => {
                                                         : 'text-content-muted hover:text-content-primary hover:bg-premium-gray/50'
                                                         }`}
                                                 >
-                                                    <span className="line-clamp-1">{formatSubsectionTitle(sub.title, subIdx)}</span>
+                                                    <span className="line-clamp-1">
+                                                        {renderTitleWithMath(formatSubsectionTitle(sub.title, subIdx))}
+                                                    </span>
                                                     {isActive && <ChevronRight size={14} className="opacity-100" />}
                                                 </button>
                                             );

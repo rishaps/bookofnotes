@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg fill-opacity="0.9" xmlns:xlink="http://www.w3.org/1999/xlink" color-rendering="auto" color-interpolation="auto" text-rendering="auto" stroke-linecap="square" width="245" stroke-miterlimit="10" stroke-opacity="0.9" shape-rendering="auto" stroke-dasharray="none"  height="55" xmlns="http://www.w3.org/2000/svg" font-family="&apos;Dialog&apos;" font-style="normal" stroke-linejoin="miter" font-size="12" stroke-dashoffset="0" image-rendering="auto">
+  <g font-size="30" font-weight="bold" transform="translate(-450,-255)" fill="black" stroke="black">
+<!--  <rect x="450" y="255" width="245" height="45" fill="red" stroke="green"/>  -->
+    <g  text-rendering="geometricPrecision" stroke-width="3" >
+      <line x1="480" x2="570" y1="270" y2="270" fill="none"  />
+      <line x1="570" x2="660" y1="270" y2="270" fill="none"  />
+    </g>
+    <g text-rendering="geometricPrecision" stroke-width="2" font-size="15" stroke="none">
+      <circle r="6" cx="480" cy="270"  />
+      <circle r="6" cx="575" cy="270" />
+      <circle r="6" cx="665" cy="270" />
+      <text  font-style="italic" x="515" y="283" >aff</text>
+      <g fill="blue" stroke="none" xml:space="preserve" > 
+        <text x="460" y="295" >points</text>
+        <text x="560" y="295" >lines</text>
+        <text x="645" y="295" >planes</text>
+      </g>  
+    </g>
+  </g>
+</svg>

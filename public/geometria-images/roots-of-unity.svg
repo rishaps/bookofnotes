@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Coded by Incnis Mrsi 2013, public domain
+-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="544" height="288"
+	viewBox="-252 -144 544 288" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+   circle {stroke:none; fill:#FF0000}
+   .real {stroke:none; fill:#000000}
+   .unit {stroke:none; fill:#FFFF99}
+   line {stroke:#FF00CC; stroke-width:0.0095px; fill:none}
+   polygon {stroke:#0000FF; stroke-width:0.01389px; fill:#00FFFF; fill-opacity:0.6}
+   text {font-family:serif; font-size:12px; fill:black; stroke:none}
+   ]]>
+  </style>
+ </defs>
+
+<g transform="scale(144,144)">
+	<circle class="unit" cx="0" cy="0" r="1"/>
+	<line x1="-2" y1="0" x2="0" y2="0"/>
+	<line x1="0" y1="-1" x2="0" y2="1"/>
+	<g>
+	  <polygon points="0,0 1,0 2,0 1,0"/>
+	  <circle cx="1" cy="0" r="0.02778"/>
+	  <circle cx="2" cy="0" r="0.02778" class="real"/>
+	</g>
+	<g>
+	  <polygon points="0,0 0.3090,0.9511 0.6018,0 0.3090,-0.9511"/>
+	  <circle cx="0.3090" cy="0.9511" r="0.02778"/>
+	  <circle cx="0.3090" cy="-0.9511" r="0.02778"/>
+	  <circle cx="0.6018" cy="0" r="0.02778" class="real"/>
+	</g>
+	<g>
+	  <polygon points="0,0 -0.8090,0.5878 -1.6018,0 -0.8090,-0.5878"/>
+	  <circle cx="-0.8090" cy="0.5878" r="0.02778"/>
+	  <circle cx="-0.8090" cy="-0.5878" r="0.02778"/>
+	  <circle cx="-1.6018" cy="0" r="0.02778" class="real"/>
+	</g>
+</g>
+<text x="-4" y="16">0</text>
+<text x="140" y="16">1</text>
+<text x="284" y="16">2</text>
+<g><text x="88" y="16">ϕ</text><text x="94" y="11" style="font-size:8px">−1</text></g>
+<text x="-237" y="16">−ϕ</text>
+</svg>
