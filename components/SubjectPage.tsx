@@ -6,6 +6,7 @@ import { Menu, X, ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import SectionDisplay from './SectionDisplay';
 import LessonRail from './LessonRail';
 import ThemeToggle from './ThemeToggle';
+import ScrollToTopButton from './ScrollToTopButton';
 
 // Import all course content directly - no lazy loading, instant access
 import { courseContent } from '../data/courseContent-economia';
@@ -127,7 +128,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
     return (
         <div className={`subject-page min-h-screen ${themeClass} bg-[var(--bg-body)]`}>
             {/* Minimal Header - Home left, Theme right */}
-            <header className="fixed top-4 left-4 right-4 sm:left-6 sm:right-6 md:left-10 md:right-10 z-[120] pointer-events-auto">
+            <header className={`fixed top-4 left-4 right-4 sm:left-6 sm:right-6 md:left-10 md:right-10 z-[120] pointer-events-auto ${isSidebarOpen ? 'blur-sm pointer-events-none lg:blur-none lg:pointer-events-auto' : ''}`}>
                 <div className="flex items-center justify-between gap-4 px-2 py-1">
                     <div className="flex items-center gap-3">
                         {/* Mobile Menu Button */}
@@ -161,7 +162,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
             {/* Mobile Sidebar Overlay */}
             {isSidebarOpen && (
                 <div
-                    className="fixed inset-0 z-[90] bg-black/50 lg:hidden"
+                    className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-md lg:hidden"
                     onClick={() => setIsSidebarOpen(false)}
                 />
             )}
@@ -169,7 +170,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
             {/* Left Sidebar - Fixed */}
             <aside
                 className={`
-                    fixed top-0 left-0 h-screen z-[100] bg-[var(--bg-body)] !opacity-100 shadow-xl lg:shadow-none pointer-events-auto
+                    fixed top-0 left-0 h-screen z-[100] bg-white dark:bg-black lg:bg-transparent !opacity-100 shadow-xl lg:shadow-none pointer-events-auto
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                     ${(isTOCVisible || isSidebarOpen) ? 'w-[80vw] max-w-xs lg:w-80' : 'w-0 lg:w-10'}
                 `}
@@ -195,7 +196,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                 {/* Scrollable Content Container */}
                 {(isTOCVisible || isSidebarOpen) && (
                     <div
-                        className="h-full overflow-y-auto no-scrollbar pt-16 sm:pt-20 pl-6 pr-12 pointer-events-auto relative z-10"
+                        className="h-full overflow-y-auto no-scrollbar pt-16 sm:pt-20 pl-6 pr-12 pointer-events-auto relative z-10 bg-white dark:bg-black lg:bg-transparent"
                     >
                         {/* Mobile Close Button */}
                         <button
@@ -217,7 +218,7 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
             {/* Main Content Area */}
             <main
-                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center pt-20 sm:pt-24 pb-16`}
+                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center pt-28 sm:pt-32 pb-16 ${isSidebarOpen ? 'blur-sm pointer-events-none lg:blur-none lg:pointer-events-auto' : ''}`}
             >
                 <div
                     className="course-content w-full mx-auto box-border px-8 md:px-16"
@@ -261,6 +262,10 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                                         </button>
                                     )}
                                 </div>
+                            </div>
+
+                            <div className="lg:hidden">
+                                <ScrollToTopButton />
                             </div>
                         </>
                     ) : (

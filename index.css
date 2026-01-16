@@ -99,10 +99,18 @@ body {
         user-select: none;
     }
 
-    /* Sidebar Opaque Background */
-    aside {
-        background-color: var(--bg-body) !important;
-        opacity: 1 !important;
+    /* Sidebar Opaque Background (mobile only) */
+    @media (max-width: 1023px) {
+        aside {
+            background-color: var(--bg-body) !important;
+            opacity: 1 !important;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        aside {
+            background-color: transparent !important;
+        }
     }
 
     /* High refresh rate selection style */
@@ -689,6 +697,35 @@ body {
         line-height: 1.6;
         color: var(--content-primary);
         font-weight: 400;
+    }
+
+    .callout-inline {
+        padding: 0;
+    }
+
+    .callout-inline-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .callout-inline .callout-label {
+        position: static;
+        transform: none;
+        margin: 0;
+    }
+
+    .callout-inline-content {
+        display: inline;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--content-primary);
+        font-weight: 400;
+    }
+
+    .callout-inline-body {
+        padding: 8px 0 0;
     }
 
     .dark .callout-content {

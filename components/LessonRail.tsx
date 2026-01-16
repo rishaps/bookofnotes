@@ -93,7 +93,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', active
   };
 
   return (
-    <nav className={`lesson-rail ${className}`}>
+    <nav className={`lesson-rail ${className} relative z-50 bg-white dark:bg-black lg:bg-transparent`}>
       {subjectTitle && (
         <div className="lesson-rail-title">
           {subjectTitle.toUpperCase()}

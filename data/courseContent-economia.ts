@@ -9,7 +9,7 @@ export const courseContent: MainSection[] = [
       {
         title: "1.1 Cos’è l’impresa?",
         content: [
-          `**1.1 Definizione economica di impresa**`,
+          `**Definizione economica di impresa**`,
           `L’**impresa** è un istituto economico che si concretizza in un insieme di risorse materiali (capannoni, macchinari, strumenti, automezzi, immobili…) e immateriali (licenze software, brevetti, capitale umano, know‐how…) coordinate stabilmente nel tempo per la produzione di beni (output tangibili) e/o di servizi (output intangibili).`,
           `![Schema della definizione di impresa|right|medium](/economia-images/fig1.avif)`,
           `Le sue caratteristiche chiave sono:`,

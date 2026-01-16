@@ -74,6 +74,7 @@ type CalloutBlock = {
   kind: 'callout';
   label: string;
   level: 1 | 2;
+  inlineContent?: string;
   items: Array<string | TableData | ImageData | CalloutBlock>;
 };
 
@@ -225,16 +226,13 @@ const groupCallouts = (items: Array<string | TableData | ImageData>): ContentIte
           kind: 'callout',
           label: callout.label,
           level: callout.level,
+          inlineContent: callout.inlineContent || undefined,
           items: [],
         };
 
-        if (callout.inlineContent) {
-          block.items.push(callout.inlineContent);
-        }
-
         pushItem(block);
 
-        const shouldStayOpen = callout.level === 1 || !callout.inlineContent;
+        const shouldStayOpen = !callout.inlineContent;
         if (shouldStayOpen) {
           stack.push(block);
         }
@@ -499,16 +497,30 @@ const renderTable = (table: TableData) => {
 const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string, alt: string) => void }> = ({ item, onImageClick }) => {
   const [isTall, setIsTall] = useState(false);
   if (isCalloutBlock(item)) {
+    const hasInline = Boolean(item.inlineContent);
     return (
-      <div className="callout-box my-6">
-        <span className="callout-label">
-          {renderMathParts(item.label, `callout-${item.label}`)}
-        </span>
-        <div className="callout-content">
-          {item.items.map((entry, index) => (
-            <ContentRenderer key={`${item.label}-${index}`} item={entry} onImageClick={onImageClick} />
-          ))}
-        </div>
+      <div className={`callout-box my-6 ${hasInline ? 'callout-inline' : ''}`}>
+        {hasInline ? (
+          <div className="callout-inline-row">
+            <span className="callout-label">
+              {renderMathParts(item.label, `callout-${item.label}`)}
+            </span>
+            <div className="callout-inline-content">
+              {renderWithHighlights(item.inlineContent || '')}
+            </div>
+          </div>
+        ) : (
+          <span className="callout-label">
+            {renderMathParts(item.label, `callout-${item.label}`)}
+          </span>
+        )}
+        {(item.items.length > 0) && (
+          <div className={`callout-content ${hasInline ? 'callout-inline-body' : ''}`}>
+            {item.items.map((entry, index) => (
+              <ContentRenderer key={`${item.label}-${index}`} item={entry} onImageClick={onImageClick} />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
