@@ -127,8 +127,8 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
     return (
         <div className={`subject-page min-h-screen ${themeClass} bg-[var(--bg-body)]`}>
-            {/* Minimal Header - Home left, Theme right */}
-            <header className={`fixed top-4 left-4 right-4 sm:left-6 sm:right-6 md:left-10 md:right-10 z-[120] pointer-events-auto ${isSidebarOpen ? 'blur-sm pointer-events-none lg:blur-none lg:pointer-events-auto' : ''}`}>
+            {/* Desktop Header - Fixed (offset when TOC is open) */}
+            <header className={`hidden lg:block fixed top-4 right-4 z-[120] pointer-events-auto ${isTOCVisible ? 'left-[calc(20rem+1rem)]' : 'left-[calc(2.5rem+1rem)]'}`}>
                 <div className="flex items-center justify-between gap-4 px-2 py-1">
                     <div className="flex items-center gap-3">
                         {/* Mobile Menu Button */}
@@ -218,11 +218,40 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
             {/* Main Content Area */}
             <main
-                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center pt-28 sm:pt-32 pb-16 ${isSidebarOpen ? 'blur-sm pointer-events-none lg:blur-none lg:pointer-events-auto' : ''}`}
+                className={`min-h-screen ${isTOCVisible ? 'lg:ml-80' : 'lg:ml-10'} flex flex-col items-center pt-0 sm:pt-2 lg:pt-28 pb-16 ${isSidebarOpen ? 'blur-sm pointer-events-none lg:blur-none lg:pointer-events-auto' : ''}`}
             >
                 <div
-                    className="course-content w-full mx-auto box-border px-8 md:px-16"
+                    className="course-content w-full mx-auto box-border px-8 pr-16 md:px-16"
                 >
+                    {/* Mobile Sticky Header - Inside course content */}
+                    <div className="lg:hidden sticky top-0 z-[80] py-2">
+                        <div className="flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                                    className="p-1 text-content-primary hover-glow"
+                                    aria-label="Apri Indice"
+                                >
+                                    <Menu className="w-5 h-5" />
+                                </button>
+
+                                <button
+                                    onClick={() => navigate('/subjects')}
+                                    className="flex items-center gap-2 text-content-primary hover-glow"
+                                    aria-label="Torna alla Homepage"
+                                >
+                                    <Home className="w-4 h-4" />
+                                    <span className="hidden lg:inline text-[10px] uppercase tracking-widest">
+                                        Home
+                                    </span>
+                                </button>
+                            </div>
+
+                            <div className="flex items-center">
+                                <ThemeToggle inline />
+                            </div>
+                        </div>
+                    </div>
                     {currentLesson ? (
                         <>
                             <SectionDisplay

@@ -498,11 +498,15 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
   const [isTall, setIsTall] = useState(false);
   if (isCalloutBlock(item)) {
     const hasInline = Boolean(item.inlineContent);
+    const calloutLabelStyle: React.CSSProperties = {
+      position: 'static',
+      transform: 'none',
+    };
     return (
       <div className={`callout-box my-6 ${hasInline ? 'callout-inline' : ''}`}>
         {hasInline ? (
           <div className="callout-inline-row">
-            <span className="callout-label">
+            <span className="callout-label" style={calloutLabelStyle}>
               {renderMathParts(item.label, `callout-${item.label}`)}
             </span>
             <div className="callout-inline-content">
@@ -510,7 +514,7 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
             </div>
           </div>
         ) : (
-          <span className="callout-label">
+          <span className="callout-label" style={calloutLabelStyle}>
             {renderMathParts(item.label, `callout-${item.label}`)}
           </span>
         )}

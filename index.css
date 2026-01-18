@@ -670,19 +670,22 @@ body {
     }
 
     .callout-label {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         padding: 4px 10px;
-        margin-bottom: 0;
+        margin: 0 0 8px 18px;
+        max-width: calc(100% - 36px);
         background: #000000;
         color: #ffffff;
-        position: absolute;
-        top: 0;
-        left: 16px;
-        transform: translateY(-50%);
+        position: static;
+        transform: none;
         font-size: 11px;
         font-weight: 600;
+        line-height: 1.2;
         letter-spacing: 0.1em;
         text-transform: uppercase;
+        white-space: normal;
+        box-sizing: border-box;
     }
 
     .dark .callout-label {
@@ -711,9 +714,8 @@ body {
     }
 
     .callout-inline .callout-label {
-        position: static;
-        transform: none;
         margin: 0;
+        max-width: 100%;
     }
 
     .callout-inline-content {
