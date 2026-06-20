@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { subjects } from '../data/subjects';
 import { MainSection } from '../types';
-import { Menu, X, ChevronLeft, ChevronRight, Home } from 'lucide-react';
+import { Menu, X, ChevronLeft, ChevronRight, Home, Download } from 'lucide-react';
 import SectionDisplay from './SectionDisplay';
 import LessonRail from './LessonRail';
 import ThemeToggle from './ThemeToggle';
@@ -44,6 +44,8 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
     const navigate = useNavigate();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [fontSizeLevel, setFontSizeLevel] = useState(1);
+    const [isPdfPreparing, setIsPdfPreparing] = useState(false);
+    const [isPrintMode, setIsPrintMode] = useState(false);
 
     // Get content map immediately
     const content = CONTENT_MAP[activeSlug] || null;
@@ -114,6 +116,32 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
         setIsSidebarOpen(false); // Close mobile sidebar on select
     }, []);
 
+    const handleDownloadPdf = useCallback(async () => {
+        if (!content || isPdfPreparing) return;
+
+        setIsPdfPreparing(true);
+        setIsPrintMode(true);
+
+        await new Promise(requestAnimationFrame);
+        await new Promise(requestAnimationFrame);
+        await document.fonts?.ready.catch(() => undefined);
+
+        const images = Array.from(document.querySelectorAll<HTMLImageElement>('.print-subject img'));
+        images.forEach((image) => {
+            image.loading = 'eager';
+        });
+        await Promise.all(images.map((image) => {
+            if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+            return image.decode?.().catch(() => undefined) ?? Promise.resolve();
+        }));
+
+        window.print();
+        window.setTimeout(() => {
+            setIsPrintMode(false);
+            setIsPdfPreparing(false);
+        }, 500);
+    }, [content, isPdfPreparing]);
+
     // Subject not found
     if (!subject) {
         return (
@@ -156,7 +184,17 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                         </button>
                     </div>
 
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={handleDownloadPdf}
+                            disabled={isPdfPreparing}
+                            className="flex flex-col items-center gap-0.5 p-1 text-content-primary hover-glow disabled:opacity-50"
+                            aria-label="Scarica PDF della materia"
+                            title="Scarica PDF"
+                        >
+                            <Download className="w-4 h-4" />
+                            <span className="text-[8px] font-mono uppercase tracking-widest">Scarica PDF</span>
+                        </button>
                         <ThemeToggle inline />
                     </div>
                 </div>
@@ -250,7 +288,17 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                                 </button>
                             </div>
 
-                            <div className="flex items-center">
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={handleDownloadPdf}
+                                    disabled={isPdfPreparing}
+                                    className="flex flex-col items-center gap-0.5 p-1 text-content-primary hover-glow disabled:opacity-50"
+                                    aria-label="Scarica PDF della materia"
+                                    title="Scarica PDF"
+                                >
+                                    <Download className="w-4 h-4" />
+                                    <span className="text-[8px] font-mono uppercase tracking-widest">Scarica PDF</span>
+                                </button>
                                 <ThemeToggle inline />
                             </div>
                         </div>
@@ -309,6 +357,19 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
                     )}
                 </div>
             </main>
+
+            {isPrintMode && content && (
+                <div className="print-subject">
+                    <h1>{subject.title}</h1>
+                    {content.map((section) => (
+                        <SectionDisplay
+                            key={`print-${section.id}`}
+                            section={section}
+                            fontSizeLevel={fontSizeLevel}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
