@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-label="Solenoid magnetic field">
+  <rect width="520" height="260" fill="#fff"/>
+  <g fill="none" stroke="#0f62fe" stroke-width="4" opacity=".9">
+    <ellipse cx="260" cy="130" rx="215" ry="80"/>
+    <ellipse cx="260" cy="130" rx="170" ry="58"/>
+    <ellipse cx="260" cy="130" rx="125" ry="38"/>
+  </g>
+  <g fill="none" stroke="#111" stroke-width="7" stroke-linecap="round">
+    <path d="M130 95c20-55 50 55 70 0s50 55 70 0 50 55 70 0 50 55 70 0"/>
+    <path d="M130 165c20-55 50 55 70 0s50 55 70 0 50 55 70 0 50 55 70 0"/>
+  </g>
+</svg>

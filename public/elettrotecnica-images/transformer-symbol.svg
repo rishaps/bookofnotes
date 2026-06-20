@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" role="img" aria-label="Transformer symbol">
+  <rect width="420" height="180" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="7" stroke-linecap="round">
+    <path d="M30 55h75M30 125h75M315 55h75M315 125h75"/>
+    <path d="M105 125c-28 0-28-70 0-70s28 70 0 70 28-70 0-70M315 125c-28 0-28-70 0-70s28 70 0 70 28-70 0-70"/>
+    <path d="M185 35v110M235 35v110"/>
+  </g>
+</svg>

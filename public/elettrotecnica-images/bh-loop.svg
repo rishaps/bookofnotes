@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="B-H hysteresis loop">
+  <rect width="420" height="320" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="4" stroke-linecap="round">
+    <path d="M40 160h340M210 285V35"/>
+    <path d="M90 220C150 285 295 250 315 165 335 80 195 40 115 100 55 145 55 185 90 220Z" stroke="#0f62fe" stroke-width="7"/>
+  </g>
+  <text x="360" y="150" font-family="Arial, sans-serif" font-size="22">H</text>
+  <text x="220" y="45" font-family="Arial, sans-serif" font-size="22">B</text>
+</svg>

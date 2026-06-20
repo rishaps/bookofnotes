@@ -872,48 +872,17 @@ body {
     background: currentColor;
 }
 
-/* PDF Viewer Styling */
-.pdf-document {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.pdf-page {
-    max-width: 100%;
-}
-
-.pdf-page canvas {
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* Ensure PDF text layer is readable */
-.react-pdf__Page__textContent {
-    color: transparent;
-    user-select: text;
-}
-
-.react-pdf__Page__textContent span {
-    color: transparent;
-}
-
-.react-pdf__Page__textContent span::selection {
-    background: var(--premium-gold);
-    color: var(--bg-body);
-}
-
-/* PDF annotation layer */
-.react-pdf__Page__annotations {
-    pointer-events: auto;
-}
-
-.react-pdf__Page__annotations a {
-    color: var(--premium-gold);
-}
-
 /* ===== TABLE OF CONTENTS HOMEPAGE STYLING ===== */
+
+.subjects-homepage {
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.subjects-content {
+    position: relative;
+    z-index: 1;
+}
 
 /* TOC Item styling */
 .toc-item {

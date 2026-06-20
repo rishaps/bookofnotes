@@ -1,0 +1,22 @@
+[
+  {
+    "file": "kirchhoff-kcl.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:KCL_-_Kirchhoff%27s_circuit_laws.svg"
+  },
+  {
+    "file": "kirchhoff-kvl.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Kirchhoff_voltage_law.svg"
+  },
+  {
+    "file": "kirchhoff-circuit.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Kirchhoff-example-circuit-loops.svg"
+  },
+  {
+    "file": "resistor-symbol.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Resistor_symbol_America.svg"
+  },
+  {
+    "file": "diode-symbol.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Diode_symbol.svg"
+  }
+]

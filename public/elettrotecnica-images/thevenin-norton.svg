@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-label="Thevenin and Norton equivalent circuits">
+  <rect width="720" height="260" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="95" cy="130" r="38"/>
+    <path d="M95 92v-45h135M95 168v45h135"/>
+    <path d="M230 47h90M230 213h90M270 47v40m0 86v40"/>
+    <path d="M245 87h50m-50 18h50m-50 18h50m-50 18h50m-50 18h50m-50 18h50"/>
+    <path d="M320 47v166"/>
+    <circle cx="505" cy="130" r="38"/>
+    <path d="M505 92V47h120v166H505v-45"/>
+    <path d="M585 47v40m0 86v40"/>
+    <path d="M560 87h50m-50 18h50m-50 18h50m-50 18h50m-50 18h50m-50 18h50"/>
+  </g>
+  <path d="M505 150V110m0 0-13 20m13-20 13 20" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="55" y="135" font-family="Arial, sans-serif" font-size="22">Vth</text>
+  <text x="242" y="38" font-family="Arial, sans-serif" font-size="22">Rth</text>
+  <text x="465" y="135" font-family="Arial, sans-serif" font-size="22">In</text>
+  <text x="557" y="38" font-family="Arial, sans-serif" font-size="22">Rn</text>
+</svg>

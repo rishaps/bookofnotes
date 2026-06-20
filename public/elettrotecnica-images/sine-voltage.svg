@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" role="img" aria-label="Sinusoidal voltage waveform">
+  <rect width="520" height="240" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="4" stroke-linecap="round">
+    <path d="M40 120h440M70 25v190"/>
+    <path d="M70 120 C105 35 145 35 180 120 S255 205 290 120 365 35 400 120 475 205 510 120" stroke="#0f62fe" stroke-width="7"/>
+    <path d="M70 45h110" stroke="#d62728" stroke-width="5"/>
+    <path d="M180 45v75" stroke="#d62728" stroke-dasharray="8 8"/>
+  </g>
+  <text x="190" y="52" font-family="Arial, sans-serif" font-size="22">Vmax</text>
+  <text x="385" y="150" font-family="Arial, sans-serif" font-size="22">t</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" role="img" aria-label="Generic two-terminal electrical component">
+  <rect width="360" height="160" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25 80h75M260 80h75"/>
+    <rect x="100" y="35" width="160" height="90" rx="4"/>
+  </g>
+  <text x="162" y="90" font-family="Arial, sans-serif" font-size="30">B</text>
+</svg>

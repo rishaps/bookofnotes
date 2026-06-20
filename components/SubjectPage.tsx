@@ -14,6 +14,7 @@ import { informaticaContent } from '../data/courseContent-informatica';
 import { analisi1CourseContent } from '../data/courseContent-analisi1';
 import { geometriaCourseContent } from '../data/courseContent-geometria';
 import { fisicaCourseContent } from '../data/courseContent-fisica';
+import { elettrotecnicaCourseContent } from '../data/courseContent-elettrotecnica';
 
 // Direct content mapping - instant access, no async loading
 const CONTENT_MAP: Record<string, MainSection[]> = {
@@ -22,6 +23,7 @@ const CONTENT_MAP: Record<string, MainSection[]> = {
     'analisi-1': analisi1CourseContent,
     'geometria-algebra': geometriaCourseContent,
     'fisica': fisicaCourseContent,
+    'elettrotecnica': elettrotecnicaCourseContent,
 };
 
 // Map subjects to theme class names
@@ -31,6 +33,7 @@ const SUBJECT_THEME_MAP: Record<string, string> = {
     'analisi-1': 'theme-math',
     'geometria-algebra': 'theme-logic',
     'fisica': 'theme-physics',
+    'elettrotecnica': 'theme-silver',
     'default': 'theme-math'
 };
 
@@ -312,7 +315,6 @@ const SubjectPageInner: React.FC<{ activeSlug: string }> = ({ activeSlug }) => {
 
 // Subjects that are blocked from direct URL access (incomplete content)
 const BLOCKED_SUBJECTS = [
-    'elettrotecnica',
     'analisi-2',
     'architettura-os',
     'logica-algebra',

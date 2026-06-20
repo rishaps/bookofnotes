@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-label="RC charging curve">
+  <rect width="520" height="260" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="4" stroke-linecap="round">
+    <path d="M55 210h420M80 35v190"/>
+    <path d="M80 205 C140 135 185 85 250 60 315 42 380 39 470 38" stroke="#0f62fe" stroke-width="7"/>
+    <path d="M80 38h390" stroke="#777" stroke-dasharray="8 8"/>
+    <path d="M178 210V93" stroke="#d62728" stroke-dasharray="8 8"/>
+  </g>
+  <text x="185" y="232" font-family="Arial, sans-serif" font-size="22">tau = RC</text>
+  <text x="92" y="30" font-family="Arial, sans-serif" font-size="20">V</text>
+</svg>

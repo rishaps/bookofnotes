@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" role="img" aria-label="Nodal analysis example">
+  <rect width="560" height="260" fill="#fff"/>
+  <g fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 70h150M310 70h150M250 70h60M280 70v90M100 70v90h360V70"/>
+    <path d="M165 70v40m0 0-18 10 36 20-36 20 36 20-18 10v-30"/>
+    <path d="M385 70v40m0 0-18 10 36 20-36 20 36 20-18 10v-30"/>
+    <circle cx="280" cy="70" r="10" fill="#111"/>
+    <path d="M250 190h60m-45 15h30m-20 15h10"/>
+  </g>
+  <text x="255" y="47" font-family="Arial, sans-serif" font-size="26">e1</text>
+  <text x="145" y="48" font-family="Arial, sans-serif" font-size="22">R1</text>
+  <text x="365" y="48" font-family="Arial, sans-serif" font-size="22">R2</text>
+</svg>

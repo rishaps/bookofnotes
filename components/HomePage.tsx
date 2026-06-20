@@ -7,6 +7,7 @@ import { informaticaContent } from '../data/courseContent-informatica';
 import { analisi1CourseContent } from '../data/courseContent-analisi1';
 import { geometriaCourseContent } from '../data/courseContent-geometria';
 import { fisicaCourseContent } from '../data/courseContent-fisica';
+import { elettrotecnicaCourseContent } from '../data/courseContent-elettrotecnica';
 
 // Helper to get lesson count
 const getLessonCount = (slug: string): number => {
@@ -16,6 +17,7 @@ const getLessonCount = (slug: string): number => {
         case 'analisi-1': return analisi1CourseContent.length;
         case 'geometria-algebra': return geometriaCourseContent.length;
         case 'fisica': return fisicaCourseContent.length;
+        case 'elettrotecnica': return elettrotecnicaCourseContent.length;
         default: return 0;
     }
 };
@@ -98,8 +100,6 @@ const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) 
     );
 };
 
-const AVAILABLE_SUBJECTS = ['analisi-1', 'fondamenti-informatica', 'geometria-algebra', 'economia'];
-
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
 
@@ -109,10 +109,10 @@ const HomePage: React.FC = () => {
 
     return (
         <div
-            className="min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col relative"
+            className="subjects-homepage min-h-screen bg-[var(--bg-body)] text-black dark:text-white flex flex-col relative"
         >
             {/* Header - Fixed top on all devices */}
-            <div className="fixed top-0 left-0 w-full h-16 md:h-20 bg-[var(--bg-body)] z-40 flex items-center px-4 md:px-6">
+            <div className="fixed top-0 left-0 w-full h-16 md:h-20 z-40 flex items-center px-4 md:px-6">
                 <h1
                     className="text-xs md:text-lg font-bold tracking-widest uppercase font-mono"
                 >
@@ -125,7 +125,7 @@ const HomePage: React.FC = () => {
             </div>
 
             {/* Main content wrapper - centered vertically and horizontally */}
-            <div className="flex-1 flex flex-col items-center justify-start md:justify-center px-8 pt-24 pb-12 md:py-12">
+            <div className="subjects-content flex-1 flex flex-col items-center justify-start md:justify-center px-8 pt-24 pb-12 md:py-12">
 
                 {/* Header with TOC centered */}
                 <header className="w-full max-w-7xl mb-8">
