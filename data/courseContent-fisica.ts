@@ -4014,7 +4014,7 @@ export const fisicaCourseContent: MainSection[] = [
             {
                 title: "Teorema fondamentale del calcolo",
                 content: [
-                    "![Teorema fondamentale del calcolo integrale|medium](/fisica-images/fig_teorema_fondamentale.png)",
+                    "![Teorema fondamentale del calcolo integrale|medium](/fisica-images/fig_teorema_fondamentale.avif)",
                     "Consideriamo una funzione continua $y = f(x)$ e stabiliamo il tasso di accrescimento dell’area sottesa dalla sua curva tra due punti. Sia $y$ il valore assunto dalla funzione in corrispondenza di un punto $x$ e consideriamo l’intervallo di ampiezza $\\Delta x$ compreso tra $x$ e $x + \\Delta x$. In tale intervallo l’area $a$ considerata risulterà aumentata di una quantità $\\Delta a$ così il corrispondente tasso di crescita sarà:",
                     "$$ \\frac{\\Delta a}{\\Delta x}. $$",
                     "Possiamo considerare un valore $y'$ dell’ordinata $y$ tale che l’area $y'\\Delta x$ è uguale a $\\Delta a$:",

@@ -118,7 +118,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "2.  $\\forall k \\in K, \\forall u \\in U$: $ku \\in U$ (chiusura rispetto al prodotto per scalari)",
                     "**Proposizione 2.2.2 (Secondo criterio di riconoscimento):** $U$ è sottospazio di $V(K)$ se e soltanto se:",
                     "$$ hv_1 + kv_2 \\in U \\quad \\forall v_1, v_2 \\in U \\text{ e } \\forall h, k \\in K $$",
-                    "![Sottospazi in $\\mathbb{R}^3$](/geometria-images/subspace-r3.png)"
+                    "![Sottospazi in $\\mathbb{R}^3$](/geometria-images/subspace-r3.avif)"
                 ]
             },
             {
@@ -380,7 +380,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "L'equazione $p_A(\\lambda) = |A - \\lambda I_n| = 0$ è detta **equazione caratteristica** di $A$.",
                     "**Definizione 4.1.2 (Autovalori):** Le radici del polinomio caratteristico si chiamano **autovalori** di $A$.",
                     "**Definizione 4.1.3 (Autospazio):** Lo spazio delle soluzioni del sistema $(A - \\lambda I_n)X = \\mathbf{0}$, dove $\\lambda$ è un autovalore, si chiama **autospazio** associato a $\\lambda$ e si indica con $V_\\lambda$.",
-                    "![Autovettore come direzione invariata](/geometria-images/eigenvector-diagram.jpg)"
+                    "![Autovettore come direzione invariata](/geometria-images/eigenvector-diagram.avif)"
                 ]
             },
             {
@@ -388,7 +388,7 @@ export const geometriaCourseContent: MainSection[] = [
                 content: [
                     "**Definizione 4.1.4 (Autovettori):** I vettori non nulli dell'autospazio $V_\\lambda$ si chiamano **autovettori** relativi a $\\lambda$.",
                     "![Autovettori in una rotazione](/geometria-images/eigenvectors-rotation.svg)",
-                    "![Autovettore di una matrice di rotazione](/geometria-images/eigenvector-rotation-matrix.png)",
+                    "![Autovettore di una matrice di rotazione](/geometria-images/eigenvector-rotation-matrix.avif)",
                     "**Osservazione:** Se il polinomio caratteristico di $A \\in M_n(K)$ ha grado $n$, allora gli autovalori di $A$ sono al massimo $n$.",
                     "**Definizione 4.1.5 (Matrici simili):** Due matrici $A, B \\in M_n(K)$ si dicono **simili** se esiste $P \\in M_n(K)$ con $|P| \\neq 0$ tale che:",
                     "$$ B = P^{-1}AP \\quad \\text{oppure} \\quad PB = AP $$",
@@ -399,7 +399,7 @@ export const geometriaCourseContent: MainSection[] = [
                 title: "Matrici Diagonalizzabili",
                 content: [
                     "**Definizione 4.2.1 (Matrice diagonalizzabile):** Una matrice $A \\in M_n(K)$ si dice **diagonalizzabile** se è simile ad una matrice diagonale, ovvero esistono $D, P \\in M_n(K)$ con $D$ matrice diagonale, tale che $|P| \\neq 0$ e $D = P^{-1}AP$.",
-                    "![Diagonalizzazione come rotazione](/geometria-images/diagonalization-rotation.gif)",
+                    "![Diagonalizzazione come rotazione](/geometria-images/diagonalization-rotation.avif)",
                     "**Teorema 4.2.1 (Primo criterio di diagonalizzabilità):** Una matrice $A \\in M_n(K)$ è diagonalizzabile se e solo se $K^n$ ammette una base costituita da autovettori di $A$.",
                     "**Osservazione:** Se $A$ è diagonalizzabile:",
                     "*   $D$ ha sulla diagonale principale gli autovalori di $A$.",
@@ -597,7 +597,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "    *   $\\forall P \\in A$ e $\\forall v \\in V$, $\\exists! Q \\in A$ : $f(P, Q) = \\vec{PQ} = v$",
                     "    *   $\\vec{PQ} + \\vec{QR} = \\vec{PR} \\quad \\forall P, Q, R \\in A$",
                     "![Schema di spazio affine](/geometria-images/affine-space.svg)",
-                    "![Esempio di spazio affine in $\\mathbb{R}^3$](/geometria-images/affine-space-r3.png)"
+                    "![Esempio di spazio affine in $\\mathbb{R}^3$](/geometria-images/affine-space-r3.avif)"
                 ]
             },
             {
@@ -840,7 +840,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Definizione 8.8.1 (Superfici algebriche reali in $\\tilde{A}_3(\\mathbb{C})$):** Una superficie algebrica reale di $\\tilde{A}_3(\\mathbb{C})$ è l'insieme delle classi di autosoluzioni complesse di un'equazione del tipo:",
                     "$$ F(x_1, x_2, x_3, x_4) = 0 $$",
                     "ove $F$ è un polinomio omogeneo a coefficienti reali in $x_1, x_2, x_3, x_4$. Il grado di $F$ è chiamato **ordine** della superficie. Se $F$ è fattorizzabile in polinomi di grado positivo la superficie si dice riducibile in componenti.",
-                    "![Piano complesso (diagramma di Argand)](/geometria-images/argand-diagram.png)",
+                    "![Piano complesso (diagramma di Argand)](/geometria-images/argand-diagram.avif)",
                     "![Rotazioni sul piano complesso](/geometria-images/complex-plane-rotations.svg)",
                     "![Radici dell'unità nel piano complesso](/geometria-images/roots-of-unity.svg)",
                     "![Sfera di Riemann](/geometria-images/riemann-sphere.svg)",
@@ -937,7 +937,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "con almeno un $a_{ij} \\neq 0$. Ponendo $X = (x_1, x_2, x_3, x_4)^T$ si ha che $A$ (matrice simmetrica dei coefficienti) è tale che:",
                     "$$ Q : {}^t X A X = 0 $$",
                     "Quindi, essendo dipendente da 10 coefficienti, abbiamo $\\infty^9$ quadriche.",
-                    "![Ellissoide con assi principali](/geometria-images/ellipsoid-labeled.png)",
+                    "![Ellissoide con assi principali](/geometria-images/ellipsoid-labeled.avif)",
                     "**Proposizione 10.1.1:** Se una quadrica è riducibile, si riduce in due piani che possono essere reali e coincidenti, reali e distinti o immaginari e coniugati. Inoltre tutte le sue sezioni sono riducibili.",
                     "**Dimostrazione:** $F$ è di secondo grado ($Q$ è del second'ordine), quindi se si fattorizza in due polinomi di primo grado, essendo $F$ reale, le possibilità sono quelle elencate. Sia $Q = \\alpha \\cup \\beta$ e sia $\\gamma$ un terzo piano abbiamo che:",
                     "$$ Q \\cap \\gamma = (\\alpha \\cup \\beta) \\cap \\gamma = (\\alpha \\cap \\gamma) \\cup (\\beta \\cap \\gamma) $$",
@@ -976,10 +976,10 @@ export const geometriaCourseContent: MainSection[] = [
                     "3.  Paraboloide:",
                     "    *   ellittico",
                     "    *   iperbolico",
-                    "![Iperboloide a una falda](/geometria-images/hyperboloid-one-sheet.png)",
-                    "![Paraboloide iperbolico](/geometria-images/hyperbolic-paraboloid.png)",
-                    "![Iperboloide a due falde](/geometria-images/hyperboloid-two-sheets.png)",
-                    "![Paraboloide ellittico](/geometria-images/elliptic-paraboloid.png)",
+                    "![Iperboloide a una falda](/geometria-images/hyperboloid-one-sheet.avif)",
+                    "![Paraboloide iperbolico](/geometria-images/hyperbolic-paraboloid.avif)",
+                    "![Iperboloide a due falde](/geometria-images/hyperboloid-two-sheets.avif)",
+                    "![Paraboloide ellittico](/geometria-images/elliptic-paraboloid.avif)",
                     "Consiglio molto vivamente di utilizzare Geogebra 3D (o anche semplicemente cercare su Google) i grafici delle quadriche sopra elencate in modo da ottenerne un riscontro visivo che è particolarmente utile durante lo svolgimento di esercizi per verificare i propri risultati."
                 ]
             },
@@ -991,7 +991,7 @@ export const geometriaCourseContent: MainSection[] = [
                     "**Sezioni irriducibili di un paraboloide:** Dato che $C_\\infty$ è riducibile in due rette reali e distinte o in rette immaginarie e coniugate, i due punti dati da $r_\\infty \\cap C_\\infty$ sono reali e coincidenti, se $r_\\infty$ passa per il punto doppio di $C_\\infty$, diversamente sono punti distinti. In questo caso, se il paraboloide è iperbolico i punti sono reali, se il paraboloide è ellittico sono punti immaginari e coniugati. Pertanto, le sezioni irriducibili di un paraboloide iperbolico sono parabole e iperboli, quelle di un paraboloide ellittico sono parabole e ellissi.",
 
 
-                    "![Superfici quadriche](/geometria-images/quadric-surfaces.gif)",
+                    "![Superfici quadriche](/geometria-images/quadric-surfaces.avif)",
                     "**Studio analitico:** Ci occupiamo ora di trovare un metodo per riconoscere la conica generata dall'intersezione di una quadrica con un piano.",
                     "**Proposizione 10.6.1:** Se $Q$ è una quadrica irriducibile, la cui equazione è priva di una delle variabili $x_1, x_2$ o $x_3$, allora $Q'$ è un cilindro, con vertice in $X_\\infty$ se manca $x_1$, in $Y_\\infty$ se manca $x_2$ o in $Z_\\infty$ se manca $x_3$.",
                     "**Osservazione:** In questo modo $C = Q \\cap \\pi = Q' \\cap \\pi$, ove $Q'$ è un cilindro, perciò ci basta riconoscere il tipo di cilindro e potremo direttamente riconoscere la conica."
