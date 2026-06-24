@@ -9,7 +9,7 @@ import { geometriaCourseContent } from '../data/courseContent-geometria';
 import { fisicaCourseContent } from '../data/courseContent-fisica';
 import { elettrotecnicaCourseContent } from '../data/courseContent-elettrotecnica';
 
-// Helper to get lesson count
+// Helper to get section count
 const getLessonCount = (slug: string): number => {
     switch (slug) {
         case 'economia': return courseContent.length;
@@ -65,6 +65,7 @@ interface TocItemProps {
 const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) => {
     const isAvailable = lessonCount > 0;
     const leaderDots = '.'.repeat(80);
+    const countLabel = 'sezioni';
 
     return (
         <button
@@ -82,7 +83,7 @@ const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) 
                         {leaderDots}
                     </span>
                     <span className={`text-[10px] font-mono whitespace-nowrap uppercase tracking-wide flex-shrink-0 ${isAvailable ? 'text-gray-500 dark:text-white/70' : 'text-transparent'}`}>
-                        {`${String(lessonCount).padStart(2, '0')} lezioni`}
+                        {`${String(lessonCount).padStart(2, '0')} ${countLabel}`}
                     </span>
                 </>
             ) : (

@@ -3,7 +3,7 @@ import { MainSection } from '../types';
 export const elettrotecnicaCourseContent: MainSection[] = [
     {
         "id": "1-introduzione-ai-circuiti-elettrici",
-        "title": "Lezione 1: Introduzione ai circuiti elettrici",
+        "title": "Introduzione ai circuiti elettrici",
         "subsections": [
             {
                 "title": "Il circuito elettrico",
@@ -44,7 +44,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "2-le-leggi-di-kirchhoff",
-        "title": "Lezione 2: Le leggi di Kirchhoff",
+        "title": "Le leggi di Kirchhoff",
         "subsections": [
             {
                 "title": "La legge di Kirchhoff delle correnti",
@@ -91,7 +91,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "3-dispositivi-elettrici",
-        "title": "Lezione 3: Dispositivi elettrici",
+        "title": "Dispositivi elettrici",
         "subsections": [
             {
                 "title": "Dispositivi elettrici",
@@ -141,7 +141,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "4-soluzione-di-circuiti-resistivi",
-        "title": "Lezione 4: Soluzione di circuiti resistivi",
+        "title": "Soluzione di circuiti resistivi",
         "subsections": [
             {
                 "title": "Metodo della matrice sparsa",
@@ -190,7 +190,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "5-soluzione-di-circuiti-resistivi-lineari-1",
-        "title": "Lezione 5: Soluzione di circuiti resistivi lineari, 1",
+        "title": "Soluzione di circuiti resistivi lineari, 1",
         "subsections": [
             {
                 "title": "Teorema di Thévenin",
@@ -230,7 +230,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "6-soluzione-di-circuiti-resistivi-lineari-2",
-        "title": "Lezione 6: Soluzione di circuiti resistivi lineari, 2",
+        "title": "Soluzione di circuiti resistivi lineari, 2",
         "subsections": [
             {
                 "title": "Principio di sovrapposizione degli effetti",
@@ -269,7 +269,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "7-generatore-pilotati-e-trasformatore-ideale",
-        "title": "Lezione 7: Generatori pilotati e trasformatore ideale",
+        "title": "Generatori pilotati e trasformatore ideale",
         "subsections": [
             {
                 "title": "Dispositivi a più morsetti",
@@ -311,7 +311,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "8-due-porte-resistivi",
-        "title": "Lezione 8: Due-porte resistivi",
+        "title": "Due-porte resistivi",
         "subsections": [
             {
                 "title": "Relazione costitutiva dei due-porte resistivi, 1",
@@ -354,7 +354,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "9-analisi-nodale",
-        "title": "Lezione 9: Analisi nodale",
+        "title": "Analisi nodale",
         "subsections": [
             {
                 "title": "Simulazione circuitale",
@@ -394,7 +394,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "10-diodi-ideali-e-dispositivi-lineari-a-tratti",
-        "title": "Lezione 10: Diodi ideali e dispositivi lineari a tratti",
+        "title": "Diodi ideali e dispositivi lineari a tratti",
         "subsections": [
             {
                 "title": "Dispositivi lineari a tratti",
@@ -432,7 +432,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "11-amplificatore-operazionale-a-o",
-        "title": "Lezione 11: Amplificatore operazionale (A.O.)",
+        "title": "Amplificatore operazionale (A.O.)",
         "subsections": [
             {
                 "title": "Introduzione",
@@ -488,7 +488,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "12-dispositivi-dinamici-induttori-e-condensatori",
-        "title": "Lezione 12: Dispositivi dinamici: induttori e condensatori",
+        "title": "Dispositivi dinamici: induttori e condensatori",
         "subsections": [
             {
                 "title": "Introduzione",
@@ -544,7 +544,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "13-circuiti-elettrici-in-regime-sinusoidale-permanente-1",
-        "title": "Lezione 13: Circuiti elettrici in regime sinusoidale permanente, 1",
+        "title": "Circuiti elettrici in regime sinusoidale permanente, 1",
         "subsections": [
             {
                 "title": "Circuiti in RSP",
@@ -584,7 +584,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "14-circuiti-elettrici-in-regime-sinusoidale-permanente-2",
-        "title": "Lezione 14: Circuiti elettrici in regime sinusoidale permanente, 2",
+        "title": "Circuiti elettrici in regime sinusoidale permanente, 2",
         "subsections": [
             {
                 "title": "LK e relazioni costitutive in R.S.P.",
@@ -630,7 +630,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "15-metodi-e-tecniche-di-soluzione-di-circuiti-in-r-s-p",
-        "title": "Lezione 15: Metodi e tecniche di soluzione di circuiti in R.S.P.",
+        "title": "Metodi e tecniche di soluzione di circuiti in R.S.P.",
         "subsections": [
             {
                 "title": "Tecniche di riduzione",
@@ -669,7 +669,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "16-potenze-in-r-s-p",
-        "title": "Lezione 16: Potenze in R.S.P.",
+        "title": "Potenze in R.S.P.",
         "subsections": [
             {
                 "title": "La potenza in RSP",
@@ -715,7 +715,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "17-circuiti-del-primo-ordine",
-        "title": "Lezione 17: Circuiti del primo ordine",
+        "title": "Circuiti del primo ordine",
         "subsections": [
             {
                 "title": "Circuiti dinamici",
@@ -756,7 +756,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "18-introduzione",
-        "title": "Lezione 18: Introduzione",
+        "title": "Introduzione",
         "subsections": [
             {
                 "title": "Richiami ai campi scalari e vettoriali",
@@ -775,7 +775,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "19-campo-elettrico-e-di-conduzione",
-        "title": "Lezione 19: Campo elettrico e di conduzione",
+        "title": "Campo elettrico e di conduzione",
         "subsections": [
             {
                 "title": "Parte prima",
@@ -814,7 +814,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "20-campo-magnetico",
-        "title": "Lezione 20: Campo magnetico",
+        "title": "Campo magnetico",
         "subsections": [
             {
                 "title": "Campo di induzione magnetica e Legge di Faraday",
@@ -866,7 +866,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "21-introduzione-alle-macchine-elettriche",
-        "title": "Lezione 21: Introduzione alle macchine elettriche",
+        "title": "Introduzione alle macchine elettriche",
         "subsections": [
             {
                 "title": "Introduzione",
@@ -909,7 +909,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "22-proprieta-dei-materiali",
-        "title": "Lezione 22: Proprietà dei materiali",
+        "title": "Proprietà dei materiali",
         "subsections": [
             {
                 "title": "Proprietà dei materiali",
@@ -932,7 +932,7 @@ export const elettrotecnicaCourseContent: MainSection[] = [
     },
     {
         "id": "23-introduzione-alle-macchine-elettriche",
-        "title": "Lezione 23: Introduzione alle macchine elettriche",
+        "title": "Introduzione alle macchine elettriche",
         "subsections": [
             {
                 "title": "Il trasformatore",

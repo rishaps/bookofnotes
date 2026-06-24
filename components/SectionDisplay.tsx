@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import katex from 'katex';
 import { ImageData, MainSection, SubSection, TableData } from '../types';
-import { Search, X, ZoomIn, Info } from 'lucide-react';
+import { Check, Copy, Search, X, ZoomIn, Info } from 'lucide-react';
 import { createPortal } from 'react-dom';
 
 const MathRenderer = React.lazy(() => import('./MathRenderer'));
@@ -62,6 +62,219 @@ const ImageThumbnail: React.FC<{
   );
 };
 
+const getCodeBlockMeta = (language: string, code: string) => {
+  const normalizedLanguage = language.trim().toLowerCase();
+  const normalizedCode = code.trim();
+
+  if (normalizedLanguage === 'text' || normalizedLanguage === 'txt') {
+    return null;
+  }
+
+  if (!normalizedLanguage) {
+    const looksLikeCode = /[#{};]|=>|->|::|\b(return|int|double|class|for|while|if|else|switch|template|const|void|include|std)\b/.test(normalizedCode);
+    if (!looksLikeCode) return null;
+  }
+
+  const labelMap: Record<string, string> = {
+    c: 'C',
+    cpp: 'C++',
+    cxx: 'C++',
+    h: 'C/C++',
+    hpp: 'C++',
+    js: 'JavaScript',
+    jsx: 'React JSX',
+    ts: 'TypeScript',
+    tsx: 'React TSX',
+    python: 'Python',
+    py: 'Python',
+    bash: 'Shell',
+    sh: 'Shell',
+    shell: 'Shell',
+    prolog: 'Prolog',
+    lisp: 'Lisp',
+  };
+
+  return {
+    label: labelMap[normalizedLanguage] || (normalizedLanguage ? normalizedLanguage.toUpperCase() : 'Codice'),
+    isCopyable: normalizedCode.length > 0,
+  };
+};
+
+const CODE_KEYWORDS = new Set([
+  'alignas', 'alignof', 'asm', 'auto', 'break', 'case', 'catch', 'class', 'concept',
+  'const', 'constexpr', 'consteval', 'constinit', 'continue', 'decltype', 'default',
+  'delete', 'do', 'else', 'enum', 'explicit', 'export', 'extern', 'for', 'friend',
+  'goto', 'if', 'inline', 'mutable', 'namespace', 'new', 'noexcept', 'operator',
+  'private', 'protected', 'public', 'requires', 'return', 'sizeof', 'static', 'struct',
+  'switch', 'template', 'this', 'throw', 'try', 'typedef', 'typename', 'using',
+  'virtual', 'volatile', 'while', 'import', 'from', 'def', 'lambda', 'yield', 'await',
+  'async', 'function', 'let', 'const', 'var', 'extends', 'implements', 'interface',
+]);
+
+const CODE_TYPES = new Set([
+  'bool', 'char', 'char16_t', 'char32_t', 'double', 'float', 'int', 'long', 'short',
+  'signed', 'unsigned', 'void', 'wchar_t', 'size_t', 'string', 'std', 'ostream',
+  'istream', 'ifstream', 'ofstream', 'vector', 'set', 'map', 'list', 'queue', 'stack',
+  'true', 'false', 'nullptr', 'None', 'True', 'False', 'null', 'undefined',
+]);
+
+const getTokenClass = (word: string, rest: string) => {
+  if (CODE_KEYWORDS.has(word)) return 'hl-keyword';
+  if (CODE_TYPES.has(word)) return 'hl-type';
+  if (/^\s*\(/.test(rest)) return 'hl-function';
+  return '';
+};
+
+const renderCodeTokens = (code: string) => {
+  const nodes: React.ReactNode[] = [];
+  const lines = code.split('\n');
+  let key = 0;
+  let inBlockComment = false;
+
+  const push = (value: string, className = '') => {
+    if (!value) return;
+    nodes.push(className
+      ? <span key={`tok-${key++}`} className={className}>{value}</span>
+      : <React.Fragment key={`tok-${key++}`}>{value}</React.Fragment>
+    );
+  };
+
+  lines.forEach((line, lineIndex) => {
+    let index = 0;
+
+    if (!inBlockComment && /^\s*#/.test(line)) {
+      push(line, 'hl-preprocessor');
+      if (lineIndex < lines.length - 1) push('\n');
+      return;
+    }
+
+    while (index < line.length) {
+      const rest = line.slice(index);
+
+      if (inBlockComment) {
+        const end = rest.indexOf('*/');
+        if (end === -1) {
+          push(rest, 'hl-comment');
+          index = line.length;
+          continue;
+        }
+        push(rest.slice(0, end + 2), 'hl-comment');
+        index += end + 2;
+        inBlockComment = false;
+        continue;
+      }
+
+      if (rest.startsWith('//')) {
+        push(rest, 'hl-comment');
+        break;
+      }
+
+      if (rest.startsWith('/*')) {
+        const end = rest.indexOf('*/', 2);
+        if (end === -1) {
+          push(rest, 'hl-comment');
+          inBlockComment = true;
+          break;
+        }
+        push(rest.slice(0, end + 2), 'hl-comment');
+        index += end + 2;
+        continue;
+      }
+
+      const quote = line[index];
+      if (quote === '"' || quote === "'") {
+        let end = index + 1;
+        while (end < line.length) {
+          if (line[end] === '\\') {
+            end += 2;
+            continue;
+          }
+          if (line[end] === quote) {
+            end += 1;
+            break;
+          }
+          end += 1;
+        }
+        push(line.slice(index, end), 'hl-string');
+        index = end;
+        continue;
+      }
+
+      const numberMatch = rest.match(/^(?:0x[\da-fA-F]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/);
+      if (numberMatch) {
+        push(numberMatch[0], 'hl-number');
+        index += numberMatch[0].length;
+        continue;
+      }
+
+      const wordMatch = rest.match(/^[A-Za-z_][A-Za-z0-9_]*/);
+      if (wordMatch) {
+        const word = wordMatch[0];
+        push(word, getTokenClass(word, rest.slice(word.length)));
+        index += word.length;
+        continue;
+      }
+
+      const operatorMatch = rest.match(/^(::|->|=>|==|!=|<=|>=|\+\+|--|&&|\|\||[{}()[\];,.<>+\-*/%=&|!?:~])/);
+      if (operatorMatch) {
+        push(operatorMatch[0], 'hl-operator');
+        index += operatorMatch[0].length;
+        continue;
+      }
+
+      push(line[index]);
+      index += 1;
+    }
+
+    if (lineIndex < lines.length - 1) push('\n');
+  });
+
+  return nodes;
+};
+
+const CodeBlock: React.FC<{ code: string; language?: string }> = ({ code, language = '' }) => {
+  const [copied, setCopied] = useState(false);
+  const meta = getCodeBlockMeta(language, code);
+
+  if (!meta) {
+    return (
+      <pre className="content-code-block content-code-block-plain">
+        <code>{code}</code>
+      </pre>
+    );
+  }
+
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1400);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  return (
+    <div className="terminal-code-block">
+      <div className="terminal-code-bar">
+        <span className="terminal-code-label">{meta.label}</span>
+        <button
+          type="button"
+          className="terminal-copy-button"
+          onClick={copyCode}
+          aria-label="Copia codice"
+          title="Copia codice"
+        >
+          {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+        </button>
+      </div>
+      <pre className="content-code-block terminal-code-pre">
+        <code>{renderCodeTokens(code)}</code>
+      </pre>
+    </div>
+  );
+};
+
 const isTableData = (item: ContentItem): item is TableData => {
   return (item as TableData).headers !== undefined;
 };
@@ -84,27 +297,58 @@ const isCalloutBlock = (item: ContentItem): item is CalloutBlock => {
   return typeof item === 'object' && item !== null && 'kind' in item && (item as CalloutBlock).kind === 'callout';
 };
 
+const splitPipeCells = (row: string) => {
+  const cells: string[] = [];
+  let current = '';
+  let inMath = false;
+
+  for (let index = 0; index < row.length; index += 1) {
+    const char = row[index];
+    const previous = row[index - 1];
+    if (char === '$' && previous !== '\\') {
+      if (row[index + 1] === '$') {
+        inMath = !inMath;
+        current += '$$';
+        index += 1;
+      } else {
+        inMath = !inMath;
+        current += char;
+      }
+      continue;
+    }
+    if (char === '|' && !inMath) {
+      cells.push(current.trim());
+      current = '';
+      continue;
+    }
+    current += char;
+  }
+
+  cells.push(current.trim());
+
+  const trimmedRow = row.trim();
+  if (!trimmedRow.startsWith('|') && cells[0] === '') {
+    cells.shift();
+  }
+  if (trimmedRow.endsWith('|') && cells[cells.length - 1] === '') {
+    cells.pop();
+  }
+  return cells;
+};
+
 const parsePipeTable = (lines: string[]): TableData | null => {
   if (lines.length < 2) return null;
   const cleaned = lines.map((line) => line.trim()).filter(Boolean);
   if (cleaned.length < 2) return null;
 
-  const headerCells = cleaned[0]
-    .split('|')
-    .map((cell) => cell.trim())
-    .filter(Boolean);
+  const headerCells = splitPipeCells(cleaned[0]);
 
   let rowStartIndex = 1;
   if (cleaned[1].includes('---')) {
     rowStartIndex = 2;
   }
 
-  const rows = cleaned.slice(rowStartIndex).map((row) =>
-    row
-      .split('|')
-      .map((cell) => cell.trim())
-      .filter(Boolean)
-  );
+  const rows = cleaned.slice(rowStartIndex).map(splitPipeCells);
 
   if (headerCells.length === 0 || rows.length === 0) return null;
   return { headers: headerCells, rows };
@@ -168,7 +412,7 @@ const parseCalloutStart = (value: string) => {
 
   const hasLeadingBold = trimmed.startsWith('**');
   const rest = (match[3] || '').trim();
-  const hasSeparator = /[:]/.test(rest) || /\s-\s/.test(rest);
+  const hasSeparator = /^.{0,48}:/.test(rest) || /^.{0,48}\s-\s/.test(rest);
   if (!hasLeadingBold && !hasSeparator) return null;
 
   const leadingNumber = match[1];
@@ -291,7 +535,7 @@ const shouldInlineMathBeBlock = (latex: string) => {
 
 const renderMathParts = (text: string, keyPrefix: string = '') => {
   // 1. Split by Block Math $$...$$
-  const blockParts = text.split(/(\$\$[^$]+\$\$)/g);
+      const blockParts = text.split(/(\$\$[\s\S]*?\$\$)/g);
 
   return (
     <>
@@ -305,56 +549,73 @@ const renderMathParts = (text: string, keyPrefix: string = '') => {
           );
         }
 
-        // 2. Split by Inline Math $...$ inside text blocks
-        const inlineParts = part.split(/(\$[^$]+\$)/g);
+        const latexEnvironmentPattern = /(\\begin\{(?:align\*?|aligned|equation\*?|gather\*?|multline\*?)\}[\s\S]*?\\end\{(?:align\*?|aligned|equation\*?|gather\*?|multline\*?)\})/g;
+        const environmentParts = part.split(latexEnvironmentPattern);
         const renderedInlineParts: React.ReactNode[] = [];
-        for (let iIdx = 0; iIdx < inlineParts.length; iIdx += 1) {
-          const subPart = inlineParts[iIdx];
-          if (subPart.startsWith('$') && subPart.endsWith('$')) {
-            let latex = subPart.slice(1, -1);
-            if (shouldInlineMathBeBlock(latex)) {
-              const next = inlineParts[iIdx + 1];
-              if (typeof next === 'string') {
-                const match = next.match(/^\s*([.,;:])/);
-                if (match) {
-                  const punct = match[1];
-                  latex = `${latex} \\text{${punct}}`;
-                  inlineParts[iIdx + 1] = next.slice(match[0].length);
+
+        environmentParts.forEach((environmentPart, environmentIndex) => {
+          if (/^\\begin\{(?:align\*?|aligned|equation\*?|gather\*?|multline\*?)\}/.test(environmentPart)) {
+            renderedInlineParts.push(
+              <React.Suspense
+                key={`${keyPrefix}-env-${environmentIndex}`}
+                fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}
+              >
+                <MathRenderer latex={environmentPart} inline />
+              </React.Suspense>
+            );
+            return;
+          }
+
+          // 2. Split by Inline Math $...$ inside text blocks
+          const inlineParts = environmentPart.split(/(\$[^$]+\$)/g);
+          for (let iIdx = 0; iIdx < inlineParts.length; iIdx += 1) {
+            const subPart = inlineParts[iIdx];
+            if (subPart.startsWith('$') && subPart.endsWith('$')) {
+              let latex = subPart.slice(1, -1);
+              if (shouldInlineMathBeBlock(latex)) {
+                const next = inlineParts[iIdx + 1];
+                if (typeof next === 'string') {
+                  const match = next.match(/^\s*([.,;:])/);
+                  if (match) {
+                    const punct = match[1];
+                    latex = `${latex} \\text{${punct}}`;
+                    inlineParts[iIdx + 1] = next.slice(match[0].length);
+                  }
                 }
+                renderedInlineParts.push(
+                  <React.Suspense
+                    key={`${keyPrefix}-inline-${environmentIndex}-${iIdx}`}
+                    fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}
+                  >
+                    <MathRenderer latex={latex} inline />
+                  </React.Suspense>
+                );
+                continue;
               }
-              renderedInlineParts.push(
-                <React.Suspense
-                  key={`${keyPrefix}-inline-${iIdx}`}
-                  fallback={<span className="inline-math-container inline-block h-6 w-full animate-pulse" />}
-                >
-                  <MathRenderer latex={latex} inline />
-                </React.Suspense>
-              );
+              try {
+                const html = katex.renderToString(latex, {
+                  throwOnError: false,
+                  displayMode: false,
+                  strict: false,
+                });
+                renderedInlineParts.push(
+                  <span
+                    key={`${keyPrefix}-inline-${environmentIndex}-${iIdx}`}
+                    className="inline-math-container"
+                  >
+                    <span className="inline-math px-1" dangerouslySetInnerHTML={{ __html: html }} />
+                  </span>
+                );
+              } catch (e) {
+                renderedInlineParts.push(
+                  <span key={`${environmentIndex}-${iIdx}`} className="text-red-500 font-mono text-xs">{latex}</span>
+                );
+              }
               continue;
             }
-            try {
-              const html = katex.renderToString(latex, {
-                throwOnError: false,
-                displayMode: false,
-                strict: false,
-              });
-              renderedInlineParts.push(
-                <span
-                  key={`${keyPrefix}-inline-${iIdx}`}
-                  className="inline-math-container"
-                >
-                  <span className="inline-math px-1" dangerouslySetInnerHTML={{ __html: html }} />
-                </span>
-              );
-            } catch (e) {
-              renderedInlineParts.push(
-                <span key={iIdx} className="text-red-500 font-mono text-xs">{latex}</span>
-              );
-            }
-            continue;
+            renderedInlineParts.push(<span key={`${environmentIndex}-${iIdx}`}>{subPart}</span>);
           }
-          renderedInlineParts.push(<span key={iIdx}>{subPart}</span>);
-        }
+        });
         return (
           <span key={`${keyPrefix}-text-${bIdx}`}>
             {renderedInlineParts}
@@ -365,6 +626,32 @@ const renderMathParts = (text: string, keyPrefix: string = '') => {
   );
 };
 
+const renderTextWithLinks = (value: string, keyPrefix: string) => {
+  const parts = value.split(/(\[[^\]]+\]\(<[^>]+>\)|\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\((?:<([^>]+)>|([^)]+))\)$/);
+    if (!match) {
+      return (
+        <React.Fragment key={`${keyPrefix}-text-${index}`}>
+          {renderMathParts(part, `${keyPrefix}-text-${index}`)}
+        </React.Fragment>
+      );
+    }
+    const href = match[2] || match[3];
+    return (
+      <a
+        key={`${keyPrefix}-link-${index}`}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="text-content-accent underline underline-offset-2 hover:opacity-80"
+      >
+        {renderMathParts(match[1], `${keyPrefix}-link-${index}`)}
+      </a>
+    );
+  });
+};
+
 const renderWithHighlights = (value: string) => {
   if (!value) return null;
   const normalizedValue = value.replace(/[\u200B\u200C\u200D\u200E\u200F\uFEFF]/g, '');
@@ -372,8 +659,8 @@ const renderWithHighlights = (value: string) => {
   return (
     <>
       {(() => {
-        const codeBlockPattern = /```([\s\S]*?)```/g;
-        const segments: Array<{ type: 'text' | 'code'; value: string }> = [];
+        const codeBlockPattern = /```([a-zA-Z0-9_-]*)\n?([\s\S]*?)```/g;
+        const segments: Array<{ type: 'text' | 'code'; value: string; language?: string }> = [];
         let lastIndex = 0;
         let match: RegExpExecArray | null;
 
@@ -381,7 +668,7 @@ const renderWithHighlights = (value: string) => {
           if (match.index > lastIndex) {
             segments.push({ type: 'text', value: normalizedValue.slice(lastIndex, match.index) });
           }
-          segments.push({ type: 'code', value: match[1] });
+          segments.push({ type: 'code', value: match[2], language: match[1] });
           lastIndex = match.index + match[0].length;
         }
 
@@ -392,11 +679,7 @@ const renderWithHighlights = (value: string) => {
         return segments.map((segment, segmentIndex) => {
           if (segment.type === 'code') {
             const cleaned = segment.value.replace(/^\n/, '').replace(/\n$/, '');
-            return (
-              <pre key={`code-${segmentIndex}`} className="content-code-block">
-                <code>{cleaned}</code>
-              </pre>
-            );
+            return <CodeBlock key={`code-${segmentIndex}`} code={cleaned} language={segment.language} />;
           }
 
           const parts = segment.value.split(/(\*\*[^*]+\*\*)/g);
@@ -413,7 +696,7 @@ const renderWithHighlights = (value: string) => {
                 }
                 return (
                   <React.Fragment key={`plain-${segmentIndex}-${index}`}>
-                    {renderMathParts(part, `plain-${segmentIndex}-${index}`)}
+                    {renderTextWithLinks(part, `plain-${segmentIndex}-${index}`)}
                   </React.Fragment>
                 );
               })}
@@ -471,7 +754,7 @@ const renderTable = (table: TableData) => {
           <thead>
             <tr className="border-b border-content-primary/20 bg-content-primary/5">
               {table.headers.map((header, index) => (
-                <th key={index} className="p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0 text-sm uppercase tracking-wider text-center">
+                <th key={index} className={`p-3 font-bold text-content-primary border-r border-content-primary/20 last:border-r-0 text-sm uppercase tracking-wider ${isFormulaTable || index === 0 ? 'text-center w-1/3' : 'text-left'}`}>
                   {renderWithHighlights(header)}
                 </th>
               ))}
@@ -482,7 +765,7 @@ const renderTable = (table: TableData) => {
           {table.rows.map((row, rowIndex) => (
             <tr key={rowIndex} className="border-b border-content-primary/10 last:border-b-0 hover:bg-content-primary/5 transition-colors">
               {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="p-3 text-content-primary text-center">
+                <td key={cellIndex} className={`p-3 text-content-primary ${isFormulaTable || cellIndex === 0 ? 'text-center w-1/3' : 'text-left'}`}>
                   {isFormulaTable ? renderFormulaCell(cell) : renderWithHighlights(cell)}
                 </td>
               ))}
@@ -547,6 +830,13 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
 
   const text = (item as string).trim();
 
+  const codeBlockMatch = text.match(/^```([a-zA-Z0-9_-]*)\n?([\s\S]*?)```$/);
+  if (codeBlockMatch) {
+    const language = codeBlockMatch[1];
+    const cleaned = codeBlockMatch[2].replace(/\n$/, '');
+    return <CodeBlock code={cleaned} language={language} />;
+  }
+
   const boldOnlyMatch = text.match(/^\*\*([^*]+)\*\*$/s);
   if (boldOnlyMatch) {
     const rawContent = boldOnlyMatch[1].trim();
@@ -560,9 +850,9 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
 
   if (/^\*\*[^*]+\*\*:\s*\S/.test(text)) {
     return (
-      <p className="definition-line">
+      <div className="definition-line">
         {renderWithHighlights(text)}
-      </p>
+      </div>
     );
   }
 
@@ -581,7 +871,7 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
     const isSmall = rawAlt.includes('|small');
     const isLarge = rawAlt.includes('|large');
     const hasFloat = isLeft || isRight;
-    const isFloat = hasFloat || isTall;
+    const isFloat = hasFloat;
 
     // Clean alt text for display - remove ALL flags
     const alt = rawAlt.replace(/\|(left|right|small|medium|large)/g, '').trim();
@@ -593,18 +883,16 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
         ? "lg:w-8/12"
         : hasFloat
           ? "lg:w-5/12"
-          : isTall
-            ? "lg:w-4/12 w-full max-w-sm"
-            : "w-full max-w-lg"; // Centered images get max-width
+        : isTall
+          ? "w-full max-w-sm"
+          : "w-full max-w-lg"; // Centered images get max-width
 
     // Float class - only if |left or |right specified
     const floatClass = isLeft
       ? "lg:float-left lg:mr-12 lg:clear-left"
       : isRight
         ? "lg:float-right lg:ml-12 lg:clear-right"
-        : isTall
-          ? "lg:float-right lg:ml-12 lg:clear-right"
-          : "mx-auto"; // Center by default
+        : "mx-auto"; // Center by default
 
     return (
       <div className={`image-block w-full ${widthClass} ${floatClass} mb-4 ${isTall ? 'tall-image' : ''} ${isFloat ? 'float-image' : ''}`}>
@@ -612,7 +900,7 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
           src={src}
           alt={alt}
           onImageClick={onImageClick}
-          align={isRight || (!isLeft && isTall) ? 'right' : isLeft ? 'left' : 'center'}
+          align={isRight ? 'right' : isLeft ? 'left' : 'center'}
           size={isLarge ? 'large' : isSmall ? 'small' : 'default'}
           onImageLoad={(e) => {
             const { naturalWidth, naturalHeight } = e.currentTarget;
@@ -659,9 +947,9 @@ const ContentRenderer: React.FC<{ item: ContentItem; onImageClick: (src: string,
 
   // --- Default Paragraph ---
   return (
-    <p className="text-content-primary mb-4 leading-relaxed text-lg font-light">
+    <div className="text-content-primary mb-4 leading-relaxed text-lg font-light">
       {renderWithHighlights(text)}
-    </p>
+    </div>
   );
 };
 
@@ -746,9 +1034,18 @@ const normalizeSubsectionContent = (subsection: SubSection): ContentItem[] => {
     const item = content[i];
     if (typeof item === 'string') {
       const trimmed = item.trim();
-      if (trimmed.startsWith('|')) {
+      const looksLikeTableRow = (value: string) => {
+        if (value.startsWith('![') || value.startsWith('```') || value.startsWith('$$')) return false;
+        const cells = splitPipeCells(value);
+        if (cells.length < 2) return false;
+        if (value.includes('---|') || value.includes('|---')) return true;
+        const hasMarkdownLink = /\[[^\]]+\]\(<[^>]+>\)|\[[^\]]+\]\([^)]+\)/.test(value);
+        if (/\\begin\{|\\\[/.test(value) || (/\\\(/.test(value) && !hasMarkdownLink)) return false;
+        return /\s\|\s|\s\||\|\s/.test(value);
+      };
+      if (looksLikeTableRow(trimmed)) {
         const lines: string[] = [];
-        while (i < content.length && typeof content[i] === 'string' && (content[i] as string).trim().startsWith('|')) {
+        while (i < content.length && typeof content[i] === 'string' && looksLikeTableRow((content[i] as string).trim())) {
           lines.push((content[i] as string));
           i += 1;
         }
@@ -759,10 +1056,7 @@ const normalizeSubsectionContent = (subsection: SubSection): ContentItem[] => {
           const previous = result[result.length - 1];
           if (previous && isTableData(previous)) {
             const extraRows = lines.map((row) =>
-              row
-                .split('|')
-                .map((cell) => cell.trim())
-                .filter(Boolean)
+              splitPipeCells(row)
             );
             const expectedColumns = previous.headers.length;
             const canAppend = extraRows.every((row) => row.length === expectedColumns);
@@ -789,14 +1083,22 @@ const normalizeSubsectionContent = (subsection: SubSection): ContentItem[] => {
 
 // --- Subsections & Lightbox ---
 
-const SubSectionDisplay: React.FC<{ subsection: SubSection; anchorId: string; subsectionIndex: number; onImageClick: (src: string, alt: string) => void }> = ({ subsection, anchorId, subsectionIndex, onImageClick }) => (
+const SubSectionDisplay: React.FC<{ subsection: SubSection; anchorId: string; subsectionIndex: number; hideTitle?: boolean; onImageClick: (src: string, alt: string) => void }> = ({ subsection, anchorId, subsectionIndex, hideTitle = false, onImageClick }) => (
   <div id={anchorId} className="mb-8 last:mb-0">
-    <h3 className="subsection-title mb-6">
-      {renderMathParts(formatSubsectionTitle(subsection.title, subsectionIndex))}
-    </h3>
+    {!hideTitle && (
+      <h3 className="subsection-title mb-6">
+        {renderMathParts(formatSubsectionTitle(subsection.title, subsectionIndex))}
+      </h3>
+    )}
     <div className="text-content-primary">
       {normalizeSubsectionContent(subsection).map((item, index) => (
-        <ContentRenderer key={index} item={item} onImageClick={onImageClick} />
+        <div
+          key={index}
+          id={`${anchorId}-content-${index}`}
+          className="scroll-mt-28 transition-colors duration-500"
+        >
+          <ContentRenderer item={item} onImageClick={onImageClick} />
+        </div>
       ))}
     </div>
   </div>
@@ -854,6 +1156,7 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ section, fontSizeLevel 
             subsection={subsection}
             anchorId={`${section.id}-${index}`}
             subsectionIndex={index}
+            hideTitle={section.subsections.length === 1 && /^panoramica$/i.test(subsection.title.trim())}
             onImageClick={(src, alt) => setLightboxImage({ src, alt })}
           />
         ))}

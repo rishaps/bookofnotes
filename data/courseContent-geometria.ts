@@ -3,10 +3,10 @@ import { MainSection } from '../types';
 export const geometriaCourseContent: MainSection[] = [
     {
         id: "capitolo-1-nozioni-preliminari",
-        title: "Lezione 1: Nozioni Preliminari",
+        title: "Nozioni Preliminari",
         subsections: [
             {
-                title: "1.1 Relazioni su un Insieme",
+                title: "Relazioni su un Insieme",
                 content: [
                     "**Definizione 1.1.1 (Relazione su un insieme):** Una relazione su un insieme $A$ è un qualunque sottoinsieme $\\mathcal{R}$ del prodotto cartesiano $A \\times A$.",
                     "Una relazione $\\mathcal{R}$ su un insieme $A$ si dice:",
@@ -18,7 +18,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.2 Relazione d'Ordine",
+                title: "Relazione d'Ordine",
                 content: [
                     "**Definizione 1.1.2 (Relazione d'ordine totale):** Una relazione d'ordine $\\mathcal{R}$ su un insieme $A$ si dice **relazione d'ordine** se è riflessiva, antisimmetrica e transitiva.",
                     "Se inoltre, gli elementi di $A$ sono a due a due confrontabili, cioè, per ogni $a, b \\in A$, risulta $a\\mathcal{R}b$ oppure $b\\mathcal{R}a$, la relazione $\\mathcal{R}$ si dice **relazione d'ordine totale**.",
@@ -26,7 +26,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.3 Strutture Algebriche: Gruppi",
+                title: "Strutture Algebriche: Gruppi",
                 content: [
                     "**Definizione 1.2.1 (Gruppo):** Sia $(G, \\star)$ un insieme con un'operazione $\\star$. La struttura $(G, \\star)$ si dice **gruppo** se:",
                     "*   L'operazione $\\star$ è **associativa**.",
@@ -37,7 +37,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.4 Strutture Algebriche: Campi",
+                title: "Strutture Algebriche: Campi",
                 content: [
                     "**Definizione 1.2.2 (Campo):** Sia $A$ un insieme sul quale sono definite due operazioni, indicate con \"+\" e \"·\", chiamate rispettivamente somma e prodotto. La struttura $(A, +, \\cdot)$ è un **campo** se:",
                     "*   $(A, +)$ è un gruppo abeliano il cui elemento neutro è indicato con $0$.",
@@ -47,7 +47,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.5 Matrici: Definizione e Tipi",
+                title: "Matrici: Definizione e Tipi",
                 content: [
                     "**Definizione 1.3.1 (Matrice):** Dato un campo $K$ si dice **matrice di tipo $m \\times n$** su $K$ una tabella del tipo:",
                     "$$ A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix} $$",
@@ -56,7 +56,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.6 Prodotto Righe per Colonne",
+                title: "Prodotto Righe per Colonne",
                 content: [
                     "**Definizione 1.3.3 (Prodotto righe per colonne):** Date le matrici $A = (a_{ih}) \\in K_{m,n}$ con $i \\in I_m$, $h \\in I_n$ e $B = (b_{hj}) \\in K_{n,p}$ con $h \\in I_n$, $j \\in I_p$, si dice **prodotto righe per colonne** di $A$ per $B$ la matrice:",
                     "$$ A \\cdot B = (c_{ij}) \\quad \\text{con} \\quad c_{ij} = \\sum_{h \\in I_n} a_{ih} b_{hj} = a_{i1}b_{1j} + a_{i2}b_{2j} + \\cdots + a_{in}b_{nj} $$",
@@ -68,7 +68,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.7 Matrice Identica e Trasposta",
+                title: "Matrice Identica e Trasposta",
                 content: [
                     "**Definizione 1.3.4 (Matrice identica):** L'elemento neutro delle matrici quadrate di ordine $n$ è la **matrice identica**, cioè la matrice:",
                     "$$ I_n = \\begin{pmatrix} 1 & 0 & \\cdots & 0 \\\\ 0 & 1 & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 0 & 0 & \\cdots & 1 \\end{pmatrix} $$",
@@ -81,10 +81,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-2-spazi-vettoriali",
-        title: "Lezione 2: Spazi Vettoriali",
+        title: "Spazi Vettoriali",
         subsections: [
             {
-                title: "2.1 Definizione di Spazio Vettoriale",
+                title: "Definizione di Spazio Vettoriale",
                 content: [
                     "**Definizione 2.1.1 (Spazio vettoriale):** Siano $K$ un campo e $V$ un insieme. Si dice che $V$ è uno **spazio vettoriale sul campo $K$**, se sono definite due operazioni:",
                     "*   Un'operazione interna binaria su $V$, detta **somma**: $+: V \\times V \\rightarrow V$",
@@ -101,7 +101,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.2 Teorema sul Prodotto Nullo",
+                title: "Teorema sul Prodotto Nullo",
                 content: [
                     "**Teorema 2.1.1:** Sia $V$ uno spazio vettoriale sul campo $K$, siano $k \\in K$ e $v \\in V$. Allora:",
                     "$$ kv = \\mathbf{0} \\iff k = 0 \\text{ oppure } v = \\mathbf{0} $$",
@@ -110,7 +110,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.3 Sottospazi Vettoriali",
+                title: "Sottospazi Vettoriali",
                 content: [
                     "**Definizione 2.2.1 (Sottospazio vettoriale):** Sia $\\emptyset \\neq U \\subseteq V$. Diremo che $U$ è **sottospazio vettoriale** di $V$ se è esso stesso uno spazio vettoriale rispetto alla restrizione delle stesse operazioni.",
                     "**Proposizione 2.2.1 (Primo criterio di riconoscimento):** Sia $V(K)$ uno spazio vettoriale e sia $\\emptyset \\neq U \\subseteq V$. Il sottoinsieme $U$ è sottospazio vettoriale di $V$ se, e soltanto se:",
@@ -122,7 +122,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.4 Combinazione Lineare",
+                title: "Combinazione Lineare",
                 content: [
                     "**Definizione 2.3.1 (Combinazione lineare):** Siano $v_1, v_2, \\ldots, v_n \\in V(K)$. Si dice **combinazione lineare** dei vettori $v_1, v_2, \\ldots, v_n$ ogni vettore $v$:",
                     "$$ v = k_1 \\cdot v_1 + k_2 \\cdot v_2 + \\cdots + k_n \\cdot v_n \\quad \\text{con } k_1, k_2, \\ldots, k_n \\in K $$",
@@ -131,7 +131,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.5 Indipendenza Lineare",
+                title: "Indipendenza Lineare",
                 content: [
                     "**Definizione 2.3.2 (Sistema di vettori libero):** Sia $V(K)$ e sia $A = [v_1, v_2, \\ldots, v_n]$ un sistema di vettori di $V(K)$. $A$ si dice **libero** se l'unica combinazione lineare di vettori di $A$ che dà il vettore nullo è a coefficienti tutti nulli:",
                     "$$ \\mathbf{0} = k_1 \\cdot v_1 + k_2 \\cdot v_2 + \\cdots + k_n \\cdot v_n \\implies k_1 = k_2 = \\cdots = k_n = 0 $$",
@@ -143,7 +143,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.6 Proposizioni sui Sistemi Liberi e Legati",
+                title: "Proposizioni sui Sistemi Liberi e Legati",
                 content: [
                     "**Proposizione 2.3.1:** Se $\\mathbf{0}$ appartiene ad $A$, il sistema $A$ è legato.",
                     "**Proposizione 2.3.2:** Se in $A$ appaiono due vettori proporzionali, allora $A$ è legato.",
@@ -154,7 +154,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.7 Sistemi di Generatori",
+                title: "Sistemi di Generatori",
                 content: [
                     "**Definizione 2.4.1 (Sistema di generatori):** Sia $A$ un sistema di vettori di $V(K)$. $A$ si dice **sistema di generatori** di $V(K)$ se ogni $v \\in V(K)$ si può scrivere come combinazione lineare di un numero finito di vettori di $A$.",
                     "**Definizione 2.4.2 (Copertura lineare):** Sia $A$ un sistema di vettori di $V(K)$. Si dice **copertura (o chiusura) lineare** di $A$ l'insieme $\\mathcal{L}(A)$ di tutte le combinazioni lineari di sottoinsiemi finiti di $A$.",
@@ -166,7 +166,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.8 Basi e Dimensione",
+                title: "Basi e Dimensione",
                 content: [
                     "**Lemma 2.5.1:** Sia $S = [v_1, v_2, \\ldots, v_n]$ un sistema di generatori per $V(K)$, e sia $v \\in S$ combinazione lineare degli altri vettori. Allora $S \\setminus \\{v\\}$ è ancora sistema di generatori per $V(K)$.",
                     "**Teorema 2.5.1:** Sia $V(K)$ uno spazio vettoriale finitamente generato, non banale ($V(K) \\neq \\{\\mathbf{0}\\}$). Allora esso ammette un **sistema libero di generatori**.",
@@ -178,7 +178,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.9 Lemma di Steinitz",
+                title: "Lemma di Steinitz",
                 content: [
                     "**Lemma 2.5.2 (Lemma di Steinitz):** Sia $V(K)$ uno spazio vettoriale finitamente generato. Sia $B = [v_1, v_2, \\ldots, v_n]$ un sistema di generatori e $A = [u_1, u_2, \\ldots, u_m]$ un sistema libero. Allora:",
                     "$$ m \\leq n $$",
@@ -187,7 +187,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.10 Dimensione e Conseguenze",
+                title: "Dimensione e Conseguenze",
                 content: [
                     "**Definizione 2.5.3 (Dimensione):** Dato uno spazio vettoriale finitamente generato, non banale, chiamiamo **dimensione** di $V$ la cardinalità di una qualsiasi delle sue basi. Se $V = \\{\\mathbf{0}\\}$ poniamo $\\dim(V) = 0$.",
                     "**Proposizione 2.5.1:** In $V_n(K)$, un sistema di $n$ generatori è libero.",
@@ -197,7 +197,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.11 Teorema di Caratterizzazione delle Basi",
+                title: "Teorema di Caratterizzazione delle Basi",
                 content: [
                     "**Teorema 2.5.3 (Teorema di caratterizzazione delle basi):** Sia $B = (v_1, v_2, \\ldots, v_n)$ una sequenza di vettori di $V(K)$. $B$ è una base se e solo se ogni vettore di $V$ si può scrivere in **maniera univoca** come combinazione lineare dei vettori di $B$:",
                     "$$ \\forall v \\in V, \\exists! \\text{ combinazione } v = k_1 v_1 + k_2 v_2 + \\cdots + k_n v_n \\quad k_i \\in K $$",
@@ -206,7 +206,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.12 Teorema del Completamento ad una Base",
+                title: "Teorema del Completamento ad una Base",
                 content: [
                     "**Proposizione 2.5.5:** Sia $V_n(K)$ uno spazio vettoriale di dimensione $n$ sul campo $K$. Allora $V_n(K)$ ammette almeno un sottospazio di dimensione $m$ per ogni $0 \\leq m \\leq n$.",
                     "**Proposizione 2.5.6:** Siano $U, W \\leq V_n(K)$ e sia $U \\leq W$, allora:",
@@ -216,7 +216,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.13 Intersezione e Somma di Sottospazi",
+                title: "Intersezione e Somma di Sottospazi",
                 content: [
                     "**Proposizione 2.6.1:** Se $U, W \\leq V_n(K)$, allora $U \\cap W$ è un sottospazio di $V$.",
                     "**Nota:** Sotto le stesse ipotesi, $U \\cup W$ **non** è un sottospazio, a meno che $U \\subseteq W$ oppure $W \\subseteq U$.",
@@ -227,7 +227,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.14 Somma Diretta",
+                title: "Somma Diretta",
                 content: [
                     "**Definizione 2.6.2 (Somma diretta):** Dati $U, W \\leq V_n(K)$, diremo che $U + W$ è **somma diretta** se ogni $v \\in U + W$ può essere scritto in modo unico come $u + w$:",
                     "$$ \\forall v \\in U + W, \\exists! u \\in U \\text{ e } w \\in W : v = u + w $$",
@@ -239,7 +239,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.15 Formula di Grassmann",
+                title: "Formula di Grassmann",
                 content: [
                     "**Proposizione 2.6.6 (Formula di Grassmann):** Dati $U, W \\leq V_n(K)$ abbiamo che:",
                     "$$ \\dim(U + W) + \\dim(U \\cap W) = \\dim(U) + \\dim(W) $$",
@@ -252,10 +252,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-3-sistemi-lineari",
-        title: "Lezione 3: Sistemi Lineari",
+        title: "Sistemi Lineari",
         subsections: [
             {
-                title: "3.1 Determinante di una Matrice Quadrata",
+                title: "Determinante di una Matrice Quadrata",
                 content: [
                     "**Definizione 3.1.1 (Determinante):** Sia $A = (a_{ij})$ una matrice quadrata di ordine $n$ a elementi in un campo $K$. Si dice **determinante** di $A$, e si scrive $|A|$ oppure $\\det(A)$, l'elemento di $K$ definito ricorsivamente come segue:",
                     "*   Se $n = 1$: $A = (a_{11})$, allora $\\det(A) = a_{11}$",
@@ -268,7 +268,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.2 Complemento Algebrico e Teoremi di Laplace",
+                title: "Complemento Algebrico e Teoremi di Laplace",
                 content: [
                     "**Definizione 3.1.2 (Complemento algebrico):** Sia $A = (a_{ij})$ una matrice quadrata di ordine $n$. Si dice **complemento algebrico** dell'elemento $a_{hk}$, e si indica $\\Gamma_{hk}$, il determinante della matrice quadrata di ordine $n-1$, ottenuta da $A$ sopprimendo la $h$-esima riga e la $k$-esima colonna, preso con il segno $(-1)^{h+k}$.",
                     "**Teorema 3.1.1 (Primo teorema di Laplace):** La somma dei prodotti degli elementi di una riga (o colonna) per i rispettivi complementi algebrici è il determinante di $A$:",
@@ -279,7 +279,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.3 Matrici Invertibili",
+                title: "Matrici Invertibili",
                 content: [
                     "**Definizione 3.2.1 (Matrice invertibile):** Una matrice quadrata di ordine $n$ si dice **invertibile** quando esiste una matrice $B$, quadrata e dello stesso ordine, tale che:",
                     "$$ A \\cdot B = B \\cdot A = I_n $$",
@@ -290,7 +290,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.4 Rango di una Matrice",
+                title: "Rango di una Matrice",
                 content: [
                     "**Definizione 3.3.1 (Minore):** Sia $A \\in K_{m,n}$. Si chiama **minore di ordine $p$** estratto da $A$, con $p \\leq \\min\\{m, n\\}$, una matrice quadrata di ordine $p$ ottenuta cancellando $m-p$ righe e $n-p$ colonne da $A$.",
                     "**Teorema 3.3.1:** Una sequenza $S = (v_1, v_2, \\ldots, v_n)$ di $n$ vettori di $V_n(K)$ è libera se e solo se la matrice $A$, che ha nelle proprie righe (o colonne) le componenti dei vettori, ha determinante non nullo.",
@@ -302,7 +302,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.5 Teorema di Kronecker",
+                title: "Teorema di Kronecker",
                 content: [
                     "**Definizione 3.3.3 (Spazio delle righe e delle colonne):** Data una matrice $A$ con $m$ righe e $n$ colonne:",
                     "*   Lo **spazio delle righe** $\\mathcal{L}(R)$ è il sottospazio di $K^n$ generato dalle righe di $A$.",
@@ -313,7 +313,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.6 Sistemi Lineari: Definizioni",
+                title: "Sistemi Lineari: Definizioni",
                 content: [
                     "**Definizione 3.4.1 (Sistema lineare):** Un sistema lineare è un insieme di $m$ equazioni lineari in $n$ incognite a coefficienti in campo $K$:",
                     "$$ \\begin{cases} a_{11}x_1 + a_{12}x_2 + \\cdots + a_{1n}x_n = b_1 \\\\ a_{21}x_1 + a_{22}x_2 + \\cdots + a_{2n}x_n = b_2 \\\\ \\vdots \\\\ a_{m1}x_1 + a_{m2}x_2 + \\cdots + a_{mn}x_n = b_m \\end{cases} $$",
@@ -325,7 +325,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.7 Teorema di Rouché-Capelli",
+                title: "Teorema di Rouché-Capelli",
                 content: [
                     "**Definizione 3.4.3 (Sistema compatibile):** Un sistema lineare ha soluzione, ovvero si dice **compatibile**, se esiste almeno una $n$-upla $\\alpha_1, \\alpha_2, \\ldots, \\alpha_n$ di elementi di $K$ che risolve tutte le equazioni del sistema.",
                     "**Teorema 3.4.1 (Teorema di Rouché-Capelli):** Un sistema lineare $AX = B$ è compatibile se e solo se:",
@@ -336,7 +336,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.8 Teorema di Cramer",
+                title: "Teorema di Cramer",
                 content: [
                     "**Teorema 3.4.2 (Teorema di Cramer):** Sia $AX = B$ un sistema lineare in $n$ equazioni ed $n$ incognite. Se $\\det(A) \\neq 0$ allora $AX = B$ ammette **un'unica soluzione**.",
                     "Indicando con $B_i$ la matrice ottenuta sostituendo la $i$-esima colonna di $A$ con la colonna dei termini noti, la soluzione è:",
@@ -345,7 +345,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.9 Autosoluzioni e Sistema Omogeneo Associato",
+                title: "Autosoluzioni e Sistema Omogeneo Associato",
                 content: [
                     "**Definizione 3.4.5 (Autosoluzioni):** Le soluzioni di un sistema lineare omogeneo diverse dalla soluzione nulla si dicono **autosoluzioni**.",
                     "**Proposizione 3.4.1:** Un sistema lineare omogeneo $AX = \\mathbf{0}$ ammette autosoluzioni se e solo se $\\rho(A) < n$ (con $n$ numero di incognite).",
@@ -355,7 +355,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.10 Cambiamenti di Base",
+                title: "Cambiamenti di Base",
                 content: [
                     "In uno spazio vettoriale $V_n(K)$ di dimensione $n$, siano $B = (e_1, e_2, \\ldots, e_n)$ e $B' = (e'_1, e'_2, \\ldots, e'_n)$ due basi. Ogni vettore della base $B'$ si può esprimere come combinazione lineare dei vettori della base $B$:",
                     "$$ E' = AE $$",
@@ -370,10 +370,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-4-autovalori",
-        title: "Lezione 4: Autovalori, Autovettori e Diagonalizzabilità",
+        title: "Autovalori, Autovettori e Diagonalizzabilità",
         subsections: [
             {
-                title: "4.1 Polinomio ed Equazione Caratteristica",
+                title: "Polinomio ed Equazione Caratteristica",
                 content: [
                     "**Definizione 4.1.1 (Polinomio ed equazione caratteristica):** Se $A$ è una matrice quadrata di ordine $n$, si dice **polinomio caratteristico** di $A$, e si indica $p_A(\\lambda)$, il determinante della matrice $A - \\lambda I_n$:",
                     "$$ p_A(\\lambda) = |A - \\lambda I_n| $$",
@@ -384,7 +384,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.2 Autovettori e Matrici Simili",
+                title: "Autovettori e Matrici Simili",
                 content: [
                     "**Definizione 4.1.4 (Autovettori):** I vettori non nulli dell'autospazio $V_\\lambda$ si chiamano **autovettori** relativi a $\\lambda$.",
                     "![Autovettori in una rotazione](/geometria-images/eigenvectors-rotation.svg)",
@@ -396,7 +396,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.3 Matrici Diagonalizzabili",
+                title: "Matrici Diagonalizzabili",
                 content: [
                     "**Definizione 4.2.1 (Matrice diagonalizzabile):** Una matrice $A \\in M_n(K)$ si dice **diagonalizzabile** se è simile ad una matrice diagonale, ovvero esistono $D, P \\in M_n(K)$ con $D$ matrice diagonale, tale che $|P| \\neq 0$ e $D = P^{-1}AP$.",
                     "![Diagonalizzazione come rotazione](/geometria-images/diagonalization-rotation.gif)",
@@ -407,7 +407,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.4 Molteplicità Algebrica e Geometrica",
+                title: "Molteplicità Algebrica e Geometrica",
                 content: [
                     "**Definizione 4.2.2 (Molteplicità algebrica e geometrica):** Sia $\\lambda$ un autovalore di $A \\in M_n(K)$. Si chiama:",
                     "*   **Molteplicità algebrica** di $\\lambda$ ($a_\\lambda$): il numero di volte che $\\lambda$ è radice del polinomio caratteristico.",
@@ -419,7 +419,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.5 Secondo Criterio di Diagonalizzabilità",
+                title: "Secondo Criterio di Diagonalizzabilità",
                 content: [
                     "**Teorema 4.2.2 (Secondo criterio di diagonalizzabilità):** Sia $A \\in M_n(K)$ e siano $\\lambda_1, \\lambda_2, \\ldots, \\lambda_t$ gli autovalori distinti di $A$. Allora $A$ è diagonalizzabile se e solo se:",
                     "1.  Tutti gli autovalori di $A$ sono in $K$.",
@@ -434,10 +434,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-5-forme-bilineari",
-        title: "Lezione 5: Forme Bilineari e Prodotti Scalari",
+        title: "Forme Bilineari e Prodotti Scalari",
         subsections: [
             {
-                title: "5.1 Forme Bilineari",
+                title: "Forme Bilineari",
                 content: [
                     "**Definizione 5.1.1 (Forma bilineare e prodotto scalare):** Sia $V_n(K)$ uno spazio vettoriale. Una **forma bilineare** in $V$ è una funzione $*: V \\times V \\rightarrow K$ tale che:",
                     "*   $(u + v) * w = u * w + v * w \\quad \\forall u, v, w \\in V$",
@@ -450,7 +450,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.2 Esempi di Prodotti Scalari",
+                title: "Esempi di Prodotti Scalari",
                 content: [
                     "**Esempio 5.1.1 (Prodotto scalare euclideo):** Una funzione $*: \\mathbb{R}^n \\times \\mathbb{R}^n \\rightarrow \\mathbb{R}$:",
                     "$$ (x_1, x_2, \\ldots, x_n) * (x'_1, x'_2, \\ldots, x'_n) = x_1 x'_1 + x_2 x'_2 + \\cdots + x_n x'_n $$",
@@ -461,7 +461,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.3 Ortogonalità",
+                title: "Ortogonalità",
                 content: [
                     "**Definizione 5.2.1 (Ortogonalità):** In uno spazio vettoriale $V(K)$ con prodotto scalare \"·\", due vettori $v$ e $w$ di $V$ si dicono **ortogonali**, e si scrive $v \\perp w$, se $v \\cdot w = 0$.",
                     "**Definizione 5.2.2 (Complemento ortogonale):** Sia $V(K)$ uno spazio vettoriale e \"·\" un prodotto scalare. Sia $\\emptyset \\neq A \\subseteq V$. Si chiama **complemento ortogonale** (o ortogonale) di $A$ l'insieme:",
@@ -474,7 +474,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.4 Coefficiente di Fourier e Proiezione",
+                title: "Coefficiente di Fourier e Proiezione",
                 content: [
                     "**Proposizione 5.2.2:** Sia $V_n(K)$ uno spazio vettoriale con prodotto scalare \"·\" e siano $v, w \\in V(K)$ con $w \\cdot w \\neq 0$. Allora:",
                     "$$ \\exists v_1, v_2 \\in V : v = v_1 + v_2, \\quad v_1 = kw, \\quad v_2 \\perp w $$",
@@ -489,7 +489,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.5 Prodotto Scalare Definito Positivo",
+                title: "Prodotto Scalare Definito Positivo",
                 content: [
                     "**Definizione 5.3.1 (Prodotto scalare definito positivo):** Sia $V(K)$ uno spazio vettoriale su campo $K$ ordinato. Un prodotto scalare \"·\" in $V$ si dice **definito positivo** se:",
                     "$$ \\forall v \\in V: v \\cdot v \\geq 0 \\quad \\text{e} \\quad v \\cdot v = 0 \\iff v = \\mathbf{0} $$",
@@ -499,7 +499,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.6 Proprietà della Norma",
+                title: "Proprietà della Norma",
                 content: [
                     "**Proposizione 5.3.1:** In $V_n^\\circ(\\mathbb{R})$ valgono i seguenti fatti:",
                     "1.  $\\|v\\| \\geq 0$ e $\\|v\\| = 0 \\iff v = \\mathbf{0}$",
@@ -513,7 +513,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.7 Basi Ortogonali e Ortonormali",
+                title: "Basi Ortogonali e Ortonormali",
                 content: [
                     "**Definizione 5.3.3 (Base ortogonale e ortonormale):** I vettori $v_1, v_2, \\ldots, v_n$ di $V_n^\\circ(\\mathbb{R})$ formano un **insieme ortogonale** se $v_i \\cdot v_j = 0$ per $i \\neq j$.",
                     "Se inoltre ciascuno dei $v_i$ ha norma unitaria ($\\|v_i\\| = 1$), parleremo di **insieme ortonormale**.",
@@ -522,7 +522,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.8 Processo di Gram-Schmidt",
+                title: "Processo di Gram-Schmidt",
                 content: [
                     "**Teorema 5.3.1 (Processo di ortogonalizzazione di Gram-Schmidt):** Siano $V_n^\\circ(\\mathbb{R})$ e $B = (e_1, e_2, \\ldots, e_n)$ una base. La sequenza $B' = (e'_1, e'_2, \\ldots, e'_n)$ così definita:",
                     "$$ e'_1 = e_1 $$",
@@ -536,7 +536,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.9 Decomposizione Ortogonale",
+                title: "Decomposizione Ortogonale",
                 content: [
                     "**Teorema 5.3.2:** Se $A$ è un sottoinsieme non vuoto di $V_n^\\circ(\\mathbb{R})$, la cui copertura non coincide con $V_n^\\circ(\\mathbb{R})$, allora:",
                     "$$ V_n^\\circ(\\mathbb{R}) = \\mathcal{L}(A) \\oplus A^\\perp $$",
@@ -547,7 +547,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.10 Matrici di Forme Bilineari",
+                title: "Matrici di Forme Bilineari",
                 content: [
                     "**Definizione 5.4.1 (Matrice di forma bilineare):** Sia $V_n(K)$ uno spazio vettoriale, \"*\" una forma bilineare e $B = (e_1, e_2, \\ldots, e_n)$ una base di $V_n(K)$. Si chiama **matrice della forma bilineare** \"*\" rispetto a $B$:",
                     "$$ A^*_B = (e_i * e_j) = \\begin{pmatrix} e_1 * e_1 & e_1 * e_2 & \\cdots & e_1 * e_n \\\\ e_2 * e_1 & e_2 * e_2 & \\cdots & e_2 * e_n \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ e_n * e_1 & e_n * e_2 & \\cdots & e_n * e_n \\end{pmatrix} $$",
@@ -558,7 +558,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.11 Matrici Ortogonali",
+                title: "Matrici Ortogonali",
                 content: [
                     "**Definizione 5.5.1 (Matrice ortogonale):** Sia $A \\in M_n(K)$. Diciamo che $A$ è **ortogonale** se ${}^t A = A^{-1}$, cioè:",
                     "$$ A \\cdot {}^t A = {}^t A \\cdot A = I_n $$",
@@ -567,7 +567,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.12 Matrici Reali Simmetriche",
+                title: "Matrici Reali Simmetriche",
                 content: [
                     "**Teorema 5.6.1:** Sia $A \\in M_n(\\mathbb{R})$ simmetrica. Allora:",
                     "1.  Gli autovalori di $A$ sono tutti reali (**teorema spettrale**).",
@@ -585,10 +585,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-6-spazi-affini",
-        title: "Lezione 6: Spazi Affini",
+        title: "Spazi Affini",
         subsections: [
             {
-                title: "6.1 Definizione di Spazio Affine",
+                title: "Definizione di Spazio Affine",
                 content: [
                     "**Definizione 6.1.1 (Spazio affine):** Si dice **spazio affine di dimensione $n$** sul campo $K$, e si indica $A_n(K)$, la struttura costituita da:",
                     "1.  Un insieme non vuoto $A$, detto **insieme dei punti**.",
@@ -601,7 +601,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.2 Proprietà Fondamentali",
+                title: "Proprietà Fondamentali",
                 content: [
                     "**Proposizione 6.1.1:** In $A_n(K)$, per ogni $P, Q, R \\in A$:",
                     "1.  Il vettore $\\vec{RR} = \\mathbf{0}$",
@@ -612,7 +612,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.3 Sottospazi Lineari",
+                title: "Sottospazi Lineari",
                 content: [
                     "**Definizione 6.1.2 (Sottospazio affine):** Sia $A_n(K)$ uno spazio affine. Si dice **sottospazio affine di dimensione $m \\leq n$** una struttura data da un sottoinsieme non vuoto $A' \\subseteq A$ (detto sostegno), uno spazio $V_m(K) \\leq V_n(K)$, e la restrizione dell'applicazione $f$.",
                     "**Definizione 6.1.3 (Traslazione):** Fissato un vettore $v \\in V_n(K)$, si dice **traslazione** individuata da $v$ la corrispondenza:",
@@ -622,7 +622,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.4 Punti, Rette, Piani e Iperpiani",
+                title: "Punti, Rette, Piani e Iperpiani",
                 content: [
                     "**Definizione 6.1.5:** Sia $A_n(K)$ uno spazio affine. Si dicono:",
                     "*   **Punti:** i sottospazi lineari di dimensione $0$: $S_0 = [P, \\{\\mathbf{0}\\}] = \\{P\\}$",
@@ -632,7 +632,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.5 Parallelismo tra Sottospazi",
+                title: "Parallelismo tra Sottospazi",
                 content: [
                     "**Definizione 6.1.6 (Parallelismo):** Due sottospazi lineari $S_p = [P, V_p]$ ed $S_q = [Q, V_q]$ di $A_n(K)$ si dicono **paralleli**, e si scrive $S_p \\| S_q$, se i rispettivi spazi di traslazione sono confrontabili, ovvero quando $V_p \\subseteq V_q$ oppure $V_q \\subseteq V_p$.",
                     "**Osservazione:** La relazione di parallelismo non è transitiva, ma è riflessiva e simmetrica. Non è quindi una relazione d'equivalenza.",
@@ -643,7 +643,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.6 Proprietà di Punti, Rette e Piani",
+                title: "Proprietà di Punti, Rette e Piani",
                 content: [
                     "**Proposizione 6.2.1:** In $A_n(K)$ con $n \\geq 2$:",
                     "1.  Per ogni due punti distinti passa un'unica retta.",
@@ -657,7 +657,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.7 Riferimento Affine e Coordinate",
+                title: "Riferimento Affine e Coordinate",
                 content: [
                     "**Definizione 6.3.1 (Riferimento affine):** Si dice **riferimento affine** di $A_n(\\mathbb{R})$ una coppia $R_A = [O, B]$ costituita da un punto $O$ fissato, detto **origine**, e da una base $B$ dello spazio vettoriale $V_n(\\mathbb{R})$.",
                     "**Definizione 6.3.2 (Coordinate):** Fissato un riferimento affine $R_A = [O, B]$, si dicono **coordinate** del punto $P$ in $R_A$ le componenti, in $B$, del vettore $\\vec{OP}$.",
@@ -666,7 +666,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.8 Equazioni Parametriche della Retta",
+                title: "Equazioni Parametriche della Retta",
                 content: [
                     "**Definizione 6.4.1 (Equazioni parametriche di una retta in $A_n(\\mathbb{R})$):** Sia $r = [P, V_1 = \\mathcal{L}(v)]$ la retta di origine $P = (x'_1, x'_2, \\ldots, x'_n)$ e spazio di traslazione generato da $v = (l_1, l_2, \\ldots, l_n)$. Le **equazioni parametriche** di $r$ sono:",
                     "$$ \\begin{cases} x_1 = x'_1 + l_1 t \\\\ x_2 = x'_2 + l_2 t \\\\ \\vdots \\\\ x_n = x'_n + l_n t \\end{cases} \\quad \\text{con } t \\in \\mathbb{R}, (l_1, l_2, \\ldots, l_n) \\neq \\mathbf{0} $$",
@@ -675,7 +675,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.9 Equazione Cartesiana della Retta in $A_2(\\mathbb{R})$",
+                title: "Equazione Cartesiana della Retta in $A_2(\\mathbb{R})$",
                 content: [
                     "In $A_2(\\mathbb{R})$ una retta si può rappresentare con l'**equazione cartesiana**:",
                     "$$ ax + by + c = 0 \\quad \\text{con } (a, b) \\neq (0, 0) $$",
@@ -687,7 +687,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.10 Fasci di Rette",
+                title: "Fasci di Rette",
                 content: [
                     "**Definizione 6.4.3 (Fascio improprio di rette):** L'insieme di tutte le rette del piano parallele a una retta data.",
                     "**Equazione del fascio improprio:** $ax + by + k = 0$ con $k \\in \\mathbb{R}$.",
@@ -697,7 +697,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.11 Equazioni in $A_3(\\mathbb{R})$",
+                title: "Equazioni in $A_3(\\mathbb{R})$",
                 content: [
                     "**Equazione cartesiana del piano:**",
                     "$$ ax + by + cz + d = 0 \\quad \\text{con } (a, b, c) \\neq (0, 0, 0) $$",
@@ -710,7 +710,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.12 Punto Medio e Simmetrico",
+                title: "Punto Medio e Simmetrico",
                 content: [
                     "**Definizione 6.3.3 (Punto medio):** Dati $P, Q \\in A$, il **punto medio** del segmento $[PQ]$ è:",
                     "$$ M = t_{\\frac{1}{2}\\vec{PQ}}(P) $$",
@@ -722,10 +722,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-7-spazi-euclidei",
-        title: "Lezione 7: Spazi Euclidei",
+        title: "Spazi Euclidei",
         subsections: [
             {
-                title: "7.1 Definizione di Spazio Euclideo",
+                title: "Definizione di Spazio Euclideo",
                 content: [
                     "**Definizione 7.1.1 (Spazio euclideo):** Si dice **spazio euclideo di dimensione $n$** sul campo $\\mathbb{R}$ la struttura costituita da uno spazio affine $A_n(\\mathbb{R})$ il cui spazio vettoriale $V_n^\\circ(\\mathbb{R})$ sia dotato di un prodotto scalare definito positivo.",
                     "**Definizione 7.1.2 (Ortogonalità tra sottospazi):** Siano $S_h = [P, V_h]$ e $S_k = [Q, V_k]$ due sottospazi lineari di $E_n(\\mathbb{R})$. Diremo che $S_h$ è **ortogonale** a $S_k$ se:",
@@ -733,7 +733,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.2 Rette e Piani Ortogonali",
+                title: "Rette e Piani Ortogonali",
                 content: [
                     "**Proposizione 7.1.1:** In $E_2(\\mathbb{R})$, dati la retta $r$ e il punto $H$, esiste **un'unica retta** passante per $H$ e ortogonale a $r$.",
                     "**Proposizione 7.1.2:** In $E_3(\\mathbb{R})$, assegnati una retta $r$ e un piano $\\alpha$, dato un punto $H$:",
@@ -745,7 +745,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.3 Riferimento Cartesiano Ortogonale",
+                title: "Riferimento Cartesiano Ortogonale",
                 content: [
                     "**Definizione 7.2.1:** In $E_n(\\mathbb{R})$ si dice **riferimento cartesiano ortogonale monometrico** la coppia $R_C = [O, B]$ dove $O$ è un punto di $E_n(\\mathbb{R})$ e $B = (e_1, e_2, \\ldots, e_n)$ è una **base ortonormale**.",
                     "**Nota:**",
@@ -754,7 +754,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.4 Condizioni di Ortogonalità",
+                title: "Condizioni di Ortogonalità",
                 content: [
                     "**Ortogonalità fra rette in $E_2(\\mathbb{R})$:** Date $r_1: ax + by + c = 0$ e $r_2: a'x + b'y + c' = 0$:",
                     "$$ r_1 \\perp r_2 \\iff aa' + bb' = 0 $$",
@@ -768,7 +768,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.5 Distanza tra Due Punti",
+                title: "Distanza tra Due Punti",
                 content: [
                     "**Distanza in $E_n(\\mathbb{R})$:** Siano $P = (x_1, x_2, \\ldots, x_n)$ e $Q = (x'_1, x'_2, \\ldots, x'_n)$. La distanza è:",
                     "$$ d(P, Q) = \\|\\vec{PQ}\\| = \\sqrt{(x'_1 - x_1)^2 + \\cdots + (x'_n - x_n)^2} $$",
@@ -778,7 +778,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.6 Distanza Punto-Retta e Punto-Piano",
+                title: "Distanza Punto-Retta e Punto-Piano",
                 content: [
                     "**Distanza punto-retta in $E_2(\\mathbb{R})$:** Sia $P = (x_0, y_0)$ e $r: ax + by + c = 0$:",
                     "$$ d(P, r) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}} $$",
@@ -788,7 +788,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.7 Distanza tra Rette Sghembe",
+                title: "Distanza tra Rette Sghembe",
                 content: [
                     "**Definizione 7.4.1 (Retta di minima distanza):** Si dice **retta di minima distanza** tra due rette $r$ e $s$ sghembe in $E_3(\\mathbb{R})$ una retta ortogonale e incidente sia a $r$ che a $s$.",
                     "**Definizione 7.4.2 (Distanza tra rette sghembe):** La **distanza** tra due rette $r$ e $s$ sghembe è la distanza tra i punti $R$ e $S$ ottenuti intersecando la retta di minima distanza con $r$ e $s$.",
@@ -797,7 +797,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.8 Asse e Piano Assiale",
+                title: "Asse e Piano Assiale",
                 content: [
                     "**Definizione 7.4.3 (Asse):** In $E_2(\\mathbb{R})$, dati due punti $P, Q$, si dice **asse** del segmento $[P, Q]$ la retta passante per il punto medio di $P$ e $Q$ e ortogonale alla retta per $P$ e $Q$.",
                     "**Proposizione 7.4.2:** L'asse di un segmento $[P, Q]$ è il **luogo dei punti equidistanti** da $P$ e da $Q$.",
@@ -806,7 +806,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.9 Circonferenza",
+                title: "Circonferenza",
                 content: [
                     "**Definizione 7.5.1 (Circonferenza):** Dato un punto $C = (x_0, y_0)$ in $E_2(\\mathbb{R})$ e un numero reale positivo $r$, si dice **circonferenza** di centro $C$ e raggio $r$ il luogo dei punti aventi distanza $r$ da $C$.",
                     "![Circonferenza con centro e raggio](/geometria-images/circle-center-radius.svg)",
@@ -817,7 +817,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.10 Sfera",
+                title: "Sfera",
                 content: [
                     "**Definizione 7.5.2 (Sfera):** Sia $C = (x_0, y_0, z_0)$ e $r$ un numero reale positivo. Si dice **sfera** di raggio $r$ e centro $C$ il luogo dei punti aventi distanza $r$ da $C$.",
                     "![Sezione verticale di una sfera](/geometria-images/sphere-cross-section.svg)",
@@ -832,10 +832,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-8-ampliamento",
-        title: "Lezione 8: Ampliamento e Complessificazione",
+        title: "Ampliamento e Complessificazione",
         subsections: [
             {
-                title: "8.1 Superfici Algebriche Reali",
+                title: "Superfici Algebriche Reali",
                 content: [
                     "**Definizione 8.8.1 (Superfici algebriche reali in $\\tilde{A}_3(\\mathbb{C})$):** Una superficie algebrica reale di $\\tilde{A}_3(\\mathbb{C})$ è l'insieme delle classi di autosoluzioni complesse di un'equazione del tipo:",
                     "$$ F(x_1, x_2, x_3, x_4) = 0 $$",
@@ -859,10 +859,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-9-coniche",
-        title: "Lezione 9: Coniche",
+        title: "Coniche",
         subsections: [
             {
-                title: "9.1 Proprietà Metriche e Asintoti",
+                title: "Proprietà Metriche e Asintoti",
                 content: [
                     "Analogamente la polare di $Y_\\infty$ è:",
                     "$$ a_{12} x_1 + a_{22} x_2 + a_{23} x_3 = 0 $$",
@@ -890,7 +890,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.2 Proprietà Metriche di una Conica",
+                title: "Proprietà Metriche di una Conica",
                 content: [
                     "**Definizione 9.3.1 (Iperbole equilatera):** Un'iperbole si dice equilatera se i suoi asintoti sono ortogonali.",
                     "**Proposizione 9.3.1:** Una conica generale è un'iperbole equilatera se, e soltanto se,",
@@ -925,10 +925,10 @@ export const geometriaCourseContent: MainSection[] = [
     },
     {
         id: "capitolo-10-quadriche",
-        title: "Lezione 10: Quadriche",
+        title: "Quadriche",
         subsections: [
             {
-                title: "10.1 Quadriche in A3(C)",
+                title: "Quadriche in A3(C)",
                 content: [
 
 
@@ -945,7 +945,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.2 Punti Semplici e Doppi",
+                title: "Punti Semplici e Doppi",
                 content: [
                     "...perché se fosse, per assurdo $r = s$, allora in $P$ avrei due piani tangenti distinti $\\alpha$ e $\\beta$, assurdo! (contro l'unicità del piano tangente). Sia $\\{V\\} = r \\cap s$. Sicuramente $V$ è un punto doppio, perché se fosse semplice per $V$ avremmo due piani tangenti distinti (nuovamente contro l'unicità del piano tangente). Su $Q$ non possono esserci altri punti doppi distinti da $V$ (perché per ipotesi $Q$ è irriducibile). Quindi $Q$ ammette esattamente un punto doppio, cioè $Q$ è un cono o un cilindro.",
                     "**Osservazione:** Se $Q$ è generale, sicuramente i suoi punti semplici non sono parabolici.",
@@ -958,7 +958,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.3 Classificazione delle Quadriche",
+                title: "Classificazione delle Quadriche",
                 content: [
                     "**Definizione 10.5.3:** La quadrica $Q$ si dice:",
                     "1.  **parabolica** se i suoi punti semplici reali sono parabolici",
@@ -984,7 +984,7 @@ export const geometriaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.4 Sezioni Piane di una Quadrica Irriducibile",
+                title: "Sezioni Piane di una Quadrica Irriducibile",
                 content: [
                     "**Sezioni irriducibili di un iperboloide:** Dato che $C_\\infty$ è irriducibile e dotata di punti reali, i due punti dati da $r_\\infty \\cap C_\\infty$ possono essere reali e distinti, reali e coincidenti (se $r_\\infty$ è tangente a $C_\\infty$) o immaginari e coniugati. Le sezioni irriducibili di un iperboloide sono coniche di tutti i tipi.",
                     "**Sezioni irriducibili di un ellissoide:** Dato che $C_\\infty$ è priva di punti reali, i due punti dati da $r_\\infty \\cap C_\\infty$ saranno a loro volta immaginari e coniugati. Quindi le sezioni irriducibili di un'ellissoide sono tutte ellissi, prive o dotate di parte reale.",

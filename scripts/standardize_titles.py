@@ -55,12 +55,12 @@ def process_file(filepath):
             if not is_inside_subsections_array: # Main Section
                 chapter_num += 1
                 subsection_num = 0
-                new_title = f'Lezione {chapter_num}: {clean_text}'
+                new_title = clean_text
                 new_line = f'{line[:indent]}title: "{new_title}",\n'
                 new_lines.append(new_line)
             else: # Subsection
                 subsection_num += 1
-                new_title = f'Lezione {chapter_num}.{subsection_num} --> {clean_text}'
+                new_title = clean_text
                 new_line = f'{line[:indent]}title: "{new_title}",\n'
                 new_lines.append(new_line)
         else:

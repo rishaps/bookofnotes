@@ -1,13 +1,14 @@
 
 import { MainSection } from '../types';
 
+
 export const informaticaContent: MainSection[] = [
     {
         id: "rappresentazione-informazione",
-        title: "Lezione 1: Rappresentazione dell'Informazione",
+        title: "Rappresentazione dell'Informazione",
         subsections: [
             {
-                title: "1.1 Introduzione alla Rappresentazione",
+                title: "Introduzione alla Rappresentazione",
                 content: [
                     `**Concetto Fondamentale**`,
                     `I moderni calcolatori elettronici possono manipolare informazioni rappresentabili esclusivamente da sequenze composte da due possibili valori (1 o 0, vero o falso, acceso o spento). Nonostante questa apparente limitazione, i calcolatori sono in grado di memorizzare ed elaborare qualsiasi tipo di informazione numerica, testuale, visiva e sonora.`,
@@ -15,7 +16,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.2 La Logica Binaria",
+                title: "La Logica Binaria",
                 content: [
                     `**George Boole e l'Algebra Booleana**`,
                     `![George Boole](/informatica-images/boole-portrait.jpg)`,
@@ -33,7 +34,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.3 Tabelle di Verità",
+                title: "Tabelle di Verità",
                 content: [
                     `**Definizione**`,
                     `Un modo semplice per descrivere il comportamento degli operatori logici è mediante l'uso di **tabelle di verità**. Una tabella di verità mostra il valore di una espressione logica per ogni possibile valore dei suoi parametri.`,
@@ -51,7 +52,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.4 Esempio: Costruzione di una Tabella di Verità",
+                title: "Esempio: Costruzione di una Tabella di Verità",
                 content: [
                     `**Problema**: Scrivere la tabella di verità dell'espressione $(x \\land y) \\lor (\\neg y)$`,
                     `**Svolgimento**:`,
@@ -65,7 +66,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.5 Proprietà degli Operatori Booleani",
+                title: "Proprietà degli Operatori Booleani",
                 content: [
                     `Usando le tabelle di verità è possibile dimostrare le seguenti proprietà degli operatori di base:`,
                     `**Commutatività**`,
@@ -94,7 +95,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.6 Derivare Espressioni da Tabelle di Verità",
+                title: "Derivare Espressioni da Tabelle di Verità",
                 content: [
                     `**Il Problema Inverso**`,
                     `Abbiamo visto come sia possibile scrivere la tabella di verità di una espressione booleana data. Tuttavia, è spesso necessario risolvere il **problema inverso**, cioè costruire una espressione booleana che corrisponda ad una tabella di verità assegnata.`,
@@ -110,7 +111,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.7 Altri Operatori Logici",
+                title: "Altri Operatori Logici",
                 content: [
                     `Gli operatori $\\land$, $\\lor$ e $\\neg$ sono sufficienti per definire qualsiasi espressione booleana, e quindi qualunque altro operatore logico. Esistono tuttavia altri operatori che vengono usati frequentemente.`,
                     `**Operatore XOR (OR Esclusivo)**`,
@@ -128,7 +129,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.8 Esercizi sulla Logica Binaria",
+                title: "Esercizi sulla Logica Binaria",
                 content: [
                     `**Esercizio 1.1** - L'implicazione logica $x \\rightarrow y$ ("se $x$ allora $y$") è definita come $(\\neg x) \\lor y$. Scrivere la tabella di verità dell'operatore $\\rightarrow$.`,
                     `**Esercizio 1.2** - Mostrare come sia possibile realizzare l'operatore $\\neg$ utilizzando esclusivamente l'operatore $\\oplus$ (XOR). *Suggerimento*: può essere utile far uso anche di costanti $0$ e/o $1$.`,
@@ -155,14 +156,14 @@ export const informaticaContent: MainSection[] = [
         ]
     },
     // ============================================================
-    // Lezione 2: Rappresentazione dell'Informazione Numerica
+    // Rappresentazione dell'Informazione Numerica
     // ============================================================
     {
         id: "rappresentazione-numerica",
-        title: "Lezione 2: Rappresentazione dell'Informazione Numerica",
+        title: "Rappresentazione dell'Informazione Numerica",
         subsections: [
             {
-                title: "2.1 Sistemi di Numerazione Posizionali",
+                title: "Sistemi di Numerazione Posizionali",
                 content: [
                     `**Introduzione ai Numeri Naturali**`,
                     `In questa sezione esamineremo come vengono rappresentati i valori numerici all'interno di un calcolatore elettronico. Iniziamo dal tipo numerico più semplice, cioè i numeri naturali $\\mathbb{N} = \\{0, 1, 2, \\ldots\\}$ (valori interi non negativi).`,
@@ -180,7 +181,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.2 Basi di Numerazione in Informatica",
+                title: "Basi di Numerazione in Informatica",
                 content: [
                     `![Sistemi Maya e Babilonesi](/informatica-images/maya-babylonian-numerals.jpg)`,
                     `Le basi più frequentemente usate in informatica sono:`,
@@ -194,7 +195,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.3 Conversione da Base b a Base 10",
+                title: "Conversione da Base b a Base 10",
                 content: [
                     `Per convertire un numero espresso in base $b$ nella corrispondente rappresentazione in base 10, si moltiplica ciascuna cifra per il corrispondente peso (potenza di $b$) e si sommano i risultati.`,
                     `**Esempio 2.1**: Convertire in decimale i seguenti valori:`,
@@ -210,7 +211,7 @@ export const informaticaContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.4 Conversione da Base 10 a Base b",
+                title: "Conversione da Base 10 a Base b",
                 content: [
                     `Per la conversione in base $b \\geq 2$ di un intero $v \\geq 0$ si adotta il **procedimento della divisione ripetuta**. Si divide ripetutamente $v$ per $b$ fino a quando il risultato della divisione intera è zero. La sequenza dei **resti** indica la rappresentazione in base $b$ (il primo resto ottenuto indica la cifra meno significativa).`,
                     `**Algoritmo di Conversione**:`,
@@ -260,7 +261,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.5 Somma Binaria Senza Segno",
+                title: "Somma Binaria Senza Segno",
                 content: [
                     `La somma tra due numeri binari si esegue con lo stesso meccanismo della somma tra numeri decimali: si sommano le cifre corrispondenti da destra verso sinistra, tenendo conto di eventuali riporti.`,
                     `**Tabella della Somma Binaria**`,
@@ -280,7 +281,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.6 Rappresentazione in Complemento a Due",
+                title: "Rappresentazione in Complemento a Due",
                 content: [
                     `Per rappresentare anche valori interi negativi si utilizza la **rappresentazione in complemento a due**.`,
                     `**Metodo 1**: Se $v \\geq 0$, la rappresentazione coincide con quella binaria normale. Se $v < 0$, la rappresentazione è la codifica binaria del valore positivo $2^n + v$.`,
@@ -306,7 +307,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.7 Somma in Complemento a Due",
+                title: "Somma in Complemento a Due",
                 content: [
                     `Un vantaggio della rappresentazione in complemento a due è che la somma si può effettuare con le stesse regole della somma binaria.`,
                     `**Esempio 2.6**: Calcolare $1101\\,0100_{2C} + 1110\\,0101_{2C}$ con $n = 8$ bit.`,
@@ -331,7 +332,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.8 Rappresentazione in Virgola Mobile (IEEE 754)",
+                title: "Rappresentazione in Virgola Mobile (IEEE 754)",
                 content: [
                     `La rappresentazione standard di valori reali nei calcolatori è basata sullo **standard IEEE 754**. Tale standard consente di rappresentare numeri reali con 32 (precisione singola), 64 (precisione doppia) oppure 128 bit (precisione quadrupla).`,
                     `Un valore reale può essere scritto in **notazione scientifica normalizzata** come $m \\times 2^n$, dove la mantissa $m$ è compresa tra $1$ e $2$ ($1 \\leq |m| < 2$).`,
@@ -349,7 +350,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.9 Rappresentazione dell'Informazione Non Numerica",
+                title: "Rappresentazione dell'Informazione Non Numerica",
                 content: [
                     `**Codifica dei Caratteri**`,
                     `La codifica più diffusa è la **codifica ASCII** (American Standard Code for Information Interchange), che prevede 128 simboli codificati con 7 bit. In tutti i calcolatori moderni si usa una codifica a 8 bit (1 byte).`,
@@ -366,7 +367,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.10 Rappresentazione Audio e Compressione",
+                title: "Rappresentazione Audio e Compressione",
                 content: [
                     `![Campionamento audio](/informatica-images/campionamento-audio-nyquist.svg)`,
                     `**Campionamento e Quantizzazione**`,
@@ -385,7 +386,7 @@ until v = 0
                 ]
             },
             {
-                title: "2.11 Esercizi sulla Rappresentazione Numerica",
+                title: "Esercizi sulla Rappresentazione Numerica",
                 content: [
                     `![Calcolatore Setun](/informatica-images/setun-computer.png)`,
                     `**Esercizio 2.1** - Si considerino $A = 0011\\,0110_{2C}$ e $B = 1000\\,1100_{2C}$ con 8 bit. Vero o falso?`,
@@ -417,24 +418,24 @@ until v = 0
         ]
     },
     // ============================================================
-    // Lezione 3: Architettura dei Calcolatori
+    // Architettura dei Calcolatori
     // ============================================================
     {
         id: "architettura-calcolatori",
-        title: "Lezione 3: Architettura dei Calcolatori",
+        title: "Architettura dei Calcolatori",
         subsections: [
             {
-                title: "3.1 Introduzione ai Circuiti Logici",
+                title: "Introduzione ai Circuiti Logici",
                 content: [
                     `![Macchina Analitica di Babbage](/informatica-images/babbage-analytical-engine.jpg)`,
-                    `Gli operatori booleani introdotti nella Lezione 1 possono essere efficientemente realizzati tramite dispositivi elettronici, e per questa ragione vengono impiegati come mattoni fondamentali per la costruzione di calcolatori.`,
+                    `Gli operatori booleani introdotti nella prima sezione possono essere efficientemente realizzati tramite dispositivi elettronici, e per questa ragione vengono impiegati come mattoni fondamentali per la costruzione di calcolatori.`,
                     `I calcolatori programmabili non sono stati sempre basati sull'elettronica. La **macchina analitica di Charles Babbage** è considerata il primo esempio di calcolatore programmabile di tipo generale ed era realizzabile interamente mediante parti meccaniche.`,
                     `![Porte logiche](/informatica-images/porte-logiche.svg)`,
                     `I circuiti logici che realizzano gli operatori booleani vengono rappresentati graficamente mediante forme standard. Tali circuiti sono detti **porte logiche**. Più porte logiche possono essere tra loro collegate formando una **rete logica** (o circuito logico), in grado di calcolare qualunque funzione booleana predefinita.`
                 ]
             },
             {
-                title: "3.2 Full Adder (Sommatore)",
+                title: "Full Adder (Sommatore)",
                 content: [
                     `Il **1-bit full adder** è una rete logica in grado di calcolare la somma binaria con riporto. Riceve in input tre valori binari $A$, $B$ e $C_{in}$, e calcola:`,
                     `- $S = A + B + C_{in}$ (somma)`,
@@ -450,7 +451,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.3 Comparatore",
+                title: "Comparatore",
                 content: [
                     `Un **comparatore ad 1 bit** riceve in input due bit $A$, $B$ e produce tre bit in output:`,
                     `- $GT = 1$ se e solo se $A > B$`,
@@ -460,11 +461,11 @@ until v = 0
                     `$$GT = A \\land (\\neg B)$$`,
                     `$$EQ = \\neg(A \\oplus B)$$`,
                     `$$LT = (\\neg A) \\land B$$`,
-                    `![Comparatore a 1 bit](/informatica-images/comparatore-1bit.svg)`,
+                    `![Comparatore a 1 bit](/informatica-images/comparatore-1bit.svg)`
                 ]
             },
             {
-                title: "3.4 Multiplexer",
+                title: "Multiplexer",
                 content: [
                     `Un **multiplexer 2-a-1** permette di selezionare il valore di uno dei 2 ingressi. Ha tre input binari $A$, $B$, $S$ (selettore) e produce un output $R$:`,
                     `- $R = A$ se $S = 0$`,
@@ -476,7 +477,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.5 Flip-Flop",
+                title: "Flip-Flop",
                 content: [
                     `Un **flip-flop** è un circuito in grado di memorizzare un singolo valore binario per riutilizzarlo in seguito. Si basa su circuiti che contengono cicli, in cui uno o più segnali continuano a circolare.`,
                     `**SR and-or latch**`,
@@ -490,7 +491,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.6 Unità Aritmetico-Logica (ALU)",
+                title: "Unità Aritmetico-Logica (ALU)",
                 content: [
                     `La **ALU ad 1 bit** combina le componenti viste fin qui. Ha tre input binari $A$, $B$, $C_{in}$, un input $Op$ (2 bit) e due output $R$ e $C_{out}$.`,
                     `**Operazioni supportate**`,
@@ -503,7 +504,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.7 L'Architettura di von Neumann",
+                title: "L'Architettura di von Neumann",
                 content: [
                     `![John von Neumann](/informatica-images/john-von-neumann.jpg)`,
                     `L'**architettura di von Neumann** consiste in tre unità funzionali:`,
@@ -519,7 +520,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.8 La CPU (Central Processing Unit)",
+                title: "La CPU (Central Processing Unit)",
                 content: [
                     `La **CPU** è responsabile dell'esecuzione delle istruzioni, che possono essere:`,
                     `- **Aritmetico/logiche**: somma, prodotto, AND, OR, ecc.`,
@@ -541,7 +542,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.9 Il Ciclo Fetch-Decode-Execute",
+                title: "Il Ciclo Fetch-Decode-Execute",
                 content: [
                     `L'unità di controllo esegue ripetutamente il **ciclo fetch-decode-execute**:`,
                     `![Ciclo fetch-decode-execute](/informatica-images/fetch-decode-execute.svg)`,
@@ -558,7 +559,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.10 La Memoria RAM",
+                title: "La Memoria RAM",
                 content: [
                     `La **RAM (Random Access Memory)** è una memoria volatile organizzata come una sequenza di byte.`,
                     `![Struttura di una cella DRAM](/informatica-images/dram-cell-structure.png)`,
@@ -574,7 +575,7 @@ until v = 0
                 ]
             },
             {
-                title: "3.11 Esercizi sull'Architettura",
+                title: "Esercizi sull'Architettura",
                 content: [
                     `**Esercizio 3.1** - Disegnare un circuito logico con un input $A$ e un output $R$ che valga sempre $0$, usando solo porte AND, OR e NOT (senza costanti).`,
                     `$$\\begin{array}{|c|c|} \\hline A & R \\\\ \\hline 0 & 0 \\\\ 1 & 0 \\\\ \\hline \\end{array}$$`,
@@ -588,14 +589,14 @@ until v = 0
         ]
     },
     // ============================================================
-    // Lezione 4: Algoritmi
+    // Algoritmi
     // ============================================================
     {
         id: "algoritmi",
-        title: "Lezione 4: Algoritmi",
+        title: "Algoritmi",
         subsections: [
             {
-                title: "4.1 Introduzione agli Algoritmi",
+                title: "Introduzione agli Algoritmi",
                 content: [
                     `![al-Khwārizmī](/informatica-images/al-khwarizmi-portrait.jpg)`,
                     `Un **algoritmo** è un procedimento che può essere usato per risolvere un problema mediante una sequenza finita di passi elementari.`,
@@ -613,7 +614,7 @@ until v = 0
                 ]
             },
             {
-                title: "4.2 Proprietà degli Algoritmi",
+                title: "Proprietà degli Algoritmi",
                 content: [
                     `Un algoritmo deve godere delle seguenti proprietà fondamentali:`,
                     `**Atomicità**: I passi devono essere elementari, cioè non ulteriormente scomponibili in azioni più semplici.`,
@@ -629,7 +630,7 @@ until v = 0
                 ]
             },
             {
-                title: "4.3 Concetti Fondamentali",
+                title: "Concetti Fondamentali",
                 content: [
                     `**Precondizioni e Postcondizioni**`,
                     `- **Precondizioni**: Proprietà che devono valere inizialmente affinché l'algoritmo produca il risultato corretto`,
@@ -645,7 +646,7 @@ until v = 0
                 ]
             },
             {
-                title: "4.4 Diagrammi di Flusso",
+                title: "Diagrammi di Flusso",
                 content: [
                     `I **diagrammi di flusso** (flowchart) sono una notazione grafica in cui vari tipi di poligoni rappresentano i passi dell'algoritmo, e le frecce indicano l'ordine di esecuzione.`,
                     `![Diagramma di flusso - Euclide](/informatica-images/euclid-flowchart.svg)`,
@@ -660,7 +661,7 @@ until v = 0
                 ]
             },
             {
-                title: "4.5 Pseudocodice e Programmazione Strutturata",
+                title: "Pseudocodice e Programmazione Strutturata",
                 content: [
                     `Lo **pseudocodice** è una notazione per descrivere algoritmi in modo più strutturato rispetto al linguaggio naturale, ma meno rigido di un linguaggio di programmazione.`,
                     `**Algoritmo di Euclide in pseudocodice**:`,
@@ -688,7 +689,7 @@ Stampa n
                 ]
             },
             {
-                title: "4.6 Logica di Floyd-Hoare",
+                title: "Logica di Floyd-Hoare",
                 content: [
                     `La **logica di Floyd-Hoare** consente di dimostrare formalmente la correttezza di un algoritmo, specificando come le istruzioni modificano lo stato del programma.`,
                     `**Tripla di Hoare**`,
@@ -705,7 +706,7 @@ Stampa n
                 ]
             },
             {
-                title: "4.7 Regole per Condizionali e Cicli",
+                title: "Regole per Condizionali e Cicli",
                 content: [
                     `**Struttura condizionale if-then-else**`,
                     `$$\\frac{\\{C \\land P\\} S_1 \\{Q\\}, \\ \\{\\neg C \\land P\\} S_2 \\{R\\}}{\\{P\\} \\ \\text{if } C \\text{ then } S_1 \\text{ else } S_2 \\ \\{Q \\lor R\\}}$$`,
@@ -731,7 +732,7 @@ Post: p = x^n
                 ]
             },
             {
-                title: "4.8 Esempi di Dimostrazioni di Correttezza",
+                title: "Esempi di Dimostrazioni di Correttezza",
                 content: [
                     `**Esempio 1: Scambio di variabili senza variabile temporanea**`,
                     `\`\`\`
@@ -767,7 +768,7 @@ Post: s = Σa[0..n-1]
                 ]
             },
             {
-                title: "4.9 Esercizi sugli Algoritmi",
+                title: "Esercizi sugli Algoritmi",
                 content: [
                     `**Esercizio 4.1** - Dati tre valori interi $a, b, c$ di cui due uguali, scrivere un algoritmo che determina il valore ripetuto. (Suggerimento: è possibile risolvere con un solo confronto)`,
                     `**Esercizio 4.2** - Nell'algoritmo di Euclide, cosa succede se la precondizione "$n > 0$ e $m > 0$" non è soddisfatta?`,
@@ -795,14 +796,14 @@ end while
         ]
     },
     // ============================================================
-    // Lezione 5: Linguaggi di Programmazione
+    // Linguaggi di Programmazione
     // ============================================================
     {
         id: "linguaggi-programmazione",
-        title: "Lezione 5: Linguaggi di Programmazione",
+        title: "Linguaggi di Programmazione",
         subsections: [
             {
-                title: "5.1 Interpreti e Compilatori",
+                title: "Interpreti e Compilatori",
                 content: [
                     `![Pannello PDP-8/E](/informatica-images/pdp8-panel.jpg)`,
                     `Le istruzioni eseguite dai processori sono rappresentate da sequenze di bit in memoria, dette **linguaggio macchina**. Le istruzioni sono di tre tipi:`,
@@ -822,7 +823,7 @@ end while
                 ]
             },
             {
-                title: "5.2 Linguaggi di Basso e Alto Livello",
+                title: "Linguaggi di Basso e Alto Livello",
                 content: [
                     `**Linguaggi di basso livello**: Non forniscono alcuna astrazione rispetto alle caratteristiche del processore. I programmi possono usare solo le istruzioni direttamente supportate dal processore.`,
                     `**Svantaggi dei linguaggi di basso livello**:`,
@@ -839,7 +840,7 @@ end while
                 ]
             },
             {
-                title: "5.3 Esempio di Compilazione",
+                title: "Esempio di Compilazione",
                 content: [
                     `**Programma C**:`,
                     `\`\`\`c
@@ -875,7 +876,7 @@ bl printf
                 ]
             },
             {
-                title: "5.4 Paradigmi di Programmazione",
+                title: "Paradigmi di Programmazione",
                 content: [
                     `I **paradigmi di programmazione** classificano i linguaggi in base alle loro caratteristiche.`,
                     `**Linguaggi Imperativi**`,
@@ -911,7 +912,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "5.5 Grammatiche BNF",
+                title: "Grammatiche BNF",
                 content: [
                     `La **sintassi** di un linguaggio specifica la struttura delle frasi valide. La **semantica** specifica il significato delle frasi.`,
                     `Una **grammatica** può specificare la sintassi:`,
@@ -933,7 +934,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "5.6 Alberi di Derivazione",
+                title: "Alberi di Derivazione",
                 content: [
                     `**Esempio: Grammatica per numeri**`,
                     `\`\`\`
@@ -949,7 +950,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "5.7 Grammatiche Ambigue",
+                title: "Grammatiche Ambigue",
                 content: [
                     `Una grammatica per cui esiste una frase con più alberi di derivazione distinti è detta **grammatica ambigua**.`,
                     `**Esempio: Espressioni aritmetiche**`,
@@ -967,7 +968,7 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
                 ]
             },
             {
-                title: "5.8 Esercizi sulle Grammatiche",
+                title: "Esercizi sulle Grammatiche",
                 content: [
                     `![Rosa dei venti](/informatica-images/compass-rose.png)`,
                     `**Esercizio 5.1** - Estendere la grammatica italiana per includere "pecora" e l'articolo "la" senza generare frasi scorrette ("la cane", "il pecora").`,
@@ -987,731 +988,817 @@ discendente(X, Y) :- genitore(Z, X), discendente(Z, Y).
         ]
     },
     // ============================================================
-    // Lezione 6: Il Linguaggio C89 ANSI
+    // C++
     // ============================================================
     {
-        id: "linguaggio-c",
-        title: "Lezione 6: Il Linguaggio C89 ANSI",
+        id: "cpp-introduzione",
+        title: "C++: Fondamenti e Compilazione",
         subsections: [
             {
-                title: "6.1 Sintassi del Linguaggio",
+                title: "Panoramica",
                 content: [
-                    `**Introduzione allo Standard ANSI C89**`,
-                    `Lo standard **ANSI del linguaggio C** è stato progettato per promuovere la portabilità dei programmi C fra diversi sistemi informatici. La norma copre tre aree principali:`,
-                    `- L'ambiente in cui il programma compila ed esegue`,
-                    `- La semantica e la sintassi del linguaggio`,
-                    `- Il contenuto e la semantica delle librerie standard e dei file di intestazione`,
-                    `**4.1.1 Operatori del Linguaggio C**`,
-                    `**Operatore di Assegnamento "="**`,
-                    `Corrisponde a: var := valore. L'assegnamento è **unidirezionale**: ciò che sta a destra viene assegnato alla variabile a sinistra. Pertanto: (A = B) ≠ (B = A).`,
-                    `**Operatori Aritmetici** (il comportamento dipende dal tipo della variabile):`,
-                    `- **+** Somma`,
-                    `- **-** Differenza`,
-                    `- ***** Prodotto`,
-                    `- **/** Divisione`,
-                    `- **%** Resto della divisione (modulo)`,
-                    `**Operatori Logici** (seguono le tavole di verità):`,
-                    `- **&&** Prodotto logico (AND)`,
-                    `- **||** Somma logica (OR)`,
-                    `- **!** Negazione (NOT)`,
-                    `**Operatori Relazionali**:`,
-                    `- **>** Maggiore stretto`,
-                    `- **>=** Maggiore o uguale`,
-                    `- **<** Minore stretto`,
-                    `- **<=** Minore o uguale`,
-                    `- **==** Confronto di uguaglianza (diverso da "=" che è assegnamento)`,
-                    `- **!=** Diverso`,
-                    `**Leggi di De Morgan** (ripasso condizioni logiche):`,
-                    `- (condiz1 || condiz2) == !(!condiz1 && !condiz2)`,
-                    `- (condiz1 && condiz2) == !(!condiz1 || !condiz2)`
+                    "**Obiettivo della sezione**",
+                    "Capire perché C++ è un linguaggio compilato, come un file sorgente diventa un programma eseguibile e come leggere un primo programma completo.",
+                    "Gli argomenti centrali sono: processo di compilazione, preprocessore, linker, `Hello, world`, token, tipi primitivi, operatori, variabili, input e debug.",
+                    "![Pipeline di compilazione C++](https://commons.wikimedia.org/wiki/Special:FilePath/C%2B%2B_compilation_process.svg)"
                 ]
             },
             {
-                title: "6.2 Compilazione ed Esecuzione",
+                title: "Perché Usare C++",
                 content: [
-                    `**L'Estensione del File**`,
-                    `L'estensione **.c** comunica al compilatore il contenuto del file e permette all'editor di riconoscere il linguaggio C ed evidenziare le parole chiave.`,
-                    `**Comando di Compilazione**`,
-                    `gcc -Wall -std=c89 -pedantic -o nomefile_eseguibile nomefile_sorgente.c`,
-                    `**Parametri del Compilatore**:`,
-                    `- **-Wall**: Segnala tutti i warning`,
-                    `- **-std=c89**: Verifica la conformità allo standard ANSI C89`,
-                    `- **-pedantic**: Segnala le violazioni dello standard`,
-                    `- **-o**: Specifica il nome del file eseguibile`,
-                    `**Tipologie di Problemi**:`,
-                    `- **Error**: Non viene creato l'eseguibile (errore di sintassi). Se si dimentica il ";", l'errore viene segnalato nella riga successiva.`,
-                    `- **Warning**: Condizioni anomale che potrebbero indicare problemi, ma l'eseguibile viene comunque creato.`,
-                    `**Tool Utili**:`,
-                    `- **indent**: Formatta e indenta correttamente i file .c`,
-                    `- **diff**: Confronta due file evidenziando le differenze`,
-                    `**4.2.1 Struttura del Codice**`,
-                    `**1. Inclusione Librerie**`,
-                    `#include <stdio.h> // Libreria standard I/O`,
-                    `**2. Definizione Costanti**`,
-                    `#define NOME_COSTANTE valore`,
-                    `**3. Funzione Main**`,
-                    `int main(int argc, char *argv[]) { ... return 0; }`,
-                    `**4. Indentazione**`,
-                    `Inserimento di spazi vuoti (tab = 4 spazi) all'inizio delle righe per migliorare la leggibilità. In C è una convenzione, in Python fa parte della sintassi.`,
-                    `**5. Dichiarazione Variabili**`,
-                    `Stabilisce lo spazio da riservare e la tipologia di dato:`,
-                    `- **int**: Numeri interi`,
-                    `- **float**: Numeri reali a precisione singola`,
-                    `- **double**: Numeri reali a precisione doppia`,
-                    `- **char**: Caratteri singoli`,
-                    `**6. Input con scanf()**`,
-                    `scanf("%tipo", &nome_variabile);`,
-                    `**7. Output con printf()**`,
-                    `printf("testo %tipo", nome_variabile);`,
-                    `**Specificatori di Formato**:`,
-                    `- **%d**: Interi con segno`,
-                    `- **%u**: Interi senza segno`,
-                    `- **%f**: Numeri reali`,
-                    `- **%c**: Caratteri`,
-                    `- **%s**: Stringhe`,
-                    `**Caratteri Speciali**:`,
-                    `- **\\n**: A capo (newline)`,
-                    `- **\\t**: Tabulazione`,
-                    `- **\\0**: Terminatore di stringa`,
-                    `- **\\\\**: Backslash`,
-                    `- **\\"**: Virgolette doppie`
+                    "Un processore esegue istruzioni elementari, come leggere o scrivere valori in memoria. Un linguaggio di alto livello permette di esprimere quelle operazioni in forma più compatta e leggibile.",
+                    "**Vantaggi principali**:",
+                    "- **Concisione**: un costrutto C++ rappresenta molte istruzioni macchina.",
+                    "- **Manutenibilità**: modificare testo sorgente è più semplice che modificare direttamente istruzioni macchina.",
+                    "- **Portabilità**: lo stesso sorgente può essere compilato per architetture diverse.",
+                    "C++ resta vicino alla macchina: consente di controllare memoria, puntatori e prestazioni, ma offre anche astrazioni come classi, funzioni, template e librerie standard."
                 ]
             },
             {
-                title: "6.3 Funzioni e Sottoprogrammi",
+                title: "Dal Sorgente all'Eseguibile",
                 content: [
-                    `**4.3.1 Concetto di Sottoprogramma**`,
-                    `I **sottoprogrammi** sono composti da funzioni e sottoprocedure. Il loro ruolo è scomporre un problema in piccoli task, ciascuno gestito da un singolo sottoprogramma.`,
-                    `**Principi Fondamentali**:`,
-                    `- Un sottoprogramma **calcola ed elabora**, non visualizza direttamente`,
-                    `- Un sottoprogramma **riceve informazioni dal main**, non chiede direttamente all'utente`,
-                    `- Può restituire al massimo **1 valore** tramite return (oppure 0 se void)`,
-                    `**Sintassi Base di una Funzione**`,
-                    `tipo_funzione nome_funzione(argomenti) {`,
-                    `    codice_sottoprogramma;`,
-                    `    return dato_restituito;`,
-                    `}`,
-                    `**Tipi di Funzione**:`,
-                    `- **int**: Restituisce un intero`,
-                    `- **float**: Restituisce un numero reale`,
-                    `- **char**: Restituisce un carattere`,
-                    `- **void**: Non restituisce nulla`,
-                    `**Convenzione sulla Disposizione del Codice**:`,
-                    `1. #include <librerie>`,
-                    `2. #define COSTANTI`,
-                    `3. typedef definizioni di tipo`,
-                    `4. Prototipi delle funzioni`,
-                    `5. Funzione main()`,
-                    `6. Implementazione delle funzioni`,
-                    `**Scope delle Variabili**`,
-                    `Le variabili in C hanno uno **scope**: sono definite solo all'interno della funzione in cui sono dichiarate. Le variabili dichiarate nel main sono accessibili solo nel main.`,
-                    `**4.3.2 Puntatori**`,
-                    `Con la sintassi **&nome_variabile** si ottiene l'indirizzo di memoria della variabile.`,
-                    `**Tipi di Puntatori**:`,
-                    `- **int*** : Puntatore a intero`,
-                    `- **float*** : Puntatore a float`,
-                    `- **char*** : Puntatore a carattere`,
-                    `**Operatori sui Puntatori**:`,
-                    `- **&**: Restituisce l'indirizzo di una variabile`,
-                    `- ** * **: Restituisce il valore all'indirizzo specificato (dereferenziazione)`,
-                    `**Esempio di Funzione con Puntatori** (per restituire più valori):`,
-                    `void conta_voc_cons(char s[], int *n_vocali, int *n_consonanti) {`,
-                    `    // elaborazione...`,
-                    `    *n_vocali = valore1;`,
-                    `    *n_consonanti = valore2;`,
-                    `}`,
-                    `// Chiamata: conta_voc_cons(stringa, &num_voc, &num_cons);`,
-                    `**Passaggio Parametri alle Funzioni**:`,
-                    `- **Array**: function(int v[], int dim) oppure function(int *v, int dim)`,
-                    `- **Matrice**: function(int m[][NCOL], int nr, int nc)`,
-                    `- **Struttura**: function(tipo_struct *s)`,
-                    `**4.3.3 Acquisizione da Riga di Comando**`,
-                    `int main(int argc, char *argv[])`,
-                    `- **argc**: Numero di argomenti passati`,
-                    `- **argv[]**: Array di stringhe contenente gli argomenti`,
-                    `- **argv[0]**: Nome del programma`,
-                    `- **argv[1], argv[2], ...**: Argomenti successivi`,
-                    `**Funzioni di Conversione**:`,
-                    `- **atoi()**: Converte stringa in intero`,
-                    `- **atof()**: Converte stringa in float`,
-                    `**4.3.4 Contatori e Operatori Abbreviati**`,
-                    `**Operatori di Incremento/Decremento**:`,
-                    `- **num++**: Equivale a num = num + 1`,
-                    `- **num--**: Equivale a num = num - 1`,
-                    `**Operatori Composti**:`,
-                    `- **tot += cont**: Equivale a tot = tot + cont`,
-                    `- **tot -= cont**: Equivale a tot = tot - cont`,
-                    `- **ris *= val**: Equivale a ris = ris * val`,
-                    `- **ris /= val**: Equivale a ris = ris / val`,
-                    `**4.3.5 Casting**`,
-                    `L'operazione di **casting** converte temporaneamente il tipo di una variabile:`,
-                    `(tipo_destinazione) nome_variabile`,
-                    `Il casting ha **priorità maggiore** rispetto agli operatori aritmetici:`,
-                    `- avg = (float)tot / num --> Prima converte tot, poi divide`,
-                    `- avg = (float)(tot / num) --> Prima divide, poi converte`
+                    "Un programma C++ parte da uno o più file sorgente (`.cpp`). Prima della compilazione interviene il **preprocessore**, che espande direttive come `#include` e macro. Poi il **compilatore** traduce ogni sorgente in un file oggetto. Infine il **linker** collega file oggetto e librerie per produrre l'eseguibile.",
+                    "```text\nfile .cpp -> preprocessore -> codice espanso -> compilatore -> file oggetto -> linker -> eseguibile\n```",
+                    "Il file oggetto è incompleto: può contenere riferimenti a funzioni definite altrove. Il linker risolve questi riferimenti usando altri file oggetto o librerie già compilate.",
+                    "A differenza di molti linguaggi interpretati, C++ esegue questi passaggi prima dell'esecuzione. Questo contribuisce alle sue prestazioni, ma richiede attenzione agli errori rilevati in compilazione."
                 ]
             },
             {
-                title: "6.4 Costrutti di Controllo in C",
+                title: "Hello World",
                 content: [
-                    `**4.4.1 Costrutto if**`,
-                    `**Sintassi Base**:`,
-                    `if (espressione) istruzione;`,
-                    `**Con più istruzioni** (parentesi graffe obbligatorie):`,
-                    `if (espressione) {`,
-                    `    istruzione1;`,
-                    `    istruzione2;`,
-                    `}`,
-                    `**if-else**:`,
-                    `if (condizione)`,
-                    `    istruzione_vera;`,
-                    `else`,
-                    `    istruzione_falsa;`,
-                    `**if-else annidato**:`,
-                    `if (cond1) istr1;`,
-                    `else if (cond2) istr2;`,
-                    `else if (cond3) istr3;`,
-                    `else istr_default;`,
-                    `**Nota Importante**: L'else è legato all'if precedente che non ha già un else associato.`,
-                    `**Condizioni Equivalenti**:`,
-                    `- if(val == 0) equivale a if(!val)`,
-                    `- if(val != 0) equivale a if(val)`,
-                    `- Usare if(5 == val) per evitare errori di assegnamento accidentale`,
-                    `**4.4.2 Costrutto switch**`,
-                    `Selezione basata sul valore di una variabile intera o carattere:`,
-                    `switch(variabile) {`,
-                    `    case valore1: istruzione1; break;`,
-                    `    case valore2: istruzione2; break;`,
-                    `    default: istruzione_default;`,
-                    `}`,
-                    `**Importante**: Il **break** è necessario per uscire dallo switch, altrimenti l'esecuzione prosegue nei case successivi.`,
-                    `**4.4.3 Ciclo while e do-while**`,
-                    `**while** (condizione in testa):`,
-                    `while (espressione) {`,
-                    `    istruzioni;`,
-                    `}`,
-                    `La condizione viene verificata **prima** di eseguire le istruzioni.`,
-                    `**do-while** (condizione in coda):`,
-                    `do {`,
-                    `    istruzioni;`,
-                    `} while (espressione);`,
-                    `Le istruzioni vengono eseguite **almeno una volta**, poi si verifica la condizione.`,
-                    `**Uso Tipico di do-while**: Validazione input dell'utente.`,
-                    `**4.4.4 Costrutto for**`,
-                    `Ciclo a condizione iniziale, ideale per iterazioni a conteggio:`,
-                    `for (inizializzazione; condizione; incremento) {`,
-                    `    istruzioni;`,
-                    `}`,
-                    `**Esempio**:`,
-                    `for (i = 0; i < N; i++) {`,
-                    `    printf("%d", array[i]);`,
-                    `}`,
-                    `**Note sul for**:`,
-                    `- È equivalente a un while con contatore`,
-                    `- Non dichiarare variabili locali nel for (usare variabili globali)`,
-                    `- Si possono usare più inizializzazioni e condizioni: for(i=0, j=0; i<N && j<M; i++, j--)`,
-                    `**4.4.5 Ricorsione**`,
-                    `Metodo in cui una funzione richiama **se stessa**:`,
-                    `**Ricorsione Diretta**:`,
-                    `int fattoriale(int n) {`,
-                    `    if (n <= 1) return 1;`,
-                    `    return n * fattoriale(n - 1);`,
-                    `}`,
-                    `**Ricorsione Indiretta**: La funzione A chiama B, che chiama A.`,
-                    `**Requisiti per la Ricorsione**:`,
-                    `- Caso base che interrompe la ricorsione`,
-                    `- Chiamata ricorsiva con parametro modificato verso il caso base`
+                    "Il programma minimo tradizionale stampa una riga sul terminale:",
+                    "```cpp\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, world!\\n\";\n    return 0;\n}\n```",
+                    "`#include <iostream>` importa le funzionalità di input/output. `main` è la funzione da cui parte l'esecuzione. Le parentesi graffe delimitano il blocco di istruzioni. `std::cout` rappresenta l'output standard e `<<` invia valori verso il terminale.",
+                    "`return 0` comunica al sistema operativo che il programma è terminato correttamente. Ogni istruzione C++ termina con `;`, salvo blocchi e direttive del preprocessore."
                 ]
             },
             {
-                title: "6.5 Strutture Dati",
+                title: "Token e Struttura del Codice",
                 content: [
-                    `**4.5.1 Array Monodimensionali (Vettori)**`,
-                    `Struttura dati che permette di memorizzare più valori **omogenei** con un unico nome.`,
-                    `**Dichiarazione**:`,
-                    `#define DIM 50`,
-                    `int numeri[DIM];`,
-                    `float prezzi[30];`,
-                    `**Caratteristiche**:`,
-                    `- L'indice parte da **0**: array[0] è il primo elemento`,
-                    `- L'ultimo elemento è array[DIM-1]`,
-                    `- La dimensione deve essere nota a tempo di compilazione (nello standard ANSI C89)`,
-                    `**Esempio di Popolazione**:`,
-                    `for (i = 0; i < DIM; i++) {`,
-                    `    scanf("%d", &numeri[i]);`,
-                    `}`,
-                    `**4.5.2 Array Multidimensionali (Matrici)**`,
-                    `Struttura a più dimensioni (es: tabelle, immagini).`,
-                    `**Dichiarazione**:`,
-                    `int matrice[N_RIGHE][N_COLONNE];`,
-                    `**Accesso**: matrice[i][j] dove i = riga, j = colonna.`,
-                    `**Linearizzazione della Memoria**: La memoria è monodimensionale; le matrici vengono memorizzate riga per riga (row-major order).`,
-                    `**4.5.3 Strutture (struct)**`,
-                    `Permettono di raggruppare dati di **tipi diversi** in un'unica entità.`,
-                    `**Sintassi**:`,
-                    `typedef struct {`,
-                    `    int giorno;`,
-                    `    int mese;`,
-                    `    int anno;`,
-                    `} data_t;`,
-                    `**Uso**:`,
-                    `data_t nascita;`,
-                    `nascita.giorno = 15;`,
-                    `nascita.mese = 3;`,
-                    `scanf("%d", &nascita.anno);`,
-                    `**Accesso con Puntatori**:`,
-                    `- (*ptr).campo equivale a ptr->campo`,
-                    `**4.5.4 Stringhe**`,
-                    `Array di caratteri terminato dal carattere **'\\0'** (terminatore nullo).`,
-                    `**Dichiarazione**:`,
-                    `#define LMAX 100`,
-                    `char stringa[LMAX + 1]; // +1 per il terminatore`,
-                    `**Acquisizione**:`,
-                    `- scanf("%s", stringa); // Si ferma allo spazio`,
-                    `- gets(stringa); // Legge l'intera riga (inclusi spazi)`,
-                    `**Funzioni della Libreria string.h**:`,
-                    `- **strlen(s)**: Restituisce la lunghezza della stringa`,
-                    `- **strcmp(s1, s2)**: Confronta due stringhe (0 se uguali)`,
-                    `- **strcpy(dest, src)**: Copia src in dest`,
-                    `**4.5.5 Allocazione Dinamica**`,
-                    `Permette di allocare memoria a runtime con la libreria **<stdlib.h>**.`,
-                    `**malloc()** (Memory Allocation):`,
-                    `int *v = (int*)malloc(n * sizeof(int));`,
-                    `**Verifica dell'Allocazione**:`,
-                    `if (v != NULL) {`,
-                    `    // utilizzo della memoria`,
-                    `    free(v); // liberazione della memoria`,
-                    `}`,
-                    `**free()**: Libera la memoria allocata dinamicamente. **Obbligatorio** quando la memoria non serve più.`,
-                    `**4.5.6 Liste Concatenate (Linked List)**`,
-                    `Struttura dati dinamica per memorizzare elementi senza conoscere a priori il numero.`,
-                    `**Struttura del Nodo**:`,
-                    `typedef struct nodo_s {`,
-                    `    int valore;`,
-                    `    struct nodo_s *next;`,
-                    `} nodo_t;`,
-                    `**Operazioni Fondamentali**:`,
-                    `- **push()**: Inserimento in testa`,
-                    `- **append()**: Inserimento in coda`,
-                    `- **find()**: Ricerca di un valore`,
-                    `- **delete()**: Eliminazione di un elemento`,
-                    `- **list_length()**: Calcolo della lunghezza`,
-                    `**Scorrimento della Lista**:`,
-                    `for (nodo_t *p = head; p != NULL; p = p->next) {`,
-                    `    printf("%d ", p->valore);`,
-                    `}`,
-                    `**4.5.7 File**`,
-                    `Il carattere **EOF** (End Of File) indica la fine del file.`,
-                    `**Apertura**:`,
-                    `FILE *fp = fopen("nome_file", "modalità");`,
-                    `// "r" = lettura, "w" = scrittura, "rb" = lettura binaria`,
-                    `**Verifica Apertura**:`,
-                    `if (fp != NULL) { ... fclose(fp); }`,
-                    `**Lettura/Scrittura**:`,
-                    `- **fscanf(fp, "%d", &var)**: Lettura formattata`,
-                    `- **fprintf(fp, "%d", var)**: Scrittura formattata`,
-                    `- **fgets(str, n, fp)**: Lettura di una riga`,
-                    `- **feof(fp)**: Restituisce vero se fine file`,
-                    `**File Binari**:`,
-                    `- **fread(ptr, size, count, fp)**: Lettura binaria`,
-                    `- **fwrite(ptr, size, count, fp)**: Scrittura binaria`,
-                    `**4.5.8 Variabili Globali**`,
-                    `Variabili dichiarate **fuori da tutte le funzioni**, visibili in tutto il programma.`,
-                    `Vengono dichiarate dopo #define e typedef, ma prima del main.`
+                    "Il compilatore legge il sorgente come sequenza di **token**, cioè le unità minime con significato nel linguaggio.",
+                    "**Categorie principali**:",
+                    "- **Parole chiave**: `int`, `double`, `for`, `return`.",
+                    "- **Identificatori**: nomi scelti dal programmatore, come `x`, `somma`, `main`.",
+                    "- **Letterali**: valori scritti direttamente, come `42`, `3.14`, `'a'`, `\"testo\"`.",
+                    "- **Operatori**: `+`, `-`, `*`, `/`, `%`, `=`, `==`, `<<`.",
+                    "- **Separatori**: `{}`, `()`, `,`, `;`.",
+                    "- **Spazi bianchi e commenti**: rendono il codice leggibile ma, salvo separare token, non cambiano il significato.",
+                    "I commenti su una riga iniziano con `//`; i commenti su più righe usano `/* ... */`."
                 ]
             },
             {
-                title: "6.6 Algoritmi non immediati",
+                title: "Namespace, Stringhe ed Escape",
                 content: [
-                    `**Rotazione di una Matrice**`,
-                    `Per ruotare una matrice quadrata in senso orario:`,
-                    `\`\`\`c
-/* inserire dimensione array bidimensionale quadrato di dim_max(M)=10
-crea e visulaizza matrice ruotata in senso orario*/
-#include <stdio.h>
-#define MAX 10
-int main(int argc, char*argv[]){
-    int dim, i, j, mat[MAX][MAX], mat_r[MAX][MAX];
-    do scanf("%d",&dim); while (!(dim >= 2 && dim <= 10));
-    for(i=0; i<dim; i++){
-        for(j=0; j<dim; j++) scanf("%d",&mat[i][j]);
-    }
-    for(i=0; i<dim; i++){
-        for(j=0; j<dim; j++)
-            mat_r[i][j] = mat[dim-j-1][i];
-    }
-    printf("\\n");
-    for(i=0; i<dim; i++){
-        for(j=0; j<dim; j++) printf("%d ", mat_r[i][j]);
-        printf("\\n");
-    }
-    printf("\\n");
-    return 0;
-}
-\`\`\``,
-                    `**Ricerca di elemento di un vettore in un altro vettore**`,
-                    `\`\`\`c
-/* programma che conta vocali, utente inserisce solo carartteri minuscoli*/
-#include <stdio.h>
-#include <string.h> 
-#define MAX 100
-#define INIZIO 'a'
-#define VOC 5
-#define FINE 'z'
-int main(int argc, char *argv[]){
-    char frase[MAX+1], set[VOC+1];
-    int i, j, num, trovato;
-    gets(frase);
-    num = 0;
-    for(i=0; frase[i]!='\\0'; i++){
-        trovato = 0;
-        for(j=0; set[j]!='\\0' && trovato==0; j++)
-            if(frase[i]==set[j]) trovato = 1;
-        num += trovato;
-    }
-    printf("vocali: %d\\n", num);
-    return 0;
-}
-\`\`\``
+                    "Molte funzionalità standard sono nello spazio dei nomi `std`. Si può scrivere `std::cout`, oppure dichiarare `using namespace std;` e poi usare `cout` direttamente. Nei progetti reali è spesso preferibile qualificare i nomi con `std::` per evitare conflitti.",
+                    "Una stringa letterale è una sequenza di caratteri tra virgolette doppie. Alcuni caratteri speciali si scrivono con **sequenze di escape**:",
+                    "- `\\n`: nuova riga.",
+                    "- `\\t`: tabulazione.",
+                    "- `\\\\`: backslash.",
+                    "- `\\\"`: virgolette doppie dentro una stringa.",
+                    "- `\\'`: apostrofo dentro un carattere o stringa.",
+                    "```cpp\nstd::cout << \"Prima riga\\nSeconda riga\\n\";\n```"
+                ]
+            },
+            {
+                title: "Tipi, Espressioni e Operatori",
+                content: [
+                    "Un'**istruzione** esegue un'azione. Un'**espressione** produce un valore. Per esempio `4 + 2`, `x - 1` e `\"ciao\"` sono espressioni.",
+                    "Ogni espressione ha un **tipo**, che determina quali valori può rappresentare e quali operazioni sono lecite.",
+                    "**Tipi usati spesso**:",
+                    "- `char`: un carattere o piccolo intero.",
+                    "- `int`: numero intero.",
+                    "- `bool`: valore logico `true` o `false`.",
+                    "- `double`: numero reale in virgola mobile.",
+                    "Gli operatori aritmetici principali sono `+`, `-`, `*`, `/`, `%`. Con due interi, `/` esegue divisione intera: `1 / 4` vale `0`. Per ottenere `0.25` serve almeno un operando reale, ad esempio `1 / 4.0`."
+                ]
+            },
+            {
+                title: "Variabili e Input",
+                content: [
+                    "Una **variabile** è una posizione di memoria con un nome e un tipo. Prima si dichiara il tipo, poi si può assegnare un valore.",
+                    "```cpp\nint x = 4 + 2;\nstd::cout << x / 3 << ' ' << x * 2 << '\\n';\n```",
+                    "L'operatore `=` assegna un valore. La forma `int x = 4 + 2;` dichiara e inizializza nello stesso punto, ed è preferibile quando il valore iniziale è noto.",
+                    "Per leggere input dal terminale si usa `std::cin` con `>>`:",
+                    "```cpp\nint x;\nstd::cin >> x;\nstd::cout << x / 3 << ' ' << x * 2 << '\\n';\n```",
+                    "Un modo pratico per ricordare `cin >> x` e `cout << x` è pensare agli operatori come frecce: i dati entrano nella variabile da `cin` e escono verso `cout`."
+                ]
+            },
+            {
+                title: "Errori e Debug",
+                content: [
+                    "In C++ si incontrano soprattutto due famiglie di errori.",
+                    "**Errori di compilazione**: il compilatore rifiuta il programma perché viola sintassi o regole di tipo. Esempi tipici: `;` mancante, nome scritto male, tipo incompatibile.",
+                    "**Errori di runtime**: il programma compila ma non fa ciò che si voleva, oppure termina durante l'esecuzione. Esempi: divisione per zero, accesso fuori dai limiti di un array, puntatore non valido.",
+                    "Per studiare un bug conviene ridurre il programma al caso minimo, stampare valori intermedi e distinguere sempre tra errore del linguaggio, errore di logica ed errore nei dati di input."
                 ]
             }
         ]
     },
     {
-        id: "esercitazioni",
-        title: "Lezione 7: Esercitazioni",
+        id: "cpp-controllo",
+        title: "C++: Strutture di Controllo",
         subsections: [
             {
-                title: "7.1 Esercitazione 7.1 --> Esercizi di Approfondimento",
+                title: "Panoramica",
                 content: [
-                    `**Esercizio 1 - Padding**`,
-                    `Si vuole rappresentare a video un valore naturale \`num\` utilizzando un numero a scelta di cifre \`k\` inserendo \`0\` nelle posizioni più significative.`,
-                    `\`\`\`c
-/* ## Esercizio 1 - Padding */
-#include <stdio.h>
-#define BASE 10
-#define CAR 0
-int main(int argc, char *argv[]){
-    int numi, numf, cifre, i;
-    do scanf("%d",&numi); while(numi<=0);
-    do scanf("%d",&cifre); while(cifre<=0);
-    numf = numi;
-    i = 0;
-    while(numf>0){
-        i++;
-        numf /= BASE;
-    }
-    cifre -= i;
-    for(i=0; i<cifre; i++) printf("%d", CAR);
-    printf("%d\\n", numi);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 2 - Piramidi di Super Mario**`,
-                    `Disegnare una doppia piramide di caratteri '#' con spazio centrale di 2 caratteri.`,
-                    `\`\`\`c
-/* ## Esercizio 2 - Super Mario */
-#include <stdio.h>
-#define MAX 16
-#define MIN 1
-#define ARIA_CENTRO 2
-#define BLOCCHI '#'
-#define ARIA ' '
-int main (int argc, char *argv[]){
-    int piani, i, j, nAria, nBlocchi;
-    do scanf("%d",&piani); while (piani <MIN || piani >MAX);
-    for (i = 1; i <= piani; i++){
-        nAria = piani - i;
-        nBlocchi = piani - nAria;
-        for (j = 0; j <nAria; j++) printf("%c", ARIA);
-        for (j = 0; j <nBlocchi; j++) printf("%c", BLOCCHI);
-        for (j = 0; j <ARIA_CENTRO; j++) printf("%c", ARIA);
-        for (j = 0; j <nBlocchi; j++) printf("%c", BLOCCHI);
-        printf("\\n");
-    }
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 3 - Troncabile Primo a Destra**`,
-                    `Un numero si dice troncabile primo a destra se il numero stesso e tutti i numeri che si ottengono eliminando una alla volta la cifra meno significativa sono numeri primi.`,
-                    `\`\`\`c
-/* ## Esercizio 3 - Troncabile primo a destra */
-#include <stdio.h>
-#define BASE 10
-int primo(int val){
-    int i, ris, meta;
-    if(val>0){
-        ris = 1;
-        if(val%2 == 0) ris = 0;
-        else{
-            meta = val/2;
-            for(i=3; i<meta && ris != 0; i += 2)
-                if(val%i== 0) ris = 0;
-        }
-    } else ris = -1;
-    return ris;
-}
-int main(int argc, char*argv[]){
-    int num, tpd;
-    do scanf("%d",&num); while(num<=0);
-    tpd = 1;
-    num /= BASE;
-    while(num>0 && tpd==1){
-        if(primo(num) != 1) tpd = 0;
-        num /= BASE;
-    }
-    printf("%d\\n", tpd);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 4 - Triangolo di Tartaglia**`,
-                    `Generare il triangolo di Tartaglia di dimensione chiesta all'utente.`,
-                    `\`\`\`c
-/* ## Esercizio 4 -- Tartaglia */
-#include <stdio.h>
-#define MAX 10
-int main(int argc, char *argv[]){
-    int i, j, dim, trng[MAX][MAX];
-    do scanf("%d",&dim); while(dim<=0);
-    for(i=0; i<dim; i++){
-        for(j=0; j<=i; j++){
-            if(j==0 || j==i) trng[i][j]=1;
-            else trng[i][j]=trng[i-1][j-1]+trng[i-1][j];
-        }
-    }
-    for(i=0; i<dim; i++){
-        for(j=0; j<=i; j++) printf("%d ", trng[i][j]);
-        printf("\\n");
-    }
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 5 - Rotazione Stringa**`,
-                    `Crea una nuova stringa che contiene la rotazione verso destra di una stringa input di n posizioni.`,
-                    `\`\`\`c
-/* ## Esercizio 5 -- Rotazione stringa */
-#include <stdio.h>
-#include <string.h>
-#define LEN 50
-int main (int argc, char *argv[]){
-    char frase[LEN + 1], reverse[LEN + 1];
-    int i, len, ruota, j;
-    gets(frase);
-    scanf("%d",&ruota);
-    len = strlen(frase);
-    for (i = 0; i <len; i++){
-        j = i - ruota;
-        if(j<0) j = i - ruota + len;
-        reverse[i] = frase[j];
-    }
-    reverse[len] = '\\0';
-    printf("%s\\n", reverse);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 6 - Trading Ottimale**`,
-                    `Individuare il giorno in cui acquistare e quello in cui vendere per massimizzare il guadagno.`,
-                    `\`\`\`c
-/* ## Esercizio 6 - Trading Ottimale */
-#include <stdio.h>
-#define GIORNI 20
-#define OPZ_1 "perdita"
-#define OPZ_2 "capitale insufficente"
-int main (int argc, char *argv[]){
-    int cambi[GIORNI], iTemp, guadagno, guadagnoTemp, capI, preI, iStart, iFinish, i, found;
-    scanf("%d",&preI);
-    for (i = 0; i <GIORNI; i++) scanf("%d",&cambi[i]);
-    scanf("%d",&capI);
-    found = 0;
-    for (i = 0; i <GIORNI && !found; i++){
-        if (preI <= capI){
-            iStart = i; iFinish = i;
-            guadagno = cambi[i]; guadagnoTemp = cambi[i];
-            iTemp = i; found = 1;
-        }
-        preI += cambi[i];
-    }
-    for (; i <GIORNI; i++){
-        guadagnoTemp += cambi[i];
-        if (cambi[i] > guadagnoTemp && preI <= capI){
-            guadagnoTemp = cambi[i]; iTemp = i;
-        }
-        if (guadagnoTemp > guadagno){
-            guadagno = guadagnoTemp; iStart = iTemp; iFinish = i;
-        }
-        preI += cambi[i];
-    }
-    if (found)
-        if (guadagno > 0) printf("%d %d", iStart, iFinish);
-        else printf(OPZ_1);
-    else printf(OPZ_2);
-    printf("\\n");
-    return 0;
-}
-\`\`\``
+                    "**Obiettivo della sezione**",
+                    "Controllare l'ordine di esecuzione delle istruzioni con condizioni, operatori logici, `if`, `switch`, cicli `while`, `do-while`, `for` e annidamento."
                 ]
             },
             {
-                title: "7.2 Esercitazione 7.2 --> Esercizi del Laboratorio",
+                title: "Flusso di Controllo",
                 content: [
-                    `**27/09/2022 - Operazioni Base**`,
-                    `**Esercizio 1: Calcolatrice Polacca**`,
-                    `\`\`\`c
-#include <stdio.h>
-#define INV 999999
-int main(int argc,char*argv[]){
-    int a,b; float ris; char operatore;
-    scanf("%c\\n",&operatore);
-    switch(operatore){
-        case '+': ris=a+b; break;
-        case '-': ris=a-b; break;
-        case '*': ris=a*b; break;
-        case '/': ris=a/b; break;
-        default: ris=INV;
-    }
-    printf("%f",ris);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 2: Data in Anni**`,
-                    `\`\`\`c
-#define M_A 12
-#define G_A 365
-#include <stdio.h>
-int main(int argc, char*argv[]){
-    int ggp, mmp, aap, gga, mma, aaa, ris;
-    float p1,p2;
-    scanf("%d\\t %d\\t %d\\n %d\\t %d\\t %d\\n",&ggp, &mmp, &aap, &gga, &mma, &aaa);
-    p1=ggp/G_A+mmp/M_A+aap;
-    p2=gga/G_A+mma/M_A+aaa;
-    ris=p2-p1;
-    printf("%d\\n",ris);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 3: Ordinamento 3 Numeri**`,
-                    `\`\`\`c
-#include <stdio.h>
-int main(int argc,char*argv[]){
-    int a, b, c, var;
-    scanf("%d %d %d",&a, &b, &c);
-    if(a<b){ var=a; a=b; b=var; }
-    if(a<c){ var=a; a=c; c=var; }
-    if(b<c){ var=b; b=c; c=var; }
-    printf("%d %d %d\\n",c,b,a);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 4: Pari o Dispari**`,
-                    `\`\`\`c
-#include <stdio.h>
-#define PARI 0
-#define DISPARI 1
-int main(int argc, char*argv[]){
-    int num, ris;
-    scanf("%d",&num);
-    if(num%2==0) ris=PARI; else ris=DISPARI;
-    printf("%d\\n",ris);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 5: Profitto**`,
-                    `\`\`\`c
-#include <stdio.h>
-#define POS '+'
-#define NEG '-'
-#define PAR 'x'
-int main(int argc,char*argv[]){
-    float costo, vendita, profitto;
-    char out;
-    scanf("%f\\n%f",&costo,&vendita);
-    profitto=vendita-costo;
-    if(profitto>0) out=POS;
-    else if(profitto<0) out=NEG;
-    else out=PAR;
-    if(profitto<0) profitto=-profitto;
-    printf("%c\\n%f\\n",out,profitto);
-    return 0;
-}
-\`\`\``,
-                    `**03/10/2022 - Cicli**`,
-                    `**Esercizio 1: Somma Cifre**`,
-                    `\`\`\`c
-#include <stdio.h>
-#define BASE 10
-int main(int argc,char*argv[]){
-    int num, sum;
-    scanf("%d",&num);
-    if(num<0) num = -num;
-    sum = 0;
-    while(num!=0){
-        sum += num%BASE;
-        num /= BASE;
-    }
-    printf("%d\\n",sum);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 4: Palindromo**`,
-                    `\`\`\`c
-#include <stdio.h>
-#define PAL 's'
-#define NO_PAL 'n'
-#define BASE 10
-int main(int argc,char*argv[]){
-    int num, ris, supp, cifra, inverso;
-    do{ scanf("%d",&num); }while(num<=0);
-    supp = num; inverso = 0;
-    if(supp%BASE == 0) ris = NO_PAL;
-    else {
-         while(supp>0){
-            inverso = inverso*BASE + supp%BASE;
-            supp /= BASE;
-        }
-        if(inverso==num) ris = PAL; else ris = NO_PAL;
-    }
-    printf("%c\\n",ris);
-    return 0;
-}
-\`\`\``,
-                    `**Esercizio 6: MCD e MCM**`,
-                    `\`\`\`c
-#include <stdio.h>
-int main (int argc, char*argv[]){
-    int num1, num2, tmp1, tmp2, resto, mcd, mcm;
-    do scanf("%d",&num1); while (num1<=0);
-    do scanf("%d",&num2); while (num2<=0);
-    if (num1 >num2){ tmp1 =num1; tmp2 =num2; }
-    else { tmp1 =num2; tmp2 =num1; }
-    resto =tmp1 %tmp2;
-    while (resto != 0){
-        tmp1 =tmp2; tmp2 =resto; resto =tmp1 %tmp2;
-    }
-    mcd =tmp2;
-    mcm =num1 *num2 /mcd;
-    printf("%d\\t%d\\n", mcd, mcm);
-    return 0;
-}
-\`\`\``,
-                    `**13/10/2022 - Array e Stringhe**`,
-                    `- Eliminazione del valore più frequente`,
-                    `- Calcolo del fattoriale`,
-                    `- Verifica assenza duplicati`,
-                    `- Massimizzazione prodotti acquistabili`,
-                    `- Verifica diagonale crescente`,
-                    `- Verifica matrice simmetrica`,
-                    `- Compressione stringa (run-length encoding)`,
-                    `- Individuazione sequenze di cifre`,
-                    `**20/10/2022 - Funzioni e Matrici**`,
-                    `- Somme minime di righe e colonne`,
-                    `- Validazione password`,
-                    `- Acquisizione array con terminatore`,
-                    `- Conversione maiuscole/minuscole`,
-                    `- Array di somme cumulative`,
-                    `- Conteggio coppie di elementi uguali`
+                    "Normalmente un programma esegue le istruzioni dall'alto verso il basso. Le strutture di controllo permettono di cambiare questa sequenza in base ai dati o di ripetere blocchi di istruzioni.",
+                    "Le due famiglie principali sono:",
+                    "- **Condizionali**: eseguono un blocco solo se una condizione è vera.",
+                    "- **Cicli**: ripetono un blocco finché una condizione lo richiede.",
+                    "Senza controllo del flusso, un programma produrrebbe sempre la stessa sequenza di azioni."
+                ]
+            },
+            {
+                title: "Operatori Relazionali e Logici",
+                content: [
+                    "Le condizioni producono valori booleani. Gli operatori relazionali confrontano due espressioni:",
+                    "- `>` maggiore di, `>=` maggiore o uguale.",
+                    "- `<` minore di, `<=` minore o uguale.",
+                    "- `==` uguale, `!=` diverso.",
+                    "Gli operatori logici combinano condizioni:",
+                    "- `&&`: vero se entrambe le condizioni sono vere.",
+                    "- `||`: vero se almeno una condizione è vera.",
+                    "- `!`: nega una condizione.",
+                    "```cpp\nint x = 6, y = 2;\nbool ok = (x > y) && (y > 0); // true\n```",
+                    "In C++ il valore `0` è interpretato come falso; un valore numerico diverso da zero è interpretato come vero. Questa regola esiste, ma nei programmi leggibili conviene usare espressioni booleane esplicite."
+                ]
+            },
+            {
+                title: "if, else e else if",
+                content: [
+                    "`if` esegue un blocco se la condizione è vera:",
+                    "```cpp\nif (x > y) {\n    std::cout << \"x e' maggiore di y\\n\";\n}\n```",
+                    "Con `else` si definisce il ramo alternativo; con `else if` si controllano più condizioni in ordine.",
+                    "```cpp\nif (x > y) {\n    std::cout << \"x e' maggiore di y\\n\";\n} else if (y > x) {\n    std::cout << \"y e' maggiore di x\\n\";\n} else {\n    std::cout << \"x e y sono uguali\\n\";\n}\n```",
+                    "Le parentesi graffe sono tecnicamente omissibili per un'unica istruzione, ma tenerle sempre rende il codice più sicuro e leggibile."
+                ]
+            },
+            {
+                title: "switch",
+                content: [
+                    "`switch` è utile quando si confronta una stessa espressione con molti valori costanti.",
+                    "```cpp\nswitch (x) {\n    case 1:\n        std::cout << \"x vale 1\\n\";\n        break;\n    case 2:\n    case 3:\n        std::cout << \"x vale 2 o 3\\n\";\n        break;\n    default:\n        std::cout << \"altro valore\\n\";\n}\n```",
+                    "`break` interrompe il caso corrente. Senza `break`, l'esecuzione continua nel caso successivo: questo comportamento può essere voluto, ma spesso è fonte di bug. `default` gestisce tutti i valori non elencati."
+                ]
+            },
+            {
+                title: "while e do-while",
+                content: [
+                    "`while` controlla la condizione prima di ogni iterazione. Se la condizione è falsa subito, il corpo non viene mai eseguito.",
+                    "```cpp\nint x = 0;\nwhile (x < 10) {\n    x = x + 1;\n}\nstd::cout << x << '\\n'; // 10\n```",
+                    "`do-while` esegue il corpo almeno una volta e controlla la condizione alla fine.",
+                    "```cpp\ndo {\n    std::cout << \"inserisci un valore positivo: \";\n    std::cin >> x;\n} while (x <= 0);\n```",
+                    "Nel `do-while` il punto e virgola dopo `while (condizione);` è parte della sintassi."
+                ]
+            },
+            {
+                title: "for",
+                content: [
+                    "Il ciclo `for` raccoglie inizializzazione, condizione e incremento nella stessa intestazione. È ideale per contatori.",
+                    "```cpp\nfor (int i = 0; i < 10; i = i + 1) {\n    std::cout << i << '\\n';\n}\n```",
+                    "La forma generale è:",
+                    "```cpp\nfor (inizializzazione; condizione; incremento) {\n    // corpo\n}\n```",
+                    "Un `for` può essere riscritto come `while` spostando inizializzazione prima del ciclo e incremento alla fine del corpo."
+                ]
+            },
+            {
+                title: "Annidamento",
+                content: [
+                    "Condizioni e cicli possono essere annidati. L'annidamento permette comportamenti più ricchi, ma aumenta rapidamente la complessità.",
+                    "```cpp\nfor (int riga = 0; riga < 4; riga = riga + 1) {\n    for (int col = 0; col < 4; col = col + 1) {\n        std::cout << col;\n    }\n    std::cout << '\\n';\n}\n```",
+                    "Questo programma stampa quattro righe, ciascuna contenente `0123`. Quando i blocchi annidati diventano difficili da leggere, spesso conviene estrarre una funzione."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-funzioni",
+        title: "C++: Funzioni",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Usare le funzioni per evitare ripetizione, organizzare il codice, passare argomenti, restituire valori, sovraccaricare nomi, dichiarare prototipi, gestire scope, ricorsione e passaggio per riferimento."
+                ]
+            },
+            {
+                title: "Perché Definire Funzioni",
+                content: [
+                    "Il copia-incolla rende i programmi lunghi, fragili e difficili da cambiare. Una funzione assegna un nome a un comportamento e lo rende riutilizzabile.",
+                    "Esempio: invece di riscrivere ogni volta un ciclo per calcolare una potenza, definiamo `raiseToPower`.",
+                    "```cpp\nint raiseToPower(int base, int exponent) {\n    int result = 1;\n    for (int i = 0; i < exponent; i = i + 1) {\n        result = result * base;\n    }\n    return result;\n}\n```",
+                    "I benefici sono leggibilità, manutenibilità e riuso. `raiseToPower(3, 4)` comunica l'intenzione meglio del ciclo scritto in mezzo a `main`."
+                ]
+            },
+            {
+                title: "Dichiarazione e Invocazione",
+                content: [
+                    "Una definizione di funzione contiene tipo di ritorno, nome, parametri e corpo.",
+                    "```cpp\nint raiseToPower(int base, int exponent) {\n    int result = 1;\n    for (int i = 0; i < exponent; i = i + 1) {\n        result *= base;\n    }\n    return result;\n}\n\nint main() {\n    int value = raiseToPower(3, 4);\n    std::cout << value << '\\n';\n}\n```",
+                    "La **firma** comprende nome e tipi dei parametri. L'ordine degli argomenti conta: `raiseToPower(2, 3)` calcola $2^3$, mentre `raiseToPower(3, 2)` calcola $3^2$."
+                ]
+            },
+            {
+                title: "Valori di Ritorno e void",
+                content: [
+                    "Una funzione può restituire al massimo un valore tramite `return`. Il valore restituito deve essere compatibile con il tipo di ritorno.",
+                    "```cpp\nint square(int x) {\n    return x * x;\n}\n```",
+                    "Se una funzione non restituisce un valore, il tipo di ritorno è `void`.",
+                    "```cpp\nvoid printNumber(int num) {\n    std::cout << \"number is \" << num << '\\n';\n}\n```",
+                    "`return` può comparire prima della fine del corpo: quando viene eseguito, la funzione termina immediatamente."
+                ]
+            },
+            {
+                title: "Tipi degli Argomenti e Overloading",
+                content: [
+                    "Il tipo degli argomenti è parte del contratto della funzione. Una funzione che accetta `int` non accetta automaticamente una stringa se non esiste una conversione valida.",
+                    "C++ consente **overloading**: più funzioni con lo stesso nome ma parametri diversi.",
+                    "```cpp\nvoid printOnNewLine(int x) {\n    std::cout << \"Intero: \" << x << '\\n';\n}\n\nvoid printOnNewLine(const char *x) {\n    std::cout << \"Stringa: \" << x << '\\n';\n}\n```",
+                    "Il compilatore sceglie quale funzione chiamare confrontando gli argomenti effettivi con le firme disponibili."
+                ]
+            },
+            {
+                title: "Prototipi, Header e Librerie",
+                content: [
+                    "Una funzione deve essere dichiarata prima di essere usata. Se l'implementazione arriva dopo, si usa un **prototipo**.",
+                    "```cpp\nint bar();\n\nint foo() {\n    return bar() * 2;\n}\n\nint bar() {\n    return 3;\n}\n```",
+                    "Nei progetti con più file, i prototipi stanno di solito in file header (`.h`), mentre le implementazioni stanno nei file `.cpp`.",
+                    "```cpp\n// myLib.h\nint square(int);\nint cube(int);\n\n// myLib.cpp\n#include \"myLib.h\"\nint square(int x) { return x * x; }\nint cube(int x) { return x * square(x); }\n```",
+                    "Le librerie distribuiscono spesso header più codice compilato (`.so`, `.dll`, `.a`). Il linker collega le chiamate alle implementazioni disponibili."
+                ]
+            },
+            {
+                title: "Ricorsione",
+                content: [
+                    "Una funzione è **ricorsiva** quando chiama se stessa. Serve sempre un caso base che termina la ricorsione.",
+                    "```cpp\nint fibonacci(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    }\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}\n```",
+                    "La ricorsione può rendere naturale la descrizione di problemi definiti in modo ricorsivo, ma ogni chiamata occupa memoria nello stack. Se manca il caso base, il programma può esaurire lo stack."
+                ]
+            },
+            {
+                title: "Scope e Variabili Globali",
+                content: [
+                    "Lo **scope** indica dove un nome è visibile. Una variabile dichiarata dentro una funzione non è visibile fuori da quella funzione; una variabile dichiarata dentro un blocco `{ ... }` vive solo in quel blocco.",
+                    "```cpp\ndouble squareRoot(double num) {\n    double low = 1.0;\n    double high = num;\n    double estimate = 0.0;\n    for (int i = 0; i < 30; i = i + 1) {\n        estimate = (high + low) / 2;\n        if (estimate * estimate > num) high = estimate;\n        else low = estimate;\n    }\n    return estimate;\n}\n```",
+                    "Le variabili globali sono visibili da più funzioni, ma rendono il programma meno prevedibile. Usale solo quando esiste una ragione chiara."
+                ]
+            },
+            {
+                title: "Valore, Riferimento e Valori Multipli",
+                content: [
+                    "Con il **passaggio per valore**, la funzione riceve una copia: modificare il parametro non modifica l'originale.",
+                    "```cpp\nvoid increment(int a) {\n    a = a + 1;\n}\n```",
+                    "Con il **passaggio per riferimento**, il parametro è un alias dell'argomento originale.",
+                    "```cpp\nvoid increment(int &a) {\n    a = a + 1;\n}\n```",
+                    "I riferimenti permettono anche di restituire più informazioni: un valore torna con `return`, gli altri attraverso parametri di output.",
+                    "```cpp\nint divide(int numerator, int denominator, int &remainder) {\n    remainder = numerator % denominator;\n    return numerator / denominator;\n}\n```",
+                    "La stessa tecnica implementa funzioni come `swap`, che devono modificare due variabili passate dal chiamante."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-array-stringhe",
+        title: "C++: Array e Stringhe",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Memorizzare sequenze di valori con array, passare array a funzioni, usare array multidimensionali e capire le stringhe in stile C come array di caratteri terminati da `\\0`."
+                ]
+            },
+            {
+                title: "Array Monodimensionali",
+                content: [
+                    "Un **array** contiene un numero fisso di elementi dello stesso tipo, memorizzati in posizioni consecutive.",
+                    "```cpp\nint values[5];\n```",
+                    "Gli array C++ sono indicizzati da zero: il primo elemento è `values[0]`, l'ultimo è `values[4]`.",
+                    "Gli elementi devono essere inizializzati prima dell'uso.",
+                    "```cpp\nint values[5] = {2, 4, 6, 8, 10};\nstd::cout << values[2] << '\\n'; // 6\n```"
+                ]
+            },
+            {
+                title: "Scorrere un Array",
+                content: [
+                    "Il ciclo `for` è il modo naturale per visitare tutti gli elementi.",
+                    "```cpp\nint values[5] = {2, 4, 6, 8, 10};\nint sum = 0;\nfor (int i = 0; i < 5; i = i + 1) {\n    sum += values[i];\n}\nstd::cout << sum << '\\n';\n```",
+                    "L'indice deve restare nei limiti. Accedere a `values[5]` in un array di 5 elementi è un errore: il compilatore spesso non lo rileva, ma il comportamento a runtime è indefinito."
+                ]
+            },
+            {
+                title: "Array e Funzioni",
+                content: [
+                    "Quando un array viene passato a una funzione, non viene copiato: la funzione riceve un riferimento al primo elemento. Per questo si passa quasi sempre anche la lunghezza.",
+                    "```cpp\nint sum(const int values[], int length) {\n    int total = 0;\n    for (int i = 0; i < length; i = i + 1) {\n        total += values[i];\n    }\n    return total;\n}\n```",
+                    "`const int values[]` dice che la funzione non deve modificare gli elementi. Se l'array non è `const`, le modifiche fatte nella funzione sono visibili anche al chiamante."
+                ]
+            },
+            {
+                title: "Array Multidimensionali",
+                content: [
+                    "Un array multidimensionale è un array di array. Un array bidimensionale può rappresentare una matrice.",
+                    "```cpp\nint matrix[2][3] = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\nstd::cout << matrix[1][2] << '\\n'; // 6\n```",
+                    "Il primo indice seleziona la riga, il secondo la colonna. Anche qui gli indici partono da zero."
+                ]
+            },
+            {
+                title: "Stringhe in Stile C",
+                content: [
+                    "Una stringa letterale come `\"Hello\"` è rappresentata come array di caratteri terminato dal carattere nullo `\\0`.",
+                    "```cpp\nchar hello[] = {'H', 'e', 'l', 'l', 'o', '\\0'};\nchar same[] = \"Hello\";\n```",
+                    "Il terminatore `\\0` permette alle funzioni di libreria di capire dove finisce la stringa. Dimenticarlo produce letture oltre i limiti dell'array."
+                ]
+            },
+            {
+                title: "Librerie per Caratteri e Stringhe",
+                content: [
+                    "C e C++ forniscono librerie per lavorare con caratteri e stringhe in stile C.",
+                    "- `<cctype>`: funzioni su caratteri, come `isdigit`, `isalpha`, `toupper`.",
+                    "- `<cstring>`: funzioni su stringhe C, come `strlen`, `strcmp`, `strcpy`.",
+                    "- `<cstdlib>`: utilità generali e conversioni.",
+                    "```cpp\n#include <cctype>\n\nchar c = 'a';\nif (std::isalpha(c)) {\n    c = std::toupper(c);\n}\n```",
+                    "Nei programmi C++ moderni si preferisce spesso `std::string`, ma capire gli array di `char` è essenziale per puntatori, memoria e compatibilità con C."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-puntatori",
+        title: "C++: Puntatori e Riferimenti",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Capire indirizzi di memoria, operatori `&` e `*`, dichiarazione di puntatori, aritmetica dei puntatori, relazione tra array e puntatori, stringhe `char *` e differenza tra puntatori e riferimenti."
+                ]
+            },
+            {
+                title: "Variabili e Indirizzi",
+                content: [
+                    "Ogni variabile occupa una posizione in memoria. Usando il nome della variabile, il compilatore sa dove leggere o scrivere il valore. L'operatore `&` restituisce l'indirizzo di una variabile.",
+                    "```cpp\nint x = 5;\nstd::cout << &x << '\\n';\n```",
+                    "Un indirizzo non è il valore della variabile: è la posizione in cui quel valore è memorizzato."
+                ]
+            },
+            {
+                title: "Dichiarare e Dereferenziare Puntatori",
+                content: [
+                    "Un puntatore è una variabile che contiene un indirizzo. Il tipo `int *` significa: puntatore a `int`.",
+                    "```cpp\nint x = 5;\nint *p = &x;\nstd::cout << *p << '\\n'; // 5\n*p = 7;\nstd::cout << x << '\\n';  // 7\n```",
+                    "L'operatore `*` usato su un puntatore dereferenzia l'indirizzo, cioè accede al valore memorizzato lì. In una dichiarazione, invece, `*` fa parte del tipo."
+                ]
+            },
+            {
+                title: "Puntatori, Riferimenti e Funzioni",
+                content: [
+                    "Puntatori e riferimenti permettono a una funzione di modificare dati esterni, ma hanno sintassi diversa.",
+                    "```cpp\nvoid incrementByPointer(int *p) {\n    *p = *p + 1;\n}\n\nvoid incrementByReference(int &x) {\n    x = x + 1;\n}\n```",
+                    "Con i puntatori il chiamante passa un indirizzo (`incrementByPointer(&value)`). Con i riferimenti il chiamante usa la variabile normale (`incrementByReference(value)`).",
+                    "Un puntatore può essere nullo o cambiare destinazione; un riferimento è pensato come alias stabile di un oggetto esistente."
+                ]
+            },
+            {
+                title: "Array e Aritmetica dei Puntatori",
+                content: [
+                    "Il nome di un array può essere usato come puntatore al primo elemento. Per questo `arr[i]` e `*(arr + i)` indicano lo stesso elemento.",
+                    "```cpp\nint arr[] = {10, 20, 30};\nint *p = arr;\nstd::cout << p[1] << '\\n';      // 20\nstd::cout << *(arr + 2) << '\\n'; // 30\n```",
+                    "Quando si somma `1` a un puntatore, l'indirizzo avanza di un elemento del tipo puntato, non di un singolo byte. Per un `int *`, `p + 1` punta all'intero successivo."
+                ]
+            },
+            {
+                title: "Stringhe char*",
+                content: [
+                    "Una stringa in stile C è un puntatore al primo carattere di un array terminato da `\\0`.",
+                    "```cpp\nchar courseName1[] = {'C', '+', '+', '\\0'};\nconst char *courseName2 = \"C++\";\n```",
+                    "`courseName1` è un array modificabile. `courseName2` punta a una stringa letterale, che non deve essere modificata; per questo è corretto usare `const char *`."
+                ]
+            },
+            {
+                title: "Puntatori a Puntatori",
+                content: [
+                    "Un puntatore può puntare a un altro puntatore. Il tipo `int **` significa: puntatore a puntatore a `int`.",
+                    "```cpp\nint x = 5;\nint *p = &x;\nint **pp = &p;\nstd::cout << **pp << '\\n'; // 5\n```",
+                    "I puntatori a puntatori compaiono quando una funzione deve modificare un puntatore del chiamante, oppure quando si rappresentano strutture dati dinamiche più complesse."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-classi",
+        title: "C++: Classi e Struct",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Costruire tipi definiti dall'utente con classi, campi, istanze, composizione, metodi, costruttori, costruttori di copia, `public`, `private`, getter, setter e `struct`."
+                ]
+            },
+            {
+                title: "Perché Servono le Classi",
+                content: [
+                    "Senza classi, dati correlati finiscono sparsi in molte variabili. Per rappresentare un vettore geometrico, ad esempio, potremmo usare quattro `double`: `xStart`, `yStart`, `xEnd`, `yEnd`. Ogni funzione dovrebbe ricevere tutti e quattro i valori, con rischio di confondere ordine e significato.",
+                    "Una classe raggruppa dati correlati in un nuovo tipo.",
+                    "```cpp\nclass Vector {\npublic:\n    double xStart;\n    double yStart;\n    double xEnd;\n    double yEnd;\n};\n```",
+                    "Un oggetto `Vector` porta con sé tutte le informazioni necessarie."
+                ]
+            },
+            {
+                title: "Campi, Istanze e Accesso",
+                content: [
+                    "Una **classe** descrive la struttura; un'**istanza** è un oggetto concreto di quella classe.",
+                    "```cpp\nclass Student {\npublic:\n    const char *name;\n    int studentID;\n};\n\nStudent student1;\nstudent1.name = \"Geza\";\nstudent1.studentID = 123456789;\n```",
+                    "L'operatore `.` accede a un campo dell'istanza. Istanze diverse hanno campi distinti e possono contenere valori diversi."
+                ]
+            },
+            {
+                title: "Composizione",
+                content: [
+                    "I campi di una classe possono essere oggetti di altre classi. Questo permette di rappresentare la struttura del problema in modo più naturale.",
+                    "```cpp\nclass Point {\npublic:\n    double x;\n    double y;\n};\n\nclass Vector {\npublic:\n    Point start;\n    Point end;\n};\n```",
+                    "L'accesso a campi annidati usa più `.`: `v.start.x = 3.0;`. L'assegnazione tra oggetti copia i campi dell'oggetto sorgente nell'oggetto destinazione."
+                ]
+            },
+            {
+                title: "Passare Oggetti a Funzioni",
+                content: [
+                    "Un oggetto passato per valore viene copiato. Le modifiche fatte dalla funzione non toccano l'originale.",
+                    "```cpp\nvoid offsetPoint(Point p, double dx, double dy) {\n    p.x += dx;\n    p.y += dy;\n}\n```",
+                    "Se la funzione deve modificare l'oggetto originale, si passa per riferimento.",
+                    "```cpp\nvoid offsetPoint(Point &p, double dx, double dy) {\n    p.x += dx;\n    p.y += dy;\n}\n```",
+                    "Se la funzione deve solo leggere un oggetto grande, una buona forma è `const Point &p`: evita la copia e impedisce modifiche accidentali."
+                ]
+            },
+            {
+                title: "Metodi",
+                content: [
+                    "Un **metodo** è una funzione definita dentro una classe. Riceve implicitamente l'oggetto su cui è chiamato.",
+                    "```cpp\nclass Point {\npublic:\n    double x;\n    double y;\n\n    void offset(double dx, double dy) {\n        x += dx;\n        y += dy;\n    }\n\n    void print() const {\n        std::cout << '(' << x << ',' << y << ')';\n    }\n};\n```",
+                    "La chiamata `p.offset(1.0, 2.0)` modifica l'oggetto `p`. È utile pensare ai metodi come operazioni disponibili su ciascuna istanza."
+                ]
+            },
+            {
+                title: "Implementazione Separata",
+                content: [
+                    "Per classi non banali, si dichiarano i metodi nell'header e si implementano nel file `.cpp`. L'operatore `::` indica a quale classe appartiene il metodo.",
+                    "```cpp\n// point.h\nclass Point {\npublic:\n    double x, y;\n    void offset(double dx, double dy);\n    void print() const;\n};\n\n// point.cpp\nvoid Point::offset(double dx, double dy) {\n    x += dx;\n    y += dy;\n}\n```",
+                    "Questo separa interfaccia e implementazione, rendendo il progetto più ordinato."
+                ]
+            },
+            {
+                title: "Costruttori e Costruttore di Copia",
+                content: [
+                    "Un **costruttore** è chiamato quando viene creata un'istanza. Ha lo stesso nome della classe e non dichiara tipo di ritorno.",
+                    "```cpp\nclass Point {\npublic:\n    double x, y;\n\n    Point() {\n        x = 0.0;\n        y = 0.0;\n    }\n\n    Point(double nx, double ny) {\n        x = nx;\n        y = ny;\n    }\n};\n```",
+                    "Il **costruttore di copia** viene usato quando si crea un oggetto copiandone un altro. Quello generato automaticamente copia campo per campo; se la classe possiede memoria dinamica, può servire una copia personalizzata."
+                ]
+            },
+            {
+                title: "public, private e struct",
+                content: [
+                    "Gli specificatori di accesso definiscono dove campi e metodi sono utilizzabili.",
+                    "- `public`: accessibile dall'esterno.",
+                    "- `private`: accessibile solo dai metodi della classe.",
+                    "La pratica comune è rendere privati i dati interni ed esporre metodi controllati.",
+                    "```cpp\nclass Point {\nprivate:\n    double x, y;\npublic:\n    Point(double nx, double ny) : x(nx), y(ny) {}\n    double getX() const { return x; }\n    double getY() const { return y; }\n};\n```",
+                    "In C++, `struct` e `class` sono quasi equivalenti: in una `struct` i membri sono `public` per default, in una `class` sono `private` per default."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-oop",
+        title: "C++: Programmazione a Oggetti",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Capire l'approccio object-oriented: incapsulamento, interfacce, ereditarietà, polimorfismo, funzioni virtuali, classi astratte ed ereditarietà multipla.",
+                    "![Ereditarieta OOP](https://commons.wikimedia.org/wiki/Special:FilePath/CPT-OOP-inheritance-roleplay.svg)"
+                ]
+            },
+            {
+                title: "Dal Procedurale all'Object-Oriented",
+                content: [
+                    "Nel paradigma procedurale il programma è organizzato come sequenza di compiti e sottocompiti: si definiscono funzioni e si decide in quale ordine chiamarle.",
+                    "Quando dati e operazioni crescono, questa struttura può diventare difficile da mantenere. L'object-oriented organizza il programma intorno a oggetti che possiedono stato e metodi.",
+                    "Un programma che modella un'auto, per esempio, può avere oggetti come ruote, volante, motore e pedali, invece di molte variabili scollegate."
+                ]
+            },
+            {
+                title: "Tre Idee Fondamentali",
+                content: [
+                    "Le tre idee centrali della programmazione a oggetti sono:",
+                    "- **Incapsulamento**: dati e funzioni correlate sono raccolti in oggetti con un'interfaccia pubblica.",
+                    "- **Ereditarietà**: classi più specifiche riusano e specializzano codice di classi più generali.",
+                    "- **Polimorfismo**: lo stesso riferimento può indicare oggetti di tipi derivati diversi; la funzione chiamata può dipendere dal tipo reale a runtime."
+                ]
+            },
+            {
+                title: "Incapsulamento e Interfaccia",
+                content: [
+                    "L'incapsulamento separa ciò che un oggetto offre da come lo realizza. Chi usa una classe dovrebbe dipendere dai suoi metodi pubblici, non dai dettagli interni.",
+                    "```cpp\nclass Counter {\nprivate:\n    int value;\npublic:\n    Counter() : value(0) {}\n    void increment() { value += 1; }\n    int getValue() const { return value; }\n};\n```",
+                    "Nascondere i dati riduce accoppiamento e bug: se un campo è privato, la classe può garantire invarianti e controllare come cambia lo stato."
+                ]
+            },
+            {
+                title: "Ereditarietà",
+                content: [
+                    "L'ereditarietà esprime una relazione `is-a`: una `Car` è un `Vehicle`, un `Truck` è un `Vehicle`.",
+                    "```cpp\nclass Vehicle {\npublic:\n    void start() { std::cout << \"start\\n\"; }\n};\n\nclass Car : public Vehicle {\npublic:\n    void openTrunk() { std::cout << \"trunk\\n\"; }\n};\n```",
+                    "La classe derivata eredita i membri accessibili della classe base. Con ereditarietà `public`, l'interfaccia pubblica della base resta pubblica anche nella derivata."
+                ]
+            },
+            {
+                title: "Polimorfismo e virtual",
+                content: [
+                    "Se una funzione deve lavorare con veicoli generici ma comportarsi in modo diverso per auto e camion, serve il polimorfismo. In C++ si ottiene con metodi `virtual` e accesso tramite puntatori o riferimenti alla classe base.",
+                    "```cpp\nclass Vehicle {\npublic:\n    virtual const char *description() const { return \"vehicle\"; }\n};\n\nclass Car : public Vehicle {\npublic:\n    const char *description() const override { return \"car\"; }\n};\n\nvoid printDescription(const Vehicle &v) {\n    std::cout << v.description() << '\\n';\n}\n```",
+                    "Senza `virtual`, C++ sceglie la funzione in base al tipo statico; con `virtual`, sceglie in base al tipo reale dell'oggetto."
+                ]
+            },
+            {
+                title: "Classi Astratte",
+                content: [
+                    "Una classe astratta definisce un'interfaccia ma non è istanziabile. Contiene almeno una funzione virtuale pura, scritta con `= 0`.",
+                    "```cpp\nclass Shape {\npublic:\n    virtual double area() const = 0;\n    virtual ~Shape() = default;\n};\n\nclass Rectangle : public Shape {\n    double w, h;\npublic:\n    Rectangle(double w, double h) : w(w), h(h) {}\n    double area() const override { return w * h; }\n};\n```",
+                    "Le classi derivate concrete devono implementare tutti i metodi virtuali puri."
+                ]
+            },
+            {
+                title: "Ereditarietà Multipla",
+                content: [
+                    "C++ consente a una classe di derivare da più classi base.",
+                    "```cpp\nclass Car : public Vehicle, public InsuredItem {\n    // ...\n};\n```",
+                    "È una funzionalità potente ma rischiosa. Se due classi base definiscono lo stesso membro, bisogna qualificare il nome (`Vehicle::x`). Se due basi condividono una base comune, può nascere il problema del diamante: l'oggetto derivato può contenere due copie della stessa base.",
+                    "In generale si usa l'ereditarietà multipla solo quando il modello lo richiede davvero; spesso composizione e interfacce astratte sono più chiare."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-memoria",
+        title: "C++: Gestione della Memoria",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Gestire durata degli oggetti, `this`, stack, heap, `new`, `delete`, array dinamici, distruttori, memory leak e copia profonda.",
+                    "![Stack e heap](https://commons.wikimedia.org/wiki/Special:FilePath/Stack_vs_Heap.png)"
+                ]
+            },
+            {
+                title: "Costruttori e this",
+                content: [
+                    "Quando si crea un oggetto, viene invocato un costruttore. Se si crea un array di oggetti, il costruttore viene chiamato per ogni elemento.",
+                    "```cpp\nclass Integer {\npublic:\n    int val;\n    Integer(int val = 0) {\n        this->val = val;\n    }\n};\n```",
+                    "`this` è un puntatore all'oggetto corrente. `this->val` significa `(*this).val` ed è utile quando un parametro ha lo stesso nome di un campo."
+                ]
+            },
+            {
+                title: "Scope e Durata",
+                content: [
+                    "La memoria di una variabile locale è valida finché la variabile è nello scope. Quando il blocco termina, quella memoria può essere riutilizzata.",
+                    "```cpp\nint *p;\nif (true) {\n    int x = 5;\n    p = &x;\n}\nstd::cout << *p << '\\n'; // errore logico: puntatore pendente\n```",
+                    "`p` continua a contenere un indirizzo, ma l'oggetto a cui puntava non esiste più. Questo è un **dangling pointer**."
+                ]
+            },
+            {
+                title: "Stack e Heap",
+                content: [
+                    "Le variabili locali normali vivono tipicamente nello **stack** e vengono liberate automaticamente. Con `new` si alloca memoria nello **heap**, che resta valida finché non viene liberata manualmente.",
+                    "```cpp\nint *x = new int;\n*x = 5;\nstd::cout << *x << '\\n';\ndelete x;\n```",
+                    "Ogni `new` deve avere un `delete` corrispondente. Dimenticare `delete` causa un **memory leak**: memoria non più raggiungibile ma ancora allocata."
+                ]
+            },
+            {
+                title: "Restituire Puntatori",
+                content: [
+                    "Restituire l'indirizzo di una variabile locale è sbagliato, perché la variabile viene distrutta alla fine della funzione.",
+                    "```cpp\nint *bad() {\n    int x = 5;\n    return &x; // sbagliato\n}\n```",
+                    "Se serve restituire memoria che sopravvive alla funzione, si può allocare nello heap, ma allora il chiamante deve liberarla.",
+                    "```cpp\nint *getPtrToFive() {\n    int *x = new int;\n    *x = 5;\n    return x;\n}\n\nint *p = getPtrToFive();\nstd::cout << *p << '\\n';\ndelete p;\n```"
+                ]
+            },
+            {
+                title: "Array Dinamici",
+                content: [
+                    "Gli array sullo stack richiedono una dimensione nota come costante in C++ classico. Per dimensioni decise a runtime si usa `new[]`.",
+                    "```cpp\nint numItems;\nstd::cin >> numItems;\nint *arr = new int[numItems];\n\nfor (int i = 0; i < numItems; i = i + 1) {\n    std::cin >> arr[i];\n}\n\ndelete[] arr;\n```",
+                    "Gli array allocati con `new[]` devono essere liberati con `delete[]`, non con `delete`. Nei C++ moderni, `std::vector` è spesso la scelta migliore."
+                ]
+            },
+            {
+                title: "Oggetti Dinamici e Distruttori",
+                content: [
+                    "`new` può creare anche istanze di classi. Il costruttore viene chiamato all'allocazione; il distruttore viene chiamato alla deallocazione.",
+                    "```cpp\nclass Point {\npublic:\n    int x, y;\n    Point() { std::cout << \"constructor\\n\"; }\n    ~Point() { std::cout << \"destructor\\n\"; }\n};\n\nPoint *p = new Point;\ndelete p;\n```",
+                    "Il distruttore ha nome `~NomeClasse()` e non restituisce valori. Serve per rilasciare risorse possedute dall'oggetto."
+                ]
+            },
+            {
+                title: "Classi che Possiedono Memoria",
+                content: [
+                    "Se una classe alloca memoria nel costruttore, deve liberarla nel distruttore.",
+                    "```cpp\nclass IntegerArray {\npublic:\n    int *data;\n    int size;\n\n    IntegerArray(int size) {\n        this->size = size;\n        data = new int[size];\n    }\n\n    ~IntegerArray() {\n        delete[] data;\n    }\n};\n```",
+                    "Questa forma lega la durata della memoria dinamica alla durata dell'oggetto. È l'idea alla base di RAII: una risorsa viene acquisita nel costruttore e rilasciata nel distruttore."
+                ]
+            },
+            {
+                title: "Copia Superficiale e Copia Profonda",
+                content: [
+                    "Il costruttore di copia predefinito copia campo per campo. Se un campo è un puntatore, vengono copiati gli indirizzi, non i dati puntati. Questo crea due oggetti che possiedono la stessa memoria: al primo distruttore il secondo resta con un puntatore pendente, e al secondo distruttore può avvenire una doppia `delete`.",
+                    "La soluzione è una **copia profonda**.",
+                    "```cpp\nclass IntegerArray {\npublic:\n    int *data;\n    int size;\n\n    IntegerArray(int size) : data(new int[size]), size(size) {}\n\n    IntegerArray(const IntegerArray &other)\n        : data(new int[other.size]), size(other.size) {\n        for (int i = 0; i < size; i = i + 1) {\n            data[i] = other.data[i];\n        }\n    }\n\n    ~IntegerArray() { delete[] data; }\n};\n```",
+                    "In C++ moderno si preferiscono contenitori come `std::vector`, che gestiscono automaticamente copia, distruzione e memoria."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-template-stl",
+        title: "C++: Template e STL",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Generalizzare codice con template di funzione e classe, usare specializzazioni, parametri di default, container STL, iteratori, algoritmi standard e overload degli operatori."
+                ]
+            },
+            {
+                title: "Template di Funzione",
+                content: [
+                    "Un template permette di scrivere una funzione generica rispetto al tipo.",
+                    "```cpp\ntemplate <typename T>\nT sum(const T a, const T b) {\n    return a + b;\n}\n\nstd::cout << sum(1, 2) << '\\n';       // int\nstd::cout << sum(1.2, 2.4) << '\\n';   // double\n```",
+                    "`typename T` introduce un parametro di tipo. Il compilatore genera versioni concrete della funzione per i tipi effettivamente usati."
+                ]
+            },
+            {
+                title: "Più Parametri e Template di Classe",
+                content: [
+                    "Un template può avere più parametri di tipo.",
+                    "```cpp\ntemplate <typename T, typename U>\nU sumAs(const T a, const U b) {\n    return a + b;\n}\n```",
+                    "Anche le classi possono essere template.",
+                    "```cpp\ntemplate <typename T>\nclass Point {\n    T x, y;\npublic:\n    Point(T x, T y) : x(x), y(y) {}\n    T getX() const { return x; }\n};\n```",
+                    "`Point<int>` e `Point<double>` sono tipi diversi generati dallo stesso modello."
+                ]
+            },
+            {
+                title: "Specializzazione e Parametri Non Tipo",
+                content: [
+                    "Una specializzazione fornisce un'implementazione diversa per un tipo specifico.",
+                    "```cpp\ntemplate <typename T>\nclass Container {\n    T value;\npublic:\n    Container(T value) : value(value) {}\n    T get() const { return value; }\n};\n\ntemplate <>\nclass Container<char> {\n    char value;\npublic:\n    Container(char value) : value(value) {}\n    char upper() const { return std::toupper(value); }\n};\n```",
+                    "I template possono anche avere parametri non tipo, come dimensioni intere.",
+                    "```cpp\ntemplate <typename T, int N = 10>\nclass ArrayContainer {\n    T data[N];\n};\n```"
+                ]
+            },
+            {
+                title: "STL: Container e Iteratori",
+                content: [
+                    "La Standard Template Library fornisce container e algoritmi generici. Container comuni: `vector`, `list`, `map`, `set`, `queue`, `stack`.",
+                    "Un iteratore è un oggetto simile a un puntatore che permette di attraversare un container.",
+                    "```cpp\n#include <set>\n\nstd::set<int> values;\nvalues.insert(5);\nvalues.insert(1);\nvalues.insert(3);\n\nfor (std::set<int>::iterator it = values.begin(); it != values.end(); ++it) {\n    std::cout << *it << ' ';\n}\n```",
+                    "`set` mantiene gli elementi ordinati e senza duplicati. Molti container offrono `begin()` ed `end()` per delimitare l'intervallo visitabile."
+                ]
+            },
+            {
+                title: "Algoritmi Standard",
+                content: [
+                    "Gli algoritmi STL lavorano su intervalli indicati da iteratori. Esempi: `sort`, `reverse`, `binary_search`, `find`, operazioni min/max.",
+                    "```cpp\n#include <algorithm>\n#include <vector>\n\nstd::vector<int> v = {7, 1, 4, 3};\nstd::sort(v.begin(), v.end());\nstd::reverse(v.begin(), v.end());\n\nbool found = std::binary_search(v.begin(), v.end(), 4);\n```",
+                    "Attenzione: `binary_search` richiede un intervallo ordinato secondo lo stesso criterio di ricerca."
+                ]
+            },
+            {
+                title: "Overload degli Operatori",
+                content: [
+                    "Per tipi definiti dall'utente si può definire il comportamento di operatori come `+` o `<<`.",
+                    "```cpp\nclass USCurrency {\npublic:\n    int dollars;\n    int cents;\n};\n\nUSCurrency operator+(const USCurrency &a, const USCurrency &b) {\n    USCurrency result{a.dollars + b.dollars, a.cents + b.cents};\n    if (result.cents >= 100) {\n        result.dollars += 1;\n        result.cents -= 100;\n    }\n    return result;\n}\n```",
+                    "L'overload deve mantenere un significato prevedibile. Ridefinire operatori in modo sorprendente rende il codice difficile da leggere."
+                ]
+            }
+        ]
+    },
+    {
+        id: "cpp-avanzato",
+        title: "C++: Argomenti Avanzati",
+        subsections: [
+            {
+                title: "Panoramica",
+                content: [
+                    "**Obiettivo della sezione**",
+                    "Usare strumenti utili nei progetti: file stream, `std::string`, `enum`, struttura generale di un progetto, riferimenti, `const`, eccezioni, `friend`, macro, cast e argomenti avanzati da approfondire."
+                ]
+            },
+            {
+                title: "File Stream",
+                content: [
+                    "La gestione dei file usa stream simili a `cin` e `cout`. La libreria da includere è `<fstream>`.",
+                    "```cpp\n#include <fstream>\n\nint main() {\n    std::ifstream source(\"source-file.txt\");\n    std::ofstream dest(\"dest-file.txt\");\n\n    int value;\n    while (source >> value) {\n        dest << value << '\\n';\n    }\n}\n```",
+                    "`ifstream` legge da file, `ofstream` scrive su file. Le modalità di apertura permettono lettura, sovrascrittura, append e altre varianti."
+                ]
+            },
+            {
+                title: "std::string e getline",
+                content: [
+                    "Per testo generico è più comodo usare `std::string` invece di array di `char`.",
+                    "```cpp\n#include <string>\n\nstd::string word;\nstd::cin >> word; // legge fino allo spazio\n```",
+                    "`operator>>` legge una parola. Per leggere l'intera riga, inclusi gli spazi, si usa `getline`.",
+                    "```cpp\nstd::string sentence;\nstd::getline(std::cin, sentence);\n```"
+                ]
+            },
+            {
+                title: "enum",
+                content: [
+                    "Un'enumerazione definisce un tipo con un insieme limitato di valori nominati. È più espressiva di una lista di costanti intere scollegate.",
+                    "```cpp\nenum Suit { Clubs, Diamonds, Hearts, Spades };\n\nvoid printSuit(Suit suit) {\n    const char *names[] = {\"Clubs\", \"Diamonds\", \"Hearts\", \"Spades\"};\n    std::cout << names[suit] << '\\n';\n}\n```",
+                    "I valori possono essere assegnati esplicitamente: `enum Suit { Clubs = 18, Diamonds = 91, Hearts = 241, Spades = 13 };`. Se non lo sono, il primo vale `0` e gli altri aumentano di `1`."
+                ]
+            },
+            {
+                title: "Struttura di un Progetto",
+                content: [
+                    "Molti programmi orientati agli oggetti hanno una classe di gestione, ad esempio `Game`, `Directory` o `Application`, che mantiene gli oggetti principali e coordina le operazioni.",
+                    "`main` dovrebbe restare piccolo: crea l'oggetto principale, gestisce input/output essenziale e chiama metodi di livello più alto. I dettagli vanno in classi, funzioni e librerie separate.",
+                    "Per collezioni di oggetti, invece di array manuali, si usano spesso container STL come `std::vector`, `std::map` o `std::set`."
+                ]
+            },
+            {
+                title: "Riferimenti",
+                content: [
+                    "Un riferimento è un alias per un oggetto esistente. Il tipo `int &` significa riferimento a `int`.",
+                    "```cpp\nint y = 3;\nint &x = y;\nx = 7;\nstd::cout << y << '\\n'; // 7\n```",
+                    "I riferimenti possono essere parametri e valori di ritorno. Restituire per riferimento evita copie, ma è corretto solo se l'oggetto riferito sopravvive alla funzione.",
+                    "```cpp\nint globalValue;\nint &getGlobalValue() {\n    return globalValue;\n}\n```"
+                ]
+            },
+            {
+                title: "const",
+                content: [
+                    "`const` esprime l'impegno a non modificare un valore attraverso quel nome, puntatore o riferimento.",
+                    "```cpp\nvoid printPoint(const Point &p) {\n    std::cout << p.getX() << '\\n';\n}\n```",
+                    "È sempre possibile usare un valore non `const` dove è richiesto un valore `const`. Il contrario non è permesso, perché permetterebbe modifiche non autorizzate.",
+                    "I metodi che non modificano l'oggetto devono essere dichiarati `const`.",
+                    "```cpp\nclass Point {\n    double x;\npublic:\n    double getX() const { return x; }\n};\n```"
+                ]
+            },
+            {
+                title: "Eccezioni",
+                content: [
+                    "Un'eccezione segnala un errore che impedisce a una funzione di proseguire normalmente. Il codice che può fallire si mette in un blocco `try`; i gestori stanno in blocchi `catch`.",
+                    "```cpp\n#include <stdexcept>\n\nint divide(int x, int y) {\n    if (y == 0) {\n        throw std::runtime_error(\"divisione per zero\");\n    }\n    return x / y;\n}\n\ntry {\n    std::cout << divide(5, 0);\n} catch (const std::runtime_error &error) {\n    std::cerr << error.what() << '\\n';\n}\n```",
+                    "Se un'eccezione non viene intercettata, risale lo stack delle chiamate. Durante questa risalita, i distruttori degli oggetti locali già costruiti vengono chiamati."
+                ]
+            },
+            {
+                title: "friend e Macro",
+                content: [
+                    "`friend` concede a una funzione o classe esterna accesso ai membri privati. È comune nell'overload di operatori di stream.",
+                    "```cpp\nclass USCurrency {\n    int dollars, cents;\npublic:\n    USCurrency(int d, int c) : dollars(d), cents(c) {}\n    friend std::ostream &operator<<(std::ostream &o, const USCurrency &c);\n};\n\nstd::ostream &operator<<(std::ostream &o, const USCurrency &c) {\n    return o << '$' << c.dollars << '.' << c.cents;\n}\n```",
+                    "Le macro del preprocessore fanno sostituzione testuale prima della compilazione.",
+                    "```cpp\n#define SUM(x, y) ((x) + (y))\n```",
+                    "Le macro non hanno controllo di tipo e possono produrre errori sottili. Quando possibile, preferire funzioni, `const`, `constexpr` o template."
+                ]
+            },
+            {
+                title: "Cast",
+                content: [
+                    "Il casting converte un valore da un tipo a un altro. I cast in stile C, come `(double)x`, sono ammessi ma meno espliciti. C++ offre cast più chiari.",
+                    "- `static_cast<T>(value)`: conversione ordinaria e controllata a compile-time.",
+                    "- `dynamic_cast<T>(value)`: conversione sicura dentro gerarchie polimorfiche; può restituire `nullptr` per puntatori o lanciare eccezione per riferimenti.",
+                    "- `reinterpret_cast<T>(value)`: reinterpretazione a basso livello della memoria; da usare raramente.",
+                    "- `const_cast<T>(value)`: aggiunge o rimuove qualificatori `const`/`volatile`; da usare solo quando si sa esattamente perché è sicuro.",
+                    "```cpp\ndouble ratio = static_cast<double>(count) / total;\n```"
+                ]
+            },
+            {
+                title: "Argomenti da Approfondire",
+                content: [
+                    "Il percorso C++ non finisce qui. Argomenti utili per lo studio successivo:",
+                    "- **Union**: più campi condividono la stessa area di memoria; solo uno è significativo alla volta.",
+                    "- **Namespace**: raggruppano nomi e riducono conflitti, come `std`.",
+                    "- **Puntatori `void *`**: puntatori a dati di tipo non specificato.",
+                    "- **Ereditarietà virtuale**: soluzione tecnica al problema del diamante.",
+                    "- **String stream**: input/output su stringhe come se fossero stream.",
+                    "- **RTTI**: informazioni sul tipo a runtime.",
+                    "- **Vtable**: meccanismo con cui molte implementazioni realizzano chiamate virtuali.",
+                    "- **STL avanzata**: iteratori, algoritmi, adattatori e container specializzati."
                 ]
             }
         ]
     }
 ];
-

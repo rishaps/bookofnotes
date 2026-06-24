@@ -103,30 +103,32 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', active
       <div className="flex flex-col gap-6">
         {content.map((section, index) => {
           const isActive = index === activeLessonIndex;
-          // Format Title: remove "Lezione X:" prefix if present for cleaner look
-          const displayTitle = section.title.replace(/^Lezione \d+:\s*/i, '');
+          const displayTitle = section.title.replace(/^(Lezione|Capitolo)\s+\d+(?:\.\d+)?\s*[:.)-]?\s*/i, '');
+          const visibleSubsections = section.subsections
+            .map((sub, subIndex) => ({ sub, subIndex }));
 
           return (
-            <div key={section.id} className="flex flex-col gap-2">
-              {/* Lesson Header */}
+            <div key={section.id} className="flex min-w-0 flex-col gap-2">
+              {/* Section Header */}
               <button
-                className={`rail-item-glow text-left font-mono text-sm uppercase tracking-widest leading-relaxed transition-colors ${isActive ? 'active text-content-primary font-bold' : 'text-content-muted'}`}
+                className={`rail-item-glow w-full text-left font-mono text-sm uppercase tracking-widest leading-relaxed transition-colors ${isActive ? 'active text-content-primary font-bold' : 'text-content-muted'}`}
                 onClick={(e) => handleLinkClick(e, index)}
               >
-                <div className="flex gap-2">
+                <div className="flex min-w-0 gap-2">
                   <span className="opacity-50">{index + 1}.</span>
-                  <span>{displayTitle}</span>
+                  <span className="min-w-0 break-words">{displayTitle}</span>
                 </div>
               </button>
 
               {/* Chapters / Subsections */}
+              {visibleSubsections.length > 0 && (
               <div className="flex flex-col gap-2 pl-4 border-l border-content-primary/10 ml-1.5">
-                {section.subsections.map((sub, subIndex) => {
+                {visibleSubsections.map(({ sub, subIndex }) => {
                   const subId = `${section.id}-${subIndex}`;
                   return (
                     <button
                       key={subIndex}
-                      className={`rail-item-glow text-left font-mono text-[11px] leading-tight transition-colors ${isActive ? 'text-content-secondary' : 'text-content-muted/60'}`}
+                      className={`rail-item-glow w-full break-words text-left font-mono text-[11px] leading-tight transition-colors ${isActive ? 'text-content-secondary' : 'text-content-muted/60'}`}
                       onClick={(e) => handleLinkClick(e, index, subId)}
                     >
                       {renderTitleWithMath(formatSubsectionTitle(sub.title, subIndex))}
@@ -134,6 +136,7 @@ const LessonRail: React.FC<LessonRailProps> = ({ content, className = '', active
                   );
                 })}
               </div>
+              )}
             </div>
           );
         })}

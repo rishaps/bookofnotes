@@ -13,6 +13,21 @@ const SECONDARY_TARGET_LINE_LENGTH = 72;
 
 const normalizeLatex = (latex: string) => latex.replace(/\s+/g, ' ').trim();
 
+const sanitizeLatex = (latex: string): string => latex
+    .replace(/\\begin\{align\*?\}/g, '\\begin{aligned}')
+    .replace(/\\end\{align\*?\}/g, '\\end{aligned}')
+    .replace(/\\begin\{equation\*?\}/g, '\\begin{aligned}')
+    .replace(/\\end\{equation\*?\}/g, '\\end{aligned}')
+    .replace(/&&\s*\\text\{[\s\S]*?(?=\\\\{2,}|\\end\{aligned\})/g, '')
+    .replace(/\\begin\{array\}\{\*\{20\}c\}/g, '\\begin{array}{c}')
+    .replace(/\\text\{([^{}]*)\}/g, (_, text: string) => (
+        `\\text{${text.replace(/#/g, '\\#').replace(/_/g, '\\_').replace(/\^/g, '\\^{}')}}`
+    ))
+    .replace(/\$/g, '')
+    .replace(/%/g, '')
+    .replace(/\\argmax_\\limits\s*\\([A-Za-z]+)/g, '\\argmax_{\\$1}')
+    .replace(/\\\\([{}])/g, '\\$1');
+
 const estimateVisualLength = (latex: string) => {
     let length = 0;
     for (let i = 0; i < latex.length; i++) {
@@ -156,6 +171,8 @@ const refineLineBreaks = (lines: string[]) => {
 };
 
 const preprocessFormula = (latex: string): string => {
+    latex = sanitizeLatex(latex);
+
     if (latex.includes('\\begin{') || latex.includes('\\end{') || latex.includes('\\\\')) {
         return latex;
     }

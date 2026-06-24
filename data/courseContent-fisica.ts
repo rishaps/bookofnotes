@@ -3,10 +3,10 @@ import { MainSection } from '../types';
 export const fisicaCourseContent: MainSection[] = [
     {
         id: "1-vettori",
-        title: "Lezione 1: VETTORI",
+        title: "VETTORI",
         subsections: [
             {
-                title: "1.1 Definizioni e Rappresentazione",
+                title: "Definizioni e Rappresentazione",
                 content: [
                     "Tutte le grandezze per la cui definizione non concorrono altri elementi al di fuori della loro misura vengono dette **grandezze scalari**; sono esempi di grandezze scalari l’intervallo di tempo, la massa, la temperatura, ecc. Esistono tuttavia delle grandezze per le quali non è sufficiente una sola quantità per la loro completa caratterizzazione. Consideriamo, ad esempio, il moto rettilineo di un corpo puntiforme originariamente a riposo in un punto $A$; qualora si specificasse unicamente che al termine del moto il corpo ha percorso una lunghezza $l$, tutto ciò che si potrebbe affermare circa la posizione finale $B$ del corpo è la sua localizzazione in un punto della superficie sferica di centro $A$ e raggio $l$. Per conoscere la posizione $B$ e, di conseguenza, lo spostamento subito dal corpo, oltre all’origine $A$ del moto e la lunghezza dello spostamento, occorre sapere la direzione, ossia la retta $AB$ lungo la quale avviene il movimento ed il verso, cioè in quale dei due sensi viene percorsa la retta $AB$.",
                     "Le grandezze come lo spostamento, per le quali è necessario precisare oltre che la loro misura, o **modulo**, anche la direzione, il verso e, in certi casi, anche l’origine o punto di applicazione, vengono dette **grandezze vettoriali**. Sono esempi di grandezze vettoriali la velocità, l’accelerazione, la forza, ecc.",
@@ -19,7 +19,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.2 Operazioni tra vettori",
+                title: "Operazioni tra vettori",
                 content: [
                     "Mentre per le grandezze scalari valgono le regole del calcolo algebrico, queste non sono valide per le grandezze vettoriali.",
                     "![Somma di due vettori](/fisica-images/fig_002.avif)",
@@ -97,7 +97,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "1.3 Relazioni vettoriali notevoli",
+                title: "Relazioni vettoriali notevoli",
                 content: [
                     "Di seguito vengono riportate alcune identità vettoriali notevoli; dati i vettori $\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{c}$ e $\\mathbf{d}$ risulta:",
                     "$$ \\mathbf{a} \\cdot (\\mathbf{b} \\times \\mathbf{c}) = \\mathbf{c} \\cdot (\\mathbf{a} \\times \\mathbf{b}) = \\mathbf{b} \\cdot (\\mathbf{c} \\times \\mathbf{a}), $$",
@@ -111,10 +111,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "2-cinematica",
-        title: "Lezione 2: CINEMATICA",
+        title: "CINEMATICA",
         subsections: [
             {
-                title: "2.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Un corpo si dice in moto relativamente ad un altro corpo quando la sua posizione, misurata rispetto all’altro corpo cambia nel tempo. Si dice **cinematica** lo studio del moto dei corpo indipendentemente dalla cause che lo hanno generato.",
                     "Per una completa determinazione del movimento di un corpo occorre conoscere il moto di ciascuna particella che lo compone. Tuttavia, in questa prima parte prescindiamo dalle sue dimensioni, dalla forma, della composizione chimica, ecc., considerandolo unicamente come un punto, che denomineremo **punto materiale**. Questa rappresentazione dei corpi risulta efficace in tutte le circostanze in cui le loro reali dimensioni sono trascurabili rispetto alle distanze coperte lungo il percorso che ne caratterizza il moto. Così, ad esempio, l’identificazione della Terra con un punto materiale consente un’accurata descrizione del suo moto orbitale intorno al Sole, oppure la pressione esercitata da un gas sulle pareti di un contenitore può essere valutata considerando le molecole del gas come punti materiali."
@@ -122,7 +122,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.2 Equazioni del moto",
+                title: "Equazioni del moto",
                 content: [
                     "Come anticipato, lo studio del moto di un corpo richiede la preventiva specificazione di un sistema spaziale di riferimento e inoltre è necessario stabilire un’origine per gli intervalli di tempo. Si nota che le caratteristiche del moto del punto materiale sono legate in maniera essenziale al sistema di riferimento scelto. Usualmente si fissa un sistema di coordinate cartesiane solidali con il corpo rispetto al quale si riferisce il moto, inoltre si fissa un’ascissa temporale determinata stabilendo un istante iniziale a partire dal quale misurare gli intervalli di tempo. Il moto di un punto materiale $P$ è quindi determinato una volta che è nota la legge di variazione nel tempo delle sue coordinate (**equazioni orarie**):",
                     "$$ \\begin{cases} x = x(t), \\\\ y = y(t), \\\\ z = z(t). \\end{cases} \\hspace{4cm} \\tag{2.1} $$",
@@ -148,7 +148,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.3 Moto rettilineo",
+                title: "Moto rettilineo",
                 content: [
                     "![Posizione nel moto rettilineo|small](/fisica-images/fig_012.avif)",
                     "Nel moto rettilineo il punto materiale si sposta lungo una linea retta; fissata un origine ed una direzione, questo tipo di moto è descrivibile adoperando una sola coordinata $x = x(t)$. Sia $x_1 \\equiv x(t_1)$ e $x_2 \\equiv x(t_2)$ la posizione del punto $P$ rispettivamente, ai tempi $t_1$ e $t_2$, definiamo **velocità media** nell’intervallo di tempo $t_2 - t_1$ il rapporto:",
@@ -334,7 +334,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.4 Moto curvilineo",
+                title: "Moto curvilineo",
                 content: [
                     "Sia $\\mathbf{r}_1 \\equiv \\overrightarrow{OP}_1$ il vettore posizione del punto materiale al tempo $t_1$ e $\\mathbf{r}_2 \\equiv \\overrightarrow{OP}_2$ il vettore posizione al tempo $t_2$. Si definisce **velocità (vettoriale) media** il rapporto:",
                     "$$ \\mathbf{v}_m \\equiv \\frac{\\Delta \\mathbf{r}}{\\Delta t} = \\frac{\\mathbf{r}_2 - \\mathbf{r}_1}{t_2 - t_1}, $$",
@@ -466,7 +466,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "2.5 Componenti dell’accelerazione",
+                title: "Componenti dell’accelerazione",
                 content: [
                     "Consideriamo il moto di un punto materiale lungo una traiettoria curva che, per semplicità, assumiamo piana. Il vettore accelerazione ha la stessa direzione della variazione istantanea della velocità così, poiché la velocità cambia nella direzione in cui la traiettoria si incurva, l’accelerazione è sempre diretta verso la concavità della curva. Scomponiamo quindi il vettore accelerazione lungo la direzione tangente alla traiettoria, indicata dal versore $\\hat{t}$ e la direzione normale alla traiettoria, indicata dal versore $\\hat{n}$:",
                     "![Scomposizione dell’accelerazione in tangenziale e normale|medium](/fisica-images/fig_028.avif)",
@@ -564,10 +564,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "3-moti-relativi",
-        title: "Lezione 3: MOTI RELATIVI",
+        title: "MOTI RELATIVI",
         subsections: [
             {
-                title: "3.1 Velocità relativa e accelerazione relativa",
+                title: "Velocità relativa e accelerazione relativa",
                 content: [
                     "Consideriamo due punti materiali $P_1$ e $P_2$ in moto rispetto ad un sistema di riferimento con origine in $O$. Se $\\mathbf{r}_1$ e $\\mathbf{r}_2$ sono i relativi vettori posizione, le velocità dei due corpi sono rispettivamente:",
                     "$$ \\mathbf{v}_1 = \\frac{d\\mathbf{r}_1}{dt}, $$",
@@ -595,7 +595,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.2 Moto relativo traslatorio uniforme",
+                title: "Moto relativo traslatorio uniforme",
                 content: [
                     "Consideriamo due osservatori $O$ e $O'$ in moto traslatorio uniforme l’uno rispetto all’altro e stabiliamo le relative descrizioni del moto di un punto materiale $P$. Supponiamo, per semplicità, che gli assi $x$ e $x'$ lungo la direzione del moto relativo coincidano e che i piani $yz$ e $y'z'$ siano reciprocamente paralleli; supponiamo inoltre che all’istante di tempo iniziale $t = 0$, le due origini $O$ e $O'$ coincidano. Sia:",
                     "$$ \\mathbf{R} \\equiv \\overrightarrow{OO'} $$",
@@ -626,7 +626,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "3.3 Moto relativo generale",
+                title: "Moto relativo generale",
                 content: [
                     "Consideriamo due osservatori $O$ e $O'$ in moto l’uno rispetto all’altro e stabiliamo, nel caso generale, le relative descrizioni del moto di un punto materiale $P$. Supponiamo che il punto $O'$ si muova con velocità $\\mathbf{V}$ e che, inoltre, l’insieme dei tre assi del sistema di riferimento con origine $O'$ ruoti rigidamente con velocità angolare $\\mathbf{\\omega}$ rispetto al sistema con origine $O$. Esprimendo la relazione (3.9) tra le posizioni del punto materiale $P$ misurate rispetto ai due sistemi di riferimento, attraverso i versori dei corrispondenti sistemi, si ha:",
                     "![Moto relativo generale con rotazione|medium](/fisica-images/fig_038.avif)",
@@ -697,17 +697,17 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "4-dinamica-punto-materiale",
-        title: "Lezione 4: DINAMICA DEL PUNTO MATERIALE",
+        title: "DINAMICA DEL PUNTO MATERIALE",
         subsections: [
             {
-                title: "4.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "A differenza della cinematica in cui i moti sono descritti solo geometricamente attraverso l’uso dei vettori posizione, velocità ed accelerazione, nella dinamica vengono analizzate le cause che danno origine al moto. In generale, il moto di un corpo è determinato dalla sua interazione con l’ambiente circostante; in una prima fase di questo studio saranno considerati i soli punti materiali, in modo da poter prescindere dalla forma del corpo nello studio dell’interazione. Inoltre si studierà la dinamica di corpi in moto con velocità trascurabili rispetto a quella della luce nel vuoto, circa $3 \\times 10^8 m/s$, e di dimensioni superiori di quelle delle particelle componenti i sistemi atomici. Tale ambito di studio è detto meccanica classica.",
                     "Lo studio dinamico del moto dei corpi richiede la specificazione sia delle caratteristiche del punto materiale, quali massa, carica, momento di dipolo elettrico ecc., che la definizione dell’ambiente nel quale sono situati i corpi. A partire da tali informazioni, nota la velocità iniziale di un corpo, la dinamica deve prevederne il successivo moto. Si riterranno validi i procedimenti seguiti a tale fine solo se produrranno dei risultati in accordo con l’esperienza."
                 ]
             },
             {
-                title: "4.2 Prima legge di Newton",
+                title: "Prima legge di Newton",
                 content: [
                     "Una efficace descrizione del moto si ebbe a partire dal diciassettesimo secolo, prima con Galileo e quindi con Newton. Originariamente si riteneva che i moti avessero luogo per l’azione di influenze esterne, o forze, mentre lo stato naturale dei corpi era l’assenza di moto; pertanto, affinché si avesse il moto di un corpo, ad esempio rettilineo uniforme, su di esso doveva essere esercitata continuamente un’azione e, al cessare di questa, il moto sarebbe terminato. Tale convinzione era avvalorata dall’esperienza quotidiana che vede, ad esempio, la necessità di una spinta continua di un corpo su una superficie orizzontale scabra per mantenere il moto rettilineo uniforme. Il valore degli studi di Galileo e Newton sta nella capacità di separare dagli aspetti caratteristici e determinanti dei processi analizzati gli elementi estranei e perturbatori presenti nell’esperienza. Nella pratica si osserva che al ridursi degli agenti perturbatori, ad esempio attraverso operazioni di levigatura, lubrificazione ecc., la diminuzione della velocità di un corpo lasciato a sé stesso sulla superficie orizzontale procede sempre più lentamente. Di conseguenza, è possibile estrapolare tale caratteristica affermando che qualora si potessero eliminare tutte le perturbazioni, il corpo continuerebbe a muoversi di moto rettilineo uniforme.",
                     "Pertanto è necessario un agente esterno per modificare la velocità di un corpo ma non occorre alcun agente per mantenerne la velocità. Così il moto sul piano ha origine da una spinta e la superficie scabra esercita su di esso un’azione per rallentarlo. In entrambi i casi delle azioni determinano un cambiamento di velocità del corpo ovvero un’accelerazione. Questo principio prende il nome di prima legge di Newton e viene così enunciato:",
@@ -718,14 +718,14 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.3 Forza",
+                title: "Forza",
                 content: [
                     "Le cause che determinano una variazione della velocità di un punto materiale in un certo sistema di riferimento sono dette **forze**. Per caratterizzare completamente tale concetto occorre stabilire operativamente il criterio di uguaglianza, le regole di somma ed, infine, l’unità di misura. A tale scopo occorre riferirsi alle risultanze sperimentali. Dall’osservazione che un punto materiale, a riposo su un piano privo di elementi che ne possono alterare il moto, si muove lungo la direzione nella quale viene spinto, segue che la forza ha carattere vettoriale. Il criterio per stabilire l’uguaglianza di due forze può essere stabilito a partire dall’accelerazione che esse determinano; cioè diremo che due forze applicate successivamente ad uno stesso corpo sono uguali se ne determinano la stessa accelerazione, dove, per accelerazione, si intende il vettore accelerazione.",
                     "È possibile verificare tali caratteristiche delle forze adoperando, ad esempio, una molla. Si osserva infatti che se si comprime o si allunga entro certi limiti una molla a partire dalla posizione di riposo, agli estremi viene esercitata una forza che è sempre la stessa a parità di compressione o di allungamento. Per stabilire le regole di somma si può collegare la molla ad un punto materiale e, mantenendo fisso il punto, estendere la molla di una certa entità quindi, lasciando andare il punto materiale, se ne può osservare l’accelerazione in un intervallo di tempo in cui si fa in modo che l’allungamento sia mantenuto costante. Osservando il moto in tale istante si trova che due forze di uguale intensità, agenti lungo la stessa direzione e con lo stesso verso, determinano sul corpo un’accelerazione doppia rispetto a quella prodotta da una singola forza. Se invece le due forze agiscono lungo direzioni diverse, si determina un’accelerazione pari alla somma vettoriale delle accelerazioni che si hanno quando le due forze agiscono separatamente sul corpo."
                 ]
             },
             {
-                title: "4.4 Seconda legge di Newton",
+                title: "Seconda legge di Newton",
                 content: [
                     "Dalle considerazioni precedenti segue che tra la forza e l’accelerazione sussiste una relazione di proporzionalità vettoriale, cioè indicando con $\\mathbf{F}$ il vettore forza e con $\\mathbf{a}$ l’accelerazione che esso determina su un dato corpo, si ha:",
                     "$$ \\mathbf{F} \\propto \\mathbf{a}. $$",
@@ -782,7 +782,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.5 Terza legge di Newton",
+                title: "Terza legge di Newton",
                 content: [
                     "Nell’introdurre la dinamica si è affermato che il moto di un corpo si origina dalla sua interazione con l’ambiente circostante. Successivamente tale interazione è stata descritta attraverso l’introduzione del concetto di forza. Pertanto concludiamo che i corpi interagiscono con l’ambiente in cui si situano attraverso forze. In particolare, esaminando le forze agenti su un corpo si osserva che ciascuna è originata dall’azione di un altro corpo facente parte dell’ambiente circostante. D’altra parte il corpo dell’ambiente, avendo come parte del suo ambiente il primo corpo, interagisce con esso. Sperimentalmente si osserva che, quando un corpo esercita una forza su di un altro, questo a sua volta esercita una forza sul primo. Tale coppia di forze è caratterizzata da essere uguale in modulo e direzione, ma opposta in verso. Si può quindi affermare che:",
                     "\"Quando due corpi esercitano delle forze l’uno verso l’altro, queste hanno lo stesso modulo, la stessa direzione e verso opposto\".",
@@ -794,7 +794,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.6 Classificazione delle forze",
+                title: "Classificazione delle forze",
                 content: [
                     "Tutte le forze responsabili dei fenomeni naturali sono riconducibili a quattro tipi di interazioni fondamentali: l’interazione gravitazionale, l’interazione elettromagnetica, l’interazione debole e l’interazione forte. L’interazione gravitazionale, la prima ad essere scoperta e studiata, si esplica tra i corpi dotati di massa; l’interazione elettromagnetica caratterizza i corpi che posseggono una carica elettrica; l’interazione debole è responsabile di alcuni tipi di decadimenti di particelle e l’interazione forte garantisce la stabilità dei nuclei atomici. Di recente si è compreso che due di queste interazioni, quella elettromagnetica e quella debole sono, su scala microscopica, due diversi aspetti della stessa interazione che prende il nome, pertanto, di **interazione elettrodebole**.",
                     "La pratica quotidiana suggerisce che l’azione di una forza su di un corpo richieda il contatto tra il corpo e l’agente che determina l’azione. Ad esempio la spinta di un corpo su un piano ne determina il moto. D’altra parte, sempre nella pratica quotidiana, osserviamo la manifestazione di forze che non richiedono alcun contatto, come la forza di interazione tra i pianeti e il Sole o la forza che si esplica tra cariche elettriche. Il problema dell’interazione a distanza fu risolto nel diciannovesimo secolo da Michel Faraday attraverso l’introduzione del concetto di **campo**. Un corpo, in virtù di una qualche sua proprietà, come la massa o la carica elettrica, genera nello spazio attorno a sé un campo attraverso il quale gli altri corpi interagiscono con il corpo che lo ha generato; il campo, quindi, media l’interazione fra i corpi. Apparentemente tale entità non ha alcun ruolo nella dinamica delle forze di contatto; tuttavia un esame microscopico dell’azione di tale forze, evidenzia che anche esse sono riconducibili ad una delle quattro forme di interazione testé descritte. Inoltre anche tali forze, sulla scala microscopica, si manifestano attraverso un’interazione a distanza e, pertanto, mediata da un campo. La mediazione di un campo nell’interazione tra due corpi sembra solo un altro modo per descrivere una stessa cosa tuttavia, in molteplici circostanze, i campi presentano una realtà quasi indipendente dagli oggetti che li generano. Ciò segue dal fatto che, sebbene spesso non sia cosa manifesta, l’interazione fra due corpi non è istantanea, per cui il campo rappresenta l’entità che si propaga da un corpo all’altro affinché si verifichi l’interazione.",
@@ -802,7 +802,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.7 Forza peso",
+                title: "Forza peso",
                 content: [
                     "Supponiamo di poter considerare la Terra un sistema di riferimento inerziale. Sperimentalmente si osserva che in prossimità della Terra un corpo, indipendentemente dalla sua massa, quando è lasciato libero, acquista un’accelerazione il cui modulo vale, in media, circa $9.8 m/s^2$. Questa accelerazione è conseguenza dell’interazione tra la Terra e il corpo e la forza corrispondente è detta **peso**. Dalla (4.1), se $\\mathbf{g}$ indica l’accelerazione del corpo, nota come **accelerazione di gravità**, e $\\mathbf{P}$ il peso, allora:",
                     "![Forza peso|small](/fisica-images/fig_047.avif)",
@@ -894,7 +894,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.8 Misura delle forze",
+                title: "Misura delle forze",
                 content: [
                     "Siccome è complicato misurare le accelerazioni, la misura della forza attraverso la misura dell’accelerazione prodotta su corpi di massa nota non è un metodo operativamente praticabile. Solitamente si preferisce correlare la misura delle forze alle variazioni di forma o di dimensioni di un corpo sul quale sono applicate. In particolare tale approccio, detto **metodo statico**, per distinguerlo dall’altro che è denominato **metodo dinamico**, fa uso della caratteristica derivata dalla seconda legge di Newton secondo la quale se un corpo soggetto a delle forze si trova a riposo, la risultante delle forze agenti su di esso è nulla. Se, ad esempio, in un sistema di riferimento inerziale sul corpo in quiete agiscono due forze, necessariamente esse devono avere uguali intensità e direzione ma verso opposto così, scegliendo come unità di misura una di esse, tutte le altre forze possono essere misurate per confronto.",
                     "![Forza elastica di richiamo in una molla|small](/fisica-images/fig_057.avif)",
@@ -909,7 +909,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.9 Forza d’attrito",
+                title: "Forza d’attrito",
                 content: [
                     "La forza d’attrito è stata definita operativamente come l’agente che determina l’arresto di un corpo in moto su un piano orizzontale scabro. In generale tale forza si esercita ogni qual volta si ha un contatto tra corpi ed è caratterizzata dall’avere sempre direzione opposta al loro moto relativo. Pertanto le forze di attrito tendono sempre a contrastare il moto relativo tra i corpi. Tuttavia è possibile constatare che le forze di attrito si esplicano tra i corpi anche in assenza di moto relativo.",
                     "Consideriamo un corpo di massa $m$ in quiete su una superficie orizzontale scabra. Su di esso agisce la forza peso $m\\mathbf{g}$ e, siccome è in quiete, una reazione vincolare $\\mathbf{N}$ tale che:",
@@ -1035,7 +1035,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.10 Moti oscillatori",
+                title: "Moti oscillatori",
                 content: [
                     "Consideriamo un corpo collegato ad un estremo di una molla il cui altro estremo è connesso ad un supporto rigido. Come già visto, entro i limiti di elasticità la molla esercita sul corpo una forza di richiamo $\\mathbf{F}$ proporzionale all’allungamento (o compressione) $x$ della molla. Se indichiamo con $k$ il relativo coefficiente di proporzionalità, assumendo che la molla sia estesa lungo l’asse $x$ di un arbitrario sistema di riferimento, si ha:",
                     "![Legge di Hooke e limite elastico|small](/fisica-images/fig_068.avif)",
@@ -1186,7 +1186,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.11 Sistemi non inerziali e forze fittizie",
+                title: "Sistemi non inerziali e forze fittizie",
                 content: [
                     "In un sistema di riferimento inerziale le forze agenti su un punto materiale possono sempre essere ricondotte ad altri sistemi fisici presenti nell’ambiente in cui si esplica il moto. Lo stesso non accade nei sistemi di riferimento non inerziali; ad esempio, se ci si muove su un treno, quando questo frena o accelera bruscamente o curva, trasformandosi quindi in un sistema di riferimento non inerziale, si avverte una spinta in avanti o indietro o di lato. Si avverte, cioè, una forza la cui origine non è attribuibile ad alcun agente esterno; essa è conseguenza della non inerzialità del sistema di riferimento. Le forze che presentano queste caratteristiche prendono il nome di **forze fittizie** o **apparenti**.",
                     "Consideriamo, ad esempio, un sistema di riferimento originariamente in moto rettilineo uniforme rispetto ad un sistema di riferimento inerziale. Sul sistema in moto, ad esempio un treno, un osservatore $B$ ha disposto su un tavolo orizzontale privo di attrito una palla da biliardo $P$; siccome il treno si muove di moto rettilineo uniforme con velocità $\\mathbf{v}$, la palla rimane a riposo sul piano. Dal punto di vista di un osservatore stazionario $A$ la palla, che non è vincolata nella direzione del moto, si muove di moto rettilineo uniforme con la stessa velocità $\\mathbf{v}$ del treno. Supponiamo ora che il treno subisca una brusca frenata. Dal punto di vista dell’osservatore $A$, siccome la palla non è vincolata nella direzione del moto, continuerà a muoversi nella direzione originaria con la stessa velocità $\\mathbf{v}$; quindi tra il treno che, decelerato, si arresta e la palla, si genera una velocità relativa conseguente al fatto che, mentre il treno decelera, la palla continua a muoversi di moto rettilineo uniforme. L’osservatore $B$ invece vede che, rispetto al treno cui è solidale, la palla subisce un’accelerazione poiché da ferma prende a muoversi. Siccome la variazione della velocità di un corpo viene originata dall’azione su di esso di una forza, l’osservatore $B$ attribuisce l’accelerazione della palla ad una forza, sebbene non sia identificabile nell’ambiente circostante di $B$ alcun agente che ne possa essere responsabile. Una forza con tale caratteristica è detta **forza fittizia** o **apparente** o **forza d’inerzia**. L’osservatore $B$ è certo che si tratti di una forza poiché, qualora ne voglia annullare l’effetto, mantenendo la palla a riposo nel suo sistema di riferimento, deve esercitare su di essa una forza. Dal punto di vista dell’osservatore $A$ questa forza serve a frenare la palla contemporaneamente al treno mentre per $B$ questa forza equilibra la forza di inerzia consentendo alla palla di restare a riposo nel sistema non inerziale, contrastando l’azione della forza di inerzia stessa.",
@@ -1216,7 +1216,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.12 Quantità di moto e impulso",
+                title: "Quantità di moto e impulso",
                 content: [
                     "La seconda legge di Newton può essere espressa in una forma più generale attraverso l’introduzione di un’opportuna grandezza vettoriale denominata **quantità di moto**. Il vettore quantità di moto $\\mathbf{p}$ di una particella di massa $m$ che si muove con velocità $\\mathbf{v}$ è pari a:",
                     "$$ \\mathbf{p} \\equiv m\\mathbf{v}. \\hspace{4cm} \\tag{4.28} $$",
@@ -1266,7 +1266,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "4.13 Momento di una forza e momento angolare",
+                title: "Momento di una forza e momento angolare",
                 content: [
                     "Nell’analisi del moto di punti materiali lungo traiettorie curvilinee risulta opportuno adoperare la seconda legge di Newton in una formulazione alternativa comprendente la quantità di moto. Tale formulazione diventa, inoltre, particolarmente utile nello studio del moto di sistemi di punti materiali. Per stabilire tale formulazione occorre introdurre due nuovi vettori, il momento di una forza e il momento angolare.",
                     "Consideriamo una forza $\\mathbf{F}$ applicata ad un punto materiale $P$ ed un generico punto $O$; si definisce **momento della forza** $\\mathbf{F}$ rispetto ad $O$ il vettore:",
@@ -1345,17 +1345,17 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "5-lavoro-ed-energia",
-        title: "Lezione 5: LAVORO ED ENERGIA",
+        title: "LAVORO ED ENERGIA",
         subsections: [
             {
-                title: "5.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "La valutazione dell’equazione del moto di una particella a partire dalla forza agente su di essa risulta particolarmente semplice qualora la forza è costante; in tal caso è possibile stabilire banalmente l’accelerazione del corpo e tale determinazione corrisponde, di fatto, ad un problema di cinematica. Lo studio del moto della particella diviene più complicato nella circostanza in cui la forza agente non è costante, ma dipende dal tempo o dalla posizione. Come già visto nei precedenti esempi, tale studio può essere portato avanti attraverso l’integrazione delle equazioni del moto.",
                     "Con l’introduzione dei concetti di lavoro e di energia è possibile effettuare una descrizione del moto alternativa a quanto visto fino ad ora, giungendo ai medesimi risultati che si ottengono tramite l’applicazione diretta delle leggi di Newton. In più circostanze l’analisi del problema condotta seguendo questo approccio risulta generalmente più semplice rispetto all’applicazione della seconda legge di Newton."
                 ]
             },
             {
-                title: "5.2 Lavoro di una forza",
+                title: "Lavoro di una forza",
                 content: [
                     "Consideriamo un punto materiale $P$ in moto lungo una curva $\\mathcal{L}$ per effetto di una forza $\\mathbf{F}$; sia $\\mathbf{r}$ il vettore posizione del punto in un sistema di riferimento inerziale. In un intervallo di tempo $dt$ il punto compie uno spostamento $d\\mathbf{r}$. Si definisce **lavoro elementare** della forza $\\mathbf{F}$ agente sul punto materiale $P$ che si sposta di $d\\mathbf{r}$ la quantità scalare:",
                     "$$ dW \\equiv \\mathbf{F} \\cdot d\\mathbf{r} = F dr \\cos \\vartheta. \\hspace{4cm} \\tag{5.1} $$",
@@ -1488,7 +1488,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.3 Potenza",
+                title: "Potenza",
                 content: [
                     "Per caratterizzare un sistema dal punto di vista energetico, oltre alla capacità di compiere un certo lavoro, è opportuno stabilire la rapidità con cui tale lavoro può essere eseguito; a tale scopo si introduce il concetto di potenza. La **potenza istantanea** sviluppata da un agente è data da:",
                     "$$ P = \\frac{dW}{dt}, $$",
@@ -1504,7 +1504,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.4 Energia cinetica",
+                title: "Energia cinetica",
                 content: [
                     "Consideriamo un punto materiale di massa $m$ indipendente dalla velocità soggetto ad una forza $\\mathbf{F}$; dalla relazione (5.1), esprimendo la forza attraverso la (4.30), si ha:",
                     "$$ dW = \\mathbf{F} \\cdot d\\mathbf{r} = m \\frac{d\\mathbf{v}}{dt} \\cdot d\\mathbf{r}, \\hspace{4cm} \\tag{5.6} $$",
@@ -1563,7 +1563,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.5 Forze conservative, energia potenziale",
+                title: "Forze conservative, energia potenziale",
                 content: [
                     "Negli esempi precedenti si è visto che per talune forze, come la forza elastica o la forza peso, il lavoro calcolato tra due punti dipende dalle sole coordinate di tali punti e risulta indipendente dal particolare percorso che congiunge i punti stessi; al contrario, per altre forze, come la forza di attrito, il lavoro dipende dalla traiettoria tra i punti. Le forze per le quali il lavoro non dipende dal cammino percorso sono dette **conservative** mentre quelle per le quali non vale tale proprietà sono dette **non conservative**.",
                     "Per una forza conservativa $\\mathbf{F}$ il calcolo del lavoro tra due punti $P_1$ e $P_2$ non richiede la conoscenza del particolare percorso seguito così, tale determinazione può essere eseguita considerando la traiettoria tra $P_1$ e $P_2$ che comporta il calcolo più semplice; considerando le traiettorie $\\mathcal{L}_I$ e $\\mathcal{L}_{II}$, in tale caso si ha:",
@@ -1640,7 +1640,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.6 Conservazione dell’energia meccanica",
+                title: "Conservazione dell’energia meccanica",
                 content: [
                     "Per una forza conservativa la (5.9) e la (5.11) valgono simultaneamente, così, confrontando tali relazioni, si ha",
                     "$$ E_{p1} - E_{p2} = E_{k2} - E_{k1}, $$",
@@ -1665,7 +1665,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "5.7 Dinamica di un corpo soggetto a forze conservative",
+                title: "Dinamica di un corpo soggetto a forze conservative",
                 content: [
                     "Consideriamo un punto materiale di massa $m$ soggetto a sole forze conservative e supponiamo che l’energia potenziale vari nella direzione $x$ secondo il diagramma mostrato in figura. Dalle relazioni (5.8) e (5.15) segue che l’energia del corpo vale:",
                     "$$ E = \\frac{1}{2} m v^2 + E_p(x), $$",
@@ -1735,10 +1735,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "6-dinamica-sistemi-punti",
-        title: "Lezione 6: DINAMICA DEI SISTEMI DI PUNTI MATERIALI",
+        title: "DINAMICA DEI SISTEMI DI PUNTI MATERIALI",
         subsections: [
             {
-                title: "6.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Consideriamo un sistema di $n$ punti materiali, con $n > 1$, interagenti tra loro e con il resto dell’universo. Nello studio di un tale sistema risulta conveniente scomporre la forza agente sull’$i$-esimo punto nella somma della risultante delle **forze esterne** $\\mathbf{F}_i^{(ext)}$ e quella delle forze esercitate sul punto da tutte le altre $n-1$ particelle $\\mathbf{F}_i^{(int)}$, dette **forze interne**:",
                     "$$ \\mathbf{F}_i = \\mathbf{F}_i^{(int)} + \\mathbf{F}_i^{(ext)}. $$",
@@ -1766,7 +1766,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.2 Centro di massa di un sistema di punti",
+                title: "Centro di massa di un sistema di punti",
                 content: [
                     "Si definisce **centro di massa** di un sistema di punti materiali il punto dello spazio il cui vettore posizione è pari a:",
                     "$$ \\mathbf{r}_{CM} \\equiv \\frac{\\sum_i m_i \\mathbf{r}_i}{\\sum_i m_i} = \\frac{1}{m} \\sum_i m_i \\mathbf{r}_i \\hspace{4cm} \\tag{6.3} $$",
@@ -1831,7 +1831,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.3 Momento angolare di un sistema di punti",
+                title: "Momento angolare di un sistema di punti",
                 content: [
                     "Consideriamo un insieme di punti materiali di masse $m_1, m_2, ..., m_n$ e velocità $\\mathbf{v}_1, \\mathbf{v}_2, ..., \\mathbf{v}_n$ rispetto ad un sistema di riferimento inerziale. Posto:",
                     "$$ \\mathbf{r}_i^{(P)} \\equiv \\mathbf{r}_i - \\mathbf{r}_P, $$",
@@ -1867,7 +1867,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.4 Sistema di riferimento del centro di massa",
+                title: "Sistema di riferimento del centro di massa",
                 content: [
                     "Dato un insieme di particelle, risulta spesso di particolare utilità un sistema di riferimento con origine nel centro di massa di tale insieme. Solitamente, assegnato un sistema di riferimento inerziale, è opportuno assumere gli assi coordinati del sistema del centro di massa paralleli a quelli del sistema inerziale. Ciò determina un moto traslatorio del sistema del centro di massa, ma non rettilineo uniforme, a meno che non sia nulla la risultante delle forze esterne agenti sul sistema di particelle $\\mathbf{F}^{(ext)}$ e, di conseguenza, sia nulla l’accelerazione del centro di massa $\\mathbf{a}_{CM}$. Indicando con un apice le grandezze riferite al centro di massa, per l’$i$-esima particella del sistema risulta:",
                     "$$ \\mathbf{r}_i = \\mathbf{r}_i' + \\mathbf{r}_{CM} $$",
@@ -1952,7 +1952,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.5 Energia di un sistema di particelle",
+                title: "Energia di un sistema di particelle",
                 content: [
                     "Consideriamo un insieme di $n$ punti materiali di masse $m_1, m_2, ..., m_n$; il lavoro elementare $dW_i$ della forza $\\mathbf{F}_i$ agente sull’$i$-esimo punto in corrispondenza di uno spostamento $d\\mathbf{r}_i$ vale:",
                     "$$ dW_i = \\mathbf{F}_i \\cdot d\\mathbf{r}_i; \\hspace{4cm} \\tag{6.16} $$",
@@ -1987,7 +1987,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.6 Azione di forze su punti diversi di un sistema di punti",
+                title: "Azione di forze su punti diversi di un sistema di punti",
                 content: [
                     "Consideriamo un insieme di $n$ punti materiali soggetti alle forze $\\mathbf{F}_1, \\mathbf{F}_2, ..., \\mathbf{F}_n$. Il momento $\\mathbf{\\tau}$ risultante di tali forze rispetto all’origine assunta come polo $O$ vale:",
                     "$$ \\mathbf{\\tau} = \\sum_i \\mathbf{r}_i \\times \\mathbf{F}_i $$",
@@ -2017,7 +2017,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "6.7 Generalità sulla dinamica dei sistemi di punti",
+                title: "Generalità sulla dinamica dei sistemi di punti",
                 content: [
                     "Abbiamo visto che le equazioni che descrivono il moto di un sistema di punti materiali sono:",
                     "$$ \\mathbf{F}^{(ext)} = m\\mathbf{a}_{CM} = \\frac{d\\mathbf{p}}{dt}, $$",
@@ -2036,10 +2036,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "7-dinamica-corpo-rigido",
-        title: "Lezione 7: DINAMICA DEL CORPO RIGIDO",
+        title: "DINAMICA DEL CORPO RIGIDO",
         subsections: [
             {
-                title: "7.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Per corpo rigido si intende un sistema di punti materiali caratterizzati dal fatto che le loro mutue distanze si mantengono costanti nel tempo, indipendentemente dalle eventuali sollecitazioni a cui è soggetto il sistema. Sebbene tale sistema costituisca un’astrazione, esistono numerosi casi pratici che soddisfano le proprietà di un corpo rigido in corrispondenza di piccole sollecitazioni.",
                     "Per i sistemi costituiti da un numero molto grande di punti, come nel caso dei corpi solidi, risulta opportuno introdurre una grandezza che caratterizzi la distribuzione delle masse nel corpo. Consideriamo un elemento di volume infinitesimo $dV$ del corpo e sia $dm$ la massa contenuta in tale volume; si definisce **densità** del corpo la quantità:",
@@ -2053,7 +2053,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.2 Moto di un corpo rigido",
+                title: "Moto di un corpo rigido",
                 content: [
                     "Trattandosi di un corpo esteso, il moto di un corpo rigido è determinato dalle forze esterne che agiscono su di esso e sono, in generale, applicate in punti diversi del corpo. L’insieme delle forze agenti è caratterizzato da una forza risultante $\\mathbf{F}^{(ext)}$ e da un momento risultante $\\mathbf{\\tau}^{(ext)}$ indipendenti tra loro. Inoltre, mantenendosi invariate le mutue distanze tra le particelle che lo compongono, il lavoro delle forze interne al corpo rigido è nullo, per cui è solo il lavoro delle forze esterne a produrre la variazione dell’energia cinetica del corpo rigido. Pertanto, in quest’ambito di studio, non è necessario distinguere le forze interne da quelle esterne, essendo solo queste ultime a determinare la dinamica del corpo rigido e si farà a meno dell’indicazione \"ext\" in corrispondenza dei vettori che stabiliscono la dinamica del corpo.",
                     "Si definisce **moto rigido** di un sistema di punti, un moto durante il quale resta invariata la distanza tra le coppie di punti che lo costituiscono. Gli spostamenti rigidi elementari sono la traslazione e la rotazione.",
@@ -2116,7 +2116,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.3 Centro di massa di un corpo continuo",
+                title: "Centro di massa di un corpo continuo",
                 content: [
                     "Consideriamo un corpo rigido di massa $m$ e densità $\\rho$. Estendendo a tale corpo la definizione di centro di massa per un sistema di punti materiali, possiamo esprimere tale grandezza come la somma di infiniti vettori $\\mathbf{r} dm$ associati all’elemento infinitesimo di massa $dm$ rispetto ad un opportuno sistema di riferimento, divisa per la massa $m$. Pertanto:",
                     "$$ \\mathbf{r}_{CM} = \\frac{\\int_m \\mathbf{r} dm'}{\\int_m dm'} = \\frac{1}{m} \\int_V \\mathbf{r} \\rho dV $$",
@@ -2144,7 +2144,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.4 Rotazioni rigide attorno ad un asse fisso",
+                title: "Rotazioni rigide attorno ad un asse fisso",
                 content: [
                     "Consideriamo un corpo rigido in rotazione attorno ad un asse fisso in un sistema di riferimento inerziale. Siccome i punti dell’asse sono fissi, conviene adoperarli per il calcolo dei momenti; consideriamo quindi un sistema di riferimento inerziale con l’asse $z$ coincidente con l’asse di rotazione, in modo che il versore $\\hat{z}$ valga $\\mathbf{\\omega}/\\omega$. Il momento angolare di un generico punto $P_i$ del corpo è:",
                     "$$ \\mathbf{L}_i = \\mathbf{r}_i \\times (m_i \\mathbf{v}_i); $$",
@@ -2197,7 +2197,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.5 Calcolo del momento d’inerzia",
+                title: "Calcolo del momento d’inerzia",
                 content: [
                     "Il momento d’inerzia rispetto ad un’asse (asse $z$) di un sistema di punti materiali $m_1, m_2, ..., m_n$, posti alle distanze $R_1, R_2, ..., R_n$ dall’asse è dato dalla relazione (7.2) $\\sum_i m_i R_i^2$, attraverso la quale è possibile dedurre che tale grandezza, calcolata rispetto ad un’asse di un corpo, fornisce una misura di quanta massa del corpo dista dall’asse.",
                     "![Momento d'inerzia discreto: somma di punti materiali|small](/fisica-images/fig_139.avif)",
@@ -2243,7 +2243,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.6 Teorema di Huygens-Steiner",
+                title: "Teorema di Huygens-Steiner",
                 content: [
                     "Il calcolo del momento d’inerzia di un corpo rispetto ad un asse può risultare particolarmente complesso qualora l’asse in questione non è un asse di simmetria. Si osservi come, negli esempi precedenti, il calcolo del momento d’inerzia risulta semplice in quanto l’asse passa per il centro di massa dei vari corpi. Tuttavia i momenti di inerzia rispetto ad assi paralleli ad uno passante per il centro di massa sono legati attraverso una formula particolarmente semplice. Consideriamo un corpo di massa $m$ e calcoliamo il momento d’inerzia rispetto ad un asse ($z'$) passante per il centro di massa. Per un elemento di massa $m_i$ del corpo, posto a distanza $R_i'$ dall’asse $z'$, il momento d’inerzia rispetto a tale asse vale $m_i R_i'^2$, ovvero $m_i (x_i'^2 + y_i'^2)$ essendo $R_i'^2$ pari a $x_i'^2 + y_i'^2$; pertanto, rispetto al centro di massa il relativo momento d’inerzia del corpo, $I_{CM}$, vale:",
                     "$$ I_{CM} = \\sum_i m_i R_i'^2 = \\sum_i m_i (x_i'^2 + y_i'^2). \\hspace{4cm} \\tag{7.6} $$",
@@ -2260,7 +2260,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.7 Equazioni del moto di un corpo rigido",
+                title: "Equazioni del moto di un corpo rigido",
                 content: [
                     "Il momento angolare totale di un sistema di particelle e il momento della risultante delle forze agenti su di esso, entrambi calcolati rispetto ad un punto in quiete rispetto ad un sistema di riferimento inerziale, sono legati tra loro dalla relazione (4.34):",
                     "$$ \\frac{d\\mathbf{L}}{dt} = \\mathbf{\\tau}. $$",
@@ -2286,7 +2286,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.8 Energia cinetica di rotazione",
+                title: "Energia cinetica di rotazione",
                 content: [
                     "L’energia cinetica per un sistema di particelle vale:",
                     "$$ E_k = \\sum_i \\frac{1}{2} m_i v_i^2, $$",
@@ -2367,7 +2367,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.9 Moto di puro rotolamento",
+                title: "Moto di puro rotolamento",
                 content: [
                     "Consideriamo un corpo di forma cilindrica situato su un piano e in movimento rispetto ad esso. Tale moto può esplicarsi secondo tre modalità:",
                     "1. **Moto di traslazione**: Le velocità di tutti i punti del corpo sono uguali tra loro e parallele al piano; in questo caso si dice comunemente che il corpo in questione striscia sul piano.",
@@ -2487,7 +2487,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.10 Impulso angolare",
+                title: "Impulso angolare",
                 content: [
                     "Attraverso la seconda legge di Newton è stata riguardata la variazione infinitesima della quantità di moto $d\\mathbf{p}$ come l’impulso elementare della forza $\\mathbf{F} = d\\mathbf{p}/dt$ tra i tempi $t$ e $t + dt$. In analogia, dalla relazione (4.34) è possibile definire la quantità $d\\mathbf{L}$ come **impulso angolare elementare** del momento $\\mathbf{\\tau}$. Integrando tale quantità tra i tempi $t_1$ e $t_2$ si ottiene l’impulso angolare del momento $\\mathbf{\\tau}$ nell’intervallo $t_2 - t_1$:",
                     "$$ \\vec{\\mathcal{I}}_\\tau = \\int_{t_1}^{t_2} \\mathbf{\\tau} dt = \\mathbf{L}(t_2) - \\mathbf{L}(t_1); $$",
@@ -2511,7 +2511,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "7.11 Statica",
+                title: "Statica",
                 content: [
                     "Per un punto materiale in quiete la condizione di equilibrio è che la risultante delle forze agenti su di esso sia nulla. Nel caso di un corpo rigido tale condizione non è sufficiente a garantire l’equilibrio in quanto il corpo può essere soggetto ad un momento che ne altera la condizione di equilibrio. Pertanto le condizioni di equilibrio statico per un corpo rigido inizialmente in quiete sono:",
                     "$$ \\sum_i \\mathbf{F}_i = \\mathbf{0}, $$",
@@ -2557,10 +2557,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "8-urti",
-        title: "Lezione 8: GLI URTI",
+        title: "GLI URTI",
         subsections: [
             {
-                title: "8.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Per **urto** si intende l’interazione tra due particelle o due corpi estesi che si esplica attraverso forze di tipo impulsivo in un tempo trascurabile rispetto ai tempi tipici di osservazione del moto, prima e dopo tale interazione. Sebbene il senso comune associ ad un urto tra due corpi il contatto tra questi, in pratica da un esame microscopico dell’interazione che si ha tra i corpi durante l’urto, è possibile dedurre che tale assunzione risulta priva di significato. Ad esempio, nell’interazione di due particelle dotate della stessa carica, queste non giungono mai realmente a contatto ma si respingono per effetto dell’intensa repulsione colombiana che si esplica tra loro a breve distanza.",
                     "![Forze di interazione impulsive durante un urto|small](/fisica-images/fig_168.avif)",
@@ -2592,7 +2592,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "8.2 Urto completamente anelastico",
+                title: "Urto completamente anelastico",
                 content: [
                     "La massima perdita di energia cinetica si ha quando le due particelle di massa $m_1$ e $m_2$ dopo l’urto si muovono come un’unica particella di massa pari alla somma $m_1 + m_2$. Un urto di questo tipo è detto **completamente anelastico**. Indicando con $\\mathbf{v}_1$ e $\\mathbf{v}_2$ le velocità prima dell’urto e con $\\mathbf{v}'$ la velocità delle due particelle accoppiate dopo l’urto, quindi se vale il principio di conservazione della quantità di moto risulta:",
                     "![Urto completamente anelastico unidimensionale|small](/fisica-images/fig_170.avif)",
@@ -2641,7 +2641,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "8.3 Urto elastico",
+                title: "Urto elastico",
                 content: [
                     "Se le forze interne che si manifestano durante l’urto sono conservative, oltre a conservarsi la quantità di moto si conserva anche l’energia cinetica. In questo caso i corpi che si urtano subiscono deformazioni di tipo elastico per poi tornare nella configurazione precedente all’urto. Siccome l’energia potenziale non cambia durante l’urto, resta costante anche l’energia cinetica. Per tale urto, che è detto pertanto, **elastico**, valgono quindi le condizioni:",
                     "$$ \\mathbf{p}_i = \\mathbf{p}_f, $$",
@@ -2674,7 +2674,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "8.4 Urto anelastico",
+                title: "Urto anelastico",
                 content: [
                     "Quando in un urto si conserva la quantità di moto in assenza di forze esterne di tipo impulsivo, non si conserva l’energia cinetica e le particelle si separano dopo l’interazione, l’urto viene detto **anelastico**. In tale circostanza una parte dell’energia cinetica, prima dell’urto nel sistema del centro di massa, viene assorbita nell’interazione convertendosi in energia potenziale di deformazione o in calore; cioè si può scrivere:",
                     "$$ E_{kf}' = e^2 E_{ki}', $$",
@@ -2708,7 +2708,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "8.5 Urti tra punti materiali e corpi rigidi o tra corpi rigidi",
+                title: "Urti tra punti materiali e corpi rigidi o tra corpi rigidi",
                 content: [
                     "Il punto di partenza per lo studio degli urti tra punti materiali e corpi rigidi o degli urti tra corpi rigidi è la determinazione delle leggi di conservazione valide. La costanza della quantità di moto si ha se sul sistema agiscono solo forze interne o quelle esterne non sono di tipo impulsivo. In particolare, se esiste un vincolo che tiene fermo un punto del corpo rigido, non si verifica la conservazione della quantità di moto poiché durante l’urto il vincolo sviluppa una forza di tipo impulsivo. La costanza dell’energia cinetica del sistema si ha soltanto se è noto a priori che l’urto è di tipo elastico. La costanza del momento angolare si ha qualora, rispetto ad un certo polo fisso nel sistema di laboratorio o coincidente col centro di massa, il momento della risultante delle forze esterne, comprese quelle vincolari, è nullo; si ha la conservazione del momento angolare se agiscono solo forze interne, indipendentemente dalla scelta del polo. In particolare, per un corpo vincolato, durante l’urto i vincoli esplicano delle forze tali che l’impulso $\\vec{\\mathcal{I}}$ della forza risultante $\\mathbf{F}_v$ e l’impulso angolare $\\vec{\\mathcal{I}}_\\tau$ del momento risultante $\\mathbf{\\tau}_v$, rispettivamente pari a",
                     "$$ \\vec{\\mathcal{I}} = \\int_{\\Delta t} \\mathbf{F}_v dt, $$",
@@ -2775,10 +2775,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "9-gravitazione-universale",
-        title: "Lezione 9: GRAVITAZIONE UNIVERSALE",
+        title: "GRAVITAZIONE UNIVERSALE",
         subsections: [
             {
-                title: "9.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Le conoscenze relative alla forza di gravitazione si sono sviluppate a partire dalle osservazioni astronomiche del moto dei pianeti del sistema solare. Attraverso tali osservazioni Tyco Brahe raccolse un insieme di dati tramite i quali, successivamente, Johannes Keplero identificò delle regolarità nel moto dei pianeti che espresse attraverso delle leggi. Tali leggi, note come **leggi di Keplero** rappresentano una descrizione cinematica del moto dei pianeti e si enunciano nella maniera seguente:",
                     "1. \"Rispetto al Sole ogni pianeta descrive un’orbita ellittica di cui il Sole occupa uno dei fuochi\".",
@@ -2788,7 +2788,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.2 La legge di gravitazione universale",
+                title: "La legge di gravitazione universale",
                 content: [
                     "Dopo la formulazione delle leggi della dinamica, il più importante contributo di Newton allo sviluppo della meccanica fu l’identificazione delle leggi dell’interazione gravitazionale; ossia l’interazione che si esplica tra due generici corpi materiali che determina un moto descrivibile attraverso le leggi di Keplero.",
                     "Il moto di un corpo soggetto ad una forza centrale è caratterizzato dal fatto che il momento angolare $\\mathbf{L}$ calcolato rispetto al centro di forza è una costante del moto. Siccome la velocità areolare $d\\mathbf{s}/dt$ si può esprimere come:",
@@ -2853,7 +2853,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.3 Massa inerziale e massa gravitazionale",
+                title: "Massa inerziale e massa gravitazionale",
                 content: [
                     "La massa che compare nell’espressione della legge di gravitazione universale e che caratterizza l’intensità della forza con cui due corpi si attraggono viene denominata **massa gravitazionale**. Tale massa, in principio, risulta di natura completamente differente dalla massa inerziale che compare nella seconda legge di Newton e che determina l’accelerazione di un corpo in corrispondenza dell’azione di una forza. Consideriamo un corpo di massa inerziale $m$ situato in prossimità della Terra; in tale circostanza vale relazione:",
                     "![Confronto tra massa inerziale e massa gravitazionale|small](/fisica-images/fig_181.avif)",
@@ -2867,7 +2867,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.4 Equazione della traiettoria",
+                title: "Equazione della traiettoria",
                 content: [
                     "Consideriamo un sistema isolato costituito da due corpi puntiformi, rispettivamente di masse $m$ e $M$. In un sistema di riferimento inerziale risulta:",
                     "$$ m\\mathbf{a}_m = -G \\frac{mM}{r^2} \\hat{r}, $$",
@@ -2915,7 +2915,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.5 Orbite ed energia totale",
+                title: "Orbite ed energia totale",
                 content: [
                     "Assumendo che il livello zero dell’energia potenziale sia posto all’infinito, l’energia potenziale gravitazionale di un corpo puntiforme di massa $m$ posto a distanza $r$ da un corpo puntiforme di massa $M$ si esprime come:",
                     "$$ E_p = -\\frac{GMm}{r}; $$",
@@ -2988,7 +2988,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "9.6 Energia potenziale efficace",
+                title: "Energia potenziale efficace",
                 content: [
                     "Dalle relazioni (9.6) e (4.37) segue che l’energia cinetica di un corpo di massa ridotta $\\mu$ può esprimersi come:",
                     "$$ E_k = \\frac{1}{2} \\mu v^2 = \\frac{1}{2} \\mu \\left( \\frac{dr}{dt} \\right)^2 + \\frac{1}{2} \\mu r^2 \\left( \\frac{d\\vartheta}{dt} \\right)^2 = \\frac{1}{2} \\mu \\left( \\frac{dr}{dt} \\right)^2 + \\frac{1}{2} \\mu r^2 \\left( \\frac{L}{\\mu r^2} \\right)^2 = \\frac{1}{2} \\mu \\left( \\frac{dr}{dt} \\right)^2 + \\frac{1}{2} \\frac{L^2}{\\mu r^2}. $$",
@@ -3014,23 +3014,23 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "10-primo-principio-termodinamica",
-        title: "Lezione 10: PRIMO PRINCIPIO DELLA TERMODINAMICA",
+        title: "PRIMO PRINCIPIO DELLA TERMODINAMICA",
         subsections: [
             {
-                title: "10.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Nell’ambito della meccanica si verifica che il lavoro delle forze agenti su un corpo è pari alla variazione della sua energia cinetica. In particolare, in presenza di forze conservative è possibile introdurre una funzione, detta energia potenziale, tale che la somma dell’energia cinetica e dell’energia potenziale, denominata energia meccanica, si mantiene costante durante il moto. La conservazione dell’energia meccanica non si ha in presenza di forze dissipative quali, ad esempio, l’attrito per cui nei processi meccanici reali, essendo sempre presenti degli agenti dissipativi, la conservazione dell’energia meccanica non è mai soddisfatta. Ciò non implica l’esistenza di interazioni non conservative a livello microscopico essendo le forze d’attrito, ad esempio, originate dalle molteplici singole interazioni che si esplicano fra due corpi a contatto, ciascuna delle quali è espressa da una forza conservativa. La non conservatività dell’interazione osservata a livello macroscopico ha origine nel fatto che, quando un corpo descrive una traiettoria chiusa, sebbene ritorni al termine del moto nella posizione originaria, le singole molecole che lo costituiscono non tornano nella posizione originaria. Ne segue che lo stato finale è dissimile, a livello microscopico, da quello iniziale. Uno degli obiettivi della termodinamica è l’estensione dello studio dei bilanci energetici nei processi fisici, in maniera da includere tutti gli scambi di energia che hanno modo di esplicarsi nell’interazione dei corpi macroscopici."
                 ]
             },
             {
-                title: "10.2 Stato termodinamico",
+                title: "Stato termodinamico",
                 content: [
                     "In meccanica lo stato di un sistema è completamente noto qualora, in un certo istante, sono note la posizione e la velocità di ogni punto materiale che lo costituisce. Il grande numero di elementi che costituisce un sistema termodinamico rende impraticabile un analogo approccio per la caratterizzazione di uno stato termodinamico; inoltre questo modo di procedere risulta anche inutile in quanto l’interesse relativo ai sistemi termodinamici è limitato unicamente a proprietà medie, per cui una descrizione dettagliata del sistema, secondo un approccio meccanico, risulterebbe superflua. Nello studio della termodinamica si tende a fissare l’attenzione ad una porzione limitata di materia, che costituisce il **sistema termodinamico** oggetto dell’indagine; tutto ciò che non è parte del sistema termodinamico, ma che interagisce con esso determinandone l’evoluzione fisica, è detto **ambiente circostante**. Infine l’insieme del sistema termodinamico e dell’ambiente circostante costituisce l’**universo termodinamico**. L’interazione tra il sistema e l’ambiente può esplicarsi attraverso scambi di materia e, o, scambi di energia. La modalità di interazione consente quindi una classificazione dei sistemi termodinamici: un sistema di dice **aperto** se scambia con l’ambiente circostante energia e materia, è detto **chiuso** se scambia solo energia ed è detto **isolato** se non ha scambi con l’ambiente né di energia né di materia. L’universo termodinamico, che va inteso in senso locale, formato dal sistema e dal relativo ambiente è da considerarsi un sistema isolato. Per poter descrivere quanto accade nel sistema termodinamico occorre specificare delle opportune grandezze; una descrizione macroscopica richiede l’impiego di un numero limitato di grandezze quali, ad esempio, il volume, la pressione e la temperatura. Le grandezze necessarie e sufficienti a descrivere lo stato interno del sistema prendono il nome di **variabili termodinamiche**. La termodinamica si propone di mettere in relazione le variazioni intervenute nelle variabili termodinamiche di un sistema termodinamico, determinate dalle sue interazioni con l’ambiente circostante."
                     ,
                 ]
             },
             {
-                title: "10.3 Equilibrio termodinamico",
+                title: "Equilibrio termodinamico",
                 content: [
                     "Un sistema è detto in **equilibrio termodinamico** se le variabili termodinamiche che lo caratterizzano sono costanti nel tempo; in tali circostanze, queste variabili prendono il nome di **variabili di stato**. Affinché si abbia questa condizione di equilibrio devono aversi allo stesso tempo l’equilibrio meccanico, nel senso espresso dalla statica, l’equilibrio chimico, ovvero non devono aversi reazioni chimiche nel sistema e l’equilibrio termico, cioè la temperatura deve essere uniforme. Sottintendendo l’equilibrio chimico in ogni successiva considerazione, l’equilibrio di un sistema richiede la soddisfazione delle condizioni di equilibrio all’interno del sistema o delle particelle che lo compongono, nell’interazione tra queste parti e nell’interazione tra il sistema e l’ambiente.",
                     "In condizioni di equilibrio le variabili termodinamiche di un sistema sono legate tra loro da una relazione detta **equazione di stato**, della forma $f(x_1, x_2, ..., x_n) = 0$, dove $x_1, x_2, ..., x_n$ sono le $n$ variabili termodinamiche del sistema in equilibrio. Ciascuna delle variabili che compaiono nell’equazione di stato possono esprimersi attraverso le altre risolvendo l’equazione di stato rispetto alla variabile di interesse, per cui lo stato del sistema è completamente determinato da $n-1$ qualunque delle $n$ quantità $x_1, x_2, ..., x_n$. Se $n=3$ le due variabili termodinamiche vengono generalmente rappresentate in forma grafica su di un piano in un sistema di assi cartesiani coordinati. Senza perdita di generalità d’ora in avanti considereremo sistemi con massa e composizione costante, descrivibili ciascuno attraverso due sole variabili termodinamiche $x$ e $y$ indipendenti.",
@@ -3040,7 +3040,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.4 Pressione",
+                title: "Pressione",
                 content: [
                     "A differenza dei corpi solidi, che sono caratterizzati da una forma propria, le sostanze liquide o i gas, generalmente denominati **fluidi**, non manifestano tale proprietà assumendo la forma del recipiente che li contiene. Prescindendo dalla loro struttura atomica o molecolare, dal punto di vista macroscopico i fluidi sono riguardati come sistemi continui, cioè costituiti da un numero infinito di elementi, ciascuno di massa $dm$ pari a $\\rho dV$, dove $\\rho$ è la densità e $dV$ è il volume contenente la massa $dm$. Una caratteristica distintiva dei fluidi è la possibilità di scorrimento di una parte di fluido rispetto ad un altra o rispetto alle pareti del contenitore. A tale scorrimento si oppone una forza di attrito interno al fluido; però, nel caso dei fluidi non esiste un equivalente dell’attrito statico, ovvero il fluido non può resistere allo scorrimento, non potendosi stabilire una condizione di equilibrio per un opportuno valore della sollecitazione applicata. Ne segue che, se un fluido è in quiete, le forze tra i suoi elementi devono agire normalmente alle superfici di separazione perché altrimenti si avrebbe lo scorrimento degli elementi gli uni sugli altri, cessando, di conseguenza, lo stato di quiete.",
                     "![Definizione di pressione su un elemento di superficie|small](/fisica-images/fig_186.avif)",
@@ -3056,7 +3056,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.5 Temperatura",
+                title: "Temperatura",
                 content: [
                     "Consideriamo due sistemi $A$ e $B$, inizialmente separati da una parete adiabatica e posti ciascuno a contatto con un sistema $C$ attraverso una parete conduttrice. L’insieme sia contenuto in un recipiente a pareti adiabatiche. Sperimentalmente si osserva che, una volta raggiunto l’equilibrio termico tra i sistemi $A$ e $C$ e i sistemi $B$ e $C$, quando la parete adiabatica tra $A$ e $B$ viene sostituita da una parete conduttrice, i sistemi $A$ e $B$ risultano in equilibrio termico tra loro. Questa proprietà costituisce il **principio zero della termodinamica** (R.H. Fowler) il cui enunciato afferma che:",
                     "\"Due sistemi in equilibrio termico con un terzo sistema, sono in equilibrio termico fra loro\"",
@@ -3069,7 +3069,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.6 Misura della temperatura",
+                title: "Misura della temperatura",
                 content: [
                     "Affinché un sistema possa essere adoperato per la misura della temperatura, ovvero quale **termometro**, occorre innanzitutto costruire l’insieme delle isoterme, quindi è necessario stabilire una regola per associare un numero ad ogni isoterma. Tale numero verrà associato alla temperatura di un qualunque altro sistema che si trovi in equilibrio termico col termometro. A tale scopo si può scegliere un opportuno percorso nel piano $xy$, quale, ad esempio, la retta $y=y_1$ che interseca tutte le isoterme alla medesima ordinata, ma a differenti ascisse corrispondenti a ciascuna isoterma. Quindi si assume che la temperatura associata ad ogni isoterma sia una conveniente funzione di tale ascissa $x$ dei punti di intersezione. La coordinata $x$ è detta **caratteristica termometrica** e la scala di temperatura fissata dalla forma della funzione della $x$, $T(x)$ prende il nome di **funzione termometrica**.",
                     "![Isoterme e scala empirica di temperatura|small](/fisica-images/fig_190.avif)",
@@ -3093,7 +3093,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.7 Dilatazione termica",
+                title: "Dilatazione termica",
                 content: [
                     "Tra gli effetti più vistosi determinati dai cambiamenti di temperatura di un corpo rientra quello della variazione, a parità di altre condizioni, delle dimensioni del corpo stesso. L’aumento di ciascuna delle dimensioni spaziali del corpo, l’altezza, la lunghezza e lo spessore, prende il nome di **dilatazione lineare**. Se $l$ rappresenta una di tali dimensioni, la sua variazione infinitesima $dl$ corrispondente alla variazione infinitesima $dT$ della temperatura è data dalla relazione:",
                     "$$ dl = \\alpha l dT, $$",
@@ -3113,13 +3113,13 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.8 Trasformazioni",
+                title: "Trasformazioni",
                 content: [
                     "In corrispondenza di una trasformazione termodinamica un sistema evolve da uno stato di equilibrio iniziale ad uno stato di equilibrio finale. In tal caso si dice che il sistema ha subito un cambiamento di stato. In generale la trasformazione di un sistema comporta il passaggio attraverso stati di non equilibrio. Consideriamo un sistema termodinamico costituito da una certa quantità di gas racchiusa in un cilindro dotato di pistone mobile. In condizioni di equilibrio la forza esercitata dal gas sul pistone è esattamente bilanciata dalla forza esercitata dall’ambiente esterno sul pistone; ad esempio tale forza può essere la risultante della forza dovuta alla pressione esterna e di una forza aggiuntiva dovuta al peso di un certo corpo appoggiato sul pistone. Supponiamo di alterare istantaneamente tale equilibrio rimuovendo, ad esempio, il corpo appoggiato sul pistone. Tale azione può determinare vari fenomeni. Possono originarsi dei moti turbolenti che provocano la spinta del pistone verso l’alto; possono determinarsi delle variazioni locali della temperatura a causa, ad esempio, dell’attrito tra il cilindro e il pistone in moto; possono prodursi delle reazioni chimiche determinate dalle variazioni di pressione e temperatura. Durante la manifestazione di tali fenomeni, non essendo il sistema in equilibrio, le variabili termodinamiche che caratterizzano il sistema non sono definite, poiché non assumono il medesimo valore in tutte le parti del sistema. Cioè una trasformazione che si esplica attraverso stati di non equilibrio non è descrivibile in termodinamica; pertanto, affinché possa risultare descrivibile, è necessario che la trasformazione si evolva attraverso stati di equilibrio termodinamico. Ciò è possibile se le forze esterne agenti sul sistema vengono variate di tanto poco da dare luogo ad una forza infinitesima non equilibrata, in maniera tale che il nuovo stato del sistema differisca, istante per istante, di un infinitesimo da uno stato di equilibrio e quindi possa ancora essere considerato uno stato di equilibrio. Variando le forze o la temperatura esterna sempre di un infinitesimo alla volta ed aspettando un tempo sufficiente prima di determinare la successiva variazione, in modo che il sistema abbia modo di portarsi all’equilibrio, è possibile conseguire il cambiamento di stato del sistema attraverso il passaggio di una serie di stati di equilibrio o, comunque, attraverso stati che differiscono per un infinitesimo da uno stato di equilibrio termodinamico e pertanto confondibili con uno stato di equilibrio. Dovendo consentire al sistema di conseguire l’equilibrio dopo ogni trasformazione infinitesima, un cambiamento di stato di questo tipo necessita di un tempo molto lungo per prodursi. Per tale motivo queste trasformazioni sono dette **quasi statiche**; tali trasformazioni non possono riprodursi esattamente in laboratorio ma possono essere approssimate con buona precisione. Se durante la trasformazione quasi statica, che porta il sistema da uno stato iniziale $i$ ad uno stato finale $f$ non ci sono effetti dissipativi, allora la trasformazione risulta essere anche **reversibile**, cioè può essere percorsa a ritroso riportando il sistema dallo stato $f$ allo stato $i$. Ciò richiede che, quando il sistema ritorna allo stato iniziale, anche l’ambiente circostante viene riportato nella situazione iniziale. Si noti che la quasi staticità di una trasformazione non implica la reversibilità. Infatti, se si pensa a due recipienti contenenti gas a pressioni diverse collegati da un tubo attraverso un rubinetto, regolando opportunamente il rubinetto è possibile rendere la trasformazione piccola a piacere; tuttavia ciò non implica la reversibilità. La presenza di effetti dissipativi impedisce la reversibilità della trasformazione siccome le forze d’attrito non sono mai infinitamente piccole e inoltre perché, essendo sempre resistenti, se si invertono le forze esterne che provocano la trasformazione, quella nuova che si realizza non è l’inverso della precedente. Consideriamo una compressione infinitamente lenta di un gas, cioè tale che la pressione esterna al gas supera di infinitamente poco la pressione interna per cui, se si diminuisce anche di infinitamente poco la pressione esterna, questa può diventare inferiore a quella del gas il quale, anziché comprimersi, si espande. Nella realtà un qualsiasi gas presenta attrito interno e con le pareti del contenitore così non è detto che l’inversione delle cause esterne che provocano la trasformazione determina il fatto che il gas percorra esattamente la trasformazione inversa, in quanto le forze di attrito non si invertono con l’inversione della trasformazione. Nel caso reale, in genere, una trasformazione è tale che non è neppure possibile avere dei valori anche approssimati delle variabili termodinamiche. Tuttavia in molti casi è possibile ridurre le cause che determinano l’irreversibilità, cioè le forze d’attrito, in maniera tale che una trasformazione reversibile può rappresentare, con buona approssimazione, una trasformazione reale, e quindi irreversibile.",
                 ]
             },
             {
-                title: "10.9 Primo principio della termodinamica",
+                title: "Primo principio della termodinamica",
                 content: [
                     "Consideriamo un sistema termodinamico isolato dall’ambiente circostante tramite delle pareti adiabatiche, in maniera tale da impedire gli scambi termici, ovvero le interazioni con l’ambiente circostante derivanti da una differenza di temperatura tra il sistema e l’ambiente. Supponiamo che la temperatura iniziale del sistema sia $T_i$ e di voler effettuare una trasformazione che lo porti ad una temperatura più elevata $T_f$ senza che si abbiano interazioni con l’ambiente esterno causate da una differenza di temperatura tra l’ambiente e il sistema stesso (**trasformazione adiabatica**); supponiamo inoltre che durante la trasformazione la pressione resti costante. Per fissare le idee supponiamo che il sistema sia costituito da una certa quantità d’acqua racchiusa in un recipiente adiabatico alla pressione atmosferica. Con riferimento al sistema di figura, per raggiungere l’obiettivo di portare la temperatura dell’acqua da $T_i$ a $T_f$ è possibile, ad esempio, far girare un mulinello eseguendo del lavoro meccanico; l’acqua così agitata si riscalda per effetto dell’attrito. Alternativamente si può riscaldare l’acqua facendo scorrere corrente attraverso un resistore immerso nell’acqua; l’energia elettrica necessaria può essere prodotta eseguendo un lavoro meccanico su di un generatore senza perdite; se si considera il generatore elettrico quale parte del sistema, anche questa seconda trasformazione viene realizzata con la sola esecuzione di lavoro adiabatico. Naturalmente esistono infiniti modi per effettuare la trasformazione con la sola esecuzione di lavoro adiabatico. Sperimentalmente si osserva che il lavoro speso, a parità di massa d’acqua, è sempre proporzionale alla variazione di temperatura dell’acqua $T_f - T_i$, con la medesima costante di proporzionalità. Tale risultato può essere assunto come legge generale, la quale afferma che il lavoro eseguito su un sistema, in una qualsiasi trasformazione adiabatica che porti quest’ultimo da uno stato iniziale ad uno stato finale, è sempre lo stesso, ossia è indipendente dalla trasformazione.",
                     "![Esperimento di Joule sull'equivalente meccanico del calore|medium](/fisica-images/fig_191.avif)",
@@ -3151,7 +3151,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.10 Calore",
+                title: "Calore",
                 content: [
                     "È noto che mettere a contatto attraverso una parete conduttrice due sistemi isolati a differente temperatura comporta che, dopo un certo tempo, i sistemi raggiungono una temperatura intermedia tra le temperature originarie. Fino all’inizio del diciannovesimo secolo tali fenomeni si spiegavano postulando l’esistenza in ogni corpo di una sostanza denominata **calorico**. Si credeva che un corpo ad alta temperatura contenesse molto calorico mentre uno a bassa temperatura ne contenesse poco. Ponendo a contatto i due corpi, quello più ricco di calorico ne avrebbe ceduto una parte all’altro, in misura tale che la comune temperatura finale dei due sistemi a contatto assumesse un valore intermedio tra quelli di partenza.",
                     "Attualmente il calore non è considerato una sostanza, ma viene definito come l’ente che viene scambiato fra un sistema e l’ambiente circostante esclusivamente in virtù di una differenza di temperatura. Alla luce del primo principio della termodinamica il calore viene rivisto come energia che viene trasferita. Quindi il calore fluisce da un punto ad un altro e, quando il flusso è cessato, il termine calore perde la ragione d’essere. Pertanto parlare di “calore di un corpo” è altrettanto improprio che parlare di “lavoro in un corpo”. Dal primo principio segue che l’esecuzione di lavoro e il flusso di calore costituiscono due maniere tramite le quali è possibile variare l’energia interna di un corpo.",
@@ -3173,7 +3173,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.11 Calorimetria",
+                title: "Calorimetria",
                 content: [
                     "Una definizione del calore in forma operativa, cioè attraverso la specificazione di un campione e di un metodo di misura fu, dal punto di vista storico, precedente alla scoperta del primo principio della termodinamica ed alla successiva identificazione del calore quale energia in transito attraverso i confini di un sistema termodinamico. I metodi sviluppati in tale ambito, denominato **calorimetria**, vengono utilizzati ancora attualmente allo scopo di effettuare misure di quantità di calore.",
                     "Quando una certa quantità di calore viene ceduta ad un sistema, si ha un innalzamento della corrispondente temperatura. Tale caratteristica non vale in generale; infatti in corrispondenza di un cambiamento di fase di una sostanza il calore assorbito dal sistema non fa aumentare la sua temperatura ma provoca l’aumento della parte di sostanza che ha cambiato fase cioè, ad esempio, da solido è passata a liquido o da liquido è passata alla fase di vapore; ciò è quanto avviene al sistema che realizza il punto triplo dell’acqua, in cui il calore che gli viene ceduto non determina l’innalzamento della temperatura del sistema, ma solo la variazione della frazione di ghiaccio rispetto alla parte liquida e di vapore. Si definisce **capacità termica** alla temperatura $T$ la quantità:",
@@ -3204,7 +3204,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "10.12 Cambiamenti di fase",
+                title: "Cambiamenti di fase",
                 content: [
                     "Lo scambio di calore tra un sistema e l’esterno non sempre determina una variazione di temperatura. Ciò è quanto accade in corrispondenza di un **cambiamento di fase**, ovvero nel passaggio di una sostanza da uno stato (solido, liquido, gassoso) ad un altro. Ad esempio, il ghiaccio fonde o l’acqua bolle senza cambiare temperatura e, nei processi inversi, l’acqua ghiaccia o il vapore condensa senza assorbire calore. La quantità di calore per unità di massa scambiata durante un cambiamento di fase viene denominata **calore latente** del processo. Pertanto il calore $Q$ trasferito in tale circostanza vale:",
                     "$$ Q = \\lambda m, \\hspace{4cm} \\tag{10.6} $$",
@@ -3216,16 +3216,16 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "11-leggi-dei-gas",
-        title: "Lezione 11: LEGGI DEI GAS",
+        title: "LEGGI DEI GAS",
         subsections: [
             {
-                title: "11.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Per gas si intende un fluido privo di forma o volume proprio e facilmente comprimibile in modo da conseguire notevoli variazioni di pressione e densità. Le variabili termodinamiche più appropriate per caratterizzare lo stato termodinamico e le eventuali trasformazioni di un gas racchiuso in un contenitore sono, per piccoli volumi del contenitore, la pressione, il volume e la temperatura. Se il volume del contenitore cambia, ad esempio perché una parete è mobile, il gas può anche scambiare lavoro con l’ambiente esterno; inoltre, se le pareti del contenitore sono conduttrici può anche aversi uno scambio di calore con l’ambiente esterno. Quindi a seconda se le pareti del contenitore sono fisse o mobili e sono adiabatiche o conduttrici il gas può compiere trasformazioni in cui scambia lavoro, calore o entrambi con l’ambiente esterno. Tali interazioni obbediscono al primo principio della termodinamica. L’equazione di stato che correla tra loro le variabili che descrivono lo stato termodinamico del gas risulta generalmente molto complessa. Tuttavia nelle ipotesi in cui la temperatura del gas non sia eccessivamente bassa (in modo che il gas non condensi nella sua fase liquida), o troppo alta, e che la pressione sia bassa, l’equazione di stato è molto semplice. Un gas con tali caratteristiche è detto **gas ideale**. Naturalmente un gas ideale non esiste in natura ma tale concetto risulta nondimeno utile poiché i gas reali si comportano, a basse pressioni, come un gas ideale. A livello microscopico il gas ideale è caratterizzato da specifiche proprietà delle molecole costituenti e delle interazioni sia mutue che col contenitore."
                 ]
             },
             {
-                title: "11.2 Le leggi dei gas ideali",
+                title: "Le leggi dei gas ideali",
                 content: [
                     "Consideriamo un gas ideale in equilibrio termodinamico alla pressione $p_1$, contenuto in un volume $V_1$ alla temperatura $T_1$. Supponiamo di variare il volume del recipiente da $V_1$ a $V_2$, mantenendo costante la temperatura; allora la pressione finale $p_2$ del gas soddisfa la relazione:",
                     "$$ p_2 V_2 = p_1 V_1. \\qquad (T_2 = T_1) $$",
@@ -3280,7 +3280,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.3 Equazione di stato del gas ideale",
+                title: "Equazione di stato del gas ideale",
                 content: [
                     "Consideriamo $n$ moli di un gas alla pressione di $101.325 kPa$ ed alla temperatura $T_0$ di $T_0 = 273.15 K$; per quanto visto esse occupano un volume $V_0$ pari a $n V_m$. Se, mantenendo costante il volume, la temperatura viene portata al valore $T$, dalla relazione (11.2) segue:",
                     "$$ p(T) = p_0 \\alpha T; $$",
@@ -3301,7 +3301,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.4 Energia interna di un gas ideale",
+                title: "Energia interna di un gas ideale",
                 content: [
                     "**Esempio:** Consideriamo un fluido in quiete, ovvero tale che tutti gli elementi che lo costituiscono hanno accelerazione e velocità nulla in un sistema di riferimento inerziale, pertanto le forze agenti su ogni sua parte hanno risultante nulla. Consideriamo un elemento infinitesimo di fluido di massa:",
                     "![Elemento di fluido in equilibrio idrostatico|small](/fisica-images/fig_200.avif)",
@@ -3334,7 +3334,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.5 Trasformazioni di un gas ideale",
+                title: "Trasformazioni di un gas ideale",
                 content: [
                     "Consideriamo due stati di equilibrio $A$ e $B$ per un sistema costituito da una certa quantità di gas ideale. Una trasformazione quasi statica che porti lo stato del gas da $A$ a $B$ può essere rappresentata nel piano di Clapeyron: infatti gli stati intermedi della trasformazione sono di equilibrio e quindi i valori della variabili termodinamiche caratteristiche del sistema in ogni punto della trasformazione sono definiti. Al contrario una trasformazione che non ha luogo attraverso stati di equilibrio non è rappresentabile in tale piano e viene indicata graficamente con una linea tratteggiata tra gli stati estremi. Il lavoro infinitesimo $dW$ scambiato dal sistema in corrispondenza dell’espansione o della compressione del gas, dalla (10.1) vale $p dV$, per cui il lavoro $W$ corrispondente alla trasformazione da $A$ a $B$ vale:",
                     "![Confronto tra trasformazioni quasistatiche e non|medium](/fisica-images/fig_202.avif)",
@@ -3408,7 +3408,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.6 Trasformazioni adiabatiche",
+                title: "Trasformazioni adiabatiche",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente chiuso da un pistone mobile. Supponiamo che le pareti del recipiente e del pistone siano isolanti al calore in modo tale che il gas non possa scambiare calore con l’esterno. Dal primo principio, siccome la trasformazione è adiabatica e $Q=0$, si ha $W = -\\Delta U$ e, assumendo costante il calore specifico $c_V$, dalla relazione (11.13) risulta:",
                     "![Lavoro come forza esterna agente sul pistone|small](/fisica-images/fig_207.avif)",
@@ -3446,7 +3446,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.7 Trasformazioni isoterme",
+                title: "Trasformazioni isoterme",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente chiuso da un pistone; supponiamo che il recipiente sia posto in contatto termico con una sorgente di calore a temperatura $T$. Dal primo principio, siccome la temperatura del gas resta costante e di conseguenza l’energia interna del gas non varia, risulta $\\Delta U = 0$, così:",
                     "![Contatto termico con sorgente a temperatura T|small](/fisica-images/fig_209.avif)",
@@ -3463,7 +3463,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.8 Trasformazioni isocore",
+                title: "Trasformazioni isocore",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente posto in contatto termico con una sorgente di calore. Siccome le pareti del recipiente sono fisse, il volume del gas è costante, pertanto $W = 0$ e il gas può solo scambiare calore con l’ambiente circostante. Pertanto, dal primo principio, si ha $Q = \\Delta U$ e, assumendo costante il calore specifico $c_V$, dalla relazione (11.13) si ha:",
                     "![Contatto termico a volume costante|small](/fisica-images/fig_212.avif)",
@@ -3477,7 +3477,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.9 Trasformazioni isobare",
+                title: "Trasformazioni isobare",
                 content: [
                     "Consideriamo $n$ moli di un gas ideale contenuto in un recipiente chiuso da un pistone sul quale agisce una pressione esterna costante $p$; supponiamo che il recipiente sia posto a contatto termico con una sorgente. In corrispondenza di una trasformazione isobara, dalla (11.6) segue:",
                     "$$ \\frac{V_A}{V_B} = \\frac{T_A}{T_B} \\hspace{4cm} \\tag{11.23} $$",
@@ -3506,7 +3506,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.10 Trasformazioni cicliche",
+                title: "Trasformazioni cicliche",
                 content: [
                     "In una trasformazione in cui gli stati iniziale e finale coincidono, cioè una **trasformazione ciclica**, valendo l’identità (10.5) tra calore $Q$ e lavoro $W$ scambiati, queste due quantità devono risultare entrambe positive o negative. Con riferimento alla convenzione dei segni per il calore e il lavoro, se $W > 0$ e $Q > 0$, cioè il sistema produce lavoro assorbendo calore dall’esterno, il ciclo è detto **termico**; se $W < 0$ e $Q < 0$, cioè l’ambiente esterno esercita del lavoro sul sistema che cede calore all’ambiente, il ciclo è detto **frigorifero**. Un dispositivo che opera attraverso un ciclo termico è detto **macchina termica**, mentre se funziona tramite un ciclo frigorifero è detto **macchina frigorifera**.",
                     "**Esempio:** La macchina a vapore rappresenta un esempio di macchina termica; prescindendo dai dettagli tecnici, tale dispositivo opera nella maniera seguente: da una sorgente di calore si preleva una certa quantità di calore ottenuta dalla combustione di qualche materiale e tale calore viene ceduto ad una sostanza, come vapore o aria, che si espande compiendo lavoro e raffreddandosi; infine la sostanza viene versata in un serbatoio a temperatura inferiore a quella della prima sorgente. Quindi la macchina preleva un calore $Q_2$ dalla prima sorgente, ne converte una parte in lavoro $W$ e cede la parte restante $Q_1$ alla sorgente fredda che può essere un condensatore o l’aria esterna. Quindi, ciò che richiede la macchina per il suo funzionamento è il calore $Q_2$, mentre ciò che si ricava è il lavoro $W$; il calore $Q_1$ invece, rappresenta l’energia persa ai fini del funzionamento del dispositivo.",
@@ -3569,7 +3569,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.11 Teoria cinetica dei gas ideali",
+                title: "Teoria cinetica dei gas ideali",
                 content: [
                     "Le leggi dei gas, sebbene descrivano in maniera sostanzialmente corretta il comportamento dei gas nel limite del gas ideale, hanno un fondamento di natura esclusivamente empirica, essendo relazioni dedotte unicamente per via sperimentale. Una giustificazione teorica di tali leggi costituisce la premessa per la formulazione della teoria cinetica dei gas. Il punto di partenza di tale teoria è l’interpretazione delle variabili termodinamiche di un gas, pressione, volume e temperatura, in termini di grandezza cinematiche proprie di ogni costituente elementare del gas. D’altra parte se il numero di particelle del gas contenute in un determinato volume è grande, è possibile fornire solo un’interpretazione di carattere statistico di tali grandezze, ossia valutare i loro valori medi in un certo intervallo di tempo. Naturalmente le ipotesi su cui si basa la teoria cinetica dei gas non sono accessibili sperimentalmente, essendo praticamente impossibile seguire il moto di ciascuna particella del gas; pertanto tale teoria non va intesa quale fedele descrizione della realtà, ma un approccio per la sua descrizione attraverso un appropriato modello, ossia il **modello di gas ideale**. La misura della fedeltà del modello è costituita dalla verifica sperimentale dei risultati conseguiti attraverso la correlazione tra le grandezza macroscopiche e quelle microscopiche. Le caratteristiche fisiche del modello di gas ideale su cui si basa la teoria cinetica dei gas sono:",
                     "1. Un gas di cui è stabilita la natura chimica è costituito da particelle indistinguibili ed identiche chiamate **molecole**.",
@@ -3582,7 +3582,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.12 Calcolo cinetico della pressione",
+                title: "Calcolo cinetico della pressione",
                 content: [
                     "Consideriamo un gas formato da $N$ molecole con le proprietà del modello cinetico, contenuto in un recipiente cubico di spigolo $l$ con le facce parallele ai piani coordinati del sistema $x, y, z$ di riferimento. Sia $\\mathbf{v}_i = v_{ix}\\hat{x} + v_{iy}\\hat{y} + v_{iz}\\hat{z}$ la velocità della $i$-esima molecola, con $i = 1, 2, ..., N$ e $m$ la sua massa. Quando la molecola urta contro una parete, siccome per ipotesi si tratta di un urto elastico contro una parete rigida e inamovibile, la componente della velocità perpendicolare alla parete cambia di segno mentre la componente parallela rimane invariata. Consideriamo la parete del cubo perpendicolare all’asse $x$; se $\\mathbf{v}_i$ è la velocità della molecola prima dell’urto contro tale parete, dopo l’urto avrà componenti $v'_{ix} = -v_{ix}$, $v'_{iy} = v_{iy}$ e $v'_{iz} = v_{iz}$. Pertanto la componente lungo $x$ della quantità di moto della molecola subirà una variazione pari a $m(v'_{ix} - v_{ix}) = -2mv_{ix}$. Siccome la quantità di moto totale si conserva, la parete acquista in seguito all’urto con la molecola una quantità di moto:",
                     "![Volume cubico contenente gas ideale|small](/fisica-images/fig_224.avif)",
@@ -3616,7 +3616,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.13 Principio di equipartizione dell’energia",
+                title: "Principio di equipartizione dell’energia",
                 content: [
                     "Consideriamo un gas ideale monoatomico alla temperatura $T$; assumendo che le molecole del gas siano puntiformi, l’energia cinetica traslazionale media $\\langle E_k \\rangle$ rappresenta tutta e sola l’energia posseduta in media da ciascuna molecola, per cui in questo caso il prodotto di questa quantità per il numero totale $N$ di molecole costituenti il gas rappresenta l’energia interna $U$ del gas stesso, pertanto:",
                     "$$ u = \\frac{U}{N} = \\langle E_k \\rangle = \\frac{1}{2} m \\langle v^2 \\rangle = \\frac{1}{2} m \\langle v_x^2 \\rangle + \\frac{1}{2} m \\langle v_y^2 \\rangle + \\frac{1}{2} m \\langle v_z^2 \\rangle = \\frac{3}{2} kT $$",
@@ -3636,7 +3636,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "11.14 I gas reali",
+                title: "I gas reali",
                 content: [
                     "Il modello cinetico in cui il gas è considerato un insieme di particelle puntiformi non interagenti consente di riprodurre l’equazione di stato dei gas ideali nel limite di estrema rarefazione ed elevata temperatura del gas. Al di fuori di queste condizioni limite una descrizione del comportamento dei gas reali richiede di tenere conto delle dimensioni finite delle molecole del gas e del fatto che interagiscono tra loro anche a distanza. Nell’equazione di stato dei gas ideali, $pV = nRT$, il volume $V$ rappresenta sia il volume del recipiente che contiene il gas, che il volume fisicamente accessibile a ciascuna molecola, in quanto considerata dal modello priva di dimensioni. Si può tenere conto delle dimensioni delle molecole di un gas reale sostituendo, nell’equazione di stato, al volume $V$, un volume $V - nb$, in cui $b$, detto **covolume**, rappresenta la parte del volume del recipiente inaccessibile al moto molecolare. Se le molecole vengono assimilate a sfere rigide, ciascuna di volume $V_0$, il covolume è proporzionale al volume $NV_0$ occupato dalle $N$ molecole contenute nel recipiente. Precisamente si trova che il covolume vale:",
                     "$$ b = 4NV_0. $$",
@@ -3652,10 +3652,10 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "12-secondo-principio-termodinamica",
-        title: "Lezione 12: SECONDO PRINCIPIO DELLA TERMODINAMICA",
+        title: "SECONDO PRINCIPIO DELLA TERMODINAMICA",
         subsections: [
             {
-                title: "12.1 Introduzione",
+                title: "Introduzione",
                 content: [
                     "Il primo principio della termodinamica stabilisce l’equivalenza fra calore scambiato e lavoro meccanico e quindi che il calore assorbito o ceduto da un sistema termodinamico ne modifica la relativa energia interna, così come accade per effetto di un lavoro meccanico eseguito su o da tale sistema. Tuttavia, il primo principio non esaurisce la descrizione dei processi che coinvolgono scambi di calore o di lavoro col sistema; infatti si possono immaginare numerosi processi che, pur soddisfacendo il primo principio, nella realtà non hanno luogo. Se, ad esempio, si mettono a contatto due corpi a differente temperatura, sebbene il primo principio non vieti tanto il passaggio di quantità di calore dal corpo più caldo a quello più freddo quanto il viceversa, nella pratica il secondo caso non si osserva mai. Analogamente, data una sorgente dalla quale è possibile estrarre del calore, il primo principio consente di stabilire quanto lavoro si ottiene attraverso la trasformazione di una certa quantità di calore ma non pone alcun limite alla possibilità di trasformare in lavoro il calore estratto. Pertanto si potrebbe immaginare un’ipotetica macchina ciclica in grado di trasformare interamente in lavoro il calore estratto da una sorgente praticamente inesauribile, come ad esempio il mare. Tuttavia, nella pratica, si verifica che è impossibile convertire interamente in lavoro quantità di calore prelevato con continuità da una sorgente a temperatura costante (Nota 1). Da questi e da altri esempi di processi che, sebbene compatibili con il primo principio della termodinamica, in realtà non si verificano, si evince che in natura esistono delle trasformazioni irreversibili che avvengono sempre in un determinato verso. Il secondo principio della termodinamica rappresenta una legge di carattere sperimentale che trae origine da tale constatazione.",
                     "**Nota 1:** Un ipotetico dispositivo funzionante su questo principio realizzerebbe un **moto perpetuo di seconda specie**, per distinguerlo dal **moto perpetuo di prima specie** che si basa sulla violazione del principio di conservazione dell’energia.",
@@ -3663,7 +3663,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.2 Enunciati di Kelvin-Planck e di Clausius",
+                title: "Enunciati di Kelvin-Planck e di Clausius",
                 content: [
                     "Il secondo principio della termodinamica ha due differenti enunciati che derivano dall’osservazione di due diversi fatti sperimentali, tuttavia essi si rivelano tra loro completamente equivalenti. L’enunciato di Kelvin-Planck afferma:",
                     "\"È impossibile realizzare una trasformazione il cui unico risultato sia la conversione in lavoro del calore fornito da una sorgente a temperatura uniforme\".",
@@ -3681,7 +3681,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.3 Equivalenza degli enunciati di Kelvin-Planck e Clausius",
+                title: "Equivalenza degli enunciati di Kelvin-Planck e Clausius",
                 content: [
                     "Benché le due espressioni del secondo principio appaiano a prima vista scorrelate, è possibile provare che esse esprimono le stesse limitazioni così, ammettendo che uno dei due enunciati non sia valido, ne segue la falsità dell’altro.",
                     "Supponiamo, in contraddizione con l’enunciato di Kelvin-Planck, che esista una macchina (tratteggiata in figura), in grado di realizzare un processo ciclico che trasformi integralmente il calore in lavoro. Sia $W$ il lavoro prodotto da tale macchina trasformando il calore $Q$ prelevato da una sorgente a temperatura $T_2$. Questo lavoro $W=Q$ può essere adoperato per il funzionamento di una macchina di Carnot operante come una macchina frigorifera che prelevi il calore $Q_1$ dalla sorgente a temperatura $T_1 < T_2$ e ceda il calore $|Q_2'| = Q_1 + W = Q_1 + Q$ alla sorgente a temperatura $T_2$. La macchina complessiva, costituita dall’insieme delle due macchine, assorbe $Q_1$ dalla sorgente a temperatura inferiore $T_1$ e, senza altri effetti, cede $|Q_2'| - Q = Q_1 + Q - Q = Q_1$ alla sorgente a temperatura superiore $T_2$, violando l’enunciato di Clausius.",
@@ -3692,13 +3692,13 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.4 Irreversibilità e secondo principio della termodinamica",
+                title: "Irreversibilità e secondo principio della termodinamica",
                 content: [
                     "Attraverso il secondo principio della termodinamica si mette in luce il fatto che numerosi fenomeni naturali avvengono in un verso ben preciso e che, di conseguenza, risultano intrinsecamente irreversibili, cioè non è possibile realizzare una combinazione di fenomeni che ripristini esattamente lo stato iniziale. Ad esempio, nel passaggio di calore da un corpo ad un altro a temperatura inferiore il secondo principio della termodinamica vieta il processo inverso, cioè il passaggio di calore dal corpo a temperatura più bassa a quello a temperatura più alta, senza determinare alcuna variazione nel sistema stesso o nell’ambiente circostante. Consideriamo un pendolo che oscilla e che, per effetto degli attriti, riduce progressivamente l’ampiezza delle sue oscillazioni. Anche in questa circostanza il secondo principio della termodinamica impedisce il processo inverso, ossia il ripristino spontaneo dell’ampiezza delle oscillazioni in quanto ciò richiederebbe l’estrazione di calore dall’aria e la sua completa trasformazione in lavoro meccanico. Cioè bisognerebbe produrre del lavoro facendo uso di una sola sorgente di calore. Si può constatare, quindi, che in ogni trasformazione naturale si esplica la conversione di qualche forma di energia interna con un conseguente aumento della temperatura. Tali trasformazioni risultano irreversibili perché altrimenti si potrebbe trasformare del calore, pari alla variazione di questa energia interna, in lavoro, contravvenendo al secondo principio della termodinamica, il quale afferma che la trasformazione di calore in lavoro non può essere completa. Le limitazioni espresse dal secondo principio della termodinamica sono intimamente connesse alle cause che rendono i processi naturali irreversibili e che determinano, quindi, il verso delle trasformazioni spontanee di un sistema che non si trovi all’equilibrio."
                 ]
             },
             {
-                title: "12.5 Teorema di Carnot",
+                title: "Teorema di Carnot",
                 content: [
                     "Il teorema di Carnot stabilisce la frazione massima del calore assorbito da una macchina termica che può essere trasformato in lavoro; dimostrato da Carnot nel 1824 facendo uso della teoria del calorico, venne successivamente riformulato da Kelvin e Clausius. Questo teorema, conseguenza del secondo principio, può essere considerato come un altro suo enunciato. Il teorema di Carnot afferma:",
                     "\"Tutte le macchine reversibili operanti fra due medesime temperature hanno lo stesso rendimento; nessuna macchina irreversibile che lavori tra le stesse temperature può avere rendimento maggiore di quello delle macchine reversibili\"",
@@ -3729,7 +3729,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.6 Temperatura termodinamica assoluta",
+                title: "Temperatura termodinamica assoluta",
                 content: [
                     "L’indipendenza del rendimento di una macchina reversibile dalla natura della sostanza adoperata e il fatto che tale rendimento dipenda unicamente dalle temperature tra cui opera la macchina, consente l’introduzione di una nuova scala delle temperature esente dai problemi che presenta una qualsiasi scala empirica. Una tale scala, nota come **scala termodinamica assoluta**, venne definita nel 1850 da Kelvin.",
                     "Per una macchina termica reversibile che scambi le quantità di calore $Q_{rif}$ e $Q$ con due sorgenti di calore, rispettivamente alle temperature $T_{rif}$ e $T$ dalla (12.1) si ha:",
@@ -3744,7 +3744,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.7 Disuguaglianza di Clausius",
+                title: "Disuguaglianza di Clausius",
                 content: [
                     "La relazione (12.1), valida per una qualsiasi macchina termica funzionante con due sorgenti di calore alle temperature $T_1$ e $T_2$ può essere generalizzata in modo da includere i casi di trasformazioni cicliche effettuate adoperando più di due sorgenti di calore.",
                     "**Esempio:** Il ciclo reversibile eseguito da un gas ideale mostrato in figura sfrutta tre sorgenti di calore e consiste di tre isoterme reversibili e tre adiabatiche reversibili",
@@ -3775,7 +3775,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.8 Entropia",
+                title: "Entropia",
                 content: [
                     "Consideriamo un sistema termodinamico inizialmente nello stato $A$ e supponiamo di portare tale sistema in uno stato $B$ attraverso la trasformazione reversibile $\\gamma_1$ indicata in figura, dove gli stati del sistema considerato sono indicati, ad esempio, dalle variabili di pressione e volume e di riportarlo, successivamente, allo stato iniziale $A$ mediante la trasformazione reversibile $\\gamma_2$, diversa dalla prima. Siccome l’insieme delle due trasformazioni reversibili costituisce un ciclo reversibile, ad esso si può applicare la relazione di Clausius per le macchine reversibili così, dalla (12.7), se $\\gamma$ è il ciclo completo, si ha:",
                     "$$ \\oint_{\\gamma} \\frac{dQ}{T} = \\int_{A \\gamma_1}^B \\frac{dQ}{T} + \\int_{B \\gamma_2}^A \\frac{dQ}{T} = 0. $$",
@@ -3816,7 +3816,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.9 L’entropia e il secondo principio della termodinamica",
+                title: "L’entropia e il secondo principio della termodinamica",
                 content: [
                     "Consideriamo un sistema termodinamico inizialmente in equilibrio nello stato $A$ e supponiamo di portare tale sistema nello stato di equilibrio $B$ attraverso una qualsiasi trasformazione reale (**irr**) e pertanto irreversibile e di riportarlo successivamente allo stato $A$ mediante una trasformazione reversibile (**rev**). Siccome il ciclo completo è formato dalle due trasformazioni, applicando la relazione (12.8) si ha:",
                     "$$ \\oint \\frac{dQ}{T} = \\int_{A \\text{ irr}}^B \\frac{dQ}{T} + \\int_{B \\text{ rev}}^A \\frac{dQ}{T} = \\int_{A \\text{ irr}}^B \\frac{dQ}{T} - \\int_{A \\text{ rev}}^B \\frac{dQ}{T} < 0; $$",
@@ -3841,7 +3841,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.10 Entropia del gas ideale",
+                title: "Entropia del gas ideale",
                 content: [
                     "Consideriamo la trasformazione che porta $n$ moli di gas ideale da uno stato $A$ ad uno stato $B$. Dalle relazioni (10.4) e (11.9) segue che il calore infinitesimo $dQ$ scambiato dal gas durante la trasformazione vale:",
                     "$$ dQ = n c_V dT + dW $$",
@@ -3882,7 +3882,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "12.11 Entropia ed energia utilizzabile",
+                title: "Entropia ed energia utilizzabile",
                 content: [
                     "Nei precedenti esempi si è mostrato che in corrispondenza di una trasformazione irreversibile di un sistema aumenta l’entropia dell’universo e, contemporaneamente, si osserva una riduzione della capacità dell’universo a compiere lavoro meccanico. Infatti è possibile provare che ogni qualvolta ha luogo una trasformazione irreversibile è come se una quantità di energia fosse convertita da una forma adoperabile ai fini dell’esecuzione del lavoro ad una forma di energia completamente inutilizzabile a tali scopi. Questa energia $E_{in}$ è pari a:",
                     "$$ E_{in} = T_0 \\Delta S_{univ}, $$",
@@ -3920,17 +3920,17 @@ export const fisicaCourseContent: MainSection[] = [
     },
     {
         id: "appendice",
-        title: "Lezione 13: APPENDICE",
+        title: "APPENDICE",
         subsections: [
             {
-                title: "13.1 Elementi di Matematica e Geometria",
+                title: "Elementi di Matematica e Geometria",
                 content: [
                     "Inseriamo qui alcuni richiami di geometria e sistemi di coordinate utili per la trattazione dell'elettrostatica.",
 
                 ]
             },
             {
-                title: "13.2 Derivate notevoli",
+                title: "Derivate notevoli",
                 content: [
                     "$$ \\frac{d}{dx}(k) = 0 $$",
                     "$$ \\frac{d}{dx}(x) = 1 $$",
@@ -3971,7 +3971,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "13.3 Integrali notevoli",
+                title: "Integrali notevoli",
                 content: [
                     "$$ \\int_{x_0}^x d\\xi = x - x_0 $$",
                     "$$ \\int_{x_0}^x k f(\\xi) d\\xi = k \\int_{x_0}^x f(\\xi) d\\xi $$",
@@ -4012,7 +4012,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "13.4 Teorema fondamentale del calcolo",
+                title: "Teorema fondamentale del calcolo",
                 content: [
                     "![Teorema fondamentale del calcolo integrale|medium](/fisica-images/fig_teorema_fondamentale.png)",
                     "Consideriamo una funzione continua $y = f(x)$ e stabiliamo il tasso di accrescimento dell’area sottesa dalla sua curva tra due punti. Sia $y$ il valore assunto dalla funzione in corrispondenza di un punto $x$ e consideriamo l’intervallo di ampiezza $\\Delta x$ compreso tra $x$ e $x + \\Delta x$. In tale intervallo l’area $a$ considerata risulterà aumentata di una quantità $\\Delta a$ così il corrispondente tasso di crescita sarà:",
@@ -4033,7 +4033,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "13.5 Sezioni coniche",
+                title: "Sezioni coniche",
                 content: [
                     "Si definisce **sezione conica** la curva generata da un punto che si sposta in modo tale da mantenere costante il rapporto fra la distanza da un punto, detto **fuoco**, ed una retta, detta **direttrice**. Tale valore costante prende il nome di **eccentricità**; in particolare, con riferimento alla figura, l’eccentricità $\\varepsilon$ vale:",
                     "$$ \\varepsilon = \\frac{PF}{PQ}. $$",
@@ -4064,7 +4064,7 @@ export const fisicaCourseContent: MainSection[] = [
                 ]
             },
             {
-                title: "13.6 A.5 Sistemi di coordinate",
+                title: "A.5 Sistemi di coordinate",
                 content: [
                     "In molteplici circostanze non risulta efficace l’impiego dei sistemi di coordinate cartesiani, sia nel piano che nello spazio. Ciò accade in particolare quando risulta più conveniente esprimere le posizioni dei punti attraverso degli angoli e delle distanze.",
                     "Nel piano l’identificazione della posizione di un punto $P$ attraverso un raggio ed un angolo è detta **polare**: la coordinata radiale $\\rho$ rappresenta la distanza di $P$ da un’origine $O$ detta **polo**; la coordinata angolare $\\vartheta$ è l’angolo che la retta posta in corrispondenza di $0^{\\circ}$ deve descrivere per sovrapporsi alla retta passante per $P$ e per $O$. In figura sono confrontate le coordinate cartesiane del punto $P$ con le corrispondenti coordinate polari. Note le coordinate cartesiane $x$ e $y$ di $P$ è possibile dedurre le corrispondenti coordinate polari $\\rho$ e $\\vartheta$ attraverso le relazioni:",
