@@ -65,7 +65,7 @@ interface TocItemProps {
 const TocItem: React.FC<TocItemProps> = ({ title, slug, lessonCount, onClick }) => {
     const isAvailable = lessonCount > 0;
     const leaderDots = '.'.repeat(80);
-    const countLabel = 'sezioni';
+    const countLabel = 'capitoli';
 
     return (
         <button
